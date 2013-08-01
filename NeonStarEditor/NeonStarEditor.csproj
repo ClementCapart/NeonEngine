@@ -86,6 +86,12 @@
     <Compile Include="Controls\BottomDock\BottomDock.Designer.cs">
       <DependentUpon>BottomDock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BottomDock\PrefabListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BottomDock\PrefabListControl.Designer.cs">
+      <DependentUpon>PrefabListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BottomDock\EntityListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     <EmbeddedResource Include="Controls\BottomDock\BottomDock.resx">
       <DependentUpon>BottomDock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BottomDock\PrefabListControl.resx">
+      <DependentUpon>PrefabListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\AddButton.png" />
+    <None Include="Resources\SaveAsPrefabButton.png" />
     <None Include="Resources\MinimizeButton.png" />
     <Content Include="Resources\ReloadButton.png" />
   </ItemGroup>

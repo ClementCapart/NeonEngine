@@ -26,6 +26,8 @@ namespace NeonStarEditor
         public Tool CurrentTool;
         public Entity SelectedEntity;
 
+        public bool FocusEntity = true;
+
         public BindingList<Entity> entityList = new BindingList<Entity>();
 
         public Form XNAWindow;
@@ -50,7 +52,6 @@ namespace NeonStarEditor
             
             GameAsForm.Controls.Add(BottomDockControl);
 
-
             XNAWindow = (Form)Form.FromHandle(this.game.Window.Handle);
         }
 
@@ -65,11 +66,6 @@ namespace NeonStarEditor
                 this.camera.Position -= new Vector2(10, 0);
             if (Neon.Input.Check(Buttons.RightThumbstickRight))
                 this.camera.Position += new Vector2(10, 0);
-
-            if (this.camera.Position.X + Neon.HalfScreen.X > AssetManager.GetTexture("WaterRoomBackground").Width / 2)
-                this.camera.Position = new Vector2(AssetManager.GetTexture("WaterRoomBackground").Width / 2 - Neon.HalfScreen.X, this.camera.Position.Y);
-            else if (this.camera.Position.X < Neon.HalfScreen.X - AssetManager.GetTexture("WaterRoomBackground").Width / 2)
-                this.camera.Position = new Vector2(Neon.HalfScreen.X - AssetManager.GetTexture("WaterRoomBackground").Width / 2, 0);
 
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.H))
             {
@@ -87,8 +83,36 @@ namespace NeonStarEditor
                 }
             }
 
+            if (Neon.Input.MouseWheel() > 0)
+                this.camera.Zoom += 0.1f;
+            else if (Neon.Input.MouseWheel() < 0)
+                this.camera.Zoom -= 0.1f;
+
+            if (Neon.Input.MousePressed(MouseButton.MiddleButton))
+                this.camera.Zoom = 1f;
+
+            if (FocusEntity && SelectedEntity != null)
+                this.camera.SmoothFollow(SelectedEntity);
+
             base.Update(gameTime);
             ManageInspector();
+        }
+
+        public override void ManualDrawGame(SpriteBatch spriteBatch)
+        {
+            if (FocusEntity)
+            {
+                if (SelectedEntity != null)
+                {
+                    DrawableComponent dc = SelectedEntity.GetComponent<DrawableComponent>();
+                    if (dc != null)
+                    {
+                        spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), this.camera.Position - Neon.HalfScreen, Color.Lerp(Color.Transparent, Color.White, 0.7f));
+                        dc.Draw(spriteBatch);
+                    }
+                }
+            }        
+            base.ManualDrawGame(spriteBatch);
         }
 
         public override void ManualDrawHUD(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)

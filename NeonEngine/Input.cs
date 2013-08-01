@@ -22,12 +22,6 @@ namespace NeonEngine
         }
         #endregion
 
-        public delegate void OnScroll(object sender, EventArgs e, float delta);
-
-        public event OnScroll OnScrollUp;
-        public event OnScroll OnScrollDown;
-        public event OnScroll Scrolled;
-
         private KeyboardState ks, _ks;
         private MouseState ms, _ms;
         private GamePadState gps, _gps;
@@ -49,6 +43,8 @@ namespace NeonEngine
         {
             get { return deltaMouse; }
         }
+
+        private float MouseWheelDelta;
 
         private Input()
         {
@@ -73,15 +69,7 @@ namespace NeonEngine
             mousePosition.X = (ms.X + camera.Position.X - Neon.HalfScreen.X) * camera.Zoom;
             mousePosition.Y = (ms.Y + camera.Position.Y - Neon.HalfScreen.Y) * camera.Zoom;
             if (ms.ScrollWheelValue != _ms.ScrollWheelValue)
-            {
-                if (Scrolled != null) Scrolled(this, null, (ms.ScrollWheelValue - _ms.ScrollWheelValue));
-                if (ms.ScrollWheelValue > _ms.ScrollWheelValue)
-                {
-                    if (OnScrollUp != null) OnScrollUp(this, null, (ms.ScrollWheelValue - _ms.ScrollWheelValue));
-                }
-                else if (ms.ScrollWheelValue < _ms.ScrollWheelValue)
-                    if (OnScrollDown != null) OnScrollDown(this, null, (ms.ScrollWheelValue - _ms.ScrollWheelValue));
-            }
+                this.MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
         }
 
         public void LastFrameState()
@@ -89,6 +77,7 @@ namespace NeonEngine
             _ks = ks;
             _ms = ms;
             _gps = gps;
+            MouseWheelDelta = 0;
         }
 
         #region Keyboard functions
@@ -185,6 +174,11 @@ namespace NeonEngine
                         return false;
             }
             return false;
+        }
+
+        public float MouseWheel()
+        {
+            return this.MouseWheelDelta;
         }
         #endregion       
 

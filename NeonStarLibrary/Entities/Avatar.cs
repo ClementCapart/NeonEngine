@@ -84,6 +84,9 @@ namespace NeonStarLibrary
             rigidbody.body.Mass = 0.5f;
             dash = (Dash)AddComponent(new Dash(200, rigidbody));
 
+            AddComponent(new LifeBar(this));
+            elementsManager = (ElementsManager)AddComponent(new ElementsManager(this, new Vector2(110, 100)));
+
             Spritesheets = new SpritesheetManager(this);
             AddComponent(Spritesheets);
             Spritesheets.drawLayer = DrawLayer.Middleground3;
@@ -108,8 +111,8 @@ namespace NeonStarLibrary
             ShieldBack.Init();
 
 
-            elementsManager = (ElementsManager)AddComponent(new ElementsManager(this, new Vector2(110, 100)));
-            AddComponent(new LifeBar(this));
+            
+           
 
             //AddComponent(new HitboxRenderer(fight));
         }

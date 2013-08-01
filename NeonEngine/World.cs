@@ -175,7 +175,7 @@ namespace NeonEngine
             foreach (DrawableComponent dc in middlegroundFourthLayer.Where(e => !e.CastShadow))
                 dc.Draw(spriteBatch);
 
-            ManualDrawGame(spriteBatch);
+            
             spriteBatch.End();
             foreach (Water w in waterzones)
             {
@@ -190,6 +190,8 @@ namespace NeonEngine
 
             foreach (DrawableComponent dc in foregroundSixthLayer.Where(e => !e.CastShadow))
                 dc.Draw(spriteBatch);
+
+            ManualDrawGame(spriteBatch);
             spriteBatch.End();
             Neon.graphicsDevice.SetRenderTarget(null);
             if (lightingSystem.LightingEnabled)
@@ -232,7 +234,7 @@ namespace NeonEngine
                 Neon.graphicsDevice.SetRenderTarget(screenShadows);
                 Neon.graphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
-
+                
                 foreach (LightArea la in lightAreas)
                     spriteBatch.Draw(la.RenderTarget, la.LightPosition - la.LightAreaSize * 0.5f, la.color);
 

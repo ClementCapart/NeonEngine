@@ -37,11 +37,6 @@ namespace NeonStarLibrary
             if (Neon.Input.Check(Buttons.RightThumbstickRight))
                 this.camera.Position += new Vector2(10, 0);
 
-            if (this.camera.Position.X + Neon.HalfScreen.X > AssetManager.GetTexture("WaterRoomBackground").Width / 2)
-                this.camera.Position = new Vector2(AssetManager.GetTexture("WaterRoomBackground").Width / 2 - Neon.HalfScreen.X, this.camera.Position.Y);
-            else if (this.camera.Position.X < Neon.HalfScreen.X - AssetManager.GetTexture("WaterRoomBackground").Width / 2)
-                this.camera.Position = new Vector2(Neon.HalfScreen.X - AssetManager.GetTexture("WaterRoomBackground").Width / 2, 0);
-
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;
             if (avatar.LifePoints <= 0)

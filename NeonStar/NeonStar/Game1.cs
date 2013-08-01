@@ -32,7 +32,6 @@ namespace NeonStar
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
             Neon.clearColor = Color.Black;
             #if DEBUG
-           // ConsoleHelper.CreateConsole();
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
             #else
             Neon.world = new GameScreen(this);

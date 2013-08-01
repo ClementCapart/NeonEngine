@@ -18,9 +18,9 @@ namespace NeonStarEditor
             InitializeComponent();
             this.Dock = DockStyle.Bottom;
             this.Height = this.MinimumSize.Height;
-
             this.GameWorld = GameWorld;
-
+            this.entityListControl.GameWorld = this.GameWorld;
+            this.prefabListControl.GameWorld = this.GameWorld;
         }
     }
 }
