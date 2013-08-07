@@ -13,20 +13,20 @@ namespace NeonEngine
 
         public bool notAnimated;
 
-        public Feedback(string asset, Vector2 Position, DrawLayer drawLayer, SideDirection Direction, float opacity, World containerWorld, bool notAnimated = false)
+        public Feedback(string asset, Vector2 Position, float Layer, SideDirection Direction, float opacity, World containerWorld, bool notAnimated = false)
             : base(containerWorld)
         {
             this.notAnimated = notAnimated;
             this.transform.Position = Position;
             if (notAnimated)
             {               
-                //this.graphic = (Graphic)AddComponent(new Graphic(asset, DrawLayer.Foreground6, this));
+                //this.graphic = (Graphic)AddComponent(new Graphic(asset, 0f, this));
             }
             else
             {
                 this.animation = (SpriteSheet)AddComponent(new SpriteSheet(this));
                 animation.SpriteSheetTag = asset;
-                animation.ChangeLayer(drawLayer);
+                animation.DrawLayer = Layer;
                 this.animation.Init();
                 this.animation.spriteEffects = Direction == SideDirection.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
                 this.animation.IsLooped = false;

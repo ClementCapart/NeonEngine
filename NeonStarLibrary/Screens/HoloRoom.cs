@@ -41,7 +41,7 @@ namespace NeonStarLibrary
             List<string> FourthSlides = new List<string>();
             FourthSlides.Add("Slide04-01");
 
-            AddEntity((new ParallaxPlan(this, Vector2.Zero, "HoloRoomBackground", ScrollingType.FreeScroll, DrawLayer.Background0, 1f)));
+            AddEntity((new ParallaxPlan(this, Vector2.Zero, "HoloRoomBackground", ScrollingType.FreeScroll, 1f, 1f)));
             AddEntity(new Holo(new Vector2(-451, 148), FirstSlides, this, avatar));
             AddEntity(new Holo(new Vector2(-221, 148), SecondSlides, this, avatar));
             AddEntity(new Holo(new Vector2(221, 148), ThirdSlides, this, avatar));

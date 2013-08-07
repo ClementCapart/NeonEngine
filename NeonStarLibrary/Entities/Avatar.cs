@@ -89,25 +89,25 @@ namespace NeonStarLibrary
 
             Spritesheets = new SpritesheetManager(this);
             AddComponent(Spritesheets);
-            Spritesheets.drawLayer = DrawLayer.Middleground3;
+            Spritesheets.DrawLayer = 0.5f;
 
             Dictionary<string, SpriteSheet> spritesheetList = new Dictionary<string, SpriteSheet>();
-            spritesheetList.Add("Idle", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnIdle"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("Run", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnWalk"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("Jump", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnJump"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("Shot", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnGun"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("Kick01", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick1"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("Kick02", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick2"), DrawLayer.Middleground3, this));
-            spritesheetList.Add("FireRing", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnFireRing"), DrawLayer.Middleground3, this));
+            spritesheetList.Add("Idle", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnIdle"), 0.5f, this));
+            spritesheetList.Add("Run", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnWalk"), 0.5f, this));
+            spritesheetList.Add("Jump", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnJump"), 0.5f, this));
+            spritesheetList.Add("Shot", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnGun"), 0.5f, this));
+            spritesheetList.Add("Kick01", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick1"), 0.5f, this));
+            spritesheetList.Add("Kick02", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick2"), 0.5f, this));
+            spritesheetList.Add("FireRing", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnFireRing"), 0.5f, this));
 
             Spritesheets.Spritesheets = spritesheetList;
            
 
             rigidbody.body.SleepingAllowed = false;
 
-            ShieldFront = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectFront"), DrawLayer.Middleground4, this);
+            ShieldFront = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectFront"), 0.4f, this);
             ShieldFront.Init();
-            ShieldBack = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectBack"), DrawLayer.Middleground2, this);
+            ShieldBack = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectBack"), 0.6f, this);
             ShieldBack.Init();
 
 

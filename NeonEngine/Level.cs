@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using System.IO;
 using System;
 using System.Reflection;
+using System.Globalization;
 
 namespace NeonEngine
 {
@@ -95,7 +96,7 @@ namespace NeonEngine
                             else if (pi.PropertyType.IsEnum)
                                 pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Single)))
-                                pi.SetValue(component, float.Parse(Property.Attribute("Value").Value), null);
+                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture),  null);
                             else if (pi.PropertyType.Equals(typeof(bool)))
                                 pi.SetValue(component, bool.Parse(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Int32)))

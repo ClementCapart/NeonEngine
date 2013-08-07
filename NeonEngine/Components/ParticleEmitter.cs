@@ -17,7 +17,7 @@ namespace NeonEngine
         public float DelaySpawn = 0.0f, TimerSpawn = 0f;
 
         public ParticleEmitter(Entity entity)
-            :base(DrawLayer.None, entity, "ParticleEmitter")
+            :base(0, entity, "ParticleEmitter")
         {
             this.particles = new List<Particle>();
             this.spritesheets = new List<string>();

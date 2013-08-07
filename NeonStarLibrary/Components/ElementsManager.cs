@@ -14,7 +14,7 @@ namespace NeonStarLibrary
         None, Fire, Steel, FireRing, Armor, Gun, GunLv2
     }
 
-    public class ElementsManager : DrawableComponent
+    public class ElementsManager : HUDComponent
     {
 
         public Vector2 DrawPosition;
@@ -30,7 +30,7 @@ namespace NeonStarLibrary
         public float FireRingRadius = 160f;
 
         public ElementsManager(Entity entity, Vector2 DrawPosition)
-            : base(DrawLayer.HUD, entity, "ElementsManager")
+            : base(entity, 0, "ElementsManager")
         {
             this.DrawPosition = DrawPosition;
             ElementsDictionary.Add(new ElementType[2] { ElementType.Fire, ElementType.Fire }, ElementType.FireRing);
@@ -58,13 +58,13 @@ namespace NeonStarLibrary
             if (MainElement == ElementType.None)
             {
                 MainElement = elem;
-                //entity.containerWorld.AddEntity(new Feedback(elem.ToString() + "Small", entity.Position - new Vector2(0, (entity as Avatar).hitbox.Height / 2), DrawLayer.Foreground6, SideDirection.Left, 1f, containerWorld, true));
+                //entity.containerWorld.AddEntity(new Feedback(elem.ToString() + "Small", entity.Position - new Vector2(0, (entity as Avatar).hitbox.Height / 2), 0f, SideDirection.Left, 1f, containerWorld, true));
                 return true;
             }
             else if (SecondElement == ElementType.None)
             {             
                 SecondElement = elem;
-                //entity.containerWorld.AddEntity(new Feedback(elem.ToString() + "Small", entity.Position - new Vector2(0, (entity as Avatar).hitbox.Height / 2), DrawLayer.Foreground6, SideDirection.Left, 1f, containerWorld, true));
+                //entity.containerWorld.AddEntity(new Feedback(elem.ToString() + "Small", entity.Position - new Vector2(0, (entity as Avatar).hitbox.Height / 2), 0f, SideDirection.Left, 1f, containerWorld, true));
                 return true;
             }
             

@@ -51,10 +51,10 @@ namespace NeonEngine
         {
             Components.Add(component);
             if (component is DrawableComponent)
-            {
-                DrawableComponent dc = (component as DrawableComponent);
-                dc.ChangeLayer(dc.DrawType);
-            }
+                if(component is HUDComponent)
+                    containerWorld.HUDComponents.Add(component as HUDComponent);            
+                else
+                    containerWorld.DrawableComponents.Add(component as DrawableComponent);
             return component;
         }
 

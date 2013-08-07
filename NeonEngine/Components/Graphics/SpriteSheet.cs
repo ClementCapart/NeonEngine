@@ -29,28 +29,28 @@ namespace NeonEngine
             }
         }
 
-        public DrawLayer drawLayer
+        public float DrawLayer
         {
-            get { return this.DrawType; }
-            set { ChangeLayer(value); }
+            get { return Layer; }
+            set { Layer = value; }
         }
 
-        public SpriteSheet(SpriteSheetInfo ssi, DrawLayer drawType, Entity entity)
+        public SpriteSheet(SpriteSheetInfo ssi, float Layer, Entity entity)
             :this(entity)
         {
-            this.DrawType = drawType;
+            DrawLayer = Layer;
             spriteSheetInfo = ssi;
             Init();
         }
 
         public SpriteSheet(Entity entity)
-            :base(DrawLayer.None, entity, "Spritesheet")
+            :base(0, entity, "Spritesheet")
         {
             this.entity = entity;
         }
 
-        public SpriteSheet(SpriteSheetInfo ssi, DrawLayer drawType, Vector2 Position, Entity entity)
-            :base(drawType, entity, "Spritesheet")
+        public SpriteSheet(SpriteSheetInfo ssi, float Layer, Vector2 Position, Entity entity)
+            :base(Layer, entity, "Spritesheet")
         {
             this.spriteSheetInfo = ssi;
             this.Position = Position;
@@ -123,10 +123,10 @@ namespace NeonEngine
         {
             if(!isHUD)
                 spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + (spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X), (int)entity.transform.Position.Y + (int)spriteSheetInfo.Offset.Y), frames[currentFrame],
-                    Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, 0);
+                    Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
             else
                 spritebatch.Draw(spriteSheetInfo.Texture, new Rectangle((int)Position.X, (int)Position.Y, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight), frames[currentFrame],
-                    Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, 0);
+                    Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, Layer);
         }
     }
 }

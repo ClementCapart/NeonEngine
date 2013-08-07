@@ -19,9 +19,9 @@ namespace NeonStarLibrary
         public float ActivationRange = 100f;
         
         public Teleport(Vector2 Position, World containerWorld, Avatar avatar)
-            : base(Position, "Teleporter", NeonEngine.DrawLayer.Middleground2, containerWorld)
+            : base(Position, "Teleporter", 0.6f, containerWorld)
         {
-            this.spriteSheetOpening = new SpriteSheet(AssetManager.GetSpriteSheet("TeleporterOpening"), DrawLayer.Middleground2, this);
+            this.spriteSheetOpening = new SpriteSheet(AssetManager.GetSpriteSheet("TeleporterOpening"), 0.6f, this);
             this.avatar = avatar;
             this.spriteSheet.isPlaying = false;
             this.spriteSheet.IsLooped = false;

@@ -44,15 +44,15 @@ namespace NeonStarLibrary
         public Bomber(Vector2 Position, World containerWorld)
             :base(Position, 240, 180, 150, ElementType.Fire, containerWorld)
         {
-            IdleAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberIdle"), DrawLayer.Middleground3, this);
-            RunAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberRun"), DrawLayer.Middleground3, this);
-            ShotAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberRange"), DrawLayer.Middleground3, this);
+            IdleAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberIdle"), 0.5f, this);
+            RunAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberRun"), 0.5f, this);
+            ShotAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberRange"), 0.5f, this);
             ShotAnim.IsLooped = false;
-            MeleeAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberMelee"), DrawLayer.Middleground3, this);
+            MeleeAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberMelee"), 0.5f, this);
             MeleeAnim.IsLooped = false;
-            LaunchBombAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberBomb"), DrawLayer.Middleground3, this);
+            LaunchBombAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberBomb"), 0.5f, this);
             LaunchBombAnim.IsLooped = false;
-            DeathAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberDeath"), DrawLayer.Background1, this);
+            DeathAnim = new SpriteSheet(AssetManager.GetSpriteSheet("BomberDeath"), 0.9f, this);
             DeathAnim.IsLooped = false;
 
             waypoints = (Waypoints)AddComponent(new Waypoints(this));

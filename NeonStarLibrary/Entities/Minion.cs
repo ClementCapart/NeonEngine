@@ -21,9 +21,9 @@ namespace NeonStarLibrary
         public Minion(Vector2 Position, ElementType Element, float LifePoints, World currentWorld, float Speed)
             : base(Position, 75, 65, LifePoints, Element, currentWorld)
         {
-            IdleAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionIdle"), DrawLayer.Middleground2, this);
-            RunAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionRun"), DrawLayer.Middleground2, this);
-            DeathAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionDeath"), DrawLayer.Middleground2, this);
+            IdleAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionIdle"), 0.4f, this);
+            RunAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionRun"), 0.4f, this);
+            DeathAnimation = new SpriteSheet(AssetManager.GetSpriteSheet(Element.ToString() + "MinionDeath"), 0.4f, this);
             DeathAnimation.IsLooped = false;
 
             waypoints = AddComponent(new Waypoints(this));
@@ -58,7 +58,7 @@ namespace NeonStarLibrary
                     ChangeAnimation(IdleAnimation);
                 if (waypoints.FollowPath && SmokeTimer >= SmokeDelay)
                 {
-                    this.containerWorld.entities.Add(new Feedback("DustMinion", this.transform.Position + new Vector2(waypoints.direction == SideDirection.Left ? this.hitbox.Width / 2 : -this.hitbox.Width / 2, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), DrawLayer.Background1, CurrentSide, 1f,  containerWorld));
+                    this.containerWorld.entities.Add(new Feedback("DustMinion", this.transform.Position + new Vector2(waypoints.direction == SideDirection.Left ? this.hitbox.Width / 2 : -this.hitbox.Width / 2, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), 0.9f, CurrentSide, 1f, containerWorld));
                     SmokeTimer = 0f;
                 }
                 else

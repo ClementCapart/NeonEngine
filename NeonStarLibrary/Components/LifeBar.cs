@@ -7,15 +7,15 @@ using Microsoft.Xna.Framework;
 
 namespace NeonStarLibrary
 {
-    public class LifeBar : DrawableComponent
+    public class LifeBar : HUDComponent
     {
         SpriteSheet spriteSheet;
         Avatar avatar;
 
         public LifeBar(Avatar avatar)
-            : base(DrawLayer.HUD, avatar, "LifeBar")
+            : base(avatar, 0f, "LifeBar")
         {
-            spriteSheet = new SpriteSheet(AssetManager.GetSpriteSheet("LifeBar"), DrawLayer.HUD, new Vector2(180, 50), entity);
+            spriteSheet = new SpriteSheet(AssetManager.GetSpriteSheet("LifeBar"), Layer, new Vector2(180, 50), entity);
             spriteSheet.Init();
             spriteSheet.isPlaying = false;
             this.avatar = avatar;

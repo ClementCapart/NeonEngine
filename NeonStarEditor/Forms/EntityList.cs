@@ -162,6 +162,7 @@ namespace NeonStarEditor
                         number.Minimum = decimal.MinValue;
                         number.Maximum = decimal.MaxValue;
                         number.DecimalPlaces = 2;
+                        number.Increment = 0.1M;
                         number.Width = 70;
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, number));
                         number.ValueChanged += number_ValueChanged;

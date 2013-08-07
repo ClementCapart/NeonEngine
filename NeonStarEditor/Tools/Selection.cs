@@ -58,7 +58,7 @@ namespace NeonStarEditor
             if (Neon.Input.MouseCheck(MouseButton.RightButton))
             {
                 if (currentWorld.SelectedEntity != null)
-                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse;
+                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom ;
             }
         }
     }

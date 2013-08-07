@@ -11,10 +11,10 @@ namespace NeonStarLibrary.Entities
     {
         public SpriteSheet spriteSheet;
 
-        public DrawLayer drawLayer
+        public float drawLayer
         {
-            get { return spriteSheet.DrawType; }
-            set { spriteSheet.ChangeLayer(value); }
+            get { return spriteSheet.DrawLayer; }
+            set { spritesheet.DrawLayer = value; }
         }
 
         private string _spriteSheetTag;
@@ -24,7 +24,7 @@ namespace NeonStarLibrary.Entities
             set { _spriteSheetTag = value; }
         }
 
-        public Cosmetic(Vector2 Position, string SpriteSheetTag, DrawLayer DrawLayer, World containerWorld)
+        public Cosmetic(Vector2 Position, string SpriteSheetTag, float DrawLayer, World containerWorld)
             : base(containerWorld)
         {
             this.transform.Position = Position;
@@ -33,7 +33,7 @@ namespace NeonStarLibrary.Entities
             spriteSheet.Init();
         }
 
-        public Cosmetic(string SpriteSheetTag, DrawLayer DrawLayer, World containerWorld)
+        public Cosmetic(string SpriteSheetTag, float DrawLayer, World containerWorld)
             :this(Vector2.Zero, SpriteSheetTag, DrawLayer, containerWorld)
         {
 

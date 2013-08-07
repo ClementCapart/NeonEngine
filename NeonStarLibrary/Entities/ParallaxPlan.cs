@@ -25,10 +25,10 @@ namespace NeonStarLibrary
         }
         Graphic backgroundImage;
 
-        public DrawLayer drawLayer
+        public float drawLayer
         {
-            get { return backgroundImage.DrawType; }
-            set { backgroundImage.ChangeLayer(value); }
+            get { return backgroundImage.Layer; }
+            set { backgroundImage.Layer = value; }
         }
 
         public ScrollingType scrollingType
@@ -37,13 +37,13 @@ namespace NeonStarLibrary
             set { _scrollingType = value; }
         }
 
-        public ParallaxPlan(World containerWorld, Vector2 Position, string graphicTag, ScrollingType scrollingType, DrawLayer drawLayer, float Speed)
+        public ParallaxPlan(World containerWorld, Vector2 Position, string graphicTag, ScrollingType scrollingType, float Layer, float Speed)
             :base(containerWorld)
         {
             this.containerWorld = containerWorld;
             this.graphicTag = graphicTag;
             this.backgroundImage = (Graphic)this.AddComponent(new Graphic(this));
-            this.backgroundImage.drawLayer = drawLayer;
+            this.backgroundImage.Layer = Layer;
             this.backgroundImage.GraphicTag = graphicTag;
             this.scrollingType = scrollingType;
             this.Speed = Speed;

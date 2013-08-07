@@ -23,11 +23,11 @@ namespace NeonStarLibrary
         int ChangingSlide = 0;
 
         public Holo(Vector2 Position, List<string> SlideTags, World containerWorld, Avatar avatar)
-            : base(Position, "HoloScreen" ,DrawLayer.Middleground2, containerWorld)
+            : base(Position, "HoloScreen" ,0.6f, containerWorld)
         {
             this.avatar = avatar;
             this.SlideTags = SlideTags;
-            PressButtonAnim = new SpriteSheet(AssetManager.GetSpriteSheet("PressButton"), DrawLayer.Middleground2, this);          
+            PressButtonAnim = new SpriteSheet(AssetManager.GetSpriteSheet("PressButton"), 0.4f, this);          
         }
 
         public override void Update(GameTime gameTime)
@@ -102,7 +102,7 @@ namespace NeonStarLibrary
             if (!Displaying)
             {
                 Displaying = true;
-                CurrentSlide = new Graphic(AssetManager.GetTexture(SlideTags[CurrentIndex]), DrawLayer.HUD, this);
+                CurrentSlide = new Graphic(AssetManager.GetTexture(SlideTags[CurrentIndex]), 0, this);
                 CurrentSlide.opacity = 0f;
                 AddComponent(CurrentSlide);
             }           

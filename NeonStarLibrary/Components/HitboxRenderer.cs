@@ -14,13 +14,13 @@ namespace NeonStarLibrary
         Hitbox hitbox;
 
         public HitboxRenderer(Fight fightComponent)
-            :base(DrawLayer.Foreground6, fightComponent.entity, "HitboxRenderer")
+            :base(0, fightComponent.entity, "HitboxRenderer")
         {
             this.FightComponent = fightComponent;
         }
 
         public HitboxRenderer(Hitbox hitbox)
-            : base(DrawLayer.Foreground6, hitbox.entity, "HitboxRenderer")
+            : base(0, hitbox.entity, "HitboxRenderer")
         {
             this.hitbox = hitbox;
         }

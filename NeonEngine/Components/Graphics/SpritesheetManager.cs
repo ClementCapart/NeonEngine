@@ -24,14 +24,14 @@ namespace NeonEngine
             }
         }
 
-        public DrawLayer drawLayer
+        public float DrawLayer
         {
-            get { return this.DrawType; }
-            set { ChangeLayer(value); }
+            get { return Layer; }
+            set { Layer = value; }
         }
 
         public SpritesheetManager(Entity entity)
-            :base(DrawLayer.None, entity, "SpritesheetManager")
+            :base(0, entity, "SpritesheetManager")
         {
             
         }

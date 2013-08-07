@@ -26,7 +26,7 @@ namespace NeonStarEditor
         public Tool CurrentTool;
         public Entity SelectedEntity;
 
-        public bool FocusEntity = true;
+        public bool FocusEntity = false;
 
         public BindingList<Entity> entityList = new BindingList<Entity>();
 
@@ -59,13 +59,12 @@ namespace NeonStarEditor
         {
             if (this.CurrentTool != null && Neon.graphicsDevice.Viewport.Bounds.Contains((int)Neon.Input.ScreenMousePosition.X, (int)Neon.Input.ScreenMousePosition.Y))
                 this.CurrentTool.Update(gameTime);
-            if (Neon.Input.MouseCheck(MouseButton.MiddleButton) && Neon.graphicsDevice.Viewport.Bounds.Contains((int)Neon.Input.ScreenMousePosition.X, (int)Neon.Input.ScreenMousePosition.Y))
-                this.camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, 0);
+            
+            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && Neon.graphicsDevice.Viewport.Bounds.Contains((int)Neon.Input.ScreenMousePosition.X, (int)Neon.Input.ScreenMousePosition.Y))
+                this.camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
 
-            if (Neon.Input.Check(Buttons.RightThumbstickLeft))
-                this.camera.Position -= new Vector2(10, 0);
-            if (Neon.Input.Check(Buttons.RightThumbstickRight))
-                this.camera.Position += new Vector2(10, 0);
+            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.F))
+                FocusEntity = !FocusEntity;
 
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.H))
             {
@@ -107,7 +106,9 @@ namespace NeonStarEditor
                     DrawableComponent dc = SelectedEntity.GetComponent<DrawableComponent>();
                     if (dc != null)
                     {
-                        spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), this.camera.Position - Neon.HalfScreen, Color.Lerp(Color.Transparent, Color.White, 0.7f));
+                        spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
+                        spriteBatch.End();
+                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
                         dc.Draw(spriteBatch);
                     }
                 }

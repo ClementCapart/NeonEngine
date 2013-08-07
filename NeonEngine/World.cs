@@ -36,13 +36,7 @@ namespace NeonEngine
 
         public Camera2D camera;
         public List<Entity> entities;
-        public List<DrawableComponent> backgroundZeroLayer;
-        public List<DrawableComponent> backgroundFirstLayer;
-        public List<DrawableComponent> middlegroundSecondLayer;
-        public List<DrawableComponent> middlegroundThirdLayer;
-        public List<DrawableComponent> middlegroundFourthLayer;
-        public List<DrawableComponent> foregroundFifthLayer;
-        public List<DrawableComponent> foregroundSixthLayer;
+        public List<DrawableComponent> DrawableComponents;
         public List<DrawableComponent> HUDComponents;
         public List<Water> waterzones;
         public List<LightArea> lightAreas;
@@ -79,13 +73,7 @@ namespace NeonEngine
             camera = new Camera2D();
             entities = new List<Entity>();
             waterzones = new List<Water>();
-            backgroundZeroLayer = new List<DrawableComponent>();
-            backgroundFirstLayer = new List<DrawableComponent>();
-            middlegroundSecondLayer = new List<DrawableComponent>();
-            middlegroundThirdLayer = new List<DrawableComponent>();
-            middlegroundFourthLayer = new List<DrawableComponent>();
-            foregroundFifthLayer = new List<DrawableComponent>();
-            foregroundSixthLayer = new List<DrawableComponent>();
+            DrawableComponents = new List<DrawableComponent>();
             HUDComponents = new List<DrawableComponent>();
             lightAreas = new List<LightArea>();
 
@@ -158,23 +146,10 @@ namespace NeonEngine
             spriteBatch.Begin();
             ManualDrawBackHUD(spriteBatch);
             spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
 
-            foreach (DrawableComponent dc in backgroundZeroLayer.Where(e => !e.CastShadow))
+            foreach (DrawableComponent dc in DrawableComponents)
                 dc.Draw(spriteBatch);
-
-            foreach (DrawableComponent dc in backgroundFirstLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
-            foreach (DrawableComponent dc in middlegroundSecondLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
-            foreach (DrawableComponent dc in middlegroundThirdLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
-            foreach (DrawableComponent dc in middlegroundFourthLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
             
             spriteBatch.End();
             foreach (Water w in waterzones)
@@ -183,14 +158,7 @@ namespace NeonEngine
                 w.Draw(spriteBatch);
                 spriteBatch.End();
             }
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
-
-            foreach (DrawableComponent dc in foregroundFifthLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
-            foreach (DrawableComponent dc in foregroundSixthLayer.Where(e => !e.CastShadow))
-                dc.Draw(spriteBatch);
-
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
             ManualDrawGame(spriteBatch);
             spriteBatch.End();
             Neon.graphicsDevice.SetRenderTarget(null);
@@ -198,27 +166,9 @@ namespace NeonEngine
             {
                 Neon.graphicsDevice.SetRenderTarget(ShadowCasters);
                 Neon.graphicsDevice.Clear(Color.Transparent);
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+                spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
 
-                foreach (DrawableComponent dc in backgroundZeroLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in backgroundFirstLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in middlegroundSecondLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in middlegroundThirdLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in middlegroundFourthLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in foregroundFifthLayer.Where(e => e.CastShadow))
-                    dc.Draw(spriteBatch);
-
-                foreach (DrawableComponent dc in foregroundSixthLayer.Where(e => e.CastShadow))
+                foreach (DrawableComponent dc in DrawableComponents)
                     dc.Draw(spriteBatch);
 
                 spriteBatch.End();
@@ -279,9 +229,10 @@ namespace NeonEngine
             }
             
 
-            spriteBatch.Begin();
-            foreach (DrawableComponent dc in HUDComponents)
-                dc.Draw(spriteBatch);
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            
+            foreach (HUDComponent hudc in HUDComponents)
+                hudc.Draw(spriteBatch);
             
             ManualDrawHUD(spriteBatch);
             DrawDebugView(Neon.graphicsDevice);

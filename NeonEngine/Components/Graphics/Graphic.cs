@@ -26,26 +26,26 @@ namespace NeonEngine
             }
         }
 
-        public DrawLayer drawLayer
+        public float DrawLayer
         {
             get
             {
-                return DrawType;
+                return Layer;
             }
             set
             {
-                ChangeLayer(value);
+                Layer = value;
             }
         }
 
 
         public Graphic(Entity entity)
-            : base(DrawLayer.None, entity, "Graphic")
+            : base(0, entity, "Graphic")
         {
         }
 
-        public Graphic(Texture2D texture, DrawLayer DrawType, Entity entity)
-            : base(DrawType, entity, "Graphic")
+        public Graphic(Texture2D texture, float Layer, Entity entity)
+            : base(Layer, entity, "Graphic")
         {
             this.texture = texture;
         }
@@ -53,7 +53,7 @@ namespace NeonEngine
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             if (entity != null)
-                spriteBatch.Draw(texture, entity.transform.Position, null, Color.White, entity.transform.rotation, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, entity.transform.Position, null, Color.White, entity.transform.rotation, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
         }
     }
 }

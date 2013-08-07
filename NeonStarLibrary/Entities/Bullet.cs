@@ -27,7 +27,7 @@ namespace NeonStarLibrary
             hitbox.Width = AssetManager.GetSpriteSheet(asset).FrameWidth;
             hitbox.Height = AssetManager.GetSpriteSheet(asset).FrameHeight;
             hitbox.Init();
-            currentSpriteSheet = (SpriteSheet)AddComponent(new SpriteSheet(AssetManager.GetSpriteSheet(asset), DrawLayer.Middleground4, this));
+            currentSpriteSheet = (SpriteSheet)AddComponent(new SpriteSheet(AssetManager.GetSpriteSheet(asset), 0.4f, this));
             currentSpriteSheet.Init();
             if (Direction.X < 0)
                 currentSpriteSheet.spriteEffects = Microsoft.Xna.Framework.Graphics.SpriteEffects.FlipHorizontally;
@@ -58,7 +58,7 @@ namespace NeonStarLibrary
                     
             if (EffectTimer >= EffectDelay)
             {
-                this.containerWorld.entities.Add(new Feedback(asset + "Effect", this.transform.Position + new Vector2(0, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), DrawLayer.Middleground3, Direction.X > 0 ? SideDirection.Right : SideDirection.Left, 0.2f, containerWorld));
+                this.containerWorld.entities.Add(new Feedback(asset + "Effect", this.transform.Position + new Vector2(0, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), 0.5f, Direction.X > 0 ? SideDirection.Right : SideDirection.Left, 0.2f, containerWorld));
 
 
                 EffectTimer = 0f;

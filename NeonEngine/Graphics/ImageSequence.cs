@@ -22,8 +22,8 @@ namespace NeonEngine.Private
         public bool loop = false;
         public bool completed = false;
 
-        public ImageSequence(string pathAndFileName, int beginFrame, int endFrame, int framesPerSeconds, Entity entity, DrawLayer drawLayer)
-            :base(drawLayer, entity, "Image Sequence")
+        public ImageSequence(string pathAndFileName, int beginFrame, int endFrame, int framesPerSeconds, Entity entity, float Layer)
+            :base(Layer, entity, "Image Sequence")
         {
             this.beginFrame = beginFrame;
             this.endFrame = endFrame;

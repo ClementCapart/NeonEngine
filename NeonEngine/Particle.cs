@@ -24,7 +24,7 @@ namespace NeonEngine.Private
             this.AngularVelocity = AngularVelocity;          
             this.TimeToLive = TimeToLive;
             
-            graphic = AddComponent(new Graphic(texture, DrawLayer.Foreground6, this));
+            graphic = AddComponent(new Graphic(texture, 0, this));
         }
 
         public Particle(SpriteSheetInfo spriteSheetInfo, Vector2 Position, Vector2 Velocity, float Rotation, float AngularVelocity, float Scale, float TimeToLive, World containerWorld)
@@ -37,7 +37,7 @@ namespace NeonEngine.Private
             this.Velocity = Velocity;
             this.AngularVelocity = AngularVelocity;          
             this.TimeToLive = TimeToLive;
-            spritesheet = AddComponent(new SpriteSheet(spriteSheetInfo, DrawLayer.Foreground6, this));
+            spritesheet = AddComponent(new SpriteSheet(spriteSheetInfo, 0, this));
         }
 
         public override void Update(GameTime gameTime)

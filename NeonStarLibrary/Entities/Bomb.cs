@@ -18,7 +18,7 @@ namespace NeonStarLibrary
         public Bomb(Vector2 Position, NeonEngine.World containerWorld, Bomber b)
             :base(Position, 120, 108, 1000, ElementType.Fire, containerWorld)
         {
-            Explosion = new ImageSequence("explo", 1, 11, 16, this, DrawLayer.Foreground6);
+            Explosion = new ImageSequence("explo", 1, 11, 16, this, 0);
             Explosion.isPlaying = false;
             this.b = b;
             rigidbody.body.IsSensor = false;
@@ -26,7 +26,7 @@ namespace NeonStarLibrary
             rigidbody.body.ApplyLinearImpulse(b.CurrentSide == SideDirection.Left ? new Vector2(-10, 0) : new Vector2(10, 0));
             waypoints = (Waypoints)AddComponent(new Waypoints(this));
             waypoints.Speed = 50f;
-            currentSpriteSheet = new SpriteSheet(AssetManager.GetSpriteSheet("BombAnim"), DrawLayer.Middleground3, this);
+            currentSpriteSheet = new SpriteSheet(AssetManager.GetSpriteSheet("BombAnim"), 0.5f, this);
             currentSpriteSheet.isPlaying = false;
             ChangeAnimation(currentSpriteSheet);
         }

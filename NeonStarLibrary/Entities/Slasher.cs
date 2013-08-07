@@ -35,15 +35,15 @@ namespace NeonStarLibrary
         public Slasher(Vector2 Position, World containerWorld)
             :base(Position, 80, 100, 20, ElementType.Steel, containerWorld)
         {
-            IdleAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherIdle"), DrawLayer.Middleground3, this);
-            MoveAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherRun"), DrawLayer.Middleground3, this);
-            DeathAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDeath"), DrawLayer.Middleground3, this);
+            IdleAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherIdle"), 0.5f, this);
+            MoveAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherRun"), 0.5f, this);
+            DeathAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDeath"), 0.5f, this);
             DeathAnim.IsLooped = false;
-            AttackAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherAttack"), DrawLayer.Middleground3, this);
+            AttackAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherAttack"), 0.5f, this);
             AttackAnim.IsLooped = false;
-            LoadDashAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDashLoad"), DrawLayer.Middleground3, this);
+            LoadDashAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDashLoad"), 0.5f, this);
             LoadDashAnim.IsLooped = false;
-            DashAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDash"), DrawLayer.Middleground3, this);
+            DashAnim = new SpriteSheet(AssetManager.GetSpriteSheet("SlasherDash"), 0.5f, this);
             DashAnim.IsLooped = false;
 
             waypoints = (Waypoints)AddComponent(new Waypoints(this));
@@ -76,7 +76,7 @@ namespace NeonStarLibrary
                 {
                     if (SmokeTimer > SmokeDelay)
                     {
-                        containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), DrawLayer.Middleground3, CurrentSide, 1f, containerWorld));
+                        containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
                         SmokeTimer = 0f;
                     }
                     else
@@ -115,7 +115,7 @@ namespace NeonStarLibrary
                 ChangeAnimation(MoveAnim);
                 if (SmokeTimer > SmokeDelay)
                 {
-                    containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), DrawLayer.Middleground3, CurrentSide, 1f, containerWorld));
+                    containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
                     SmokeTimer = 0f;
                 }
                 else
@@ -175,7 +175,7 @@ namespace NeonStarLibrary
                 {
                     if (LoadSmoke == null)
                     {
-                        LoadSmoke = new Feedback("DashLoadSmoke01", this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -10 : 10), this.hitbox.Height / 2 - 7), DrawLayer.Middleground3, CurrentSide, 1f, containerWorld);
+                        LoadSmoke = new Feedback("DashLoadSmoke01", this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -10 : 10), this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld);
                         containerWorld.entities.Add(LoadSmoke);
                     }
                     else if (LoadSmoke.animation.isPlaying == false)
@@ -201,7 +201,7 @@ namespace NeonStarLibrary
             IsAttacking = true;
             DashTarget = this.transform.Position.X + (CurrentSide == SideDirection.Left ? -AttackRange : AttackRange);
             this.rigidbody.body.LinearVelocity = new Vector2((CurrentSide == SideDirection.Left ? - 10 : 10), 0);
-            this.containerWorld.entities.Add(new Feedback("DashFire", this.transform.Position, DrawLayer.Middleground2, CurrentSide, 1f, containerWorld));
+            this.containerWorld.entities.Add(new Feedback("DashFire", this.transform.Position, 0.6f, CurrentSide, 1f, containerWorld));
         }
 
         public void CheckDash()
@@ -229,8 +229,8 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    this.containerWorld.entities.Add(new Feedback("DashSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 20), DrawLayer.Middleground2, CurrentSide, 1f, containerWorld));
-                    this.containerWorld.entities.Add(new Feedback("DashEffect", this.transform.Position + new Vector2(0, 10) , DrawLayer.Middleground2, CurrentSide, 1f, containerWorld));
+                    this.containerWorld.entities.Add(new Feedback("DashSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 20), 0.6f, CurrentSide, 1f, containerWorld));
+                    this.containerWorld.entities.Add(new Feedback("DashEffect", this.transform.Position + new Vector2(0, 10) , 0.6f, CurrentSide, 1f, containerWorld));
                 }
             }
         }
