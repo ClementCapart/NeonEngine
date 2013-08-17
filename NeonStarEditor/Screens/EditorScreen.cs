@@ -22,6 +22,7 @@ namespace NeonStarEditor
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
+        public RightDock RightDockControl;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -43,14 +44,16 @@ namespace NeonStarEditor
             game.IsMouseVisible = true;
             CurrentTool = new Selection(this);
 
-            GameAsForm.Controls.Add(new NeonStarToolstrip());
+            //GameAsForm.Controls.Add(new NeonStarToolstrip());
             
             editorForm = new MainEditor(this);
             editorForm.Show();
 
             BottomDockControl = new BottomDock(this);
+            RightDockControl = new RightDock(this);
             
             GameAsForm.Controls.Add(BottomDockControl);
+            GameAsForm.Controls.Add(RightDockControl);
 
             XNAWindow = (Form)Form.FromHandle(this.game.Window.Handle);
         }

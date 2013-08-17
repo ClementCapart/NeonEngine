@@ -9,19 +9,19 @@ using System.Windows.Forms;
 
 namespace NeonStarEditor
 {
-    public partial class BottomDock : MinimizableControl
+    public partial class RightDock : MinimizableControl
     {
         public EditorScreen GameWorld;
 
-        public BottomDock(EditorScreen GameWorld)
+        public RightDock(EditorScreen GameWorld)
         {
             InitializeComponent();
+            this.Width = this.MinimumSize.Width;
             this.Reverse = true;
-            this.Dock = DockStyle.Bottom;
-            this.Height = this.MinimumSize.Height;
+            this.Side = true;
             this.GameWorld = GameWorld;
-            this.entityListControl.GameWorld = this.GameWorld;
-            this.prefabListControl.GameWorld = this.GameWorld;
+            this.Dock = DockStyle.Right;
+            
         }
     }
 }

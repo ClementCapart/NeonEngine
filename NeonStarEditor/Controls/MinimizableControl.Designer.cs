@@ -34,7 +34,7 @@
             // 
             // MinimizeButton
             // 
-            this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MaximizeButton")));
+            this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.BackgroundImage")));
             this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -60,7 +60,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button MinimizeButton;
+        public System.Windows.Forms.Button MinimizeButton;
+
 
     }
 }
