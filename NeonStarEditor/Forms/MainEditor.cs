@@ -16,14 +16,11 @@ namespace NeonStarEditor
     public partial class MainEditor : Form
     {
         public EditorScreen currentWorld;
-        public EntityList entityList;
 
         public MainEditor(EditorScreen currentWorld)
         {
             Application.CurrentCulture = CultureInfo.InvariantCulture;
             this.currentWorld = currentWorld;
-            entityList = new EntityList(this);
-            entityList.Show();
             InitializeComponent();
                         
         }
@@ -38,7 +35,6 @@ namespace NeonStarEditor
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            entityList.Dispose();
             base.OnClosing(e);
         }
 
@@ -171,7 +167,6 @@ namespace NeonStarEditor
         private void ReloadButton_Click(object sender, EventArgs e)
         {
             this.currentWorld.ChangeScreen(new EditorScreen(this.currentWorld.game, currentWorld.graphics));
-            entityList.Close();
             this.Close();
         }
 
@@ -202,8 +197,8 @@ namespace NeonStarEditor
             if(Neon.Scripts != null)
                 Components.AddRange(Neon.Scripts);
             Components.Add(typeof(ScriptComponent));
-            entityList.ComponentList.DataSource = Components;
-            entityList.ComponentList.DisplayMember = "Name";
+            currentWorld.RightDockControl.InspectorControl.ComponentList.DataSource = Components;
+            currentWorld.RightDockControl.InspectorControl.ComponentList.DisplayMember = "Name";
         }
 
         private void SavePrefab_Click(object sender, EventArgs e)

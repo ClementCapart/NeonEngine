@@ -130,33 +130,43 @@ namespace NeonStarEditor
             base.ManualDrawHUD(sb);
         }
 
+        public void RefreshInspector(Entity SelectedEntity)
+        {
+            if (SelectedEntity != null)
+            {
+                this.SelectedEntity = SelectedEntity;
+                RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
+            }
+            else
+            {
+                RightDockControl.InspectorControl.ClearInspector();
+            }
+        }
+
         public void ManageInspector()
         {
             if (SelectedEntity != null)
             {
-                if (editorForm.entityList.SelectedEntity != null)
+                foreach (PropertyComponentControl pcc in this.RightDockControl.InspectorControl.PropertyControlList)
                 {
-                    foreach (PropertyComponentControl pcc in editorForm.entityList.PropertyControlList)
+                    if (pcc.ctrl.Name == "X")
                     {
-                        if (pcc.ctrl.Name == "X")
-                        {
-                            Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
-                            (pcc.ctrl as NumericUpDown).Value = (decimal)v.X;
-                        }
-                        else if(pcc.ctrl.Name == "Y")
-                        {
-                            Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
-                            (pcc.ctrl as NumericUpDown).Value = (decimal)v.Y;
-                        }
-                        else if (pcc.pi.PropertyType.IsEnum)
-                        {
-                            (pcc.ctrl as ComboBox).SelectedValue = (Enum)(pcc.pi.GetValue(pcc.c, null));
-                        }
-                        else if (pcc.pi.PropertyType == typeof(float))
-                        {
-                            float value = (float)pcc.pi.GetValue(pcc.c, null);
-                            (pcc.ctrl as NumericUpDown).Value = (decimal)value;
-                        }
+                        Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
+                        (pcc.ctrl as NumericUpDown).Value = (decimal)v.X;
+                    }
+                    else if(pcc.ctrl.Name == "Y")
+                    {
+                        Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
+                        (pcc.ctrl as NumericUpDown).Value = (decimal)v.Y;
+                    }
+                    else if (pcc.pi.PropertyType.IsEnum)
+                    {
+                        (pcc.ctrl as ComboBox).SelectedValue = (Enum)(pcc.pi.GetValue(pcc.c, null));
+                    }
+                    else if (pcc.pi.PropertyType == typeof(float))
+                    {
+                        float value = (float)pcc.pi.GetValue(pcc.c, null);
+                        (pcc.ctrl as NumericUpDown).Value = (decimal)value;
                     }
                 }
 

@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BottomDock));
             this.entityListControl = new NeonStarEditor.EntityListControl();
             this.prefabListControl = new NeonStarEditor.PrefabListControl();
             this.SuspendLayout();
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.BackgroundImage")));
+            this.MinimizeButton.Location = new System.Drawing.Point(115, 3);
             // 
             // entityListControl
             // 
@@ -63,6 +69,7 @@
             this.MinimumSize = new System.Drawing.Size(1280, 35);
             this.Name = "BottomDock";
             this.Size = new System.Drawing.Size(1278, 158);
+            this.Controls.SetChildIndex(this.MinimizeButton, 0);
             this.Controls.SetChildIndex(this.entityListControl, 0);
             this.Controls.SetChildIndex(this.prefabListControl, 0);
             this.ResumeLayout(false);
@@ -71,7 +78,7 @@
 
         #endregion
 
-        private EntityListControl entityListControl;
         private PrefabListControl prefabListControl;
+        public EntityListControl entityListControl;
     }
 }

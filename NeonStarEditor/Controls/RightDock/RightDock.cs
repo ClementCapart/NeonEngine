@@ -20,6 +20,8 @@ namespace NeonStarEditor
             this.Reverse = true;
             this.Side = true;
             this.GameWorld = GameWorld;
+            this.InspectorControl.GameWorld = GameWorld;
+
             this.Dock = DockStyle.Right;
             
         }

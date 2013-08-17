@@ -37,13 +37,13 @@ namespace NeonStarEditor
                     if (currentWorld.SelectedEntity != Neon.utils.GetEntityByBody(fixture.Body))
                     {
                         currentWorld.SelectedEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        currentWorld.editorForm.entityList.EntityListBox.SelectedItem = currentWorld.SelectedEntity;
+                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = currentWorld.SelectedEntity;
                     }
                 }
                 else
                 {
                     currentWorld.SelectedEntity = null;
-                    currentWorld.editorForm.entityList.EntityListBox.SelectedItem = null;
+                    currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = null;
                 }
             }
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete))

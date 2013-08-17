@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RightDock));
-            this.inspectorControl1 = new NeonStarEditor.InspectorControl();
+            this.InspectorControl = new NeonStarEditor.InspectorControl();
             this.SuspendLayout();
             // 
             // MinimizeButton
@@ -37,34 +37,36 @@
             this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.BackgroundImage")));
             this.MinimizeButton.Location = new System.Drawing.Point(3, 3);
             // 
-            // inspectorControl1
+            // InspectorControl
             // 
-            this.inspectorControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.inspectorControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.inspectorControl1.Location = new System.Drawing.Point(3, 36);
-            this.inspectorControl1.Name = "inspectorControl1";
-            this.inspectorControl1.Size = new System.Drawing.Size(235, 644);
-            this.inspectorControl1.TabIndex = 1;
+            this.InspectorControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InspectorControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.InspectorControl.Location = new System.Drawing.Point(-1, 40);
+            this.InspectorControl.Name = "InspectorControl";
+            this.InspectorControl.Size = new System.Drawing.Size(320, 640);
+            this.InspectorControl.TabIndex = 1;
             // 
             // RightDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.inspectorControl1);
+            this.Controls.Add(this.InspectorControl);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MaximumSize = new System.Drawing.Size(320, 685);
             this.MinimumSize = new System.Drawing.Size(35, 685);
             this.Name = "RightDock";
-            this.Size = new System.Drawing.Size(248, 683);
+            this.Size = new System.Drawing.Size(282, 683);
             this.Controls.SetChildIndex(this.MinimizeButton, 0);
-            this.Controls.SetChildIndex(this.inspectorControl1, 0);
+            this.Controls.SetChildIndex(this.InspectorControl, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private InspectorControl inspectorControl1;
+        public InspectorControl InspectorControl;
+
+
     }
 }

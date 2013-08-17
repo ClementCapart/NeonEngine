@@ -100,9 +100,9 @@ namespace NeonStarEditor
         {
             GameWorld.SelectedEntity = (Entity)this.EntityListBox.SelectedItem;
             if (GameWorld.SelectedEntity != null)
-                Console.WriteLine("InstantiateProperties() To Implement");
+                GameWorld.RefreshInspector(GameWorld.SelectedEntity);
             else
-                Console.WriteLine("Inspector.Clear() To Implement");
+                GameWorld.RefreshInspector(null);
         }
     }
 }
