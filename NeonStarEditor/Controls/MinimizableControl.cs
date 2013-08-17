@@ -12,13 +12,6 @@ namespace NeonStarEditor
     public partial class MinimizableControl : UserControl
     {
         public bool Minimized = true;
-        public bool Side = false;
-        public bool Reverse = false;
-
-        public string MinButtonName = "MinimizeButton";
-        public string MaxButtonName = "MaximizeButton";
-        public string LeftButtonName = "Left";
-        public string RightButtonName = "Right";
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MinimizableControl));
 
         public MinimizableControl()
@@ -28,30 +21,6 @@ namespace NeonStarEditor
 
         protected override void OnLoad(EventArgs e)
         {
-            Point ButtonLocation;
-
-            if(!Side)
-                if (!Reverse)
-                {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, this.Height - this.MinimizeButton.Height - 3);
-                }
-                else
-                {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, 3);
-                }
-            else
-                if (!Reverse)
-                {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, this.Height - this.MinimizeButton.Height -3);
-                }
-                else
-                {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
-                    ButtonLocation = new Point(3, this.Height - this.MinimizeButton.Height - 3);
-                }
             this.MinimizeButton.Location = new Point(this.Width - this.MinimizeButton.Width - 3, 3);
             base.OnLoad(e);
         }
@@ -60,42 +29,14 @@ namespace NeonStarEditor
         {
             if (!Minimized)
             {
-                if (!Side)
-                {
-                    if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
-                    else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
-                    this.Height = this.MinimumSize.Height;
-                }
-                else
-                {
-                    if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
-                    else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
-                    this.Width = this.MinimumSize.Width;
-                }
+                this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MaximizeButton")));
+                this.Height = this.MinimumSize.Height;
                 this.Minimized = true;
             }
             else
             {
-                if (!Side)
-                {
-                    if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
-                    else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
-                    this.Height = this.MaximumSize.Height;
-                }
-                else
-                {
-                    if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
-                    else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
-                    this.Width = this.MaximumSize.Width;
-                }              
+                this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton")));
+                this.Height = this.MaximumSize.Height;
                 this.Minimized = false;
             }
         }

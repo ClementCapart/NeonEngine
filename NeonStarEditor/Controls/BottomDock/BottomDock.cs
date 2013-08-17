@@ -16,7 +16,6 @@ namespace NeonStarEditor
         public BottomDock(EditorScreen GameWorld)
         {
             InitializeComponent();
-            this.Reverse = true;
             this.Dock = DockStyle.Bottom;
             this.Height = this.MinimumSize.Height;
             this.GameWorld = GameWorld;

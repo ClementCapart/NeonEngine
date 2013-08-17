@@ -136,20 +136,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Icones.resx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RightDock\InspectorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\RightDock\InspectorControl.Designer.cs">
-      <DependentUpon>InspectorControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controls\RightDock\RightDock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\RightDock\RightDock.Designer.cs">
-      <DependentUpon>RightDock.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\EditorScreen.cs" />
     <Compile Include="Toolstrips\NeonStarToolstrip.cs">
       <SubType>Component</SubType>
@@ -175,9 +163,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MinimizableControl1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\RightDock\RightDock.resx">
-      <DependentUpon>RightDock.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EntityList.resx">
       <DependentUpon>EntityList.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,9 +175,6 @@
     <EmbeddedResource Include="Icones.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icones.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\RightDock\InspectorControl.resx">
-      <DependentUpon>InspectorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Toolstrips\NeonStarToolstrip.resx">
       <DependentUpon>NeonStarToolstrip.cs</DependentUpon>
@@ -212,11 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\AddButton.png" />
-    <None Include="Resources\Right.png" />
     <None Include="Resources\SaveAsPrefabButton.png" />
     <None Include="Resources\MinimizeButton.png" />
-    <None Include="Resources\Left.png" />
-    <None Include="Resources\MaximizeButton.png" />
     <Content Include="Resources\ReloadButton.png" />
   </ItemGroup>
   <ItemGroup>
