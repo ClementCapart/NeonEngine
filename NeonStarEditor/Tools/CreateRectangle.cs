@@ -12,8 +12,8 @@ namespace NeonStarEditor
     {
         public List<Vector2> vectors = new List<Vector2>();
 
-        public CreateRectangle(EditorScreen currentWorld)
-            :base(currentWorld)
+        public CreateRectangle(World currentWorld)
+            :base((EditorScreen)currentWorld)
         {
             pixel = new Texture2D(Neon.graphicsDevice, 1, 1);
             Color[] pixels = new Color[1];
@@ -64,6 +64,9 @@ namespace NeonStarEditor
                     foreach(Vector2 v in vectors)
                         vertices.Add(v - vectors[0]);
 
+                    if ((int)Math.Abs(vertices[1].X) == 0 || (int)Math.Abs(vertices[2].Y) == 0)
+                        return;
+
                     Entity e = new Entity(currentWorld);
                     e.Name = "Level Geometry";
                     e.transform.Position = vectors[0] + new Vector2(vertices[2].X / 2, vertices[2].Y / 2);
@@ -78,9 +81,9 @@ namespace NeonStarEditor
                     rg.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
                     rg.Init();
                     e.AddComponent(rg);
-                    currentWorld.entityList.Add(e);
+                    rg.Hitbox = hb;
+                    currentWorld.AddEntity(e);
                     currentWorld.CurrentTool = new CreateRectangle(currentWorld);
-                    Console.WriteLine("Add : LevelGeometry");
                 }
  
             }

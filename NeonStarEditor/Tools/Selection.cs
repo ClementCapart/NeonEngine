@@ -45,11 +45,6 @@ namespace NeonStarEditor
                     currentWorld.SelectedEntity = null;
                     currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = null;
                 }
-            }
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete))
-            {
-                if (currentWorld.SelectedEntity != null)
-                    currentWorld.SelectedEntity.Destroy();
             } 
         }
 

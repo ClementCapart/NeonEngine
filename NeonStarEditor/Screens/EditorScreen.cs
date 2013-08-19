@@ -15,17 +15,18 @@ using NeonEngine;
 
 namespace NeonStarEditor
 {
-    public class EditorScreen : GameScreen, IDisposable
+    public class EditorScreen : GameScreen
     {
-        public MainEditor editorForm;
-
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
         public RightDock RightDockControl;
+        public LeftDock LeftDockControl;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
+
+        public bool MouseInGameWindow = false;
 
         public bool FocusEntity = false;
 
@@ -45,25 +46,38 @@ namespace NeonStarEditor
             CurrentTool = new Selection(this);
 
             //GameAsForm.Controls.Add(new NeonStarToolstrip());
-            
-            editorForm = new MainEditor(this);
-            editorForm.Show();
+        
 
+            LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
             
+
             GameAsForm.Controls.Add(BottomDockControl);
             GameAsForm.Controls.Add(RightDockControl);
+            GameAsForm.Controls.Add(LeftDockControl);
+            GameAsForm.MouseEnter += GameAsForm_MouseEnter;
+            GameAsForm.MouseLeave += GameAsForm_MouseLeave;
 
             XNAWindow = (Form)Form.FromHandle(this.game.Window.Handle);
         }
 
+        void GameAsForm_MouseLeave(object sender, EventArgs e)
+        {
+            this.MouseInGameWindow = false;
+        }
+
+        void GameAsForm_MouseEnter(object sender, EventArgs e)
+        {
+            this.MouseInGameWindow = true;
+        }
+
         public override void Update(GameTime gameTime)
         {
-            if (this.CurrentTool != null && Neon.graphicsDevice.Viewport.Bounds.Contains((int)Neon.Input.ScreenMousePosition.X, (int)Neon.Input.ScreenMousePosition.Y))
+            if (this.CurrentTool != null && this.MouseInGameWindow)
                 this.CurrentTool.Update(gameTime);
-            
-            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && Neon.graphicsDevice.Viewport.Bounds.Contains((int)Neon.Input.ScreenMousePosition.X, (int)Neon.Input.ScreenMousePosition.Y))
+
+            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && this.MouseInGameWindow)
                 this.camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
 
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.F))
@@ -178,21 +192,24 @@ namespace NeonStarEditor
             }
         }
 
+        public override void AddEntity(Entity newEntity)
+        {
+            base.AddEntity(newEntity);
+            entityList.ResetBindings();
+        }
+
         public override void RemoveEntity(Entity newEntity)
         {
-            entityList.Remove(newEntity);
-            //base.RemoveEntity(newEntity);
+            base.RemoveEntity(newEntity);
+            entityList.ResetBindings();
         }
 
         public override void ReloadLevel()
         {
-            editorForm.Close();
+            this.LeftDockControl.Dispose();
+            this.BottomDockControl.Dispose();
+            this.RightDockControl.Dispose();
             ChangeScreen(new EditorScreen(game, this.graphics));
-        }
-
-        public void Dispose()
-        {
-            editorForm.Dispose();
         }
     }
 }

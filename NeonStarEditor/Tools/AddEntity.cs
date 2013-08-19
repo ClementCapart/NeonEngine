@@ -27,7 +27,7 @@ namespace NeonStarEditor
                 Rigidbody rb = entity.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.body.Position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
-                currentWorld.editorForm.UnsetPause();
+                currentWorld.Pause = false;
                 currentWorld.CurrentTool = null;
             }
             base.Update(gameTime);

@@ -98,6 +98,18 @@
     <Compile Include="Controls\BottomDock\EntityListControl.Designer.cs">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LeftDock\LeftDock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LeftDock\LeftDock.Designer.cs">
+      <DependentUpon>LeftDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LeftDock\Toolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LeftDock\Toolbar.Designer.cs">
+      <DependentUpon>Toolbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MinimizableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,12 +123,6 @@
     </Compile>
     <Compile Include="Forms\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\MainEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainEditor.Designer.cs">
-      <DependentUpon>MainEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StateCreation.cs">
       <SubType>Form</SubType>
@@ -164,6 +170,12 @@
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LeftDock\LeftDock.resx">
+      <DependentUpon>LeftDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LeftDock\Toolbar.resx">
+      <DependentUpon>Toolbar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MinimizableControl.resx">
       <DependentUpon>MinimizableControl.cs</DependentUpon>
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -171,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RightDock\RightDock.resx">
       <DependentUpon>RightDock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainEditor.resx">
-      <DependentUpon>MainEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StateCreation.resx">
       <DependentUpon>StateCreation.cs</DependentUpon>

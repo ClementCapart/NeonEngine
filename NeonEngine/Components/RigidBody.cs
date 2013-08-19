@@ -73,8 +73,8 @@ namespace NeonEngine
         {
             get 
             {
-                if (body != null)
-                    return body.Restitution;
+                if (body != null && !body.IsDisposed)
+                     return body.Restitution;
                 else
                     return restitution;
             }
@@ -92,7 +92,7 @@ namespace NeonEngine
         {
             get
             {
-                if (body != null)
+                if (body != null && !body.IsDisposed)
                     return body.Friction;
                 else
                     return friction;

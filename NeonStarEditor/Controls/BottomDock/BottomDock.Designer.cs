@@ -78,7 +78,7 @@
 
         #endregion
 
-        private PrefabListControl prefabListControl;
         public EntityListControl entityListControl;
+        public PrefabListControl prefabListControl;
     }
 }
