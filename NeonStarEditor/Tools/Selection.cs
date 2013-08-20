@@ -7,11 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace NeonStarEditor
 {
     class Selection : Tool
     {
+        private XElement TransformState = null;
 
         public Selection(EditorScreen currentWorld)
             :base(currentWorld)
@@ -50,10 +52,19 @@ namespace NeonStarEditor
 
         private void Move()
         {
+            if (Neon.Input.MousePressed(MouseButton.RightButton))
+            {
+                TransformState = DataManager.SaveComponentParameters(currentWorld.SelectedEntity.transform);
+            }
             if (Neon.Input.MouseCheck(MouseButton.RightButton))
             {
                 if (currentWorld.SelectedEntity != null)
                     currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom ;
+            }
+            if (Neon.Input.MouseReleased(MouseButton.RightButton))
+            {
+                ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
+                TransformState = null;
             }
         }
     }

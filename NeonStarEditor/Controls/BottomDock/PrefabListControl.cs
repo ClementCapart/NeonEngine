@@ -46,6 +46,7 @@ namespace NeonStarEditor
         {
             string path = @"Prefabs/" + PrefabListBox.Text + ".prefab";
             DataManager.LoadPrefab(path, GameWorld);
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
         }
     }
 }

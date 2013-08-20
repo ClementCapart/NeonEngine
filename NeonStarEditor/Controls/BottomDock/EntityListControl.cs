@@ -37,7 +37,9 @@ namespace NeonStarEditor
         {
             if (this.GameWorld.SelectedEntity != null)
             {
-                this.GameWorld.SelectedEntity.Destroy();  
+                ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld });
+                this.GameWorld.SelectedEntity.Destroy();
+                GameWorld.SelectedEntity = null;
             }
             else
                 Console.WriteLine("No entity selected");

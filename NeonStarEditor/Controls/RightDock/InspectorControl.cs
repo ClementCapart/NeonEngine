@@ -10,6 +10,7 @@ using NeonEngine;
 using NeonEngine.Private;
 using System.Reflection;
 using Microsoft.Xna.Framework;
+using System.Xml.Linq;
 
 namespace NeonStarEditor
 {
@@ -303,10 +304,12 @@ namespace NeonStarEditor
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
+            ActionManager.SaveAction(ActionType.DeleteComponent, new object[4] { RemoveButtons[(Button)sender].GetType(), DataManager.SaveComponentParameters(RemoveButtons[(Button)sender] as NeonEngine.Component), GameWorld.SelectedEntity, this });
+        
             RemoveButtons[(Button)sender].Remove();
             Entity CurrentEntity = GameWorld.SelectedEntity;
             this.InstantiateProperties(CurrentEntity);
-        }
+        }    
 
         void EntityName_Validated(object sender, EventArgs e)
         {
@@ -321,6 +324,7 @@ namespace NeonStarEditor
         {
             PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
             pcc.pi.SetValue(pcc.c, (string)((sender as ComboBox).SelectedValue), null);
+            
         }
 
         void number_ValueChanged(object sender, EventArgs e)
@@ -356,7 +360,7 @@ namespace NeonStarEditor
         {
             PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
             Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
-            pcc.pi.SetValue(pcc.c, new Vector2(vector.X, (float)(sender as NumericUpDown).Value), null);
+            pcc.pi.SetValue(pcc.c, new Vector2(vector.X, (float)(sender as NumericUpDown).Value), null); 
         }
 
         private void AddComponent_Click(object sender, EventArgs e)
@@ -371,6 +375,7 @@ namespace NeonStarEditor
                     c.Init();
                     c.ID = CurrentEntity.GetLastID() + 1;
                     CurrentEntity.AddComponent(c);
+                    ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
                     this.InstantiateProperties(CurrentEntity);
                 }
                 else
@@ -386,12 +391,9 @@ namespace NeonStarEditor
                         ComponentList.DisplayMember = "Name";
                     }
                 }
+
+                
             }
-        }
-
-        private void Inspector_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
     }

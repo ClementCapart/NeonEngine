@@ -200,7 +200,7 @@ namespace NeonEngine
                         beacon.Update(gameTime);
                         Rigidbody rg = beacon.CheckGround(this.body);
                         if (rg != null)
-                            isGrounded = rg.entity.Name == "Level Geometry" ? true : false;
+                            isGrounded = rg.entity.Name == "LevelGeometry" ? true : false;
                         else
                             isGrounded = false;
                         if (!isGrounded && !body.Awake)

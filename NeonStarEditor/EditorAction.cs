@@ -22,16 +22,23 @@ namespace NeonStarEditor
             get { return actionType; }
         }
         
-        private object parameters;
-        public object GetParameters
+        private object[] parameters;
+        public object[] GetParameters
         {
             get { return parameters; }
+        }
+
+        public EditorAction(ActionType actionType, object[] parameters)
+        {
+            this.actionType = actionType;
+            this.parameters = parameters;
         }
 
         public EditorAction(ActionType actionType, object parameters)
         {
             this.actionType = actionType;
-            this.parameters = parameters;
+            this.parameters = new object[1];
+            this.parameters[0] = parameters;
         }
 
     }

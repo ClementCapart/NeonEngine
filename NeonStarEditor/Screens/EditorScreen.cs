@@ -193,6 +193,7 @@ namespace NeonStarEditor
 
                 if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete) && FocusedTextBox == null)
                 {
+                    ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(this.SelectedEntity), this });
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
                 }
