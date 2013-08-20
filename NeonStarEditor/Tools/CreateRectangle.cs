@@ -68,7 +68,7 @@ namespace NeonStarEditor
                         return;
 
                     Entity e = new Entity(currentWorld);
-                    e.Name = "Level Geometry";
+                    e.Name = "LevelGeometry";
                     e.transform.Position = vectors[0] + new Vector2(vertices[2].X / 2, vertices[2].Y / 2);
                     
                     Hitbox hb = new Hitbox(e);

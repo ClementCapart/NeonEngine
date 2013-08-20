@@ -93,7 +93,8 @@ namespace NeonStarEditor
             EntityName.Width = 150;
             EntityName.Location = new System.Drawing.Point(this.Inspector.Width / 2 - EntityName.Width / 2, Y);
             EntityName.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            EntityName.KeyPress += EntityName_KeyPress;
+            EntityName.GotFocus += EntityName_GotFocus;
+            EntityName.LostFocus += EntityName_LostFocus;
             EntityName.AcceptsTab = true;
             EntityName.Validated += EntityName_Validated;
             this.Inspector.Controls.Add(EntityName);
@@ -277,6 +278,18 @@ namespace NeonStarEditor
             }
         }
 
+        void EntityName_LostFocus(object sender, EventArgs e)
+        {
+            if (GameWorld.FocusedTextBox == (sender as TextBox))
+                GameWorld.FocusedTextBox = null;
+        }
+
+        void EntityName_GotFocus(object sender, EventArgs e)
+        {
+            GameWorld.FocusedTextBox = (sender as TextBox);
+            Console.WriteLine(GameWorld.FocusedTextBox.Text);
+        }
+
         private void Component_SelectedValueChanged(object sender, EventArgs e)
         {
             PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
@@ -293,12 +306,6 @@ namespace NeonStarEditor
             RemoveButtons[(Button)sender].Remove();
             Entity CurrentEntity = GameWorld.SelectedEntity;
             this.InstantiateProperties(CurrentEntity);
-        }
-
-        void EntityName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-                (sender as TextBox).Parent.Focus();
         }
 
         void EntityName_Validated(object sender, EventArgs e)
@@ -380,6 +387,11 @@ namespace NeonStarEditor
                     }
                 }
             }
+        }
+
+        private void Inspector_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }

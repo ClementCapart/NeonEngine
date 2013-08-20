@@ -46,8 +46,6 @@ namespace NeonEngine
                                 if(pi.PropertyType == typeof(Single))
                                 {
                                     Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
-                                    if (pi.Name == "DrawLayer")
-                                        Console.WriteLine(Property);
                                 }
                                 else
                                 {

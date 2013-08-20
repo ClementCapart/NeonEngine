@@ -37,7 +37,7 @@ namespace NeonStarEditor
         {
             if (this.GameWorld.SelectedEntity != null)
             {
-                this.GameWorld.SelectedEntity.Destroy();
+                this.GameWorld.SelectedEntity.Destroy();  
             }
             else
                 Console.WriteLine("No entity selected");
@@ -48,6 +48,7 @@ namespace NeonStarEditor
         {
             Console.WriteLine("Add : Entity");
             GameWorld.entityList.Add(new Entity(GameWorld));
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

@@ -54,6 +54,7 @@
             this.Inspector.Name = "Inspector";
             this.Inspector.Size = new System.Drawing.Size(269, 563);
             this.Inspector.TabIndex = 4;
+            this.Inspector.Paint += new System.Windows.Forms.PaintEventHandler(this.Inspector_Paint);
             // 
             // AddComponent
             // 

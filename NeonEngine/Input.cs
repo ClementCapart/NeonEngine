@@ -44,6 +44,12 @@ namespace NeonEngine
             get { return deltaMouse; }
         }
 
+        private Keys[] keysPressed;
+        public Keys[] KeysPressed
+        {
+            get { return keysPressed; }
+        }
+
         private float MouseWheelDelta;
 
         private Input()
@@ -70,6 +76,8 @@ namespace NeonEngine
             mousePosition.Y = (ms.Y + camera.Position.Y - Neon.HalfScreen.Y) * camera.Zoom;
             if (ms.ScrollWheelValue != _ms.ScrollWheelValue)
                 this.MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
+
+            keysPressed = ks.GetPressedKeys();
         }
 
         public void LastFrameState()

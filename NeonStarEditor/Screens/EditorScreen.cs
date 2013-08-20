@@ -26,6 +26,8 @@ namespace NeonStarEditor
         public Tool CurrentTool;
         public Entity SelectedEntity;
 
+        public TextBox FocusedTextBox = null;
+
         public bool MouseInGameWindow = false;
 
         public bool FocusEntity = false;
@@ -58,6 +60,7 @@ namespace NeonStarEditor
             GameAsForm.Controls.Add(LeftDockControl);
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
+            GameAsForm.KeyPreview = true;
 
             XNAWindow = (Form)Form.FromHandle(this.game.Window.Handle);
         }
@@ -80,10 +83,10 @@ namespace NeonStarEditor
             if (Neon.Input.MouseCheck(MouseButton.LeftButton) && this.MouseInGameWindow)
                 this.camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
 
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.F))
+            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.F) && FocusedTextBox == null)
                 FocusEntity = !FocusEntity;
 
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.H))
+            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.H) && FocusedTextBox == null)
             {
                 if (EditorVisible)
                 {
@@ -109,6 +112,10 @@ namespace NeonStarEditor
 
             if (FocusEntity && SelectedEntity != null)
                 this.camera.SmoothFollow(SelectedEntity);
+
+            if (((Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.LeftControl) || Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.RightControl))&& Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.Z))
+                || (Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.LeftControl) || Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.RightControl))&& Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Z))
+                ActionManager.Undo();
 
             base.Update(gameTime);
             ManageInspector();
@@ -184,11 +191,34 @@ namespace NeonStarEditor
                     }
                 }
 
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete))
+                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete) && FocusedTextBox == null)
                 {
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
                 }
+                if (FocusedTextBox != null)
+                    ManageText();
+            }
+        }
+
+        public void ManageText()
+        {
+            if (FocusedTextBox != null)
+            {
+                 for (int i = 0; i < Neon.Input.KeysPressed.Length; i++)
+                     if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
+                     {
+
+                         int LastSelectionStart = FocusedTextBox.SelectionStart;
+                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
+                             Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.LeftShift) || Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
+                         FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                     }
+                     else
+                     {
+                         if (Neon.Input.KeysPressed[i] == Microsoft.Xna.Framework.Input.Keys.Enter)
+                             FocusedTextBox.Parent.Focus();
+                     }
             }
         }
 

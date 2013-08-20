@@ -80,6 +80,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionManager.cs" />
     <Compile Include="Controls\BottomDock\BottomDock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinimizableControl.resx</DependentUpon>
     </Compile>
+    <Compile Include="EditorAction.cs" />
     <Compile Include="Forms\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>
     </Compile>
