@@ -145,9 +145,11 @@ namespace NeonStarEditor
                         VectorX.Maximum = decimal.MaxValue;
                         VectorX.Width = 70;
                         VectorX.Name = "X";
+                        
 
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, VectorX));
                         VectorX.ValueChanged += VectorX_ValueChanged;
+                        VectorX.GotFocus += VectorX_GotFocus;
                         VectorX.Location = new System.Drawing.Point(10, localY);
                         VectorX.Value = (decimal)vector.X;
 
@@ -159,6 +161,10 @@ namespace NeonStarEditor
                         VectorY.ValueChanged += VectorY_ValueChanged;
                         VectorY.Location = new System.Drawing.Point(90, localY);
                         VectorY.Value = (decimal)vector.Y;
+                        VectorY.GotFocus += VectorX_GotFocus;
+
+                        VectorX.LostFocus += VectorX_LostFocus;
+                        VectorY.LostFocus += VectorX_LostFocus;
 
                         gb.Controls.Add(VectorX);
                         gb.Controls.Add(VectorY);
@@ -178,7 +184,8 @@ namespace NeonStarEditor
                         number.ValueChanged += number_ValueChanged;
                         number.Location = new System.Drawing.Point(10, localY);
                         number.Value = (decimal)NumValue.X;
-
+                        number.GotFocus += VectorX_GotFocus;
+                        number.LostFocus += VectorX_LostFocus;
                         gb.Controls.Add(number);
 
                         localY += number.Height + 5;
@@ -279,6 +286,17 @@ namespace NeonStarEditor
             }
         }
 
+        void VectorX_LostFocus(object sender, EventArgs e)
+        {
+            if(GameWorld.FocusedNumericUpDown == (sender as NumericUpDown))
+                GameWorld.FocusedNumericUpDown = null;
+        }
+
+        void VectorX_GotFocus(object sender, EventArgs e)
+        {
+            GameWorld.FocusedNumericUpDown = (sender as NumericUpDown);
+        }
+
         void EntityName_LostFocus(object sender, EventArgs e)
         {
             if (GameWorld.FocusedTextBox == (sender as TextBox))
@@ -288,7 +306,6 @@ namespace NeonStarEditor
         void EntityName_GotFocus(object sender, EventArgs e)
         {
             GameWorld.FocusedTextBox = (sender as TextBox);
-            Console.WriteLine(GameWorld.FocusedTextBox.Text);
         }
 
         private void Component_SelectedValueChanged(object sender, EventArgs e)
