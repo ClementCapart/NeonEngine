@@ -19,6 +19,7 @@ namespace NeonEngine
         
         public Body body;
         public bool isGrounded;
+        
         private bool wasGrounded;
 
         private PositionChange PositionChanged;
@@ -113,6 +114,13 @@ namespace NeonEngine
             set { oneWayPlatform = value; }
         }
 
+        private bool isGround = false;
+        public bool IsGround
+        {
+            get { return isGround; }
+            set { isGround = value; }
+        }
+
         public Hitbox Hitbox
         {
             get { return hitbox; }
@@ -200,7 +208,7 @@ namespace NeonEngine
                         beacon.Update(gameTime);
                         Rigidbody rg = beacon.CheckGround(this.body);
                         if (rg != null)
-                            isGrounded = rg.entity.Name == "LevelGeometry" ? true : false;
+                            isGrounded = rg.isGround ? true : false;
                         else
                             isGrounded = false;
                         if (!isGrounded && !body.Awake)

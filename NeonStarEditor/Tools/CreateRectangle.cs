@@ -79,6 +79,8 @@ namespace NeonStarEditor
 
                     Rigidbody rg = new Rigidbody(e);
                     rg.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
+                    rg.Friction = 0.3f;
+                    rg.IsGround = true;
                     rg.Init();
                     e.AddComponent(rg);
                     rg.Hitbox = hb;
