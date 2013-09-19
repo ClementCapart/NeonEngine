@@ -91,5 +91,10 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.CurrentTool = new CreateRectangle(GameWorld);
         }
+
+        private void ReloadAssetsButton_Click(object sender, EventArgs e)
+        {
+            AssetManager.LoadAssets(GameWorld.game.GraphicsDevice);
+        }
     }
 }

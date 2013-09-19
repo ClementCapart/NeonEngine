@@ -35,6 +35,7 @@
             this.CreateRectangle = new System.Windows.Forms.Button();
             this.Selection = new System.Windows.Forms.Button();
             this.ReloadScript = new System.Windows.Forms.Button();
+            this.ReloadAssetsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveCurrentMap
@@ -63,7 +64,6 @@
             // 
             // PausePlayButton
             // 
-            this.PausePlayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PausePlayButton.BackgroundImage")));
             this.PausePlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PausePlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PausePlayButton.Location = new System.Drawing.Point(3, 97);
@@ -109,12 +109,25 @@
             this.ReloadScript.UseVisualStyleBackColor = true;
             this.ReloadScript.Click += new System.EventHandler(this.ReloadScript_Click);
             // 
+            // ReloadAssetsButton
+            // 
+            this.ReloadAssetsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadAssetsButton.BackgroundImage")));
+            this.ReloadAssetsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReloadAssetsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReloadAssetsButton.Location = new System.Drawing.Point(4, 553);
+            this.ReloadAssetsButton.Name = "ReloadAssetsButton";
+            this.ReloadAssetsButton.Size = new System.Drawing.Size(30, 30);
+            this.ReloadAssetsButton.TabIndex = 4;
+            this.ReloadAssetsButton.UseVisualStyleBackColor = true;
+            this.ReloadAssetsButton.Click += new System.EventHandler(this.ReloadAssetsButton_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.ReloadAssetsButton);
             this.Controls.Add(this.ReloadScript);
             this.Controls.Add(this.CreateRectangle);
             this.Controls.Add(this.PausePlayButton);
@@ -135,5 +148,6 @@
         private System.Windows.Forms.Button CreateRectangle;
         private System.Windows.Forms.Button Selection;
         private System.Windows.Forms.Button ReloadScript;
+        private System.Windows.Forms.Button ReloadAssetsButton;
     }
 }

@@ -35,7 +35,7 @@ namespace NeonEngine
         public static Dictionary<string, string> spritesheets;
         #endregion
 
-        static public void LoadAssets()
+        static public void LoadAssets(GraphicsDevice device)
         {
             Content = new ContentManager(Neon.game.Services, "Content");
 
@@ -51,9 +51,11 @@ namespace NeonEngine
              * ex : assets.Add("menuPlayButton", @"menu\buttons\play");
              */    
             effects.Add("ChromaticAberration", @"Shaders\ChromaticAberration");
+
+            Load(device);
         }
 
-        static public void Load(GraphicsDevice device)
+        static private void Load(GraphicsDevice device)
         {
             assetsList = new Dictionary<string, Texture2D>();
             foreach (KeyValuePair<string, string> kvp in assets)

@@ -72,8 +72,7 @@ namespace NeonEngine
 
             graphicsDevice = game.GraphicsDevice;
             Neon.spriteBatch = spriteBatch;
-            AssetManager.LoadAssets();
-            AssetManager.Load(game.GraphicsDevice);
+            AssetManager.LoadAssets(game.GraphicsDevice);
             SoundManager.LoadSounds();
             SoundManager.Load(game.Content);
             Input = Input.Instance;
