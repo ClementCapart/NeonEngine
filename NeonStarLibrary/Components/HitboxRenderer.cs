@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework.Graphics;
+using NeonEngine;
 using Microsoft.Xna.Framework;
 using NeonStarLibrary;
 using System;
@@ -16,7 +17,7 @@ namespace NeonStarLibrary
         public HitboxRenderer(Fight fightComponent)
             :base(0, fightComponent.entity, "HitboxRenderer")
         {
-            this.FightComponent = fightComponent;
+            FightComponent = fightComponent;
         }
 
         public HitboxRenderer(Hitbox hitbox)
@@ -25,7 +26,7 @@ namespace NeonStarLibrary
             this.hitbox = hitbox;
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             if (FightComponent != null)
             {

@@ -28,7 +28,7 @@ namespace NeonEngine.Private
             rigidbody = entity.GetComponent<Rigidbody>();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (waypoints.Count > 0)
                 if (FollowPath)

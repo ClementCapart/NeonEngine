@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework.Graphics;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace NeonStarLibrary
 
         public static Dictionary<ElementType[], ElementType> ElementsDictionary = new Dictionary<ElementType[], ElementType>();
 
-        public ElementType MainElement = ElementType.None;
-        public ElementType SecondElement = ElementType.None;
+        public ElementType MainElement = ElementType.Fire;
+        public ElementType SecondElement = ElementType.Steel;
 
         public float FireRingRadius = 160f;
 
@@ -42,14 +43,14 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if (Neon.Input.Pressed(Buttons.LeftShoulder))
-                this.SwitchElements();
+            if (Neon.Input.Pressed(NeonStarInput.SwitchElements))
+                SwitchElements();
 
-            if (Neon.Input.Pressed(Buttons.RightShoulder))
-                this.MixElements();
+            if (Neon.Input.Pressed(NeonStarInput.MixElements))
+                MixElements();
 
-            if (Neon.Input.Pressed(Buttons.Y))
-                this.DropElement();
+            if (Neon.Input.Pressed(NeonStarInput.DropElement))
+                DropElement();
             base.Update(gameTime);
         }
 
@@ -109,7 +110,7 @@ namespace NeonStarLibrary
                 {
                     SecondElement = ElementType.None;
                     MainElement = ElementType.None;
-                    this.StockElement(ElementToReturn);
+                    StockElement(ElementToReturn);
                 }
             }
             return ElementToReturn;
@@ -120,7 +121,7 @@ namespace NeonStarLibrary
             switch(MainElement)
             {
                 case ElementType.Armor:
-                    (this.entity as Avatar).Armored = true;
+                    (entity as Avatar).Armored = true;
                     MainElement = ElementType.None;
                     break;
                 case ElementType.FireRing:
@@ -134,9 +135,9 @@ namespace NeonStarLibrary
                             if (entity.containerWorld.entities[i] is Enemy)
                             {
                                 Enemy e = (entity.containerWorld.entities[i] as Enemy);
-                                if (Vector2.Distance(e.transform.Position, (this.entity as Avatar).transform.Position) < FireRingRadius)
+                                if (Vector2.Distance(e.transform.Position, (entity as Avatar).transform.Position) < FireRingRadius)
                                 {
-                                    e.rigidbody.body.ApplyLinearImpulse(Vector2.Normalize(e.transform.Position - (this.entity as Avatar).transform.Position) * 8f);
+                                    e.rigidbody.body.ApplyLinearImpulse(Vector2.Normalize(e.transform.Position - (entity as Avatar).transform.Position) * 8f);
                                     e.TakeDamage(50f, ElementType.Fire);
                                 }
                             }
@@ -163,14 +164,15 @@ namespace NeonStarLibrary
             }
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            spriteBatch.Draw(AssetManager.GetTexture("ElementsManagerDressing"), DrawPosition - new Vector2(AssetManager.GetTexture("ElementsManagerDressing").Width / 2, AssetManager.GetTexture("ElementsManagerDressing").Height / 2), Color.White);
-            if(this.MainElement != ElementType.None)
-                spriteBatch.Draw(AssetManager.GetTexture(this.MainElement.ToString()), this.DrawPosition + new Vector2(3, -18), Color.White);
-            if(this.SecondElement != ElementType.None)
-                spriteBatch.Draw(AssetManager.GetTexture(this.SecondElement.ToString()), this.DrawPosition + new Vector2(-44, -18), Color.White);
+            if (MainElement != ElementType.None)
+                spriteBatch.Draw(AssetManager.GetTexture(MainElement.ToString()), DrawPosition + new Vector2(3, -18), Color.White);
+            if (SecondElement != ElementType.None)
+                spriteBatch.Draw(AssetManager.GetTexture(SecondElement.ToString()), DrawPosition + new Vector2(-44, -18), Color.White);
+            
+            //spriteBatch.Draw(AssetManager.GetTexture("ElementsManagerDressing"), DrawPosition - new Vector2(AssetManager.GetTexture("ElementsManagerDressing").Width / 2, AssetManager.GetTexture("ElementsManagerDressing").Height / 2), Color.White);          
         }
 
 

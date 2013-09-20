@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
@@ -35,13 +36,13 @@ namespace NeonEngine
             transform = AddComponent<Transform>(new Transform(this));
         }
 
-        public virtual void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             foreach (Component c in Components)
                 c.Update(gameTime);
         }
 
-        public virtual void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
 
         }
@@ -69,8 +70,8 @@ namespace NeonEngine
             where T : Component
         {
             T component = null;
-            foreach (Component comp in this.Components)
-                if (Object.ReferenceEquals(comp.GetType(), typeof(T)))
+            foreach (Component comp in Components)
+                if (ReferenceEquals(comp.GetType(), typeof(T)))
                     component = comp as T;
                 else if (CheckForSubClasses && comp.GetType().IsSubclassOf(typeof(T)))
                     component = comp as T;

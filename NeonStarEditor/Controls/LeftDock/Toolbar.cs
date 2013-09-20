@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using NeonEngine;
 using System.Reflection;
 using NeonEngine.Private;
+using Component = NeonEngine.Component;
 
 namespace NeonStarEditor.Controls.LeftDock
 {
@@ -16,12 +17,12 @@ namespace NeonStarEditor.Controls.LeftDock
     {
         public EditorScreen GameWorld;
 
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Toolbar));
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(Toolbar));
 
         public Toolbar()
         {
             InitializeComponent();
-            this.PausePlayButton.BackgroundImage = this.PausePlayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PauseButton")));
+            PausePlayButton.BackgroundImage = PausePlayButton.BackgroundImage = ((Image)(resources.GetObject("PauseButton")));
         }
 
         protected override void OnLoad(EventArgs e)
@@ -40,7 +41,7 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            this.GameWorld.ReloadLevel();
+            GameWorld.ReloadLevel();
         }
 
         private void PausePlayButton_Click(object sender, EventArgs e)
@@ -48,12 +49,12 @@ namespace NeonStarEditor.Controls.LeftDock
             if (GameWorld.Pause)
             {
                 GameWorld.Pause = false;
-                this.PausePlayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PauseButton")));
+                PausePlayButton.BackgroundImage = ((Image)(resources.GetObject("PauseButton")));
             }
             else
             {
                 GameWorld.Pause = true;
-                this.PausePlayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayButton")));
+                PausePlayButton.BackgroundImage = ((Image)(resources.GetObject("PlayButton")));
             }
         }
 
@@ -75,11 +76,11 @@ namespace NeonStarEditor.Controls.LeftDock
                             sc.Remove();
                             foreach (Type t in Neon.Scripts)
                                 if (sc.GetType().Name == t.Name)
-                                    ent.AddComponent((NeonEngine.Component)Activator.CreateInstance(t, ent));
+                                    ent.AddComponent((Component)Activator.CreateInstance(t, ent));
                         }
                     }
 
-            List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(NeonEngine.Component)) && !(t.IsAbstract)));
+            List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
             if (Neon.Scripts != null)
                 Components.AddRange(Neon.Scripts);
             Components.Add(typeof(ScriptComponent));

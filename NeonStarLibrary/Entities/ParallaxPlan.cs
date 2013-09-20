@@ -42,12 +42,12 @@ namespace NeonStarLibrary
         {
             this.containerWorld = containerWorld;
             this.graphicTag = graphicTag;
-            this.backgroundImage = (Graphic)this.AddComponent(new Graphic(this));
-            this.backgroundImage.Layer = Layer;
-            this.backgroundImage.GraphicTag = graphicTag;
+            backgroundImage = (Graphic)AddComponent(new Graphic(this));
+            backgroundImage.Layer = Layer;
+            backgroundImage.GraphicTag = graphicTag;
             this.scrollingType = scrollingType;
             this.Speed = Speed;
-            this.transform.Position = Position;
+            transform.Position = Position;
         }
 
         public void Update()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace NeonEngine.AI
 {
@@ -31,7 +32,7 @@ namespace NeonEngine.AI
         public AI(int ID, Rigidbody AIBody, Entity entity)
             :base(entity, "AI")
         {
-            this.AIID = ID;
+            AIID = ID;
             this.AIBody = AIBody;
         }
 
@@ -40,7 +41,7 @@ namespace NeonEngine.AI
         {
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             CurrentState.Act(gameTime);
             AICondition FilledCondition = CurrentState.Check(gameTime);

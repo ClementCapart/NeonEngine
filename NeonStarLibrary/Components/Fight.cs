@@ -25,15 +25,15 @@ namespace NeonStarLibrary
             : base(entity, "Fight")
         {
             this.AttackSize = AttackSize;
-            this.MainHitbox = hitbox;
-            this.AttackHitboxes = new List<Hitbox>();
+            MainHitbox = hitbox;
+            AttackHitboxes = new List<Hitbox>();
         }
 
         public void StartHit(SideDirection attackSide)
         {
             if(!isHitting)
             {
-                this.currentAttackSide = attackSide;
+                currentAttackSide = attackSide;
                 isHitting = true;
 
                /* switch (attackSide)

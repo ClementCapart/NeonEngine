@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace NeonEngine
 {
@@ -25,6 +27,9 @@ namespace NeonEngine
         private KeyboardState ks, _ks;
         private MouseState ms, _ms;
         private GamePadState gps, _gps;
+
+        private Dictionary<string, Dictionary<string, string>> CustomInputs;
+        Type EnumType;
 
         private Vector2 mousePosition;
         public Vector2 MousePosition
@@ -61,6 +66,63 @@ namespace NeonEngine
             mousePosition = new Vector2();
         }
 
+        public void AssignCustomControls(Type enumType)
+        {
+            if(!enumType.IsEnum)
+            {
+                Console.WriteLine("You must provide an enum type to AssignCustomControls()");
+                return;
+            }
+
+            if (File.Exists(@"Data/Input.xml"))
+            {
+                EnumType = enumType;
+                CustomInputs = new Dictionary<string, Dictionary<string, string>>();
+
+                Stream stream = File.OpenRead(@"Data/Input.xml");
+                XDocument document = XDocument.Load(stream);
+
+                XElement neonInputs = document.Element("NeonInputs");
+
+                foreach (XElement input in neonInputs.Elements("Input"))
+                {
+                    CustomInputs[input.Attribute("Name").Value] = new Dictionary<string, string>();
+
+                    foreach (XElement inputMethod in input.Elements("InputMethod"))
+                    {
+                        CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, inputMethod.Value);
+                    }
+                }
+
+                Console.WriteLine("");
+            }
+            else
+            {
+                string[] enumValues = Enum.GetNames(enumType);
+                XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+                XElement neonInputs = new XElement("NeonInputs");
+               
+                for (int i = 0; i < enumValues.Length - 1; i++)
+                {
+                    XElement input = new XElement("Input", new XAttribute("Name", enumValues[i]));
+                    XElement inputMethod = new XElement("InputMethod", new XAttribute("Name", "Keyboard"));
+                    inputMethod.Value = "None";
+                    input.Add(inputMethod);
+                    inputMethod = new XElement("InputMethod", new XAttribute("Name", "XboxController"));
+                    inputMethod.Value = "None";
+                    input.Add(inputMethod);
+
+                    neonInputs.Add(input);
+                }             
+
+                document.Add(neonInputs);
+
+                document.Save(@"Data/Input.xml");
+
+                Console.WriteLine("Input.xml created with no input assigned.");
+            }
+        }
+
         public void Update(Camera2D camera)
         {
             ks = Keyboard.GetState();
@@ -75,7 +137,7 @@ namespace NeonEngine
             mousePosition.X = (ms.X + camera.Position.X - Neon.HalfScreen.X) * camera.Zoom;
             mousePosition.Y = (ms.Y + camera.Position.Y - Neon.HalfScreen.Y) * camera.Zoom;
             if (ms.ScrollWheelValue != _ms.ScrollWheelValue)
-                this.MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
+                MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
 
             keysPressed = ks.GetPressedKeys();
         }
@@ -87,6 +149,86 @@ namespace NeonEngine
             _gps = gps;
             MouseWheelDelta = 0;
         }
+
+        #region Custom input functions
+        public bool Pressed<T>(T NeonCustomInput)
+        {
+            if (NeonCustomInput.GetType() != EnumType)
+                return false;
+            else
+                if (CustomInputs[NeonCustomInput.ToString()] != null)
+                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                    {
+                        if (kvp.Value == "None")
+                            continue;
+
+                        if (kvp.Key == "Keyboard")
+                        {
+                            if (this.Pressed((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
+                                return true;
+                        }
+                        else if (kvp.Key == "XboxController")
+                        {
+                            if (this.Pressed((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                return true;
+                        }
+                    }
+
+            return false;
+        }
+        public bool Check<T>(T NeonCustomInput)
+        {
+            if (NeonCustomInput.GetType() != EnumType)
+                return false;
+            else
+                if (CustomInputs[NeonCustomInput.ToString()] != null)
+                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                    {
+                        if (kvp.Value == "None")
+                            continue;
+
+                        if (kvp.Key == "Keyboard")
+                        {
+                            if (this.Check((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
+                                return true;
+                        }
+                        else if (kvp.Key == "XboxController")
+                        {
+                            if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                return true;
+                        }
+                    }
+                       
+            return false;
+        }
+
+        
+        public bool Released<T>(T NeonCustomInput)
+        {
+            if (NeonCustomInput.GetType() != EnumType)
+                return false;
+            else
+                if (CustomInputs[NeonCustomInput.ToString()] != null)
+                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                    {
+                        if (kvp.Value == "None")
+                            continue;
+
+                        if (kvp.Key == "Keyboard")
+                        {
+                            if (this.Released((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
+                                return true;
+                        }
+                        else if (kvp.Key == "XboxController")
+                        {
+                            if (this.Released((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                return true;
+                        }
+                    }
+
+            return false;
+        }
+        #endregion
 
         #region Keyboard functions
         public bool Pressed(Keys key)
@@ -186,7 +328,7 @@ namespace NeonEngine
 
         public float MouseWheel()
         {
-            return this.MouseWheelDelta;
+            return MouseWheelDelta;
         }
         #endregion       
 

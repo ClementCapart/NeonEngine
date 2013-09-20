@@ -16,13 +16,13 @@ namespace NeonStarEditor
         public RightDock(EditorScreen GameWorld)
         {
             InitializeComponent();
-            this.Width = this.MinimumSize.Width;
-            this.Reverse = true;
-            this.Side = true;
+            Width = MinimumSize.Width;
+            Reverse = true;
+            Side = true;
             this.GameWorld = GameWorld;
-            this.InspectorControl.GameWorld = GameWorld;
+            InspectorControl.GameWorld = GameWorld;
 
-            this.Dock = DockStyle.Right;
+            Dock = DockStyle.Right;
             
         }
     }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NeonEngine
 {
@@ -36,13 +38,13 @@ namespace NeonEngine
             
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             CurrentSpritesheet.Update(gameTime);
             base.Update(gameTime);
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             CurrentSpritesheet.Draw(spriteBatch);
             base.Draw(spriteBatch);

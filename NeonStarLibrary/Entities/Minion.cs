@@ -48,7 +48,7 @@ namespace NeonStarLibrary
                     DeathAnimation.opacity -= 0.02f;
 
                 if (DeathAnimation.opacity <= 0)
-                    this.Destroy();
+                    Destroy();
             }
             else
             {
@@ -58,7 +58,7 @@ namespace NeonStarLibrary
                     ChangeAnimation(IdleAnimation);
                 if (waypoints.FollowPath && SmokeTimer >= SmokeDelay)
                 {
-                    this.containerWorld.entities.Add(new Feedback("DustMinion", this.transform.Position + new Vector2(waypoints.direction == SideDirection.Left ? this.hitbox.Width / 2 : -this.hitbox.Width / 2, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), 0.9f, CurrentSide, 1f, containerWorld));
+                    containerWorld.entities.Add(new Feedback("DustMinion", transform.Position + new Vector2(waypoints.direction == SideDirection.Left ? hitbox.Width / 2 : -hitbox.Width / 2, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), 0.9f, CurrentSide, 1f, containerWorld));
                     SmokeTimer = 0f;
                 }
                 else

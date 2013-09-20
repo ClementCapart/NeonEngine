@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework.Graphics;
+using NeonEngine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -30,17 +31,17 @@ namespace NeonStarLibrary
             currentSpriteSheet = (SpriteSheet)AddComponent(new SpriteSheet(AssetManager.GetSpriteSheet(asset), 0.4f, this));
             currentSpriteSheet.Init();
             if (Direction.X < 0)
-                currentSpriteSheet.spriteEffects = Microsoft.Xna.Framework.Graphics.SpriteEffects.FlipHorizontally;
+                currentSpriteSheet.spriteEffects = SpriteEffects.FlipHorizontally;
             
             //AddComponent(new HitboxRenderer(hitbox, containerWorld));
-            this.InitialPosition = Position;
-            this.transform.Position = Position;
+            InitialPosition = Position;
+            transform.Position = Position;
             this.Direction = Direction;
         }
 
         public override void Update(GameTime gameTime)
         {
-            this.transform.Position += Direction * Speed;
+            transform.Position += Direction * Speed;
             if (asset == "GunShot")
                 for (int i = containerWorld.entities.Count - 1; i >= 0; i--)
                 {
@@ -50,7 +51,7 @@ namespace NeonStarLibrary
                         if (hitbox.hitboxRectangle.Intersects(e.hitbox.hitboxRectangle))
                         {
                             e.TakeDamage(5, ElementType.Fire);
-                            this.Destroy();
+                            Destroy();
                             return;
                         }
                     }
@@ -58,7 +59,7 @@ namespace NeonStarLibrary
                     
             if (EffectTimer >= EffectDelay)
             {
-                this.containerWorld.entities.Add(new Feedback(asset + "Effect", this.transform.Position + new Vector2(0, this.currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), 0.5f, Direction.X > 0 ? SideDirection.Right : SideDirection.Left, 0.2f, containerWorld));
+                containerWorld.entities.Add(new Feedback(asset + "Effect", transform.Position + new Vector2(0, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), 0.5f, Direction.X > 0 ? SideDirection.Right : SideDirection.Left, 0.2f, containerWorld));
 
 
                 EffectTimer = 0f;
@@ -67,8 +68,8 @@ namespace NeonStarLibrary
                 EffectTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             
 
-            if (Vector2.Distance(this.InitialPosition, transform.Position) > 1000)
-                this.Destroy();
+            if (Vector2.Distance(InitialPosition, transform.Position) > 1000)
+                Destroy();
             base.Update(gameTime);
         }
 

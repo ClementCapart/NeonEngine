@@ -3,6 +3,7 @@ using FarseerPhysics.Common;
 using FarseerPhysics.Common.Decomposition;
 using FarseerPhysics.Common.PolygonManipulation;
 using FarseerPhysics.Dynamics;
+using FarseerPhysics.Dynamics.Contacts;
 using FarseerPhysics.Factories;
 using Microsoft.Xna.Framework;
 using NeonEngine.Private;
@@ -175,7 +176,7 @@ namespace NeonEngine
             }            
         }
 
-        bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, FarseerPhysics.Dynamics.Contacts.Contact contact)
+        bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
  	        if(OneWayPlatform)
             {
@@ -186,7 +187,7 @@ namespace NeonEngine
                 if (EntityB != null)
                 {
                     Hitbox hitbox = EntityB.GetComponent<Hitbox>();
-                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > this.entity.transform.Position.Y - this.hitbox.Height / 2)
+                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2)
                     {
                         contact.Enabled = false;
                         return false;
@@ -206,7 +207,7 @@ namespace NeonEngine
                     if (Sensors)
                     {
                         beacon.Update(gameTime);
-                        Rigidbody rg = beacon.CheckGround(this.body);
+                        Rigidbody rg = beacon.CheckGround(body);
                         if (rg != null)
                             isGrounded = rg.isGround ? true : false;
                         else
@@ -217,7 +218,7 @@ namespace NeonEngine
                     }
                 }
 
-                this.Position = this.Position;
+                Position = Position;
             }
 
             
@@ -226,7 +227,7 @@ namespace NeonEngine
 
         public override void Remove()
         {
-            this.body.Dispose();
+            body.Dispose();
 
             base.Remove();
         }
@@ -260,7 +261,7 @@ namespace NeonEngine
         private void RefreshBodyPosition()
         {
             if(body != null)
-                this.body.Position = CoordinateConversion.screenToWorld(entity.transform.Position);
+                body.Position = CoordinateConversion.screenToWorld(entity.transform.Position);
         }
 
         private void RemoveHitbox(object sender, EventArgs e)

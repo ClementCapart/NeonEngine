@@ -17,23 +17,23 @@ namespace NeonEngine
             : base(containerWorld)
         {
             this.notAnimated = notAnimated;
-            this.transform.Position = Position;
+            transform.Position = Position;
             if (notAnimated)
             {               
                 //this.graphic = (Graphic)AddComponent(new Graphic(asset, 0f, this));
             }
             else
             {
-                this.animation = (SpriteSheet)AddComponent(new SpriteSheet(this));
+                animation = (SpriteSheet)AddComponent(new SpriteSheet(this));
                 animation.SpriteSheetTag = asset;
                 animation.DrawLayer = Layer;
-                this.animation.Init();
-                this.animation.spriteEffects = Direction == SideDirection.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-                this.animation.IsLooped = false;
+                animation.Init();
+                animation.spriteEffects = Direction == SideDirection.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+                animation.IsLooped = false;
             }
             if (opacity != 1f)
             {
-                this.animation.opacity = opacity;
+                animation.opacity = opacity;
             }
             
 
@@ -44,12 +44,12 @@ namespace NeonEngine
             if (!notAnimated)
             {
                 if (!animation.isPlaying)
-                    this.Destroy();
+                    Destroy();
             }
             else
             {
                 if (graphicTimer > graphicDelay)
-                    this.Destroy();
+                    Destroy();
                 else
                     graphicTimer += (float)time.ElapsedGameTime.TotalSeconds;
             }

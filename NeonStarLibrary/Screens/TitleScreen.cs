@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -22,7 +24,7 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Start))
+            if (Neon.Input.Pressed(Buttons.Start))
             {
                 ChangeScreen(new HoloRoom(game));
                 MediaPlayer.Stop();
@@ -43,7 +45,7 @@ namespace NeonStarLibrary
             base.Update(gameTime);
         }
 
-        public override void ManualDrawHUD(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
+        public override void ManualDrawHUD(SpriteBatch sb)
         {
             sb.Draw(AssetManager.GetTexture("TitleScreen"), Vector2.Zero, Color.White);
             sb.Draw(AssetManager.GetTexture("PressStart"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, StartOpacity));

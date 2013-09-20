@@ -1,10 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FarseerPhysics.Common;
+using FarseerPhysics.Dynamics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using World = NeonEngine.World;
 
 namespace NeonStarEditor
 {
@@ -42,7 +45,7 @@ namespace NeonStarEditor
             vectors.Clear();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (vectors.Count < 4)
             {
@@ -60,7 +63,7 @@ namespace NeonStarEditor
                 vectors[3] = new Vector2(vectors[3].X, Neon.Input.MousePosition.Y);
                 if (Neon.Input.MousePressed(MouseButton.LeftButton))
                 {
-                    FarseerPhysics.Common.Vertices vertices = new FarseerPhysics.Common.Vertices();
+                    Vertices vertices = new Vertices();
                     foreach(Vector2 v in vectors)
                         vertices.Add(v - vectors[0]);
 
@@ -78,7 +81,7 @@ namespace NeonStarEditor
                     e.AddComponent(hb);
 
                     Rigidbody rg = new Rigidbody(e);
-                    rg.BodyType = FarseerPhysics.Dynamics.BodyType.Static;
+                    rg.BodyType = BodyType.Static;
                     rg.Friction = 0.3f;
                     rg.IsGround = true;
                     rg.Init();
@@ -93,7 +96,7 @@ namespace NeonStarEditor
             base.Update(gameTime);
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             if (vectors.Count < 2)
                 return;

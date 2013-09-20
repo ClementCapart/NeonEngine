@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace NeonEngine.AI
 {
@@ -27,7 +28,7 @@ namespace NeonEngine.AI
 
         }
 
-        public override void Act(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Act(GameTime gameTime)
         {
             
         }

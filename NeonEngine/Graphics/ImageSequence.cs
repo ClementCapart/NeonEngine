@@ -65,7 +65,7 @@ namespace NeonEngine.Private
         public override void Draw(SpriteBatch spritebatch)
         {
             spritebatch.Draw(sequence[currentFrame], new Vector2(X, Y), null,
-                Color.Lerp(Color.Transparent, Color.White, 1f), 0f, new Vector2(Width / 2, Height / 2), this.Scale, SpriteEffects.None, 0);
+                Color.Lerp(Color.Transparent, Color.White, 1f), 0f, new Vector2(Width / 2, Height / 2), Scale, SpriteEffects.None, 0);
             base.Draw(spritebatch);
         }
     }

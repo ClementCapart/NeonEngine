@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Microsoft.Xna.Framework;
 using NeonStarLibrary.Entities;
@@ -21,24 +22,24 @@ namespace NeonStarLibrary
         public Teleport(Vector2 Position, World containerWorld, Avatar avatar)
             : base(Position, "Teleporter", 0.6f, containerWorld)
         {
-            this.spriteSheetOpening = new SpriteSheet(AssetManager.GetSpriteSheet("TeleporterOpening"), 0.6f, this);
+            spriteSheetOpening = new SpriteSheet(AssetManager.GetSpriteSheet("TeleporterOpening"), 0.6f, this);
             this.avatar = avatar;
-            this.spriteSheet.isPlaying = false;
-            this.spriteSheet.IsLooped = false;
+            spriteSheet.isPlaying = false;
+            spriteSheet.IsLooped = false;
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (IsActive)
             {
-                this.spriteSheet.isPlaying = true;
+                spriteSheet.isPlaying = true;
             }
             else
             {
-                this.spriteSheet.isPlaying = false;
-                this.spriteSheet.SetFrame(0);
+                spriteSheet.isPlaying = false;
+                spriteSheet.SetFrame(0);
             }
-            if (Vector2.Distance(avatar.transform.Position, this.transform.Position) < ActivationRange)
+            if (Vector2.Distance(avatar.transform.Position, transform.Position) < ActivationRange)
                 CloseEnough = true;
             else
                 CloseEnough = false;
@@ -52,7 +53,7 @@ namespace NeonStarLibrary
                     AddComponent(spriteSheet);
                     spriteSheet.IsLooped = false;
                 }
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.X))
+                if (Neon.Input.Pressed(Buttons.X))
                     containerWorld.ChangeScreen(new GameScreen(containerWorld.game));
             }
 

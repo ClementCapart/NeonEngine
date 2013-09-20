@@ -12,9 +12,9 @@ namespace NeonStarEditor
         public NeonStarToolstrip()
             :base()
         {
-            this.Items.Add(new ToolStripDropDownButton("File"));
-            this.Items.Add(new ToolStripButton("Play"));
-            this.Dock = DockStyle.Top;
+            Items.Add(new ToolStripDropDownButton("File"));
+            Items.Add(new ToolStripButton("Play"));
+            Dock = DockStyle.Top;
         }
 
     }

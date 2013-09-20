@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using NeonStarLibrary.Entities;
+using World = NeonEngine.World;
 
 namespace NeonStarLibrary
 {
@@ -64,10 +65,10 @@ namespace NeonStarLibrary
 
         public bool isCrouched = false;
 
-        public Avatar(NeonEngine.World currentWorld, Vector2 Position)
+        public Avatar(World currentWorld, Vector2 Position)
             :base(currentWorld)        
         {
-            this.transform.Position = Position;
+            transform.Position = Position;
             hitbox = AddComponent(new Hitbox(this));
             hitbox.Width = 40;
             hitbox.Height = 136;
@@ -136,7 +137,7 @@ namespace NeonStarLibrary
             }
             
             foreach (Rigidbody rg in ignoredGeometry)
-                this.rigidbody.body.RestoreCollisionWith(rg.body);
+                rigidbody.body.RestoreCollisionWith(rg.body);
 
             ignoredGeometry.Clear();
 
@@ -144,7 +145,7 @@ namespace NeonStarLibrary
             {
                 if (!fight.isHitting)
                 {
-                    if (Neon.Input.Check(Buttons.LeftThumbstickLeft) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -4)
+                    if (Neon.Input.Check(NeonStarInput.MoveLeft) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -4)
                     {
                         rigidbody.body.LinearVelocity += new Vector2(-0.5f, 0);
                         if (Spritesheets.CurrentSpritesheetName != "Run")
@@ -152,7 +153,7 @@ namespace NeonStarLibrary
                         currentAttackSide = SideDirection.Left;
                         Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
                     }
-                    else if (Neon.Input.Check(Buttons.LeftThumbstickRight) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 4)
+                    else if (Neon.Input.Check(NeonStarInput.MoveRight) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 4)
                     {
                         rigidbody.body.LinearVelocity += new Vector2(0.5f, 0);
                         if (Spritesheets.CurrentSpritesheetName != "Run" && (Spritesheets.CurrentSpritesheetName != "Jump" || rigidbody.body.LinearVelocity.Y > -0.1f))
@@ -167,24 +168,24 @@ namespace NeonStarLibrary
                             Spritesheets.ChangeAnimation("Idle");
                     }
 
-                    if (Neon.Input.Check(Buttons.LeftThumbstickLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)
+                    if (Neon.Input.Check(NeonStarInput.MoveLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)
                     {
                         rigidbody.body.LinearVelocity += new Vector2(-0.3f, 0);
                         currentAttackSide = SideDirection.Left;
                         Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
                     }
-                    else if (Neon.Input.Check(Buttons.LeftThumbstickRight) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 3)
+                    else if (Neon.Input.Check(NeonStarInput.MoveRight) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 3)
                     {
                         rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
                         currentAttackSide = SideDirection.Right;
                         Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
                     }
-                    if (Neon.Input.Check(Buttons.A))
+                    if (Neon.Input.Check(NeonStarInput.Jump))
                     {
-                        if (Neon.Input.Check(Buttons.LeftThumbstickDown))
+                        if (Neon.Input.Check(NeonStarInput.MoveDown))
                             GoDown();
                         else
-                            if (Neon.Input.Pressed(Buttons.A) && rigidbody.isGrounded && !isCrouched)
+                            if (Neon.Input.Pressed(NeonStarInput.Jump) && rigidbody.isGrounded && !isCrouched)
                                 rigidbody.body.LinearVelocity += new Vector2(0, -6f);
                     }
                          
@@ -195,14 +196,14 @@ namespace NeonStarLibrary
                         rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
                            
 
-                    if (Neon.Input.Pressed(Buttons.X) && rigidbody.isGrounded)
+                    if (Neon.Input.Pressed(NeonStarInput.Attack) && rigidbody.isGrounded)
                     {
                         Spritesheets.ChangeAnimation((new Random().Next(0, 2) == 0 ? "Kick01" : "Kick02"));
                         //fight.StartHit(currentAttackSide);
                     }
 
                    if(elementsManager != null)
-                        if (Neon.Input.Check(Buttons.B))
+                        if (Neon.Input.Check(NeonStarInput.UseElement))
                             elementsManager.UseElement();
   
                 }
@@ -215,8 +216,8 @@ namespace NeonStarLibrary
             else
                 rigidbody.body.LinearDamping = 0.05f;
 
-            if(Neon.Input.Pressed(Keys.Space))
-                TakeDamage(5);
+            //if(Neon.Input.Pressed(Keys.Space))
+                //TakeDamage(5);
 
             if (IsTakingDamages)
             {
@@ -256,7 +257,7 @@ namespace NeonStarLibrary
                 }
 
             foreach (Rigidbody rg in ignoredGeometry)
-                this.rigidbody.body.IgnoreCollisionWith(rg.body);
+                rigidbody.body.IgnoreCollisionWith(rg.body);
         }
 
         private void GoDown()
@@ -265,10 +266,10 @@ namespace NeonStarLibrary
 
             if (rg != null)
                 if (rg.OneWayPlatform)
-                    this.ignoredGeometry.Add(rg);
+                    ignoredGeometry.Add(rg);
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
         }

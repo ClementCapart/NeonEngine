@@ -38,7 +38,7 @@ namespace NeonStarEditor
                 PrefabsList = new List<string>(Directory.GetFiles("Prefabs"));
                 for (int i = PrefabsList.Count - 1; i >= 0; i--)
                     PrefabsList[i] = Path.GetFileNameWithoutExtension(PrefabsList[i]);
-                this.PrefabListBox.DataSource = PrefabsList;
+                PrefabListBox.DataSource = PrefabsList;
             }
         }
 

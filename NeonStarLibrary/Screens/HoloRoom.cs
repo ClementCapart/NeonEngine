@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework.Input;
+using NeonEngine;
 using Microsoft.Xna.Framework;
 using NeonStarLibrary.Entities;
 using System;
@@ -16,7 +17,7 @@ namespace NeonStarLibrary
         public HoloRoom(Game game)
             :base(game)
         {
-            this.LoadLevel(new Level(@"Levels\Level_0-1", this, true));
+            LoadLevel(new Level(@"Levels\Level_0-1", this, true));
             avatar = new Avatar(this, new Vector2(-561, 200));
             AddEntity(avatar);
 
@@ -53,7 +54,7 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.DPadUp))
+            if (Neon.Input.Pressed(Buttons.DPadUp))
                 tp.IsActive = !tp.IsActive;
 
             base.Update(gameTime);

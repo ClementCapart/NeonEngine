@@ -16,9 +16,9 @@ namespace NeonEngine.Private
         public Particle(Texture2D texture, Vector2 Position, Vector2 Velocity, float Rotation, float AngularVelocity, float Scale, float TimeToLive, World containerWorld)
             : base(containerWorld)
         {
-            this.transform.Position = Position;
-            this.transform.Rotation = Rotation;
-            this.transform.Scale = Scale;
+            transform.Position = Position;
+            transform.Rotation = Rotation;
+            transform.Scale = Scale;
             
             this.Velocity = Velocity;
             this.AngularVelocity = AngularVelocity;          
@@ -30,9 +30,9 @@ namespace NeonEngine.Private
         public Particle(SpriteSheetInfo spriteSheetInfo, Vector2 Position, Vector2 Velocity, float Rotation, float AngularVelocity, float Scale, float TimeToLive, World containerWorld)
             : base(containerWorld)
         {
-             this.transform.Position = Position;
-            this.transform.Rotation = Rotation;
-            this.transform.Scale = Scale;
+             transform.Position = Position;
+            transform.Rotation = Rotation;
+            transform.Scale = Scale;
             
             this.Velocity = Velocity;
             this.AngularVelocity = AngularVelocity;          
@@ -43,8 +43,8 @@ namespace NeonEngine.Private
         public override void Update(GameTime gameTime)
         {
             TimeToLive -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            this.transform.Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            this.transform.Rotation += AngularVelocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            transform.Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            transform.Rotation += AngularVelocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
             base.Update(gameTime);
         }
 

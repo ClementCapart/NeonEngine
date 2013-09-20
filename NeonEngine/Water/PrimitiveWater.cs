@@ -90,7 +90,7 @@ namespace NeonEngine
 
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -128,7 +128,7 @@ namespace NeonEngine
             this.primitiveType = primitiveType;
 
             // how many verts will each of these primitives require?
-            this.numVertsPerPrimitive = NumVertsPerPrimitive(primitiveType);
+            numVertsPerPrimitive = NumVertsPerPrimitive(primitiveType);
 
             //tell our basic effect to begin.
             basicEffect.CurrentTechnique.Passes[0].Apply();

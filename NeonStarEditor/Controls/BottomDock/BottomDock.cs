@@ -16,12 +16,12 @@ namespace NeonStarEditor
         public BottomDock(EditorScreen GameWorld)
         {
             InitializeComponent();
-            this.Reverse = true;
-            this.Dock = DockStyle.Bottom;
-            this.Height = this.MinimumSize.Height;
+            Reverse = true;
+            Dock = DockStyle.Bottom;
+            Height = MinimumSize.Height;
             this.GameWorld = GameWorld;
-            this.entityListControl.GameWorld = this.GameWorld;
-            this.prefabListControl.GameWorld = this.GameWorld;
+            entityListControl.GameWorld = this.GameWorld;
+            prefabListControl.GameWorld = this.GameWorld;
         }
     }
 }

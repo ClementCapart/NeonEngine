@@ -154,7 +154,7 @@ namespace NeonEngine
             {
                 foreach (Body b in World.BodyList)
                 {
-                    FarseerPhysics.Common.Transform xf;
+                    Transform xf;
                     b.GetTransform(out xf);
                     foreach (Fixture f in b.FixtureList)
                     {
@@ -218,7 +218,7 @@ namespace NeonEngine
                         PolygonShape polygon = f.Shape as PolygonShape;
                         if (polygon != null)
                         {
-                            FarseerPhysics.Common.Transform xf;
+                            Transform xf;
                             body.GetTransform(out xf);
 
                             for (int i = 0; i < polygon.Vertices.Count; i++)
@@ -286,7 +286,7 @@ namespace NeonEngine
             {
                 foreach (Body b in World.BodyList)
                 {
-                    FarseerPhysics.Common.Transform xf;
+                    Transform xf;
                     b.GetTransform(out xf);
                     xf.Position = b.WorldCenter;
                     DrawTransform(ref xf);
@@ -422,7 +422,7 @@ namespace NeonEngine
 
             Body b1 = joint.BodyA;
             Body b2 = joint.BodyB;
-            FarseerPhysics.Common.Transform xf1, xf2;
+            Transform xf1, xf2;
             b1.GetTransform(out xf1);
 
             Vector2 x2 = Vector2.Zero;
@@ -495,7 +495,7 @@ namespace NeonEngine
             }
         }
 
-        public void DrawShape(Fixture fixture, FarseerPhysics.Common.Transform xf, Color color)
+        public void DrawShape(Fixture fixture, Transform xf, Color color)
         {
             switch (fixture.ShapeType)
             {
@@ -693,7 +693,7 @@ namespace NeonEngine
             _primitiveBatch.AddVertex(end, color, PrimitiveType.LineList);
         }
 
-        public override void DrawTransform(ref FarseerPhysics.Common.Transform transform)
+        public override void DrawTransform(ref Transform transform)
         {
             const float axisScale = 0.4f;
             Vector2 p1 = transform.Position;

@@ -22,7 +22,7 @@ namespace NeonEngine
             set
             {
                 graphicTag = value;
-                this.texture = AssetManager.GetTexture(value);
+                texture = AssetManager.GetTexture(value);
             }
         }
 
@@ -50,7 +50,7 @@ namespace NeonEngine
             this.texture = texture;
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             if (entity != null)
                 spriteBatch.Draw(texture, entity.transform.Position, null, Color.White, entity.transform.rotation, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);

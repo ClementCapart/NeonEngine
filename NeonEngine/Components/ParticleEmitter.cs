@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace NeonEngine
         public ParticleEmitter(Entity entity)
             :base(0, entity, "ParticleEmitter")
         {
-            this.particles = new List<Particle>();
-            this.spritesheets = new List<string>();
-            this.textures = new List<string>();
+            particles = new List<Particle>();
+            spritesheets = new List<string>();
+            textures = new List<string>();
             random = new Random();
             Init();
         }
@@ -33,7 +34,7 @@ namespace NeonEngine
             base.Init();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (DelaySpawn <= TimerSpawn)
             {
@@ -61,7 +62,7 @@ namespace NeonEngine
             base.Update(gameTime);
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
         }

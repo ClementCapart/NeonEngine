@@ -20,7 +20,7 @@ namespace NeonStarEditor
         {
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             Select();
             Move();

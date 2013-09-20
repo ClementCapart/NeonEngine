@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Microsoft.Xna.Framework;
 using NeonStarLibrary.Entities;
@@ -34,7 +35,7 @@ namespace NeonStarLibrary
         {
             LastActive = Active;
 
-            if (Vector2.Distance(avatar.transform.Position, this.transform.Position) < ActivationRange)
+            if (Vector2.Distance(avatar.transform.Position, transform.Position) < ActivationRange)
                 Active = true;
             else
                 Active = false;
@@ -44,7 +45,7 @@ namespace NeonStarLibrary
             else if (!Active && LastActive)
                 PressButtonAnim.Remove();
 
-            if (Displaying && Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.X))
+            if (Displaying && Neon.Input.Pressed(Buttons.X))
             {
                 RemoveSlide();
                 avatar.NoControl = false;
@@ -54,9 +55,9 @@ namespace NeonStarLibrary
 
             if (Displaying)
             {
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.DPadLeft))
+                if (Neon.Input.Pressed(Buttons.DPadLeft))
                     PreviousSlide();
-                else if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.DPadRight))
+                else if (Neon.Input.Pressed(Buttons.DPadRight))
                     NextSlide();
 
                 if (ChangingSlide == 1)
@@ -67,7 +68,7 @@ namespace NeonStarLibrary
                     {
                         CurrentSlide.Remove();
                         Displaying = false;
-                        this.DisplaySlide();
+                        DisplaySlide();
                         ChangingSlide = 0;
                     }
                 }
@@ -78,7 +79,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (Active && Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.X))
+            if (Active && Neon.Input.Pressed(Buttons.X))
             {
                 if (Displaying)
                     Displaying = false;

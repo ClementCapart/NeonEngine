@@ -27,7 +27,7 @@ namespace NeonEngine
             this.Name = Name;
         }
 
-        public virtual void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
         }
 

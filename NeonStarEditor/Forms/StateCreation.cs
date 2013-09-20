@@ -35,31 +35,31 @@ namespace NeonStarEditor
 
             LoadStateFile();
 
-            this.ConditionsList.DrawMode = DrawMode.OwnerDrawFixed;
-            this.AIStates.DrawMode = DrawMode.OwnerDrawFixed;
-            this.ConditionsList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(ConditionsList_DrawItem);
-            this.ActionsList.DrawMode = DrawMode.OwnerDrawFixed;
-            this.ActionsList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(ConditionsList_DrawItem);
+            ConditionsList.DrawMode = DrawMode.OwnerDrawFixed;
+            AIStates.DrawMode = DrawMode.OwnerDrawFixed;
+            ConditionsList.DrawItem += new DrawItemEventHandler(ConditionsList_DrawItem);
+            ActionsList.DrawMode = DrawMode.OwnerDrawFixed;
+            ActionsList.DrawItem += new DrawItemEventHandler(ConditionsList_DrawItem);
             StateList.AllowEdit = true;
-            this.SelectedState.DataSource = StateList;
-            this.SelectedState.DisplayMember = "TagName";
+            SelectedState.DataSource = StateList;
+            SelectedState.DisplayMember = "TagName";
 
-            this.SelectedAI.DataSource = AIList;
-            this.SelectedAI.DisplayMember = "TagName";
+            SelectedAI.DataSource = AIList;
+            SelectedAI.DisplayMember = "TagName";
 
             ConditionsActionsTypeList = Neon.utils.GetTypesInNamespace(typeof(Neon).Assembly, "NeonEngine.AI");
             foreach (Type t in ConditionsActionsTypeList)
                 if (t.BaseType.Equals(typeof(AICondition)))
-                    this.ConditionsAvailable.Items.Add(t);
+                    ConditionsAvailable.Items.Add(t);
                 else if (t.BaseType.Equals(typeof(AIAction)))
-                    this.ActionsAvailable.Items.Add(t);
+                    ActionsAvailable.Items.Add(t);
 
-            this.ConditionsAvailable.DisplayMember = "Name";
-            this.ConditionsAvailable.SelectedIndex = 0;
-            this.ActionsAvailable.DisplayMember = "Name";
-            this.ActionsAvailable.SelectedIndex = 0;
+            ConditionsAvailable.DisplayMember = "Name";
+            ConditionsAvailable.SelectedIndex = 0;
+            ActionsAvailable.DisplayMember = "Name";
+            ActionsAvailable.SelectedIndex = 0;
 
-            this.SelectedAI.SelectedIndexChanged += SelectedAI_SelectedIndexChanged;
+            SelectedAI.SelectedIndexChanged += SelectedAI_SelectedIndexChanged;
         }
 
         #region Load & Save
@@ -381,17 +381,17 @@ namespace NeonStarEditor
 
                 if (!Actions)
                 {
-                    this.CurrentConditionSettings.Rows.Add();
-                    this.CurrentConditionSettings.Rows[this.CurrentConditionSettings.Rows.Count - 1].Cells["Setting"].Value = pi;
-                    this.CurrentConditionSettings.Rows[this.CurrentConditionSettings.Rows.Count - 1].Cells["Value"] = Cell;
-                    this.CurrentConditionSettings.Rows[this.CurrentConditionSettings.Rows.Count - 1].Cells["Value"].Value = pi.GetValue(ConditionsList.SelectedItem, null);
+                    CurrentConditionSettings.Rows.Add();
+                    CurrentConditionSettings.Rows[CurrentConditionSettings.Rows.Count - 1].Cells["Setting"].Value = pi;
+                    CurrentConditionSettings.Rows[CurrentConditionSettings.Rows.Count - 1].Cells["Value"] = Cell;
+                    CurrentConditionSettings.Rows[CurrentConditionSettings.Rows.Count - 1].Cells["Value"].Value = pi.GetValue(ConditionsList.SelectedItem, null);
                 }
                 else
                 {
-                    this.CurrentActionSettings.Rows.Add();
-                    this.CurrentActionSettings.Rows[this.CurrentActionSettings.Rows.Count - 1].Cells["ActionSetting"].Value = pi;
-                    this.CurrentActionSettings.Rows[this.CurrentActionSettings.Rows.Count - 1].Cells["ActionValue"] = Cell;
-                    this.CurrentActionSettings.Rows[this.CurrentActionSettings.Rows.Count - 1].Cells["ActionValue"].Value = pi.GetValue(ActionsList.SelectedItem, null);
+                    CurrentActionSettings.Rows.Add();
+                    CurrentActionSettings.Rows[CurrentActionSettings.Rows.Count - 1].Cells["ActionSetting"].Value = pi;
+                    CurrentActionSettings.Rows[CurrentActionSettings.Rows.Count - 1].Cells["ActionValue"] = Cell;
+                    CurrentActionSettings.Rows[CurrentActionSettings.Rows.Count - 1].Cells["ActionValue"].Value = pi.GetValue(ActionsList.SelectedItem, null);
                 }
 
                 Cell.ReadOnly = false;
@@ -406,7 +406,7 @@ namespace NeonStarEditor
 
         private void ConditionsLinksData_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            AICondition condition = (AICondition)this.ConditionsLinksData.Rows[e.RowIndex].Cells["Condition"].Value;
+            AICondition condition = (AICondition)ConditionsLinksData.Rows[e.RowIndex].Cells["Condition"].Value;
             if(SelectedAI.SelectedItem != null)
                 (SelectedAI.SelectedItem as AI).StateSwitch[condition] = (State)(ConditionsLinksData.Rows[e.RowIndex].Cells["LinkedTo"] as DataGridViewComboBoxCell).Value;
         }
@@ -428,7 +428,7 @@ namespace NeonStarEditor
         private void AddAction_Click(object sender, EventArgs e)
         {
             if (SelectedState.SelectedItem != null)
-                this.ActionsBindingList.Add((AIAction)Activator.CreateInstance((Type)this.ActionsAvailable.SelectedItem));
+                ActionsBindingList.Add((AIAction)Activator.CreateInstance((Type)ActionsAvailable.SelectedItem));
         }
 
         private void ActionsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -436,14 +436,14 @@ namespace NeonStarEditor
             if (ActionsList.SelectedItem != null)
             {
                 CurrentActionSettings.Rows.Clear();
-                AddColumns(this.ActionsList.SelectedItem.GetType(), true, true);
-                if (this.CurrentActionSettings.SelectedRows.Count > 0)
-                    this.CurrentActionSettings.SelectedRows[0].Selected = false;
+                AddColumns(ActionsList.SelectedItem.GetType(), true, true);
+                if (CurrentActionSettings.SelectedRows.Count > 0)
+                    CurrentActionSettings.SelectedRows[0].Selected = false;
             }
         }       
         private void AddCondition_Click(object sender, EventArgs e)
         {
-            this.ConditionsBindingList.Add((AICondition)Activator.CreateInstance((Type)this.ConditionsAvailable.SelectedItem));
+            ConditionsBindingList.Add((AICondition)Activator.CreateInstance((Type)ConditionsAvailable.SelectedItem));
         }
 
         private void ConditionsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -451,9 +451,9 @@ namespace NeonStarEditor
             if (ConditionsList.SelectedItem != null)
             {
                 CurrentConditionSettings.Rows.Clear();
-                AddColumns(this.ConditionsList.SelectedItem.GetType(), false, true);
-                if (this.CurrentConditionSettings.SelectedRows.Count > 0)
-                    this.CurrentConditionSettings.SelectedRows[0].Selected = false;
+                AddColumns(ConditionsList.SelectedItem.GetType(), false, true);
+                if (CurrentConditionSettings.SelectedRows.Count > 0)
+                    CurrentConditionSettings.SelectedRows[0].Selected = false;
             }
         }
         #endregion
@@ -461,15 +461,15 @@ namespace NeonStarEditor
         #region State & AI Management
         private void StateName_TextChanged(object sender, EventArgs e)
         {
-            if ((this.SelectedState.SelectedItem as State) != null && CurrentState == (this.SelectedState.SelectedItem as State))
+            if ((SelectedState.SelectedItem as State) != null && CurrentState == (SelectedState.SelectedItem as State))
             {
-                (this.SelectedState.SelectedItem as State).TagName = (sender as TextBox).Text;
-                StateList.ResetItem(this.SelectedState.SelectedIndex);
+                (SelectedState.SelectedItem as State).TagName = (sender as TextBox).Text;
+                StateList.ResetItem(SelectedState.SelectedIndex);
             }
             else if((AIStates.SelectedItem as State) != null)
             {
                 CurrentState.TagName = (sender as TextBox).Text;
-                AIStateList.ResetItem(this.AIStates.SelectedIndex);
+                AIStateList.ResetItem(AIStates.SelectedIndex);
             }
             else
                 (sender as TextBox).Text = "";
@@ -486,48 +486,48 @@ namespace NeonStarEditor
 
         private void SelectedState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.SelectedState.SelectedItem != null)
+            if (SelectedState.SelectedItem != null)
             {
-                CurrentState = this.SelectedState.SelectedItem as State;
+                CurrentState = SelectedState.SelectedItem as State;
                 ChangingState();
             }
         }
 
         private void ChangingState()
         {
-            this.StateName.Text = CurrentState.TagName;
+            StateName.Text = CurrentState.TagName;
 
-            this.ConditionsBindingList = new BindingList<AICondition>(CurrentState.Conditions);
-            this.ConditionsList.DisplayMember = "TagName";
-            this.ConditionsList.DataSource = this.ConditionsBindingList;
+            ConditionsBindingList = new BindingList<AICondition>(CurrentState.Conditions);
+            ConditionsList.DisplayMember = "TagName";
+            ConditionsList.DataSource = ConditionsBindingList;
             CurrentConditionSettings.Rows.Clear();
 
-            this.ActionsBindingList = new BindingList<AIAction>(CurrentState.Actions);
-            this.ActionsList.DisplayMember = "TagName";
-            this.ActionsList.DataSource = this.ActionsBindingList;
+            ActionsBindingList = new BindingList<AIAction>(CurrentState.Actions);
+            ActionsList.DisplayMember = "TagName";
+            ActionsList.DataSource = ActionsBindingList;
             CurrentActionSettings.Rows.Clear();
         }
 
         private void SelectedAI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.SelectedAI.SelectedItem != null)
+            if (SelectedAI.SelectedItem != null)
             {
-                this.AIName.Text = (this.SelectedAI.SelectedItem as AI).TagName;
+                AIName.Text = (SelectedAI.SelectedItem as AI).TagName;
 
-                this.AIStateList = new BindingList<State>((this.SelectedAI.SelectedItem as AI).StatesList);
-                this.AIStates.DisplayMember = "TagName";
-                this.AIStates.DataSource = AIStateList;
+                AIStateList = new BindingList<State>((SelectedAI.SelectedItem as AI).StatesList);
+                AIStates.DisplayMember = "TagName";
+                AIStates.DataSource = AIStateList;
 
-                this.ConditionsLinksData.Rows.Clear();
+                ConditionsLinksData.Rows.Clear();
             }
         }
 
         private void AIName_TextChanged(object sender, EventArgs e)
         {
-            if ((this.SelectedAI.SelectedItem as AI) != null)
+            if ((SelectedAI.SelectedItem as AI) != null)
             {
-                (this.SelectedAI.SelectedItem as AI).TagName = (sender as TextBox).Text;
-                AIList.ResetItem(this.SelectedAI.SelectedIndex);
+                (SelectedAI.SelectedItem as AI).TagName = (sender as TextBox).Text;
+                AIList.ResetItem(SelectedAI.SelectedIndex);
             }
             else
                 (sender as TextBox).Text = "";
@@ -545,20 +545,20 @@ namespace NeonStarEditor
                 if (AIStates.SelectedItem != null)
                     foreach (AICondition ac in (AIStates.SelectedItem as State).Conditions)
                     {
-                        this.ConditionsLinksData.Rows.Add();
-                        this.ConditionsLinksData.Rows[this.ConditionsLinksData.Rows.Count - 1].Cells["Condition"].Value = ac;
-                        (this.ConditionsLinksData.Rows[this.ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).DataSource = new BindingList<State>((SelectedAI.SelectedItem as AI).StatesList);
-                        (this.ConditionsLinksData.Rows[this.ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).DisplayMember = "TagName";
-                        (this.ConditionsLinksData.Rows[this.ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).ValueMember = "ThisState";
+                        ConditionsLinksData.Rows.Add();
+                        ConditionsLinksData.Rows[ConditionsLinksData.Rows.Count - 1].Cells["Condition"].Value = ac;
+                        (ConditionsLinksData.Rows[ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).DataSource = new BindingList<State>((SelectedAI.SelectedItem as AI).StatesList);
+                        (ConditionsLinksData.Rows[ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).DisplayMember = "TagName";
+                        (ConditionsLinksData.Rows[ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"] as DataGridViewComboBoxCell).ValueMember = "ThisState";
                         if (!(SelectedAI.SelectedItem as AI).StateSwitch.ContainsKey(ac))
                             (SelectedAI.SelectedItem as AI).StateSwitch.Add(ac, AIStates.SelectedItem as State);
                         
-                        this.ConditionsLinksData.Rows[this.ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"].Value = (SelectedAI.SelectedItem as AI).StateSwitch[ac];
+                        ConditionsLinksData.Rows[ConditionsLinksData.Rows.Count - 1].Cells["LinkedTo"].Value = (SelectedAI.SelectedItem as AI).StateSwitch[ac];
                     }
 
 
-                if (this.ConditionsLinksData.SelectedRows.Count > 0)
-                    this.ConditionsLinksData.SelectedRows[0].Selected = false;
+                if (ConditionsLinksData.SelectedRows.Count > 0)
+                    ConditionsLinksData.SelectedRows[0].Selected = false;
             }
         }
         #endregion

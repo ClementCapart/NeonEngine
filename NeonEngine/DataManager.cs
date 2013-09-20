@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
@@ -29,15 +30,15 @@ namespace NeonEngine
                 {
                     XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name));
                     XElement Components = new XElement("Components");
-                    foreach (NeonEngine.Component c in e.Components)
+                    foreach (Component c in e.Components)
                     {
                         XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
                         XElement Properties = new XElement("Properties");
                         foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                         {
-                            if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                            if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                             {
-                                NeonEngine.Component comp = (NeonEngine.Component)pi.GetValue(c, null);
+                                Component comp = (Component)pi.GetValue(c, null);
                                 XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                                 Properties.Add(Property);
                             }
@@ -96,15 +97,15 @@ namespace NeonEngine
 
                 XElement Entity = new XElement("Entity", new XAttribute("Name", entity.Name));
                 XElement Components = new XElement("Components");
-                foreach (NeonEngine.Component c in entity.Components)
+                foreach (Component c in entity.Components)
                 {
                     XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
                     XElement Properties = new XElement("Properties");
                     foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                     {
-                        if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                        if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                         {
-                            NeonEngine.Component comp = (NeonEngine.Component)pi.GetValue(c, null);
+                            Component comp = (Component)pi.GetValue(c, null);
                             XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                             Properties.Add(Property);
                         }
@@ -135,23 +136,24 @@ namespace NeonEngine
             return null;
         }
 
-        static public void LoadPrefab(string FilePath, World GameWorld)
+        static public void LoadPrefab(string filePath, World gameWorld)
         {
-            Stream stream = File.OpenRead(FilePath);
+            Stream stream = File.OpenRead(filePath);
             XDocument prefab = XDocument.Load(stream);
             XElement Prefab = prefab.Element("Prefab");
-            LoadPrefab(Prefab, GameWorld);
+            LoadPrefab(Prefab, gameWorld);
             stream.Close();
         }
 
-        static public void LoadPrefab(XElement Prefab, World GameWorld)
+        static public void LoadPrefab(XElement prefab, World gameWorld)
         {
-            XElement Ent = Prefab.Element("Entity");
+            XElement ent = prefab.Element("Entity");
 
-            Entity entity = new Entity(GameWorld);
-            entity.Name = Ent.Attribute("Name").Value;
+            Entity entity = new Entity(gameWorld);
+            if (ent != null)
+                entity.Name = ent.Attribute("Name").Value;
 
-            foreach (XElement Comp in Ent.Element("Components").Elements())
+            foreach (XElement Comp in ent.Element("Components").Elements())
             {
 
                 if (Comp.Name == "Transform")
@@ -173,21 +175,21 @@ namespace NeonEngine
                                 break;
                             }
 
-                    NeonEngine.Component component = (NeonEngine.Component)Activator.CreateInstance(t, entity);
+                    Component component = (Component)Activator.CreateInstance(t, entity);
                     component.ID = int.Parse(Comp.Attribute("ID").Value);
                     foreach (XElement Property in Comp.Element("Properties").Elements())
                     {
 
                         PropertyInfo pi = t.GetProperty(Property.Name.ToString());
 
-                        if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                        if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                             continue;
                         else if (pi.PropertyType.Equals(typeof(Vector2)))
                             pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.IsEnum)
                             pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Single)))
-                            pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture), null);
+                            pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture), null);
                         else if (pi.PropertyType.Equals(typeof(bool)))
                             pi.SetValue(component, bool.Parse(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Int32)))
@@ -201,9 +203,9 @@ namespace NeonEngine
                     entity.AddComponent(component);
                 }
             }
-            foreach (XElement Comp in Ent.Element("Components").Elements())
+            foreach (XElement Comp in ent.Element("Components").Elements())
             {
-                NeonEngine.Component comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
+                Component comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
 
                 if (Comp.Name == "Rigidbody" || Comp.Name == "Spritesheet" || Comp.Name == "Graphic" || Comp.Name == "Hitbox" || Comp.Name == "Mover")
                 {
@@ -211,11 +213,11 @@ namespace NeonEngine
                     {
                         PropertyInfo pi = comp.GetType().GetProperty(Property.Name.ToString());
 
-                        if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                        if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                         {
                             if (Property.Attribute("Value").Value != "None")
                             {
-                                NeonEngine.Component Value = entity.Components.First(c => c.ID == int.Parse(Property.Attribute("Value").Value));
+                                Component Value = entity.Components.First(c => c.ID == int.Parse(Property.Attribute("Value").Value));
                                 pi.SetValue(comp, Value, null);
                             }
                         }
@@ -223,39 +225,39 @@ namespace NeonEngine
                 }
             }
 
-            GameWorld.AddEntity(entity);
+            gameWorld.AddEntity(entity);
         }
 
         static public XElement SaveComponentParameters(Component c)
         {
-            XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
-            XElement Properties = new XElement("Properties");
+            XElement component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
+            XElement properties = new XElement("Properties");
             foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
-                if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                 {
-                    NeonEngine.Component comp = (NeonEngine.Component)pi.GetValue(c, null);
-                    XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
-                    Properties.Add(Property);
+                    Component comp = (Component)pi.GetValue(c, null);
+                    XElement property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
+                    properties.Add(property);
                 }
                 else
                 {
 
-                    XElement Property = null;
+                    XElement property = null;
                     if (pi.PropertyType == typeof(Single))
                     {
-                        Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
+                        property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
                     }
                     else
                     {
-                        Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
+                        property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
                     }
-                    Properties.Add(Property);
+                    properties.Add(property);
                 }
             }
-            Component.Add(Properties);
+            component.Add(properties);
 
-            return Component;
+            return component;
         }
 
         static public void LoadComponentParameters(XElement Comp, Component c)
@@ -273,14 +275,14 @@ namespace NeonEngine
                 {
                     PropertyInfo pi = c.GetType().GetProperty(Property.Name.ToString());
 
-                    if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                    if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                         continue;
                     else if (pi.PropertyType.Equals(typeof(Vector2)))
                         pi.SetValue(c, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
                     else if (pi.PropertyType.IsEnum)
                         pi.SetValue(c, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                     else if (pi.PropertyType.Equals(typeof(Single)))
-                        pi.SetValue(c, Single.Parse(Property.Attribute("Value").Value, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture), null);
+                        pi.SetValue(c, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture), null);
                     else if (pi.PropertyType.Equals(typeof(bool)))
                         pi.SetValue(c, bool.Parse(Property.Attribute("Value").Value), null);
                     else if (pi.PropertyType.Equals(typeof(Int32)))

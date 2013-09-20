@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine.Private;
+using World = NeonEngine.World;
 
 namespace NeonStarLibrary
 {
@@ -56,13 +57,13 @@ namespace NeonStarLibrary
             set { _lifePoints = value; }
         }
 
-        public Enemy(Vector2 Position, int Width, int Height, float StartLifePoints, ElementType StartElement, NeonEngine.World currentWorld)
+        public Enemy(Vector2 Position, int Width, int Height, float StartLifePoints, ElementType StartElement, World currentWorld)
             : base(currentWorld)
         {
-            this.transform.Position = Position;
+            transform.Position = Position;
             changedBody = new ChangedBody(IgnoreThisBody);
-            this.LifePoints = StartLifePoints;
-            this.element = StartElement;
+            LifePoints = StartLifePoints;
+            element = StartElement;
 
             if (containerWorld is GameScreen)
                 avatar = (containerWorld as GameScreen).avatar;
@@ -82,7 +83,7 @@ namespace NeonStarLibrary
             
             if (avatar != null)
             {
-                this.avatar.ChangedItsBody += changedBody;
+                avatar.ChangedItsBody += changedBody;
                 rigidbody.body.IgnoreCollisionWith(avatar.rigidbody.body);
             }
             rigidbody.Friction = 10f;
@@ -118,13 +119,13 @@ namespace NeonStarLibrary
         public virtual void Die(bool NoElement = false)
         {
             if(!NoElement)
-                this.avatar.elementsManager.StockElement(this.element);
+                avatar.elementsManager.StockElement(element);
             Dying = true;
         }
 
         public override void Destroy()
         {
-            this.avatar.ChangedItsBody -= changedBody;
+            avatar.ChangedItsBody -= changedBody;
             base.Destroy();
         }
 
@@ -132,7 +133,7 @@ namespace NeonStarLibrary
         {
             if (currentSpriteSheet != null)
             {
-                this.currentSpriteSheet.Remove(); 
+                currentSpriteSheet.Remove(); 
                 spriteSheet.spriteEffects = currentSpriteSheet.spriteEffects;
             }
  

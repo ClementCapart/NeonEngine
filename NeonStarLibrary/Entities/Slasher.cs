@@ -68,7 +68,7 @@ namespace NeonStarLibrary
                     DeathAnim.opacity -= 0.02f;
 
                 if (DeathAnim.opacity <= 0)
-                    this.Destroy();
+                    Destroy();
             }
             else if (State == 0)
             {
@@ -76,7 +76,7 @@ namespace NeonStarLibrary
                 {
                     if (SmokeTimer > SmokeDelay)
                     {
-                        containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
+                        containerWorld.AddEntity(new Feedback("MoveSmoke", transform.Position + new Vector2(0, hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
                         SmokeTimer = 0f;
                     }
                     else
@@ -99,8 +99,8 @@ namespace NeonStarLibrary
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(this.transform.Position),
-                CoordinateConversion.screenToWorld(this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -this.hitbox.Width / 2 - AggroRange : this.hitbox.Width / 2 + AggroRange), 0)));
+                CoordinateConversion.screenToWorld(transform.Position),
+                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - AggroRange : hitbox.Width / 2 + AggroRange), 0)));
 
                 if (PlayerInRange)
                     State = 1;
@@ -115,7 +115,7 @@ namespace NeonStarLibrary
                 ChangeAnimation(MoveAnim);
                 if (SmokeTimer > SmokeDelay)
                 {
-                    containerWorld.AddEntity(new Feedback("MoveSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
+                    containerWorld.AddEntity(new Feedback("MoveSmoke", transform.Position + new Vector2(0, hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld));
                     SmokeTimer = 0f;
                 }
                 else
@@ -134,8 +134,8 @@ namespace NeonStarLibrary
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(this.transform.Position),
-                CoordinateConversion.screenToWorld(this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -this.hitbox.Width / 2 - AttackRange : this.hitbox.Width / 2 + AttackRange), 0)));
+                CoordinateConversion.screenToWorld(transform.Position),
+                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - AttackRange : hitbox.Width / 2 + AttackRange), 0)));
 
                 if (InAttackRange)
                 {
@@ -143,22 +143,22 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    if (avatar.transform.Position.X <= this.transform.Position.X)
+                    if (avatar.transform.Position.X <= transform.Position.X)
                     {
                         CurrentSide = SideDirection.Left;
-                        this.rigidbody.body.LinearVelocity = new Vector2(-1.5f, 0);
+                        rigidbody.body.LinearVelocity = new Vector2(-1.5f, 0);
                     }
                     else
                     {
                         CurrentSide = SideDirection.Right;
-                        this.rigidbody.body.LinearVelocity = new Vector2(1.5f, 0);
+                        rigidbody.body.LinearVelocity = new Vector2(1.5f, 0);
                     }
                 }
                            
-                if(Vector2.Distance(this.transform.Position, avatar.transform.Position) > LoseAggroRange)
+                if(Vector2.Distance(transform.Position, avatar.transform.Position) > LoseAggroRange)
                     State = 0;
 
-                if (this.hitbox.hitboxRectangle.Intersects(avatar.hitbox.hitboxRectangle))
+                if (hitbox.hitboxRectangle.Intersects(avatar.hitbox.hitboxRectangle))
                     State = 2;
 
 
@@ -175,7 +175,7 @@ namespace NeonStarLibrary
                 {
                     if (LoadSmoke == null)
                     {
-                        LoadSmoke = new Feedback("DashLoadSmoke01", this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -10 : 10), this.hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld);
+                        LoadSmoke = new Feedback("DashLoadSmoke01", transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -10 : 10), hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld);
                         containerWorld.entities.Add(LoadSmoke);
                     }
                     else if (LoadSmoke.animation.isPlaying == false)
@@ -199,9 +199,9 @@ namespace NeonStarLibrary
             DashAnim.SetFrame(0);
             ChangeAnimation(DashAnim);
             IsAttacking = true;
-            DashTarget = this.transform.Position.X + (CurrentSide == SideDirection.Left ? -AttackRange : AttackRange);
-            this.rigidbody.body.LinearVelocity = new Vector2((CurrentSide == SideDirection.Left ? - 10 : 10), 0);
-            this.containerWorld.entities.Add(new Feedback("DashFire", this.transform.Position, 0.6f, CurrentSide, 1f, containerWorld));
+            DashTarget = transform.Position.X + (CurrentSide == SideDirection.Left ? -AttackRange : AttackRange);
+            rigidbody.body.LinearVelocity = new Vector2((CurrentSide == SideDirection.Left ? - 10 : 10), 0);
+            containerWorld.entities.Add(new Feedback("DashFire", transform.Position, 0.6f, CurrentSide, 1f, containerWorld));
         }
 
         public void CheckDash()
@@ -229,8 +229,8 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    this.containerWorld.entities.Add(new Feedback("DashSmoke", this.transform.Position + new Vector2(0, this.hitbox.Height / 2 - 20), 0.6f, CurrentSide, 1f, containerWorld));
-                    this.containerWorld.entities.Add(new Feedback("DashEffect", this.transform.Position + new Vector2(0, 10) , 0.6f, CurrentSide, 1f, containerWorld));
+                    containerWorld.entities.Add(new Feedback("DashSmoke", transform.Position + new Vector2(0, hitbox.Height / 2 - 20), 0.6f, CurrentSide, 1f, containerWorld));
+                    containerWorld.entities.Add(new Feedback("DashEffect", transform.Position + new Vector2(0, 10) , 0.6f, CurrentSide, 1f, containerWorld));
                 }
             }
         }

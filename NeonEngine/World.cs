@@ -52,7 +52,7 @@ namespace NeonEngine
 
         public World(Game game)
         {
-            Console.WriteLine(this.GetType().Name + " (World) loading...");
+            Console.WriteLine(GetType().Name + " (World) loading...");
             Console.WriteLine("");
 
             this.game = game;
@@ -105,12 +105,12 @@ namespace NeonEngine
             {
                 FirstUpdateWorld = false;
                 Console.WriteLine("");
-                Console.WriteLine(this.GetType().Name + " (World) loaded !");
+                Console.WriteLine(GetType().Name + " (World) loaded !");
                 Console.WriteLine("");
                 Console.WriteLine("");
             }
 
-            Neon.Input.Update(this.camera);
+            Neon.Input.Update(camera);
             Neon.elapsedTime = gameTime.ElapsedGameTime.Milliseconds;
             if (!Pause)
             {
@@ -282,8 +282,8 @@ namespace NeonEngine
             {
                 Matrix projection = Matrix.CreateOrthographicOffCenter(
                0f,
-               CoordinateConversion.screenToWorld(this.game.GraphicsDevice.Viewport.Width / camera.Zoom),
-               CoordinateConversion.screenToWorld(this.game.GraphicsDevice.Viewport.Height / camera.Zoom), 0f, 0f,
+               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Width / camera.Zoom),
+               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Height / camera.Zoom), 0f, 0f,
                1f);
                 Matrix view = Matrix.CreateTranslation(camera.Position.X / -100f, camera.Position.Y / -100f, 0f) * Matrix.CreateTranslation(_screenCenter.X / camera.Zoom / 100f, _screenCenter.Y / camera.Zoom / 100f, 0f);
                 debugView.RenderDebugData(ref projection, ref view);

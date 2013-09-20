@@ -11,6 +11,9 @@ using NeonEngine.Private;
 using System.Reflection;
 using Microsoft.Xna.Framework;
 using System.Xml.Linq;
+using Color = System.Drawing.Color;
+using Component = NeonEngine.Component;
+using Point = System.Drawing.Point;
 
 namespace NeonStarEditor
 {
@@ -18,10 +21,10 @@ namespace NeonStarEditor
     {
 
         public PropertyInfo pi;
-        public NeonEngine.Component c;
+        public Component c;
         public Control ctrl;
 
-        public PropertyComponentControl(PropertyInfo pi, NeonEngine.Component c, Control ctrl)
+        public PropertyComponentControl(PropertyInfo pi, Component c, Control ctrl)
         {
             this.pi = pi;
             this.c = c;
@@ -34,8 +37,8 @@ namespace NeonStarEditor
         public EditorScreen GameWorld;
         PropertyInfo[] propertiesInfo;
 
-        Dictionary<Button, NeonEngine.Component> InitButtons = new Dictionary<Button, NeonEngine.Component>();
-        Dictionary<Button, NeonEngine.Component> RemoveButtons = new Dictionary<Button, NeonEngine.Component>();
+        Dictionary<Button, Component> InitButtons = new Dictionary<Button, Component>();
+        Dictionary<Button, Component> RemoveButtons = new Dictionary<Button, Component>();
 
         public List<PropertyComponentControl> PropertyControlList;
 
@@ -49,7 +52,7 @@ namespace NeonStarEditor
         {
             if (GameWorld != null)
             {
-                List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(NeonEngine.Component)) && !(t.IsAbstract)));
+                List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                 if (Neon.Scripts != null)
                     Components.AddRange(Neon.Scripts);
                 Components.Add(typeof(ScriptComponent));
@@ -61,17 +64,17 @@ namespace NeonStarEditor
 
         public void ClearInspector()
         {
-            this.Inspector.Controls.Clear();
-            this.RemoveButtons.Clear();
-            this.InitButtons.Clear();
+            Inspector.Controls.Clear();
+            RemoveButtons.Clear();
+            InitButtons.Clear();
 
             Label NoEntity = new Label();
             NoEntity.AutoSize = true;
             NoEntity.Text = "No entity selected !";
             NoEntity.Font = new Font("Agency FB", 24, FontStyle.Regular);
-            NoEntity.Location = new System.Drawing.Point(25, 250);
+            NoEntity.Location = new Point(25, 250);
             
-            this.Inspector.Controls.Add(NoEntity);
+            Inspector.Controls.Add(NoEntity);
         }
 
         public void InstantiateProperties(Entity SelectedEntity)
@@ -81,32 +84,32 @@ namespace NeonStarEditor
             PropertyControlList = new List<PropertyComponentControl>();
             int Y = 5;
 
-            this.Inspector.Controls.Clear();
-            this.RemoveButtons.Clear();
-            this.InitButtons.Clear();
+            Inspector.Controls.Clear();
+            RemoveButtons.Clear();
+            InitButtons.Clear();
 
             TextBox EntityName = new TextBox();
             EntityName.Text = SelectedEntity.Name;
             EntityName.Font = new Font("Agency FB", 18, FontStyle.Italic);
             EntityName.BorderStyle = BorderStyle.FixedSingle;
             EntityName.TextAlign = HorizontalAlignment.Center;
-            EntityName.ForeColor = System.Drawing.Color.FromArgb(240, 240, 240);
+            EntityName.ForeColor = Color.FromArgb(240, 240, 240);
             EntityName.Width = 150;
-            EntityName.Location = new System.Drawing.Point(this.Inspector.Width / 2 - EntityName.Width / 2, Y);
-            EntityName.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            EntityName.Location = new Point(Inspector.Width / 2 - EntityName.Width / 2, Y);
+            EntityName.BackColor = Color.FromArgb(64, 64, 64);
             EntityName.GotFocus += EntityName_GotFocus;
             EntityName.LostFocus += EntityName_LostFocus;
             EntityName.AcceptsTab = true;
             EntityName.Validated += EntityName_Validated;
-            this.Inspector.Controls.Add(EntityName);
+            Inspector.Controls.Add(EntityName);
             Y = 45;
 
-            foreach (NeonEngine.Component c in SelectedEntity.Components)
+            foreach (Component c in SelectedEntity.Components)
             {
                 GroupBox gb = new GroupBox();
                 gb.Text = c.Name;
                 gb.Width = Inspector.Width - 20;
-                gb.Location = new System.Drawing.Point(0, Y);
+                gb.Location = new Point(0, Y);
                 gb.AutoSize = true;
                 gb.AutoSizeMode = AutoSizeMode.GrowOnly;
 
@@ -116,7 +119,7 @@ namespace NeonStarEditor
                     Label label = new Label();
                     label.Text = pi.Name;
                     label.Font = new Font("Calibri", 10);
-                    label.Location = new System.Drawing.Point(10, localY);
+                    label.Location = new Point(10, localY);
                     label.AutoSize = true;
                     gb.Controls.Add(label);
                     localY += label.Height + 5;
@@ -125,7 +128,7 @@ namespace NeonStarEditor
                     {
                         CheckBox checkBox = new CheckBox();
                         checkBox.Checked = (bool)pi.GetValue(c, null);
-                        checkBox.Location = new System.Drawing.Point(10, localY);
+                        checkBox.Location = new Point(10, localY);
                         checkBox.CheckedChanged += checkBox_CheckedChanged;
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, checkBox));
 
@@ -150,7 +153,7 @@ namespace NeonStarEditor
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, VectorX));
                         VectorX.ValueChanged += VectorX_ValueChanged;
                         VectorX.GotFocus += VectorX_GotFocus;
-                        VectorX.Location = new System.Drawing.Point(10, localY);
+                        VectorX.Location = new Point(10, localY);
                         VectorX.Value = (decimal)vector.X;
 
                         VectorY.Minimum = decimal.MinValue;
@@ -159,7 +162,7 @@ namespace NeonStarEditor
                         VectorY.Name = "Y";
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, VectorY));
                         VectorY.ValueChanged += VectorY_ValueChanged;
-                        VectorY.Location = new System.Drawing.Point(90, localY);
+                        VectorY.Location = new Point(90, localY);
                         VectorY.Value = (decimal)vector.Y;
                         VectorY.GotFocus += VectorX_GotFocus;
 
@@ -182,7 +185,7 @@ namespace NeonStarEditor
                         number.Width = 70;
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, number));
                         number.ValueChanged += number_ValueChanged;
-                        number.Location = new System.Drawing.Point(10, localY);
+                        number.Location = new Point(10, localY);
                         number.Value = (decimal)NumValue.X;
                         number.GotFocus += VectorX_GotFocus;
                         number.LostFocus += VectorX_LostFocus;
@@ -197,7 +200,7 @@ namespace NeonStarEditor
                         foreach (Enum e in Enum.GetValues(pi.PropertyType))
                             comboBox.Items.Add(e);
                         comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new System.Drawing.Point(10, localY);
+                        comboBox.Location = new Point(10, localY);
                         comboBox.SelectedItem = enumeration;
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
                         comboBox.SelectedValueChanged += comboBox_SelectedValueChanged;
@@ -209,10 +212,10 @@ namespace NeonStarEditor
                     {
                         ComboBox comboBox = new ComboBox();
                         comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new System.Drawing.Point(10, localY);
+                        comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.spritesheets.Keys;
+                        bs.DataSource = AssetManager.Spritesheets.Keys;
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
@@ -228,10 +231,10 @@ namespace NeonStarEditor
                     {
                         ComboBox comboBox = new ComboBox();
                         comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new System.Drawing.Point(10, localY);
+                        comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.assets.Keys;
+                        bs.DataSource = AssetManager.Assets.Keys;
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
@@ -243,18 +246,18 @@ namespace NeonStarEditor
 
                         localY += comboBox.Height + 5;
                     }
-                    else if (pi.PropertyType.IsSubclassOf(typeof(NeonEngine.Component)))
+                    else if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                     {
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = SelectedEntity.Components.Where(compo => compo.GetType().Equals(pi.PropertyType)).ToArray<NeonEngine.Component>();
+                        bs.DataSource = SelectedEntity.Components.Where(compo => compo.GetType().Equals(pi.PropertyType)).ToArray<Component>();
                         if (bs.Count > 0)
                         {
                             ComboBox comboBox = new ComboBox();
                             comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                            comboBox.Location = new System.Drawing.Point(10, localY);
+                            comboBox.Location = new Point(10, localY);
                             comboBox.BindingContext = new BindingContext();
                             comboBox.DataSource = bs;
-                            comboBox.SelectedItem = (NeonEngine.Component)pi.GetValue(c, null);
+                            comboBox.SelectedItem = (Component)pi.GetValue(c, null);
                             gb.Controls.Add(comboBox);
                             PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
                             comboBox.SelectedValueChanged += Component_SelectedValueChanged;
@@ -269,7 +272,7 @@ namespace NeonStarEditor
                 Button InitButton = new Button();
                 InitButton.Text = "Reset";
                 InitButton.FlatStyle = FlatStyle.Flat;
-                InitButton.Location = new System.Drawing.Point(10, localY + 5);
+                InitButton.Location = new Point(10, localY + 5);
                 InitButton.Click += InitButton_Click;
                 InitButtons.Add(InitButton, c);
                 gb.Controls.Add(InitButton);
@@ -277,12 +280,12 @@ namespace NeonStarEditor
                 Button RemoveButton = new Button();
                 RemoveButton.Text = "Remove";
                 RemoveButton.FlatStyle = FlatStyle.Flat;
-                RemoveButton.Location = new System.Drawing.Point(InitButton.Width + 15, localY + 5);
+                RemoveButton.Location = new Point(InitButton.Width + 15, localY + 5);
                 RemoveButton.Click += RemoveButton_Click;
                 RemoveButtons.Add(RemoveButton, c);
                 gb.Controls.Add(RemoveButton);
 
-                this.Inspector.Controls.Add(gb);
+                Inspector.Controls.Add(gb);
             }
         }
 
@@ -311,7 +314,7 @@ namespace NeonStarEditor
         private void Component_SelectedValueChanged(object sender, EventArgs e)
         {
             PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
-            pcc.pi.SetValue(pcc.c, (NeonEngine.Component)((sender as ComboBox).SelectedValue), null);
+            pcc.pi.SetValue(pcc.c, (Component)((sender as ComboBox).SelectedValue), null);
         }
 
         void InitButton_Click(object sender, EventArgs e)
@@ -321,11 +324,11 @@ namespace NeonStarEditor
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            ActionManager.SaveAction(ActionType.DeleteComponent, new object[4] { RemoveButtons[(Button)sender].GetType(), DataManager.SaveComponentParameters(RemoveButtons[(Button)sender] as NeonEngine.Component), GameWorld.SelectedEntity, this });
+            ActionManager.SaveAction(ActionType.DeleteComponent, new object[4] { RemoveButtons[(Button)sender].GetType(), DataManager.SaveComponentParameters(RemoveButtons[(Button)sender] as Component), GameWorld.SelectedEntity, this });
         
             RemoveButtons[(Button)sender].Remove();
             Entity CurrentEntity = GameWorld.SelectedEntity;
-            this.InstantiateProperties(CurrentEntity);
+            InstantiateProperties(CurrentEntity);
         }    
 
         void EntityName_Validated(object sender, EventArgs e)
@@ -382,25 +385,25 @@ namespace NeonStarEditor
 
         private void AddComponent_Click(object sender, EventArgs e)
         {
-            if (this.GameWorld.SelectedEntity != null)
+            if (GameWorld.SelectedEntity != null)
             {
                 if (ComponentList.Text != "ScriptComponent")
                 {
                     Entity CurrentEntity = GameWorld.SelectedEntity;
 
-                    NeonEngine.Component c = (NeonEngine.Component)Activator.CreateInstance((Type)ComponentList.SelectedValue, CurrentEntity);
+                    Component c = (Component)Activator.CreateInstance((Type)ComponentList.SelectedValue, CurrentEntity);
                     c.Init();
                     c.ID = CurrentEntity.GetLastID() + 1;
                     CurrentEntity.AddComponent(c);
                     ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
-                    this.InstantiateProperties(CurrentEntity);
+                    InstantiateProperties(CurrentEntity);
                 }
                 else
                 {
-                    if (OpenScript.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    if (OpenScript.ShowDialog() == DialogResult.OK)
                     {
                         Type resultType = Neon.NeonScripting.CompileScript(OpenScript.FileName);
-                        List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(NeonEngine.Component)) && !(t.IsAbstract)));
+                        List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                         if (Neon.Scripts != null)
                             Components.AddRange(Neon.Scripts);
                         Components.Add(typeof(ScriptComponent));

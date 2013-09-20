@@ -12,14 +12,16 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework.Graphics;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+
 #endregion
 
 namespace WinFormsGraphicsDevice
 {
     // System.Drawing and the XNA Framework both define Color and Rectangle
     // types. To avoid conflicts, we specify exactly which ones to use.
-    using Color = System.Drawing.Color;
-    using Rectangle = Microsoft.Xna.Framework.Rectangle;
+    using Color = Color;
+    using Rectangle = Rectangle;
     using System.ComponentModel.Design;
 
 
@@ -190,7 +192,7 @@ namespace WinFormsGraphicsDevice
                 Rectangle sourceRectangle = new Rectangle(0, 0, ClientSize.Width,
                                                                 ClientSize.Height);
 
-                GraphicsDevice.Present(sourceRectangle, null, this.Handle);
+                GraphicsDevice.Present(sourceRectangle, null, Handle);
             }
             catch
             {

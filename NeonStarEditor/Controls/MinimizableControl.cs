@@ -19,7 +19,7 @@ namespace NeonStarEditor
         public string MaxButtonName = "MaximizeButton";
         public string LeftButtonName = "Left";
         public string RightButtonName = "Right";
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MinimizableControl));
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(MinimizableControl));
 
         public MinimizableControl()
         {
@@ -33,26 +33,26 @@ namespace NeonStarEditor
             if(!Side)
                 if (!Reverse)
                 {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, this.Height - this.MinimizeButton.Height - 3);
+                    MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MinButtonName)));
+                    ButtonLocation = new Point(Width - MinimizeButton.Width - 3, Height - MinimizeButton.Height - 3);
                 }
                 else
                 {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, 3);
+                    MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MaxButtonName)));
+                    ButtonLocation = new Point(Width - MinimizeButton.Width - 3, 3);
                 }
             else
                 if (!Reverse)
                 {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
-                    ButtonLocation = new Point(this.Width - this.MinimizeButton.Width - 3, this.Height - this.MinimizeButton.Height -3);
+                    MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(RightButtonName)));
+                    ButtonLocation = new Point(Width - MinimizeButton.Width - 3, Height - MinimizeButton.Height -3);
                 }
                 else
                 {
-                    this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
-                    ButtonLocation = new Point(3, this.Height - this.MinimizeButton.Height - 3);
+                    MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(LeftButtonName)));
+                    ButtonLocation = new Point(3, Height - MinimizeButton.Height - 3);
                 }
-            this.MinimizeButton.Location = new Point(this.Width - this.MinimizeButton.Width - 3, 3);
+            MinimizeButton.Location = new Point(Width - MinimizeButton.Width - 3, 3);
             base.OnLoad(e);
         }
 
@@ -63,40 +63,40 @@ namespace NeonStarEditor
                 if (!Side)
                 {
                     if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MinButtonName)));
                     else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
-                    this.Height = this.MinimumSize.Height;
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MaxButtonName)));
+                    Height = MinimumSize.Height;
                 }
                 else
                 {
                     if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(RightButtonName)));
                     else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
-                    this.Width = this.MinimumSize.Width;
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(LeftButtonName)));
+                    Width = MinimumSize.Width;
                 }
-                this.Minimized = true;
+                Minimized = true;
             }
             else
             {
                 if (!Side)
                 {
                     if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MaxButtonName)));
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MaxButtonName)));
                     else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(MinButtonName)));
-                    this.Height = this.MaximumSize.Height;
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(MinButtonName)));
+                    Height = MaximumSize.Height;
                 }
                 else
                 {
                     if (!Reverse)
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(LeftButtonName)));
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(LeftButtonName)));
                     else
-                        this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject(RightButtonName)));
-                    this.Width = this.MaximumSize.Width;
+                        MinimizeButton.BackgroundImage = ((Image)(resources.GetObject(RightButtonName)));
+                    Width = MaximumSize.Width;
                 }              
-                this.Minimized = false;
+                Minimized = false;
             }
         }
     }

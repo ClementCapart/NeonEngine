@@ -57,12 +57,12 @@ namespace NeonStarLibrary
 
             waypoints = (Waypoints)AddComponent(new Waypoints(this));
             waypoints.FollowPath = false;
-            this.initialPosition = Position;
+            initialPosition = Position;
 
-            this.rigidbody.UseGravity = false;
+            rigidbody.UseGravity = false;
             ChangeAnimation(IdleAnim);
             fight.Remove();
-            fight = (Fight)AddComponent(new Fight(this.hitbox, new Rectangle(110, 100, 100, 100), this));
+            fight = (Fight)AddComponent(new Fight(hitbox, new Rectangle(110, 100, 100, 100), this));
             //AddComponent(new HitboxRenderer(fight, containerWorld));
         }
 
@@ -75,7 +75,7 @@ namespace NeonStarLibrary
                     DeathAnim.opacity -= 0.02f;
 
                 if (DeathAnim.opacity <= 0)
-                    this.Destroy();
+                    Destroy();
             }
             else if(State == 0)
             {
@@ -86,9 +86,9 @@ namespace NeonStarLibrary
                 {
                     if (TimerSummon > DelaySummon)
                     {
-                        Minion m = new Minion(initialPosition + new Vector2(-100, 0) + new Vector2(0, this.hitbox.Height / 2 - 32), ElementType.Steel, 0, containerWorld, 200f);
-                        m.waypoints.AddWaypoint(initialPosition + new Vector2(-100,this.hitbox.Height / 2 - 32));
-                        m.waypoints.AddWaypoint(initialPosition + new Vector2(-1800, this.hitbox.Height / 2 - 32));
+                        Minion m = new Minion(initialPosition + new Vector2(-100, 0) + new Vector2(0, hitbox.Height / 2 - 32), ElementType.Steel, 0, containerWorld, 200f);
+                        m.waypoints.AddWaypoint(initialPosition + new Vector2(-100,hitbox.Height / 2 - 32));
+                        m.waypoints.AddWaypoint(initialPosition + new Vector2(-1800, hitbox.Height / 2 - 32));
                         containerWorld.AddEntity(m);
                         Counter++;
                         TimerSummon = 0f;
@@ -147,7 +147,7 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    if (avatar.transform.Position.X <= this.transform.Position.X)
+                    if (avatar.transform.Position.X <= transform.Position.X)
                     {
                         CurrentSide = SideDirection.Left;
                         currentSpriteSheet.spriteEffects = SpriteEffects.FlipHorizontally;
@@ -169,8 +169,8 @@ namespace NeonStarLibrary
                         }
                         return -1;
                     },
-                    CoordinateConversion.screenToWorld(this.transform.Position),
-                    CoordinateConversion.screenToWorld(this.transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -this.hitbox.Width / 2 - 40 : this.hitbox.Width / 2 + 40), this.hitbox.Height / 2)));
+                    CoordinateConversion.screenToWorld(transform.Position),
+                    CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - 40 : hitbox.Width / 2 + 40), hitbox.Height / 2)));
 
                     if (PlayerInRange)
                     {
@@ -190,9 +190,9 @@ namespace NeonStarLibrary
                             else if (ShotAnim.currentFrame == 7 && !hasShot)
                             {
                                 if (CurrentSide == SideDirection.Right)
-                                    containerWorld.AddEntity(new Bullet(this.transform.Position + new Vector2(150, 0), "Bullet", Vector2.UnitX, containerWorld));
+                                    containerWorld.AddEntity(new Bullet(transform.Position + new Vector2(150, 0), "Bullet", Vector2.UnitX, containerWorld));
                                 else
-                                    containerWorld.AddEntity(new Bullet(this.transform.Position + new Vector2(-190, 0), "Bullet", -Vector2.UnitX, containerWorld));
+                                    containerWorld.AddEntity(new Bullet(transform.Position + new Vector2(-190, 0), "Bullet", -Vector2.UnitX, containerWorld));
                                 hasShot = true;
                             }
                             else if (ShotAnim.currentFrame == ShotAnim.spriteSheetInfo.FrameCount - 1)
@@ -216,7 +216,7 @@ namespace NeonStarLibrary
                 {
                     if (LaunchBombAnim.currentFrame == 12)
                     {
-                        BombSpawned = new Bomb(this.transform.Position + (CurrentSide == SideDirection.Left ? new Vector2(-70, -50) : new Vector2(70, -50)), this.containerWorld, this);
+                        BombSpawned = new Bomb(transform.Position + (CurrentSide == SideDirection.Left ? new Vector2(-70, -50) : new Vector2(70, -50)), containerWorld, this);
                         containerWorld.entities.Add(BombSpawned);
                     }
                 }

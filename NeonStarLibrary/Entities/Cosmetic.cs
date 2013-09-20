@@ -27,8 +27,8 @@ namespace NeonStarLibrary.Entities
         public Cosmetic(Vector2 Position, string SpriteSheetTag, float DrawLayer, World containerWorld)
             : base(containerWorld)
         {
-            this.transform.Position = Position;
-            this.spriteSheetTag = SpriteSheetTag;
+            transform.Position = Position;
+            spriteSheetTag = SpriteSheetTag;
             spriteSheet = (SpriteSheet)AddComponent(new SpriteSheet(AssetManager.GetSpriteSheet(spriteSheetTag), DrawLayer, this));
             spriteSheet.Init();
         }

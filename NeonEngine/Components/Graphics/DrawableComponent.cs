@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NeonEngine
 {
@@ -16,7 +17,7 @@ namespace NeonEngine
             this.Layer = Layer;
         }
 
-        public virtual void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
         }
 

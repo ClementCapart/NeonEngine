@@ -80,7 +80,7 @@ namespace NeonEngine
             {
                 if (ShapeType == BodyShapeType.Rectangle)
                 {
-                    GenerateVectorList((int)value, (int)this.Height);
+                    GenerateVectorList((int)value, (int)Height);
                     hitboxRectangle.Width = (int)value;
                 }
                 else if (ShapeType == BodyShapeType.Circle)
@@ -102,7 +102,7 @@ namespace NeonEngine
             {
                 if (ShapeType == BodyShapeType.Rectangle)
                 {
-                    GenerateVectorList((int)this.Width, (int)value);
+                    GenerateVectorList((int)Width, (int)value);
                     hitboxRectangle.Height = (int)value;
                 }
                 else if (ShapeType == BodyShapeType.Circle)
@@ -122,13 +122,13 @@ namespace NeonEngine
 
         public override void Init()
         {
-            this.Center = entity.transform.Position;            
+            Center = entity.transform.Position;            
             base.Init();
         }
 
         public override void Update(GameTime gameTime)
         {
-            this.Center = entity.transform.Position;
+            Center = entity.transform.Position;
             base.Update(gameTime);
         }
         public void GenerateVectorList(int Width, int Height)

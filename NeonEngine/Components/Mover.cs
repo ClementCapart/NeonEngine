@@ -61,16 +61,16 @@ namespace NeonEngine
             :base(entity, "Mover")
         {
             RigidbodyRemoved = new ComponentRemoved(RemoveRigidbody);
-            this.startPosition = entity.transform.Position;
+            startPosition = entity.transform.Position;
         }
 
         public override void Init()
         {
-            this.startPosition = entity.transform.Position;
+            startPosition = entity.transform.Position;
             base.Init();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (rigidbody != null)
                 Console.WriteLine("Hey I'm here !");
@@ -82,14 +82,14 @@ namespace NeonEngine
                     if (CurrentDirection == SideDirection.Left)
                     {
 
-                        this.entity.transform.Position -= new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
-                        if (Math.Abs(startPosition.X - this.entity.transform.Position.X) >= range)
+                        entity.transform.Position -= new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
+                        if (Math.Abs(startPosition.X - entity.transform.Position.X) >= range)
                             CurrentDirection = SideDirection.Right;
                     }
                     else if (CurrentDirection == SideDirection.Right)
                     {
-                        this.entity.transform.Position += new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
-                        if (Math.Abs(startPosition.X - this.entity.transform.Position.X) >= range)
+                        entity.transform.Position += new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
+                        if (Math.Abs(startPosition.X - entity.transform.Position.X) >= range)
                             CurrentDirection = SideDirection.Left;
                     }
                 }

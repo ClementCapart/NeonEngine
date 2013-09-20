@@ -19,7 +19,7 @@ namespace NeonStarEditor
             currentWorld.entityList.Add(entity);
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             entity.transform.Position = Neon.Input.MousePosition;
             if (Neon.Input.MousePressed(MouseButton.LeftButton))

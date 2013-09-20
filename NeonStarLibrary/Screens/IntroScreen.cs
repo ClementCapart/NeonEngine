@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -56,13 +57,13 @@ namespace NeonStarLibrary
                 }
             }
             else
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Start))
+                if (Neon.Input.Pressed(Buttons.Start))
                     Started = true;
 
             base.Update(gameTime);
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             Texture2D videoTexture = null;
 

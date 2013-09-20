@@ -12,6 +12,7 @@ using System.Reflection;
 using System.ComponentModel;
 using Microsoft.Xna.Framework.Input;
 using NeonEngine;
+using Keys = Microsoft.Xna.Framework.Input.Keys;
 
 namespace NeonStarEditor
 {
@@ -42,7 +43,7 @@ namespace NeonStarEditor
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
         {
-            this.GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
+            GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
             entityList = new BindingList<Entity>(entities);
             game.IsMouseVisible = true;
@@ -68,26 +69,26 @@ namespace NeonStarEditor
 
         void GameAsForm_MouseLeave(object sender, EventArgs e)
         {
-            this.MouseInGameWindow = false;
+            MouseInGameWindow = false;
         }
 
         void GameAsForm_MouseEnter(object sender, EventArgs e)
         {
-            this.MouseInGameWindow = true;
+            MouseInGameWindow = true;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (this.CurrentTool != null && this.MouseInGameWindow)
-                this.CurrentTool.Update(gameTime);
+            if (CurrentTool != null && MouseInGameWindow)
+                CurrentTool.Update(gameTime);
 
-            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && this.MouseInGameWindow)
-                this.camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
+            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && MouseInGameWindow)
+                camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
 
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.F) && FocusedTextBox == null && FocusedNumericUpDown == null)
+            if (Neon.Input.Pressed(Keys.F) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 FocusEntity = !FocusEntity;
 
-            if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.H) && FocusedTextBox == null && FocusedNumericUpDown == null)
+            if (Neon.Input.Pressed(Keys.H) && FocusedTextBox == null && FocusedNumericUpDown == null)
             {
                 if (EditorVisible)
                 {
@@ -104,18 +105,18 @@ namespace NeonStarEditor
             }
 
             if (Neon.Input.MouseWheel() > 0)
-                this.camera.Zoom += 0.1f;
+                camera.Zoom += 0.1f;
             else if (Neon.Input.MouseWheel() < 0)
-                this.camera.Zoom -= 0.1f;
+                camera.Zoom -= 0.1f;
 
             if (Neon.Input.MousePressed(MouseButton.MiddleButton))
-                this.camera.Zoom = 1f;
+                camera.Zoom = 1f;
 
             if (FocusEntity && SelectedEntity != null)
-                this.camera.SmoothFollow(SelectedEntity);
+                camera.SmoothFollow(SelectedEntity);
 
-            if (((Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.LeftControl) || Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.RightControl))&& Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.Z))
-                || (Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.LeftControl) || Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.RightControl))&& Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Z))
+            if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
+                || (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))&& Neon.Input.Pressed(Keys.Z))
                 ActionManager.Undo();
 
             base.Update(gameTime);
@@ -141,12 +142,12 @@ namespace NeonStarEditor
             base.ManualDrawGame(spriteBatch);
         }
 
-        public override void ManualDrawHUD(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
+        public override void ManualDrawHUD(SpriteBatch sb)
         {
             sb.End();
             sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
-            if (this.CurrentTool != null)
-                this.CurrentTool.Draw(sb);
+            if (CurrentTool != null)
+                CurrentTool.Draw(sb);
             sb.End();
             sb.Begin();
             base.ManualDrawHUD(sb);
@@ -169,7 +170,7 @@ namespace NeonStarEditor
         {
             if (SelectedEntity != null)
             {
-                foreach (PropertyComponentControl pcc in this.RightDockControl.InspectorControl.PropertyControlList)
+                foreach (PropertyComponentControl pcc in RightDockControl.InspectorControl.PropertyControlList)
                 {
                     if (pcc.ctrl.Name == "X")
                     {
@@ -192,9 +193,9 @@ namespace NeonStarEditor
                     }
                 }
 
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
+                if (Neon.Input.Pressed(Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 {
-                    ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(this.SelectedEntity), this });
+                    ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
                     RightDockControl.InspectorControl.ClearInspector();
@@ -217,12 +218,12 @@ namespace NeonStarEditor
 
                          int LastSelectionStart = FocusedTextBox.SelectionStart;
                          FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
-                             Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.LeftShift) || Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
+                             Neon.Input.Pressed(Keys.LeftShift) || Neon.Input.Pressed(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
                          FocusedTextBox.SelectionStart = ++LastSelectionStart;
                      }
                      else
                      {
-                         if (Neon.Input.KeysPressed[i] == Microsoft.Xna.Framework.Input.Keys.Enter)
+                         if (Neon.Input.KeysPressed[i] == Keys.Enter)
                              FocusedTextBox.Parent.Focus();
                      }
             }
@@ -234,151 +235,151 @@ namespace NeonStarEditor
             {
                 for (int i = 0; i < Neon.Input.KeysPressed.Length; i++)
                 {
-                    if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && !(Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.LeftShift) || Neon.Input.Check(Microsoft.Xna.Framework.Input.Keys.RightShift)))
+                    if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && !(Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift)))
                     {
                         int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
 
                         switch(Neon.Input.KeysPressed[i])
                         {
-                            case Microsoft.Xna.Framework.Input.Keys.D0:
+                            case Keys.D0:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "0");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D1:
+                            case Keys.D1:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "1");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D2:
+                            case Keys.D2:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "2");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D3:
+                            case Keys.D3:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "3");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D4:
+                            case Keys.D4:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "4");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D5:
+                            case Keys.D5:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "5");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D6:
+                            case Keys.D6:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "6");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D7:
+                            case Keys.D7:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "7");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D8:
+                            case Keys.D8:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "8");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.D9:
+                            case Keys.D9:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "9");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad0:
+                            case Keys.NumPad0:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "0");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad1:
+                            case Keys.NumPad1:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "1");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad2:
+                            case Keys.NumPad2:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "2");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad3:
+                            case Keys.NumPad3:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "3");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad4:
+                            case Keys.NumPad4:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "4");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad5:
+                            case Keys.NumPad5:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "5");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad6:
+                            case Keys.NumPad6:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "6");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad7:
+                            case Keys.NumPad7:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "7");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad8:
+                            case Keys.NumPad8:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "8");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.NumPad9:
+                            case Keys.NumPad9:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "9");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.OemPeriod:
+                            case Keys.OemPeriod:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 ",");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.OemComma:
+                            case Keys.OemComma:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 ",");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.Subtract:
+                            case Keys.Subtract:
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "-");
                             (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                             break;
 
-                            case Microsoft.Xna.Framework.Input.Keys.Enter:
+                            case Keys.Enter:
                             FocusedNumericUpDown.Parent.Focus();
                             break;
                         }                       
@@ -386,7 +387,7 @@ namespace NeonStarEditor
                     else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]))
                     {
                         int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
-                        if (Neon.Input.KeysPressed[i] == Microsoft.Xna.Framework.Input.Keys.D6)
+                        if (Neon.Input.KeysPressed[i] == Keys.D6)
                         {
                             FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
                                 "-");
@@ -411,10 +412,10 @@ namespace NeonStarEditor
 
         public override void ReloadLevel()
         {
-            this.LeftDockControl.Dispose();
-            this.BottomDockControl.Dispose();
-            this.RightDockControl.Dispose();
-            ChangeScreen(new EditorScreen(game, this.graphics));
+            LeftDockControl.Dispose();
+            BottomDockControl.Dispose();
+            RightDockControl.Dispose();
+            ChangeScreen(new EditorScreen(game, graphics));
         }
     }
 }

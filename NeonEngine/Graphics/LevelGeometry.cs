@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FarseerPhysics.Dynamics.Contacts;
+using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
 using Microsoft.Xna.Framework;
 using FarseerPhysics.Dynamics;
@@ -31,7 +33,7 @@ namespace NeonEngine
             : base(containerWorld)
         {
             this.wallType = wallType;
-            this.transform.Position = Position;
+            transform.Position = Position;
             this.containerWorld = containerWorld;
             rigidbody = AddComponent(new Rigidbody(this));
             rigidbody.BodyType = BodyType.Static;
@@ -46,11 +48,11 @@ namespace NeonEngine
                     Width = (int)Math.Abs(vertice.X);
             }
 
-            renderer = new PolygonRenderer(Neon.graphicsDevice, this.transform.Position, rigidbody.verticesList);
+            renderer = new PolygonRenderer(Neon.graphicsDevice, transform.Position, rigidbody.verticesList);
             renderer.Color = wallType == WallType.Solid ? Color.Purple : Color.Green;
         }
 
-        bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, FarseerPhysics.Dynamics.Contacts.Contact contact)
+        bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
         {
  	        if(wallType == WallType.OneWay)
             {
@@ -61,7 +63,7 @@ namespace NeonEngine
                 if(EntityA != null)
                 {
                     Hitbox hitbox = EntityA.GetComponent<Hitbox>();
-                    if (hitbox != null && EntityA.transform.Position.Y + hitbox.Height / 2 + offset > this.transform.Position.Y)
+                    if (hitbox != null && EntityA.transform.Position.Y + hitbox.Height / 2 + offset > transform.Position.Y)
                     {
                         contact.Enabled = false;
                         return false;
@@ -71,7 +73,7 @@ namespace NeonEngine
                 if (EntityB != null)
                 {
                     Hitbox hitbox = EntityB.GetComponent<Hitbox>();
-                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > this.transform.Position.Y)
+                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > transform.Position.Y)
                     {
                         contact.Enabled = false;
                         return false;
@@ -90,7 +92,7 @@ namespace NeonEngine
         }
 
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             if (Neon.DrawGeometry)
                 renderer.Draw(spriteBatch);

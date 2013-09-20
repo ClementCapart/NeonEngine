@@ -14,7 +14,7 @@ using NeonStarLibrary;
 
 namespace NeonStar
 {
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Game1 : Game
     {
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -30,6 +30,7 @@ namespace NeonStar
         {
             base.Initialize();
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
+            Neon.Input.AssignCustomControls(typeof(NeonStarInput));
             Neon.clearColor = Color.Black;
             #if DEBUG
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
@@ -52,7 +53,7 @@ namespace NeonStar
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+                Exit();
 
             Neon.world.UpdateWorld(gameTime);
             base.Update(gameTime);

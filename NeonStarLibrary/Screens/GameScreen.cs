@@ -22,20 +22,20 @@ namespace NeonStarLibrary
         public GameScreen(Game game)
             : base(game)
         {
-            this.enemies = new List<Enemy>();
-            this.LoadLevel(new Level(@"Levels\Level_0-0", this, true));
+            enemies = new List<Enemy>();
+            LoadLevel(new Level(@"Levels\Level_0-0", this, true));
             avatar = new Avatar(this, new Vector2(-550, 200));
             avatar.Name = "Li-On";
             AddEntity(avatar);
-            this.camera.Position = new Vector2(-100, 0);
+            camera.Position = new Vector2(-100, 0);
         }
 
         public override void Update(GameTime gameTime)
         {
             if (Neon.Input.Check(Buttons.RightThumbstickLeft))
-                this.camera.Position -= new Vector2(10, 0);
+                camera.Position -= new Vector2(10, 0);
             if (Neon.Input.Check(Buttons.RightThumbstickRight))
-                this.camera.Position += new Vector2(10, 0);
+                camera.Position += new Vector2(10, 0);
 
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;

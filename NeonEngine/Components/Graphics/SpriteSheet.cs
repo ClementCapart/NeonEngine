@@ -25,7 +25,7 @@ namespace NeonEngine
             {
                 spriteSheetTag = value;
                 spriteSheetInfo = AssetManager.GetSpriteSheet(value);
-                this.Init();
+                Init();
             }
         }
 
@@ -52,7 +52,7 @@ namespace NeonEngine
         public SpriteSheet(SpriteSheetInfo ssi, float Layer, Vector2 Position, Entity entity)
             :base(Layer, entity, "Spritesheet")
         {
-            this.spriteSheetInfo = ssi;
+            spriteSheetInfo = ssi;
             this.Position = Position;
             isHUD = true;
         }
@@ -85,10 +85,10 @@ namespace NeonEngine
             }
 
             currentFrame = 0;
-            if (spriteSheetInfo.FPS == 0)
+            if (spriteSheetInfo.Fps == 0)
                 isPlaying = false;
             else
-                timePerFrame = 1 / spriteSheetInfo.FPS;
+                timePerFrame = 1 / spriteSheetInfo.Fps;
         }
 
         public override void Update(GameTime gameTime = null)
@@ -102,7 +102,7 @@ namespace NeonEngine
                         if (IsLooped)
                             currentFrame = 0;
                         else
-                            this.isPlaying = false;
+                            isPlaying = false;
                     }
                     else
                         currentFrame++;

@@ -96,7 +96,7 @@ namespace NeonEngine
                             else if (pi.PropertyType.IsEnum)
                                 pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Single)))
-                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture),  null);
+                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture),  null);
                             else if (pi.PropertyType.Equals(typeof(bool)))
                                 pi.SetValue(component, bool.Parse(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Int32)))

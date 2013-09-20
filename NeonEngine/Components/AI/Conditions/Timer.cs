@@ -1,4 +1,5 @@
-﻿using NeonEngine.AI;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine.AI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace NeonEngine.AI
 
         }
 
-        public override bool Check(Microsoft.Xna.Framework.GameTime gameTime)
+        public override bool Check(GameTime gameTime)
         {
             _CurrentTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 

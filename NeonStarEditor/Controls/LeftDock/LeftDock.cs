@@ -16,11 +16,11 @@ namespace NeonStarEditor
         public LeftDock(EditorScreen GameWorld)
         {
             InitializeComponent();
-            this.Width = this.MinimumSize.Width;
-            this.Reverse = false;
-            this.Side = true;
+            Width = MinimumSize.Width;
+            Reverse = false;
+            Side = true;
             this.GameWorld = GameWorld;
-            this.MainToolbar.GameWorld = this.GameWorld;
+            MainToolbar.GameWorld = this.GameWorld;
         }
 
         private void ReloadButton_Click(object sender, EventArgs e)

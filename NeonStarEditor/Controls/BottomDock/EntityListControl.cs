@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -26,19 +27,19 @@ namespace NeonStarEditor
         {
             if (GameWorld != null)
             {
-                this.EntityListBox.DataSource = GameWorld.entityList;
-                this.EntityListBox.DisplayMember = "Name";
-                this.EntityListBox.SelectedItem = null;
+                EntityListBox.DataSource = GameWorld.entityList;
+                EntityListBox.DisplayMember = "Name";
+                EntityListBox.SelectedItem = null;
             }
             base.OnLoad(e);
         }
 
         private void RemoveEntityButton_Click(object sender, EventArgs e)
         {
-            if (this.GameWorld.SelectedEntity != null)
+            if (GameWorld.SelectedEntity != null)
             {
                 ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld });
-                this.GameWorld.SelectedEntity.Destroy();
+                GameWorld.SelectedEntity.Destroy();
                 GameWorld.SelectedEntity = null;
             }
             else
@@ -57,7 +58,7 @@ namespace NeonStarEditor
         {
             if (GameWorld.SelectedEntity != null)
             {
-                SavePrefabDialog.InitialDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Application.ExecutablePath), @"Prefabs");
+                SavePrefabDialog.InitialDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"Prefabs");
                 SavePrefabDialog.FileName = GameWorld.SelectedEntity.Name;
                 if (SavePrefabDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -69,7 +70,7 @@ namespace NeonStarEditor
 
         private void EntityListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GameWorld.SelectedEntity = (Entity)this.EntityListBox.SelectedItem;
+            GameWorld.SelectedEntity = (Entity)EntityListBox.SelectedItem;
             if (GameWorld.SelectedEntity != null)
                 GameWorld.RefreshInspector(GameWorld.SelectedEntity);
             else
