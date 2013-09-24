@@ -28,7 +28,7 @@ namespace NeonStar
 
         protected override void Initialize()
         {
-            base.Initial();
+            base.Initialize();
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
             Neon.Input.AssignCustomControls(typeof(NeonStarInput));
             Neon.clearColor = Color.Black;
