@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="Level Geometry">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <Position Value="{X:551 Y:-5}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+        <Properties>
+          <Center Value="{X:551 Y:-4}" />
+          <X Value="403" />
+          <Y Value="-18" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="296" />
+          <Height Value="28" />
+        </Properties>
+      </Hitbox>
+      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+        <Properties>
+          <BodyType Value="Static" />
+          <Sensors Value="False" />
+          <UseGravity Value="True" />
+          <Restitution Value="0" />
+          <Friction Value="0,3" />
+          <OneWayPlatform Value="True" />
+          <Hitbox Value="1" />
+        </Properties>
+      </Rigidbody>
+    </Components>
+  </Entity>
+</Prefab>

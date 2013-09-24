@@ -35,7 +35,7 @@ namespace NeonStarEditor
             if (GameWorld != null)
             {
                 List<string> PrefabsList;
-                PrefabsList = new List<string>(Directory.GetFiles("Prefabs"));
+                PrefabsList = new List<string>(Directory.GetFiles(@"../Data/Prefabs"));
                 for (int i = PrefabsList.Count - 1; i >= 0; i--)
                     PrefabsList[i] = Path.GetFileNameWithoutExtension(PrefabsList[i]);
                 PrefabListBox.DataSource = PrefabsList;
@@ -44,7 +44,7 @@ namespace NeonStarEditor
 
         private void AddPrefabButton_Click(object sender, EventArgs e)
         {
-            string path = @"Prefabs/" + PrefabListBox.Text + ".prefab";
+            string path = @"../Data/Prefabs/" + PrefabListBox.Text + ".prefab";
             DataManager.LoadPrefab(path, GameWorld);
             ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
         }

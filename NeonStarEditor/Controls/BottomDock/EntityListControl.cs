@@ -58,7 +58,7 @@ namespace NeonStarEditor
         {
             if (GameWorld.SelectedEntity != null)
             {
-                SavePrefabDialog.InitialDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"Prefabs");
+                SavePrefabDialog.InitialDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"../Data/Prefabs");
                 SavePrefabDialog.FileName = GameWorld.SelectedEntity.Name;
                 if (SavePrefabDialog.ShowDialog() == DialogResult.OK)
                 {

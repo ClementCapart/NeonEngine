@@ -17,7 +17,7 @@ namespace NeonStarLibrary
         public HoloRoom(Game game)
             :base(game)
         {
-            LoadLevel(new Level(@"Levels\Level_0-1", this, true));
+            LoadLevel(new Level(@"..\Data\Levels\Level_0-1", this, true));
             avatar = new Avatar(this, new Vector2(-561, 200));
             AddEntity(avatar);
 

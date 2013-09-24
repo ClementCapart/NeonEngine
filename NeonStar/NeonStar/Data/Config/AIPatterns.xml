@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Patterns>
+    <Pattern ID="10" Name="Test01">
+      <States>
+        <State ID="1" Name="Test">
+          <Condition Type="NeonEngine.AI.Timer" ID="1">
+            <Setting Name="TargetTimer">30</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="2">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="0">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+        </State>
+        <State ID="2" Name="TestNumber2">
+          <Condition Type="NeonEngine.AI.Timer" ID="3">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+        </State>
+        <State ID="3" Name="Blabla">
+          <Condition Type="NeonEngine.AI.Timer" ID="4">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="5">
+            <Setting Name="TargetTimer">5</Setting>
+            <Setting Name="StartingTimer">5</Setting>
+          </Condition>
+          <Action Type="NeonEngine.AI.Shoot">
+            <Setting Name="Delay">0</Setting>
+            <Setting Name="BulletSpeed">0</Setting>
+          </Action>
+        </State>
+      </States>
+      <ConditionLinks>
+        <Link>
+          <Condition ID="1" />
+          <State ID="2" />
+        </Link>
+        <Link>
+          <Condition ID="2" />
+          <State ID="2" />
+        </Link>
+        <Link>
+          <Condition ID="3" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="4" />
+          <State ID="1" />
+        </Link>
+        <Link>
+          <Condition ID="5" />
+          <State ID="3" />
+        </Link>
+      </ConditionLinks>
+    </Pattern>
+    <Pattern ID="12" Name="Test02">
+      <States>
+        <State ID="1" Name="Test">
+          <Condition Type="NeonEngine.AI.Timer" ID="1">
+            <Setting Name="TargetTimer">30</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="2">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="0">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Action Type="NeonEngine.AI.Shoot">
+            <Setting Name="Delay">0</Setting>
+            <Setting Name="BulletSpeed">0</Setting>
+          </Action>
+          <Action Type="NeonEngine.AI.Shoot">
+            <Setting Name="Delay">3</Setting>
+            <Setting Name="BulletSpeed">4</Setting>
+          </Action>
+          <Action Type="NeonEngine.AI.Shoot">
+            <Setting Name="Delay">0</Setting>
+            <Setting Name="BulletSpeed">0</Setting>
+          </Action>
+        </State>
+        <State ID="2" Name="TestNumber2">
+          <Condition Type="NeonEngine.AI.Timer" ID="3">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="0">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+        </State>
+        <State ID="3" Name="Blabla">
+          <Condition Type="NeonEngine.AI.Timer" ID="4">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="5">
+            <Setting Name="TargetTimer">5</Setting>
+            <Setting Name="StartingTimer">5</Setting>
+          </Condition>
+          <Action Type="NeonEngine.AI.Shoot">
+            <Setting Name="Delay">0</Setting>
+            <Setting Name="BulletSpeed">0</Setting>
+          </Action>
+        </State>
+      </States>
+      <ConditionLinks>
+        <Link>
+          <Condition ID="1" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="2" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="3" />
+          <State ID="2" />
+        </Link>
+        <Link>
+          <Condition ID="4" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="5" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="0" />
+          <State ID="2" />
+        </Link>
+      </ConditionLinks>
+    </Pattern>
+    <Pattern ID="13" Name="Untitled">
+      <States>
+        <State ID="3" Name="Test">
+          <Condition Type="NeonEngine.AI.Timer" ID="0">
+            <Setting Name="TargetTimer">30</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="1">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="2">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+        </State>
+        <State ID="4" Name="Untitled">
+          <Condition Type="NeonEngine.AI.Timer" ID="3">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+          <Condition Type="NeonEngine.AI.Timer" ID="4">
+            <Setting Name="TargetTimer">0</Setting>
+            <Setting Name="StartingTimer">0</Setting>
+          </Condition>
+        </State>
+      </States>
+      <ConditionLinks>
+        <Link>
+          <Condition ID="0" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="1" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="2" />
+          <State ID="3" />
+        </Link>
+        <Link>
+          <Condition ID="3" />
+          <State ID="4" />
+        </Link>
+        <Link>
+          <Condition ID="4" />
+          <State ID="4" />
+        </Link>
+      </ConditionLinks>
+    </Pattern>
+  </Patterns>
+</XnaContent>

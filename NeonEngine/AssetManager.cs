@@ -72,7 +72,7 @@ namespace NeonEngine
 
             _spritesheetList = new Dictionary<string, SpriteSheetInfo>();
 
-            List<string> filesPath = DirectorySearch("ContentStream");
+            List<string> filesPath = DirectorySearch(@"../Data/ContentStream");
             
             foreach (string s in filesPath)
             {

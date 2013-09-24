@@ -65,7 +65,7 @@ namespace NeonStarEditor
         #region Load & Save
         private void LoadStateFile()
         {
-            Stream stream = File.OpenRead(@"Data\AIStates.xml");
+            Stream stream = File.OpenRead(@"../Data/Config/AIStates.xml");
 
             XDocument document = XDocument.Load(stream);
 
@@ -117,7 +117,7 @@ namespace NeonStarEditor
 
             stream.Close();
 
-            stream = File.OpenRead(@"Data\AIPatterns.xml");
+            stream = File.OpenRead(@"../Data/Config/AIPatterns.xml");
 
             document = XDocument.Load(stream);
 
@@ -180,7 +180,7 @@ namespace NeonStarEditor
 
         private void SaveAI_Click(object sender, EventArgs e)
         {
-            Stream stream = File.Create(@"Data\AIPatterns.xml");
+            Stream stream = File.Create(@"../Data/Config/AIPatterns.xml");
 
             XDocument document = new XDocument();
 
@@ -253,7 +253,7 @@ namespace NeonStarEditor
 
         private void SaveState_Click(object sender, EventArgs e)
         {
-           Stream stream = File.Create(@"Data\AIStates.xml");
+           Stream stream = File.Create(@"../Data/Config/AIStates.xml");
 
             XDocument document = new XDocument();
 

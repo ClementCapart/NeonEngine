@@ -74,12 +74,12 @@ namespace NeonEngine
                 return;
             }
 
-            if (File.Exists(@"Data/Input.xml"))
+            if (File.Exists(@"../Data/Config/Input.xml"))
             {
                 EnumType = enumType;
                 CustomInputs = new Dictionary<string, Dictionary<string, string>>();
 
-                Stream stream = File.OpenRead(@"Data/Input.xml");
+                Stream stream = File.OpenRead(@"../Data/Config/Input.xml");
                 XDocument document = XDocument.Load(stream);
 
                 XElement neonInputs = document.Element("NeonInputs");
@@ -117,7 +117,7 @@ namespace NeonEngine
 
                 document.Add(neonInputs);
 
-                document.Save(@"Data/Input.xml");
+                document.Save(@"../Data/Config/Input.xml");
 
                 Console.WriteLine("Input.xml created with no input assigned.");
             }

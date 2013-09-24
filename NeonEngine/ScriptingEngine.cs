@@ -24,9 +24,9 @@ namespace NeonEngine
             
             parameters.OutputAssembly = "NeonScripts";
             parameters.ReferencedAssemblies.Add("NeonEngine.dll");
-            parameters.ReferencedAssemblies.Add(@"XNA/Microsoft.Xna.Framework.dll");
-            parameters.ReferencedAssemblies.Add(@"XNA/Microsoft.Xna.Framework.Game.dll");
-            parameters.ReferencedAssemblies.Add(@"XNA/Microsoft.Xna.Framework.Graphics.dll");
+            parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.dll");
+            parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.Game.dll");
+            parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.Graphics.dll");
         }
 
         public Type[] CompileScripts()
@@ -36,10 +36,10 @@ namespace NeonEngine
 
             Type[] componentTypes = null;
 
-            if (!Directory.Exists(@"Scripts"))
-                Directory.CreateDirectory("Scripts");
+            if (!Directory.Exists(@"../Data/Scripts"))
+                Directory.CreateDirectory("../Data/Scripts");
 
-            CompilerResults results = codeProvider.CompileAssemblyFromFile(parameters, Directory.EnumerateFiles(@"Scripts").ToArray());
+            CompilerResults results = codeProvider.CompileAssemblyFromFile(parameters, Directory.EnumerateFiles(@"../Data/Scripts").ToArray());
 
             if (results.Errors.Count > 0)
             {
@@ -122,7 +122,7 @@ namespace NeonEngine
                     Console.WriteLine(componentType.Name + " (Script) loaded !");
 
                     Neon.Scripts.Add(componentType);
-                    File.Copy(path, @"Scripts\" + Path.GetFileName(path), true);
+                    File.Copy(path, @"..\Data\Scripts\" + Path.GetFileName(path), true);
                     Console.WriteLine("Script copied in Scripts directory.");
                     Console.WriteLine("");
                     Console.WriteLine("");

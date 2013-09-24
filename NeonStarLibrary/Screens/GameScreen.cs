@@ -23,7 +23,7 @@ namespace NeonStarLibrary
             : base(game)
         {
             enemies = new List<Enemy>();
-            LoadLevel(new Level(@"Levels\Level_0-0", this, true));
+            LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
             avatar = new Avatar(this, new Vector2(-550, 200));
             avatar.Name = "Li-On";
             AddEntity(avatar);
