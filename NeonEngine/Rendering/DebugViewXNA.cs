@@ -223,7 +223,7 @@ namespace NeonEngine
 
                             for (int i = 0; i < polygon.Vertices.Count; i++)
                             {
-                                Vector2 tmp = MathUtils.Multiply(ref xf, polygon.Vertices[i]);
+                                Vector2 tmp = MathUtils.Mul(ref xf, polygon.Vertices[i]);
                                 DrawPoint(tmp, 0.1f, Color.Red);
                             }
                         }
@@ -288,7 +288,7 @@ namespace NeonEngine
                 {
                     Transform xf;
                     b.GetTransform(out xf);
-                    xf.Position = b.WorldCenter;
+                    xf.p = b.WorldCenter;
                     DrawTransform(ref xf);
                 }
             }
@@ -431,12 +431,12 @@ namespace NeonEngine
             if (!joint.IsFixedType())
             {
                 b2.GetTransform(out xf2);
-                x2 = xf2.Position;
+                x2 = xf2.p;
             }
 
             Vector2 p1 = joint.WorldAnchorA;
             Vector2 p2 = joint.WorldAnchorB;
-            Vector2 x1 = xf1.Position;
+            Vector2 x1 = xf1.p;
 
             Color color = new Color(0.5f, 0.8f, 0.8f);
 
@@ -503,9 +503,9 @@ namespace NeonEngine
                     {
                         CircleShape circle = (CircleShape)fixture.Shape;
 
-                        Vector2 center = MathUtils.Multiply(ref xf, circle.Position);
+                        Vector2 center = MathUtils.Mul(ref xf, circle.Position);
                         float radius = circle.Radius;
-                        Vector2 axis = xf.R.Col1;
+                        Vector2 axis = xf.q.GetXAxis();
 
                         DrawSolidCircle(center, radius, axis, color);
                     }
@@ -519,7 +519,7 @@ namespace NeonEngine
 
                         for (int i = 0; i < vertexCount; ++i)
                         {
-                            _tempVertices[i] = MathUtils.Multiply(ref xf, poly.Vertices[i]);
+                            _tempVertices[i] = MathUtils.Mul(ref xf, poly.Vertices[i]);
                         }
 
                         DrawSolidPolygon(_tempVertices, vertexCount, color);
@@ -530,25 +530,9 @@ namespace NeonEngine
                 case ShapeType.Edge:
                     {
                         EdgeShape edge = (EdgeShape)fixture.Shape;
-                        Vector2 v1 = MathUtils.Multiply(ref xf, edge.Vertex1);
-                        Vector2 v2 = MathUtils.Multiply(ref xf, edge.Vertex2);
+                        Vector2 v1 = MathUtils.Mul(ref xf, edge.Vertex1);
+                        Vector2 v2 = MathUtils.Mul(ref xf, edge.Vertex2);
                         DrawSegment(v1, v2, color);
-                    }
-                    break;
-
-                case ShapeType.Loop:
-                    {
-                        LoopShape loop = (LoopShape)fixture.Shape;
-                        int count = loop.Vertices.Count;
-
-                        Vector2 v1 = MathUtils.Multiply(ref xf, loop.Vertices[count - 1]);
-                        DrawCircle(v1, 0.05f, color);
-                        for (int i = 0; i < count; ++i)
-                        {
-                            Vector2 v2 = MathUtils.Multiply(ref xf, loop.Vertices[i]);
-                            DrawSegment(v1, v2, color);
-                            v1 = v2;
-                        }
                     }
                     break;
             }
@@ -696,12 +680,12 @@ namespace NeonEngine
         public override void DrawTransform(ref Transform transform)
         {
             const float axisScale = 0.4f;
-            Vector2 p1 = transform.Position;
+            Vector2 p1 = transform.p;
 
-            Vector2 p2 = p1 + axisScale * transform.R.Col1;
+            Vector2 p2 = p1 + axisScale * transform.q.GetXAxis();
             DrawSegment(p1, p2, Color.Red);
 
-            p2 = p1 + axisScale * transform.R.Col2;
+            p2 = p1 + axisScale * transform.q.GetYAxis();
             DrawSegment(p1, p2, Color.Green);
         }
 

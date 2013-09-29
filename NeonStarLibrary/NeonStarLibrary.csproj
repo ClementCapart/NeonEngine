@@ -54,10 +54,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FarseerPhysicsXNA, Version=3.3.4708.41353, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\FarseerPhysicsXNA.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -105,6 +101,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\FarseerPhysics\FarseerPhysics.csproj">
+      <Project>{873320b4-f7c8-4cd0-bf30-2d288db5076f}</Project>
+      <Name>FarseerPhysics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeonEngine\NeonEngine.csproj">
       <Project>{d168d98d-dbb1-4171-bf17-e48b82c8dc48}</Project>
       <Name>NeonEngine</Name>
