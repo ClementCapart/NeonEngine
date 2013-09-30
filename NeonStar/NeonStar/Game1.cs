@@ -22,7 +22,6 @@ namespace NeonStar
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.SynchronizeWithVerticalRetrace = false;
             Content.RootDirectory = "Content";
         }
 
