@@ -22,12 +22,17 @@ namespace NeonStar
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.SynchronizeWithVerticalRetrace = true;
+            IsFixedTimeStep = false;
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
             base.Initialize();
+            
+            
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
             Neon.Input.AssignCustomControls(typeof(NeonStarInput));
             Neon.clearColor = Color.Black;
@@ -35,9 +40,9 @@ namespace NeonStar
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
             #else
             Neon.world = new GameScreen(this);
-            graphics.IsFullScreen = true;
-            graphics.ApplyChanges();
-            #endif
+            graphics.ToggleFullScreen();
+            //graphics.ApplyChanges();
+#endif
         }
 
         protected override void LoadContent()

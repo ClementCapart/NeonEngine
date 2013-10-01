@@ -17,7 +17,7 @@ namespace NeonStarLibrary
     public class Avatar : Entity
     {
         public event ChangedBody ChangedItsBody;
-        Dash dash;
+        //Dash dash;
         public Fight fight;
 
         public SpriteSheet GunAnim;
@@ -83,7 +83,7 @@ namespace NeonStarLibrary
             rigidbody.body.FixedRotation = true;
             rigidbody.Friction = 10f;
             rigidbody.body.Mass = 0.5f;
-            dash = (Dash)AddComponent(new Dash(200, rigidbody));
+            //dash = (Dash)AddComponent(new Dash(200, rigidbody));
 
             AddComponent(new LifeBar(this));
             elementsManager = (ElementsManager)AddComponent(new ElementsManager(this, new Vector2(110, 100)));
@@ -109,11 +109,7 @@ namespace NeonStarLibrary
             ShieldFront = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectFront"), 0.4f, this);
             ShieldFront.Init();
             ShieldBack = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectBack"), 0.6f, this);
-            ShieldBack.Init();
-
-
-            
-           
+            ShieldBack.Init();     
 
             //AddComponent(new HitboxRenderer(fight));
         }

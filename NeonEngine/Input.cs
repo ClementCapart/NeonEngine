@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace NeonEngine
         private GamePadState gps, _gps;
 
         private Dictionary<string, Dictionary<string, string>> CustomInputs;
+        private float _ThumbstickThreshold = 0.5f;
         Type EnumType;
 
         private Vector2 mousePosition;
@@ -83,6 +85,7 @@ namespace NeonEngine
                 XDocument document = XDocument.Load(stream);
 
                 XElement neonInputs = document.Element("NeonInputs");
+                _ThumbstickThreshold = float.Parse(neonInputs.Element("ThumbstickThreshold").Attribute("Value").Value, CultureInfo.InvariantCulture);
 
                 foreach (XElement input in neonInputs.Elements("Input"))
                 {
@@ -101,7 +104,9 @@ namespace NeonEngine
                 string[] enumValues = Enum.GetNames(enumType);
                 XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
                 XElement neonInputs = new XElement("NeonInputs");
-               
+                XElement ThresholdValue = new XElement("ThumbstickThreshold", new XAttribute("Value", 0.5f));
+                neonInputs.Add(ThresholdValue);
+
                 for (int i = 0; i < enumValues.Length - 1; i++)
                 {
                     XElement input = new XElement("Input", new XAttribute("Name", enumValues[i]));
@@ -193,9 +198,55 @@ namespace NeonEngine
                                 return true;
                         }
                         else if (kvp.Key == "XboxController")
-                        {
-                            if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
-                                return true;
+                        {                              
+                            switch((Buttons)Enum.Parse(typeof(Buttons), kvp.Value))
+                            {
+                                case Buttons.LeftThumbstickLeft:
+                                    if (gps.ThumbSticks.Left.X <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickRight:
+                                    if (gps.ThumbSticks.Left.X >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickUp:
+                                    if (gps.ThumbSticks.Left.Y >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickDown:
+                                    if (gps.ThumbSticks.Left.Y <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickLeft:
+                                    if (gps.ThumbSticks.Right.X <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickRight:
+                                    if (gps.ThumbSticks.Right.X >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickUp:
+                                    if (gps.ThumbSticks.Right.Y >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickDown:
+                                    if (gps.ThumbSticks.Right.Y <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                default:
+                                    if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                        return true;
+                                    break;
+                            }                          
+                            
                         }
                     }
                        
