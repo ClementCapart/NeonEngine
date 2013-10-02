@@ -36,9 +36,8 @@ namespace NeonStarEditor
 
         public BindingList<Entity> entityList = new BindingList<Entity>();
 
-        public Form XNAWindow;
         public GraphicsDeviceManager graphics;
-
+        public bool IsActiveForm = false;
 
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
@@ -64,7 +63,6 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
-            XNAWindow = (Form)Form.FromHandle(this.game.Window.Handle);
         }
 
         void GameAsForm_MouseLeave(object sender, EventArgs e)
@@ -79,6 +77,8 @@ namespace NeonStarEditor
 
         public override void Update(GameTime gameTime)
         {
+            this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
+
             if (CurrentTool != null && MouseInGameWindow)
                 CurrentTool.Update(gameTime);
 

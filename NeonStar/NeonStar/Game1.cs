@@ -49,8 +49,11 @@ namespace NeonStar
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
             #else
             Neon.world = new GameScreen(this);
-            graphics.ToggleFullScreen();
-            //graphics.ApplyChanges();
+            IntPtr hWnd = this.Window.Handle;
+            var control = System.Windows.Forms.Control.FromHandle(hWnd);
+            var form = control.FindForm();
+            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 #endif
         }
 

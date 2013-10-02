@@ -21,7 +21,7 @@ namespace NeonStarEditor
             {
                 currentWorld.CurrentTool = null;
             }
-            if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.XNAWindow.Focused)
+            if (Neon.Input.MousePressed(MouseButton.LeftButton))
             {
                 Waypoints w = currentWorld.SelectedEntity.GetComponent<Waypoints>();
                 if (w != null)

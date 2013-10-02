@@ -31,7 +31,7 @@ namespace NeonStarEditor
         {
             Fixture fixture;
             Vector2 position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
-            if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.XNAWindow.Focused)
+            if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.IsActiveForm)
             {
                 fixture = currentWorld.physicWorld.TestPoint(position);
                 if (fixture != null)
@@ -44,8 +44,26 @@ namespace NeonStarEditor
                 }
                 else
                 {
-                    currentWorld.SelectedEntity = null;
-                    currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = null;
+                    bool NoSelection = true;
+
+                    foreach (Entity e in currentWorld.entities)
+                    {
+                        if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
+                            && Neon.Input.MousePosition.Y >= e.transform.Position.Y - 30 && Neon.Input.MousePosition.Y <= e.transform.Position.Y + 30)
+                        {
+                            currentWorld.SelectedEntity = e;
+                            currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = currentWorld.SelectedEntity;
+                            NoSelection = false;
+                            break;
+                        }
+
+                    }
+
+                    if (NoSelection)
+                    {
+                        currentWorld.SelectedEntity = null;
+                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = null;
+                    }
                 }
             } 
         }
@@ -54,17 +72,22 @@ namespace NeonStarEditor
         {
             if (Neon.Input.MousePressed(MouseButton.RightButton))
             {
-                TransformState = DataManager.SaveComponentParameters(currentWorld.SelectedEntity.transform);
+                if(currentWorld.SelectedEntity != null)
+                    TransformState = DataManager.SaveComponentParameters(currentWorld.SelectedEntity.transform);
             }
-            if (Neon.Input.MouseCheck(MouseButton.RightButton))
+            if (Neon.Input.MouseCheck(MouseButton.RightButton) && currentWorld.IsActiveForm)
             {
                 if (currentWorld.SelectedEntity != null)
                     currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom ;
             }
             if (Neon.Input.MouseReleased(MouseButton.RightButton))
             {
-                ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
-                TransformState = null;
+                if (currentWorld.SelectedEntity != null)
+                {
+                    ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
+                    TransformState = null;
+                }
+                
             }
         }
     }
