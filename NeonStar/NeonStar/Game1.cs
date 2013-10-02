@@ -19,6 +19,12 @@ namespace NeonStar
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        long time = 0;
+        const long dt = TimeSpan.TicksPerSecond / 60;
+
+        long currentTime = 0;
+        long accumulator = 0;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -35,6 +41,9 @@ namespace NeonStar
             
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
             Neon.Input.AssignCustomControls(typeof(NeonStarInput));
+            Neon.NeonScripting.AddAssembly("NeonStarLibrary.dll");
+            Neon.NeonScripting.CompileScripts();
+
             Neon.clearColor = Color.Black;
             #if DEBUG
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
@@ -58,9 +67,19 @@ namespace NeonStar
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
+            long deltaTime = gameTime.TotalGameTime.Ticks - currentTime;
+            currentTime = gameTime.TotalGameTime.Ticks;
 
-            Neon.world.UpdateWorld(gameTime);
-            base.Update(gameTime);
+            accumulator += deltaTime;
+
+            while (accumulator >= dt)
+            {
+                Neon.world.UpdateWorld(gameTime);
+                base.Update(gameTime);
+
+                time += dt;
+                accumulator -= dt;
+            }
         }
 
         protected override void Draw(GameTime gameTime)

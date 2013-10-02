@@ -116,6 +116,9 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
+
+            if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3, NeonStarInput.MoveUp))
+                Console.WriteLine("Input ok");
             if (!Armored)
             {
                 if (ShieldAdded)

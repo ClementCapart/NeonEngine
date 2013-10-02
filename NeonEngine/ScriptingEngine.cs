@@ -29,6 +29,11 @@ namespace NeonEngine
             parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.Graphics.dll");
         }
 
+        public void AddAssembly(string AssemblyPath)
+        {
+            parameters.ReferencedAssemblies.Add(AssemblyPath);
+        }
+
         public Type[] CompileScripts()
         {
             Console.WriteLine("All scripts loading...");

@@ -31,6 +31,9 @@ namespace NeonEngine
 
         private Dictionary<string, Dictionary<string, string>> CustomInputs;
         private float _ThumbstickThreshold = 0.5f;
+
+        private Dictionary<Keys, long> KeyboardPressedDelays = new Dictionary<Keys,long>();
+        private Dictionary<Buttons, long> ControllerPressedDelays = new Dictionary<Buttons, long>();
         Type EnumType;
 
         private Vector2 mousePosition;
@@ -116,7 +119,6 @@ namespace NeonEngine
                     inputMethod = new XElement("InputMethod", new XAttribute("Name", "XboxController"));
                     inputMethod.Value = "None";
                     input.Add(inputMethod);
-
                     neonInputs.Add(input);
                 }             
 
@@ -134,6 +136,10 @@ namespace NeonEngine
             ms = Mouse.GetState();
             gps = GamePad.GetState(PlayerIndex.One);
 
+            if (EnumType != null)
+                foreach (var EnumValue in Enum.GetValues(EnumType))
+                    this.RegisterForDelay(EnumValue);
+
             screenMousePosition.X = ms.X;
             screenMousePosition.Y = ms.Y;
 
@@ -145,6 +151,19 @@ namespace NeonEngine
                 MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
 
             keysPressed = ks.GetPressedKeys();
+            for(int i = KeyboardPressedDelays.Count - 1; i >= 0; i--)
+                if (this.Released(KeyboardPressedDelays.ElementAt(i).Key))
+                {
+                    KeyboardPressedDelays.Remove(KeyboardPressedDelays.ElementAt(i).Key);                
+                }
+
+
+            for (int i = ControllerPressedDelays.Count - 1; i >= 0; i--)
+                if (this.Released(ControllerPressedDelays.ElementAt(i).Key))
+                {
+                    ControllerPressedDelays.Remove(ControllerPressedDelays.ElementAt(i).Key);   
+                }
+                  
         }
 
         public void LastFrameState()
@@ -156,6 +175,73 @@ namespace NeonEngine
         }
 
         #region Custom input functions
+
+        public DelayStatus CheckPressedDelay<T>(T NeonCustomInput, double Delay)
+        {
+            if (CustomInputs[NeonCustomInput.ToString()] != null)
+            {
+                foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                {
+                    if (kvp.Value == "None")
+                        continue;
+
+                    if (kvp.Key == "Keyboard")
+                    {
+                        Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+                        if (DateTime.Now.Ticks - KeyboardPressedDelays[currentKey] <= TimeSpan.TicksPerSecond * Delay)
+                            return DelayStatus.Valid;
+                        else
+                            return DelayStatus.Passed;
+                    }
+                    else if (kvp.Key == "XboxController")
+                    {
+                        Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                        if (DateTime.Now.Ticks - ControllerPressedDelays[currentButton] <= TimeSpan.TicksPerSecond * Delay)
+                            return DelayStatus.Valid;
+                        else
+                            return DelayStatus.Passed;
+                    }
+                }
+            }
+
+            return DelayStatus.NotStarted;
+        }
+
+        private void RegisterForDelay<T>(T NeonCustomInput)
+        {
+            if (NeonCustomInput.GetType() != EnumType)
+                return;
+            else
+                if (CustomInputs[NeonCustomInput.ToString()] != null)
+                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                    {
+                        if (kvp.Value == "None")
+                            continue;
+
+                        if (kvp.Key == "Keyboard")
+                        {
+                            Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+
+                            if (this.Pressed(currentKey))
+                            {
+                                KeyboardPressedDelays.Add((Keys)Enum.Parse(typeof(Keys), kvp.Value), DateTime.Now.Ticks);
+                                return;
+                            }
+                        }
+                        else if (kvp.Key == "XboxController")
+                        {
+                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                            if (this.Pressed(currentButton))
+                            {
+                                ControllerPressedDelays.Add(currentButton, DateTime.Now.Ticks);
+                                return;
+                            }
+                        }
+                    }
+        }
+
         public bool Pressed<T>(T NeonCustomInput)
         {
             if (NeonCustomInput.GetType() != EnumType)
@@ -169,18 +255,26 @@ namespace NeonEngine
 
                         if (kvp.Key == "Keyboard")
                         {
-                            if (this.Pressed((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
-                                return true;
+                            Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+
+                            if (this.Pressed(currentKey))
+                            {
+                                return true;                              
+                            }
                         }
                         else if (kvp.Key == "XboxController")
                         {
-                            if (this.Pressed((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                            if (this.Pressed(currentButton))
+                            {
                                 return true;
+                            }
                         }
                     }
-
             return false;
         }
+
         public bool Check<T>(T NeonCustomInput)
         {
             if (NeonCustomInput.GetType() != EnumType)
@@ -245,8 +339,7 @@ namespace NeonEngine
                                     if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
                                         return true;
                                     break;
-                            }                          
-                            
+                            }                                                     
                         }
                     }
                        
@@ -279,6 +372,42 @@ namespace NeonEngine
 
             return false;
         }
+
+        //Need at least the first  button of the combo just pressed and the others at least checked
+        public bool PressedComboInput<T>(T NeonCustomTriggerInput, double DelayMaxValidation, params T[] NeonCustomInputs)
+        {
+            if (this.Pressed(NeonCustomTriggerInput))
+            {
+                for (int i = 0; i < NeonCustomInputs.Length; i++)
+                {
+                    if (!this.Check(NeonCustomInputs[i]))
+                        return false;
+                }
+
+                return true;
+            }
+            else if (this.Check(NeonCustomTriggerInput))
+            {
+                if (CheckPressedDelay(NeonCustomTriggerInput, DelayMaxValidation) == DelayStatus.Valid)                
+                {
+                    bool OnePressed = false;
+
+                    for (int i = 0; i < NeonCustomInputs.Length; i++)
+                    {
+                        if (this.Pressed(NeonCustomInputs[i]))
+                            OnePressed = true;
+                        else if (!this.Check(NeonCustomInputs[i]))
+                            return false;
+                    }
+
+                    if(OnePressed)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
         #endregion
 
         #region Keyboard functions

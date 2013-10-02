@@ -59,4 +59,11 @@
     {
         HorizontalScroll, VerticalScroll, FreeScroll
     }
+
+    public enum DelayStatus
+    {
+        Passed,
+        NotStarted,
+        Valid
+    }
 }
