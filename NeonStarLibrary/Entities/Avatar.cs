@@ -73,7 +73,6 @@ namespace NeonStarLibrary
             hitbox.Width = 40;
             hitbox.Height = 136;
             hitbox.Init();
-            fight = AddComponent(new Fight(hitbox, new Rectangle(35, 0, 40, 60), this));
             
             rigidbody = AddComponent(new Rigidbody(this));
             rigidbody.BodyType = BodyType.Dynamic;
@@ -112,13 +111,12 @@ namespace NeonStarLibrary
             ShieldBack.Init();     
 
             //AddComponent(new HitboxRenderer(fight));
+            AddComponent(new MeleeFight(this));
         }
 
         public override void Update(GameTime gameTime)
         {
 
-            if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3, NeonStarInput.MoveUp))
-                Console.WriteLine("Input ok");
             if (!Armored)
             {
                 if (ShieldAdded)
@@ -142,70 +140,60 @@ namespace NeonStarLibrary
 
             if (!NoControl)
             {
-                if (!fight.isHitting)
+                if (Neon.Input.Check(NeonStarInput.MoveLeft) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -4)
                 {
-                    if (Neon.Input.Check(NeonStarInput.MoveLeft) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -4)
-                    {
-                        rigidbody.body.LinearVelocity += new Vector2(-0.5f, 0);
-                        if (Spritesheets.CurrentSpritesheetName != "Run")
-                            Spritesheets.ChangeAnimation("Run");
-                        currentAttackSide = SideDirection.Left;
-                        Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
-                    }
-                    else if (Neon.Input.Check(NeonStarInput.MoveRight) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 4)
-                    {
-                        rigidbody.body.LinearVelocity += new Vector2(0.5f, 0);
-                        if (Spritesheets.CurrentSpritesheetName != "Run" && (Spritesheets.CurrentSpritesheetName != "Jump" || rigidbody.body.LinearVelocity.Y > -0.1f))
-                            Spritesheets.ChangeAnimation("Run");
-                        currentAttackSide = SideDirection.Right;
-                        Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
-                    }
-                    else
-                    {
-                        if (rigidbody.isGrounded && (rigidbody.body.LinearVelocity.X < 0.1f && rigidbody.body.LinearVelocity.X > -0.1f) && (Spritesheets.CurrentSpritesheetName != "FireRing" || (Spritesheets.CurrentSpritesheetName == "FireRing" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1))
-                        && (Spritesheets.CurrentSpritesheetName != "Shot" || (Spritesheets.CurrentSpritesheetName == "Shot" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)) && Spritesheets.CurrentSpritesheetName != "Idle")
-                            Spritesheets.ChangeAnimation("Idle");
-                    }
+                    rigidbody.body.LinearVelocity += new Vector2(-0.5f, 0);
+                    if (Spritesheets.CurrentSpritesheetName != "Run")
+                        Spritesheets.ChangeAnimation("Run");
+                    currentAttackSide = SideDirection.Left;
+                    Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
+                }
+                else if (Neon.Input.Check(NeonStarInput.MoveRight) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 4)
+                {
+                    rigidbody.body.LinearVelocity += new Vector2(0.5f, 0);
+                    if (Spritesheets.CurrentSpritesheetName != "Run" && (Spritesheets.CurrentSpritesheetName != "Jump" || rigidbody.body.LinearVelocity.Y > -0.1f))
+                        Spritesheets.ChangeAnimation("Run");
+                    currentAttackSide = SideDirection.Right;
+                    Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
+                }
+                else
+                {
+                    if (rigidbody.isGrounded && (rigidbody.body.LinearVelocity.X < 0.1f && rigidbody.body.LinearVelocity.X > -0.1f) && (Spritesheets.CurrentSpritesheetName != "FireRing" || (Spritesheets.CurrentSpritesheetName == "FireRing" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1))
+                    && (Spritesheets.CurrentSpritesheetName != "Shot" || (Spritesheets.CurrentSpritesheetName == "Shot" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)) && Spritesheets.CurrentSpritesheetName != "Idle")
+                        Spritesheets.ChangeAnimation("Idle");
+                }
 
-                    if (Neon.Input.Check(NeonStarInput.MoveLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)
-                    {
-                        rigidbody.body.LinearVelocity += new Vector2(-0.3f, 0);
-                        currentAttackSide = SideDirection.Left;
-                        Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
-                    }
-                    else if (Neon.Input.Check(NeonStarInput.MoveRight) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 3)
-                    {
-                        rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
-                        currentAttackSide = SideDirection.Right;
-                        Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
-                    }
-                    if (Neon.Input.Check(NeonStarInput.Jump))
-                    {
-                        if (Neon.Input.Check(NeonStarInput.MoveDown))
-                            GoDown();
-                        else
-                            if (Neon.Input.Pressed(NeonStarInput.Jump) && rigidbody.isGrounded && !isCrouched)
-                                rigidbody.body.LinearVelocity += new Vector2(0, -6f);
-                    }
+                if (Neon.Input.Check(NeonStarInput.MoveLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)
+                {
+                    rigidbody.body.LinearVelocity += new Vector2(-0.3f, 0);
+                    currentAttackSide = SideDirection.Left;
+                    Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
+                }
+                else if (Neon.Input.Check(NeonStarInput.MoveRight) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 3)
+                {
+                    rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
+                    currentAttackSide = SideDirection.Right;
+                    Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
+                }
+                if (Neon.Input.Check(NeonStarInput.Jump))
+                {
+                    if (Neon.Input.Check(NeonStarInput.MoveDown))
+                        GoDown();
+                    else
+                        if (Neon.Input.Pressed(NeonStarInput.Jump) && rigidbody.isGrounded && !isCrouched)
+                            rigidbody.body.LinearVelocity += new Vector2(0, -6f);
+                }
                          
 
-                    if (!rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > 3.5f)
-                        rigidbody.body.LinearVelocity -= new Vector2(0.3f, 0);
-                    else if (!rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < -3.5f)
-                        rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
+                if (!rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > 3.5f)
+                    rigidbody.body.LinearVelocity -= new Vector2(0.3f, 0);
+                else if (!rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < -3.5f)
+                    rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
                            
 
-                    if (Neon.Input.Pressed(NeonStarInput.Attack) && rigidbody.isGrounded)
-                    {
-                        Spritesheets.ChangeAnimation((new Random().Next(0, 2) == 0 ? "Kick01" : "Kick02"));
-                        //fight.StartHit(currentAttackSide);
-                    }
-
-                   if(elementsManager != null)
-                        if (Neon.Input.Check(NeonStarInput.UseElement))
-                            elementsManager.UseElement();
-  
-                }
+                if(elementsManager != null)
+                    if (Neon.Input.Check(NeonStarInput.UseElement))
+                        elementsManager.UseElement();
             }
 
             base.Update(gameTime);

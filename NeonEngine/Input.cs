@@ -188,19 +188,26 @@ namespace NeonEngine
                     if (kvp.Key == "Keyboard")
                     {
                         Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
-                        if (DateTime.Now.Ticks - KeyboardPressedDelays[currentKey] <= TimeSpan.TicksPerSecond * Delay)
-                            return DelayStatus.Valid;
-                        else
-                            return DelayStatus.Passed;
+                        if (KeyboardPressedDelays.ContainsKey(currentKey))
+                        {
+                            if (DateTime.Now.Ticks - KeyboardPressedDelays[currentKey] <= TimeSpan.TicksPerSecond * Delay)
+                                return DelayStatus.Valid;
+                            else
+                                return DelayStatus.Passed;
+                        }
                     }
                     else if (kvp.Key == "XboxController")
                     {
                         Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
 
-                        if (DateTime.Now.Ticks - ControllerPressedDelays[currentButton] <= TimeSpan.TicksPerSecond * Delay)
-                            return DelayStatus.Valid;
-                        else
-                            return DelayStatus.Passed;
+                        if (ControllerPressedDelays.ContainsKey(currentButton))
+                        {
+                            if (DateTime.Now.Ticks - ControllerPressedDelays[currentButton] <= TimeSpan.TicksPerSecond * Delay)
+                                return DelayStatus.Valid;
+                            else
+                                return DelayStatus.Passed;
+                        }
+                        
                     }
                 }
             }

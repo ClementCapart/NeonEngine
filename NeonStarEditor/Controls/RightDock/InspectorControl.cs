@@ -56,6 +56,7 @@ namespace NeonStarEditor
                 if (Neon.Scripts != null)
                     Components.AddRange(Neon.Scripts);
                 Components.Add(typeof(ScriptComponent));
+                Components.AddRange(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(NeonStarLibrary.GameScreen)), "NeonStarLibrary").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                 ComponentList.DataSource = Components;
                 ComponentList.DisplayMember = "Name";
             }
