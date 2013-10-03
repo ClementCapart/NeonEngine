@@ -116,6 +116,8 @@ namespace NeonEngine
             entity.hitbox = this;
             vectors = new List<Vector2>();
             hitboxRectangle = new Rectangle();
+            this.Width = 50;
+            this.Height = 50;
 
             ShapeType = BodyShapeType.Rectangle;           
         }

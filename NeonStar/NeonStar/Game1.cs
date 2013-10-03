@@ -54,7 +54,7 @@ namespace NeonStar
             var form = control.FindForm();
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             form.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-#endif
+            #endif
         }
 
         protected override void LoadContent()
@@ -70,6 +70,7 @@ namespace NeonStar
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
+            
             long deltaTime = gameTime.TotalGameTime.Ticks - currentTime;
             currentTime = gameTime.TotalGameTime.Ticks;
 
@@ -87,9 +88,9 @@ namespace NeonStar
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Neon.clearColor);
-            Neon.world.Draw(spriteBatch);
-            base.Draw(gameTime);
+                GraphicsDevice.Clear(Neon.clearColor);
+                Neon.world.Draw(spriteBatch);
+                base.Draw(gameTime);
         }
     }
 }
