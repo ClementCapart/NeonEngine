@@ -37,7 +37,7 @@ namespace NeonEngine.Private
             this.Velocity = Velocity;
             this.AngularVelocity = AngularVelocity;          
             this.TimeToLive = TimeToLive;
-            spritesheet = AddComponent(new SpriteSheet(spriteSheetInfo, 0, this));
+            //spritesheet = AddComponent(new SpriteSheet(spriteSheetInfo, 0, this));
         }
 
         public override void Update(GameTime gameTime)

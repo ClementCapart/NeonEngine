@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using System.Reflection;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace NeonEngine
 {
@@ -103,6 +104,15 @@ namespace NeonEngine
                                 pi.SetValue(component, int.Parse(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(String)))
                                 pi.SetValue(component, Property.Attribute("Value").Value, null);
+                            else if (Property.Name == "Spritesheets")
+                            {
+                                Dictionary<string, SpriteSheetInfo> spritesheetList = new Dictionary<string, SpriteSheetInfo>();
+                                foreach (XElement Animation in Property.Elements("Animation"))
+                                {
+                                    spritesheetList.Add(Animation.Attribute("Name").Value, AssetManager.GetSpriteSheet(Animation.Attribute("SpritesheetTag").Value));
+                                }
+                                pi.SetValue(component, spritesheetList, null);
+                            }
                         }
 
                         component.Init();

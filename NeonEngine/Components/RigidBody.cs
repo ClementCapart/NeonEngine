@@ -30,7 +30,7 @@ namespace NeonEngine
         public List<Vector2> verticesList;
 
         private FarseerPhysics.Dynamics.World physicWorld;
-
+        
         BodyType bodyType;
         public BodyType BodyType
         {
@@ -38,19 +38,25 @@ namespace NeonEngine
             set { bodyType = value; }
         }
 
-        bool sensors;
-        public bool Sensors
+        private float gravityScale;
+        public float GravityScale
         {
-            get { return sensors; }
-            set 
-            { 
-                sensors = value;
-                if (sensors)
-                    beacon = new Beacon(hitbox, physicWorld);
+            get 
+            {
+                if (body != null)
+                    return body.GravityScale;
                 else
-                    beacon = null; 
+                    return gravityScale;
+            }
+            set 
+            {
+                if (body != null)
+                    body.GravityScale = value;
+                gravityScale = value;
             }
         }
+
+        
         bool useGravity;
         public bool UseGravity
         {
@@ -132,6 +138,31 @@ namespace NeonEngine
                 Init();
             }
         }
+
+        bool sensors;
+        public bool Sensors
+        {
+            get { return sensors; }
+            set { sensors = value; }
+        }
+
+        bool fixedRotation;
+        public bool FixedRotation
+        {
+            get 
+            {
+                if (body != null)
+                    return body.FixedRotation;
+                else
+                    return fixedRotation;
+            }
+            set 
+            {
+                if(body != null)
+                    body.FixedRotation = value;
+                fixedRotation = value; 
+            }
+        }
         
 
         public Rigidbody(Entity entity)
@@ -163,16 +194,19 @@ namespace NeonEngine
                         body = BodyFactory.CreateCircle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width / 2), 1f);
                         break;
                 }
-
+                body.FixedRotation = fixedRotation;
                 body.IgnoreGravity = useGravity;
                 body.Friction = friction;
                 body.Restitution = restitution;
+                body.GravityScale = gravityScale;
                 body.BodyType = bodyType;
                 body.Position = CoordinateConversion.screenToWorld(hitbox.Center);
                 if (entity.Name != "Entity")
                     body.OnCollision += body_OnCollision;
                 if (sensors)
                     beacon = new Beacon(hitbox, physicWorld);
+
+                
             }            
         }
 

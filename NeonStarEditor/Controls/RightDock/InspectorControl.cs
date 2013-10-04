@@ -175,6 +175,21 @@ namespace NeonStarEditor
 
                         localY += VectorX.Height + 5;
                     }
+                    else if (pi.PropertyType.Equals(typeof(string)))
+                    {
+                        TextBox tb = new TextBox();
+                        tb.Location = new Point(10, localY);
+                        tb.Width = 70;
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, tb));
+                        tb.GotFocus += tb_GotFocus;
+                        tb.LostFocus += tb_LostFocus;
+                        tb.Text = (string)pi.GetValue(c, null);
+
+                        gb.Controls.Add(tb);
+
+                        localY += tb.Height + 5;
+
+                    }
                     else if (pi.PropertyType.Equals(typeof(float)))
                     {
                         Vector2 NumValue = new Vector2((float)pi.GetValue(c, null), 0f);
@@ -267,6 +282,14 @@ namespace NeonStarEditor
                             localY += comboBox.Height + 5;
                         }
                     }
+                    else if (pi.Name == "Spritesheets")
+                    {
+                        SpritesheetInspector ssinspector = new SpritesheetInspector(SelectedEntity.spritesheets.Spritesheets, GameWorld);
+                        ssinspector.Location = new Point(10, localY);
+                        gb.Controls.Add(ssinspector);
+
+                        localY += ssinspector.Height + 5;
+                    }
                 }
 
                 Y += localY != 20 ? localY + 50 : gb.Height + 10;
@@ -288,6 +311,20 @@ namespace NeonStarEditor
 
                 Inspector.Controls.Add(gb);
             }
+        }
+
+        void tb_LostFocus(object sender, EventArgs e)
+        {
+            if (GameWorld.FocusedTextBox == (sender as TextBox))
+                GameWorld.FocusedTextBox = null;
+
+            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            pcc.pi.SetValue(pcc.c, ((sender as TextBox).Text), null);
+        }
+
+        void tb_GotFocus(object sender, EventArgs e)
+        {
+            GameWorld.FocusedTextBox = (sender as TextBox);
         }
 
         void VectorX_LostFocus(object sender, EventArgs e)

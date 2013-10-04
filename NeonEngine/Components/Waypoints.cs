@@ -20,7 +20,7 @@ namespace NeonEngine.Private
         public float Speed = 100f;
         Rigidbody rigidbody;
 
-        public SideDirection direction;
+        public Side direction;
 
         public Waypoints(Entity entity)
             :base(entity, "Waypoints")
@@ -43,7 +43,7 @@ namespace NeonEngine.Private
 
                         float Distance = Vector2.Distance(NextNode, waypoints[CurrentNode]);
                         Vector2 Direction = NextNode - waypoints[CurrentNode];
-                        direction = Direction.X < 0 ? SideDirection.Left : SideDirection.Right;
+                        direction = Direction.X < 0 ? Side.Left : Side.Right;
                         Direction.Normalize();
                         float CurrentDistance = Vector2.Distance(entity.transform.Position, waypoints[CurrentNode]);
 

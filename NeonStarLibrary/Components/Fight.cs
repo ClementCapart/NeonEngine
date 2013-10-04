@@ -13,7 +13,7 @@ namespace NeonStarLibrary
     {
         public bool isHitting;
 
-        public SideDirection currentAttackSide;
+        public Side currentAttackSide;
 
         public Hitbox MainHitbox;
         public List<Hitbox> AttackHitboxes;
@@ -29,7 +29,7 @@ namespace NeonStarLibrary
             AttackHitboxes = new List<Hitbox>();
         }
 
-        public void StartHit(SideDirection attackSide)
+        public void StartHit(Side attackSide)
         {
             if(!isHitting)
             {
@@ -58,7 +58,7 @@ namespace NeonStarLibrary
 
                     switch (currentAttackSide)
                     {
-                        case SideDirection.Left:
+                        case Side.Left:
                             AttackHitbox.OffsetX -= (100 * (float)Neon.elapsedTime / 1000);
                             if (((entity as Avatar).Spritesheets.CurrentSpritesheetName == "Kick01" || (entity as Avatar).Spritesheets.CurrentSpritesheetName == "Kick02") && (entity as Avatar).Spritesheets.IsFinished())
                             {
@@ -66,7 +66,7 @@ namespace NeonStarLibrary
                                 isHitting = false;
                             }
                             break;
-                        case SideDirection.Right:
+                        case Side.Right:
                             AttackHitbox.OffsetX += (100 * (float)Neon.elapsedTime / 1000);
                             if (((entity as Avatar).Spritesheets.CurrentSpritesheetName == "Kick01" || (entity as Avatar).Spritesheets.CurrentSpritesheetName == "Kick02") && (entity as Avatar).Spritesheets.IsFinished())
                             {

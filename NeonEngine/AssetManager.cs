@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -171,6 +172,14 @@ namespace NeonEngine
             }
             _spritesheetList.Add(name, ssi);
             return ssi;
+        }
+
+        static public string GetSpritesheetTag(SpriteSheetInfo ssi)
+        {
+            if (_spritesheetList.Where(p => p.Value == ssi).Count() > 0)
+                return _spritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
+            else
+                return null;
         }
 
         static public Effect GetEffect(string tag)

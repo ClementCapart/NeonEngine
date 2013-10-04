@@ -20,7 +20,7 @@
         Size4096 = 11,
     }
 
-    public enum SideDirection
+    public enum Side
     {
         Right, Down, Left, Up
     }

@@ -14,7 +14,7 @@ namespace NeonStarLibrary.Entities
         public float drawLayer
         {
             get { return spriteSheet.DrawLayer; }
-            set { spritesheet.DrawLayer = value; }
+            set { spritesheets.DrawLayer = value; }
         }
 
         private string _spriteSheetTag;

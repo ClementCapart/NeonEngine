@@ -86,22 +86,22 @@ namespace NeonStarLibrary
             if (_lightDelay > 0.0f)
             {
                 _lightDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                (entity as Avatar).NoControl = true;    ///DIRTY 
+                //(entity as Avatar).NoControl = true;    ///DIRTY 
             }
             else
             {
-                (entity as Avatar).NoControl = false;   ///DIRTY
+                //(entity as Avatar).NoControl = false;   ///DIRTY
                 _lightDelay = 0.0f;
             }
 
             if (_specialDelay > 0.0f)
             {
-                (entity as Avatar).NoControl = true;    ///DIRTY
+                //(entity as Avatar).NoControl = true;    ///DIRTY
                 _specialDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             else
             {
-                (entity as Avatar).NoControl = false;   ///DIRTY
+                //(entity as Avatar).NoControl = false;   ///DIRTY
                 _specialDelay = 0.0f;
             }
 

@@ -9,21 +9,14 @@ namespace NeonEngine
 {
     public class SpritesheetManager : DrawableComponent
     {
-        public Dictionary<string, SpriteSheet> SpritesheetList;
+        public Dictionary<string, SpriteSheetInfo> SpritesheetList = new Dictionary<string,SpriteSheetInfo>();
         public SpriteSheet CurrentSpritesheet;
         public string CurrentSpritesheetName;
 
-        public Dictionary<string, SpriteSheet> Spritesheets
+        public Dictionary<string, SpriteSheetInfo> Spritesheets
         {
             get { return SpritesheetList; }
-            set
-            { 
-                SpritesheetList = value;
-                foreach (KeyValuePair<string, SpriteSheet> kvp in SpritesheetList)
-                    kvp.Value.Init();
-                if(SpritesheetList.Count > 0)
-                CurrentSpritesheet = SpritesheetList.ElementAt(0).Value;
-            }
+            set { SpritesheetList = value;  }
         }
 
         public float DrawLayer
@@ -35,18 +28,20 @@ namespace NeonEngine
         public SpritesheetManager(Entity entity)
             :base(0, entity, "SpritesheetManager")
         {
-            
+            CurrentSpritesheet = new SpriteSheet(entity);
         }
 
         public override void Update(GameTime gameTime)
         {
-            CurrentSpritesheet.Update(gameTime);
+            if(CurrentSpritesheet != null)
+                CurrentSpritesheet.Update(gameTime);
             base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            CurrentSpritesheet.Draw(spriteBatch);
+            if (CurrentSpritesheet != null)
+                CurrentSpritesheet.Draw(spriteBatch);
             base.Draw(spriteBatch);
         }
 
@@ -60,12 +55,10 @@ namespace NeonEngine
 
         public void ChangeAnimation(string spriteSheetName, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
-            SpriteSheet spritesheet = SpritesheetList[spriteSheetName];
+            if (!SpritesheetList.ContainsKey(spriteSheetName))
+                return;
+            CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
 
-            if (CurrentSpritesheet != null)
-                spritesheet.spriteEffects = CurrentSpritesheet.spriteEffects;
-
-            CurrentSpritesheet = spritesheet;
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.isPlaying = IsPlaying;
             if (Reset)
@@ -73,6 +66,8 @@ namespace NeonEngine
             if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
                 CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;
+
+            CurrentSpritesheet.Init();
         }
             
     }

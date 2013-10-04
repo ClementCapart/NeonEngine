@@ -54,7 +54,7 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            currentSpriteSheet.spriteEffects = CurrentSide == SideDirection.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            currentSpriteSheet.spriteEffects = CurrentSide == Side.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             if (Dying)
             {
                 waypoints.FollowPath = false;
@@ -86,7 +86,7 @@ namespace NeonStarLibrary
                 {
                     waypoints.FollowPath = true;
 
-                    CurrentSide = waypoints.direction > 0 ? SideDirection.Left : SideDirection.Right;                
+                    CurrentSide = waypoints.direction > 0 ? Side.Left : Side.Right;                
                 }
 
                 bool PlayerInRange = false;
@@ -100,7 +100,7 @@ namespace NeonStarLibrary
                     return -1;
                 },
                 CoordinateConversion.screenToWorld(transform.Position),
-                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - AggroRange : hitbox.Width / 2 + AggroRange), 0)));
+                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == Side.Left ? -hitbox.Width / 2 - AggroRange : hitbox.Width / 2 + AggroRange), 0)));
 
                 if (PlayerInRange)
                     State = 1;
@@ -135,7 +135,7 @@ namespace NeonStarLibrary
                     return -1;
                 },
                 CoordinateConversion.screenToWorld(transform.Position),
-                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - AttackRange : hitbox.Width / 2 + AttackRange), 0)));
+                CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == Side.Left ? -hitbox.Width / 2 - AttackRange : hitbox.Width / 2 + AttackRange), 0)));
 
                 if (InAttackRange)
                 {
@@ -145,12 +145,12 @@ namespace NeonStarLibrary
                 {
                     if (avatar.transform.Position.X <= transform.Position.X)
                     {
-                        CurrentSide = SideDirection.Left;
+                        CurrentSide = Side.Left;
                         rigidbody.body.LinearVelocity = new Vector2(-1.5f, 0);
                     }
                     else
                     {
-                        CurrentSide = SideDirection.Right;
+                        CurrentSide = Side.Right;
                         rigidbody.body.LinearVelocity = new Vector2(1.5f, 0);
                     }
                 }
@@ -175,7 +175,7 @@ namespace NeonStarLibrary
                 {
                     if (LoadSmoke == null)
                     {
-                        LoadSmoke = new Feedback("DashLoadSmoke01", transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -10 : 10), hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld);
+                        LoadSmoke = new Feedback("DashLoadSmoke01", transform.Position + new Vector2((CurrentSide == Side.Left ? -10 : 10), hitbox.Height / 2 - 7), 0.5f, CurrentSide, 1f, containerWorld);
                         containerWorld.entities.Add(LoadSmoke);
                     }
                     else if (LoadSmoke.animation.isPlaying == false)
@@ -199,8 +199,8 @@ namespace NeonStarLibrary
             DashAnim.SetFrame(0);
             ChangeAnimation(DashAnim);
             IsAttacking = true;
-            DashTarget = transform.Position.X + (CurrentSide == SideDirection.Left ? -AttackRange : AttackRange);
-            rigidbody.body.LinearVelocity = new Vector2((CurrentSide == SideDirection.Left ? - 10 : 10), 0);
+            DashTarget = transform.Position.X + (CurrentSide == Side.Left ? -AttackRange : AttackRange);
+            rigidbody.body.LinearVelocity = new Vector2((CurrentSide == Side.Left ? - 10 : 10), 0);
             containerWorld.entities.Add(new Feedback("DashFire", transform.Position, 0.6f, CurrentSide, 1f, containerWorld));
         }
 
@@ -216,7 +216,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                if (CurrentSide == SideDirection.Left && transform.Position.X <= DashTarget || CurrentSide == SideDirection.Right && transform.Position.X >= DashTarget)
+                if (CurrentSide == Side.Left && transform.Position.X <= DashTarget || CurrentSide == Side.Right && transform.Position.X >= DashTarget)
                 {
                     AttackAnim.SetFrame(0);
                     ChangeAnimation(AttackAnim);

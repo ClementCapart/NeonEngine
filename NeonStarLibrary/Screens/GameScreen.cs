@@ -15,7 +15,6 @@ namespace NeonStarLibrary
 {
     public class GameScreen : World
     {
-        public Avatar avatar;
         public List<Enemy> enemies;
 
 
@@ -24,9 +23,6 @@ namespace NeonStarLibrary
         {
             enemies = new List<Enemy>();
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
-            avatar = new Avatar(this, new Vector2(-550, 200));
-            avatar.Name = "Li-On";
-            AddEntity(avatar);
             camera.Position = new Vector2(-100, 0);
         }
 
@@ -39,11 +35,6 @@ namespace NeonStarLibrary
 
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;
-            if (avatar.LifePoints <= 0)
-            {
-                avatar.LifePoints = 7;
-                ReloadLevel();
-            }
             base.Update(gameTime);
         }
 

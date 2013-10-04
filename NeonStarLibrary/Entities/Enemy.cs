@@ -24,7 +24,7 @@ namespace NeonStarLibrary
         public SpriteSheet currentSpriteSheet;
         public bool Dying;
 
-        public SideDirection CurrentSide;
+        public Side CurrentSide;
 
         public ElementType Element
         {
@@ -65,10 +65,7 @@ namespace NeonStarLibrary
             LifePoints = StartLifePoints;
             element = StartElement;
 
-            if (containerWorld is GameScreen)
-                avatar = (containerWorld as GameScreen).avatar;
-            else
-                avatar = (containerWorld as HoloRoom).avatar;
+            
             
             hitbox = AddComponent(new Hitbox(this));
             hitbox.Width = Width;

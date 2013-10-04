@@ -93,25 +93,29 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime = null)
         {
-            if (isPlaying)
+            if (spriteSheetInfo != null)
             {
-                if (frameTimer > timePerFrame)
+                if (isPlaying)
                 {
-                    if (currentFrame == frames.Length - 1)
+                    if (frameTimer > timePerFrame)
                     {
-                        if (IsLooped)
-                            currentFrame = 0;
+                        if (currentFrame == frames.Length - 1)
+                        {
+                            if (IsLooped)
+                                currentFrame = 0;
+                            else
+                                isPlaying = false;
+                        }
                         else
-                            isPlaying = false;
+                            currentFrame++;
+
+                        frameTimer = 0f;
                     }
                     else
-                        currentFrame++;
-
-                    frameTimer = 0f; 
+                        frameTimer += gameTime != null ? (float)gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
                 }
-                else 
-                    frameTimer += gameTime != null ? (float)gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
             }
+            
         }
 
         public void SetFrame(int frame)
@@ -121,12 +125,15 @@ namespace NeonEngine
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            if(!isHUD)
-                spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + (spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X), (int)entity.transform.Position.Y + (int)spriteSheetInfo.Offset.Y), frames[currentFrame],
-                    Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
-            else
-                spritebatch.Draw(spriteSheetInfo.Texture, new Rectangle((int)Position.X, (int)Position.Y, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight), frames[currentFrame],
-                    Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, Layer);
+            if (spriteSheetInfo != null)
+            {
+                if (!isHUD)
+                    spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + (spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X), (int)entity.transform.Position.Y + (int)spriteSheetInfo.Offset.Y), frames[currentFrame],
+                        Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
+                else
+                    spritebatch.Draw(spriteSheetInfo.Texture, new Rectangle((int)Position.X, (int)Position.Y, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight), frames[currentFrame],
+                        Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, Layer);
+            }
         }
     }
 }

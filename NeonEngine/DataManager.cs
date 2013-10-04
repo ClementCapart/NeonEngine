@@ -42,6 +42,22 @@ namespace NeonEngine
                                 XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                                 Properties.Add(Property);
                             }
+                            else if(pi.Name == "Spritesheets")
+                            {
+                                XElement Property = new XElement(pi.Name);
+                                Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
+                                foreach (KeyValuePair<string, SpriteSheetInfo> kvp in propertyDictionary)
+                                {
+                                    XElement Animation = new XElement("Animation",
+                                                                        new XAttribute("Name", kvp.Key),
+                                                                        new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
+                                                                        );
+
+                                    Property.Add(Animation);
+                                }
+
+                                Properties.Add(Property);
+                            }
                             else
                             {
                                 XElement Property = null;
@@ -107,6 +123,22 @@ namespace NeonEngine
                         {
                             Component comp = (Component)pi.GetValue(c, null);
                             XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
+                            Properties.Add(Property);
+                        }
+                        else if (pi.Name == "Spritesheets")
+                        {
+                            XElement Property = new XElement(pi.Name);
+                            Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
+                            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in propertyDictionary)
+                            {
+                                XElement Animation = new XElement("Animation",
+                                                                    new XAttribute("Name", kvp.Key),
+                                                                    new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
+                                                                    );
+
+                                Property.Add(Animation);
+                            }
+
                             Properties.Add(Property);
                         }
                         else
@@ -196,6 +228,15 @@ namespace NeonEngine
                             pi.SetValue(component, int.Parse(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(String)))
                             pi.SetValue(component, Property.Attribute("Value").Value, null);
+                        else if (Property.Name == "Spritesheets")
+                        {
+                            Dictionary<string, SpriteSheetInfo> spritesheetList = new Dictionary<string, SpriteSheetInfo>();
+                            foreach (XElement Animation in Property.Elements("Animation"))
+                            {
+                                spritesheetList.Add(Animation.Attribute("Name").Value, AssetManager.GetSpriteSheet(Animation.Attribute("SpritesheetTag").Value));
+                            }
+                            pi.SetValue(component, spritesheetList, null);
+                        }
                     }
 
                     component.Init();

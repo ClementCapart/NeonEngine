@@ -24,7 +24,7 @@ namespace NeonStarLibrary
             this.b = b;
             rigidbody.body.IsSensor = false;
             rigidbody.UseGravity = true;
-            rigidbody.body.ApplyLinearImpulse(b.CurrentSide == SideDirection.Left ? new Vector2(-10, 0) : new Vector2(10, 0));
+            rigidbody.body.ApplyLinearImpulse(b.CurrentSide == Side.Left ? new Vector2(-10, 0) : new Vector2(10, 0));
             waypoints = (Waypoints)AddComponent(new Waypoints(this));
             waypoints.Speed = 50f;
             currentSpriteSheet = new SpriteSheet(AssetManager.GetSpriteSheet("BombAnim"), 0.5f, this);

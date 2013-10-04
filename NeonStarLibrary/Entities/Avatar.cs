@@ -39,7 +39,7 @@ namespace NeonStarLibrary
         public SpriteSheet ShieldBack;
         bool ShieldAdded;
 
-        public SideDirection currentAttackSide;
+        public Side currentAttackSide;
 
         private float lifePoints = 7;
         public float LifePoints
@@ -84,25 +84,18 @@ namespace NeonStarLibrary
             rigidbody.body.Mass = 0.5f;
             //dash = (Dash)AddComponent(new Dash(200, rigidbody));
 
-            AddComponent(new LifeBar(this));
-            elementsManager = (ElementsManager)AddComponent(new ElementsManager(this, new Vector2(110, 100)));
 
-            Spritesheets = new SpritesheetManager(this);
-            AddComponent(Spritesheets);
-            Spritesheets.DrawLayer = 0.5f;
+            this.spritesheets = new SpritesheetManager(this);
+            AddComponent(spritesheets);
+            spritesheets.DrawLayer = 0.5f;
 
-            Dictionary<string, SpriteSheet> spritesheetList = new Dictionary<string, SpriteSheet>();
-            spritesheetList.Add("Idle", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnIdle"), 0.5f, this));
-            spritesheetList.Add("Run", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnWalk"), 0.5f, this));
-            spritesheetList.Add("Jump", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnJump"), 0.5f, this));
-            spritesheetList.Add("Shot", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnGun"), 0.5f, this));
-            spritesheetList.Add("Kick01", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick1"), 0.5f, this));
-            spritesheetList.Add("Kick02", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnKick2"), 0.5f, this));
-            spritesheetList.Add("FireRing", new SpriteSheet(AssetManager.GetSpriteSheet("LiOnFireRing"), 0.5f, this));
+            Dictionary<string, SpriteSheetInfo> spritesheetList = new Dictionary<string, SpriteSheetInfo>();
+            spritesheetList.Add("Idle", AssetManager.GetSpriteSheet("LiOnIdle"));
+            spritesheetList.Add("Run", AssetManager.GetSpriteSheet("LiOnWalk"));
+            spritesheetList.Add("Jump", AssetManager.GetSpriteSheet("LiOnJump"));
+            spritesheets.Spritesheets = spritesheetList;
 
-            Spritesheets.Spritesheets = spritesheetList;
-           
-
+            rigidbody.GravityScale = 2.0f;
             rigidbody.body.SleepingAllowed = false;
 
             ShieldFront = new SpriteSheet(AssetManager.GetSpriteSheet("ShieldEffectFront"), 0.4f, this);
@@ -112,6 +105,7 @@ namespace NeonStarLibrary
 
             //AddComponent(new HitboxRenderer(fight));
             AddComponent(new MeleeFight(this));
+            AddComponent(new ThirdPersonController(this));
         }
 
         public override void Update(GameTime gameTime)
@@ -138,14 +132,14 @@ namespace NeonStarLibrary
 
             ignoredGeometry.Clear();
 
-            if (!NoControl)
+            if (NoControl)
             {
                 if (Neon.Input.Check(NeonStarInput.MoveLeft) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -4)
                 {
                     rigidbody.body.LinearVelocity += new Vector2(-0.5f, 0);
                     if (Spritesheets.CurrentSpritesheetName != "Run")
                         Spritesheets.ChangeAnimation("Run");
-                    currentAttackSide = SideDirection.Left;
+                    currentAttackSide = Side.Left;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
                 }
                 else if (Neon.Input.Check(NeonStarInput.MoveRight) && rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 4)
@@ -153,7 +147,7 @@ namespace NeonStarLibrary
                     rigidbody.body.LinearVelocity += new Vector2(0.5f, 0);
                     if (Spritesheets.CurrentSpritesheetName != "Run" && (Spritesheets.CurrentSpritesheetName != "Jump" || rigidbody.body.LinearVelocity.Y > -0.1f))
                         Spritesheets.ChangeAnimation("Run");
-                    currentAttackSide = SideDirection.Right;
+                    currentAttackSide = Side.Right;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
                 }
                 else
@@ -166,13 +160,13 @@ namespace NeonStarLibrary
                 if (Neon.Input.Check(NeonStarInput.MoveLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)
                 {
                     rigidbody.body.LinearVelocity += new Vector2(-0.3f, 0);
-                    currentAttackSide = SideDirection.Left;
+                    currentAttackSide = Side.Left;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
                 }
                 else if (Neon.Input.Check(NeonStarInput.MoveRight) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X < 3)
                 {
                     rigidbody.body.LinearVelocity += new Vector2(0.3f, 0);
-                    currentAttackSide = SideDirection.Right;
+                    currentAttackSide = Side.Right;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
                 }
                 if (Neon.Input.Check(NeonStarInput.Jump))
@@ -228,20 +222,6 @@ namespace NeonStarLibrary
                     IsTakingDamages = false;
                 }
             }
-
-            if(!rigidbody.isGrounded)
-                if (rigidbody.body.LinearVelocity.Y < -0.1f)
-                {
-                    if (Spritesheets.CurrentSpritesheetName != "Jump")
-                        Spritesheets.ChangeAnimation("Jump", false, true);
-                    Spritesheets.CurrentSpritesheet.SetFrame(0);
-                }
-                else if (rigidbody.body.LinearVelocity.Y > 0.1f)
-                {
-                    if (Spritesheets.CurrentSpritesheetName != "Jump")
-                        Spritesheets.ChangeAnimation("Jump", false, false, false, 1);
-                    Spritesheets.CurrentSpritesheet.SetFrame(0);
-                }
 
             foreach (Rigidbody rg in ignoredGeometry)
                 rigidbody.body.IgnoreCollisionWith(rg.body);

@@ -118,6 +118,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinimizableControl.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RightDock\SpritesheetInspector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RightDock\SpritesheetInspector.Designer.cs">
+      <DependentUpon>SpritesheetInspector.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorAction.cs" />
     <Compile Include="Forms\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RightDock\RightDock.resx">
       <DependentUpon>RightDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RightDock\SpritesheetInspector.resx">
+      <DependentUpon>SpritesheetInspector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StateCreation.resx">
       <DependentUpon>StateCreation.cs</DependentUpon>

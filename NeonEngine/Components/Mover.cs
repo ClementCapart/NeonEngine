@@ -55,7 +55,7 @@ namespace NeonEngine
         }
 
         public Vector2 startPosition;
-        public SideDirection CurrentDirection = SideDirection.Left;
+        public Side CurrentDirection = Side.Left;
 
         public Mover(Entity entity)
             :base(entity, "Mover")
@@ -79,18 +79,18 @@ namespace NeonEngine
             {
                 if (MoveStyle == MoveStyle.RangePatrol)
                 {
-                    if (CurrentDirection == SideDirection.Left)
+                    if (CurrentDirection == Side.Left)
                     {
 
                         entity.transform.Position -= new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
                         if (Math.Abs(startPosition.X - entity.transform.Position.X) >= range)
-                            CurrentDirection = SideDirection.Right;
+                            CurrentDirection = Side.Right;
                     }
-                    else if (CurrentDirection == SideDirection.Right)
+                    else if (CurrentDirection == Side.Right)
                     {
                         entity.transform.Position += new Vector2(speed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
                         if (Math.Abs(startPosition.X - entity.transform.Position.X) >= range)
-                            CurrentDirection = SideDirection.Left;
+                            CurrentDirection = Side.Left;
                     }
                 }
             }           

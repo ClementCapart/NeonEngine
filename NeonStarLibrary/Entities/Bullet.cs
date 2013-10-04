@@ -59,7 +59,7 @@ namespace NeonStarLibrary
                     
             if (EffectTimer >= EffectDelay)
             {
-                containerWorld.entities.Add(new Feedback(asset + "Effect", transform.Position + new Vector2(0, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), 0.5f, Direction.X > 0 ? SideDirection.Right : SideDirection.Left, 0.2f, containerWorld));
+                containerWorld.entities.Add(new Feedback(asset + "Effect", transform.Position + new Vector2(0, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2), 0.5f, Direction.X > 0 ? Side.Right : Side.Left, 0.2f, containerWorld));
 
 
                 EffectTimer = 0f;

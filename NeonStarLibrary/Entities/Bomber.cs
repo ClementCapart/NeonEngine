@@ -149,12 +149,12 @@ namespace NeonStarLibrary
                 {
                     if (avatar.transform.Position.X <= transform.Position.X)
                     {
-                        CurrentSide = SideDirection.Left;
+                        CurrentSide = Side.Left;
                         currentSpriteSheet.spriteEffects = SpriteEffects.FlipHorizontally;
                     }
                     else
                     {
-                        CurrentSide = SideDirection.Right;
+                        CurrentSide = Side.Right;
                         currentSpriteSheet.spriteEffects = SpriteEffects.None;
                     }
 
@@ -170,7 +170,7 @@ namespace NeonStarLibrary
                         return -1;
                     },
                     CoordinateConversion.screenToWorld(transform.Position),
-                    CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == SideDirection.Left ? -hitbox.Width / 2 - 40 : hitbox.Width / 2 + 40), hitbox.Height / 2)));
+                    CoordinateConversion.screenToWorld(transform.Position + new Vector2((CurrentSide == Side.Left ? -hitbox.Width / 2 - 40 : hitbox.Width / 2 + 40), hitbox.Height / 2)));
 
                     if (PlayerInRange)
                     {
@@ -189,7 +189,7 @@ namespace NeonStarLibrary
                             }
                             else if (ShotAnim.currentFrame == 7 && !hasShot)
                             {
-                                if (CurrentSide == SideDirection.Right)
+                                if (CurrentSide == Side.Right)
                                     containerWorld.AddEntity(new Bullet(transform.Position + new Vector2(150, 0), "Bullet", Vector2.UnitX, containerWorld));
                                 else
                                     containerWorld.AddEntity(new Bullet(transform.Position + new Vector2(-190, 0), "Bullet", -Vector2.UnitX, containerWorld));
@@ -216,7 +216,7 @@ namespace NeonStarLibrary
                 {
                     if (LaunchBombAnim.currentFrame == 12)
                     {
-                        BombSpawned = new Bomb(transform.Position + (CurrentSide == SideDirection.Left ? new Vector2(-70, -50) : new Vector2(70, -50)), containerWorld, this);
+                        BombSpawned = new Bomb(transform.Position + (CurrentSide == Side.Left ? new Vector2(-70, -50) : new Vector2(70, -50)), containerWorld, this);
                         containerWorld.entities.Add(BombSpawned);
                     }
                 }

@@ -224,7 +224,10 @@ namespace NeonStarEditor
                      else
                      {
                          if (Neon.Input.KeysPressed[i] == Keys.Enter)
+                         {
                              FocusedTextBox.Parent.Focus();
+                             FocusedTextBox = null;
+                         }
                      }
             }
         }

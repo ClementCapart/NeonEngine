@@ -13,7 +13,7 @@ namespace NeonEngine
 
         public bool notAnimated;
 
-        public Feedback(string asset, Vector2 Position, float Layer, SideDirection Direction, float opacity, World containerWorld, bool notAnimated = false)
+        public Feedback(string asset, Vector2 Position, float Layer, Side Direction, float opacity, World containerWorld, bool notAnimated = false)
             : base(containerWorld)
         {
             this.notAnimated = notAnimated;
@@ -28,7 +28,7 @@ namespace NeonEngine
                 animation.SpriteSheetTag = asset;
                 animation.DrawLayer = Layer;
                 animation.Init();
-                animation.spriteEffects = Direction == SideDirection.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+                animation.spriteEffects = Direction == Side.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
                 animation.IsLooped = false;
             }
             if (opacity != 1f)

@@ -154,7 +154,7 @@ namespace NeonStarLibrary
                         }
                         else if ((entity as Avatar).Spritesheets.CurrentSpritesheet.currentFrame == 2)
                         {
-                            if((entity as Avatar).currentAttackSide == SideDirection.Right)
+                            if((entity as Avatar).currentAttackSide == Side.Right)
                                 entity.containerWorld.entities.Add(new Bullet(entity.transform.Position + new Vector2(75, -23), "GunShot", new Vector2(1, 0), entity.containerWorld));
                             else
                                 entity.containerWorld.entities.Add(new Bullet(entity.transform.Position + new Vector2(-75, -23), "GunShot", new Vector2(-1, 0), entity.containerWorld));

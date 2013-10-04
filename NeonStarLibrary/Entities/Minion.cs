@@ -39,7 +39,7 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            currentSpriteSheet.spriteEffects = CurrentSide == SideDirection.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            currentSpriteSheet.spriteEffects = CurrentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (Dying)
             {
                 waypoints.FollowPath = false;
@@ -58,7 +58,7 @@ namespace NeonStarLibrary
                     ChangeAnimation(IdleAnimation);
                 if (waypoints.FollowPath && SmokeTimer >= SmokeDelay)
                 {
-                    containerWorld.entities.Add(new Feedback("DustMinion", transform.Position + new Vector2(waypoints.direction == SideDirection.Left ? hitbox.Width / 2 : -hitbox.Width / 2, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), 0.9f, CurrentSide, 1f, containerWorld));
+                    containerWorld.entities.Add(new Feedback("DustMinion", transform.Position + new Vector2(waypoints.direction == Side.Left ? hitbox.Width / 2 : -hitbox.Width / 2, currentSpriteSheet.spriteSheetInfo.FrameHeight / 2 - 4), 0.9f, CurrentSide, 1f, containerWorld));
                     SmokeTimer = 0f;
                 }
                 else
@@ -75,7 +75,7 @@ namespace NeonStarLibrary
                     ChangeAnimation(RunAnimation);
             }
             if(waypoints.FollowPath)
-                CurrentSide = waypoints.direction > 0 ? SideDirection.Left : SideDirection.Right;
+                CurrentSide = waypoints.direction > 0 ? Side.Left : Side.Right;
             
             base.Update(gameTime);
         }

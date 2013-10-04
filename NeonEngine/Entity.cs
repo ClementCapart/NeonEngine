@@ -15,7 +15,7 @@ namespace NeonEngine
         public Transform transform;
 
         public Rigidbody rigidbody;
-        public SpriteSheet spritesheet;
+        public SpritesheetManager spritesheets;
         public Graphic graphic;
         public Hitbox hitbox;
 
@@ -51,6 +51,15 @@ namespace NeonEngine
             where T : Component
         {
             Components.Add(component);
+            if (component is SpritesheetManager)
+                spritesheets = component as SpritesheetManager;
+            else if (component is Rigidbody)
+                rigidbody = component as Rigidbody;
+            else if (component is Hitbox)
+                hitbox = component as Hitbox;
+            else if (component is Graphic)
+                graphic = component as Graphic;
+
             if (component is DrawableComponent)
                 if(component is HUDComponent)
                     containerWorld.HUDComponents.Add(component as HUDComponent);            
