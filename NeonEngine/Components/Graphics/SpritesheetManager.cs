@@ -13,6 +13,8 @@ namespace NeonEngine
         public SpriteSheet CurrentSpritesheet;
         public string CurrentSpritesheetName;
 
+        public Side CurrentSide = Side.Right;
+
         public Dictionary<string, SpriteSheetInfo> Spritesheets
         {
             get { return SpritesheetList; }
@@ -53,16 +55,30 @@ namespace NeonEngine
             return false;
         }
 
+        public void ChangeSide(Side side)
+        {
+            if (CurrentSide != side)
+            {
+                CurrentSide = side;
+                if (CurrentSide == Side.Left)
+                    CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
+                else if (CurrentSide == Side.Right)
+                    CurrentSpritesheet.spriteEffects = SpriteEffects.None;
+            }
+        }
+
         public void ChangeAnimation(string spriteSheetName, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
+            if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
+                return;
+
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
 
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.isPlaying = IsPlaying;
-            if (Reset)
-                CurrentSpritesheet.SetFrame(0);
+            CurrentSpritesheet.SetFrame(0);
             if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
                 CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;

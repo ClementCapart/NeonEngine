@@ -27,13 +27,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -63,13 +64,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -99,13 +101,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -135,13 +138,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -171,13 +175,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -207,13 +212,14 @@
               <BodyType Value="Static" />
               <GravityScale Value="1" />
               <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
               <FixedRotation Value="False" />
+              <SleepingAllowed Value="True" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -379,13 +385,14 @@
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
               <Sensors Value="True" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="10" />
               <OneWayPlatform Value="False" />
               <IsGround Value="False" />
               <Hitbox Value="1" />
               <FixedRotation Value="True" />
+              <SleepingAllowed Value="False" />
             </Properties>
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
@@ -416,6 +423,8 @@
               <GroundMaxSpeed Value="4" />
               <AirMaxSpeed Value="3" />
               <IdleAnimation Value="idle" />
+              <WalkAnimation Value="run" />
+              <JumpAnimation Value="jump" />
             </Properties>
           </ThirdPersonController>
         </Components>

@@ -7,7 +7,7 @@ namespace NeonEngine
     {
         public bool isPlaying = true;
         Rectangle[] frames;
-        public int currentFrame;
+        public int currentFrame = 0;
         public SpriteSheetInfo spriteSheetInfo;
         float timePerFrame;
         float frameTimer = 0f;
@@ -84,7 +84,6 @@ namespace NeonEngine
                     currentColumn++;
             }
 
-            currentFrame = 0;
             if (spriteSheetInfo.Fps == 0)
                 isPlaying = false;
             else
