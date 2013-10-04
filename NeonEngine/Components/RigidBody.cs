@@ -121,6 +121,25 @@ namespace NeonEngine
             set { oneWayPlatform = value; }
         }
 
+        bool sleepingAllowed = true;
+        public bool SleepingAllowed
+        {
+            get 
+            {
+                if (body != null)
+                    return body.SleepingAllowed;
+                else
+                    return sleepingAllowed;
+            }
+            set
+            {
+                if (body != null)
+                    body.SleepingAllowed = value;
+
+                sleepingAllowed = value;
+            }
+        }
+
         private bool isGround = false;
         public bool IsGround
         {
@@ -200,6 +219,7 @@ namespace NeonEngine
                 body.Restitution = restitution;
                 body.GravityScale = gravityScale;
                 body.BodyType = bodyType;
+                body.SleepingAllowed = sleepingAllowed;
                 body.Position = CoordinateConversion.screenToWorld(hitbox.Center);
                 if (entity.Name != "Entity")
                     body.OnCollision += body_OnCollision;
