@@ -138,7 +138,7 @@ namespace NeonStarLibrary
                 {
                     rigidbody.body.LinearVelocity += new Vector2(-0.5f, 0);
                     if (Spritesheets.CurrentSpritesheetName != "Run")
-                        Spritesheets.ChangeAnimation("Run");
+                        Spritesheets.ChangeAnimation("Run", 1);
                     currentAttackSide = Side.Left;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
                 }
@@ -146,7 +146,7 @@ namespace NeonStarLibrary
                 {
                     rigidbody.body.LinearVelocity += new Vector2(0.5f, 0);
                     if (Spritesheets.CurrentSpritesheetName != "Run" && (Spritesheets.CurrentSpritesheetName != "Jump" || rigidbody.body.LinearVelocity.Y > -0.1f))
-                        Spritesheets.ChangeAnimation("Run");
+                        Spritesheets.ChangeAnimation("Run", 1);
                     currentAttackSide = Side.Right;
                     Spritesheets.CurrentSpritesheet.spriteEffects = SpriteEffects.None;
                 }
@@ -154,7 +154,7 @@ namespace NeonStarLibrary
                 {
                     if (rigidbody.isGrounded && (rigidbody.body.LinearVelocity.X < 0.1f && rigidbody.body.LinearVelocity.X > -0.1f) && (Spritesheets.CurrentSpritesheetName != "FireRing" || (Spritesheets.CurrentSpritesheetName == "FireRing" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1))
                     && (Spritesheets.CurrentSpritesheetName != "Shot" || (Spritesheets.CurrentSpritesheetName == "Shot" && Spritesheets.CurrentSpritesheet.currentFrame == Spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)) && Spritesheets.CurrentSpritesheetName != "Idle")
-                        Spritesheets.ChangeAnimation("Idle");
+                        Spritesheets.ChangeAnimation("Idle", 1);
                 }
 
                 if (Neon.Input.Check(NeonStarInput.MoveLeft) && !rigidbody.isGrounded && rigidbody.body.LinearVelocity.X > -3)

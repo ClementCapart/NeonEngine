@@ -12,6 +12,7 @@ namespace NeonEngine
         public Dictionary<string, SpriteSheetInfo> SpritesheetList = new Dictionary<string,SpriteSheetInfo>();
         public SpriteSheet CurrentSpritesheet;
         public string CurrentSpritesheetName;
+        public int CurrentPriority;
 
         public Side CurrentSide = Side.Right;
 
@@ -67,15 +68,18 @@ namespace NeonEngine
             }
         }
 
-        public void ChangeAnimation(string spriteSheetName, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
+        public void ChangeAnimation(string spriteSheetName, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
             if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
                 return;
+            if (CurrentPriority > priority && !IsFinished())
+                return;
 
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
 
+            CurrentPriority = priority;
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.isPlaying = IsPlaying;
             CurrentSpritesheet.SetFrame(0);

@@ -401,6 +401,10 @@
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnWalk" />
                 <Animation Name="jump" SpritesheetTag="LiOnJump" />
+                <Animation Name="lightattack" SpritesheetTag="HoloScreen" />
+                <Animation Name="uppercut" SpritesheetTag="HoloScreen" />
+                <Animation Name="rushattack" SpritesheetTag="HoloScreen" />
+                <Animation Name="diveattack" SpritesheetTag="HoloScreen" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
             </Properties>
@@ -413,6 +417,11 @@
               <UppercutDelay Value="0.5" />
               <RushAttackDelay Value="0.5" />
               <DiveAttackDelay Value="0.5" />
+              <ThirdPersonController Value="5" />
+              <LightAttackAnimation Value="lightattack" />
+              <UppercutAnimation Value="uppercut" />
+              <RushAttackAnimation Value="rushattack" />
+              <DiveAttackAnimation Value="diveattack" />
             </Properties>
           </MeleeFight>
           <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
@@ -425,6 +434,7 @@
               <IdleAnimation Value="idle" />
               <WalkAnimation Value="run" />
               <JumpAnimation Value="jump" />
+              <CanMove Value="True" />
             </Properties>
           </ThirdPersonController>
         </Components>

@@ -129,7 +129,7 @@ namespace NeonStarLibrary
                     if (!(entity as Avatar).isCrouched && (entity as Avatar).rigidbody.isGrounded)
                     {
                         MainElement = ElementType.None;
-                        (entity as Avatar).Spritesheets.ChangeAnimation("FireRing", true, true);
+                        //(entity as Avatar).Spritesheets.ChangeAnimation("FireRing", true, true);
                         for (int i = entity.containerWorld.entities.Count - 1; i >= 0; i--)
                         {
                             if (entity.containerWorld.entities[i] is Enemy)
@@ -150,7 +150,7 @@ namespace NeonStarLibrary
                     {
                         if ((entity as Avatar).Spritesheets.CurrentSpritesheetName != "Shot")
                         {
-                            (entity as Avatar).Spritesheets.ChangeAnimation("Shot", true, true);
+                            //(entity as Avatar).Spritesheets.ChangeAnimation("Shot", true, true);
                         }
                         else if ((entity as Avatar).Spritesheets.CurrentSpritesheet.currentFrame == 2)
                         {

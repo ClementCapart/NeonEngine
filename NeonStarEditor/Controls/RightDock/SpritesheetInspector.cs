@@ -83,14 +83,14 @@ namespace NeonStarEditor
         {
             spritesheetList.Remove(spritesheetList.Last().Key);
 
-            GameWorld.RightDockControl.InspectorControl.InstantiateProperties(GameWorld.SelectedEntity);
+            RefreshData();
         }
 
         void button_Click(object sender, EventArgs e)
         {
             spritesheetList.Add("Anim" + spritesheetList.Count, new SpriteSheetInfo());
 
-            GameWorld.RightDockControl.InspectorControl.InstantiateProperties(GameWorld.SelectedEntity);
+            RefreshData();
         }
 
         void cb_SelectedValueChanged(object sender, EventArgs e)
