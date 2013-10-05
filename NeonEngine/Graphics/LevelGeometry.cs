@@ -48,8 +48,7 @@ namespace NeonEngine
                     Width = (int)Math.Abs(vertice.X);
             }
 
-            renderer = new PolygonRenderer(Neon.graphicsDevice, transform.Position, rigidbody.verticesList);
-            renderer.Color = wallType == WallType.Solid ? Color.Purple : Color.Green;
+            
         }
 
         bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
@@ -91,11 +90,5 @@ namespace NeonEngine
             
         }
 
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            if (Neon.DrawGeometry)
-                renderer.Draw(spriteBatch);
-        }
     }
 }

@@ -23,6 +23,8 @@ namespace NeonEngine
         QuadRenderComponent quadRender;
 
 
+        PolygonRenderer _polygonRenderer;
+
         public Effect ScreenEffect;
 
         public RenderTarget2D screenShadows = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
@@ -40,6 +42,10 @@ namespace NeonEngine
         public List<DrawableComponent> HUDComponents;
         public List<Water> waterzones;
         public List<LightArea> lightAreas;
+
+        public NeonPool<Hitbox> HitboxPool;
+        public List<Hitbox> Hitboxes;
+
         public Level levelMap;
         public string levelFilePath;
 
@@ -76,7 +82,11 @@ namespace NeonEngine
             DrawableComponents = new List<DrawableComponent>();
             HUDComponents = new List<DrawableComponent>();
             lightAreas = new List<LightArea>();
+            HitboxPool = new NeonPool<Hitbox>(() => new Hitbox());
+            Hitboxes = new List<Hitbox>();
 
+
+            _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
             quadRender = new QuadRenderComponent(this.game);
             shadowmapResolver = new ShadowmapResolver(quadRender, ShadowmapSize.Size2048, ShadowmapSize.Size2048);
             shadowmapResolver.LoadContent(this.game.Content);
@@ -150,6 +160,8 @@ namespace NeonEngine
 
             foreach (DrawableComponent dc in DrawableComponents)
                 dc.Draw(spriteBatch);
+
+            
             
             spriteBatch.End();
             foreach (Water w in waterzones)
@@ -158,10 +170,36 @@ namespace NeonEngine
                 w.Draw(spriteBatch);
                 spriteBatch.End();
             }
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            if (Neon.DrawHitboxes)
+            {
+                foreach (Hitbox hb in Hitboxes)
+                {
+                    switch (hb.Type)
+                    {
+                        case HitboxType.Main:
+                            _polygonRenderer.Color = Color.Green;
+                            break;
+
+                        case HitboxType.Hit:
+                            _polygonRenderer.Color = Color.Red;
+                            break;
+
+                        case HitboxType.None:
+                            _polygonRenderer.Color = Color.White;
+                            break;
+                    }
+                    _polygonRenderer.vectors = hb.vectors;
+                    _polygonRenderer.Position = hb.Center;
+                    _polygonRenderer.Draw(spriteBatch);
+                }
+            }
+            
             ManualDrawGame(spriteBatch);
             spriteBatch.End();
             Neon.graphicsDevice.SetRenderTarget(null);
+
+#region lightning & shadow system
             if (lightingSystem.LightingEnabled)
             {
                 Neon.graphicsDevice.SetRenderTarget(ShadowCasters);
@@ -191,6 +229,7 @@ namespace NeonEngine
                 spriteBatch.End();
                 Neon.graphicsDevice.SetRenderTarget(null);
             }
+#endregion
             
         }
 
@@ -295,7 +334,7 @@ namespace NeonEngine
             if (Neon.Input.Pressed(Keys.F1))
                 Neon.DebugViewEnabled = !Neon.DebugViewEnabled;
             if (Neon.Input.Pressed(Keys.F2))
-                Neon.DrawGeometry = !Neon.DrawGeometry;
+                Neon.DrawHitboxes = !Neon.DrawHitboxes;
         }
     }
 }

@@ -14,14 +14,13 @@ namespace NeonEngine
         public Vector2 Position;
         public Color Color;
 
-        public PolygonRenderer(GraphicsDevice graphicsDevice, Vector2 Position, List<Vector2> vectors)
+        public PolygonRenderer(GraphicsDevice graphicsDevice, Vector2 Position)
         {
             pixel = new Texture2D(graphicsDevice, 1, 1);
             Color[] pixels = new Color[1];
             pixels[0] = Color.White;
             pixel.SetData<Color>(pixels);
             this.Position = Position;
-            this.vectors = vectors;
             Color = Color.White;
         }
 
@@ -47,7 +46,7 @@ namespace NeonEngine
                     Vector2.Zero,
                     new Vector2(distance, 3),
                     SpriteEffects.None,
-                    0);
+                    1);
             }
         }
     }

@@ -30,12 +30,12 @@ namespace NeonStarLibrary
         {
             if (FightComponent != null)
             {
-                FightComponent.MainHitbox.Draw(spriteBatch, Color.Red);
+                /*FightComponent.MainHitbox.Draw(spriteBatch, Color.Red);
                 foreach (Hitbox h in FightComponent.AttackHitboxes)
-                    h.Draw(spriteBatch, Color.Green);
+                    h.Draw(spriteBatch, Color.Green);*/
             }
-            else
-                hitbox.Draw(spriteBatch, Color.Yellow);
+            //else
+                //hitbox.Draw(spriteBatch, Color.Yellow);
             base.Draw(spriteBatch);
         }
     }

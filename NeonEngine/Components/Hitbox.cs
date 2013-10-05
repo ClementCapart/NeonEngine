@@ -9,7 +9,7 @@ namespace NeonEngine
 {
     public enum HitboxType
     {
-        Main, Hit, Part
+        None, Main, Hit, Part
     }
 
     public class Hitbox : Component
@@ -17,7 +17,13 @@ namespace NeonEngine
         private int circleRadius;
 
         public BodyShapeType ShapeType;
-        public HitboxType Type;
+        private HitboxType _type;
+
+        public HitboxType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
         
         public Vector2 Center
         {
@@ -110,6 +116,8 @@ namespace NeonEngine
             }
         }
 
+        public bool InUse = false;
+
         public Hitbox(Entity entity)
             :base(entity, "Hitbox")
         {
@@ -118,14 +126,35 @@ namespace NeonEngine
             hitboxRectangle = new Rectangle();
             this.Width = 50;
             this.Height = 50;
-
+            InUse = true;
+            entity.containerWorld.Hitboxes.Add(this);
             ShapeType = BodyShapeType.Rectangle;           
+        }
+
+        public Hitbox()
+            :base(null, "Hitbox")
+        {
+            InUse = false;
+            vectors = new List<Vector2>();
+            hitboxRectangle = new Rectangle();
+            this.Width = 50;
+            this.Height = 50;
+
+            ShapeType = BodyShapeType.Rectangle;   
         }
 
         public override void Init()
         {
-            Center = entity.transform.Position;            
+            Center = entity.transform.Position;    
             base.Init();
+        }
+
+        public void PoolInit(Entity entity)
+        {
+            InUse = true;
+            entity.containerWorld.Hitboxes.Add(this);
+            this.entity = entity;
+            entity.hitbox = this;
         }
 
         public override void Update(GameTime gameTime)
@@ -142,11 +171,21 @@ namespace NeonEngine
             vectors.Add(new Vector2(-Width / 2, Height / 2));
             vectors.Add(new Vector2(-Width / 2, -Height / 2));
         }
-        public void Draw(SpriteBatch sb, Color color)
+
+        public override void Remove()
         {
-            PolygonRenderer lr = new PolygonRenderer(Neon.graphicsDevice, new Vector2(hitboxRectangle.X + hitboxRectangle.Width / 2, hitboxRectangle.Y + hitboxRectangle.Height / 2), vectors);
-            lr.Color = color;
-            lr.Draw(sb);
+            InUse = false;
+            entity.containerWorld.Hitboxes.Remove(this);
+            base.Remove();
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            /*PolygonRenderer lr = new PolygonRenderer(Neon.graphicsDevice, new Vector2(hitboxRectangle.X + hitboxRectangle.Width / 2, hitboxRectangle.Y + hitboxRectangle.Height / 2), vectors);
+            lr.Color = Color.Black;
+            lr.Draw(spriteBatch);
+            base.Draw(spriteBatch);*/
+        }
+
     }
 }

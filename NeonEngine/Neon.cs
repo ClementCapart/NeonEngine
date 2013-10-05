@@ -25,7 +25,7 @@ namespace NeonEngine
         static public bool waterSplash = true;
 
         static public bool DebugViewEnabled = false;
-        static public bool DrawGeometry = false;
+        static public bool DrawHitboxes = false;
         static public GraphicsDeviceManager GraphicsDeviceManager;
         static public int elapsedTime;
 
