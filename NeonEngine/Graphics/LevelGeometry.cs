@@ -86,8 +86,7 @@ namespace NeonEngine
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);         
-            renderer.Position = transform.Position;
-            
+            renderer.Position = transform.Position;           
         }
 
     }
