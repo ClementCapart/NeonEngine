@@ -119,7 +119,7 @@ namespace NeonStarLibrary
                 if (Neon.Input.Released(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
 
-            if (_lightDelay > 0.0f)
+            if (_lightDelay > 0.0f) 
             {
                 _lightDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 ThirdPersonController.CanMove = false;

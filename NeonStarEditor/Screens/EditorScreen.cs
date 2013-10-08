@@ -29,6 +29,7 @@ namespace NeonStarEditor
 
         public TextBox FocusedTextBox = null;
         public NumericUpDown FocusedNumericUpDown = null;
+        float PressedDelay = 0.0f;
 
         public bool MouseInGameWindow = false;
 
@@ -118,6 +119,13 @@ namespace NeonStarEditor
             if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
                 || (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))&& Neon.Input.Pressed(Keys.Z))
                 ActionManager.Undo();
+
+            if (PressedDelay > 0.0f)
+            {
+                PressedDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+                PressedDelay = 0.0f;
 
             base.Update(gameTime);
             ManageInspector();
@@ -212,13 +220,15 @@ namespace NeonStarEditor
         {
             if (FocusedTextBox != null)
             {
+                int LastSelectionStart = FocusedTextBox.SelectionStart;
+
                  for (int i = 0; i < Neon.Input.KeysPressed.Length; i++)
                      if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
                      {
 
-                         int LastSelectionStart = FocusedTextBox.SelectionStart;
+                         
                          FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
-                             Neon.Input.Pressed(Keys.LeftShift) || Neon.Input.Pressed(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
+                             Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
                          FocusedTextBox.SelectionStart = ++LastSelectionStart;
                      }
                      else
@@ -227,6 +237,23 @@ namespace NeonStarEditor
                          {
                              FocusedTextBox.Parent.Focus();
                              FocusedTextBox = null;
+                         }
+                         else if (Neon.Input.KeysPressed[i] == Keys.Delete && PressedDelay <= 0f)
+                         {
+                             if (FocusedTextBox.SelectionStart < FocusedTextBox.Text.Length)
+                             {
+                                 PressedDelay = 0.5f;
+                                 if (FocusedTextBox.SelectionLength > 0)
+                                 {
+                                     FocusedTextBox.Text = FocusedTextBox.Text.Remove(FocusedTextBox.SelectionStart, FocusedTextBox.SelectionLength);
+                                     FocusedTextBox.SelectionStart = LastSelectionStart;
+                                 }
+                                 else
+                                 {
+                                     FocusedTextBox.Text = FocusedTextBox.Text.Remove(FocusedTextBox.SelectionStart, 1);
+                                     FocusedTextBox.SelectionStart = LastSelectionStart;
+                                 }
+                             }                                             
                          }
                      }
             }
@@ -385,6 +412,14 @@ namespace NeonStarEditor
                             case Keys.Enter:
                             FocusedNumericUpDown.Parent.Focus();
                             break;
+
+                            case Keys.Delete:
+                            if(PressedDelay <= 0F)
+                            {
+                            
+                            }
+                            break;
+                             
                         }                       
                     }
                     else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]))
