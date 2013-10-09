@@ -46,10 +46,10 @@ namespace NeonEngine.Private
             FrontGroundRaycastTarget = FrontGroundRaycast + new Vector2(hitbox.Width / 2, 0);
 
             LeftRaycast = new Vector2(hitbox.X + 5, hitbox.Y + hitbox.Height / 2);
-            LeftRaycastTarget = new Vector2(hitbox.X - 5, hitbox.Height / 2);
+            LeftRaycastTarget = LeftRaycast + new Vector2(-10, 0);
                 
             RightRaycast = new Vector2(hitbox.X + hitbox.Width - 5, hitbox.Y + hitbox.Height / 2);
-            RightRaycastTarget = new Vector2(hitbox.X + hitbox.Width + 5, hitbox.Height / 2);
+            RightRaycastTarget = RightRaycast + new Vector2(10, 0);
         }
 
         public override void Update(GameTime gameTime)

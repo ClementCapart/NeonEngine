@@ -114,6 +114,25 @@ namespace NeonEngine
             }
         }
 
+        float mass;
+        public float Mass
+        {
+            get
+            {
+                if (body != null && !body.IsDisposed)
+                    return body.Mass;
+                else
+                    return mass;
+            }
+            set
+            {
+                if (body != null)
+                    body.Mass = value;
+                 mass = value;
+
+            }
+        }
+
         bool oneWayPlatform;
         public bool OneWayPlatform
         {
@@ -213,12 +232,15 @@ namespace NeonEngine
                         body = BodyFactory.CreateCircle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width / 2), 1f);
                         break;
                 }
+
+                body.BodyType = bodyType;
                 body.FixedRotation = fixedRotation;
                 body.IgnoreGravity = useGravity;
                 body.Friction = friction;
                 body.Restitution = restitution;
                 body.GravityScale = gravityScale;
-                body.BodyType = bodyType;
+                body.Mass = mass;
+                
                 body.SleepingAllowed = sleepingAllowed;
                 body.Position = CoordinateConversion.screenToWorld(hitbox.Center);
                 if (entity.Name != "Entity")
@@ -274,7 +296,7 @@ namespace NeonEngine
 
                 Position = Position;
             }
-
+           
             
             base.Update(gameTime);
         }

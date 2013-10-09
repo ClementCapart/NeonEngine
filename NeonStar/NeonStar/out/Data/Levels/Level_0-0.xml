@@ -27,15 +27,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="3.7746" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -65,15 +66,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="1.4868" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -103,15 +105,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="False" />
+              <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="0.8288" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -141,15 +144,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="1.1376" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -179,15 +183,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="2.5701" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -217,15 +222,16 @@
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="1" />
-              <Sensors Value="False" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="False" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="2.7019" />
             </Properties>
           </Rigidbody>
         </Components>
@@ -366,20 +372,20 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Li-On">
+      <Entity Name="enemytest">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-273 Y:233}" />
+              <Position Value="{X:-63,04756 Y:67,31688}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:-273 Y:233}" />
-              <X Value="-293" />
-              <Y Value="165" />
+              <Center Value="{X:-63 Y:67}" />
+              <X Value="-83" />
+              <Y Value="-1" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -391,15 +397,16 @@
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
-              <Sensors Value="True" />
-              <UseGravity Value="True" />
+              <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="10" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
               <IsGround Value="False" />
               <Hitbox Value="1" />
+              <Sensors Value="True" />
               <FixedRotation Value="True" />
-              <SleepingAllowed Value="False" />
+              <Mass Value="54" />
             </Properties>
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
@@ -408,10 +415,10 @@
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnWalk" />
                 <Animation Name="jump" SpritesheetTag="LiOnJump" />
-                <Animation Name="lightattack" SpritesheetTag="HoloScreen" />
-                <Animation Name="uppercut" SpritesheetTag="HoloScreen" />
-                <Animation Name="rushattack" SpritesheetTag="HoloScreen" />
-                <Animation Name="diveattack" SpritesheetTag="HoloScreen" />
+                <Animation Name="lightattack" SpritesheetTag="LiOnLightAttack" />
+                <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
+                <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
+                <Animation Name="diveattack" SpritesheetTag="LiOnDiveAttack" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
             </Properties>
@@ -428,12 +435,13 @@
               <UppercutDelay Value="0.5" />
               <RushAttackDelay Value="0.5" />
               <DiveAttackDelay Value="0.5" />
+              <RushAttackChargeTime Value="0.5" />
               <ThirdPersonController Value="5" />
             </Properties>
           </MeleeFight>
           <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
             <Properties>
-              <JumpImpulseHeight Value="4.5" />
+              <JumpImpulseHeight Value="450" />
               <GroundAccelerationSpeed Value="3" />
               <AirAccelerationSpeed Value="2.5" />
               <GroundMaxSpeed Value="4" />
@@ -450,15 +458,15 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-91,99999 Y:75,43571}" />
+              <Position Value="{X:200,7293 Y:75,49998}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:-91 Y:75}" />
-              <X Value="-116" />
+              <Center Value="{X:200 Y:75}" />
+              <X Value="175" />
               <Y Value="15" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -471,17 +479,23 @@
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
-              <Sensors Value="False" />
               <UseGravity Value="False" />
               <Restitution Value="0" />
-              <Friction Value="0" />
+              <Friction Value="10" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
               <IsGround Value="False" />
               <Hitbox Value="1" />
+              <Sensors Value="False" />
               <FixedRotation Value="True" />
-              <SleepingAllowed Value="True" />
+              <Mass Value="400" />
             </Properties>
           </Rigidbody>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="3">
+            <Properties>
+              <StartingHealthPoints Value="10" />
+            </Properties>
+          </Enemy>
         </Components>
       </Entity>
     </Entities>

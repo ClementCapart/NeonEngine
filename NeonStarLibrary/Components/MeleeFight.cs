@@ -24,6 +24,9 @@ namespace NeonStarLibrary
             set { _Debug = value; }
         }
 
+        Attack CurrentAttack;
+
+
         private float _comboDelayMax = 1.0f;
         public float ComboDelayMax
         {
@@ -87,11 +90,20 @@ namespace NeonStarLibrary
             set { _diveAttackDelay = value; }
         }
 
+        private float _rushAttackChargeTime;
+        public float RushAttackChargeTime
+        {
+            get { return _rushAttackChargeTime; }
+            set { _rushAttackChargeTime = value; }
+        }
+        
 
         private float _specialDelay = 0.0f;
         private float _lightDelay = 0.0f;
         private bool _isDiving = false;
         private float _lastHitDelay = 0.0f;
+        private float _rushChargeTimer = 0.0f;
+        private bool _rushAttacking = false;
         private bool ReleasedAttackButton = true;
 
         private ThirdPersonController _thirdPersonController;
@@ -119,6 +131,7 @@ namespace NeonStarLibrary
                 if (Neon.Input.Released(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
 
+
             if (_lightDelay > 0.0f) 
             {
                 _lightDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -138,7 +151,14 @@ namespace NeonStarLibrary
             else
             {
                 _specialDelay = 0.0f;
-                ThirdPersonController.CanMove = true;
+                if (_rushAttacking)
+                {
+                    ThirdPersonController.CanMove = false;
+                }
+                else
+                {
+                    ThirdPersonController.CanMove = true;
+                }
             }
 
             if (!_isDiving && ReleasedAttackButton)
@@ -166,15 +186,15 @@ namespace NeonStarLibrary
                     {
                         if (Debug) Console.WriteLine("Finisher -> Left Rush Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeSide(Side.Left);
-                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
+                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
                     }
                     else
                     {
                         if (Debug) Console.WriteLine("Left Rush Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeSide(Side.Left);
-                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
-                    }  
-                    _specialDelay = RushAttackDelay;
+                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    }
+                    _rushAttacking = true;
                     ReleasedAttackButton = false;
                 }
                 else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, 0.3f) == DelayStatus.Valid && _specialDelay <= 0.0f)
@@ -184,16 +204,16 @@ namespace NeonStarLibrary
                     {
                         if (Debug) Console.WriteLine("Finisher -> Right Rush Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeSide(Side.Right);
-                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
+                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
                     }
                     else
                     {
                         if (Debug) Console.WriteLine("Right Rush Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeSide(Side.Right);
-                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
-                    }  
-                    _specialDelay = RushAttackDelay;
-                    ReleasedAttackButton = false;
+                        entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    }
+                    _rushAttacking = true;
+                    ReleasedAttackButton = false;      
                 }
                 else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveDown) && !entity.rigidbody.isGrounded)
                 {
@@ -219,11 +239,23 @@ namespace NeonStarLibrary
                     {
                         if (Debug) Console.WriteLine("Finisher -> Light Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeAnimation(LightAttackAnimation, 1, true, false, false);
+                        entity.spritesheets.CurrentSpritesheet.isPlaying = true;
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("TestAttack", entity.spritesheets.CurrentSide, entity);
                     }
                     else
                     {
                         if (Debug) Console.WriteLine("Light Attack ! Current Combo : " + _currentComboHit);
-                        entity.spritesheets.ChangeAnimation(LightAttackAnimation, 1, true, false, false);
+                        if(_currentComboHit == ComboSequence.Starter)
+                            entity.spritesheets.ChangeAnimation(LightAttackAnimation, 1, true, false, false, 0);
+                        else
+                            entity.spritesheets.ChangeAnimation(LightAttackAnimation, 1, true, false, false);
+                        entity.spritesheets.CurrentSpritesheet.isPlaying = true;
+                        AttacksManager.Init();
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("TestAttack", entity.spritesheets.CurrentSide, entity);
                     }               
                     _lightDelay = LightAttackDelay;
                     ReleasedAttackButton = false;
@@ -232,7 +264,10 @@ namespace NeonStarLibrary
 
             if (_isDiving)
                 if (entity.rigidbody.isGrounded)
+                {
                     _isDiving = false;
+                    entity.spritesheets.CurrentPriority = 0;
+                }
 
             if (_currentComboHit != ComboSequence.None)
             {
@@ -241,14 +276,63 @@ namespace NeonStarLibrary
                 {
                     _currentComboHit = ComboSequence.None;
                     _lastHitDelay = 0.0f;
-                }
-                    
-            }
-            else
-            {
-                _lastHitDelay = 0.0f;
+                }    
             }
 
+            if (entity.spritesheets.CurrentSpritesheetName == LightAttackAnimation)
+            {
+                switch(_currentComboHit)
+                {
+                    case ComboSequence.Starter:
+                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 1)
+                        {
+                            entity.spritesheets.CurrentSpritesheet.isPlaying = false;
+                        }
+                        break;
+
+                    case ComboSequence.Link:
+                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 3)
+                        {
+                            entity.spritesheets.CurrentSpritesheet.isPlaying = false;
+                        }
+                        break;
+                }
+            }
+            else if (entity.spritesheets.CurrentSpritesheetName == RushAttackAnimation && _rushAttacking)
+            {
+                if (_rushChargeTimer >= _rushAttackChargeTime)
+                {
+                    entity.spritesheets.CurrentSpritesheet.isPlaying = true;
+                    _rushChargeTimer = 0.0f;
+                    _rushAttacking = false;
+                    _specialDelay = _rushAttackDelay;
+                    
+                }
+                else
+                {
+                    _rushChargeTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+
+            if (_currentComboHit == ComboSequence.None)
+            {
+                _lastHitDelay = 0.0f;
+                if (_specialDelay <= 0.0f && !_isDiving)
+                {
+                    if (entity.spritesheets.CurrentSpritesheetName == UppercutAnimation
+                        || entity.spritesheets.CurrentSpritesheetName == LightAttackAnimation
+                        || entity.spritesheets.CurrentSpritesheetName == DiveAttackAnimation
+                        || entity.spritesheets.CurrentSpritesheetName == RushAttackAnimation)
+                        entity.spritesheets.CurrentPriority = 0;
+                }
+            }
+            if (CurrentAttack != null)
+            {
+                CurrentAttack.Update(gameTime);
+                if (!CurrentAttack.Active)
+                    CurrentAttack = null;
+            }
+            
             base.Update(gameTime);
         }
 

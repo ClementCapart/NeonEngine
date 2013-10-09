@@ -26,7 +26,6 @@ namespace NeonStarLibrary
         {
             if (Neon.Input.Pressed(Buttons.Start))
             {
-                ChangeScreen(new HoloRoom(game));
                 MediaPlayer.Stop();
             }
 

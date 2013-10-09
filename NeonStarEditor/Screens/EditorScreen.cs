@@ -7,7 +7,6 @@ using FarseerPhysics.Common;
 using Microsoft.Xna.Framework.Graphics;
 using NeonStarLibrary;
 using System.Windows.Forms;
-using NeonStarLibrary.Entities;
 using System.Reflection;
 using System.ComponentModel;
 using Microsoft.Xna.Framework.Input;

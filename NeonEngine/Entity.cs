@@ -38,8 +38,8 @@ namespace NeonEngine
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (Component c in Components)
-                c.Update(gameTime);
+            for (int i = Components.Count - 1; i >= 0; i--)
+                Components[i].Update(gameTime);
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

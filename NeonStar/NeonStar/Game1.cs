@@ -67,10 +67,7 @@ namespace NeonStar
         }
 
         protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                Exit();
-            
+        {   
             long deltaTime = gameTime.TotalGameTime.Ticks - currentTime;
             currentTime = gameTime.TotalGameTime.Ticks;
 

@@ -25,7 +25,14 @@ namespace NeonEngine
         public float DrawLayer
         {
             get { return Layer; }
-            set { Layer = value; }
+            set 
+            { 
+                Layer = value;
+                if (CurrentSpritesheet != null)
+                {
+                    CurrentSpritesheet.DrawLayer = value;
+                }
+            }
         }
 
         public SpritesheetManager(Entity entity)
@@ -70,17 +77,20 @@ namespace NeonEngine
 
         public void ChangeAnimation(string spriteSheetName, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
+            if (CurrentPriority > priority)
+                return;
+
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
             if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
+            {
+                CurrentSpritesheet.isPlaying = IsPlaying;
                 return;
-            if (CurrentPriority > priority && !IsFinished())
-                return;
+            }
 
-            CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
-
-            CurrentPriority = priority;
             CurrentSpritesheetName = spriteSheetName;
+            CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
+            CurrentPriority = priority;
             CurrentSpritesheet.isPlaying = IsPlaying;
             CurrentSpritesheet.SetFrame(0);
             if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
