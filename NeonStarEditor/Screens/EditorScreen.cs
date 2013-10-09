@@ -140,6 +140,8 @@ namespace NeonStarEditor
                     DrawableComponent dc = SelectedEntity.GetComponent<DrawableComponent>();
                     if (dc != null)
                     {
+                        spriteBatch.End();
+                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
                         spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
                         spriteBatch.End();
                         spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(graphics.GraphicsDevice));

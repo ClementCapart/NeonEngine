@@ -175,6 +175,44 @@ namespace NeonStarEditor
 
                         localY += VectorX.Height + 5;
                     }
+                    else if (pi.Name == "SpriteSheetTag")
+                    {
+                        ComboBox comboBox = new ComboBox();
+                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                        comboBox.Location = new Point(10, localY);
+                        comboBox.BindingContext = new BindingContext();
+                        BindingSource bs = new BindingSource();
+                        bs.DataSource = AssetManager.Spritesheets.Keys;
+
+                        comboBox.DataSource = bs;
+                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
+                        gb.Controls.Add(comboBox);
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
+                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
+                        if (comboBox.SelectedIndex == -1)
+                            comboBox.SelectedIndex = 0;
+
+                        localY += comboBox.Height + 5;
+                    }
+                    else if (pi.Name == "GraphicTag")
+                    {
+                        ComboBox comboBox = new ComboBox();
+                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                        comboBox.Location = new Point(10, localY);
+                        comboBox.BindingContext = new BindingContext();
+                        BindingSource bs = new BindingSource();
+                        bs.DataSource = AssetManager.Assets.Keys;
+
+                        comboBox.DataSource = bs;
+                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
+                        gb.Controls.Add(comboBox);
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
+                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
+                        if (comboBox.SelectedIndex == -1)
+                            comboBox.SelectedIndex = 0;
+
+                        localY += comboBox.Height + 5;
+                    }
                     else if (pi.PropertyType.Equals(typeof(string)))
                     {
                         TextBox tb = new TextBox();
@@ -221,44 +259,6 @@ namespace NeonStarEditor
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
                         comboBox.SelectedValueChanged += comboBox_SelectedValueChanged;
                         gb.Controls.Add(comboBox);
-
-                        localY += comboBox.Height + 5;
-                    }
-                    else if (pi.Name == "SpriteSheetTag")
-                    {
-                        ComboBox comboBox = new ComboBox();
-                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new Point(10, localY);
-                        comboBox.BindingContext = new BindingContext();
-                        BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Spritesheets.Keys;
-
-                        comboBox.DataSource = bs;
-                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
-                        gb.Controls.Add(comboBox);
-                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
-                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
-                        if (comboBox.SelectedIndex == -1)
-                            comboBox.SelectedIndex = 0;
-
-                        localY += comboBox.Height + 5;
-                    }
-                    else if (pi.Name == "GraphicTag")
-                    {
-                        ComboBox comboBox = new ComboBox();
-                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new Point(10, localY);
-                        comboBox.BindingContext = new BindingContext();
-                        BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Assets.Keys;
-
-                        comboBox.DataSource = bs;
-                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
-                        gb.Controls.Add(comboBox);
-                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
-                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
-                        if (comboBox.SelectedIndex == -1)
-                            comboBox.SelectedIndex = 0;
 
                         localY += comboBox.Height + 5;
                     }
