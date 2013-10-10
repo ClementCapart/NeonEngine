@@ -109,22 +109,36 @@ namespace NeonStarLibrary
             if (_lightDelay > 0.0f) 
             {
                 _lightDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                ThirdPersonController.CanTurn = false;
+                ThirdPersonController.CanMove = false;
             }
             else
             {
                 _lightDelay = 0.0f;
+                ThirdPersonController.CanTurn = true;
+                ThirdPersonController.CanMove = true;
             }
 
             if (_specialDelay > 0.0f)
             {
                 _specialDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                ThirdPersonController.CanTurn = false;
+                ThirdPersonController.CanMove = false;
             }
             else
             {
                 _specialDelay = 0.0f;
+
                 if (_rushAttacking)
                 {
+                    ThirdPersonController.CanTurn = false;
                     ThirdPersonController.CanMove = false;
+
+                }
+                else
+                {
+                    ThirdPersonController.CanTurn = true;
+                    ThirdPersonController.CanMove = true;
                 }
             }
 

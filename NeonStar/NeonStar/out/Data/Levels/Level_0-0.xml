@@ -376,16 +376,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:8 Y:233}" />
+              <Position Value="{X:-36,41105 Y:67,50001}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:8 Y:233}" />
-              <X Value="-12" />
-              <Y Value="165" />
+              <Center Value="{X:-36 Y:67}" />
+              <X Value="-56" />
+              <Y Value="-1" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -413,7 +413,7 @@
             <Properties>
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
-                <Animation Name="run" SpritesheetTag="LiOnWalk" />
+                <Animation Name="run" SpritesheetTag="LiOnRun" />
                 <Animation Name="jump" SpritesheetTag="LiOnJump" />
                 <Animation Name="lightattack" SpritesheetTag="LiOnLightAttack" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
@@ -454,16 +454,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:106,9998 Y:241}" />
+              <Position Value="{X:106 Y:241}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:106 Y:240}" />
-              <X Value="81" />
-              <Y Value="180" />
+              <Center Value="{X:105 Y:241}" />
+              <X Value="80" />
+              <Y Value="181" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -489,6 +489,7 @@
           </Rigidbody>
           <Enemy Type="NeonStarLibrary.Enemy" ID="3">
             <Properties>
+              <Debug Value="False" />
               <StartingHealthPoints Value="10" />
             </Properties>
           </Enemy>

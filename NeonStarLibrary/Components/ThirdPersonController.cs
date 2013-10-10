@@ -73,6 +73,13 @@ namespace NeonStarLibrary
             set { _canMove = value; }
         }
 
+        private bool _canTurn = true;
+        public bool CanTurn
+        {
+            get { return _canTurn; }
+            set { _canTurn = value; }
+        }
+
         private Side _currentSide = Side.Right;
         private bool _startJumping = false;
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();
@@ -101,6 +108,22 @@ namespace NeonStarLibrary
                 }
             }
 
+
+            if(_canTurn)
+            {
+                if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                {
+                    _currentSide = Side.Left;
+                    entity.spritesheets.ChangeSide(_currentSide);
+                }
+                else if(Neon.Input.Check(NeonStarInput.MoveRight))
+                {
+                    _currentSide = Side.Right;
+                    entity.spritesheets.ChangeSide(_currentSide);
+                }
+            }
+           
+
             if (CanMove)
             {
                 if (entity.rigidbody.isGrounded && !_startJumping)
@@ -109,7 +132,6 @@ namespace NeonStarLibrary
 
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
-                        _currentSide = Side.Left;
                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
                         entity.spritesheets.ChangeAnimation(WalkAnimation);
@@ -118,7 +140,6 @@ namespace NeonStarLibrary
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
-                        _currentSide = Side.Right;
                         if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
                             entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
                         entity.spritesheets.ChangeAnimation(WalkAnimation);

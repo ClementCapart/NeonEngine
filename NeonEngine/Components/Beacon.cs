@@ -114,7 +114,7 @@ namespace NeonEngine.Private
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
-                if (fixture.Body != body)
+                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
                     hasHit = true;
                     return 0;
@@ -133,7 +133,7 @@ namespace NeonEngine.Private
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
-                if (fixture.Body != body)
+                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
                     hasHit = true;
                     return 0;

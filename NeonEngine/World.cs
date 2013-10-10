@@ -156,7 +156,7 @@ namespace NeonEngine
             spriteBatch.Begin();
             ManualDrawBackHUD(spriteBatch);
             spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(Neon.graphicsDevice));
 
             foreach (DrawableComponent dc in DrawableComponents)
                 dc.Draw(spriteBatch);
@@ -170,7 +170,7 @@ namespace NeonEngine
                 w.Draw(spriteBatch);
                 spriteBatch.End();
             }
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(Neon.graphicsDevice));
             if (Neon.DrawHitboxes)
             {
                 foreach (Hitbox hb in Hitboxes)

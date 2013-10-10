@@ -138,6 +138,7 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = (Vector2)kvp.Value;
+                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             break;
 
@@ -199,6 +200,7 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = (Vector2)kvp.Value;
+                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             break;
 
