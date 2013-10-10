@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="enemytest">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <Position Value="{X:253,757 Y:75,50002}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+        <Properties>
+          <Center Value="{X:253 Y:75}" />
+          <X Value="228" />
+          <Y Value="15" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="50" />
+          <Height Value="120" />
+          <Type Value="Main" />
+        </Properties>
+      </Hitbox>
+      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+        <Properties>
+          <BodyType Value="Dynamic" />
+          <GravityScale Value="2" />
+          <UseGravity Value="True" />
+          <Restitution Value="0" />
+          <Friction Value="10" />
+          <OneWayPlatform Value="False" />
+          <SleepingAllowed Value="False" />
+          <IsGround Value="False" />
+          <Hitbox Value="1" />
+          <Sensors Value="False" />
+          <FixedRotation Value="True" />
+          <Mass Value="400" />
+        </Properties>
+      </Rigidbody>
+      <Enemy Type="NeonStarLibrary.Enemy" ID="3">
+        <Properties>
+          <StartingHealthPoints Value="10" />
+        </Properties>
+      </Enemy>
+    </Components>
+  </Entity>
+</Prefab>

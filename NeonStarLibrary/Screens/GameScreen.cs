@@ -21,7 +21,11 @@ namespace NeonStarLibrary
             : base(game)
         {
             enemies = new List<Enemy>();
+            
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
+
+            AttacksManager.LoadAttacks();
+
             camera.Position = new Vector2(-100, 0);
         }
 

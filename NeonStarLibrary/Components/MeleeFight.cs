@@ -62,34 +62,6 @@ namespace NeonStarLibrary
             set { _diveAttackAnimation = value; }
         }
 
-        private float _lightAttackDelay = 0.3f;
-        public float LightAttackDelay
-        {
-            get { return _lightAttackDelay; }
-            set { _lightAttackDelay = value; }
-        }
-
-        private float _uppercutDelay = 0.5f;
-        public float UppercutDelay
-        {
-            get { return _uppercutDelay; }
-            set { _uppercutDelay = value; }
-        }
-
-        private float _rushAttackDelay = 0.5f;
-        public float RushAttackDelay
-        {
-            get { return _rushAttackDelay; }
-            set { _rushAttackDelay = value; }
-        }
-
-        private float _diveAttackDelay = 0.5f;
-        public float DiveAttackDelay
-        {
-            get { return _diveAttackDelay; }
-            set { _diveAttackDelay = value; }
-        }
-
         private float _rushAttackChargeTime;
         public float RushAttackChargeTime
         {
@@ -135,18 +107,15 @@ namespace NeonStarLibrary
             if (_lightDelay > 0.0f) 
             {
                 _lightDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                ThirdPersonController.CanMove = false;
             }
             else
             {
                 _lightDelay = 0.0f;
-                ThirdPersonController.CanMove = true;
             }
 
             if (_specialDelay > 0.0f)
             {
                 _specialDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                ThirdPersonController.CanMove = false;
             }
             else
             {
@@ -155,11 +124,12 @@ namespace NeonStarLibrary
                 {
                     ThirdPersonController.CanMove = false;
                 }
-                else
-                {
-                    ThirdPersonController.CanMove = true;
-                }
             }
+
+            if (CurrentAttack != null && CurrentAttack.Duration > 0)
+                ThirdPersonController.CanMove = false;
+            else
+                ThirdPersonController.CanMove = true;
 
             if (!_isDiving && ReleasedAttackButton)
             {
@@ -170,13 +140,19 @@ namespace NeonStarLibrary
                     {
                         if (Debug) Console.WriteLine("Finisher -> Uppercut ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, false, false);
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("UppercutFinish", entity.spritesheets.CurrentSide, entity);
                     }
                     else
                     {
                         if (Debug) Console.WriteLine("Uppercut ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, false, false);
-                    }  
-                    _specialDelay = UppercutDelay;
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("Uppercut", entity.spritesheets.CurrentSide, entity);
+                    }
+                    _specialDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
                 }
                 else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, 0.3f) == DelayStatus.Valid && _specialDelay <= 0.0f)
@@ -222,14 +198,21 @@ namespace NeonStarLibrary
                     {
                         if (Debug) Console.WriteLine("Finisher -> Dive Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeAnimation(DiveAttackAnimation, 1, true, false, false);
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("DiveAttackFinish", entity.spritesheets.CurrentSide, entity);
                     }
                     else
                     {
                         if (Debug) Console.WriteLine("Dive Attack ! Current Combo : " + _currentComboHit);
                         entity.spritesheets.ChangeAnimation(DiveAttackAnimation, 1, true, false, false);
+                        if (CurrentAttack != null)
+                            CurrentAttack.CancelAttack();
+                        CurrentAttack = AttacksManager.GetAttack("DiveAttack", entity.spritesheets.CurrentSide, entity);
+
                     }  
                     _isDiving = true;
-                    _specialDelay = DiveAttackDelay;
+                    _specialDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.Attack) && _lightDelay <= 0.0f && _specialDelay <= 0.0f)
@@ -242,7 +225,7 @@ namespace NeonStarLibrary
                         entity.spritesheets.CurrentSpritesheet.isPlaying = true;
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
-                        CurrentAttack = AttacksManager.GetAttack("TestAttack", entity.spritesheets.CurrentSide, entity);
+                        CurrentAttack = AttacksManager.GetAttack("LightAttackFinish", entity.spritesheets.CurrentSide, entity);
                     }
                     else
                     {
@@ -252,12 +235,11 @@ namespace NeonStarLibrary
                         else
                             entity.spritesheets.ChangeAnimation(LightAttackAnimation, 1, true, false, false);
                         entity.spritesheets.CurrentSpritesheet.isPlaying = true;
-                        AttacksManager.Init();
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
-                        CurrentAttack = AttacksManager.GetAttack("TestAttack", entity.spritesheets.CurrentSide, entity);
+                        CurrentAttack = AttacksManager.GetAttack("LightAttack", entity.spritesheets.CurrentSide, entity);
                     }               
-                    _lightDelay = LightAttackDelay;
+                    _lightDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
                 }
             }
@@ -267,9 +249,11 @@ namespace NeonStarLibrary
                 {
                     _isDiving = false;
                     entity.spritesheets.CurrentPriority = 0;
+                    CurrentAttack.CancelAttack();
+                    CurrentAttack = null;
                 }
 
-            if (_currentComboHit != ComboSequence.None)
+            if (_currentComboHit != ComboSequence.None && !_rushAttacking)
             {
                 _lastHitDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if(_lastHitDelay >= ComboDelayMax)
@@ -302,10 +286,13 @@ namespace NeonStarLibrary
             {
                 if (_rushChargeTimer >= _rushAttackChargeTime)
                 {
+                    if (CurrentAttack != null)
+                        CurrentAttack.CancelAttack();
+                    CurrentAttack = AttacksManager.GetAttack(_currentComboHit == ComboSequence.Finish ? "RushAttackFinish" : "RushAttack", entity.spritesheets.CurrentSide, entity);
                     entity.spritesheets.CurrentSpritesheet.isPlaying = true;
                     _rushChargeTimer = 0.0f;
                     _rushAttacking = false;
-                    _specialDelay = _rushAttackDelay;
+                    _specialDelay = CurrentAttack.Cooldown;
                     
                 }
                 else

@@ -71,7 +71,6 @@ namespace NeonEngine
             {
                 if (body != null)
                     body.IgnoreGravity = !value;
-                else
                     useGravity = value;
             }
         }
@@ -235,11 +234,20 @@ namespace NeonEngine
 
                 body.BodyType = bodyType;
                 body.FixedRotation = fixedRotation;
-                body.IgnoreGravity = useGravity;
+                body.IgnoreGravity = !useGravity;
                 body.Friction = friction;
                 body.Restitution = restitution;
                 body.GravityScale = gravityScale;
                 body.Mass = mass;
+                if (IsGround)
+                    body.CollisionCategories = Category.Cat1;
+                else
+                {
+                    body.CollisionCategories = Category.Cat2;
+                    body.CollidesWith = Category.Cat1;
+                }
+
+
                 
                 body.SleepingAllowed = sleepingAllowed;
                 body.Position = CoordinateConversion.screenToWorld(hitbox.Center);

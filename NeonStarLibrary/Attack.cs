@@ -16,6 +16,14 @@ namespace NeonStarLibrary
             set { _name = value; }
         }
 
+        AttackType _type;
+        public AttackType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+        
+
         private float _damageOnHit = 1.0f;
         public float DamageOnHit
         {
@@ -69,8 +77,10 @@ namespace NeonStarLibrary
             this._side = side;
             this._entity = launcher;
             this.Name = attackInfo.Name;
+            this.Type = attackInfo.Type;
             this.DamageOnHit = attackInfo.DamageOnHit;
             this.Cooldown = attackInfo.Cooldown;
+            this.Duration = attackInfo.Duration;
             foreach (Rectangle hitbox in attackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
@@ -84,8 +94,16 @@ namespace NeonStarLibrary
                 hb.PoolInit(launcher);
                 _hitboxes.Add(hb);
             }
-            this._specialEffects = attackInfo.SpecialEffects;
-            this._onHitSpecialEffects = attackInfo.OnHitSpecialEffects;
+
+            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.SpecialEffects)
+            {
+                this._specialEffects.Add(kvp.Key, kvp.Value);
+            }
+            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.OnHitSpecialEffects)
+            {
+                this._onHitSpecialEffects.Add(kvp.Key, kvp.Value);
+            }
+           
             this._active = true;
         }
 
@@ -124,11 +142,18 @@ namespace NeonStarLibrary
                         Hitbox hb = Neon.world.Hitboxes[j];
                         if (hb.Type == HitboxType.Main && hb.entity != this._entity)
                         {
-                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle))
+                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && hb.LastIntersects != hitbox)
                             {
                                 Effect(hb.entity);
-                                hitbox.Remove();
-                                _hitboxes.Remove(hitbox);
+                                if (this.Type == AttackType.Melee)
+                                {
+                                    hb.LastIntersects = hitbox;
+                                }
+                                else
+                                {
+                                    hitbox.Remove();
+                                    _hitboxes.Remove(hitbox);
+                                }
                             }
                         }                      
                     }

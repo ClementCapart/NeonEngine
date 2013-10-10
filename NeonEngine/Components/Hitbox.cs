@@ -19,6 +19,8 @@ namespace NeonEngine
         public BodyShapeType ShapeType;
         private HitboxType _type;
 
+        public Hitbox LastIntersects;
+
         public HitboxType Type
         {
             get { return _type; }

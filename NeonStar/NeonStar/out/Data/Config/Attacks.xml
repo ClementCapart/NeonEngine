@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Attacks>
+    <Attack ID="1" Name="LightAttack" Type="Melee">
+	
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-5.0</DamageOnHit>
+	  <Cooldown>0.2</Cooldown>
+	  <Duration>0.1</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="2" Name="LightAttackFinish" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>0.2</Cooldown>
+	  <Duration>0.1</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:3000 Y:0}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="3" Name="Uppercut" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>0.1</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:0 Y:-4000}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="4" Name="UppercutFinish" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>0.1</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:600 Y:-4000}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="5" Name="RushAttack" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>0.2</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="6" Name="RushAttackFinish" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>0.2</Duration>
+	  <SpecialEffects>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:3000 Y:0}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="7" Name="DiveAttack" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="80" Width="80" Height="30"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>10</Duration>
+	  <SpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:0 Y:500}"/>
+		</Effect>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:0 Y:800}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+	<Attack ID="8" Name="DiveAttackFinish" Type="Melee">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="80" Width="80" Height="30"/>
+      </Hitboxes>
+	  <DamageOnHit>-10.0</DamageOnHit>
+	  <Cooldown>1</Cooldown>
+	  <Duration>10</Duration>
+	  <SpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:0 Y:500}"/>
+		</Effect>
+	  </SpecialEffects>
+	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:3000 Y:800}"/>
+		</Effect>
+	  </OnHitSpecialEffects>  
+    </Attack>
+  </Attacks>
+</XnaContent>
