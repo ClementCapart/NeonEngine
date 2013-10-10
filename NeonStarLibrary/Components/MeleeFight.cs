@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,7 @@ namespace NeonStarLibrary
         private float _lastHitDelay = 0.0f;
         private float _rushChargeTimer = 0.0f;
         private bool _rushAttacking = false;
+        private float _airLockDuration = 0.0f;
         private bool ReleasedAttackButton = true;
 
         private ThirdPersonController _thirdPersonController;
@@ -85,7 +87,7 @@ namespace NeonStarLibrary
             set { _thirdPersonController = value; }
         }
 
-        private ComboSequence _currentComboHit = ComboSequence.None;
+        public ComboSequence _currentComboHit = ComboSequence.None;
 
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")
@@ -126,12 +128,9 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (CurrentAttack != null && CurrentAttack.Duration > 0)
-                ThirdPersonController.CanMove = false;
-            else
-                ThirdPersonController.CanMove = true;
+              
 
-            if (!_isDiving && ReleasedAttackButton)
+            if (!_isDiving && !_rushAttacking && ReleasedAttackButton)
             {
                 if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveUp) && _specialDelay <= 0.0f)
                 {
@@ -143,6 +142,7 @@ namespace NeonStarLibrary
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
                         CurrentAttack = AttacksManager.GetAttack("UppercutFinish", entity.spritesheets.CurrentSide, entity);
+                        
                     }
                     else
                     {
@@ -151,6 +151,12 @@ namespace NeonStarLibrary
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
                         CurrentAttack = AttacksManager.GetAttack("Uppercut", entity.spritesheets.CurrentSide, entity);
+
+                    }
+                    if (!entity.rigidbody.isGrounded)
+                    {
+                        _airLockDuration = CurrentAttack.AirLock;
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     }
                     _specialDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
@@ -170,6 +176,13 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeSide(Side.Left);
                         entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
                     }
+                    if (!entity.rigidbody.isGrounded)
+                    {
+                        _airLockDuration = AttacksManager.GetAttackInfo("RushAttack").AirLock;
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    }
+                    else
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     _rushAttacking = true;
                     ReleasedAttackButton = false;
                 }
@@ -188,10 +201,17 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeSide(Side.Right);
                         entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
                     }
+                    if (!entity.rigidbody.isGrounded)
+                    {
+                        _airLockDuration = AttacksManager.GetAttackInfo("RushAttack").AirLock;
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    }
+                    else
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     _rushAttacking = true;
                     ReleasedAttackButton = false;      
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveDown) && !entity.rigidbody.isGrounded)
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveDown) && !entity.rigidbody.isGrounded && _specialDelay <= 0.0f)
                 {
                     CheckComboHit();
                     if (_currentComboHit == ComboSequence.Finish)
@@ -209,8 +229,8 @@ namespace NeonStarLibrary
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
                         CurrentAttack = AttacksManager.GetAttack("DiveAttack", entity.spritesheets.CurrentSide, entity);
-
-                    }  
+                    }
+                    
                     _isDiving = true;
                     _specialDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
@@ -238,7 +258,13 @@ namespace NeonStarLibrary
                         if (CurrentAttack != null)
                             CurrentAttack.CancelAttack();
                         CurrentAttack = AttacksManager.GetAttack("LightAttack", entity.spritesheets.CurrentSide, entity);
-                    }               
+                    }
+
+                    if (!entity.rigidbody.isGrounded)
+                    {
+                        _airLockDuration = CurrentAttack.AirLock;
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    }
                     _lightDelay = CurrentAttack.Cooldown;
                     ReleasedAttackButton = false;
                 }
@@ -319,7 +345,27 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Active)
                     CurrentAttack = null;
             }
-            
+
+            if (_airLockDuration > 0.0f)
+            {
+                entity.rigidbody.body.GravityScale = 0.0f;
+                ThirdPersonController.CanMove = false;
+                _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                _airLockDuration = 0.0f;
+                entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
+                if ((CurrentAttack != null && CurrentAttack.Duration > 0) || _rushAttacking)
+                {
+                    ThirdPersonController.CanMove = false;
+                }
+                else
+                {
+                    ThirdPersonController.CanMove = true;
+                }
+            }         
+
             base.Update(gameTime);
         }
 

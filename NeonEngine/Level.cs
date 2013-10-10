@@ -114,8 +114,6 @@ namespace NeonEngine
                                 pi.SetValue(component, spritesheetList, null);
                             }
                         }
-
-                        component.Init();
                         entity.AddComponent(component);
                     }
                 }
@@ -135,6 +133,8 @@ namespace NeonEngine
                                 pi.SetValue(comp, Value, null);
                             }
                     }
+
+                    comp.Init();
                 }
 
                 containerWorld.AddEntity(entity);

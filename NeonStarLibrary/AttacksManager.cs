@@ -32,6 +32,8 @@ namespace NeonStarLibrary
         public float DamageOnHit;
         public float Cooldown;
         public float Duration;
+        public float AirLock;
+        public float TargetAirLock;
         public Dictionary<SpecialEffect, object> SpecialEffects;
         public Dictionary<SpecialEffect, object> OnHitSpecialEffects;
     }
@@ -61,7 +63,8 @@ namespace NeonStarLibrary
                 ai.DamageOnHit = float.Parse(attack.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
                 ai.Cooldown = float.Parse(attack.Element("Cooldown").Value, CultureInfo.InvariantCulture);
                 ai.Duration = float.Parse(attack.Element("Duration").Value, CultureInfo.InvariantCulture);
-
+                ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);
+                ai.TargetAirLock = float.Parse(attack.Element("TargetAirLock").Value, CultureInfo.InvariantCulture);
                 ai.SpecialEffects = new Dictionary<SpecialEffect, object>();
 
                 foreach (XElement specialEffect in attack.Element("SpecialEffects").Elements("Effect"))
@@ -103,5 +106,11 @@ namespace NeonStarLibrary
 
             return attack;
         }
+
+        static public AttackInfo GetAttackInfo(string name)
+        {
+            return _attacksInformation.First(ai => ai.Name == name);
+        }
+            
     }
 }

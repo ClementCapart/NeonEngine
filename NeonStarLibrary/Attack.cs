@@ -47,6 +47,12 @@ namespace NeonStarLibrary
             set { _duration = value; }
         }
 
+        private float _airLock = 0.0f;
+        public float AirLock
+        {
+            get { return _airLock; }
+            set { _airLock = value; }
+        }     
 
         private bool _active;
         public bool Active
@@ -61,6 +67,14 @@ namespace NeonStarLibrary
           get { return _side; }
           set { _side = value; }
         }
+
+        private float _targetAirLock = 0.0f;
+        public float TargetAirLock
+        {
+            get { return _targetAirLock; }
+            set { _targetAirLock = value; }
+        }
+
 
         private Dictionary<SpecialEffect, object> _specialEffects  = new Dictionary<SpecialEffect, object>();
         private Dictionary<SpecialEffect, object> _onHitSpecialEffects  = new Dictionary<SpecialEffect, object>();
@@ -81,6 +95,8 @@ namespace NeonStarLibrary
             this.DamageOnHit = attackInfo.DamageOnHit;
             this.Cooldown = attackInfo.Cooldown;
             this.Duration = attackInfo.Duration;
+            this.AirLock = attackInfo.AirLock;
+            this.TargetAirLock = attackInfo.TargetAirLock;
             foreach (Rectangle hitbox in attackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
@@ -175,7 +191,8 @@ namespace NeonStarLibrary
             if (enemy != null)
             {
                 enemy.ChangeHealthPoints(_damageOnHit);
-
+                if(!enemy.entity.rigidbody.isGrounded)
+                    enemy.AirLock(TargetAirLock);
                 foreach(KeyValuePair<SpecialEffect, object> kvp in _onHitSpecialEffects)
                 {
                     switch(kvp.Key)
@@ -202,7 +219,7 @@ namespace NeonStarLibrary
                 _hitboxes[i].Remove();
             }
             this._hitboxes.Clear();
-            this._active = false;
+            this.Active = false;
         }
     }
 }

@@ -38,6 +38,7 @@ namespace NeonEngine
             set { bodyType = value; }
         }
 
+        public float InitialGravityScale;
         private float gravityScale;
         public float GravityScale
         {
@@ -180,7 +181,19 @@ namespace NeonEngine
         public bool Sensors
         {
             get { return sensors; }
-            set { sensors = value; }
+            set 
+            { 
+                sensors = value;
+                if (sensors)
+                {
+                    if(hitbox != null)
+                        beacon = new Beacon(hitbox, physicWorld);
+                }
+                else
+                {
+                    beacon = null;
+                }
+            }
         }
 
         bool fixedRotation;
@@ -238,6 +251,7 @@ namespace NeonEngine
                 body.Friction = friction;
                 body.Restitution = restitution;
                 body.GravityScale = gravityScale;
+                InitialGravityScale = gravityScale;
                 body.Mass = mass;
                 if (IsGround)
                     body.CollisionCategories = Category.Cat1;
@@ -304,7 +318,6 @@ namespace NeonEngine
 
                 Position = Position;
             }
-           
             
             base.Update(gameTime);
         }

@@ -76,6 +76,7 @@ namespace NeonStarLibrary
         private Side _currentSide = Side.Right;
         private bool _startJumping = false;
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();
+        private MeleeFight _meleeFight;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -84,6 +85,8 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            _meleeFight = entity.GetComponent<MeleeFight>();
+
             base.Init();
         }
 
@@ -135,6 +138,7 @@ namespace NeonStarLibrary
                     else if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                        _meleeFight._currentComboHit = ComboSequence.None;
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 0, false, false, false, 0);
                         _startJumping = true;
                     }

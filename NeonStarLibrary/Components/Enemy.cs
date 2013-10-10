@@ -1,4 +1,5 @@
 ﻿using FarseerPhysics.Dynamics;
+using Microsoft.Xna.Framework;
 using NeonEngine;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace NeonStarLibrary
         }
 
         private float _currentHealthPoints;
+        private float _airLockDuration = 0.0f;
 
         public Enemy(Entity entity)
             :base(entity, "Enemy")
@@ -44,8 +46,28 @@ namespace NeonStarLibrary
             }
         }
 
+        public void AirLock(float duration)
+        {
+            if (duration > 0)
+            {
+                _airLockDuration = duration;
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+            
+        }
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (_airLockDuration > 0.0f)
+            {
+                _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                entity.rigidbody.GravityScale = 0.0f;
+            }
+            else
+            {
+                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                _airLockDuration = 0.0f;
+            }
             base.Update(gameTime);
         }
     }
