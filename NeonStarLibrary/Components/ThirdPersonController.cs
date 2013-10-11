@@ -66,6 +66,27 @@ namespace NeonStarLibrary
             set { _jumpAnimation = value; }
         }
 
+        private string _startFallAnimation;
+        public string StartFallAnimation
+        {
+            get { return _startFallAnimation; }
+            set { _startFallAnimation = value; }
+        }
+
+        private string _fallLoopAnimation;
+        public string FallLoopAnimation
+        {
+            get { return _fallLoopAnimation; }
+            set { _fallLoopAnimation = value; }
+        }
+
+        private string _landingAnimation;
+        public string LandingAnimation
+        {
+            get { return _landingAnimation; }
+            set { _landingAnimation = value; }
+        }
+
         private bool _canMove = true;
         public bool CanMove
         {
@@ -84,6 +105,8 @@ namespace NeonStarLibrary
         private bool _startJumping = false;
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();
         private MeleeFight _meleeFight;
+
+        public float LastSideChangedDelay = 0.0f;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -107,19 +130,29 @@ namespace NeonStarLibrary
                     _ignoredGeometry.RemoveAt(i);
                 }
             }
-
+            LastSideChangedDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if(_canTurn)
             {
                 if (Neon.Input.Check(NeonStarInput.MoveLeft))
                 {
-                    _currentSide = Side.Left;
-                    entity.spritesheets.ChangeSide(_currentSide);
+                    if (_currentSide != Side.Left)
+                    {
+                        _currentSide = Side.Left;
+                        LastSideChangedDelay = 0.0f;
+                        entity.spritesheets.ChangeSide(_currentSide);
+                    }
+                    
                 }
                 else if(Neon.Input.Check(NeonStarInput.MoveRight))
                 {
-                    _currentSide = Side.Right;
-                    entity.spritesheets.ChangeSide(_currentSide);
+                    if (_currentSide != Side.Right)
+                    {
+                        _currentSide = Side.Right;
+                        LastSideChangedDelay = 0.0f;
+                        entity.spritesheets.ChangeSide(_currentSide);
+                    }
+                    
                 }
             }
            
@@ -160,10 +193,10 @@ namespace NeonStarLibrary
                     {
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         _meleeFight._currentComboHit = ComboSequence.None;
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, false, false, false, 0);
+                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
                         _startJumping = true;
                     }
-                    else if (NotMoving)
+                    else if (NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished))
                     {
                         entity.spritesheets.ChangeAnimation(IdleAnimation);
                     }
@@ -191,17 +224,26 @@ namespace NeonStarLibrary
 
                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
                     {
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, false, false, false, 1);
+                        if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
+                        {
+                            entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                        }
+                        else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
+                        {
+                            entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
+                        }                      
                         _startJumping = false;
                     }
-
                 }
+
+                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded)
+                    entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
             }
             
             foreach (Rigidbody rg in _ignoredGeometry)
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);
-
             base.Update(gameTime);
+
         }
     }
 }

@@ -68,19 +68,10 @@ namespace NeonStar
 
         protected override void Update(GameTime gameTime)
         {   
-            long deltaTime = gameTime.TotalGameTime.Ticks - currentTime;
-            currentTime = gameTime.TotalGameTime.Ticks;
 
-            accumulator += deltaTime;
+            Neon.world.UpdateWorld(gameTime);
+            base.Update(gameTime);
 
-            while (accumulator >= dt)
-            {
-                Neon.world.UpdateWorld(gameTime);
-                base.Update(gameTime);
-
-                time += dt;
-                accumulator -= dt;
-            }
         }
 
         protected override void Draw(GameTime gameTime)

@@ -51,13 +51,15 @@ namespace NeonEngine
         public override void Draw(SpriteBatch spriteBatch)
         {
             if (CurrentSpritesheet != null)
+            {
                 CurrentSpritesheet.Draw(spriteBatch);
+            }
             base.Draw(spriteBatch);
         }
 
         public bool IsFinished()
         {
-            if (!(CurrentSpritesheet.IsLooped) && CurrentSpritesheet.currentFrame == CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
+            if (CurrentSpritesheet.IsFinished)
                 return true;
 
             return false;
@@ -76,7 +78,9 @@ namespace NeonEngine
         }
 
         public void ChangeAnimation(string spriteSheetName, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
-        {
+        {         
+            
+
             if (CurrentPriority > priority)
                 return;
 
@@ -84,6 +88,8 @@ namespace NeonEngine
                 return;
             if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
             {
+                    if (Reset)
+                        CurrentSpritesheet.SetFrame(0);
                 CurrentSpritesheet.isPlaying = IsPlaying;
                 return;
             }
@@ -96,7 +102,7 @@ namespace NeonEngine
             if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
                 CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;
-
+            Console.WriteLine("Changed Animation for -> " + spriteSheetName);
             CurrentSpritesheet.Init();
         }
             

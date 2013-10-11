@@ -21,7 +21,7 @@ namespace NeonEngine
         public Body body;
         public bool isGrounded;
         
-        private bool wasGrounded;
+        public bool wasGrounded;
 
         private PositionChange PositionChanged;
         private ComponentRemoved HitboxRemoved;
@@ -304,6 +304,7 @@ namespace NeonEngine
                 {
                     if (Sensors)
                     {
+                        wasGrounded = isGrounded;
                         beacon.Update(gameTime);
                         Rigidbody rg = beacon.CheckGround(body);
                         if (rg != null)
@@ -312,7 +313,6 @@ namespace NeonEngine
                             isGrounded = false;
                         if (!isGrounded && !body.Awake)
                             body.Awake = true;
-                        wasGrounded = isGrounded;
                     }
                 }
 

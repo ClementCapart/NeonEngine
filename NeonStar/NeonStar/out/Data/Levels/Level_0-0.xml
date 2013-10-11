@@ -376,16 +376,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:52,45282 Y:233}" />
+              <Position Value="{X:-46,12025 Y:67,50002}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:52 Y:233}" />
-              <X Value="32" />
-              <Y Value="165" />
+              <Center Value="{X:-46 Y:67}" />
+              <X Value="-66" />
+              <Y Value="-1" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -414,11 +414,14 @@
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="jump" SpritesheetTag="LiOnJump" />
+                <Animation Name="startJump" SpritesheetTag="LiOnJumpUp" />
                 <Animation Name="lightattack" SpritesheetTag="LiOnLightAttack" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
                 <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
                 <Animation Name="diveattack" SpritesheetTag="LiOnDiveAttack" />
+                <Animation Name="startFall" SpritesheetTag="LiOnJumpDown" />
+                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDownLoop" />
+                <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
             </Properties>
@@ -444,7 +447,10 @@
               <AirMaxSpeed Value="3" />
               <IdleAnimation Value="idle" />
               <WalkAnimation Value="run" />
-              <JumpAnimation Value="jump" />
+              <JumpAnimation Value="startJump" />
+              <StartFallAnimation Value="startFall" />
+              <FallLoopAnimation Value="fallLoop" />
+              <LandingAnimation Value="landing" />
               <CanMove Value="True" />
               <CanTurn Value="True" />
             </Properties>
@@ -455,16 +461,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:105 Y:240,6356}" />
+              <Position Value="{X:105 Y:241}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:104 Y:240}" />
+              <Center Value="{X:104 Y:241}" />
               <X Value="79" />
-              <Y Value="180" />
+              <Y Value="181" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />

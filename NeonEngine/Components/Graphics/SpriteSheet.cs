@@ -9,8 +9,8 @@ namespace NeonEngine
         Rectangle[] frames;
         public int currentFrame = 0;
         public SpriteSheetInfo spriteSheetInfo;
-        float timePerFrame;
-        float frameTimer = 0f;
+        double timePerFrame;
+        double frameTimer = 0f;
         public SpriteEffects spriteEffects = SpriteEffects.None;
         public bool isHUD;
         public Vector2 Position;
@@ -57,6 +57,13 @@ namespace NeonEngine
             isHUD = true;
         }
 
+        private bool _isFinished = false;
+        public bool IsFinished
+        {
+            get { return _isFinished; }
+            set { _isFinished = value; }
+        }
+
         public override void Init()
         {
             if (spriteSheetInfo == null)
@@ -88,31 +95,40 @@ namespace NeonEngine
                 isPlaying = false;
             else
                 timePerFrame = 1 / spriteSheetInfo.Fps;
+
+            _isFinished = false;
         }
 
         public override void Update(GameTime gameTime = null)
         {
             if (spriteSheetInfo != null)
             {
-                if (isPlaying)
-                {
-                    if (frameTimer > timePerFrame)
-                    {
-                        if (currentFrame == frames.Length - 1)
-                        {
-                            if (IsLooped)
-                                currentFrame = 0;
-                            else
-                                isPlaying = false;
-                        }
-                        else
-                            currentFrame++;
+                    frameTimer += gameTime != null ? gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
 
-                        frameTimer = 0f;
+                    while (frameTimer > timePerFrame)
+                    {
+                        if (isPlaying)
+                        {
+                            if (currentFrame == frames.Length - 1)
+                            {
+                                if (IsLooped)
+                                    currentFrame = 0;
+                                else
+                                {
+                                    isPlaying = false;
+                                    _isFinished = true;
+                                }
+                            }
+                            else
+                                currentFrame++;
+
+                            
+                        }
+                        frameTimer -= timePerFrame;
                     }
-                    else
-                        frameTimer += gameTime != null ? (float)gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
-                }
+                    
+
+                    
             }
             
         }
