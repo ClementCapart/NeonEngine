@@ -102,7 +102,6 @@ namespace NeonEngine
             if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
                 CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;
-            Console.WriteLine("Changed Animation for -> " + spriteSheetName);
             CurrentSpritesheet.Init();
         }
             
