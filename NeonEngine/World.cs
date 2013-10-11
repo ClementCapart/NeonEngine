@@ -144,8 +144,8 @@ namespace NeonEngine
             }
             
             InputEngine();
-            Update(gameTime);        
-
+            Update(gameTime);
+            //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
         }
 
