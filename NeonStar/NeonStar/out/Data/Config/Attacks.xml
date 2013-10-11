@@ -7,9 +7,9 @@
       </Hitboxes>
 	  <DamageOnHit>-5.0</DamageOnHit>
 	  <Cooldown>0.2</Cooldown>
-	  <Duration>0.1</Duration>
-	  <AirLock>0.5</AirLock>
-	  <TargetAirLock>0.5</TargetAirLock>
+	  <Duration>0.2</Duration>
+	  <AirLock>0.4</AirLock>
+	  <TargetAirLock>0.4</TargetAirLock>
 	  <SpecialEffects>
 	  </SpecialEffects>
 	  <OnHitSpecialEffects>
@@ -20,9 +20,9 @@
         <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
       </Hitboxes>
 	  <DamageOnHit>-10.0</DamageOnHit>
-	  <Cooldown>0.2</Cooldown>
-	  <Duration>0.1</Duration>
-	  <AirLock>0.5</AirLock>
+	  <Cooldown>0.7</Cooldown>
+	  <Duration>0.3</Duration>
+	  <AirLock>0.4</AirLock>
 	  <TargetAirLock>0</TargetAirLock>
 	  <SpecialEffects>
 	  </SpecialEffects>
@@ -37,9 +37,9 @@
         <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
       </Hitboxes>
 	  <DamageOnHit>-10.0</DamageOnHit>
-	  <Cooldown>0.5</Cooldown>
-	  <Duration>0.1</Duration>
-	  <AirLock>0.5</AirLock>
+	  <Cooldown>0.6</Cooldown>
+	  <Duration>0.2</Duration>
+	  <AirLock>0.4</AirLock>
 	  <TargetAirLock>0</TargetAirLock>
 	  <SpecialEffects>
 	  </SpecialEffects>
@@ -54,7 +54,7 @@
         <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80"/>
       </Hitboxes>
 	  <DamageOnHit>-10.0</DamageOnHit>
-	  <Cooldown>1</Cooldown>
+	  <Cooldown>0.8</Cooldown>
 	  <Duration>0.1</Duration>
 	  <AirLock>0.5</AirLock>
 	  <TargetAirLock>0</TargetAirLock>
@@ -78,6 +78,9 @@
 	  <SpecialEffects>
 	  </SpecialEffects>
 	  <OnHitSpecialEffects>
+		<Effect Type="Impulse">
+			<Parameter Value="{X:4000 Y:0}"/>
+		</Effect>
 	  </OnHitSpecialEffects>  
     </Attack>
 	<Attack ID="6" Name="RushAttackFinish" Type="Melee">
