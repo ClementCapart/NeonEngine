@@ -377,7 +377,7 @@ namespace NeonStarLibrary
                 }
             }
             
-            if (entity.spritesheets.CurrentSpritesheet.IsFinished)
+            if (entity.spritesheets.CurrentSpritesheet.IsFinished || (entity.spritesheets.CurrentSpritesheetName == LightAttackAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame % 2 == 1))
                 entity.spritesheets.CurrentPriority = 0;
 
             base.Update(gameTime);
@@ -385,7 +385,6 @@ namespace NeonStarLibrary
 
         private void PerformLightAttack()
         {
-
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {

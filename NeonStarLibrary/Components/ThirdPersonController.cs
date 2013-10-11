@@ -154,8 +154,7 @@ namespace NeonStarLibrary
                     }
                     
                 }
-            }
-           
+            }    
 
             if (CanMove)
             {
@@ -191,6 +190,7 @@ namespace NeonStarLibrary
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         _meleeFight._currentComboHit = ComboSequence.None;
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
