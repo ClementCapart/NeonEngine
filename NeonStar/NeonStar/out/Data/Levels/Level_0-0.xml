@@ -376,16 +376,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-36,41105 Y:67,50001}" />
+              <Position Value="{X:52,45282 Y:233}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:-36 Y:67}" />
-              <X Value="-56" />
-              <Y Value="-1" />
+              <Center Value="{X:52 Y:233}" />
+              <X Value="32" />
+              <Y Value="165" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -446,6 +446,7 @@
               <WalkAnimation Value="run" />
               <JumpAnimation Value="jump" />
               <CanMove Value="True" />
+              <CanTurn Value="True" />
             </Properties>
           </ThirdPersonController>
         </Components>
@@ -454,16 +455,16 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:106 Y:241}" />
+              <Position Value="{X:105 Y:240,6356}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
-              <Center Value="{X:105 Y:241}" />
-              <X Value="80" />
-              <Y Value="181" />
+              <Center Value="{X:104 Y:240}" />
+              <X Value="79" />
+              <Y Value="180" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -482,7 +483,7 @@
               <SleepingAllowed Value="False" />
               <IsGround Value="False" />
               <Hitbox Value="1" />
-              <Sensors Value="False" />
+              <Sensors Value="True" />
               <FixedRotation Value="True" />
               <Mass Value="400" />
             </Properties>

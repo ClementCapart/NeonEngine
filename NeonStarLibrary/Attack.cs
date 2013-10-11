@@ -199,9 +199,11 @@ namespace NeonStarLibrary
                     switch(kvp.Key)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)kvp.Value;
+                            Vector2 impulseForce = (Vector2)kvp.Value;                           
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                            entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
                             break;
 
                         case SpecialEffect.Boost:
