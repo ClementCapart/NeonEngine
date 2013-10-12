@@ -19,12 +19,6 @@ namespace NeonStar
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        long time = 0;
-        const long dt = TimeSpan.TicksPerSecond / 60;
-
-        long currentTime = 0;
-        long accumulator = 0;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

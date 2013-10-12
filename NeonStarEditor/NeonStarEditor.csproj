@@ -77,6 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionManager.cs" />
+    <Compile Include="Controls\AttacksSettingsManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AttacksSettingsManager.Designer.cs">
+      <DependentUpon>AttacksSettingsManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BottomDock\BottomDock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <Compile Include="Tools\Tool.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\AttacksSettingsManager.resx">
+      <DependentUpon>AttacksSettingsManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\BottomDock\BottomDock.resx">
       <DependentUpon>BottomDock.cs</DependentUpon>
     </EmbeddedResource>

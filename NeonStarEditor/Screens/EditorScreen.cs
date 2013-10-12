@@ -23,6 +23,8 @@ namespace NeonStarEditor
         public RightDock RightDockControl;
         public LeftDock LeftDockControl;
 
+        public AttacksSettingsManager AttacksSettingsManager;
+
         public Tool CurrentTool;
         public Entity SelectedEntity;
 
@@ -38,6 +40,7 @@ namespace NeonStarEditor
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
+        private bool _isAttackManagerDisplayed = false;
 
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
@@ -54,7 +57,7 @@ namespace NeonStarEditor
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
-            
+            AttacksSettingsManager = new AttacksSettingsManager();
 
             GameAsForm.Controls.Add(BottomDockControl);
             GameAsForm.Controls.Add(RightDockControl);
@@ -63,6 +66,21 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
+        }
+
+        public void ToggleAttackManager()
+        {
+            if (_isAttackManagerDisplayed)
+            {
+                GameAsForm.Controls.Remove(AttacksSettingsManager);
+                _isAttackManagerDisplayed = false;
+            }
+            else
+            {
+                AttacksSettingsManager.InitializeData();
+                GameAsForm.Controls.Add(AttacksSettingsManager);
+                _isAttackManagerDisplayed = true;
+            }
         }
 
         void GameAsForm_MouseLeave(object sender, EventArgs e)

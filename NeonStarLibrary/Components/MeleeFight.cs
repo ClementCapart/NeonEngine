@@ -334,7 +334,7 @@ namespace NeonStarLibrary
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
-                if (!CurrentAttack.Active)
+                if (!CurrentAttack.Active && CurrentAttack.Activated)
                     CurrentAttack = null;
             }
 

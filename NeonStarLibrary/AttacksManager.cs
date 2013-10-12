@@ -24,26 +24,29 @@ namespace NeonStarLibrary
         Special
     }
 
-    public struct AttackInfo
+    public class AttackInfo
     {
         public string Name;
-        public AttackType Type;
-        public List<Rectangle> Hitboxes;
-        public float DamageOnHit;
-        public float Cooldown;
-        public float Duration;
-        public float AirLock;
-        public float TargetAirLock;
-        public Dictionary<SpecialEffect, object> SpecialEffects;
-        public Dictionary<SpecialEffect, object> OnHitSpecialEffects;
+        public AttackType Type = AttackType.Melee;
+        public List<Rectangle> Hitboxes = new List<Rectangle>();
+        public float DamageOnHit = 1.0f;
+        public float Delay = 0.0f;
+        public float Cooldown = 1.0f;
+        public float Duration = 1.0f;
+        public float AirLock = 1.0f;
+        public float TargetAirLock = 1.0f;
+        public Dictionary<SpecialEffect, object> SpecialEffects = new Dictionary<SpecialEffect,object>();
+        public Dictionary<SpecialEffect, object> OnHitSpecialEffects = new Dictionary<SpecialEffect,object>();
     }
 
     static public class AttacksManager
     {
-        static private List<AttackInfo> _attacksInformation = new List<AttackInfo>();
+        static public List<AttackInfo> _attacksInformation = new List<AttackInfo>();
 
         static public void LoadAttacks()
         {
+            _attacksInformation.Clear();
+
             XDocument document = XDocument.Load(@"../Data/Config/Attacks.xml");
             XElement attacks = document.Element("XnaContent").Element("Attacks");
 

@@ -33,6 +33,13 @@ namespace NeonStarLibrary
 
         List<Hitbox> _hitboxes;
 
+        private float _delay = 1.0f;
+        public float Delay
+        {
+            get { return _delay; }
+            set { _delay = value; }
+        }
+
         private float _cooldown = 1.0f;
         public float Cooldown
         {
@@ -75,11 +82,19 @@ namespace NeonStarLibrary
             set { _targetAirLock = value; }
         }
 
+        private bool _activated = false;
+
+        public bool Activated
+        {
+            get { return _activated; }
+            set { _activated = value; }
+        }
 
         private Dictionary<SpecialEffect, object> _specialEffects  = new Dictionary<SpecialEffect, object>();
         private Dictionary<SpecialEffect, object> _onHitSpecialEffects  = new Dictionary<SpecialEffect, object>();
 
         private Entity _entity;
+        private AttackInfo _attackInfo;
 
         public Attack()
         {
@@ -87,44 +102,50 @@ namespace NeonStarLibrary
 
         public Attack(AttackInfo attackInfo, Side side, Entity launcher)
         {
+            _attackInfo = attackInfo;
             _hitboxes = new List<Hitbox>();
             this._side = side;
             this._entity = launcher;
             this.Name = attackInfo.Name;
             this.Type = attackInfo.Type;
+            this.Delay = attackInfo.Delay;
             this.DamageOnHit = attackInfo.DamageOnHit;
             this.Cooldown = attackInfo.Cooldown;
             this.Duration = attackInfo.Duration;
             this.AirLock = attackInfo.AirLock;
             this.TargetAirLock = attackInfo.TargetAirLock;
-            foreach (Rectangle hitbox in attackInfo.Hitboxes)
+            
+            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.OnHitSpecialEffects)
+            {
+                this._onHitSpecialEffects.Add(kvp.Key, kvp.Value);
+            }
+
+            if (this.Delay <= 0.0f)
+                Init();
+        }
+
+        public void Init()
+        {
+            foreach (Rectangle hitbox in _attackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
-                hb.Center = launcher.transform.Position;
+                hb.Center = _entity.transform.Position;
                 hb.Width = hitbox.Width;
                 hb.Height = hitbox.Height;
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
                 hb.Type = HitboxType.Hit;
-                launcher.AddComponent(hb);
-                hb.PoolInit(launcher);
+                _entity.AddComponent(hb);
+                hb.PoolInit(_entity);
                 _hitboxes.Add(hb);
             }
 
-            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.SpecialEffects)
+            foreach (KeyValuePair<SpecialEffect, object> kvp in _attackInfo.SpecialEffects)
             {
                 this._specialEffects.Add(kvp.Key, kvp.Value);
             }
-            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.OnHitSpecialEffects)
-            {
-                this._onHitSpecialEffects.Add(kvp.Key, kvp.Value);
-            }
-           
+            this._activated = true;
             this._active = true;
-        }
-
-        public void Init()
-        {
         }
 
         public void Update(GameTime gameTime)
@@ -183,7 +204,15 @@ namespace NeonStarLibrary
                 {
                     CancelAttack();
                 }
-            }          
+            }
+            else if (!_activated && this.Delay > 0.0f)
+            {
+                Delay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else if (!_activated)
+            {
+                Init();
+            }
         }
 
         private void Effect(Entity entity)
