@@ -17,6 +17,7 @@ namespace NeonStarEditor
     public partial class AttacksSettingsManager : UserControl
     {
         Dictionary<string, AttackInfo> _attackList = new Dictionary<string, AttackInfo>();
+        string InitialName = "";
 
         public AttacksSettingsManager()
         {
@@ -82,7 +83,6 @@ namespace NeonStarEditor
                                                     new XAttribute("OffsetY", rectangle.Y),
                                                     new XAttribute("Width", rectangle.Width),
                                                     new XAttribute("Height", rectangle.Height));
-
                     hitboxes.Add(hitbox);
                 }
 
@@ -160,6 +160,7 @@ namespace NeonStarEditor
 
         private void AttacksList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.AttackName.Text = _attackList[AttacksList.SelectedValue.ToString()].Name;
             this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
             this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit;
             this.DelayNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Delay;
@@ -212,6 +213,23 @@ namespace NeonStarEditor
         private void Numeric_Leave(object sender, EventArgs e)
         {
             (Neon.world as EditorScreen).FocusedNumericUpDown = null;
+        }
+
+        private void AttackName_Enter(object sender, EventArgs e)
+        {
+            InitialName = (sender as TextBox).Text;
+            (Neon.world as EditorScreen).FocusedTextBox = sender as TextBox;
+        }
+
+        private void AttackName_Leave(object sender, EventArgs e)
+        {
+
+            (Neon.world as EditorScreen).FocusedTextBox = null;
+            AttackInfo ai = _attackList[InitialName];
+            ai.Name = (sender as TextBox).Text;
+            _attackList.Remove(InitialName);
+            _attackList.Add((sender as TextBox).Text, ai);
+            InitializeData(false);
         }
     }
 }
