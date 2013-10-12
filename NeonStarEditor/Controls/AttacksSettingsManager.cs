@@ -22,6 +22,8 @@ namespace NeonStarEditor
         {
             InitializeComponent();
             this.Location = new System.Drawing.Point(Neon.graphicsDevice.PresentationParameters.BackBufferWidth / 2 - this.Width / 2, Neon.graphicsDevice.PresentationParameters.BackBufferHeight / 2 - this.Height / 2);
+            foreach (Enum e in Enum.GetValues(typeof(AttackType)))
+                TypeComboBox.Items.Add(e);
         }
 
         public void InitializeData(bool fromGame = true)
@@ -154,6 +156,62 @@ namespace NeonStarEditor
         private void ClosePanel_Click(object sender, EventArgs e)
         {
             (Neon.world as EditorScreen).ToggleAttackManager();
+        }
+
+        private void AttacksList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
+            this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit;
+            this.DelayNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Delay;
+            this.DurationNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Duration;
+            this.CooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Cooldown;
+            this.AirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirLock;
+            this.TargetAirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].TargetAirLock;
+        }
+
+        private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].Type = (AttackType)this.TypeComboBox.SelectedIndex;
+        }
+
+        private void Numeric_ValueChanged(object sender, EventArgs e)
+        {
+            switch((sender as NumericUpDown).Name)
+            {
+                case "DamageNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].DamageOnHit = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "DelayNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].Delay = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "DurationNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].Duration = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "CooldownNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].Cooldown = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AirLockNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].AirLock = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "TargetAirLockNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].TargetAirLock = (float)(sender as NumericUpDown).Value;
+                    break;
+            }
+        }
+
+        private void Numeric_Enter(object sender, EventArgs e)
+        {
+            (Neon.world as EditorScreen).FocusedNumericUpDown = sender as NumericUpDown;
+        }
+
+        private void Numeric_Leave(object sender, EventArgs e)
+        {
+            (Neon.world as EditorScreen).FocusedNumericUpDown = null;
         }
     }
 }

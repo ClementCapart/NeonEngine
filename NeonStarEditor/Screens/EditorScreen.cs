@@ -228,11 +228,13 @@ namespace NeonStarEditor
                     RightDockControl.InspectorControl.ClearInspector();
                     
                 }
-                if (FocusedTextBox != null)
-                    ManageText();
-                if (FocusedNumericUpDown != null)
-                    ManageNumber();
+                
             }
+
+            if (FocusedTextBox != null)
+                ManageText();
+            if (FocusedNumericUpDown != null)
+                ManageNumber();
         }
 
         public void ManageText()
@@ -435,7 +437,7 @@ namespace NeonStarEditor
                             case Keys.Delete:
                             if(PressedDelay <= 0F)
                             {
-                            
+                                  
                             }
                             break;
                              
