@@ -36,6 +36,7 @@
             this.Selection = new System.Windows.Forms.Button();
             this.ReloadScript = new System.Windows.Forms.Button();
             this.ReloadAssetsButton = new System.Windows.Forms.Button();
+            this.AttackManagerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveCurrentMap
@@ -99,27 +100,39 @@
             // 
             // ReloadScript
             // 
-            this.ReloadScript.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadScript.BackgroundImage")));
             this.ReloadScript.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ReloadScript.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReloadScript.Location = new System.Drawing.Point(4, 589);
             this.ReloadScript.Name = "ReloadScript";
             this.ReloadScript.Size = new System.Drawing.Size(30, 30);
             this.ReloadScript.TabIndex = 4;
+            this.ReloadScript.Text = "S";
             this.ReloadScript.UseVisualStyleBackColor = true;
             this.ReloadScript.Click += new System.EventHandler(this.ReloadScript_Click);
             // 
             // ReloadAssetsButton
             // 
-            this.ReloadAssetsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadAssetsButton.BackgroundImage")));
             this.ReloadAssetsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ReloadAssetsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReloadAssetsButton.Location = new System.Drawing.Point(4, 553);
             this.ReloadAssetsButton.Name = "ReloadAssetsButton";
             this.ReloadAssetsButton.Size = new System.Drawing.Size(30, 30);
             this.ReloadAssetsButton.TabIndex = 4;
+            this.ReloadAssetsButton.Text = "D";
             this.ReloadAssetsButton.UseVisualStyleBackColor = true;
             this.ReloadAssetsButton.Click += new System.EventHandler(this.ReloadAssetsButton_Click);
+            // 
+            // AttackManagerButton
+            // 
+            this.AttackManagerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AttackManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AttackManagerButton.Location = new System.Drawing.Point(3, 517);
+            this.AttackManagerButton.Name = "AttackManagerButton";
+            this.AttackManagerButton.Size = new System.Drawing.Size(30, 30);
+            this.AttackManagerButton.TabIndex = 4;
+            this.AttackManagerButton.Text = "A";
+            this.AttackManagerButton.UseVisualStyleBackColor = true;
+            this.AttackManagerButton.Click += new System.EventHandler(this.AttackManagerButton_Click);
             // 
             // Toolbar
             // 
@@ -127,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.AttackManagerButton);
             this.Controls.Add(this.ReloadAssetsButton);
             this.Controls.Add(this.ReloadScript);
             this.Controls.Add(this.CreateRectangle);
@@ -149,5 +163,6 @@
         private System.Windows.Forms.Button Selection;
         private System.Windows.Forms.Button ReloadScript;
         private System.Windows.Forms.Button ReloadAssetsButton;
+        private System.Windows.Forms.Button AttackManagerButton;
     }
 }

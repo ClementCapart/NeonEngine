@@ -10,6 +10,7 @@ using NeonEngine;
 using System.Reflection;
 using NeonEngine.Private;
 using Component = NeonEngine.Component;
+using NeonStarLibrary;
 
 namespace NeonStarEditor.Controls.LeftDock
 {
@@ -96,6 +97,11 @@ namespace NeonStarEditor.Controls.LeftDock
         private void ReloadAssetsButton_Click(object sender, EventArgs e)
         {
             AssetManager.LoadAssets(GameWorld.game.GraphicsDevice);
+        }
+
+        private void AttackManagerButton_Click(object sender, EventArgs e)
+        {
+            AttacksManager.LoadAttacks();
         }
     }
 }
