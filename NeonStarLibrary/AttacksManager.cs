@@ -35,8 +35,8 @@ namespace NeonStarLibrary
         public float Duration = 1.0f;
         public float AirLock = 1.0f;
         public float TargetAirLock = 1.0f;
-        public Dictionary<SpecialEffect, object> SpecialEffects = new Dictionary<SpecialEffect,object>();
-        public Dictionary<SpecialEffect, object> OnHitSpecialEffects = new Dictionary<SpecialEffect,object>();
+        public List<AttackEffect> SpecialEffects = new List<AttackEffect>();
+        public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
     }
 
     static public class AttacksManager
@@ -68,7 +68,7 @@ namespace NeonStarLibrary
                 ai.Duration = float.Parse(attack.Element("Duration").Value, CultureInfo.InvariantCulture);
                 ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);
                 ai.TargetAirLock = float.Parse(attack.Element("TargetAirLock").Value, CultureInfo.InvariantCulture);
-                ai.SpecialEffects = new Dictionary<SpecialEffect, object>();
+                ai.SpecialEffects = new List<AttackEffect>();
 
                 foreach (XElement specialEffect in attack.Element("SpecialEffects").Elements("Effect"))
                 {
@@ -78,12 +78,12 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(se, impulseForce);
+                            ai.SpecialEffects.Add(new AttackEffect(se, impulseForce));
                             break;
                     }         
                 }
 
-                ai.OnHitSpecialEffects = new Dictionary<SpecialEffect, object>();
+                ai.OnHitSpecialEffects = new List<AttackEffect>();
 
                 foreach (XElement onHitSpecialEffect in attack.Element("OnHitSpecialEffects").Elements("Effect"))
                 {
@@ -93,7 +93,7 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(se, impulseForce);
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, impulseForce));
                             break;
                     }         
                 }

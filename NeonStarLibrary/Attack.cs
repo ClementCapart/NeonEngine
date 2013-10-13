@@ -7,6 +7,22 @@ using System.Text;
 
 namespace NeonStarLibrary
 {
+    public class AttackEffect
+    {
+        public SpecialEffect specialEffect = SpecialEffect.Impulse;
+        public string NameType
+        {
+            get { return specialEffect.ToString(); }
+        }
+        public object Parameters;
+
+        public AttackEffect(SpecialEffect specialEffect, object Parameters)
+        {
+            this.specialEffect = specialEffect;
+            this.Parameters = Parameters;
+        }
+    }
+
     public class Attack
     {
         string _name;
@@ -90,8 +106,8 @@ namespace NeonStarLibrary
             set { _activated = value; }
         }
 
-        private Dictionary<SpecialEffect, object> _specialEffects  = new Dictionary<SpecialEffect, object>();
-        private Dictionary<SpecialEffect, object> _onHitSpecialEffects  = new Dictionary<SpecialEffect, object>();
+        private List<AttackEffect> _specialEffects = new List<AttackEffect>();
+        private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
 
         private Entity _entity;
         private AttackInfo _attackInfo;
@@ -114,10 +130,10 @@ namespace NeonStarLibrary
             this.Duration = attackInfo.Duration;
             this.AirLock = attackInfo.AirLock;
             this.TargetAirLock = attackInfo.TargetAirLock;
-            
-            foreach (KeyValuePair<SpecialEffect, object> kvp in attackInfo.OnHitSpecialEffects)
+
+            foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
-                this._onHitSpecialEffects.Add(kvp.Key, kvp.Value);
+                this._onHitSpecialEffects.Add(ae);
             }
 
             if (this.Delay <= 0.0f)
@@ -140,9 +156,9 @@ namespace NeonStarLibrary
                 _hitboxes.Add(hb);
             }
 
-            foreach (KeyValuePair<SpecialEffect, object> kvp in _attackInfo.SpecialEffects)
+            foreach (AttackEffect ae in _attackInfo.SpecialEffects)
             {
-                this._specialEffects.Add(kvp.Key, kvp.Value);
+                this._specialEffects.Add(ae);
             }
             this._activated = true;
             this._active = true;
@@ -154,11 +170,11 @@ namespace NeonStarLibrary
             {
                 for(int i = _specialEffects.Count - 1; i >= 0; i--)
                 {
-                    KeyValuePair<SpecialEffect, object> kvp = _specialEffects.ElementAt(i);
-                    switch (kvp.Key)
+                    AttackEffect ae = _specialEffects.ElementAt(i);
+                    switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)kvp.Value;
+                            Vector2 impulseForce = (Vector2)ae.Parameters;
                             _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             break;
@@ -169,7 +185,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.DamageOverTime:
                             break;
                     }
-                    _specialEffects.Remove(kvp.Key);
+                    _specialEffects.Remove(ae);
                 }
 
                 for(int i = _hitboxes.Count - 1; i >= 0; i --)
@@ -223,12 +239,12 @@ namespace NeonStarLibrary
                 enemy.ChangeHealthPoints(_damageOnHit);
                 if(!enemy.entity.rigidbody.isGrounded)
                     enemy.AirLock(TargetAirLock);
-                foreach(KeyValuePair<SpecialEffect, object> kvp in _onHitSpecialEffects)
+                foreach(AttackEffect ae in _onHitSpecialEffects)
                 {
-                    switch(kvp.Key)
+                    switch(ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)kvp.Value;                           
+                            Vector2 impulseForce = (Vector2)ae.Parameters;                           
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));

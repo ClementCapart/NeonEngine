@@ -42,8 +42,7 @@
             this.DelayNumeric = new System.Windows.Forms.NumericUpDown();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.DamageNumeric = new System.Windows.Forms.NumericUpDown();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.EffectsInfoPanel = new System.Windows.Forms.Panel();
             this.HitboxesPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,6 +55,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.SpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.AddSpecial = new System.Windows.Forms.Button();
+            this.RemoveSpecial = new System.Windows.Forms.Button();
+            this.AddOnHit = new System.Windows.Forms.Button();
+            this.RemoveOnHit = new System.Windows.Forms.Button();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -70,7 +75,7 @@
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Agency FB", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Title.Location = new System.Drawing.Point(214, 12);
+            this.Title.Location = new System.Drawing.Point(248, 3);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(155, 34);
             this.Title.TabIndex = 0;
@@ -125,7 +130,7 @@
             // 
             this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClosePanel.Location = new System.Drawing.Point(543, 3);
+            this.ClosePanel.Location = new System.Drawing.Point(585, 3);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(27, 26);
             this.ClosePanel.TabIndex = 2;
@@ -139,11 +144,16 @@
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
             this.AttackInfo.Controls.Add(this.CooldownNumeric);
+            this.AttackInfo.Controls.Add(this.RemoveOnHit);
+            this.AttackInfo.Controls.Add(this.AddOnHit);
+            this.AttackInfo.Controls.Add(this.RemoveSpecial);
+            this.AttackInfo.Controls.Add(this.AddSpecial);
             this.AttackInfo.Controls.Add(this.DelayNumeric);
+            this.AttackInfo.Controls.Add(this.OnHitSpecialEffectsList);
+            this.AttackInfo.Controls.Add(this.SpecialEffectsList);
             this.AttackInfo.Controls.Add(this.DurationNumeric);
             this.AttackInfo.Controls.Add(this.DamageNumeric);
-            this.AttackInfo.Controls.Add(this.panel3);
-            this.AttackInfo.Controls.Add(this.panel2);
+            this.AttackInfo.Controls.Add(this.EffectsInfoPanel);
             this.AttackInfo.Controls.Add(this.HitboxesPanel);
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
@@ -303,23 +313,14 @@
             this.DamageNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.DamageNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
-            // panel3
+            // EffectsInfoPanel
             // 
-            this.panel3.AutoScroll = true;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Location = new System.Drawing.Point(12, 361);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(338, 70);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(12, 271);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 70);
-            this.panel2.TabIndex = 2;
+            this.EffectsInfoPanel.AutoScroll = true;
+            this.EffectsInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EffectsInfoPanel.Location = new System.Drawing.Point(174, 258);
+            this.EffectsInfoPanel.Name = "EffectsInfoPanel";
+            this.EffectsInfoPanel.Size = new System.Drawing.Size(225, 184);
+            this.EffectsInfoPanel.TabIndex = 2;
             // 
             // HitboxesPanel
             // 
@@ -369,7 +370,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 345);
+            this.label10.Location = new System.Drawing.Point(15, 347);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 13);
             this.label10.TabIndex = 1;
@@ -430,6 +431,72 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
+            // SpecialEffectsList
+            // 
+            this.SpecialEffectsList.FormattingEnabled = true;
+            this.SpecialEffectsList.Location = new System.Drawing.Point(18, 271);
+            this.SpecialEffectsList.Name = "SpecialEffectsList";
+            this.SpecialEffectsList.Size = new System.Drawing.Size(113, 69);
+            this.SpecialEffectsList.TabIndex = 1;
+            this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
+            // 
+            // OnHitSpecialEffectsList
+            // 
+            this.OnHitSpecialEffectsList.FormattingEnabled = true;
+            this.OnHitSpecialEffectsList.Location = new System.Drawing.Point(19, 367);
+            this.OnHitSpecialEffectsList.Name = "OnHitSpecialEffectsList";
+            this.OnHitSpecialEffectsList.Size = new System.Drawing.Size(112, 69);
+            this.OnHitSpecialEffectsList.TabIndex = 1;
+            this.OnHitSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnHitSpecialEffectsList_SelectedIndexChanged);
+            // 
+            // AddSpecial
+            // 
+            this.AddSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddSpecial.Location = new System.Drawing.Point(137, 278);
+            this.AddSpecial.Name = "AddSpecial";
+            this.AddSpecial.Size = new System.Drawing.Size(31, 23);
+            this.AddSpecial.TabIndex = 2;
+            this.AddSpecial.Text = "+";
+            this.AddSpecial.UseVisualStyleBackColor = true;
+            this.AddSpecial.Click += new System.EventHandler(this.AddSpecial_Click);
+            // 
+            // RemoveSpecial
+            // 
+            this.RemoveSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveSpecial.Location = new System.Drawing.Point(137, 310);
+            this.RemoveSpecial.Name = "RemoveSpecial";
+            this.RemoveSpecial.Size = new System.Drawing.Size(31, 23);
+            this.RemoveSpecial.TabIndex = 2;
+            this.RemoveSpecial.Text = "-";
+            this.RemoveSpecial.UseVisualStyleBackColor = true;
+            this.RemoveSpecial.Click += new System.EventHandler(this.RemoveSpecial_Click);
+            // 
+            // AddOnHit
+            // 
+            this.AddOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddOnHit.Location = new System.Drawing.Point(137, 374);
+            this.AddOnHit.Name = "AddOnHit";
+            this.AddOnHit.Size = new System.Drawing.Size(31, 23);
+            this.AddOnHit.TabIndex = 2;
+            this.AddOnHit.Text = "+";
+            this.AddOnHit.UseVisualStyleBackColor = true;
+            this.AddOnHit.Click += new System.EventHandler(this.AddOnHit_Click);
+            // 
+            // RemoveOnHit
+            // 
+            this.RemoveOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveOnHit.Location = new System.Drawing.Point(137, 406);
+            this.RemoveOnHit.Name = "RemoveOnHit";
+            this.RemoveOnHit.Size = new System.Drawing.Size(31, 23);
+            this.RemoveOnHit.TabIndex = 2;
+            this.RemoveOnHit.Text = "-";
+            this.RemoveOnHit.UseVisualStyleBackColor = true;
+            this.RemoveOnHit.Click += new System.EventHandler(this.RemoveOnHit_Click);
+            // 
             // AttacksSettingsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,8 +537,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.NumericUpDown DamageNumeric;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel EffectsInfoPanel;
         private System.Windows.Forms.Panel HitboxesPanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -488,5 +554,11 @@
         private System.Windows.Forms.NumericUpDown DurationNumeric;
         private System.Windows.Forms.NumericUpDown TargetAirLockNumeric;
         private System.Windows.Forms.TextBox AttackName;
+        private System.Windows.Forms.ListBox OnHitSpecialEffectsList;
+        private System.Windows.Forms.ListBox SpecialEffectsList;
+        private System.Windows.Forms.Button AddSpecial;
+        private System.Windows.Forms.Button RemoveOnHit;
+        private System.Windows.Forms.Button AddOnHit;
+        private System.Windows.Forms.Button RemoveSpecial;
     }
 }

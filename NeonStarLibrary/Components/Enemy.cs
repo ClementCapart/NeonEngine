@@ -49,8 +49,15 @@ namespace NeonStarLibrary
         public void AirLock(float duration)
         {
             _airLockDuration = duration;
-            if(_airLockDuration > 0)
-                entity.rigidbody.body.LinearVelocity = Vector2.Zero;           
+            if (_airLockDuration > 0)
+            {
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                entity.rigidbody.GravityScale = 0.0f;
+            }
+            else
+            {
+                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+            }
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)

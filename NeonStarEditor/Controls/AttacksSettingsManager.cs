@@ -18,6 +18,7 @@ namespace NeonStarEditor
     {
         Dictionary<string, AttackInfo> _attackList = new Dictionary<string, AttackInfo>();
         string InitialName = "";
+        AttackEffect CurrentAttackEffectSelected = null;
 
         public AttacksSettingsManager()
         {
@@ -107,16 +108,16 @@ namespace NeonStarEditor
                 attack.Add(targetAirLock);
 
                 XElement specialEffects = new XElement("SpecialEffects");
-                foreach (KeyValuePair<SpecialEffect, object> effectKvp in kvp.Value.SpecialEffects)
+                foreach (AttackEffect effect in kvp.Value.SpecialEffects)
                 {
-                    specialEffects.Add(CreateEffectText(effectKvp));
+                    specialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(specialEffects);
 
                 XElement onHitSpecialEffects = new XElement("OnHitSpecialEffects");
-                foreach (KeyValuePair<SpecialEffect, object> effectKvp in kvp.Value.OnHitSpecialEffects)
+                foreach (AttackEffect effect in kvp.Value.OnHitSpecialEffects)
                 {
-                    onHitSpecialEffects.Add(CreateEffectText(effectKvp));
+                    onHitSpecialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(onHitSpecialEffects);
 
@@ -131,14 +132,14 @@ namespace NeonStarEditor
 
         }
 
-        private XElement CreateEffectText(KeyValuePair<SpecialEffect, object> effectKvp)
+        private XElement CreateEffectText(AttackEffect effectKvp)
         {
-            XElement effect = new XElement("Effect", new XAttribute("Type", effectKvp.Key.ToString()));
+            XElement effect = new XElement("Effect", new XAttribute("Type", effectKvp.specialEffect.ToString()));
 
-            switch(effectKvp.Key)
+            switch(effectKvp.specialEffect)
             {
                 case SpecialEffect.Impulse:
-                    Vector2 impulseValue = (Vector2)effectKvp.Value;
+                    Vector2 impulseValue = (Vector2)effectKvp.Parameters;
                     XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
                     effect.Add(parameter);
                     break;
@@ -157,6 +158,77 @@ namespace NeonStarEditor
         {
             (Neon.world as EditorScreen).ToggleAttackManager();
         }
+
+        private void InitEffectData()
+        {
+            EffectsInfoPanel.Controls.Clear();
+
+            if (CurrentAttackEffectSelected != null)
+            {
+                Label label = new Label();
+                label.Text = "Effect Type";
+                label.Height = 15;
+                label.Location = new System.Drawing.Point(5, 10);
+                this.EffectsInfoPanel.Controls.Add(label);
+
+                ComboBox comboBox = new ComboBox();
+                foreach (Enum e in Enum.GetValues(typeof(SpecialEffect)))
+                    comboBox.Items.Add(e);
+                comboBox.SelectedItem = CurrentAttackEffectSelected.specialEffect;
+                comboBox.Location = new System.Drawing.Point(5, 10 + label.Height + 5);
+                comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                comboBox.SelectedValueChanged += comboBox_SelectedValueChanged;
+                this.EffectsInfoPanel.Controls.Add(comboBox);
+
+
+                switch(CurrentAttackEffectSelected.specialEffect)
+                {
+                    case SpecialEffect.Impulse:
+
+                        label = new Label();
+                        label.Text = "Impulse Power";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown ImpulsePower = new NumericUpDown();
+                        ImpulsePower.Name = "ImpulsePowerX";
+                        ImpulsePower.Maximum = 50000;
+                        ImpulsePower.Minimum = -50000;
+                        ImpulsePower.Width = 80;
+                        ImpulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
+                        ImpulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        ImpulsePower.Enter += Numeric_Enter;
+                        ImpulsePower.Leave += Numeric_Leave;
+                        ImpulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(ImpulsePower);
+
+                        ImpulsePower = new NumericUpDown();
+                        ImpulsePower.Name = "ImpulsePowerY";
+                        ImpulsePower.Maximum = 50000;
+                        ImpulsePower.Minimum = -50000;
+                        ImpulsePower.Width = 80;
+                        ImpulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
+                        ImpulsePower.Location = new System.Drawing.Point(ImpulsePower.Width + 10, label.Location.Y + label.Height + 5);
+                        ImpulsePower.Enter += Numeric_Enter;
+                        ImpulsePower.Leave += Numeric_Leave;
+                        ImpulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(ImpulsePower);
+
+                        break;
+                }
+            }
+        }
+
+        private void comboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (CurrentAttackEffectSelected.specialEffect != (SpecialEffect)(sender as ComboBox).SelectedItem)
+            {
+                CurrentAttackEffectSelected.specialEffect = (SpecialEffect)(sender as ComboBox).SelectedItem;
+                InitInformations();
+            }
+        }
+
 
         private void InitInformations()
         {
@@ -275,6 +347,12 @@ namespace NeonStarEditor
             buttonAdd.Click += buttonAdd_Click;
 
             this.HitboxesPanel.Controls.Add(buttonAdd);
+            this.SpecialEffectsList.DataSource = null;
+            this.SpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].SpecialEffects;
+            this.SpecialEffectsList.DisplayMember = "NameType";
+            this.OnHitSpecialEffectsList.DataSource = null;
+            this.OnHitSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects;
+            this.OnHitSpecialEffectsList.DisplayMember = "NameType";
         }
 
         void buttonAdd_Click(object sender, EventArgs e)
@@ -354,6 +432,16 @@ namespace NeonStarEditor
                 case "TargetAirLockNumeric":
                     _attackList[AttacksList.SelectedValue.ToString()].TargetAirLock = (float)(sender as NumericUpDown).Value;
                     break;
+
+                case "ImpulsePowerX":
+                    Vector2 impulsePowerY = (Vector2)CurrentAttackEffectSelected.Parameters;
+                    CurrentAttackEffectSelected.Parameters = new Vector2((float)(sender as NumericUpDown).Value, impulsePowerY.Y);
+                    break;
+
+                case "ImpulsePowerY":
+                    Vector2 impulsePowerX = (Vector2)CurrentAttackEffectSelected.Parameters;
+                    CurrentAttackEffectSelected.Parameters = new Vector2(impulsePowerX.X, (float)(sender as NumericUpDown).Value);
+                    break;
             }
         }
 
@@ -382,6 +470,58 @@ namespace NeonStarEditor
             _attackList.Remove(InitialName);
             _attackList.Add((sender as TextBox).Text, ai);
             InitializeData(false);
+        }
+
+        private void AddSpecial_Click(object sender, EventArgs e)
+        {
+            _attackList[this.AttacksList.SelectedValue.ToString()].SpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            InitInformations();
+        }
+
+        private void AddOnHit_Click(object sender, EventArgs e)
+        {
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            InitInformations();
+        }
+
+        private void RemoveSpecial_Click(object sender, EventArgs e)
+        {
+            if (SpecialEffectsList.SelectedValue != null)
+                _attackList[AttacksList.SelectedValue.ToString()].SpecialEffects.RemoveAt(SpecialEffectsList.SelectedIndex);
+            InitInformations();
+        }
+
+        private void RemoveOnHit_Click(object sender, EventArgs e)
+        {
+            if (OnHitSpecialEffectsList.SelectedValue != null)
+                _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.RemoveAt(OnHitSpecialEffectsList.SelectedIndex);
+            InitInformations();
+        }
+
+        private void SpecialEffectsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ListBox).SelectedIndex == -1)
+            {
+                CurrentAttackEffectSelected = null;
+            }
+            else
+            {
+                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].SpecialEffects[(sender as ListBox).SelectedIndex];
+            }           
+            InitEffectData();
+        }
+
+        private void OnHitSpecialEffectsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ListBox).SelectedIndex == -1)
+            {
+                CurrentAttackEffectSelected = null;
+            }
+            else
+            {
+                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects[(sender as ListBox).SelectedIndex];
+            }          
+            InitEffectData();
         }
     }
 }
