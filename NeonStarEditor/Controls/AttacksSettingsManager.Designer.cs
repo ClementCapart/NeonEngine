@@ -35,6 +35,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClosePanel = new System.Windows.Forms.Button();
             this.AttackInfo = new System.Windows.Forms.GroupBox();
+            this.AttackName = new System.Windows.Forms.TextBox();
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.CooldownNumeric = new System.Windows.Forms.NumericUpDown();
@@ -43,7 +44,7 @@
             this.DamageNumeric = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.HitboxesPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.AttackName = new System.Windows.Forms.TextBox();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -144,7 +144,7 @@
             this.AttackInfo.Controls.Add(this.DamageNumeric);
             this.AttackInfo.Controls.Add(this.panel3);
             this.AttackInfo.Controls.Add(this.panel2);
-            this.AttackInfo.Controls.Add(this.panel1);
+            this.AttackInfo.Controls.Add(this.HitboxesPanel);
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
             this.AttackInfo.Controls.Add(this.label6);
@@ -159,10 +159,24 @@
             this.AttackInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.AttackInfo.Location = new System.Drawing.Point(201, 49);
             this.AttackInfo.Name = "AttackInfo";
-            this.AttackInfo.Size = new System.Drawing.Size(362, 448);
+            this.AttackInfo.Size = new System.Drawing.Size(405, 448);
             this.AttackInfo.TabIndex = 3;
             this.AttackInfo.TabStop = false;
             this.AttackInfo.Text = "Attack Info";
+            // 
+            // AttackName
+            // 
+            this.AttackName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.AttackName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AttackName.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttackName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AttackName.Location = new System.Drawing.Point(64, 19);
+            this.AttackName.Name = "AttackName";
+            this.AttackName.Size = new System.Drawing.Size(286, 36);
+            this.AttackName.TabIndex = 4;
+            this.AttackName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AttackName.Enter += new System.EventHandler(this.AttackName_Enter);
+            this.AttackName.Leave += new System.EventHandler(this.AttackName_Leave);
             // 
             // TargetAirLockNumeric
             // 
@@ -292,6 +306,7 @@
             // panel3
             // 
             this.panel3.AutoScroll = true;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Location = new System.Drawing.Point(12, 361);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 70);
@@ -300,18 +315,20 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(12, 271);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(338, 70);
             this.panel2.TabIndex = 2;
             // 
-            // panel1
+            // HitboxesPanel
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(12, 182);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(338, 70);
-            this.panel1.TabIndex = 2;
+            this.HitboxesPanel.AutoScroll = true;
+            this.HitboxesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HitboxesPanel.Location = new System.Drawing.Point(12, 182);
+            this.HitboxesPanel.Name = "HitboxesPanel";
+            this.HitboxesPanel.Size = new System.Drawing.Size(387, 70);
+            this.HitboxesPanel.TabIndex = 2;
             // 
             // label8
             // 
@@ -413,20 +430,6 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // AttackName
-            // 
-            this.AttackName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.AttackName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AttackName.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttackName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AttackName.Location = new System.Drawing.Point(41, 19);
-            this.AttackName.Name = "AttackName";
-            this.AttackName.Size = new System.Drawing.Size(286, 36);
-            this.AttackName.TabIndex = 4;
-            this.AttackName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AttackName.Enter += new System.EventHandler(this.AttackName_Enter);
-            this.AttackName.Leave += new System.EventHandler(this.AttackName_Leave);
-            // 
             // AttacksSettingsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +444,7 @@
             this.Controls.Add(this.AttacksList);
             this.Controls.Add(this.Title);
             this.Name = "AttacksSettingsManager";
-            this.Size = new System.Drawing.Size(573, 511);
+            this.Size = new System.Drawing.Size(615, 511);
             this.AttackInfo.ResumeLayout(false);
             this.AttackInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).EndInit();
@@ -469,7 +472,7 @@
         private System.Windows.Forms.NumericUpDown DamageNumeric;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel HitboxesPanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

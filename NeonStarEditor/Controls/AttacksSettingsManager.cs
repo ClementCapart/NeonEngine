@@ -158,7 +158,7 @@ namespace NeonStarEditor
             (Neon.world as EditorScreen).ToggleAttackManager();
         }
 
-        private void AttacksList_SelectedIndexChanged(object sender, EventArgs e)
+        private void InitInformations()
         {
             this.AttackName.Text = _attackList[AttacksList.SelectedValue.ToString()].Name;
             this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
@@ -168,6 +168,158 @@ namespace NeonStarEditor
             this.CooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Cooldown;
             this.AirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirLock;
             this.TargetAirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].TargetAirLock;
+
+            int yPosition = 5;
+            int rectangleIndex = 0;
+            this.HitboxesPanel.Controls.Clear();
+
+            foreach (Microsoft.Xna.Framework.Rectangle rectangle in _attackList[AttacksList.SelectedValue.ToString()].Hitboxes)
+            {
+                Label label = new Label();
+                label.Text = "X";
+                label.Location = new System.Drawing.Point(5, yPosition + 4);
+                label.Width = 10;
+                this.HitboxesPanel.Controls.Add(label);
+
+                NumericUpDown numericUpDown = new NumericUpDown();
+                numericUpDown.Name = "X_" + rectangleIndex;
+                numericUpDown.Width = 50;
+                numericUpDown.Minimum = -1000;
+                numericUpDown.Maximum = 1000;
+                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                numericUpDown.Value = rectangle.X;
+                numericUpDown.Enter += Numeric_Enter;
+                numericUpDown.Leave += Numeric_Leave;
+                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                this.HitboxesPanel.Controls.Add(numericUpDown);
+
+                label = new Label();
+                label.Text = "Y";
+                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                label.Width = 10;
+                this.HitboxesPanel.Controls.Add(label);
+
+                numericUpDown = new NumericUpDown();
+                numericUpDown.Name = "Y_" + rectangleIndex;
+                numericUpDown.Width = 50;
+                numericUpDown.Minimum = -1000;
+                numericUpDown.Maximum = 1000;
+                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                numericUpDown.Value = rectangle.Y;
+                numericUpDown.Enter += Numeric_Enter;
+                numericUpDown.Leave += Numeric_Leave;
+                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                this.HitboxesPanel.Controls.Add(numericUpDown);
+
+                label = new Label();
+                label.Text = "Width";
+                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                label.Width = 35;
+                this.HitboxesPanel.Controls.Add(label);
+
+                numericUpDown = new NumericUpDown();
+                numericUpDown.Name = "W_" + rectangleIndex;
+                numericUpDown.Width = 50;
+                numericUpDown.Minimum = -1000;
+                numericUpDown.Maximum = 1000;
+                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                numericUpDown.Value = rectangle.Width;
+                numericUpDown.Enter += Numeric_Enter;
+                numericUpDown.Leave += Numeric_Leave;
+                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                this.HitboxesPanel.Controls.Add(numericUpDown);
+
+                label = new Label();
+                label.Text = "Height";
+                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                label.Width = 37;
+                this.HitboxesPanel.Controls.Add(label);
+
+                numericUpDown = new NumericUpDown();
+                numericUpDown.Name = "H_" + rectangleIndex;
+                numericUpDown.Width = 50;
+                numericUpDown.Minimum = -1000;
+                numericUpDown.Maximum = 1000;
+                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                numericUpDown.Value = rectangle.Height;
+                numericUpDown.Enter += Numeric_Enter;
+                numericUpDown.Leave += Numeric_Leave;
+                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                this.HitboxesPanel.Controls.Add(numericUpDown);
+
+                yPosition += numericUpDown.Height + 5;
+                rectangleIndex++;
+            }
+
+            if (rectangleIndex > 0)
+            {
+                Button buttonRemove = new Button();
+                buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                buttonRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+                buttonRemove.Location = new System.Drawing.Point(5, yPosition + 5);
+                buttonRemove.Size = new System.Drawing.Size(100, 23);
+                buttonRemove.Text = "Remove Last";
+                buttonRemove.Click += buttonRemove_Click;
+                buttonRemove.UseVisualStyleBackColor = true;
+
+                this.HitboxesPanel.Controls.Add(buttonRemove);
+            }
+
+            Button buttonAdd = new Button();
+            buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            buttonAdd.Location = new System.Drawing.Point(115, yPosition + 5);
+            buttonAdd.Size = new System.Drawing.Size(100, 23);
+            buttonAdd.Text = "Add New";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
+
+            this.HitboxesPanel.Controls.Add(buttonAdd);
+        }
+
+        void buttonAdd_Click(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].Hitboxes.Add(new Microsoft.Xna.Framework.Rectangle(0, 0, 0, 0));
+            InitInformations();
+        }
+
+        private void AttacksList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitInformations();
+        }
+
+        void buttonRemove_Click(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].Hitboxes.RemoveAt(_attackList[AttacksList.SelectedValue.ToString()].Hitboxes.Count - 1);
+            InitInformations();
+        }
+
+        private void hitboxesNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown numericUpDown = sender as NumericUpDown;
+            string[] nameInformation = numericUpDown.Name.Split('_');
+
+            string name = nameInformation[0];
+            Microsoft.Xna.Framework.Rectangle rectangle = _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])];      
+
+            switch(name)
+            {
+                case "X":
+                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle((int)numericUpDown.Value, rectangle.Y, rectangle.Width, rectangle.Height);
+                    break;
+
+                case "Y":
+                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, (int)numericUpDown.Value, rectangle.Width, rectangle.Height);
+                    break;
+
+                case "W":
+                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, (int)numericUpDown.Value, rectangle.Height);
+                    break;
+
+                case "H":
+                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, rectangle.Width, (int)numericUpDown.Value);
+                    break;
+            }
         }
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -66,7 +66,7 @@ namespace NeonStarEditor
             Button button = new Button();
             button.Text = "Add";
             button.Click += button_Click;
-            button.Location = new Point(10, (int)NextItemHeight);
+            button.Location = new Point(100, (int)NextItemHeight);
             this.Controls.Add(button);
 
             if (spritesheetList.Count > 0)
@@ -74,7 +74,7 @@ namespace NeonStarEditor
                 Button button2 = new Button();
                 button2.Text = "Remove last";
                 button2.Click += button2_Click;
-                button2.Location = new Point(100, (int)NextItemHeight);
+                button2.Location = new Point(10, (int)NextItemHeight);
                 this.Controls.Add(button2);
             }
         }
