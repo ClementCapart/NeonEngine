@@ -19,7 +19,8 @@ namespace NeonStarLibrary
 
     public enum AttackType
     {
-        Melee,
+        MeleeLight,
+        MeleeSpecial,
         Range,
         Special
     }
@@ -27,7 +28,7 @@ namespace NeonStarLibrary
     public class AttackInfo
     {
         public string Name;
-        public AttackType Type = AttackType.Melee;
+        public AttackType Type = AttackType.MeleeLight;
         public List<Rectangle> Hitboxes = new List<Rectangle>();
         public float DamageOnHit = 1.0f;
         public float Delay = 0.0f;
@@ -35,6 +36,8 @@ namespace NeonStarLibrary
         public float Duration = 1.0f;
         public float AirLock = 1.0f;
         public float TargetAirLock = 1.0f;
+        public bool AirOnly = false;
+        public bool CancelOnGround = false;
         public List<AttackEffect> SpecialEffects = new List<AttackEffect>();
         public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
     }
@@ -63,6 +66,8 @@ namespace NeonStarLibrary
                         int.Parse(hitbox.Attribute("Width").Value), int.Parse(hitbox.Attribute("Height").Value)));
                 }
 
+                ai.AirOnly = bool.Parse(attack.Element("AirOnly").Value);
+                ai.CancelOnGround = bool.Parse(attack.Element("GroundCancel").Value);
                 ai.DamageOnHit = float.Parse(attack.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
                 ai.Delay = float.Parse(attack.Element("Delay").Value, CultureInfo.InvariantCulture);
                 ai.Cooldown = float.Parse(attack.Element("Cooldown").Value, CultureInfo.InvariantCulture);

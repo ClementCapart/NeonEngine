@@ -39,7 +39,13 @@
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.CooldownNumeric = new System.Windows.Forms.NumericUpDown();
+            this.RemoveOnHit = new System.Windows.Forms.Button();
+            this.AddOnHit = new System.Windows.Forms.Button();
+            this.RemoveSpecial = new System.Windows.Forms.Button();
+            this.AddSpecial = new System.Windows.Forms.Button();
             this.DelayNumeric = new System.Windows.Forms.NumericUpDown();
+            this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.SpecialEffectsList = new System.Windows.Forms.ListBox();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.DamageNumeric = new System.Windows.Forms.NumericUpDown();
             this.EffectsInfoPanel = new System.Windows.Forms.Panel();
@@ -55,12 +61,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.SpecialEffectsList = new System.Windows.Forms.ListBox();
-            this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
-            this.AddSpecial = new System.Windows.Forms.Button();
-            this.RemoveSpecial = new System.Windows.Forms.Button();
-            this.AddOnHit = new System.Windows.Forms.Button();
-            this.RemoveOnHit = new System.Windows.Forms.Button();
+            this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
+            this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -140,6 +142,8 @@
             // 
             // AttackInfo
             // 
+            this.AttackInfo.Controls.Add(this.GroundCancelCheckbox);
+            this.AttackInfo.Controls.Add(this.AirOnlyCheckbox);
             this.AttackInfo.Controls.Add(this.AttackName);
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
@@ -196,7 +200,7 @@
             0,
             0,
             65536});
-            this.TargetAirLockNumeric.Location = new System.Drawing.Point(237, 132);
+            this.TargetAirLockNumeric.Location = new System.Drawing.Point(217, 132);
             this.TargetAirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -217,7 +221,7 @@
             0,
             0,
             65536});
-            this.AirLockNumeric.Location = new System.Drawing.Point(162, 132);
+            this.AirLockNumeric.Location = new System.Drawing.Point(149, 132);
             this.AirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -238,7 +242,7 @@
             0,
             0,
             65536});
-            this.CooldownNumeric.Location = new System.Drawing.Point(89, 132);
+            this.CooldownNumeric.Location = new System.Drawing.Point(80, 132);
             this.CooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -251,6 +255,54 @@
             this.CooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.CooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
+            // RemoveOnHit
+            // 
+            this.RemoveOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveOnHit.Location = new System.Drawing.Point(137, 406);
+            this.RemoveOnHit.Name = "RemoveOnHit";
+            this.RemoveOnHit.Size = new System.Drawing.Size(31, 23);
+            this.RemoveOnHit.TabIndex = 2;
+            this.RemoveOnHit.Text = "-";
+            this.RemoveOnHit.UseVisualStyleBackColor = true;
+            this.RemoveOnHit.Click += new System.EventHandler(this.RemoveOnHit_Click);
+            // 
+            // AddOnHit
+            // 
+            this.AddOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddOnHit.Location = new System.Drawing.Point(137, 374);
+            this.AddOnHit.Name = "AddOnHit";
+            this.AddOnHit.Size = new System.Drawing.Size(31, 23);
+            this.AddOnHit.TabIndex = 2;
+            this.AddOnHit.Text = "+";
+            this.AddOnHit.UseVisualStyleBackColor = true;
+            this.AddOnHit.Click += new System.EventHandler(this.AddOnHit_Click);
+            // 
+            // RemoveSpecial
+            // 
+            this.RemoveSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveSpecial.Location = new System.Drawing.Point(137, 310);
+            this.RemoveSpecial.Name = "RemoveSpecial";
+            this.RemoveSpecial.Size = new System.Drawing.Size(31, 23);
+            this.RemoveSpecial.TabIndex = 2;
+            this.RemoveSpecial.Text = "-";
+            this.RemoveSpecial.UseVisualStyleBackColor = true;
+            this.RemoveSpecial.Click += new System.EventHandler(this.RemoveSpecial_Click);
+            // 
+            // AddSpecial
+            // 
+            this.AddSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddSpecial.Location = new System.Drawing.Point(137, 278);
+            this.AddSpecial.Name = "AddSpecial";
+            this.AddSpecial.Size = new System.Drawing.Size(31, 23);
+            this.AddSpecial.TabIndex = 2;
+            this.AddSpecial.Text = "+";
+            this.AddSpecial.UseVisualStyleBackColor = true;
+            this.AddSpecial.Click += new System.EventHandler(this.AddSpecial_Click);
+            // 
             // DelayNumeric
             // 
             this.DelayNumeric.DecimalPlaces = 2;
@@ -259,7 +311,7 @@
             0,
             0,
             65536});
-            this.DelayNumeric.Location = new System.Drawing.Point(18, 132);
+            this.DelayNumeric.Location = new System.Drawing.Point(12, 132);
             this.DelayNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -271,6 +323,24 @@
             this.DelayNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
             this.DelayNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.DelayNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            // 
+            // OnHitSpecialEffectsList
+            // 
+            this.OnHitSpecialEffectsList.FormattingEnabled = true;
+            this.OnHitSpecialEffectsList.Location = new System.Drawing.Point(19, 367);
+            this.OnHitSpecialEffectsList.Name = "OnHitSpecialEffectsList";
+            this.OnHitSpecialEffectsList.Size = new System.Drawing.Size(112, 69);
+            this.OnHitSpecialEffectsList.TabIndex = 1;
+            this.OnHitSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnHitSpecialEffectsList_SelectedIndexChanged);
+            // 
+            // SpecialEffectsList
+            // 
+            this.SpecialEffectsList.FormattingEnabled = true;
+            this.SpecialEffectsList.Location = new System.Drawing.Point(18, 271);
+            this.SpecialEffectsList.Name = "SpecialEffectsList";
+            this.SpecialEffectsList.Size = new System.Drawing.Size(113, 69);
+            this.SpecialEffectsList.TabIndex = 1;
+            this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
             // 
             // DurationNumeric
             // 
@@ -334,7 +404,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(234, 116);
+            this.label8.Location = new System.Drawing.Point(214, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 1;
@@ -343,7 +413,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(159, 116);
+            this.label7.Location = new System.Drawing.Point(146, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 1;
@@ -352,7 +422,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(86, 116);
+            this.label6.Location = new System.Drawing.Point(77, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 1;
@@ -379,7 +449,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 116);
+            this.label4.Location = new System.Drawing.Point(11, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 1;
@@ -431,71 +501,27 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // SpecialEffectsList
+            // AirOnlyCheckbox
             // 
-            this.SpecialEffectsList.FormattingEnabled = true;
-            this.SpecialEffectsList.Location = new System.Drawing.Point(18, 271);
-            this.SpecialEffectsList.Name = "SpecialEffectsList";
-            this.SpecialEffectsList.Size = new System.Drawing.Size(113, 69);
-            this.SpecialEffectsList.TabIndex = 1;
-            this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
+            this.AirOnlyCheckbox.AutoSize = true;
+            this.AirOnlyCheckbox.Location = new System.Drawing.Point(294, 123);
+            this.AirOnlyCheckbox.Name = "AirOnlyCheckbox";
+            this.AirOnlyCheckbox.Size = new System.Drawing.Size(59, 17);
+            this.AirOnlyCheckbox.TabIndex = 5;
+            this.AirOnlyCheckbox.Text = "AirOnly";
+            this.AirOnlyCheckbox.UseVisualStyleBackColor = true;
+            this.AirOnlyCheckbox.CheckedChanged += new System.EventHandler(this.AirOnlyCheckbox_CheckedChanged);
             // 
-            // OnHitSpecialEffectsList
+            // GroundCancelCheckbox
             // 
-            this.OnHitSpecialEffectsList.FormattingEnabled = true;
-            this.OnHitSpecialEffectsList.Location = new System.Drawing.Point(19, 367);
-            this.OnHitSpecialEffectsList.Name = "OnHitSpecialEffectsList";
-            this.OnHitSpecialEffectsList.Size = new System.Drawing.Size(112, 69);
-            this.OnHitSpecialEffectsList.TabIndex = 1;
-            this.OnHitSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnHitSpecialEffectsList_SelectedIndexChanged);
-            // 
-            // AddSpecial
-            // 
-            this.AddSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddSpecial.Location = new System.Drawing.Point(137, 278);
-            this.AddSpecial.Name = "AddSpecial";
-            this.AddSpecial.Size = new System.Drawing.Size(31, 23);
-            this.AddSpecial.TabIndex = 2;
-            this.AddSpecial.Text = "+";
-            this.AddSpecial.UseVisualStyleBackColor = true;
-            this.AddSpecial.Click += new System.EventHandler(this.AddSpecial_Click);
-            // 
-            // RemoveSpecial
-            // 
-            this.RemoveSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveSpecial.Location = new System.Drawing.Point(137, 310);
-            this.RemoveSpecial.Name = "RemoveSpecial";
-            this.RemoveSpecial.Size = new System.Drawing.Size(31, 23);
-            this.RemoveSpecial.TabIndex = 2;
-            this.RemoveSpecial.Text = "-";
-            this.RemoveSpecial.UseVisualStyleBackColor = true;
-            this.RemoveSpecial.Click += new System.EventHandler(this.RemoveSpecial_Click);
-            // 
-            // AddOnHit
-            // 
-            this.AddOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddOnHit.Location = new System.Drawing.Point(137, 374);
-            this.AddOnHit.Name = "AddOnHit";
-            this.AddOnHit.Size = new System.Drawing.Size(31, 23);
-            this.AddOnHit.TabIndex = 2;
-            this.AddOnHit.Text = "+";
-            this.AddOnHit.UseVisualStyleBackColor = true;
-            this.AddOnHit.Click += new System.EventHandler(this.AddOnHit_Click);
-            // 
-            // RemoveOnHit
-            // 
-            this.RemoveOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveOnHit.Location = new System.Drawing.Point(137, 406);
-            this.RemoveOnHit.Name = "RemoveOnHit";
-            this.RemoveOnHit.Size = new System.Drawing.Size(31, 23);
-            this.RemoveOnHit.TabIndex = 2;
-            this.RemoveOnHit.Text = "-";
-            this.RemoveOnHit.UseVisualStyleBackColor = true;
-            this.RemoveOnHit.Click += new System.EventHandler(this.RemoveOnHit_Click);
+            this.GroundCancelCheckbox.AutoSize = true;
+            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 146);
+            this.GroundCancelCheckbox.Name = "GroundCancelCheckbox";
+            this.GroundCancelCheckbox.Size = new System.Drawing.Size(94, 17);
+            this.GroundCancelCheckbox.TabIndex = 5;
+            this.GroundCancelCheckbox.Text = "GroundCancel";
+            this.GroundCancelCheckbox.UseVisualStyleBackColor = true;
+            this.GroundCancelCheckbox.CheckedChanged += new System.EventHandler(this.GroundCancelCheckbox_CheckedChanged);
             // 
             // AttacksSettingsManager
             // 
@@ -560,5 +586,7 @@
         private System.Windows.Forms.Button RemoveOnHit;
         private System.Windows.Forms.Button AddOnHit;
         private System.Windows.Forms.Button RemoveSpecial;
+        private System.Windows.Forms.CheckBox GroundCancelCheckbox;
+        private System.Windows.Forms.CheckBox AirOnlyCheckbox;
     }
 }

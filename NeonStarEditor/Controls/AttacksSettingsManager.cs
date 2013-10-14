@@ -92,6 +92,12 @@ namespace NeonStarEditor
                 XElement damageOnHit = new XElement("DamageOnHit", kvp.Value.DamageOnHit.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(damageOnHit);
 
+                XElement airOnly = new XElement("AirOnly", kvp.Value.AirOnly.ToString());
+                attack.Add(airOnly);
+
+                XElement cancelOnGround = new XElement("GroundCancel", kvp.Value.CancelOnGround.ToString());
+                attack.Add(cancelOnGround);
+
                 XElement delay = new XElement("Delay", kvp.Value.Delay.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(delay);
 
@@ -240,6 +246,8 @@ namespace NeonStarEditor
             this.CooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Cooldown;
             this.AirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirLock;
             this.TargetAirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].TargetAirLock;
+            this.AirOnlyCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].AirOnly;
+            this.GroundCancelCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -522,6 +530,16 @@ namespace NeonStarEditor
                 CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects[(sender as ListBox).SelectedIndex];
             }          
             InitEffectData();
+        }
+
+        private void GroundCancelCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround = (sender as CheckBox).Checked;
+        }
+
+        private void AirOnlyCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].AirOnly = (sender as CheckBox).Checked;
         }
     }
 }

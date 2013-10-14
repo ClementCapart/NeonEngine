@@ -38,7 +38,23 @@ namespace NeonStarLibrary
             get { return _type; }
             set { _type = value; }
         }
-        
+
+        private bool _airOnly = false;
+
+        public bool AirOnly
+        {
+            get { return _airOnly; }
+            set { _airOnly = value; }
+        }
+
+        private bool _cancelOnGround = false;
+
+        public bool CancelOnGround
+        {
+            get { return _cancelOnGround; }
+            set { _cancelOnGround = value; }
+        }
+
 
         private float _damageOnHit = 1.0f;
         public float DamageOnHit
@@ -77,13 +93,6 @@ namespace NeonStarLibrary
             set { _airLock = value; }
         }     
 
-        private bool _active;
-        public bool Active
-        {
-            get { return _active; }
-            set { _active = value; }
-        }
-
         private Side _side = Side.Right;
         public Side CurrentSide
         {
@@ -98,13 +107,70 @@ namespace NeonStarLibrary
             set { _targetAirLock = value; }
         }
 
-        private bool _activated = false;
+        private bool _delayStarted = false;
 
-        public bool Activated
+        public bool DelayStarted
         {
-            get { return _activated; }
-            set { _activated = value; }
+            get { return _delayStarted; }
+            set { _delayStarted = value; }
         }
+
+        private bool _durationStarted = false;
+
+        public bool DurationStarted
+        {
+            get { return _durationStarted; }
+            set { _durationStarted = value; }
+        }
+
+        private bool _cooldownStarted = false;
+
+        public bool CooldownStarted
+        {
+            get { return _cooldownStarted; }
+            set { _cooldownStarted = value; }
+        }
+
+        private bool _delayFinished = false;
+
+        public bool DelayFinished
+        {
+            get { return _delayFinished; }
+            set { _delayFinished = value; }
+        }
+
+        private bool _durationFinished = false;
+
+        public bool DurationFinished
+        {
+            get { return _durationFinished; }
+            set { _durationFinished = value; }
+        }
+
+        private bool _cooldownFinished = false;
+
+        public bool CooldownFinished
+        {
+            get { return _cooldownFinished; }
+            set { _cooldownFinished = value; }
+        }
+
+        private bool _airLockFinished = false;
+
+        private bool _airLocked = false;
+
+        public bool AirLocked
+        {
+          get { return _airLocked; }
+          set { _airLocked = value; }
+        }
+
+        public bool AirLockFinished
+        {
+            get { return _airLockFinished; }
+            set { _airLockFinished = value; }
+        }
+
 
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
@@ -130,14 +196,24 @@ namespace NeonStarLibrary
             this.Duration = attackInfo.Duration;
             this.AirLock = attackInfo.AirLock;
             this.TargetAirLock = attackInfo.TargetAirLock;
+            this.AirOnly = attackInfo.AirOnly;
+            this.CancelOnGround = attackInfo.CancelOnGround;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
                 this._onHitSpecialEffects.Add(ae);
             }
 
+            DelayStarted = true;
+
             if (this.Delay <= 0.0f)
                 Init();
+            if (AirOnly)
+                if (this._entity.rigidbody.isGrounded)
+                    this.CancelAttack();
+
+            if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
+                AirLockFinished = true;
         }
 
         public void Init()
@@ -160,13 +236,23 @@ namespace NeonStarLibrary
             {
                 this._specialEffects.Add(ae);
             }
-            this._activated = true;
-            this._active = true;
+            this.DelayFinished = true;
+            this.DurationStarted = true;
         }
 
         public void Update(GameTime gameTime)
         {
-            if (_active)
+            if (DelayStarted && !DelayFinished)
+            {
+                if (Delay > 0.0f)
+                    Delay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                else
+                {
+                    Delay = 0.0f;
+                    Init();
+                }
+            }
+            else if (DurationStarted && !DurationFinished)
             {
                 for(int i = _specialEffects.Count - 1; i >= 0; i--)
                 {
@@ -199,7 +285,7 @@ namespace NeonStarLibrary
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && hb.LastIntersects != hitbox)
                             {
                                 Effect(hb.entity);
-                                if (this.Type == AttackType.Melee)
+                                if (this.Type == AttackType.MeleeLight || this.Type == AttackType.MeleeSpecial)
                                 {
                                     hb.LastIntersects = hitbox;
                                 }
@@ -213,21 +299,65 @@ namespace NeonStarLibrary
                     }
                 }
 
-
                 Duration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (Duration <= 0)
                 {
+                    DurationFinished = true;
+                    CooldownStarted = true;
+                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                    {
+                        _hitboxes[i].Remove();
+                    }
+                    this._hitboxes.Clear();
+                }
+            }
+            else if(CooldownStarted && !CooldownFinished)
+            {
+                if (Cooldown > 0.0f)
+                {
+                    Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    Cooldown = 0.0f;
                     CancelAttack();
                 }
             }
-            else if (!_activated && this.Delay > 0.0f)
+
+            if (!_entity.rigidbody.isGrounded)
             {
-                Delay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (!AirLocked && !AirLockFinished)
+                {
+                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    AirLocked = true;
+                }
+                else if (AirLocked)
+                {
+                    AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+
+                if (AirLock <= 0.0f)
+                {
+                    AirLockFinished = true;
+                    AirLocked = false;
+                }
             }
-            else if (!_activated)
+            else
             {
-                Init();
+                AirLocked = false;
+                AirLockFinished = true;
+            }
+
+            if (CancelOnGround && _entity.rigidbody.isGrounded)
+            {
+                this.DurationStarted = true;
+                this.DurationFinished = true;
+                this.DelayStarted = true;
+                this.DelayStarted = true;
+                this.CooldownStarted = true;
+                this.AirLocked = false;
+                this.AirLockFinished = true;
             }
         }
 
@@ -268,7 +398,12 @@ namespace NeonStarLibrary
                 _hitboxes[i].Remove();
             }
             this._hitboxes.Clear();
-            this.Active = false;
+            this.CooldownFinished = true;
+            this.CooldownStarted = true;
+            this.DurationStarted = true;
+            this.DurationFinished =true;
+            this.DelayStarted = true;
+            this.DelayFinished = true;
         }
     }
 }
