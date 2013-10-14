@@ -278,7 +278,7 @@ namespace NeonEngine
         {
  	        if(OneWayPlatform)
             {
-                float offset = 0;
+                float offset = 1;
                 Entity EntityA = Neon.utils.GetEntityByBody(fixtureA.Body);
                 Entity EntityB = Neon.utils.GetEntityByBody(fixtureB.Body);
 

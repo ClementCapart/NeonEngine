@@ -51,8 +51,7 @@ namespace NeonStarEditor
             game.IsMouseVisible = true;
             CurrentTool = new Selection(this);
 
-            //GameAsForm.Controls.Add(new NeonStarToolstrip());
-        
+            //GameAsForm.Controls.Add(new NeonStarToolstrip());       
 
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);

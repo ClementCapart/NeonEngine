@@ -101,7 +101,6 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void AttackManagerButton_Click(object sender, EventArgs e)
         {
-            AttacksManager.LoadAttacks();
             GameWorld.ToggleAttackManager();
         }
     }
