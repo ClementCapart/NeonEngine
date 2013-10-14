@@ -151,8 +151,7 @@ namespace NeonStarLibrary
                         _currentSide = Side.Right;
                         LastSideChangedDelay = 0.0f;
                         entity.spritesheets.ChangeSide(_currentSide);
-                    }
-                    
+                    }             
                 }
             }    
 
@@ -196,7 +195,7 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
                         _startJumping = true;
                     }
-                    else if (NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished))
+                    else if (NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished) || !entity.spritesheets.CurrentSpritesheet.isPlaying)
                     {
                         entity.spritesheets.ChangeAnimation(IdleAnimation);
                     }

@@ -64,6 +64,7 @@ namespace NeonStarLibrary
                 }
 
                 ai.DamageOnHit = float.Parse(attack.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
+                ai.Delay = float.Parse(attack.Element("Delay").Value, CultureInfo.InvariantCulture);
                 ai.Cooldown = float.Parse(attack.Element("Cooldown").Value, CultureInfo.InvariantCulture);
                 ai.Duration = float.Parse(attack.Element("Duration").Value, CultureInfo.InvariantCulture);
                 ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);

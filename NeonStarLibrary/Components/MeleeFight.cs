@@ -78,7 +78,6 @@ namespace NeonStarLibrary
             set { _rushAttackSideDelay = value; }
         }
 
-
         private float _specialDelay = 0.0f;
         private float _lightDelay = 0.0f;
         private bool _isDiving = false;
@@ -87,6 +86,9 @@ namespace NeonStarLibrary
         private bool _rushAttacking = false;
         private float _airLockDuration = 0.0f;
         private bool ReleasedAttackButton = true;
+
+        private Queue<AttackInfo> AttacksQueue = new Queue<AttackInfo>();
+
 
         private ThirdPersonController _thirdPersonController;
         public ThirdPersonController ThirdPersonController
@@ -112,7 +114,7 @@ namespace NeonStarLibrary
             if (!ReleasedAttackButton)
                 if (Neon.Input.Released(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
-
+            
 
             if (_lightDelay > 0.0f) 
             {
@@ -138,7 +140,11 @@ namespace NeonStarLibrary
                 _specialDelay = 0.0f;
             }
 
-              
+            if (CurrentAttack != null && CurrentAttack.Delay > 0.0f && CurrentAttack.Duration > 0.0f)
+            {
+                ThirdPersonController.CanTurn = false;
+                ThirdPersonController.CanMove = false;
+            }
 
             if (!_isDiving && !_rushAttacking && ReleasedAttackButton)
             {
@@ -181,21 +187,22 @@ namespace NeonStarLibrary
                             if (Debug) Console.WriteLine("Finisher -> Left Rush Attack ! Current Combo : " + _currentComboHit);
                             entity.spritesheets.ChangeSide(Side.Left);
                             entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                            CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", entity.spritesheets.CurrentSide, entity);
                         }
                         else
                         {
                             if (Debug) Console.WriteLine("Left Rush Attack ! Current Combo : " + _currentComboHit);
                             entity.spritesheets.ChangeSide(Side.Left);
                             entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                            CurrentAttack = AttacksManager.GetAttack("RushAttack", entity.spritesheets.CurrentSide, entity);
                         }
                         if (!entity.rigidbody.isGrounded)
                         {
-                            _airLockDuration = AttacksManager.GetAttackInfo("RushAttack").AirLock;
+                            _airLockDuration = CurrentAttack.AirLock;
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         }
                         else
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        _rushAttacking = true;
                         ReleasedAttackButton = false;
                     }
                     else
@@ -212,21 +219,22 @@ namespace NeonStarLibrary
                             if (Debug) Console.WriteLine("Finisher -> Right Rush Attack ! Current Combo : " + _currentComboHit);
                             entity.spritesheets.ChangeSide(Side.Right);
                             entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                            CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", entity.spritesheets.CurrentSide, entity);
                         }
                         else
                         {
                             if (Debug) Console.WriteLine("Right Rush Attack ! Current Combo : " + _currentComboHit);
                             entity.spritesheets.ChangeSide(Side.Right);
                             entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                            CurrentAttack = AttacksManager.GetAttack("RushAttack", entity.spritesheets.CurrentSide, entity);
                         }
                         if (!entity.rigidbody.isGrounded)
                         {
-                            _airLockDuration = AttacksManager.GetAttackInfo("RushAttack").AirLock;
+                            _airLockDuration = CurrentAttack.AirLock;
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         }
                         else
                             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        _rushAttacking = true;
                         ReleasedAttackButton = false;
                     }
                     else
@@ -287,14 +295,14 @@ namespace NeonStarLibrary
                 switch(_currentComboHit)
                 {
                     case ComboSequence.Starter:
-                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 1)
+                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 3)
                         {
                             entity.spritesheets.CurrentSpritesheet.isPlaying = false;
                         }
                         break;
 
                     case ComboSequence.Link:
-                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 3)
+                        if (entity.spritesheets.CurrentSpritesheet.currentFrame == 6)
                         {
                             entity.spritesheets.CurrentSpritesheet.isPlaying = false;
                         }
@@ -363,15 +371,17 @@ namespace NeonStarLibrary
             }
             else
             {
-                if (_rushAttacking)
+                if (CurrentAttack != null && CurrentAttack.Delay > 0.0f)
                 {
                     ThirdPersonController.CanTurn = false;
                     ThirdPersonController.CanMove = false;
 
                 }
                 //else if((CurrentAttack != null && CurrentAttack.Duration <= 0.0f ) || CurrentAttack == null)
-                else if(_specialDelay <= 0.0f && _lightDelay <= 0.0f)
+                else if(_specialDelay <= 0.0f && _lightDelay <= 0.0f && CurrentAttack != null && CurrentAttack.Duration <= 0.0f)
                 {
+                    if (CurrentAttack.Name == "RushAttack")
+                        Console.WriteLine("bla");
                     ThirdPersonController.CanTurn = true;
                     ThirdPersonController.CanMove = true;
                 }

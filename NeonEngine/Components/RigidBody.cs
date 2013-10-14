@@ -278,14 +278,15 @@ namespace NeonEngine
         {
  	        if(OneWayPlatform)
             {
-                float offset = 1;
+                float offset = 0;
                 Entity EntityA = Neon.utils.GetEntityByBody(fixtureA.Body);
                 Entity EntityB = Neon.utils.GetEntityByBody(fixtureB.Body);
 
                 if (EntityB != null)
                 {
                     Hitbox hitbox = EntityB.GetComponent<Hitbox>();
-                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2)
+                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2 
+                        || (entity.transform.Position.X - this.hitbox.Width / 2 > EntityB.transform.Position.X + EntityB.hitbox.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - EntityB.hitbox.Width / 2 - offset))
                     {
                         contact.Enabled = false;
                         return false;
