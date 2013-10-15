@@ -260,8 +260,6 @@ namespace NeonEngine
                     body.CollisionCategories = Category.Cat2;
                     body.CollidesWith = Category.Cat1;
                 }
-
-
                 
                 body.SleepingAllowed = sleepingAllowed;
                 body.Position = CoordinateConversion.screenToWorld(hitbox.Center);
@@ -284,9 +282,9 @@ namespace NeonEngine
 
                 if (EntityB != null)
                 {
-                    Hitbox hitbox = EntityB.GetComponent<Hitbox>();
-                    if (hitbox != null && EntityB.transform.Position.Y + hitbox.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2 
-                        || (entity.transform.Position.X - this.hitbox.Width / 2 > EntityB.transform.Position.X + EntityB.hitbox.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - EntityB.hitbox.Width / 2 - offset))
+                    Hitbox hitboxB = EntityB.hitbox;
+                    if (hitbox != null && EntityB.transform.Position.Y + hitboxB.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2 
+                        || (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
                         contact.Enabled = false;
                         return false;

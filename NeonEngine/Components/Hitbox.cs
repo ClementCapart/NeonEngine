@@ -145,9 +145,7 @@ namespace NeonEngine
         }
 
         public override void Init()
-        {
-            if (this.Type == HitboxType.Main)
-                this.entity.hitbox = this;
+        {       
             Center = entity.transform.Position;    
             base.Init();
         }
@@ -157,7 +155,6 @@ namespace NeonEngine
             InUse = true;
             entity.containerWorld.Hitboxes.Add(this);
             this.entity = entity;
-            entity.hitbox = this;
         }
 
         public override void Update(GameTime gameTime)
