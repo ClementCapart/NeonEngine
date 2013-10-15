@@ -383,7 +383,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:229,3167 Y:67,50001}" />
+              <Position Value="{X:41 Y:67,49174}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -391,8 +391,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:229 Y:67}" />
-              <X Value="209" />
+              <Center Value="{X:41 Y:67}" />
+              <X Value="21" />
               <Y Value="-1" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -422,13 +422,17 @@
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
                 <Animation Name="startJump" SpritesheetTag="LiOnJumpUp" />
-                <Animation Name="lightattack" SpritesheetTag="LiOnLightAttack" />
+                <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
                 <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="diveattack" SpritesheetTag="LiOnDiveAttack" />
                 <Animation Name="startFall" SpritesheetTag="LiOnJumpDown" />
                 <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDownLoop" />
                 <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
+                <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
+                <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
+                <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
+                <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
+                <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
             </Properties>
@@ -440,10 +444,14 @@
               <LightAttackAnimation Value="lightattack" />
               <UppercutAnimation Value="uppercut" />
               <RushAttackAnimation Value="rushattack" />
-              <DiveAttackAnimation Value="diveattack" />
               <RushAttackChargeTime Value="0.3" />
               <RushAttackSideDelay Value="0.3" />
+              <ChainDelay Value="0.3" />
               <ThirdPersonController Value="5" />
+              <CurrentComboHit Value="None" />
+              <DiveAttackStartAnimation Value="DiveAttackStart" />
+              <DiveAttackLoopAnimation Value="DiveAttackLoop" />
+              <DiveAttackLandAnimation Value="DiveAttackLand" />
             </Properties>
           </MeleeFight>
           <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
@@ -469,7 +477,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:306,4645 Y:75,49998}" />
+              <Position Value="{X:306 Y:75,49175}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>

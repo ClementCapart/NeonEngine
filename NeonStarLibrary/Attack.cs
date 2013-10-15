@@ -179,12 +179,13 @@ namespace NeonStarLibrary
             set { _airLockFinished = value; }
         }
 
-
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
 
+        public bool Canceled = false;
         private Entity _entity;
-        private AttackInfo _attackInfo;
+        public AttackInfo AttackInfo;
+        private MeleeFight _meleeFight;
 
         public Attack()
         {
@@ -192,7 +193,8 @@ namespace NeonStarLibrary
 
         public Attack(AttackInfo attackInfo, Side side, Entity launcher)
         {
-            _attackInfo = attackInfo;
+            
+            AttackInfo = attackInfo;
             _hitboxes = new List<Hitbox>();
             this._side = side;
             this._entity = launcher;
@@ -215,30 +217,55 @@ namespace NeonStarLibrary
 
             DelayStarted = true;
 
+            _meleeFight = _entity.GetComponent<MeleeFight>();
+
+            if (OnlyOnceInAir && !_entity.rigidbody.isGrounded)
+            {
+                if (_meleeFight != null)
+                {
+                    if (_meleeFight.AttacksWhileInAir.Contains(attackInfo.Name) || _meleeFight.AttacksWhileInAir.Contains(attackInfo.Name.Remove(attackInfo.Name.Length - 6)))
+                    {
+                        _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
+                        this.CancelAttack();
+                        Canceled = true;
+                        _entity.spritesheets.CurrentPriority = 0;
+                        return;
+                    }
+                    else
+                    {
+                        _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
+                        if (attackInfo.Name.Substring(attackInfo.Name.Length - 6) == "Finish")
+                        {
+                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
+                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name.Remove(attackInfo.Name.Length - 6));
+                        }
+                        else
+                        {
+                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
+                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name + "Finish");
+                        }
+                    }
+                }
+            }
+
             if (this.Delay <= 0.0f)
                 Init();
             if (AirOnly)
-                if (this._entity.rigidbody.isGrounded)
+                if (this._entity.rigidbody.isGrounded && _meleeFight != null)
                 {
-                    this._entity.GetComponent<MeleeFight>().CurrentComboHit = (ComboSequence)this._entity.GetComponent<MeleeFight>().CurrentComboHit;
+                    _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
                     this.CancelAttack();
+                    Canceled = true;
                     return;
                 }
 
             if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
                 AirLockFinished = true;
-
-            if (OnlyOnceInAir)
-            {
-                this._entity.GetComponent<MeleeFight>().AttacksWhileInAir.Add(attackInfo.Name);
-                if(attackInfo.Name.Substring(attackInfo.Name.Length - 6) == "Finish")
-                    Console.WriteLine("Ok");
-            }
         }
 
         public void Init()
         {
-            foreach (Rectangle hitbox in _attackInfo.Hitboxes)
+            foreach (Rectangle hitbox in AttackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
                 hb.Center = _entity.transform.Position;
@@ -252,10 +279,14 @@ namespace NeonStarLibrary
                 _hitboxes.Add(hb);
             }
 
-            foreach (AttackEffect ae in _attackInfo.SpecialEffects)
+            if(_meleeFight.Debug)
+                Console.WriteLine(AttackInfo.Name + " launched ! Current Combo -> " + _meleeFight.CurrentComboHit.ToString());
+
+            foreach (AttackEffect ae in AttackInfo.SpecialEffects)
             {
                 this._specialEffects.Add(ae);
             }
+
             this.DelayFinished = true;
             this.DurationStarted = true;
         }
@@ -359,8 +390,8 @@ namespace NeonStarLibrary
 
                 if (AirLock <= 0.0f)
                 {
-                    AirLockFinished = true;
                     AirLocked = false;
+                    AirLockFinished = true;                   
                 }
             }
             else
@@ -371,6 +402,10 @@ namespace NeonStarLibrary
 
             if (CancelOnGround && _entity.rigidbody.isGrounded)
             {
+                for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                {
+                    _hitboxes[i].Remove();
+                }
                 this.DurationStarted = true;
                 this.DurationFinished = true;
                 this.DelayStarted = true;
@@ -378,6 +413,7 @@ namespace NeonStarLibrary
                 this.CooldownStarted = true;
                 this.AirLocked = false;
                 this.AirLockFinished = true;
+                this.Canceled = true;
             }
         }
 
@@ -424,6 +460,8 @@ namespace NeonStarLibrary
             this.DurationFinished =true;
             this.DelayStarted = true;
             this.DelayFinished = true;
+            this.AirLocked = false;
+            this.AirLockFinished = true;
         }
     }
 }

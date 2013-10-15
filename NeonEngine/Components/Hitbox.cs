@@ -123,7 +123,6 @@ namespace NeonEngine
         public Hitbox(Entity entity)
             :base(entity, "Hitbox")
         {
-            entity.hitbox = this;
             vectors = new List<Vector2>();
             hitboxRectangle = new Rectangle();
             this.Width = 50;
@@ -147,6 +146,8 @@ namespace NeonEngine
 
         public override void Init()
         {
+            if (this.Type == HitboxType.Main)
+                this.entity.hitbox = this;
             Center = entity.transform.Position;    
             base.Init();
         }

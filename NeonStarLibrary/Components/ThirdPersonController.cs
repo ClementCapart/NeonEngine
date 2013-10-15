@@ -155,11 +155,12 @@ namespace NeonStarLibrary
                 }
             }    
 
+             bool NotMoving = true;
+
             if (CanMove)
             {
                 if (entity.rigidbody.isGrounded && !_startJumping)
                 {
-                    bool NotMoving = true;
 
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
@@ -223,20 +224,28 @@ namespace NeonStarLibrary
 
                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
                     {
-                        if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
+                        if (!entity.rigidbody.isGrounded)
                         {
-                            entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                            if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
+                            {
+                                entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                            }
+                            else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
+                            {
+                                entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
+                            }  
                         }
-                        else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
-                        {
-                            entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
-                        }                      
-                        _startJumping = false;
+                        _startJumping = false;                                            
                     }
+                    
                 }
 
                 if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded)
                     entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
+
+                if (entity.rigidbody.isGrounded && NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished) || !entity.spritesheets.CurrentSpritesheet.isPlaying)
+                    entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);
+
             }
             
             foreach (Rigidbody rg in _ignoredGeometry)
