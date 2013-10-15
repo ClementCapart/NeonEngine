@@ -63,6 +63,7 @@
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
             this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
+            this.OnlyOnceInAir = new System.Windows.Forms.CheckBox();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -142,6 +143,7 @@
             // 
             // AttackInfo
             // 
+            this.AttackInfo.Controls.Add(this.OnlyOnceInAir);
             this.AttackInfo.Controls.Add(this.GroundCancelCheckbox);
             this.AttackInfo.Controls.Add(this.AirOnlyCheckbox);
             this.AttackInfo.Controls.Add(this.AttackName);
@@ -504,7 +506,7 @@
             // AirOnlyCheckbox
             // 
             this.AirOnlyCheckbox.AutoSize = true;
-            this.AirOnlyCheckbox.Location = new System.Drawing.Point(294, 123);
+            this.AirOnlyCheckbox.Location = new System.Drawing.Point(293, 116);
             this.AirOnlyCheckbox.Name = "AirOnlyCheckbox";
             this.AirOnlyCheckbox.Size = new System.Drawing.Size(59, 17);
             this.AirOnlyCheckbox.TabIndex = 5;
@@ -515,13 +517,24 @@
             // GroundCancelCheckbox
             // 
             this.GroundCancelCheckbox.AutoSize = true;
-            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 146);
+            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 137);
             this.GroundCancelCheckbox.Name = "GroundCancelCheckbox";
             this.GroundCancelCheckbox.Size = new System.Drawing.Size(94, 17);
             this.GroundCancelCheckbox.TabIndex = 5;
             this.GroundCancelCheckbox.Text = "GroundCancel";
             this.GroundCancelCheckbox.UseVisualStyleBackColor = true;
             this.GroundCancelCheckbox.CheckedChanged += new System.EventHandler(this.GroundCancelCheckbox_CheckedChanged);
+            // 
+            // OnlyOnceInAir
+            // 
+            this.OnlyOnceInAir.AutoSize = true;
+            this.OnlyOnceInAir.Location = new System.Drawing.Point(293, 158);
+            this.OnlyOnceInAir.Name = "OnlyOnceInAir";
+            this.OnlyOnceInAir.Size = new System.Drawing.Size(78, 17);
+            this.OnlyOnceInAir.TabIndex = 5;
+            this.OnlyOnceInAir.Text = "Once in Air";
+            this.OnlyOnceInAir.UseVisualStyleBackColor = true;
+            this.OnlyOnceInAir.CheckedChanged += new System.EventHandler(this.OnlyOnceInAir_CheckedChanged);
             // 
             // AttacksSettingsManager
             // 
@@ -588,5 +601,6 @@
         private System.Windows.Forms.Button RemoveSpecial;
         private System.Windows.Forms.CheckBox GroundCancelCheckbox;
         private System.Windows.Forms.CheckBox AirOnlyCheckbox;
+        private System.Windows.Forms.CheckBox OnlyOnceInAir;
     }
 }

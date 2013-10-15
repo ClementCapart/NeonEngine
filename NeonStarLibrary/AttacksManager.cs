@@ -38,6 +38,7 @@ namespace NeonStarLibrary
         public float TargetAirLock = 1.0f;
         public bool AirOnly = false;
         public bool CancelOnGround = false;
+        public bool OnlyOnceInAir = false;
         public List<AttackEffect> SpecialEffects = new List<AttackEffect>();
         public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
     }
@@ -68,6 +69,7 @@ namespace NeonStarLibrary
 
                 ai.AirOnly = bool.Parse(attack.Element("AirOnly").Value);
                 ai.CancelOnGround = bool.Parse(attack.Element("GroundCancel").Value);
+                ai.OnlyOnceInAir = bool.Parse(attack.Element("OnlyOnceInAir").Value);
                 ai.DamageOnHit = float.Parse(attack.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
                 ai.Delay = float.Parse(attack.Element("Delay").Value, CultureInfo.InvariantCulture);
                 ai.Cooldown = float.Parse(attack.Element("Cooldown").Value, CultureInfo.InvariantCulture);
@@ -119,7 +121,6 @@ namespace NeonStarLibrary
         static public AttackInfo GetAttackInfo(string name)
         {
             return _attacksInformation.First(ai => ai.Name == name);
-        }
-            
+        }   
     }
 }

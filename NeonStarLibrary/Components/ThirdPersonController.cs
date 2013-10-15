@@ -191,7 +191,7 @@ namespace NeonStarLibrary
                     {
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
-                        _meleeFight._currentComboHit = ComboSequence.None;
+                        _meleeFight.CurrentComboHit = ComboSequence.None;
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
                         _startJumping = true;
                     }

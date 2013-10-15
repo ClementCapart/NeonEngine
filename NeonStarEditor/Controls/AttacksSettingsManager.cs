@@ -98,6 +98,9 @@ namespace NeonStarEditor
                 XElement cancelOnGround = new XElement("GroundCancel", kvp.Value.CancelOnGround.ToString());
                 attack.Add(cancelOnGround);
 
+                XElement onlyOnceInAir = new XElement("OnlyOnceInAir", kvp.Value.OnlyOnceInAir.ToString());
+                attack.Add(onlyOnceInAir);
+
                 XElement delay = new XElement("Delay", kvp.Value.Delay.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(delay);
 
@@ -248,6 +251,7 @@ namespace NeonStarEditor
             this.TargetAirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].TargetAirLock;
             this.AirOnlyCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].AirOnly;
             this.GroundCancelCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround;
+            this.OnlyOnceInAir.Checked = _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -540,6 +544,11 @@ namespace NeonStarEditor
         private void AirOnlyCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             _attackList[AttacksList.SelectedValue.ToString()].AirOnly = (sender as CheckBox).Checked;
+        }
+
+        private void OnlyOnceInAir_CheckedChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir = (sender as CheckBox).Checked;
         }
     }
 }

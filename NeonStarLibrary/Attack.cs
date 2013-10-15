@@ -39,6 +39,14 @@ namespace NeonStarLibrary
             set { _type = value; }
         }
 
+        private bool _onlyOnceInAir = false;
+
+        public bool OnlyOnceInAir
+        {
+            get { return _onlyOnceInAir; }
+            set { _onlyOnceInAir = value; }
+        }
+
         private bool _airOnly = false;
 
         public bool AirOnly
@@ -198,6 +206,7 @@ namespace NeonStarLibrary
             this.TargetAirLock = attackInfo.TargetAirLock;
             this.AirOnly = attackInfo.AirOnly;
             this.CancelOnGround = attackInfo.CancelOnGround;
+            this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -210,10 +219,21 @@ namespace NeonStarLibrary
                 Init();
             if (AirOnly)
                 if (this._entity.rigidbody.isGrounded)
+                {
+                    this._entity.GetComponent<MeleeFight>().CurrentComboHit = (ComboSequence)this._entity.GetComponent<MeleeFight>().CurrentComboHit;
                     this.CancelAttack();
+                    return;
+                }
 
             if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
                 AirLockFinished = true;
+
+            if (OnlyOnceInAir)
+            {
+                this._entity.GetComponent<MeleeFight>().AttacksWhileInAir.Add(attackInfo.Name);
+                if(attackInfo.Name.Substring(attackInfo.Name.Length - 6) == "Finish")
+                    Console.WriteLine("Ok");
+            }
         }
 
         public void Init()
