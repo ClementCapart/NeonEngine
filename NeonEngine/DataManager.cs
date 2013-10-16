@@ -218,6 +218,8 @@ namespace NeonEngine
                             continue;
                         else if (pi.PropertyType.Equals(typeof(Vector2)))
                             pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                        else if (pi.PropertyType.Equals(typeof(Color)))
+                            pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.IsEnum)
                             pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Single)))

@@ -95,7 +95,6 @@ namespace NeonStarEditor
 
         public override void Update(GameTime gameTime)
         {
-
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
             if (CurrentTool != null && MouseInGameWindow)

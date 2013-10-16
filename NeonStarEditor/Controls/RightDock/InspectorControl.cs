@@ -213,6 +213,16 @@ namespace NeonStarEditor
 
                         localY += comboBox.Height + 5;
                     }
+                    else if (pi.PropertyType.Equals(typeof(Microsoft.Xna.Framework.Color)))
+                    {
+                        Button chooseColor = new Button();
+                        chooseColor.Text = "Color";
+                        chooseColor.Location = new Point(10, localY);
+                        gb.Controls.Add(chooseColor);
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, chooseColor));
+                        chooseColor.Click += chooseColor_Click;
+                        localY += chooseColor.Height + 5;
+                    }
                     else if (pi.PropertyType.Equals(typeof(string)))
                     {
                         TextBox tb = new TextBox();
@@ -310,6 +320,19 @@ namespace NeonStarEditor
                 gb.Controls.Add(RemoveButton);
 
                 Inspector.Controls.Add(gb);
+            }
+        }
+
+        void chooseColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.AllowFullOpen = true;
+            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);          
+            Microsoft.Xna.Framework.Color xnaColor = (Microsoft.Xna.Framework.Color)pcc.pi.GetValue(pcc.c, null);
+            colorDialog.Color = Color.FromArgb(xnaColor.A, xnaColor.R, xnaColor.G, xnaColor.B);
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                pcc.pi.SetValue(pcc.c, new Microsoft.Xna.Framework.Color(colorDialog.Color.R, colorDialog.Color.G, colorDialog.Color.B, colorDialog.Color.A), null);
             }
         }
 

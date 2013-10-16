@@ -106,5 +106,11 @@ namespace NeonEngine
             result.Y = float.Parse(Results[1]);
             return result;
         }
+
+        public Color ParseColor(string value)
+        {
+            string[] firstPass = value.Remove(0, 1).Remove(value.Length - 2, 1).Split(' ');
+            return new Color(int.Parse(firstPass[0].Remove(0, 2)), int.Parse(firstPass[1].Remove(0, 2)), int.Parse(firstPass[2].Remove(0, 2)), int.Parse(firstPass[3].Remove(0, 2)));
+        }
     }
 }

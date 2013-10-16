@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="ColorEmitter">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <Position Value="{X:0 Y:0}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+        <Properties>
+          <Color Value="{R:255 G:0 B:128 A:255}" />
+          <Range Value="500" />
+          <Pulse Value="True" />
+          <PulseDuration Value="1" />
+        </Properties>
+      </ColorEmitter>
+    </Components>
+  </Entity>
+</Prefab>

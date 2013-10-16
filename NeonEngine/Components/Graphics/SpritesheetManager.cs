@@ -16,6 +16,18 @@ namespace NeonEngine
 
         public Side CurrentSide = Side.Right;
 
+        public override Color TintColor
+        {
+            get
+            {
+                return CurrentSpritesheet.TintColor;
+            }
+            set
+            {
+                CurrentSpritesheet.TintColor = value;
+            }
+        }
+
         public Dictionary<string, SpriteSheetInfo> Spritesheets
         {
             get { return SpritesheetList; }

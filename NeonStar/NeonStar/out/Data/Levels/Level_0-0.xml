@@ -17,6 +17,8 @@
               <SpriteSheetTag Value="AngelRoomBackground" />
               <DrawLayer Value="0" />
               <IsFinished Value="False" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -25,7 +27,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:1149,35 Y:229,5}" />
+              <Position Value="{X:730,9811 Y:189,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -33,9 +35,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1149 Y:229}" />
-              <X Value="1129" />
-              <Y Value="161" />
+              <Center Value="{X:730 Y:189}" />
+              <X Value="710" />
+              <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -60,6 +62,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
+              <TintColor Value="{R:255 G:254 B:254 A:255}" />
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
@@ -77,6 +80,7 @@
                 <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
+              <Tint Value="True" />
             </Properties>
           </SpritesheetManager>
           <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
@@ -164,6 +168,8 @@
               <SpriteSheetTag Value="HoloScreen" />
               <DrawLayer Value="0.2" />
               <IsFinished Value="False" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -181,6 +187,8 @@
             <Properties>
               <GraphicTag Value="AngelRoomFences" />
               <DrawLayer Value="1" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
         </Components>
@@ -198,6 +206,8 @@
             <Properties>
               <GraphicTag Value="AngelRoomGround" />
               <DrawLayer Value="0.1" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
         </Components>
@@ -217,6 +227,8 @@
               <SpriteSheetTag Value="AngelRoomBackground" />
               <DrawLayer Value="0" />
               <IsFinished Value="False" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -234,6 +246,8 @@
             <Properties>
               <GraphicTag Value="AngelRoomFences" />
               <DrawLayer Value="1" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
         </Components>
@@ -251,6 +265,8 @@
             <Properties>
               <GraphicTag Value="AngelRoomGround" />
               <DrawLayer Value="0.1" />
+              <Tint Value="False" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
         </Components>
@@ -902,6 +918,44 @@
               <BoundSide Value="Down" />
             </Properties>
           </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="ColorEmitter">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:0 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Color Value="{R:255 G:0 B:128 A:255}" />
+              <Range Value="500" />
+              <Pulse Value="True" />
+              <PulseDuration Value="1" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="ColorEmitter">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:1280 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Color Value="{R:255 G:0 B:128 A:255}" />
+              <Range Value="500" />
+              <Pulse Value="True" />
+              <PulseDuration Value="1" />
+            </Properties>
+          </ColorEmitter>
         </Components>
       </Entity>
     </Entities>
