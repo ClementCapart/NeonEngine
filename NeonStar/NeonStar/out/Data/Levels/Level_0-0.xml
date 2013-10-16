@@ -25,7 +25,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-134,0088 Y:229}" />
+              <Position Value="{X:-181 Y:230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -33,9 +33,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-134 Y:229}" />
-              <X Value="-154" />
-              <Y Value="161" />
+              <Center Value="{X:-181 Y:230}" />
+              <X Value="-201" />
+              <Y Value="162" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -119,7 +119,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:200 Y:237}" />
+              <Position Value="{X:-106 Y:253}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -127,13 +127,13 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:200 Y:237}" />
-              <X Value="175" />
-              <Y Value="177" />
+              <Center Value="{X:-105 Y:243}" />
+              <X Value="-142" />
+              <Y Value="198" />
               <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="120" />
+              <OffsetY Value="-10" />
+              <Width Value="75" />
+              <Height Value="90" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
@@ -154,10 +154,18 @@
           </Rigidbody>
           <Enemy Type="NeonStarLibrary.Enemy" ID="3">
             <Properties>
-              <Debug Value="False" />
+              <Debug Value="True" />
               <StartingHealthPoints Value="10" />
             </Properties>
           </Enemy>
+          <Spritesheet Type="NeonEngine.SpriteSheet" ID="4">
+            <Properties>
+              <ReverseLoop Value="False" />
+              <SpriteSheetTag Value="HoloScreen" />
+              <DrawLayer Value="0.2" />
+              <IsFinished Value="False" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="RoomFences">
@@ -251,7 +259,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-491 Y:309}" />
+              <Position Value="{X:-491 Y:310}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -259,9 +267,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:-491 Y:309}" />
+              <Center Value="{X:-491 Y:310}" />
               <X Value="-640" />
-              <Y Value="259" />
+              <Y Value="260" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="298" />
@@ -290,7 +298,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:0 Y:329}" />
+              <Position Value="{X:0 Y:330}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -298,9 +306,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:0 Y:329}" />
+              <Center Value="{X:0 Y:330}" />
               <X Value="-341" />
-              <Y Value="299" />
+              <Y Value="300" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="682" />
@@ -329,7 +337,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:1281 Y:329}" />
+              <Position Value="{X:1280 Y:329}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -337,8 +345,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:1281 Y:329}" />
-              <X Value="939" />
+              <Center Value="{X:1279 Y:329}" />
+              <X Value="937" />
               <Y Value="299" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -368,7 +376,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:638,9998 Y:309}" />
+              <Position Value="{X:637 Y:309}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -376,8 +384,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:638 Y:309}" />
-              <X Value="340" />
+              <Center Value="{X:637 Y:309}" />
+              <X Value="339" />
               <Y Value="259" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -407,7 +415,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:1771 Y:309}" />
+              <Position Value="{X:1770 Y:309}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -415,8 +423,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:1770 Y:309}" />
-              <X Value="1623" />
+              <Center Value="{X:1769 Y:309}" />
+              <X Value="1622" />
               <Y Value="259" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -511,6 +519,318 @@
               <Friction Value="0.3" />
               <Mass Value="1.4938" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:-316 Y:272}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-316 Y:272}" />
+              <X Value="-334" />
+              <Y Value="268" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="9" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0324" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:-282 Y:290}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-282 Y:290}" />
+              <X Value="-300" />
+              <Y Value="286" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="9" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0324" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:316 Y:270}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:316 Y:270}" />
+              <X Value="298" />
+              <Y Value="266" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="9" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0324" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:281 Y:289}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:281 Y:289}" />
+              <X Value="263" />
+              <Y Value="286" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="7" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0252" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:963 Y:272}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:963 Y:272}" />
+              <X Value="945" />
+              <Y Value="268" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="9" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0324" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:996 Y:289}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:996 Y:289}" />
+              <X Value="978" />
+              <Y Value="286" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="7" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0252" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:1562 Y:289}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:1562 Y:289}" />
+              <X Value="1544" />
+              <Y Value="286" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="7" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0252" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:1596 Y:271}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:1596 Y:271}" />
+              <X Value="1578" />
+              <Y Value="267" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="36" />
+              <Height Value="8" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.0288" />
+              <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />

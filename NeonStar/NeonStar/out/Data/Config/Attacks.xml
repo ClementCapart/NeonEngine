@@ -3,7 +3,7 @@
   <Attacks>
     <Attack ID="0" Name="LightAttack" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="30" OffsetY="-15" Width="60" Height="50" />
       </Hitboxes>
       <DamageOnHit>-5</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -19,15 +19,15 @@
     </Attack>
     <Attack ID="0" Name="LightAttackFinish" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="50" OffsetY="15" Width="100" Height="85" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.1</Delay>
       <Cooldown>0.2</Cooldown>
-      <Duration>0.1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <SpecialEffects />
@@ -39,14 +39,14 @@
     </Attack>
     <Attack ID="0" Name="Uppercut" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="30" OffsetY="-25" Width="60" Height="80" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>0.1</Cooldown>
+      <Delay>0.1</Delay>
+      <Cooldown>0.2</Cooldown>
       <Duration>0.2</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
@@ -59,7 +59,7 @@
     </Attack>
     <Attack ID="0" Name="UppercutFinish" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="30" OffsetY="-25" Width="60" Height="80" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -119,7 +119,7 @@
     </Attack>
     <Attack ID="0" Name="DiveAttack" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="80" Width="80" Height="30" />
+        <Hitbox OffsetX="0" OffsetY="80" Width="100" Height="30" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>True</AirOnly>
