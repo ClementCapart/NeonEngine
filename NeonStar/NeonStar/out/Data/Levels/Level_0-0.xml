@@ -25,7 +25,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-181 Y:230}" />
+              <Position Value="{X:1149,35 Y:229,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -33,9 +33,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-181 Y:230}" />
-              <X Value="-201" />
-              <Y Value="162" />
+              <Center Value="{X:1149 Y:229}" />
+              <X Value="1129" />
+              <Y Value="161" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -838,6 +838,70 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="CameraBoundLeft">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:-641 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Left" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="CameraBoundRight">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:1921 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Right" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="CameraBoundDownLeft">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:0 Y:361}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="CameraBoundDownRight">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:1280 Y:361}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
