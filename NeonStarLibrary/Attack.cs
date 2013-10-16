@@ -25,6 +25,8 @@ namespace NeonStarLibrary
 
     public class Attack
     {
+        private bool _hit = false;
+
         string _name;
         public string Name
         {
@@ -378,7 +380,7 @@ namespace NeonStarLibrary
 
             if (!_entity.rigidbody.isGrounded)
             {
-                if (!AirLocked && !AirLockFinished)
+                if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
                 {
                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     AirLocked = true;
@@ -422,6 +424,7 @@ namespace NeonStarLibrary
             Enemy enemy = entity.GetComponent<Enemy>();
             if (enemy != null)
             {
+                _hit = true;
                 enemy.ChangeHealthPoints(_damageOnHit);
                 if(!enemy.entity.rigidbody.isGrounded)
                     enemy.AirLock(TargetAirLock);

@@ -16,6 +16,14 @@ namespace NeonEngine
         public Vector2 Position;
         public bool IsLooped = true;
         public float opacity = 1f;
+        private bool _reverseLoop = false;
+        private bool _reverse = false;
+
+        public bool ReverseLoop
+        {
+            get { return _reverseLoop; }
+            set { _reverseLoop = value; }
+        }
 
         private string spriteSheetTag;
         public string SpriteSheetTag
@@ -23,6 +31,7 @@ namespace NeonEngine
             get { return spriteSheetTag; }
             set
             {
+                currentFrame = 0;
                 spriteSheetTag = value;
                 spriteSheetInfo = AssetManager.GetSpriteSheet(value);
                 Init();
@@ -95,7 +104,7 @@ namespace NeonEngine
                 isPlaying = false;
             else
                 timePerFrame = 1 / spriteSheetInfo.Fps;
-
+            frameTimer = 0;
             _isFinished = false;
         }
 
@@ -109,20 +118,45 @@ namespace NeonEngine
                     {
                         if (isPlaying)
                         {
-                            if (currentFrame == frames.Length - 1)
+                            if (!_reverseLoop)
                             {
-                                if (IsLooped)
-                                    currentFrame = 0;
-                                else
+                                if (currentFrame == frames.Length - 1)
                                 {
-                                    isPlaying = false;
-                                    _isFinished = true;
+                                    if (IsLooped)
+                                        currentFrame = 0;
+                                    else
+                                    {
+                                        isPlaying = false;
+                                        _isFinished = true;
+                                    }
                                 }
+                                else
+                                    currentFrame++;
                             }
                             else
-                                currentFrame++;
-
-                            
+                            {
+                                if (!_reverse)
+                                {
+                                    if (currentFrame == frames.Length - 1)
+                                    {
+                                        _reverse = true;
+                                        currentFrame--;
+                                    }
+                                    else
+                                        currentFrame++;
+                                }
+                                else
+                                {
+                                    if (currentFrame == 0)
+                                    {
+                                        _reverse = false;
+                                        currentFrame++;
+                                    }
+                                    else
+                                        currentFrame--;
+                                }
+                            }
+                                                    
                         }
                         frameTimer -= timePerFrame;
                     }
