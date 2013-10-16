@@ -15,7 +15,7 @@ namespace NeonStarLibrary
     public class GameScreen : World
     {
         public List<Enemy> enemies;
-
+        public bool MustFollowAvatar = true;
 
         public GameScreen(Game game)
             : base(game)
@@ -25,16 +25,13 @@ namespace NeonStarLibrary
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
 
             AttacksManager.LoadAttacks();
-
-            camera.Position = new Vector2(-100, 0);
+            camera.Bounded = true;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (Neon.Input.Check(Buttons.RightThumbstickLeft))
-                camera.Position -= new Vector2(10, 0);
-            if (Neon.Input.Check(Buttons.RightThumbstickRight))
-                camera.Position += new Vector2(10, 0);
+            if(MustFollowAvatar)
+                camera.SmoothFollow(entities.Where(e => e.Name == "LiOn").First());
 
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;

@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace NeonEngine
 {
@@ -11,8 +13,18 @@ namespace NeonEngine
         Vector2 _pos; // Camera Position
         Vector2 _ppos; // camera Position since last frame
         protected float _rotation; // Camera Rotation
+        private bool _bounded = false;
+        private Vector2 _lastLegitPosition;
 
-        // Sets and gets zoom
+        public List<CameraBound> CameraBounds = new List<CameraBound>();
+
+        public bool Bounded
+        {
+            get { return _bounded; }
+            set { _bounded = value; }
+        }
+
+        
         public float Zoom
         {
             get { return _zoom; }
@@ -29,7 +41,6 @@ namespace NeonEngine
             get { return _pos; }
             set
             {
-                _ppos = _pos;
                 _pos = value;
             }
         }
@@ -58,8 +69,40 @@ namespace NeonEngine
         }
 
         public void SmoothFollow(Entity targetObject)
-        {
-            Position -= (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
+        {         
+            if (Bounded && CameraBounds.Count > 0)
+            {
+                Vector2 NewPosition = Position - (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
+
+                foreach (CameraBound cb in CameraBounds)
+                {
+                    if (cb.entity.ViewedByCamera(NewPosition))
+                    {
+                        switch (cb.BoundSide)
+                        {
+                            case Side.Up:
+                                NewPosition = new Vector2(NewPosition.X, MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue));
+                                break;
+
+                            case Side.Right:
+                                NewPosition = new Vector2(MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom), NewPosition.Y);
+                                break;
+
+                            case Side.Down:
+                                NewPosition = new Vector2(NewPosition.X, MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom));
+                                break;
+
+                            case Side.Left:
+                                NewPosition = new Vector2(MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue), NewPosition.Y);
+                                break;
+                        }
+                    }                   
+                }
+
+                Position = NewPosition;
+            }
+            else
+                Position -= (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
         }
 
         public void Move(int x, int y)
@@ -80,6 +123,11 @@ namespace NeonEngine
                                          Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
                                          Matrix.CreateTranslation(new Vector3(graphicsDevice.Viewport.Width * 0.5f, graphicsDevice.Viewport.Height * 0.5f, 0));
             return _transform;
+        }
+
+        public Entity[] GetEntitiesInView(Vector2 cameraPosition)
+        {
+            return Neon.world.entities.Where(en => en.ViewedByCamera(cameraPosition)).ToArray();
         }
     }
 }

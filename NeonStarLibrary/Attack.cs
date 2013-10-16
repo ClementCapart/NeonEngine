@@ -374,7 +374,7 @@ namespace NeonStarLibrary
                 else
                 {
                     Cooldown = 0.0f;
-                    CancelAttack();
+                    CooldownFinished = true;
                 }
             }
 

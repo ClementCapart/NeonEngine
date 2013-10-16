@@ -174,7 +174,7 @@ namespace NeonEngine
             {
                 if (!isHUD)
                     spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X) * entity.transform.Scale), (int)entity.transform.Position.Y + ((int)spriteSheetInfo.Offset.Y * entity.transform.Scale)), frames[currentFrame],
-                        Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
+                        Color.Lerp(Color.Transparent, (entity.Name == "LiOn" ? /*TOREMOVE*/Color.Gray : Color.White), opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
                 else
                     spritebatch.Draw(spriteSheetInfo.Texture, new Rectangle((int)Position.X, (int)Position.Y, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight), frames[currentFrame],
                         Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, Layer);

@@ -35,6 +35,7 @@ namespace NeonStarEditor
         public bool MouseInGameWindow = false;
 
         public bool FocusEntity = false;
+        public bool LockedCamera = true;
 
         public BindingList<Entity> entityList = new BindingList<Entity>();
 
@@ -94,13 +95,19 @@ namespace NeonStarEditor
 
         public override void Update(GameTime gameTime)
         {
+
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
             if (CurrentTool != null && MouseInGameWindow)
                 CurrentTool.Update(gameTime);
 
             if (Neon.Input.MouseCheck(MouseButton.MiddleButton) && MouseInGameWindow)
+            {
+                FocusEntity = false;
+                MustFollowAvatar = false;
+                camera.Bounded = false;
                 camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
+            }
 
             if (Neon.Input.Pressed(Keys.F) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 FocusEntity = !FocusEntity;
@@ -127,10 +134,19 @@ namespace NeonStarEditor
                 camera.Zoom -= 0.1f;
 
             if (Neon.Input.Check(Keys.R))
+            {
+                FocusEntity = false;
+                camera.Bounded = true;
+                MustFollowAvatar = true;
                 camera.Zoom = 1f;
+            }
 
             if (FocusEntity && SelectedEntity != null)
+            {
                 camera.SmoothFollow(SelectedEntity);
+                camera.Bounded = false;
+                MustFollowAvatar = false;
+            }
 
             if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
                 || (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))&& Neon.Input.Pressed(Keys.Z))
