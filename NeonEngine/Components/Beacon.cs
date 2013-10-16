@@ -27,6 +27,16 @@ namespace NeonEngine.Private
         Vector2 FrontGroundRaycast = new Vector2();
         Vector2 FrontGroundRaycastTarget = new Vector2();
 
+        Vector2 LeftBottomRaycast = new Vector2();
+        Vector2 LeftTopRaycast = new Vector2();
+        Vector2 LeftBottomRaycastTarget = new Vector2();
+        Vector2 LeftTopRaycastTarget = new Vector2();
+
+        Vector2 RightBottomRaycast = new Vector2();
+        Vector2 RightBottomRaycastTarget = new Vector2();
+        Vector2 RightTopRaycast = new Vector2();
+        Vector2 RightTopRaycastTarget = new Vector2();
+
         public Beacon(Hitbox hitbox, FarseerPhysics.Dynamics.World PhysicWorld)
             :base(hitbox.entity, "Beacon")
         {
@@ -47,9 +57,17 @@ namespace NeonEngine.Private
 
             LeftRaycast = new Vector2(hitbox.X + 5, hitbox.Y + hitbox.Height / 2);
             LeftRaycastTarget = LeftRaycast + new Vector2(-10, 0);
-                
+            LeftBottomRaycast = LeftRaycastTarget;
+            LeftBottomRaycastTarget = LeftRaycastTarget + new Vector2(0, hitbox.Height / 2);
+            LeftTopRaycast = LeftRaycastTarget;
+            LeftTopRaycastTarget = LeftRaycastTarget + new Vector2(0, -hitbox.Height / 2);
+
             RightRaycast = new Vector2(hitbox.X + hitbox.Width - 5, hitbox.Y + hitbox.Height / 2);
             RightRaycastTarget = RightRaycast + new Vector2(10, 0);
+            RightBottomRaycast = RightRaycastTarget;
+            RightBottomRaycastTarget = RightRaycastTarget + new Vector2(0, hitbox.Height / 2);
+            RightTopRaycast = RightRaycastTarget;
+            RightTopRaycastTarget = RightRaycastTarget + new Vector2(0, -hitbox.Height / 2);                     
         }
 
         public override void Update(GameTime gameTime)
@@ -124,6 +142,33 @@ namespace NeonEngine.Private
             CoordinateConversion.screenToWorld(LeftRaycast),
             CoordinateConversion.screenToWorld(LeftRaycastTarget));
 
+            if (!hasHit)
+            {
+                PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+                {
+                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    {
+                        hasHit = true;
+                        return 0;
+                    }
+                    return -1;
+                },
+                CoordinateConversion.screenToWorld(LeftBottomRaycast),
+                CoordinateConversion.screenToWorld(LeftBottomRaycastTarget));
+
+                PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+                {
+                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    {
+                        hasHit = true;
+                        return 0;
+                    }
+                    return -1;
+                },
+                CoordinateConversion.screenToWorld(LeftTopRaycast),
+                CoordinateConversion.screenToWorld(LeftTopRaycastTarget));
+            }
+
             return hasHit;
         }
 
@@ -142,6 +187,34 @@ namespace NeonEngine.Private
             },
             CoordinateConversion.screenToWorld(RightRaycast),
             CoordinateConversion.screenToWorld(RightRaycastTarget));
+
+            if (!hasHit)
+            {
+                PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+                {
+                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    {
+                        hasHit = true;
+                        return 0;
+                    }
+                    return -1;
+                },
+                CoordinateConversion.screenToWorld(RightBottomRaycast),
+                CoordinateConversion.screenToWorld(RightBottomRaycastTarget));
+
+                PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+                {
+                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    {
+                        hasHit = true;
+                        return 0;
+                    }
+                    return -1;
+                },
+                CoordinateConversion.screenToWorld(RightTopRaycast),
+                CoordinateConversion.screenToWorld(RightTopRaycastTarget));
+            }
+
 
             return hasHit;
         }
