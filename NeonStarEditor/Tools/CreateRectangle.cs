@@ -75,12 +75,14 @@ namespace NeonStarEditor
                     e.transform.Position = vectors[0] + new Vector2(vertices[2].X / 2, vertices[2].Y / 2);
                     
                     Hitbox hb = new Hitbox(e);
+                    hb.ID = 1;
                     hb.Width = (int)Math.Abs(vertices[1].X);
                     hb.Height = (int)Math.Abs(vertices[2].Y);
                     hb.Init();
                     e.AddComponent(hb);
 
                     Rigidbody rg = new Rigidbody(e);
+                    rg.ID = 2;
                     rg.BodyType = BodyType.Static;
                     rg.Friction = 0.3f;
                     rg.IsGround = true;
