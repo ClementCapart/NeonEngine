@@ -159,12 +159,8 @@ namespace NeonEngine
                                                     
                         }
                         frameTimer -= timePerFrame;
-                    }
-                    
-
-                    
-            }
-            
+                    }                  
+            }          
         }
 
         public void SetFrame(int frame)

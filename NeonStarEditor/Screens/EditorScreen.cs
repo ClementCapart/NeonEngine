@@ -99,7 +99,7 @@ namespace NeonStarEditor
             if (CurrentTool != null && MouseInGameWindow)
                 CurrentTool.Update(gameTime);
 
-            if (Neon.Input.MouseCheck(MouseButton.LeftButton) && MouseInGameWindow)
+            if (Neon.Input.MouseCheck(MouseButton.MiddleButton) && MouseInGameWindow)
                 camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
 
             if (Neon.Input.Pressed(Keys.F) && FocusedTextBox == null && FocusedNumericUpDown == null)
@@ -126,7 +126,7 @@ namespace NeonStarEditor
             else if (Neon.Input.MouseWheel() < 0)
                 camera.Zoom -= 0.1f;
 
-            if (Neon.Input.MousePressed(MouseButton.MiddleButton))
+            if (Neon.Input.Check(Keys.R))
                 camera.Zoom = 1f;
 
             if (FocusEntity && SelectedEntity != null)
@@ -160,7 +160,7 @@ namespace NeonStarEditor
                         spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
                         spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
                         spriteBatch.End();
-                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
+                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
                         dc.Draw(spriteBatch);
                     }
                 }

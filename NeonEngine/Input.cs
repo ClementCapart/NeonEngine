@@ -145,8 +145,8 @@ namespace NeonEngine
 
             deltaMouse = new Vector2(ms.X - _ms.X, ms.Y - _ms.Y);
 
-            mousePosition.X = (ms.X + camera.Position.X - Neon.HalfScreen.X) * camera.Zoom;
-            mousePosition.Y = (ms.Y + camera.Position.Y - Neon.HalfScreen.Y) * camera.Zoom;
+            mousePosition.X = (ms.X / camera.Zoom + camera.Position.X - Neon.HalfScreen.X / camera.Zoom);
+            mousePosition.Y = (ms.Y / camera.Zoom + camera.Position.Y - Neon.HalfScreen.Y / camera.Zoom);
             if (ms.ScrollWheelValue != _ms.ScrollWheelValue)
                 MouseWheelDelta = ms.ScrollWheelValue - _ms.ScrollWheelValue;
 
