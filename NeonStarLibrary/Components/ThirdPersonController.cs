@@ -107,6 +107,17 @@ namespace NeonStarLibrary
         private MeleeFight _meleeFight;
 
         public float LastSideChangedDelay = 0.0f;
+        public bool _mustJumpAsSoonAsPossible = false;
+
+        private float _maxJumpInputDelay = 0.5f;
+
+        public float MaxJumpInputDelay
+        {
+            get { return _maxJumpInputDelay; }
+            set { _maxJumpInputDelay = value; }
+        }
+
+        private float _jumpInputDelay = 0.0f;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -196,9 +207,21 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
                         _startJumping = true;
                     }
-                    else if (NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished) || !entity.spritesheets.CurrentSpritesheet.isPlaying)
+                    else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
                     {
-                        entity.spritesheets.ChangeAnimation(IdleAnimation);
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                        _meleeFight.CurrentComboHit = ComboSequence.None;
+                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, true, false, 0);
+                        _startJumping = true;
+                        _jumpInputDelay = 0.0f;
+                        _mustJumpAsSoonAsPossible = false;
+                    }
+                    
+                    if (_jumpInputDelay >= _maxJumpInputDelay || !Neon.Input.Check(NeonStarInput.Jump))
+                    {
+                        _jumpInputDelay = 0.0f;
+                        _mustJumpAsSoonAsPossible = false;
                     }
                 }
                 else
@@ -224,6 +247,11 @@ namespace NeonStarLibrary
                     else
                         entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
 
+                    if (Neon.Input.Pressed(NeonStarInput.Jump))
+                    {
+                        _mustJumpAsSoonAsPossible = true;
+                    }
+
                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
                     {
                         if (!entity.rigidbody.isGrounded)
@@ -239,14 +267,21 @@ namespace NeonStarLibrary
                         }
                         _startJumping = false;                                            
                     }
+
+                    if (_mustJumpAsSoonAsPossible)
+                        _jumpInputDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    else
+                        _jumpInputDelay = 0.0f;
                     
                 }
 
-                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded)
+                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && !_startJumping)
                     entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
 
-                if (entity.rigidbody.isGrounded && NotMoving && ((entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsFinished) || !entity.spritesheets.CurrentSpritesheet.isPlaying)
-                    entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);
+                if (entity.rigidbody.isGrounded && NotMoving && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished || !entity.spritesheets.CurrentSpritesheet.isPlaying))
+                {
+                    entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);                   
+                }
 
             }
             

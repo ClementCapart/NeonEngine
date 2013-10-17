@@ -141,7 +141,7 @@ namespace NeonStarLibrary
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (!ReleasedAttackButton)
-                if (Neon.Input.Released(NeonStarInput.Attack))
+                if (!Neon.Input.Check(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
 
             if (entity.rigidbody.isGrounded)
@@ -170,44 +170,57 @@ namespace NeonStarLibrary
                 }
                 else
                     CurrentAttack.Update(gameTime);
+            }        
 
-            }
-
-            
-
-            if (CurrentAttack == null)
+            if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished))
             {
                 if (NextAttack != "")
                 {
-                    switch(NextAttack)
+                    if (_chainDelayTimer < _chainDelay)
                     {
-                        case "Uppercut":
-                            PerformUppercut();
-                            break;
+                        switch (NextAttack)
+                        {
+                            case "Uppercut":
+                                PerformUppercut();
+                                break;
 
-                        case "DiveAttack":
-                            PerformDiveAttack();
-                            break;
+                            case "DiveAttack":
+                                PerformDiveAttack();
+                                break;
 
-                        case "RushAttack":
-                            if (entity.spritesheets.CurrentSide == Side.Left)
-                                PerformLeftRushAttack();
-                            else
-                                PerformRightRushAttack();
-                            break;
+                            case "RushAttack":
+                                if (entity.spritesheets.CurrentSide == Side.Left)
+                                    PerformLeftRushAttack();
+                                else
+                                    PerformRightRushAttack();
+                                break;
 
-                        case "LightAttack":
-                            PerformLightAttack();
-                            break;
+                            case "LightAttack":
+                                Console.WriteLine("Hit 2!");
+                                PerformLightAttack();
+                                break;
+                        }
+                        NextAttack = "";
+                        _chainDelayTimer = 0.0f;
                     }
-
-                    NextAttack = "";
+                    else
+                    {
+                        NextAttack = "";
+                        _chainDelayTimer = 0.0f;
+                    }
                 }
-            } 
+                
+            }
+
+            if (NextAttack != "")
+            {
+                _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Console.WriteLine(_chainDelayTimer);
+            }
 
             if (ReleasedAttackButton)
             {
-                if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveUp))
+                if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
                 {
                     if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
                     {
@@ -216,9 +229,10 @@ namespace NeonStarLibrary
                     else if(NextAttack == "")
                     {
                         NextAttack = "Uppercut";
+                        _chainDelayTimer = 0;
                     }
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, 0.3f) == DelayStatus.Valid)
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, 0.3f) == DelayStatus.Valid)
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
@@ -229,6 +243,7 @@ namespace NeonStarLibrary
                         else if(NextAttack == "")
                         {
                             NextAttack = "RushAttack";
+                            _chainDelayTimer = 0;
                         }
                     }
                     else
@@ -239,7 +254,7 @@ namespace NeonStarLibrary
                         }
                     }                                        
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, 0.3f) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, 0.3f) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
@@ -250,6 +265,7 @@ namespace NeonStarLibrary
                         else if (NextAttack == "")
                         {
                             NextAttack = "RushAttack";
+                            _chainDelayTimer = 0;
                         }
                     }
                     else
@@ -260,7 +276,7 @@ namespace NeonStarLibrary
                         }
                     }                    
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.3f, NeonStarInput.MoveDown))                  
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))                  
                 {
                     if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
                     {
@@ -273,6 +289,7 @@ namespace NeonStarLibrary
                     else if (NextAttack == "")
                     {
                         NextAttack = "DiveAttack";
+                        _chainDelayTimer = 0;
                     }                
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking)
@@ -280,7 +297,10 @@ namespace NeonStarLibrary
                     if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished))
                         PerformLightAttack();
                     else if (NextAttack == "")
-                        NextAttack = "LightAttack";                 
+                    {
+                        NextAttack = "LightAttack";
+                        _chainDelayTimer = 0;
+                    }
                 }
             }
 
@@ -345,7 +365,6 @@ namespace NeonStarLibrary
                         ThirdPersonController.CanMove = true;
                         ThirdPersonController.CanTurn = true;
                     }
-
                 }
 
             }
@@ -462,7 +481,7 @@ namespace NeonStarLibrary
                 {
                     entity.spritesheets.ChangeAnimation(LightAttackAnimation + "Finish", 1, true, false, false);
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                }                          
+                }
             }
             else
             {
@@ -478,6 +497,7 @@ namespace NeonStarLibrary
                 }
                            
             }
+            ReleasedAttackButton = false;
         }
 
         private void CheckComboHit()

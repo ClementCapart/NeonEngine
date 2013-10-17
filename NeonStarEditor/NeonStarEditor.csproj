@@ -101,6 +101,12 @@
     <Compile Include="Controls\BottomDock\EntityListControl.Designer.cs">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CameraPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CameraPanel.Designer.cs">
+      <DependentUpon>CameraPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LeftDock\LeftDock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CameraPanel.resx">
+      <DependentUpon>CameraPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LeftDock\LeftDock.resx">
       <DependentUpon>LeftDock.cs</DependentUpon>

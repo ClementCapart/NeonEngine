@@ -353,7 +353,6 @@ namespace NeonEngine
             return false;
         }
 
-        
         public bool Released<T>(T NeonCustomInput)
         {
             if (NeonCustomInput.GetType() != EnumType)

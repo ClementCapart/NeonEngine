@@ -23,7 +23,6 @@ namespace NeonStarLibrary
             enemies = new List<Enemy>();
             
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
-
             AttacksManager.LoadAttacks();
             camera.Bounded = true;
         }
@@ -31,8 +30,8 @@ namespace NeonStarLibrary
         public override void Update(GameTime gameTime)
         {
             if(MustFollowAvatar)
-                camera.SmoothFollow(entities.Where(e => e.Name == "LiOn").First());
-
+                camera.Chase(entities.Where(e => e.Name == "LiOn").First().transform.Position, gameTime);
+            
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;
             base.Update(gameTime);

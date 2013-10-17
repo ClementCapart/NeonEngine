@@ -103,5 +103,10 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.ToggleAttackManager();
         }
+
+        private void CameraPanel_Click(object sender, EventArgs e)
+        {
+            GameWorld.ToggleCameraManager();
+        }
     }
 }

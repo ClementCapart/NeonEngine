@@ -119,8 +119,8 @@ namespace NeonEngine
                 Console.WriteLine("");
                 Console.WriteLine("");
             }
-
             Neon.Input.Update(camera);
+  
             Neon.elapsedTime = gameTime.ElapsedGameTime.Milliseconds;
             if (!Pause)
             {

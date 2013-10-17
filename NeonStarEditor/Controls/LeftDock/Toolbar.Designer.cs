@@ -37,6 +37,7 @@
             this.ReloadScript = new System.Windows.Forms.Button();
             this.ReloadAssetsButton = new System.Windows.Forms.Button();
             this.AttackManagerButton = new System.Windows.Forms.Button();
+            this.CameraPanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveCurrentMap
@@ -134,12 +135,25 @@
             this.AttackManagerButton.UseVisualStyleBackColor = true;
             this.AttackManagerButton.Click += new System.EventHandler(this.AttackManagerButton_Click);
             // 
+            // CameraPanel
+            // 
+            this.CameraPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CameraPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CameraPanel.Location = new System.Drawing.Point(3, 481);
+            this.CameraPanel.Name = "CameraPanel";
+            this.CameraPanel.Size = new System.Drawing.Size(30, 30);
+            this.CameraPanel.TabIndex = 4;
+            this.CameraPanel.Text = "C";
+            this.CameraPanel.UseVisualStyleBackColor = true;
+            this.CameraPanel.Click += new System.EventHandler(this.CameraPanel_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.CameraPanel);
             this.Controls.Add(this.AttackManagerButton);
             this.Controls.Add(this.ReloadAssetsButton);
             this.Controls.Add(this.ReloadScript);
@@ -164,5 +178,6 @@
         private System.Windows.Forms.Button ReloadScript;
         private System.Windows.Forms.Button ReloadAssetsButton;
         private System.Windows.Forms.Button AttackManagerButton;
+        private System.Windows.Forms.Button CameraPanel;
     }
 }

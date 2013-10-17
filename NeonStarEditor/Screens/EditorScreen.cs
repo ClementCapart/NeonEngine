@@ -24,6 +24,7 @@ namespace NeonStarEditor
         public LeftDock LeftDockControl;
 
         public AttacksSettingsManager AttacksSettingsManager;
+        public CameraPanel CameraSettings;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -42,6 +43,7 @@ namespace NeonStarEditor
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
         private bool _isAttackManagerDisplayed = false;
+        private bool _isCameraSettingsDisplayed = false;
 
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
@@ -58,6 +60,7 @@ namespace NeonStarEditor
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
             AttacksSettingsManager = new AttacksSettingsManager();
+            
 
             GameAsForm.Controls.Add(BottomDockControl);
             GameAsForm.Controls.Add(RightDockControl);
@@ -82,6 +85,24 @@ namespace NeonStarEditor
                 _isAttackManagerDisplayed = true;
             }
         }
+
+        public void ToggleCameraManager()
+        {
+            if (_isCameraSettingsDisplayed)
+            {
+                
+                GameAsForm.Controls.Remove(CameraSettings);
+                CameraSettings = null;
+                _isCameraSettingsDisplayed = false;
+            }
+            else
+            {
+                CameraSettings = new CameraPanel();
+                GameAsForm.Controls.Add(CameraSettings);
+                _isCameraSettingsDisplayed = true;
+            }
+        }
+
 
         void GameAsForm_MouseLeave(object sender, EventArgs e)
         {

@@ -14,7 +14,11 @@ namespace NeonEngine
         Vector2 _ppos; // camera Position since last frame
         protected float _rotation; // Camera Rotation
         private bool _bounded = false;
-        private Vector2 _lastLegitPosition;
+
+        public float mass = 10f;
+        public float stiffness = 1000f;
+        public float damping = 170f;
+        private Vector2 velocity; 
 
         public List<CameraBound> CameraBounds = new List<CameraBound>();
 
@@ -72,8 +76,79 @@ namespace NeonEngine
         {         
             if (Bounded && CameraBounds.Count > 0)
             {
-                Vector2 NewPosition = Position - (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
+                float NewPositionX = Position.X + (float)Math.Sqrt(Math.Pow(Position.X - targetObject.transform.Position.X, 2f));
+                float NewPositionY = Position.Y + (float)Math.Sqrt(Math.Pow(Position.Y - targetObject.transform.Position.Y, 2f));
 
+                foreach (CameraBound cb in CameraBounds)
+                {
+                    if (cb.entity.ViewedByCamera(new Vector2(NewPositionX, NewPositionY)))
+                    {
+                        switch (cb.BoundSide)
+                        {
+                            case Side.Up:
+                                NewPositionY = MathHelper.Clamp(NewPositionY, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue);
+                                break;
+
+                            case Side.Right:
+                                NewPositionX =MathHelper.Clamp(NewPositionX, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom);
+                                break;
+
+                            case Side.Down:
+                                NewPositionY = MathHelper.Clamp(NewPositionY, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom);
+                                break;
+
+                            case Side.Left:
+                                NewPositionX = MathHelper.Clamp(NewPositionX, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue);
+                                break;
+                        }
+                    }                   
+                }
+
+                Position = new Vector2(NewPositionX, NewPositionY);
+            }
+            else
+                Position -= (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
+        }
+
+        public void SetCameraPhysics(float mass, float damping, float stiffness)
+        {
+            this.mass = mass;
+            this.damping = damping;
+            this.stiffness = stiffness;
+        } 
+
+        public void Chase(Vector2 desiredPosition,GameTime gameTime)
+        {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
+
+            Vector2 stretch;
+            Vector2.Subtract(ref NewPosition, ref desiredPosition, out stretch);
+
+            Vector2 multOne;
+            Vector2 multTwo;
+            Vector2.Multiply(ref stretch, -stiffness, out multOne);
+            Vector2.Multiply(ref velocity, damping, out multTwo);
+
+            Vector2 force;
+            Vector2.Subtract(ref multOne, ref multTwo, out force);
+
+            Vector2 acceleration;
+            Vector2.Divide(ref force, mass, out acceleration);
+
+            Vector2 multThree;
+            Vector2.Multiply(ref acceleration, elapsed, out multThree);
+
+            Vector2.Add(ref velocity, ref multThree, out velocity);
+
+            Vector2 finalVel;
+            Vector2.Multiply(ref velocity, elapsed, out finalVel);
+
+            Vector2.Add(ref NewPosition, ref finalVel, out NewPosition);
+
+            if (Bounded && CameraBounds.Count > 0)
+            {
                 foreach (CameraBound cb in CameraBounds)
                 {
                     if (cb.entity.ViewedByCamera(NewPosition))
@@ -81,29 +156,28 @@ namespace NeonEngine
                         switch (cb.BoundSide)
                         {
                             case Side.Up:
-                                NewPosition = new Vector2(NewPosition.X, MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue));
+                                NewPosition.Y = MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue);
                                 break;
 
                             case Side.Right:
-                                NewPosition = new Vector2(MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom), NewPosition.Y);
+                                NewPosition.X = MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom);
                                 break;
 
                             case Side.Down:
-                                NewPosition = new Vector2(NewPosition.X, MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom));
+                                NewPosition.Y = MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom);
                                 break;
 
                             case Side.Left:
-                                NewPosition = new Vector2(MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue), NewPosition.Y);
+                                NewPosition.X = MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue);
                                 break;
                         }
-                    }                   
+                    }
                 }
 
-                Position = NewPosition;
+                _pos = NewPosition;
             }
-            else
-                Position -= (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
         }
+
 
         public void Move(int x, int y)
         {
