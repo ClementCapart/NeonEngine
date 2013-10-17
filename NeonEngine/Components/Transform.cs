@@ -24,6 +24,16 @@ namespace NeonEngine.Private
             }
         }
 
+        Vector2 _initialPosition;
+        public Vector2 InitialPosition
+        {
+            get { return _initialPosition; }
+            set
+            {
+                _initialPosition = value;
+            }
+        }
+
         public float rotation;
         public float Rotation
         {
@@ -41,6 +51,12 @@ namespace NeonEngine.Private
         public Transform(Entity entity)
             : base(entity, "Transform")
         {
+        }
+
+        public override void Init()
+        {
+            this.position = InitialPosition;
+            base.Init();
         }
     }
 }

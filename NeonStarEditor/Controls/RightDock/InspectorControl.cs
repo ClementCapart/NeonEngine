@@ -244,7 +244,7 @@ namespace NeonStarEditor
                         NumericUpDown number = new NumericUpDown();
                         number.Minimum = decimal.MinValue;
                         number.Maximum = decimal.MaxValue;
-                        number.DecimalPlaces = 2;
+                        number.DecimalPlaces = 3;
                         number.Increment = 0.1M;
                         number.Width = 70;
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, number));

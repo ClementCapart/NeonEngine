@@ -40,6 +40,9 @@ namespace NeonStarEditor
 
         public BindingList<Entity> entityList = new BindingList<Entity>();
 
+        private Texture2D _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
+        private Texture2D _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
+
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
         private bool _isAttackManagerDisplayed = false;
@@ -185,22 +188,40 @@ namespace NeonStarEditor
 
         public override void ManualDrawGame(SpriteBatch spriteBatch)
         {
-            if (FocusEntity)
+            if (EditorVisible)
             {
-                if (SelectedEntity != null)
+                if (FocusEntity)
                 {
-                    DrawableComponent dc = SelectedEntity.GetComponent<DrawableComponent>();
-                    if (dc != null)
+                    if (SelectedEntity != null)
                     {
-                        spriteBatch.End();
-                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
-                        spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
-                        spriteBatch.End();
-                        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
-                        dc.Draw(spriteBatch);
+                        DrawableComponent dc = SelectedEntity.GetComponent<DrawableComponent>();
+                        if (dc != null)
+                        {
+                            spriteBatch.End();
+                            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
+                            spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
+                            spriteBatch.End();
+                            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
+                            dc.Draw(spriteBatch);
+                        }
                     }
                 }
-            }        
+                else
+                {
+                    foreach (Entity entity in entities)
+                    {
+                        ColorEmitter colorEmitter = entity.GetComponent<ColorEmitter>();
+
+                        if (colorEmitter != null && colorEmitter.Debug)
+                        {
+                            float scale = colorEmitter.Range / _colorEmitterCircleTexture.Width * 2;
+                            spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, colorEmitter.currentColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+                            spriteBatch.Draw(_colorEmitterTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), colorEmitter.Color);
+                        }
+                    }
+                }
+            }
+           
             base.ManualDrawGame(spriteBatch);
         }
 

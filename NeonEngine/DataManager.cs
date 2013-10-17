@@ -190,9 +190,10 @@ namespace NeonEngine
 
                 if (Comp.Name == "Transform")
                 {
-                    entity.transform.Position = Neon.utils.ParseVector2(Comp.Element("Properties").Element("Position").Attribute("Value").Value);
+                    entity.transform.InitialPosition = Neon.utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
                     entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
                     entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
+                    entity.transform.Init();
                 }
                 else
                 {

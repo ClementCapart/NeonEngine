@@ -8,6 +8,14 @@ namespace NeonEngine
 {
     public class ColorEmitter : Component
     {
+        private bool _debug = false;
+
+        public bool Debug
+        {
+            get { return _debug; }
+            set { _debug = value; }
+        }
+
         private Color _color = Color.Blue;
 
         public Color Color
@@ -15,6 +23,8 @@ namespace NeonEngine
             get { return _color; }
             set { _color = value; }
         }
+
+        public Color currentColor;
 
         private float _range = 1000.0f;
 
@@ -32,6 +42,16 @@ namespace NeonEngine
             set { _pulse = value; }
         }
 
+        private float _pulseStartDelay = 1.0f;
+
+        public float PulseStartDelay
+        {
+            get { return _pulseStartDelay; }
+            set { _pulseStartDelay = value; }
+        }
+
+        private float _pulseStartTimer = 0.0f;
+
         private float _pulseDuration = 2.0f;
 
         public float PulseDuration
@@ -46,7 +66,6 @@ namespace NeonEngine
         public ColorEmitter(Entity entity)
             :base(entity, "ColorEmitter")
         {
-
         }
 
         public override void Init()
@@ -56,38 +75,51 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            foreach (DrawableComponent dc in entity.containerWorld.DrawableComponents.Where(dc => dc.Tint))
+            if (Debug)
             {
-                float Distance = Vector2.Distance(this.entity.transform.Position, dc.entity.transform.Position);
-                if(Distance < Range)           
-                    dc.TintColor = Color.Lerp(Color.White, Color, ((Distance / _range) - 1) * -1 * (Pulse ? _pulseTimer / _pulseDuration : 1));
-                
+                currentColor = Color.Lerp(Color.White, Color, Pulse ? _pulseTimer / _pulseDuration : 1);
             }
-
-            if (Pulse)
+            if (_pulseStartTimer < _pulseStartDelay)
             {
-                if (_goingUp)
+                _pulseStartTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                foreach (DrawableComponent dc in entity.containerWorld.DrawableComponents.Where(dc => dc.Tint))
                 {
-                    if (_pulseTimer < _pulseDuration)
+                    float Distance = Vector2.Distance(this.entity.transform.Position, dc.entity.transform.Position);
+                    if (Distance < Range)
+                        dc.TintColor = Color.Lerp(dc.TintColor, Color, ((Distance / _range) - 1) * -1 * (Pulse ? _pulseTimer / _pulseDuration : 1));
+                }
+
+                if (Pulse)
+                {
+                    if (_goingUp)
                     {
-                        _pulseTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (_pulseTimer < _pulseDuration)
+                        {
+                            _pulseTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        else
+                        {
+                            _pulseTimer = _pulseDuration;
+                            _goingUp = false;
+                        }
                     }
                     else
-                        _goingUp = false;
-                }
-                else
-                {
-                    if (_pulseTimer > 0)
                     {
-                        _pulseTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (_pulseTimer > 0)
+                        {
+                            _pulseTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        else
+                        {
+                            _pulseTimer = 0;
+                            _goingUp = true;
+                        }
                     }
-                    else
-                        _goingUp = true;
                 }
-               
             }
-             
-
             base.Update(gameTime);
         }
 
