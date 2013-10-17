@@ -196,7 +196,6 @@ namespace NeonStarLibrary
                                 break;
 
                             case "LightAttack":
-                                Console.WriteLine("Hit 2!");
                                 PerformLightAttack();
                                 break;
                         }
@@ -215,7 +214,6 @@ namespace NeonStarLibrary
             if (NextAttack != "")
             {
                 _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                Console.WriteLine(_chainDelayTimer);
             }
 
             if (ReleasedAttackButton)
