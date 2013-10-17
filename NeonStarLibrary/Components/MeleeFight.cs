@@ -300,6 +300,10 @@ namespace NeonStarLibrary
                         _chainDelayTimer = 0;
                     }
                 }
+                else if(Neon.Input.Pressed(NeonStarInput.Jump))
+                {
+                    ThirdPersonController._mustJumpAsSoonAsPossible = true;
+                }
             }
 
             if (_currentComboHit != ComboSequence.None && (CurrentAttack != null && CurrentAttack.DurationFinished) || CurrentAttack == null)
