@@ -39,7 +39,7 @@
     </Attack>
     <Attack ID="0" Name="Uppercut" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="30" OffsetY="-25" Width="60" Height="80" />
+        <Hitbox OffsetX="30" OffsetY="-35" Width="60" Height="110" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -59,13 +59,13 @@
     </Attack>
     <Attack ID="0" Name="UppercutFinish" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="30" OffsetY="-25" Width="60" Height="80" />
+        <Hitbox OffsetX="30" OffsetY="-35" Width="60" Height="110" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.1</Delay>
       <Cooldown>0.2</Cooldown>
       <Duration>0.2</Duration>
       <AirLock>0.4</AirLock>
