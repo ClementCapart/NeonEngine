@@ -78,13 +78,6 @@ namespace NeonStarLibrary
             set { _diveAttackLandAnimation = value; }
         }
 
-        private float _rushAttackChargeTime;
-        public float RushAttackChargeTime
-        {
-            get { return _rushAttackChargeTime; }
-            set { _rushAttackChargeTime = value; }
-        }
-
         private float _rushAttackSideDelay = 1.0f;
 
         public float RushAttackSideDelay
