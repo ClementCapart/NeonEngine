@@ -92,6 +92,16 @@ namespace NeonStarLibrary
                             Vector2 impulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, impulseForce));
                             break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackToLaunch = specialEffect.Element("Parameter").Attribute("Value").Value;
+                            ai.SpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            break;
+
+                        case SpecialEffect.PositionalPulse:
+                            Vector2 pulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            break;
                     }         
                 }
 
@@ -106,6 +116,16 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackToLaunch = onHitSpecialEffect.Element("Parameter").Attribute("Value").Value;
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            break;
+
+                        case SpecialEffect.PositionalPulse:
+                            Vector2 pulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, pulseForce));
                             break;
                     }         
                 }
@@ -126,6 +146,11 @@ namespace NeonStarLibrary
                         case SpecialEffect.StartAttack:
                             string attackToLaunch = onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value;
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            break;
+
+                        case SpecialEffect.PositionalPulse:
+                            Vector2 pulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, pulseForce));
                             break;
                     }
                 }
