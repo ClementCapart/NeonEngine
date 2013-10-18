@@ -14,7 +14,7 @@
       <Duration>0.2</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0.3</TargetAirLock>
-      <AirFactor>1.3</AirFactor>
+      <AirFactor>1</AirFactor>
       <SpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
@@ -32,7 +32,7 @@
       <Duration>0.2</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
+      <AirFactor>0.4</AirFactor>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -98,11 +98,11 @@
       <Duration>0.2</Duration>
       <AirLock>0.8</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
+      <AirFactor>0.4</AirFactor>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:2800 Y:0}" />
+          <Parameter Value="{X:3000 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -120,11 +120,11 @@
       <Duration>0.2</Duration>
       <AirLock>1</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
+      <AirFactor>0.4</AirFactor>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:2800 Y:0}" />
+          <Parameter Value="{X:4000 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -161,7 +161,7 @@
     </Attack>
     <Attack ID="0" Name="DiveAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="80" Width="80" Height="30" />
+        <Hitbox OffsetX="0" OffsetY="80" Width="120" Height="50" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>True</AirOnly>
@@ -183,7 +183,11 @@
           <Parameter Value="{X:0 Y:800}" />
         </Effect>
       </OnHitSpecialEffects>
-      <OnGroundCancelSpecialEffects />
+      <OnGroundCancelSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="DiveEffect" />
+        </Effect>
+      </OnGroundCancelSpecialEffects>
     </Attack>
     <Attack ID="0" Name="DiveEffect" Type="MeleeSpecial">
       <Hitboxes>
