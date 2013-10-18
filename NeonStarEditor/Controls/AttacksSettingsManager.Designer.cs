@@ -35,6 +35,9 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClosePanel = new System.Windows.Forms.Button();
             this.AttackInfo = new System.Windows.Forms.GroupBox();
+            this.OnlyOnceInAir = new System.Windows.Forms.CheckBox();
+            this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
+            this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
             this.AttackName = new System.Windows.Forms.TextBox();
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
@@ -61,9 +64,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
-            this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
-            this.OnlyOnceInAir = new System.Windows.Forms.CheckBox();
+            this.label111 = new System.Windows.Forms.Label();
+            this.OnGroundCancelSpecialEffectList = new System.Windows.Forms.ListBox();
+            this.RemoveOnGround = new System.Windows.Forms.Button();
+            this.AddOnGround = new System.Windows.Forms.Button();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -150,11 +154,14 @@
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
             this.AttackInfo.Controls.Add(this.CooldownNumeric);
+            this.AttackInfo.Controls.Add(this.RemoveOnGround);
             this.AttackInfo.Controls.Add(this.RemoveOnHit);
+            this.AttackInfo.Controls.Add(this.AddOnGround);
             this.AttackInfo.Controls.Add(this.AddOnHit);
             this.AttackInfo.Controls.Add(this.RemoveSpecial);
             this.AttackInfo.Controls.Add(this.AddSpecial);
             this.AttackInfo.Controls.Add(this.DelayNumeric);
+            this.AttackInfo.Controls.Add(this.OnGroundCancelSpecialEffectList);
             this.AttackInfo.Controls.Add(this.OnHitSpecialEffectsList);
             this.AttackInfo.Controls.Add(this.SpecialEffectsList);
             this.AttackInfo.Controls.Add(this.DurationNumeric);
@@ -164,6 +171,7 @@
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
             this.AttackInfo.Controls.Add(this.label6);
+            this.AttackInfo.Controls.Add(this.label111);
             this.AttackInfo.Controls.Add(this.label5);
             this.AttackInfo.Controls.Add(this.label10);
             this.AttackInfo.Controls.Add(this.label4);
@@ -179,6 +187,39 @@
             this.AttackInfo.TabIndex = 3;
             this.AttackInfo.TabStop = false;
             this.AttackInfo.Text = "Attack Info";
+            // 
+            // OnlyOnceInAir
+            // 
+            this.OnlyOnceInAir.AutoSize = true;
+            this.OnlyOnceInAir.Location = new System.Drawing.Point(293, 158);
+            this.OnlyOnceInAir.Name = "OnlyOnceInAir";
+            this.OnlyOnceInAir.Size = new System.Drawing.Size(78, 17);
+            this.OnlyOnceInAir.TabIndex = 5;
+            this.OnlyOnceInAir.Text = "Once in Air";
+            this.OnlyOnceInAir.UseVisualStyleBackColor = true;
+            this.OnlyOnceInAir.CheckedChanged += new System.EventHandler(this.OnlyOnceInAir_CheckedChanged);
+            // 
+            // GroundCancelCheckbox
+            // 
+            this.GroundCancelCheckbox.AutoSize = true;
+            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 137);
+            this.GroundCancelCheckbox.Name = "GroundCancelCheckbox";
+            this.GroundCancelCheckbox.Size = new System.Drawing.Size(94, 17);
+            this.GroundCancelCheckbox.TabIndex = 5;
+            this.GroundCancelCheckbox.Text = "GroundCancel";
+            this.GroundCancelCheckbox.UseVisualStyleBackColor = true;
+            this.GroundCancelCheckbox.CheckedChanged += new System.EventHandler(this.GroundCancelCheckbox_CheckedChanged);
+            // 
+            // AirOnlyCheckbox
+            // 
+            this.AirOnlyCheckbox.AutoSize = true;
+            this.AirOnlyCheckbox.Location = new System.Drawing.Point(293, 116);
+            this.AirOnlyCheckbox.Name = "AirOnlyCheckbox";
+            this.AirOnlyCheckbox.Size = new System.Drawing.Size(59, 17);
+            this.AirOnlyCheckbox.TabIndex = 5;
+            this.AirOnlyCheckbox.Text = "AirOnly";
+            this.AirOnlyCheckbox.UseVisualStyleBackColor = true;
+            this.AirOnlyCheckbox.CheckedChanged += new System.EventHandler(this.AirOnlyCheckbox_CheckedChanged);
             // 
             // AttackName
             // 
@@ -261,7 +302,7 @@
             // 
             this.RemoveOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveOnHit.Location = new System.Drawing.Point(137, 406);
+            this.RemoveOnHit.Location = new System.Drawing.Point(137, 358);
             this.RemoveOnHit.Name = "RemoveOnHit";
             this.RemoveOnHit.Size = new System.Drawing.Size(31, 23);
             this.RemoveOnHit.TabIndex = 2;
@@ -273,7 +314,7 @@
             // 
             this.AddOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddOnHit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddOnHit.Location = new System.Drawing.Point(137, 374);
+            this.AddOnHit.Location = new System.Drawing.Point(137, 330);
             this.AddOnHit.Name = "AddOnHit";
             this.AddOnHit.Size = new System.Drawing.Size(31, 23);
             this.AddOnHit.TabIndex = 2;
@@ -285,7 +326,7 @@
             // 
             this.RemoveSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveSpecial.Location = new System.Drawing.Point(137, 310);
+            this.RemoveSpecial.Location = new System.Drawing.Point(137, 295);
             this.RemoveSpecial.Name = "RemoveSpecial";
             this.RemoveSpecial.Size = new System.Drawing.Size(31, 23);
             this.RemoveSpecial.TabIndex = 2;
@@ -297,7 +338,7 @@
             // 
             this.AddSpecial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddSpecial.Location = new System.Drawing.Point(137, 278);
+            this.AddSpecial.Location = new System.Drawing.Point(137, 267);
             this.AddSpecial.Name = "AddSpecial";
             this.AddSpecial.Size = new System.Drawing.Size(31, 23);
             this.AddSpecial.TabIndex = 2;
@@ -329,9 +370,9 @@
             // OnHitSpecialEffectsList
             // 
             this.OnHitSpecialEffectsList.FormattingEnabled = true;
-            this.OnHitSpecialEffectsList.Location = new System.Drawing.Point(19, 367);
+            this.OnHitSpecialEffectsList.Location = new System.Drawing.Point(19, 333);
             this.OnHitSpecialEffectsList.Name = "OnHitSpecialEffectsList";
-            this.OnHitSpecialEffectsList.Size = new System.Drawing.Size(112, 69);
+            this.OnHitSpecialEffectsList.Size = new System.Drawing.Size(112, 43);
             this.OnHitSpecialEffectsList.TabIndex = 1;
             this.OnHitSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnHitSpecialEffectsList_SelectedIndexChanged);
             // 
@@ -340,7 +381,7 @@
             this.SpecialEffectsList.FormattingEnabled = true;
             this.SpecialEffectsList.Location = new System.Drawing.Point(18, 271);
             this.SpecialEffectsList.Name = "SpecialEffectsList";
-            this.SpecialEffectsList.Size = new System.Drawing.Size(113, 69);
+            this.SpecialEffectsList.Size = new System.Drawing.Size(113, 43);
             this.SpecialEffectsList.TabIndex = 1;
             this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
             // 
@@ -442,7 +483,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 347);
+            this.label10.Location = new System.Drawing.Point(15, 317);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 13);
             this.label10.TabIndex = 1;
@@ -503,38 +544,47 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // AirOnlyCheckbox
+            // label111
             // 
-            this.AirOnlyCheckbox.AutoSize = true;
-            this.AirOnlyCheckbox.Location = new System.Drawing.Point(293, 116);
-            this.AirOnlyCheckbox.Name = "AirOnlyCheckbox";
-            this.AirOnlyCheckbox.Size = new System.Drawing.Size(59, 17);
-            this.AirOnlyCheckbox.TabIndex = 5;
-            this.AirOnlyCheckbox.Text = "AirOnly";
-            this.AirOnlyCheckbox.UseVisualStyleBackColor = true;
-            this.AirOnlyCheckbox.CheckedChanged += new System.EventHandler(this.AirOnlyCheckbox_CheckedChanged);
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(14, 380);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(124, 13);
+            this.label111.TabIndex = 1;
+            this.label111.Text = "SpecialEffectsOnGround";
             // 
-            // GroundCancelCheckbox
+            // OnGroundCancelSpecialEffectList
             // 
-            this.GroundCancelCheckbox.AutoSize = true;
-            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 137);
-            this.GroundCancelCheckbox.Name = "GroundCancelCheckbox";
-            this.GroundCancelCheckbox.Size = new System.Drawing.Size(94, 17);
-            this.GroundCancelCheckbox.TabIndex = 5;
-            this.GroundCancelCheckbox.Text = "GroundCancel";
-            this.GroundCancelCheckbox.UseVisualStyleBackColor = true;
-            this.GroundCancelCheckbox.CheckedChanged += new System.EventHandler(this.GroundCancelCheckbox_CheckedChanged);
+            this.OnGroundCancelSpecialEffectList.FormattingEnabled = true;
+            this.OnGroundCancelSpecialEffectList.Location = new System.Drawing.Point(18, 396);
+            this.OnGroundCancelSpecialEffectList.Name = "OnGroundCancelSpecialEffectList";
+            this.OnGroundCancelSpecialEffectList.Size = new System.Drawing.Size(112, 43);
+            this.OnGroundCancelSpecialEffectList.TabIndex = 1;
+            this.OnGroundCancelSpecialEffectList.SelectedIndexChanged += new System.EventHandler(this.OnGroundCancelSpecialEffectsList_SelectedIndexChanged);
             // 
-            // OnlyOnceInAir
+            // RemoveOnGround
             // 
-            this.OnlyOnceInAir.AutoSize = true;
-            this.OnlyOnceInAir.Location = new System.Drawing.Point(293, 158);
-            this.OnlyOnceInAir.Name = "OnlyOnceInAir";
-            this.OnlyOnceInAir.Size = new System.Drawing.Size(78, 17);
-            this.OnlyOnceInAir.TabIndex = 5;
-            this.OnlyOnceInAir.Text = "Once in Air";
-            this.OnlyOnceInAir.UseVisualStyleBackColor = true;
-            this.OnlyOnceInAir.CheckedChanged += new System.EventHandler(this.OnlyOnceInAir_CheckedChanged);
+            this.RemoveOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveOnGround.Location = new System.Drawing.Point(136, 419);
+            this.RemoveOnGround.Name = "RemoveOnGround";
+            this.RemoveOnGround.Size = new System.Drawing.Size(31, 23);
+            this.RemoveOnGround.TabIndex = 2;
+            this.RemoveOnGround.Text = "-";
+            this.RemoveOnGround.UseVisualStyleBackColor = true;
+            this.RemoveOnGround.Click += new System.EventHandler(this.RemoveOnGround_Click);
+            // 
+            // AddOnGround
+            // 
+            this.AddOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddOnGround.Location = new System.Drawing.Point(136, 392);
+            this.AddOnGround.Name = "AddOnGround";
+            this.AddOnGround.Size = new System.Drawing.Size(31, 23);
+            this.AddOnGround.TabIndex = 2;
+            this.AddOnGround.Text = "+";
+            this.AddOnGround.UseVisualStyleBackColor = true;
+            this.AddOnGround.Click += new System.EventHandler(this.AddOnGround_Click);
             // 
             // AttacksSettingsManager
             // 
@@ -602,5 +652,9 @@
         private System.Windows.Forms.CheckBox GroundCancelCheckbox;
         private System.Windows.Forms.CheckBox AirOnlyCheckbox;
         private System.Windows.Forms.CheckBox OnlyOnceInAir;
+        private System.Windows.Forms.Button RemoveOnGround;
+        private System.Windows.Forms.Button AddOnGround;
+        private System.Windows.Forms.ListBox OnGroundCancelSpecialEffectList;
+        private System.Windows.Forms.Label label111;
     }
 }

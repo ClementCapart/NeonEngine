@@ -25,8 +25,6 @@ namespace NeonEngine
             }
         }
 
-
-
         protected Vector2 _parallaxPosition;
 
         protected Vector2 _parallaxForce;

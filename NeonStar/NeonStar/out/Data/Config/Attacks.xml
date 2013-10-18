@@ -16,6 +16,7 @@
       <TargetAirLock>0.3</TargetAirLock>
       <SpecialEffects />
       <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LightAttackFinish" Type="MeleeLight">
       <Hitboxes>
@@ -26,7 +27,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.1</Delay>
-      <Cooldown>0.1</Cooldown>
+      <Cooldown>0.2</Cooldown>
       <Duration>0.2</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
@@ -36,6 +37,7 @@
           <Parameter Value="{X:2800 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="Uppercut" Type="MeleeSpecial">
       <Hitboxes>
@@ -56,6 +58,7 @@
           <Parameter Value="{X:0 Y:-4000}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="UppercutFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -76,6 +79,7 @@
           <Parameter Value="{X:600 Y:-4000}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="RushAttack" Type="MeleeSpecial">
       <Hitboxes>
@@ -96,6 +100,7 @@
           <Parameter Value="{X:2800 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="RushAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -105,10 +110,10 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0.4</Delay>
+      <Delay>0.5</Delay>
       <Cooldown>0.3</Cooldown>
       <Duration>0.2</Duration>
-      <AirLock>0.9</AirLock>
+      <AirLock>1</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
@@ -116,6 +121,7 @@
           <Parameter Value="{X:2800 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="DiveAttack" Type="MeleeSpecial">
       <Hitboxes>
@@ -140,6 +146,11 @@
           <Parameter Value="{X:0 Y:800}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="Uppercut" />
+        </Effect>
+      </OnGroundCancelSpecialEffects>
     </Attack>
     <Attack ID="0" Name="DiveAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -164,6 +175,7 @@
           <Parameter Value="{X:0 Y:800}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
     </Attack>
   </Attacks>
 </XnaContent>

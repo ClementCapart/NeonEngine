@@ -417,7 +417,7 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
-                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }
             }
@@ -427,7 +427,7 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
-                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }                
             }
@@ -445,7 +445,7 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
-                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }
             }
@@ -455,7 +455,7 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
-                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, false, false, false);
+                    entity.spritesheets.ChangeAnimation(RushAttackAnimation, 1, true, false, false);
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }
             }

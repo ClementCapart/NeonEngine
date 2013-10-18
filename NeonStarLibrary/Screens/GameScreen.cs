@@ -15,6 +15,7 @@ namespace NeonStarLibrary
     public class GameScreen : World
     {
         public List<Enemy> enemies;
+        public List<Attack> FreeAttacks = new List<Attack>();
         public bool MustFollowAvatar = true;
 
         public GameScreen(Game game)
@@ -31,7 +32,19 @@ namespace NeonStarLibrary
         {
             if(MustFollowAvatar)
                 camera.Chase(entities.Where(e => e.Name == "LiOn").First().transform.Position, gameTime);
-            
+
+            for(int i = FreeAttacks.Count - 1; i >= 0; i--)
+            {
+                Attack attack = FreeAttacks[i];
+                attack.Update(gameTime);
+                if (attack.CooldownFinished)
+                {
+                    FreeAttacks.Remove(attack);
+                    attack._entity.Destroy();
+                    attack.CancelAttack();
+                }
+            }
+
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;
             base.Update(gameTime);

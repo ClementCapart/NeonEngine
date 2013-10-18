@@ -42,6 +42,7 @@ namespace NeonStarLibrary
         public bool OnlyOnceInAir = false;
         public List<AttackEffect> SpecialEffects = new List<AttackEffect>();
         public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
+        public List<AttackEffect> OnGroundCancelSpecialEffects = new List<AttackEffect>();
     }
 
     static public class AttacksManager
@@ -78,6 +79,7 @@ namespace NeonStarLibrary
                 ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);
                 ai.TargetAirLock = float.Parse(attack.Element("TargetAirLock").Value, CultureInfo.InvariantCulture);
                 ai.SpecialEffects = new List<AttackEffect>();
+                ai.OnGroundCancelSpecialEffects = new List<AttackEffect>();
 
                 foreach (XElement specialEffect in attack.Element("SpecialEffects").Elements("Effect"))
                 {
@@ -107,6 +109,26 @@ namespace NeonStarLibrary
                     }         
                 }
 
+                ai.OnGroundCancelSpecialEffects = new List<AttackEffect>();
+
+                foreach (XElement onGroundCancelSpecialEffect in attack.Element("OnGroundCancelSpecialEffects").Elements("Effect"))
+                {
+                    SpecialEffect se = (SpecialEffect)Enum.Parse(typeof(SpecialEffect), onGroundCancelSpecialEffect.Attribute("Type").Value);
+
+                    switch (se)
+                    {
+                        case SpecialEffect.Impulse:
+                            Vector2 impulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackToLaunch = onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value;
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            break;
+                    }
+                }
+
                 _attacksInformation.Add(ai);
             }
         }
@@ -115,6 +137,15 @@ namespace NeonStarLibrary
         {
             AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
             Attack attack = new Attack(attackInfo, side, launcher);
+
+            return attack;
+        }
+
+        static public Attack StartFreeAttack(string name, Side side, Vector2 Position)
+        {
+            AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
+            Attack attack = new Attack(attackInfo, side, Position);
+            (Neon.world as GameScreen).FreeAttacks.Add(attack);
 
             return attack;
         }

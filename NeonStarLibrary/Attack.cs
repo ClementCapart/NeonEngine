@@ -183,9 +183,10 @@ namespace NeonStarLibrary
 
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
+        private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
 
         public bool Canceled = false;
-        private Entity _entity;
+        public Entity _entity;
         public AttackInfo AttackInfo;
         private MeleeFight _meleeFight;
 
@@ -193,9 +194,20 @@ namespace NeonStarLibrary
         {
         }
 
-        public Attack(AttackInfo attackInfo, Side side, Entity launcher)
+        public Attack(AttackInfo attackInfo, Side side, Vector2 Position)
+            :this(attackInfo, side, null)
         {
-            
+            Console.WriteLine("AddindAttack");
+            if (_entity == null)
+            {
+                _entity = new Entity(Neon.world);
+                _entity.Name = "AttackHolder";
+                _entity.transform.Position = Position;
+            }
+        }
+
+        public Attack(AttackInfo attackInfo, Side side, Entity launcher)
+        {           
             AttackInfo = attackInfo;
             _hitboxes = new List<Hitbox>();
             this._side = side;
@@ -212,6 +224,8 @@ namespace NeonStarLibrary
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
 
+            Console.WriteLine("AddindAttack");
+
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
                 this._onHitSpecialEffects.Add(ae);
@@ -219,32 +233,36 @@ namespace NeonStarLibrary
 
             DelayStarted = true;
 
-            _meleeFight = _entity.GetComponent<MeleeFight>();
 
-            if (OnlyOnceInAir && !_entity.rigidbody.isGrounded)
+            if (_entity != null && _entity.Name != "AttackHolder")
             {
-                if (_meleeFight != null)
+                _meleeFight = _entity.GetComponent<MeleeFight>();
+
+                if (OnlyOnceInAir && !_entity.rigidbody.isGrounded)
                 {
-                    if (_meleeFight.AttacksWhileInAir.Contains(attackInfo.Name) || _meleeFight.AttacksWhileInAir.Contains(attackInfo.Name.Remove(attackInfo.Name.Length - 6)))
+                    if (_meleeFight != null)
                     {
-                        _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
-                        this.CancelAttack();
-                        Canceled = true;
-                        _entity.spritesheets.CurrentPriority = 0;
-                        return;
-                    }
-                    else
-                    {
-                        _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
-                        if (attackInfo.Name.Substring(attackInfo.Name.Length - 6) == "Finish")
+                        if (_meleeFight.AttacksWhileInAir.Contains(attackInfo.Name) || _meleeFight.AttacksWhileInAir.Contains(attackInfo.Name.Remove(attackInfo.Name.Length - 6)))
                         {
-                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
-                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name.Remove(attackInfo.Name.Length - 6));
+                            _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
+                            this.CancelAttack();
+                            Canceled = true;
+                            _entity.spritesheets.CurrentPriority = 0;
+                            return;
                         }
                         else
                         {
                             _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
-                            _meleeFight.AttacksWhileInAir.Add(attackInfo.Name + "Finish");
+                            if (attackInfo.Name.Substring(attackInfo.Name.Length - 6) == "Finish")
+                            {
+                                _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
+                                _meleeFight.AttacksWhileInAir.Add(attackInfo.Name.Remove(attackInfo.Name.Length - 6));
+                            }
+                            else
+                            {
+                                _meleeFight.AttacksWhileInAir.Add(attackInfo.Name);
+                                _meleeFight.AttacksWhileInAir.Add(attackInfo.Name + "Finish");
+                            }
                         }
                     }
                 }
@@ -252,17 +270,21 @@ namespace NeonStarLibrary
 
             if (this.Delay <= 0.0f)
                 Init();
-            if (AirOnly)
-                if (this._entity.rigidbody.isGrounded && _meleeFight != null)
-                {
-                    _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
-                    this.CancelAttack();
-                    Canceled = true;
-                    return;
-                }
 
-            if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
-                AirLockFinished = true;
+            if (_entity != null && _entity.Name != "AttackHolder")
+            {
+                if (AirOnly)
+                    if (this._entity.rigidbody.isGrounded && _meleeFight != null)
+                    {
+                        _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
+                        this.CancelAttack();
+                        Canceled = true;
+                        return;
+                    }
+
+                if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
+                    AirLockFinished = true;
+            }          
         }
 
         public void Init()
@@ -281,12 +303,17 @@ namespace NeonStarLibrary
                 _hitboxes.Add(hb);
             }
 
-            if(_meleeFight.Debug)
+            if(_entity.Name != "AttackHolder" && _meleeFight.Debug)
                 Console.WriteLine(AttackInfo.Name + " launched ! Current Combo -> " + _meleeFight.CurrentComboHit.ToString());
 
             foreach (AttackEffect ae in AttackInfo.SpecialEffects)
             {
                 this._specialEffects.Add(ae);
+            }
+
+            foreach (AttackEffect ae in AttackInfo.OnGroundCancelSpecialEffects)
+            {
+                this._onGroundCancelSpecialEffects.Add(ae);
             }
 
             this.DelayFinished = true;
@@ -313,15 +340,23 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)ae.Parameters;
-                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                            if (_entity != null)
+                            {
+                                Vector2 impulseForce = (Vector2)ae.Parameters;
+                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                            }
                             break;
 
                         case SpecialEffect.Boost:
                             break;
 
                         case SpecialEffect.DamageOverTime:
+                            break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackName = (string)ae.Parameters;
+                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                             break;
                     }
                     _specialEffects.Remove(ae);
@@ -377,46 +412,74 @@ namespace NeonStarLibrary
                     CooldownFinished = true;
                 }
             }
-
-            if (!_entity.rigidbody.isGrounded)
+            if (_entity.Name != "AttackHolder")
             {
-                if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
+                if (!_entity.rigidbody.isGrounded)
                 {
-                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    AirLocked = true;
-                }
-                else if (AirLocked)
-                {
-                    AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                }
+                    if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
+                    {
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        AirLocked = true;
+                    }
+                    else if (AirLocked)
+                    {
+                        AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
 
-                if (AirLock <= 0.0f)
+                    if (AirLock <= 0.0f)
+                    {
+                        AirLocked = false;
+                        AirLockFinished = true;
+                    }
+                }
+                else
                 {
                     AirLocked = false;
-                    AirLockFinished = true;                   
+                    AirLockFinished = true;
                 }
-            }
-            else
-            {
-                AirLocked = false;
-                AirLockFinished = true;
-            }
 
-            if (CancelOnGround && _entity.rigidbody.isGrounded)
-            {
-                for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                if (CancelOnGround && _entity.rigidbody.isGrounded)
                 {
-                    _hitboxes[i].Remove();
+                    for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
+                    {
+                        AttackEffect ae = _onGroundCancelSpecialEffects.ElementAt(i);
+                        switch (ae.specialEffect)
+                        {
+                            case SpecialEffect.Impulse:
+                                Vector2 impulseForce = (Vector2)ae.Parameters;
+                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                break;
+
+                            case SpecialEffect.Boost:
+                                break;
+
+                            case SpecialEffect.DamageOverTime:
+                                break;
+
+                            case SpecialEffect.StartAttack:
+                                string attackName = (string)ae.Parameters;
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                                break;
+                        }
+                        _onGroundCancelSpecialEffects.Remove(ae);
+                    }
+
+                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                    {
+                        _hitboxes[i].Remove();
+                    }
+                    this.DurationStarted = true;
+                    this.DurationFinished = true;
+                    this.DelayStarted = true;
+                    this.DelayStarted = true;
+                    this.CooldownStarted = true;
+                    this.AirLocked = false;
+                    this.AirLockFinished = true;
+                    this.Canceled = true;
                 }
-                this.DurationStarted = true;
-                this.DurationFinished = true;
-                this.DelayStarted = true;
-                this.DelayStarted = true;
-                this.CooldownStarted = true;
-                this.AirLocked = false;
-                this.AirLockFinished = true;
-                this.Canceled = true;
             }
+            
         }
 
         private void Effect(Entity entity)
@@ -444,6 +507,11 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.DamageOverTime:
+                            break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackName = (string)ae.Parameters;
+                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                             break;
                     }
                 }

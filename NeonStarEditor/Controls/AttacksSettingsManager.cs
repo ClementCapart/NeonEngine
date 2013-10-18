@@ -130,6 +130,13 @@ namespace NeonStarEditor
                 }
                 attack.Add(onHitSpecialEffects);
 
+                XElement onGroundCancelSpecialEffects = new XElement("OnGroundCancelSpecialEffects");
+                foreach (AttackEffect effect in kvp.Value.OnGroundCancelSpecialEffects)
+                {
+                    onGroundCancelSpecialEffects.Add(CreateEffectText(effect));
+                }
+                attack.Add(onGroundCancelSpecialEffects);
+
                 attacks.Add(attack);
             }
             xnaContent.Add(attacks);
@@ -157,6 +164,12 @@ namespace NeonStarEditor
                     break;
 
                 case SpecialEffect.Boost:
+                    break;
+
+                case SpecialEffect.StartAttack:
+                    string attackValue = (string)effectKvp.Parameters;
+                    XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
+                    effect.Add(parameterString);
                     break;
             }
 
@@ -225,8 +238,39 @@ namespace NeonStarEditor
                         this.EffectsInfoPanel.Controls.Add(ImpulsePower);
 
                         break;
+
+                    case SpecialEffect.StartAttack:
+                        label = new Label();
+                        label.Text = "Attack to launch";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        TextBox textBox = new TextBox();
+                        textBox.Name = "AttackName";
+                        textBox.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        textBox.Width = 150;
+                        textBox.Enter += textBox_Enter;
+                        textBox.Leave += textBox_Leave;
+                        textBox.Text = (string)CurrentAttackEffectSelected.Parameters;
+                        this.EffectsInfoPanel.Controls.Add(textBox);
+
+                        break;
+
+
                 }
             }
+        }
+
+        void textBox_Leave(object sender, EventArgs e)
+        {
+            CurrentAttackEffectSelected.Parameters = (sender as TextBox).Text;
+            (Neon.world as EditorScreen).FocusedTextBox = null;
+        }
+
+        void textBox_Enter(object sender, EventArgs e)
+        {
+            (Neon.world as EditorScreen).FocusedTextBox = sender as TextBox;
         }
 
         private void comboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -234,6 +278,7 @@ namespace NeonStarEditor
             if (CurrentAttackEffectSelected.specialEffect != (SpecialEffect)(sender as ComboBox).SelectedItem)
             {
                 CurrentAttackEffectSelected.specialEffect = (SpecialEffect)(sender as ComboBox).SelectedItem;
+                CurrentAttackEffectSelected.Parameters = null;
                 InitInformations();
             }
         }
@@ -365,6 +410,9 @@ namespace NeonStarEditor
             this.OnHitSpecialEffectsList.DataSource = null;
             this.OnHitSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects;
             this.OnHitSpecialEffectsList.DisplayMember = "NameType";
+            this.OnGroundCancelSpecialEffectList.DataSource = null;
+            this.OnGroundCancelSpecialEffectList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects;
+            this.OnGroundCancelSpecialEffectList.DisplayMember = "NameType";
         }
 
         void buttonAdd_Click(object sender, EventArgs e)
@@ -475,7 +523,6 @@ namespace NeonStarEditor
 
         private void AttackName_Leave(object sender, EventArgs e)
         {
-
             (Neon.world as EditorScreen).FocusedTextBox = null;
             AttackInfo ai = _attackList[InitialName];
             ai.Name = (sender as TextBox).Text;
@@ -496,6 +543,12 @@ namespace NeonStarEditor
             InitInformations();
         }
 
+        private void AddOnGround_Click(object sender, EventArgs e)
+        {
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            InitInformations();
+        }
+
         private void RemoveSpecial_Click(object sender, EventArgs e)
         {
             if (SpecialEffectsList.SelectedValue != null)
@@ -507,6 +560,13 @@ namespace NeonStarEditor
         {
             if (OnHitSpecialEffectsList.SelectedValue != null)
                 _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.RemoveAt(OnHitSpecialEffectsList.SelectedIndex);
+            InitInformations();
+        }
+
+        private void RemoveOnGround_Click(object sender, EventArgs e)
+        {
+            if (OnGroundCancelSpecialEffectList.SelectedValue != null)
+                _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.RemoveAt(OnGroundCancelSpecialEffectList.SelectedIndex);
             InitInformations();
         }
 
@@ -533,6 +593,19 @@ namespace NeonStarEditor
             {
                 CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects[(sender as ListBox).SelectedIndex];
             }          
+            InitEffectData();
+        }
+
+        private void OnGroundCancelSpecialEffectsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ListBox).SelectedIndex == -1)
+            {
+                CurrentAttackEffectSelected = null;
+            }
+            else
+            {
+                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects[(sender as ListBox).SelectedIndex];
+            }
             InitEffectData();
         }
 
