@@ -71,6 +71,7 @@ namespace NeonStarEditor
         private void EntityListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             GameWorld.SelectedEntity = (Entity)EntityListBox.SelectedItem;
+            GameWorld.EntityChangedThisFrame = true;
             if (GameWorld.SelectedEntity != null)
                 GameWorld.RefreshInspector(GameWorld.SelectedEntity);
             else

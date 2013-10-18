@@ -101,7 +101,6 @@ namespace NeonStarEditor
             EntityName.GotFocus += EntityName_GotFocus;
             EntityName.LostFocus += EntityName_LostFocus;
             EntityName.AcceptsTab = true;
-            EntityName.Validated += EntityName_Validated;
             Inspector.Controls.Add(EntityName);
             Y = 45;
 
@@ -363,8 +362,15 @@ namespace NeonStarEditor
 
         void EntityName_LostFocus(object sender, EventArgs e)
         {
+            if (GameWorld.EntityChangedThisFrame)
+                return;
+
             if (GameWorld.FocusedTextBox == (sender as TextBox))
+            {
                 GameWorld.FocusedTextBox = null;
+                GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
+                GameWorld.entityList.ResetItem(GameWorld.entityList.IndexOf(GameWorld.SelectedEntity));
+            }
         }
 
         void EntityName_GotFocus(object sender, EventArgs e)
@@ -391,15 +397,6 @@ namespace NeonStarEditor
             Entity CurrentEntity = GameWorld.SelectedEntity;
             InstantiateProperties(CurrentEntity);
         }    
-
-        void EntityName_Validated(object sender, EventArgs e)
-        {
-            if (GameWorld.SelectedEntity != null)
-            {
-                GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
-                GameWorld.entityList.ResetItem(GameWorld.entityList.IndexOf(GameWorld.SelectedEntity));
-            }
-        }
 
         private void Spritesheet_SelectedValueChanged(object sender, EventArgs e)
         {

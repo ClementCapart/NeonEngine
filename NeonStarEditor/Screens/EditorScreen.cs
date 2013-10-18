@@ -17,6 +17,8 @@ namespace NeonStarEditor
 {
     public class EditorScreen : GameScreen
     {
+        public bool EntityChangedThisFrame = false;
+
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
@@ -185,6 +187,8 @@ namespace NeonStarEditor
 
             base.Update(gameTime);
             ManageInspector();
+
+            EntityChangedThisFrame = false;
         }
 
         public override void ManualDrawGame(SpriteBatch spriteBatch)

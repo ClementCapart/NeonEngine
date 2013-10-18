@@ -38,8 +38,9 @@ namespace NeonStarEditor
                 {
                     if (currentWorld.SelectedEntity != Neon.utils.GetEntityByBody(fixture.Body))
                     {
-                        currentWorld.SelectedEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = currentWorld.SelectedEntity;
+                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = Neon.utils.GetEntityByBody(fixture.Body);
+                        currentWorld.FocusedTextBox = null;
+                        currentWorld.FocusedNumericUpDown = null;
                     }
                 }
                 else
@@ -51,8 +52,9 @@ namespace NeonStarEditor
                         if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
                             && Neon.Input.MousePosition.Y >= e.transform.Position.Y - 30 && Neon.Input.MousePosition.Y <= e.transform.Position.Y + 30)
                         {
-                            currentWorld.SelectedEntity = e;
-                            currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = currentWorld.SelectedEntity;
+                            currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = e;
+                            currentWorld.FocusedTextBox = null;
+                            currentWorld.FocusedNumericUpDown = null;
                             NoSelection = false;
                             break;
                         }
