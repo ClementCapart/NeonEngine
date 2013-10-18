@@ -42,6 +42,7 @@ namespace NeonStarEditor
 
         private Texture2D _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
         private Texture2D _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
+        private Texture2D _boundTexture = AssetManager.GetTexture("BoundIcon");
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
@@ -217,6 +218,34 @@ namespace NeonStarEditor
                             float scale = colorEmitter.Range / _colorEmitterCircleTexture.Width * 2;
                             spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, colorEmitter.currentColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
                             spriteBatch.Draw(_colorEmitterTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), colorEmitter.Color);
+                        }
+
+                        CameraBound cameraBound = entity.GetComponent<CameraBound>();
+
+                        if (cameraBound != null)
+                        {
+                            float angle = 0.0f;
+
+                            switch(cameraBound.BoundSide)
+                            {
+                                case Side.Left:
+                                    angle = 0.0f;
+                                    break;
+
+                                case Side.Down:
+                                    angle = (float)(Math.PI + Math.PI / 2);
+                                    break;
+
+                                case Side.Right:
+                                    angle = (float)Math.PI;
+                                    break;
+
+                                case Side.Up:
+                                    angle = (float)(Math.PI / 2);
+                                    break;
+                            }
+
+                            spriteBatch.Draw(_boundTexture, entity.transform.Position, null, Color.White, angle, new Vector2(_boundTexture.Width / 2, _boundTexture.Height / 2), 1f, SpriteEffects.None, 0);
                         }
                     }
                 }

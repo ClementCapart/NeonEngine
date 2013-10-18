@@ -14,7 +14,8 @@ namespace NeonStarLibrary
     {
         Impulse,
         DamageOverTime,
-        Boost
+        Boost,
+        StartAttack
     }
 
     public enum AttackType

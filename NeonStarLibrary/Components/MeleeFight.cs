@@ -104,6 +104,14 @@ namespace NeonStarLibrary
             set { _chainDelay = value; }
         }
 
+        private float _rushAttackStickDelay = 0.3f;
+
+        public float RushAttackStickDelay
+        {
+            get { return _rushAttackStickDelay; }
+            set { _rushAttackStickDelay = value; }
+        }
+
         public List<string> AttacksWhileInAir = new List<string>();
 
         private float _chainDelayTimer = 0.0f;
@@ -230,7 +238,7 @@ namespace NeonStarLibrary
                         _chainDelayTimer = 0;
                     }
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, 0.3f) == DelayStatus.Valid)
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, _rushAttackStickDelay) == DelayStatus.Valid)
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
@@ -252,7 +260,7 @@ namespace NeonStarLibrary
                         }
                     }                                        
                 }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, 0.3f) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
+                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, _rushAttackStickDelay) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
