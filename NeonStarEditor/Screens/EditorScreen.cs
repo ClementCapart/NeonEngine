@@ -568,6 +568,10 @@ namespace NeonStarEditor
             LeftDockControl.Dispose();
             BottomDockControl.Dispose();
             RightDockControl.Dispose();
+            if (AttacksSettingsManager != null)
+                AttacksSettingsManager.Dispose();
+            if (CameraSettings != null)
+                CameraSettings.Dispose();
             ChangeScreen(new EditorScreen(game, graphics));
         }
     }
