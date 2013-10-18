@@ -197,13 +197,9 @@ namespace NeonStarLibrary
         public Attack(AttackInfo attackInfo, Side side, Vector2 Position)
             :this(attackInfo, side, null)
         {
-            Console.WriteLine("AddindAttack");
-            if (_entity == null)
-            {
-                _entity = new Entity(Neon.world);
-                _entity.Name = "AttackHolder";
-                _entity.transform.Position = Position;
-            }
+            _entity = new Entity(Neon.world);
+            _entity.Name = "AttackHolder";
+            _entity.transform.Position = Position;
         }
 
         public Attack(AttackInfo attackInfo, Side side, Entity launcher)
@@ -211,7 +207,7 @@ namespace NeonStarLibrary
             AttackInfo = attackInfo;
             _hitboxes = new List<Hitbox>();
             this._side = side;
-            this._entity = launcher;
+            if(launcher != null) this._entity = launcher;
             this.Name = attackInfo.Name;
             this.Type = attackInfo.Type;
             this.Delay = attackInfo.Delay;
@@ -223,8 +219,6 @@ namespace NeonStarLibrary
             this.AirOnly = attackInfo.AirOnly;
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
-
-            Console.WriteLine("AddindAttack");
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -268,7 +262,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (this.Delay <= 0.0f)
+            if (this.Delay <= 0.0f && _entity != null)
                 Init();
 
             if (_entity != null && _entity.Name != "AttackHolder")

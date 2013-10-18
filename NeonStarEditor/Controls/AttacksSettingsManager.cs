@@ -46,6 +46,7 @@ namespace NeonStarEditor
         {
             if (AttacksList.SelectedValue != null)
             {
+                AttacksManager._attacksInformation.Remove(_attackList[(string)AttacksList.SelectedValue]);
                 _attackList.Remove((string)AttacksList.SelectedValue);
                 InitializeData(false);
             }
@@ -61,6 +62,8 @@ namespace NeonStarEditor
             ai.Name = "Attack"+i;
 
             _attackList.Add("Attack" + i, ai);
+            AttacksManager._attacksInformation.Add(_attackList["Attack" + i]);
+            InitializeData(false);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
