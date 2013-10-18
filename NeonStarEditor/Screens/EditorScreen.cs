@@ -75,6 +75,11 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
+            foreach (Control c in GameAsForm.Controls)
+                c.Hide();
+            EditorVisible = false;
+            
+
         }
 
         public void ToggleAttackManager()

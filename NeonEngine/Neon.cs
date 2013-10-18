@@ -78,7 +78,6 @@ namespace NeonEngine
             Input = Input.Instance;
             utils = new Utils();
             NeonScripting = new ScriptingEngine();
-
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenheight;
             graphics.ApplyChanges();
