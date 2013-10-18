@@ -181,6 +181,15 @@ namespace NeonStarLibrary
             set { _airLockFinished = value; }
         }
 
+        private float _airFactor = 1.0f;
+
+        public float AirFactor
+        {
+            get { return _airFactor; }
+            set { _airFactor = value; }
+        }
+
+
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
         private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
@@ -219,6 +228,7 @@ namespace NeonStarLibrary
             this.AirOnly = attackInfo.AirOnly;
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
+            this._airFactor = attackInfo.AirFactor;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -473,8 +483,7 @@ namespace NeonStarLibrary
                     this.AirLockFinished = true;
                     this.Canceled = true;
                 }
-            }
-            
+            }           
         }
 
         private void Effect(Entity entity)
@@ -497,8 +506,7 @@ namespace NeonStarLibrary
                             Vector2 impulseForce = (Vector2)ae.Parameters;                           
                             if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                            entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
+                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
                             velocityReset = true;
                             break;
 

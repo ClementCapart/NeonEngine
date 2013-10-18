@@ -119,6 +119,9 @@ namespace NeonStarEditor
                 XElement targetAirLock = new XElement("TargetAirLock", kvp.Value.TargetAirLock.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(targetAirLock);
 
+                XElement airFactor = new XElement("AirFactor", kvp.Value.AirFactor.ToString("G", CultureInfo.InvariantCulture));
+                attack.Add(airFactor);
+
                 XElement specialEffects = new XElement("SpecialEffects");
                 foreach (AttackEffect effect in kvp.Value.SpecialEffects)
                 {
@@ -342,6 +345,7 @@ namespace NeonStarEditor
             this.AirOnlyCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].AirOnly;
             this.GroundCancelCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround;
             this.OnlyOnceInAir.Checked = _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir;
+            this.AirFactorNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirFactor;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -546,6 +550,10 @@ namespace NeonStarEditor
                 case "ImpulsePowerY":
                     Vector2 impulsePowerX = (Vector2)CurrentAttackEffectSelected.Parameters;
                     CurrentAttackEffectSelected.Parameters = new Vector2(impulsePowerX.X, (float)(sender as NumericUpDown).Value);
+                    break;
+
+                case "AirFactorNU":
+                    _attackList[AttacksList.SelectedValue.ToString()].AirFactor = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

@@ -38,6 +38,7 @@ namespace NeonStarLibrary
         public float Duration = 1.0f;
         public float AirLock = 1.0f;
         public float TargetAirLock = 1.0f;
+        public float AirFactor = 1.0f;
         public bool AirOnly = false;
         public bool CancelOnGround = false;
         public bool OnlyOnceInAir = false;
@@ -79,6 +80,7 @@ namespace NeonStarLibrary
                 ai.Duration = float.Parse(attack.Element("Duration").Value, CultureInfo.InvariantCulture);
                 ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);
                 ai.TargetAirLock = float.Parse(attack.Element("TargetAirLock").Value, CultureInfo.InvariantCulture);
+                ai.AirFactor = float.Parse(attack.Element("AirFactor").Value, CultureInfo.InvariantCulture);
                 ai.SpecialEffects = new List<AttackEffect>();
                 ai.OnGroundCancelSpecialEffects = new List<AttackEffect>();
 

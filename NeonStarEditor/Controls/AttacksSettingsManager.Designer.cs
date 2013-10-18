@@ -42,11 +42,14 @@
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.CooldownNumeric = new System.Windows.Forms.NumericUpDown();
+            this.RemoveOnGround = new System.Windows.Forms.Button();
             this.RemoveOnHit = new System.Windows.Forms.Button();
+            this.AddOnGround = new System.Windows.Forms.Button();
             this.AddOnHit = new System.Windows.Forms.Button();
             this.RemoveSpecial = new System.Windows.Forms.Button();
             this.AddSpecial = new System.Windows.Forms.Button();
             this.DelayNumeric = new System.Windows.Forms.NumericUpDown();
+            this.OnGroundCancelSpecialEffectList = new System.Windows.Forms.ListBox();
             this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
             this.SpecialEffectsList = new System.Windows.Forms.ListBox();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
@@ -56,6 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,10 +68,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label111 = new System.Windows.Forms.Label();
-            this.OnGroundCancelSpecialEffectList = new System.Windows.Forms.ListBox();
-            this.RemoveOnGround = new System.Windows.Forms.Button();
-            this.AddOnGround = new System.Windows.Forms.Button();
+            this.AirFactorNU = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -75,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -164,6 +167,7 @@
             this.AttackInfo.Controls.Add(this.OnGroundCancelSpecialEffectList);
             this.AttackInfo.Controls.Add(this.OnHitSpecialEffectsList);
             this.AttackInfo.Controls.Add(this.SpecialEffectsList);
+            this.AttackInfo.Controls.Add(this.AirFactorNU);
             this.AttackInfo.Controls.Add(this.DurationNumeric);
             this.AttackInfo.Controls.Add(this.DamageNumeric);
             this.AttackInfo.Controls.Add(this.EffectsInfoPanel);
@@ -172,6 +176,7 @@
             this.AttackInfo.Controls.Add(this.label7);
             this.AttackInfo.Controls.Add(this.label6);
             this.AttackInfo.Controls.Add(this.label111);
+            this.AttackInfo.Controls.Add(this.label11);
             this.AttackInfo.Controls.Add(this.label5);
             this.AttackInfo.Controls.Add(this.label10);
             this.AttackInfo.Controls.Add(this.label4);
@@ -298,6 +303,18 @@
             this.CooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.CooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
+            // RemoveOnGround
+            // 
+            this.RemoveOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveOnGround.Location = new System.Drawing.Point(136, 419);
+            this.RemoveOnGround.Name = "RemoveOnGround";
+            this.RemoveOnGround.Size = new System.Drawing.Size(31, 23);
+            this.RemoveOnGround.TabIndex = 2;
+            this.RemoveOnGround.Text = "-";
+            this.RemoveOnGround.UseVisualStyleBackColor = true;
+            this.RemoveOnGround.Click += new System.EventHandler(this.RemoveOnGround_Click);
+            // 
             // RemoveOnHit
             // 
             this.RemoveOnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -309,6 +326,18 @@
             this.RemoveOnHit.Text = "-";
             this.RemoveOnHit.UseVisualStyleBackColor = true;
             this.RemoveOnHit.Click += new System.EventHandler(this.RemoveOnHit_Click);
+            // 
+            // AddOnGround
+            // 
+            this.AddOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddOnGround.Location = new System.Drawing.Point(136, 392);
+            this.AddOnGround.Name = "AddOnGround";
+            this.AddOnGround.Size = new System.Drawing.Size(31, 23);
+            this.AddOnGround.TabIndex = 2;
+            this.AddOnGround.Text = "+";
+            this.AddOnGround.UseVisualStyleBackColor = true;
+            this.AddOnGround.Click += new System.EventHandler(this.AddOnGround_Click);
             // 
             // AddOnHit
             // 
@@ -367,6 +396,15 @@
             this.DelayNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.DelayNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
+            // OnGroundCancelSpecialEffectList
+            // 
+            this.OnGroundCancelSpecialEffectList.FormattingEnabled = true;
+            this.OnGroundCancelSpecialEffectList.Location = new System.Drawing.Point(18, 396);
+            this.OnGroundCancelSpecialEffectList.Name = "OnGroundCancelSpecialEffectList";
+            this.OnGroundCancelSpecialEffectList.Size = new System.Drawing.Size(112, 43);
+            this.OnGroundCancelSpecialEffectList.TabIndex = 1;
+            this.OnGroundCancelSpecialEffectList.SelectedIndexChanged += new System.EventHandler(this.OnGroundCancelSpecialEffectsList_SelectedIndexChanged);
+            // 
             // OnHitSpecialEffectsList
             // 
             this.OnHitSpecialEffectsList.FormattingEnabled = true;
@@ -393,7 +431,7 @@
             0,
             0,
             65536});
-            this.DurationNumeric.Location = new System.Drawing.Point(267, 84);
+            this.DurationNumeric.Location = new System.Drawing.Point(251, 85);
             this.DurationNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -471,10 +509,19 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Cooldown";
             // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(14, 380);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(124, 13);
+            this.label111.TabIndex = 1;
+            this.label111.Text = "SpecialEffectsOnGround";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 67);
+            this.label5.Location = new System.Drawing.Point(248, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 1;
@@ -544,47 +591,35 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // label111
+            // AirFactorNU
             // 
-            this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(14, 380);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(124, 13);
-            this.label111.TabIndex = 1;
-            this.label111.Text = "SpecialEffectsOnGround";
+            this.AirFactorNU.DecimalPlaces = 2;
+            this.AirFactorNU.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AirFactorNU.Location = new System.Drawing.Point(339, 84);
+            this.AirFactorNU.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.AirFactorNU.Name = "AirFactorNU";
+            this.AirFactorNU.Size = new System.Drawing.Size(60, 20);
+            this.AirFactorNU.TabIndex = 3;
+            this.AirFactorNU.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.AirFactorNU.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.AirFactorNU.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
-            // OnGroundCancelSpecialEffectList
+            // label11
             // 
-            this.OnGroundCancelSpecialEffectList.FormattingEnabled = true;
-            this.OnGroundCancelSpecialEffectList.Location = new System.Drawing.Point(18, 396);
-            this.OnGroundCancelSpecialEffectList.Name = "OnGroundCancelSpecialEffectList";
-            this.OnGroundCancelSpecialEffectList.Size = new System.Drawing.Size(112, 43);
-            this.OnGroundCancelSpecialEffectList.TabIndex = 1;
-            this.OnGroundCancelSpecialEffectList.SelectedIndexChanged += new System.EventHandler(this.OnGroundCancelSpecialEffectsList_SelectedIndexChanged);
-            // 
-            // RemoveOnGround
-            // 
-            this.RemoveOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveOnGround.Location = new System.Drawing.Point(136, 419);
-            this.RemoveOnGround.Name = "RemoveOnGround";
-            this.RemoveOnGround.Size = new System.Drawing.Size(31, 23);
-            this.RemoveOnGround.TabIndex = 2;
-            this.RemoveOnGround.Text = "-";
-            this.RemoveOnGround.UseVisualStyleBackColor = true;
-            this.RemoveOnGround.Click += new System.EventHandler(this.RemoveOnGround_Click);
-            // 
-            // AddOnGround
-            // 
-            this.AddOnGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddOnGround.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddOnGround.Location = new System.Drawing.Point(136, 392);
-            this.AddOnGround.Name = "AddOnGround";
-            this.AddOnGround.Size = new System.Drawing.Size(31, 23);
-            this.AddOnGround.TabIndex = 2;
-            this.AddOnGround.Text = "+";
-            this.AddOnGround.UseVisualStyleBackColor = true;
-            this.AddOnGround.Click += new System.EventHandler(this.AddOnGround_Click);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(336, 67);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "AirFactor";
             // 
             // AttacksSettingsManager
             // 
@@ -609,6 +644,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -656,5 +692,7 @@
         private System.Windows.Forms.Button AddOnGround;
         private System.Windows.Forms.ListBox OnGroundCancelSpecialEffectList;
         private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.NumericUpDown AirFactorNU;
+        private System.Windows.Forms.Label label11;
     }
 }
