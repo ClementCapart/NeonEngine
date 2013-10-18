@@ -148,7 +148,7 @@
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
-          <Parameter Value="Uppercut" />
+          <Parameter Value="DiveEffect" />
         </Effect>
       </OnGroundCancelSpecialEffects>
     </Attack>
@@ -173,6 +173,27 @@
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:800}" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="DiveEffect" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="10" Height="10" />
+      </Hitboxes>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <SpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:50 Y:50}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
