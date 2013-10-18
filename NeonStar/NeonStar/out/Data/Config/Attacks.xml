@@ -83,7 +83,7 @@
     </Attack>
     <Attack ID="0" Name="RushAttack" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="45" OffsetY="0" Width="90" Height="50" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -104,7 +104,7 @@
     </Attack>
     <Attack ID="0" Name="RushAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="-30" Width="50" Height="80" />
+        <Hitbox OffsetX="45" OffsetY="0" Width="90" Height="50" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -179,7 +179,7 @@
     </Attack>
     <Attack ID="0" Name="DiveEffect" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="10" Height="10" />
+        <Hitbox OffsetX="0" OffsetY="38" Width="200" Height="60" />
       </Hitboxes>
       <DamageOnHit>1</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -187,13 +187,16 @@
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>1</Cooldown>
-      <Duration>1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:50 Y:50}" />
+          <Parameter Value="{X:0 Y:-1500}" />
+        </Effect>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:1000 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
