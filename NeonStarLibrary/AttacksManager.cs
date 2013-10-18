@@ -13,6 +13,7 @@ namespace NeonStarLibrary
     public enum SpecialEffect
     {
         Impulse,
+        PositionalPulse,
         DamageOverTime,
         Boost,
         StartAttack

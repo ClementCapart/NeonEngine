@@ -169,6 +169,12 @@ namespace NeonStarEditor
                 case SpecialEffect.Boost:
                     break;
 
+                case SpecialEffect.PositionalPulse:
+                    Vector2 pulseValue = (Vector2)effectKvp.Parameters;
+                    XElement parameterPulse = new XElement("Parameter", new XAttribute("Value", "{X:" + pulseValue.X + " Y:" + pulseValue.Y + "}"));
+                    effect.Add(parameterPulse);
+                    break;
+
                 case SpecialEffect.StartAttack:
                     string attackValue = (string)effectKvp.Parameters;
                     XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
@@ -216,30 +222,62 @@ namespace NeonStarEditor
                         label.Location = new System.Drawing.Point(5, 60);
                         this.EffectsInfoPanel.Controls.Add(label);
 
-                        NumericUpDown ImpulsePower = new NumericUpDown();
-                        ImpulsePower.Name = "ImpulsePowerX";
-                        ImpulsePower.Maximum = 50000;
-                        ImpulsePower.Minimum = -50000;
-                        ImpulsePower.Width = 80;
-                        ImpulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
-                        ImpulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
-                        ImpulsePower.Enter += Numeric_Enter;
-                        ImpulsePower.Leave += Numeric_Leave;
-                        ImpulsePower.ValueChanged += Numeric_ValueChanged;
-                        this.EffectsInfoPanel.Controls.Add(ImpulsePower);
+                        NumericUpDown impulsePower = new NumericUpDown();
+                        impulsePower.Name = "ImpulsePowerX";
+                        impulsePower.Maximum = 50000;
+                        impulsePower.Minimum = -50000;
+                        impulsePower.Width = 80;
+                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
+                        impulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        impulsePower.Enter += Numeric_Enter;
+                        impulsePower.Leave += Numeric_Leave;
+                        impulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(impulsePower);
 
-                        ImpulsePower = new NumericUpDown();
-                        ImpulsePower.Name = "ImpulsePowerY";
-                        ImpulsePower.Maximum = 50000;
-                        ImpulsePower.Minimum = -50000;
-                        ImpulsePower.Width = 80;
-                        ImpulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
-                        ImpulsePower.Location = new System.Drawing.Point(ImpulsePower.Width + 10, label.Location.Y + label.Height + 5);
-                        ImpulsePower.Enter += Numeric_Enter;
-                        ImpulsePower.Leave += Numeric_Leave;
-                        ImpulsePower.ValueChanged += Numeric_ValueChanged;
-                        this.EffectsInfoPanel.Controls.Add(ImpulsePower);
+                        impulsePower = new NumericUpDown();
+                        impulsePower.Name = "ImpulsePowerY";
+                        impulsePower.Maximum = 50000;
+                        impulsePower.Minimum = -50000;
+                        impulsePower.Width = 80;
+                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
+                        impulsePower.Location = new System.Drawing.Point(impulsePower.Width + 10, label.Location.Y + label.Height + 5);
+                        impulsePower.Enter += Numeric_Enter;
+                        impulsePower.Leave += Numeric_Leave;
+                        impulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(impulsePower);
 
+                        break;
+
+                    case SpecialEffect.PositionalPulse:
+                        label = new Label();
+                        label.Text = "Pulse Power";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown pulsePower = new NumericUpDown();
+                        pulsePower.Name = "ImpulsePowerX";
+                        pulsePower.Maximum = 50000;
+                        pulsePower.Minimum = -50000;
+                        pulsePower.Width = 80;
+                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
+                        pulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        pulsePower.Enter += Numeric_Enter;
+                        pulsePower.Leave += Numeric_Leave;
+                        pulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(pulsePower);
+
+                        pulsePower = new NumericUpDown();
+                        pulsePower.Name = "ImpulsePowerY";
+                        pulsePower.Maximum = 50000;
+                        pulsePower.Minimum = -50000;
+                        pulsePower.Width = 80;
+                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
+                        pulsePower.Location = new System.Drawing.Point(pulsePower.Width + 10, label.Location.Y + label.Height + 5);
+                        pulsePower.Enter += Numeric_Enter;
+                        pulsePower.Leave += Numeric_Leave;
+                        pulsePower.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(pulsePower);
                         break;
 
                     case SpecialEffect.StartAttack:
@@ -257,10 +295,7 @@ namespace NeonStarEditor
                         textBox.Leave += textBox_Leave;
                         textBox.Text = (string)CurrentAttackEffectSelected.Parameters;
                         this.EffectsInfoPanel.Controls.Add(textBox);
-
                         break;
-
-
                 }
             }
         }
@@ -282,6 +317,13 @@ namespace NeonStarEditor
             {
                 CurrentAttackEffectSelected.specialEffect = (SpecialEffect)(sender as ComboBox).SelectedItem;
                 CurrentAttackEffectSelected.Parameters = null;
+                switch(CurrentAttackEffectSelected.specialEffect)
+                {
+                    case SpecialEffect.PositionalPulse:
+                    case SpecialEffect.Impulse:
+                        CurrentAttackEffectSelected.Parameters = new Vector2();
+                        break;
+                }
                 InitInformations();
             }
         }

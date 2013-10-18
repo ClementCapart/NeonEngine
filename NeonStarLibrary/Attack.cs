@@ -286,9 +286,10 @@ namespace NeonStarLibrary
             foreach (Rectangle hitbox in AttackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
-                hb.Center = _entity.transform.Position;
                 hb.Width = hitbox.Width;
                 hb.Height = hitbox.Height;
+                hb.Center = _entity.transform.Position;
+
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
                 hb.Type = HitboxType.Hit;
@@ -485,16 +486,29 @@ namespace NeonStarLibrary
                 enemy.ChangeHealthPoints(_damageOnHit);
                 if(!enemy.entity.rigidbody.isGrounded)
                     enemy.AirLock(TargetAirLock);
+
+                bool velocityReset = false;
+
                 foreach(AttackEffect ae in _onHitSpecialEffects)
                 {
                     switch(ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = (Vector2)ae.Parameters;                           
-                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
+                            velocityReset = true;
+                            break;
+
+                        case SpecialEffect.PositionalPulse:
+                            Vector2 pulseForce = (Vector2)ae.Parameters;
+                            if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
+                            entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
+                            velocityReset = true;
                             break;
 
                         case SpecialEffect.Boost:
