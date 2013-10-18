@@ -34,7 +34,7 @@
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:2800 Y:0}" />
+          <Parameter Value="{X:3500 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -125,7 +125,7 @@
     </Attack>
     <Attack ID="0" Name="DiveAttack" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="80" Width="100" Height="30" />
+        <Hitbox OffsetX="0" OffsetY="80" Width="120" Height="50" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>True</AirOnly>
@@ -138,12 +138,12 @@
       <TargetAirLock>0</TargetAirLock>
       <SpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:0 Y:500}" />
+          <Parameter Value="{X:0 Y:800}" />
         </Effect>
       </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:0 Y:800}" />
+          <Parameter Value="{X:0 Y:7000}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects>
