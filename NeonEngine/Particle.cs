@@ -107,7 +107,6 @@ namespace NeonEngine
             {
                 this.Remove();
             }
-            Console.WriteLine(_brightness);
             base.Update(gameTime);
         }
 
@@ -135,7 +134,7 @@ namespace NeonEngine
         private void ManageBrightness(GameTime gameTime)
         {
             _brightness = MathHelper.Lerp(StartingBrightness, EndingBrightness, _duration / Duration);
-            TintColor = Color.Lerp(Color.Black, TintColor, _brightness);
+            TintColor = Color.Lerp(Color.White, TintColor, _brightness);
         }
 
         private void ManageScale(GameTime gameTime)
@@ -172,6 +171,7 @@ namespace NeonEngine
 
         public override void Remove()
         {
+            Emitter.particles.Remove(this);
             Neon.world.ParticlePool.FlagAvailableItem(this);
             base.Remove();
         }

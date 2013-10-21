@@ -12,18 +12,18 @@ namespace NeonEngine
     {
         private Random random;
 
-        private List<Particle> particles;
+        public List<Particle> particles;
 
 
-        private ParticlePattern MovementType;
+        private ParticlePattern _movementType = ParticlePattern.Linear;
 
-        public ParticlePattern MovementType1
+        public ParticlePattern MovementType
         {
-            get { return MovementType; }
-            set { MovementType = value; }
+            get { return _movementType; }
+            set { _movementType = value; }
         }
 
-        private float _minimumDispersionAngle;
+        private float _minimumDispersionAngle = -90;
 
         public float MinimumDispersionAngle
         {
@@ -31,7 +31,7 @@ namespace NeonEngine
             set { _minimumDispersionAngle = value; }
         }
 
-        private float _maximumDispersionAngle;
+        private float _maximumDispersionAngle = 90;
 
         public float MaximumDispersionAngle
         {
@@ -39,23 +39,41 @@ namespace NeonEngine
             set { _maximumDispersionAngle = value; }
         }
 
-        private float _mininimumSpeed;
+        private float _minimumStartingSpeed = 100;
 
-        public float MininimumSpeed
+        public float MininimumStartingSpeed
         {
-            get { return _mininimumSpeed; }
-            set { _mininimumSpeed = value; }
+            get { return _minimumStartingSpeed; }
+            set { _minimumStartingSpeed = value; }
         }
 
-        private float _maximumSpeed;
+        private float _maximumStartingSpeed = 100;
 
-        public float MaximumSpeed
+        public float MaximumStartingSpeed
         {
-            get { return _maximumSpeed; }
-            set { _maximumSpeed = value; }
+            get { return _maximumEndingSpeed; }
+            set { _maximumEndingSpeed = value; }
         }
 
-        private float _minimumDuration;
+        private float _minimumEndingSpeed = 100;
+
+        public float MinimumEndingSpeed
+        {
+            get { return _minimumEndingSpeed; }
+            set { _minimumEndingSpeed = value; }
+        }
+
+        private float _maximumEndingSpeed = 100;
+
+        public float MaximumEndingSpeed
+        {
+            get { return _maximumEndingSpeed; }
+            set { _maximumEndingSpeed = value; }
+        }
+        
+        
+
+        private float _minimumDuration = 2.0f;
 
         public float MinimumDuration
         {
@@ -63,7 +81,7 @@ namespace NeonEngine
             set { _minimumDuration = value; }
         }
 
-        private float _maximumDuration;
+        private float _maximumDuration = 3.0f;
 
         public float MaximumDuration
         {
@@ -71,23 +89,23 @@ namespace NeonEngine
             set { _maximumDuration = value; }
         }
 
-        private int _maximumSpawnPerTick;
+        private float _maximumSpawnPerTick = 3.0f;
 
-        public int MaximumSpawnPerTick
+        public float MaximumSpawnPerTick
         {
             get { return _maximumSpawnPerTick; }
             set { _maximumSpawnPerTick = value; }
         }
 
-        private int _minimumSpawnPerTick;
+        private float _minimumSpawnPerTick = 1.0f;
 
-        public int MinimumSpawnPerTick
+        public float MinimumSpawnPerTick
         {
             get { return _minimumSpawnPerTick; }
             set { _minimumSpawnPerTick = value; }
         }
 
-        private float _minimumFadeInTime;
+        private float _minimumFadeInTime = 0.4f;
 
         public float MinimumFadeInTime
         {
@@ -95,7 +113,7 @@ namespace NeonEngine
             set { _minimumFadeInTime = value; }
         }
 
-        private float _maximumFadeInTime;
+        private float _maximumFadeInTime = 0.4f;
 
         public float MaximumFadeInTime
         {
@@ -103,7 +121,7 @@ namespace NeonEngine
             set { _maximumFadeInTime = value; }
         }
 
-        private float _minimumFadeOutTime;
+        private float _minimumFadeOutTime = 0.3f;
 
         public float MinimumFadeOutTime
         {
@@ -111,7 +129,7 @@ namespace NeonEngine
             set { _minimumFadeOutTime = value; }
         }
 
-        private float _maximumFadeOutTime;
+        private float _maximumFadeOutTime = 0.3f;
 
         public float MaximumFadeOutTime
         {
@@ -119,7 +137,7 @@ namespace NeonEngine
             set { _maximumFadeOutTime = value; }
         }
 
-        private float _spawnRate;
+        private float _spawnRate = 0.6f;
 
         public float SpawnRate
         {
@@ -127,23 +145,7 @@ namespace NeonEngine
             set { _spawnRate = value; }
         }
 
-        private float _minimumAngle;
-
-        public float MinimumAngle
-        {
-            get { return _minimumAngle; }
-            set { _minimumAngle = value; }
-        }
-
-        private float _maximumAngle;
-
-        public float MaximumAngle
-        {
-            get { return _maximumAngle; }
-            set { _maximumAngle = value; }
-        }
-
-        private float _minimumOpacity;
+        private float _minimumOpacity = 0.7f;
 
         public float MinimumOpacity
         {
@@ -151,12 +153,118 @@ namespace NeonEngine
             set { _minimumOpacity = value; }
         }
 
-        private float _maximumOpacity;
+        private float _maximumOpacity = 1f;
 
         public float MaximumOpacity
         {
             get { return _maximumOpacity; }
             set { _maximumOpacity = value; }
+        }
+
+        private float _minimumStartingBrightness = 1f;
+
+        public float MinimumStartingBrightness
+        {
+            get { return _minimumStartingBrightness; }
+            set { _minimumStartingBrightness = value; }
+        }
+        private float _maximumStartingBrightness = 1f;
+
+        public float MaximumStartingBrightness
+        {
+            get { return _maximumStartingBrightness; }
+            set { _maximumStartingBrightness = value; }
+        }
+        private float _minimumEndingBrightness = 1f;
+
+        public float MinimumEndingBrightness
+        {
+            get { return _minimumEndingBrightness; }
+            set { _minimumEndingBrightness = value; }
+        }
+        private float _maximumEndingBrightness = 1f;
+
+        public float MaximumEndingBrightness
+        {
+            get { return _maximumEndingBrightness; }
+            set { _maximumEndingBrightness = value; }
+        }
+
+        private Color _startingColor = Color.White;
+
+        public Color StartingColor
+        {
+            get { return _startingColor; }
+            set { _startingColor = value; }
+        }
+        private Color _endingColor = Color.White;
+
+        public Color EndingColor
+        {
+            get { return _endingColor; }
+            set { _endingColor = value; }
+        }
+
+        private float _minimumStartingOpacity = 0.5f;
+
+        public float MinimumStartingOpacity
+        {
+            get { return _minimumStartingOpacity; }
+            set { _minimumStartingOpacity = value; }
+        }
+
+        private float _maximumStartingOpacity = 0.5f;
+
+        public float MaximumStartingOpacity
+        {
+            get { return _maximumStartingOpacity; }
+            set { _maximumStartingOpacity = value; }
+        }
+
+        private float _minimumEndingOpacity = 1.0f;
+
+        public float MinimumEndingOpacity
+        {
+            get { return _minimumEndingOpacity; }
+            set { _minimumEndingOpacity = value; }
+        }
+        private float _maximumEndingOpacity = 1.0f;
+
+        public float MaximumEndingOpacity
+        {
+            get { return _maximumEndingOpacity; }
+            set { _maximumEndingOpacity = value; }
+        }
+
+        private float _minimumStartingScale = 0.7f;
+
+        public float MinimumStartingScale
+        {
+            get { return _minimumStartingScale; }
+            set { _minimumStartingScale = value; }
+        }
+        private float _maximumStartingScale = 1.0f;
+
+        public float MaximumStartingScale
+        {
+            get { return _maximumStartingScale; }
+            set { _maximumStartingScale = value; }
+        }
+
+        private float _minimumEndingScale = 1.0f;
+
+        public float MinimumEndingScale
+        {
+            get { return _minimumEndingScale; }
+            set { _minimumEndingScale = value; }
+        }
+
+        private float _maximumEndingScale = 1.0f;
+
+        public float MaximumEndingScale
+        {
+            get { return _maximumEndingScale; }
+            set { _maximumEndingScale = value; }
         }
 
         Texture2D _particleTexture;
@@ -175,6 +283,8 @@ namespace NeonEngine
 
         public bool Active = true;
 
+        private float _SpawnTimer = 0.0f;
+
         public ParticleEmitter(Entity entity)
             :base(0, entity, "ParticleEmitter")
         {
@@ -192,12 +302,38 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            InstantiateParticle();
+            if(Active)
+            {
+                if (_SpawnTimer < _spawnRate)
+                {
+                    _SpawnTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    _SpawnTimer = 0.0f;
+
+                    int particlesToSpawn = random.Next((int)_minimumSpawnPerTick, (int)_maximumSpawnPerTick);
+                    for (int i = 0; i < particlesToSpawn; i++)
+                    {
+                        particles.Add(InstantiateParticle());
+                    }
+                }
+            }
+
+            for (int i = particles.Count - 1; i >= 0; i-- )
+            {
+                particles[i].Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            foreach (Particle p in particles)
+            {
+                p.Draw(spriteBatch);
+            }
+
             base.Draw(spriteBatch);
         }
 
@@ -205,8 +341,7 @@ namespace NeonEngine
         {
             for (int i = particles.Count - 1; i >= 0; i--)
             {
-                particles[i].Remove();
-                particles.RemoveAt(1);
+                particles.RemoveAt(i);
             }
             base.Remove();
         }
@@ -218,24 +353,26 @@ namespace NeonEngine
             p.Texture = _particleTexture;
             float randomAngle = random.Next((int)_minimumDispersionAngle, (int)_maximumDispersionAngle);
             p.Direction = new Vector2((float)Math.Cos(MathHelper.ToRadians(randomAngle)), -(float)(Math.Sin(randomAngle)));
-            //p.Duration = (float)random.NextDouble() * 
-            p.ParticleMovement = MovementType;
-            p.FadeInDelay = 1f;
-            p.FadeOutDelay = 1f;
-            p.Position = Vector2.Zero;
+            p.Duration = _minimumDuration + (float)random.NextDouble() * (_maximumDuration - _minimumDuration);
+            p.ParticleMovement = _movementType;
+            p.FadeInDelay = _minimumFadeInTime + (float)random.NextDouble() * (_maximumFadeInTime - _minimumFadeInTime);
+            p.FadeOutDelay = _minimumFadeOutTime + (float)random.NextDouble() * (_maximumFadeOutTime - _minimumFadeOutTime);
+            p.Position = entity.transform.Position;
 
-            p.StartingBrightness = 0f;
-            p.EndingBrightness = 0.2f;
+            p.StartingBrightness = _minimumStartingBrightness + (float)random.NextDouble() * (_maximumStartingBrightness - _minimumStartingBrightness);
+            p.EndingBrightness = _minimumEndingBrightness + (float)random.NextDouble() * (_maximumEndingBrightness - _maximumEndingBrightness);
 
-            p.StartingColor = Color.Red;
-            p.EndingColor = Color.Red;
+            p.StartingColor = _startingColor;
+            p.EndingColor = _endingColor;
 
-            p.StartingOpacity = 0.7f;
-            p.EndingOpacity = 1f;
-
-            p.StartingScale = 1f;
-            p.EndingScale = 2f;
-
+            p.StartingOpacity = _minimumStartingOpacity + (float)random.NextDouble() * (_maximumStartingOpacity - _minimumStartingOpacity);
+            p.EndingOpacity = _minimumEndingOpacity + (float)random.NextDouble() * (_maximumEndingOpacity - _minimumEndingOpacity);
+            p.StartingSpeed = _minimumStartingSpeed + (float)random.NextDouble() * (_maximumEndingSpeed - _maximumEndingSpeed);
+            p.EndingSpeed = _minimumEndingSpeed + (float)random.NextDouble() * (_maximumEndingSpeed - _maximumEndingSpeed);
+            p.StartingScale = _minimumStartingScale + (float)random.NextDouble() * (_maximumStartingScale - _minimumStartingScale);
+            p.EndingScale = _minimumEndingScale + (float)random.NextDouble() * (_maximumEndingScale - _minimumEndingScale);
+            p.entity = this.entity;
+            p.Emitter = this;
             p.Init();
 
             return p;
