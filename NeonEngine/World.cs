@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FarseerPhysics;
+using NeonEngine.Private;
 
 namespace NeonEngine
 {
@@ -44,6 +45,7 @@ namespace NeonEngine
         public List<LightArea> lightAreas;
 
         public NeonPool<Hitbox> HitboxPool;
+        public NeonPool<Particle> ParticlePool;
         public List<Hitbox> Hitboxes;
 
         public Level levelMap;
@@ -83,6 +85,7 @@ namespace NeonEngine
             HUDComponents = new List<DrawableComponent>();
             lightAreas = new List<LightArea>();
             HitboxPool = new NeonPool<Hitbox>(() => new Hitbox());
+            ParticlePool = new NeonPool<Particle>(() => new Particle());
             Hitboxes = new List<Hitbox>();
 
 

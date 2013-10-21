@@ -5,52 +5,175 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace NeonEngine.Private
+namespace NeonEngine
 {
-    public class Particle : Entity
+    public enum ParticlePattern
     {
-        public Vector2 Velocity;
-        public float AngularVelocity;
-        public float TimeToLive;
+        Linear,
+        Sinusoidal,
+        Curve,
+    }
 
-        public Particle(Texture2D texture, Vector2 Position, Vector2 Velocity, float Rotation, float AngularVelocity, float Scale, float TimeToLive, World containerWorld)
-            : base(containerWorld)
-        {
-            transform.Position = Position;
-            transform.Rotation = Rotation;
-            transform.Scale = Scale;
-            
-            this.Velocity = Velocity;
-            this.AngularVelocity = AngularVelocity;          
-            this.TimeToLive = TimeToLive;
-            
-            graphic = AddComponent(new Graphic(texture, 0, this));
+    public class Particle : DrawableComponent
+    {
+        public Vector2 Direction;
+
+        public float StartingSpeed;
+        public float EndingSpeed;
+        private float _speed;
+
+        public float AngularVelocity;
+        
+        public Vector2 Position;
+        public float Angle;
+
+        public float Duration;
+        private float _duration;
+
+        public float FadeInDelay;
+        public float FadeOutDelay;
+
+        public Texture2D Texture;
+        public ParticlePattern ParticleMovement;
+        
+        public Color StartingColor;
+        public Color EndingColor;
+
+        public float StartingBrightness;
+        public float EndingBrightness;
+        private float _brightness;
+        
+        public float StartingOpacity;
+        public float EndingOpacity;
+        private float _opacity;
+       
+
+        public float StartingScale;
+        public float EndingScale;
+
+        public float Scale;
+
+        public ParticleEmitter Emitter;
+
+        public Particle()
+            : base(1.0f ,null, "Particle")
+        {  
         }
 
-        public Particle(SpriteSheetInfo spriteSheetInfo, Vector2 Position, Vector2 Velocity, float Rotation, float AngularVelocity, float Scale, float TimeToLive, World containerWorld)
-            : base(containerWorld)
+        public Particle(Entity entity)
+            : base(1.0f, entity, "Particle")
         {
-             transform.Position = Position;
-            transform.Rotation = Rotation;
-            transform.Scale = Scale;
-            
-            this.Velocity = Velocity;
-            this.AngularVelocity = AngularVelocity;          
-            this.TimeToLive = TimeToLive;
-            //spritesheet = AddComponent(new SpriteSheet(spriteSheetInfo, 0, this));
+        }
+
+        public override void Init()
+        {
+            _duration = 0;
+
+            StartingBrightness = 0f;
+            EndingBrightness = 0.2f;
+
+            StartingColor = Color.Red;
+            EndingColor = Color.Red;
+
+            StartingOpacity = 0.7f;
+            EndingOpacity = 1f;
+
+            StartingScale = 1f;
+            EndingScale = 2f;
+
+            if (FadeInDelay > 0f)
+            {
+                _opacity = 0.0f;
+            }
+
+            base.Init();
         }
 
         public override void Update(GameTime gameTime)
         {
-            TimeToLive -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            transform.Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            transform.Rotation += AngularVelocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (_duration < Duration)
+            {
+                ManageOpacity(gameTime);
+                ManageColor(gameTime);
+                ManageBrightness(gameTime);
+                ManageScale(gameTime);
+                ManageSpeed(gameTime);
+
+                ManageMovement(gameTime);
+
+                _duration += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                this.Remove();
+            }
+            Console.WriteLine(_brightness);
             base.Update(gameTime);
         }
 
-        public override void Destroy()
+        private void ManageOpacity(GameTime gameTime)
         {
-            base.Destroy();
+            if (FadeInDelay > 0f && _duration < FadeInDelay)
+            {
+                _opacity = (_duration / FadeInDelay) * StartingOpacity;
+            }
+            else if (_duration > Duration - FadeOutDelay)
+            {
+                _opacity = ((_duration - (Duration - FadeOutDelay) / FadeOutDelay) - 1) * -1 * EndingOpacity;
+            }
+            else
+            {
+                _opacity = StartingOpacity + ((_duration - FadeInDelay) / (Duration - FadeOutDelay - FadeInDelay)) * (EndingOpacity - StartingOpacity);
+            }
+        }
+
+        private void ManageColor(GameTime gameTime)
+        {
+            TintColor = Color.Lerp(StartingColor, EndingColor, _duration / Duration);
+        }
+
+        private void ManageBrightness(GameTime gameTime)
+        {
+            _brightness = MathHelper.Lerp(StartingBrightness, EndingBrightness, _duration / Duration);
+            TintColor = Color.Lerp(Color.Black, TintColor, _brightness);
+        }
+
+        private void ManageScale(GameTime gameTime)
+        {
+            Scale = MathHelper.Lerp(StartingScale, EndingScale, _duration / Duration);
+        }
+
+        private void ManageSpeed(GameTime gameTime)
+        {
+            _speed = MathHelper.Lerp(StartingSpeed, EndingSpeed, _duration / Duration);
+        }
+
+        private void ManageMovement(GameTime gameTime)
+        {
+            switch(ParticleMovement)
+            {
+                case ParticlePattern.Linear:
+                    Position += Direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    break;
+
+                case ParticlePattern.Curve:
+                    break;
+
+                case ParticlePattern.Sinusoidal:
+                    break;
+            }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position, null, TintColor, Angle, new Vector2(Texture.Width / 2, Texture.Height / 2), Scale, SpriteEffects.None, Layer);
+            base.Draw(spriteBatch);
+        }
+
+        public override void Remove()
+        {
+            Neon.world.ParticlePool.FlagAvailableItem(this);
+            base.Remove();
         }
     }
 }

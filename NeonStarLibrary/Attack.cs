@@ -189,10 +189,11 @@ namespace NeonStarLibrary
             set { _airFactor = value; }
         }
 
-
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
         private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
+
+        private List<Hitbox> _alreadyTouched = new List<Hitbox>();
 
         public bool Canceled = false;
         public Entity _entity;
@@ -296,6 +297,7 @@ namespace NeonStarLibrary
             foreach (Rectangle hitbox in AttackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
+                hb.PoolInit(_entity);
                 hb.Width = hitbox.Width;
                 hb.Height = hitbox.Height;
                 hb.Center = _entity.transform.Position;
@@ -304,7 +306,6 @@ namespace NeonStarLibrary
                 hb.OffsetY = hitbox.Y;
                 hb.Type = HitboxType.Hit;
                 _entity.AddComponent(hb);
-                hb.PoolInit(_entity);
                 _hitboxes.Add(hb);
             }
 
@@ -375,12 +376,12 @@ namespace NeonStarLibrary
                         Hitbox hb = Neon.world.Hitboxes[j];
                         if (hb.Type == HitboxType.Main && hb.entity != this._entity)
                         {
-                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && hb.LastIntersects != hitbox)
+                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.Contains(hb))
                             {
                                 Effect(hb.entity);
                                 if (this.Type == AttackType.MeleeLight || this.Type == AttackType.MeleeSpecial)
                                 {
-                                    hb.LastIntersects = hitbox;
+                                    _alreadyTouched.Add(hb);
                                 }
                                 else
                                 {
@@ -474,6 +475,7 @@ namespace NeonStarLibrary
                     {
                         _hitboxes[i].Remove();
                     }
+                    _hitboxes.Clear();
                     this.DurationStarted = true;
                     this.DurationFinished = true;
                     this.DelayStarted = true;

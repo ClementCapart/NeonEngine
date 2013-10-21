@@ -152,9 +152,18 @@ namespace NeonEngine
 
         public void PoolInit(Entity entity)
         {
+            this.LastIntersects = null;
+            InUse = false;
+            vectors = new List<Vector2>();
+            hitboxRectangle = new Rectangle();
+            this.Width = 50;
+            this.Height = 50;
+
+            ShapeType = BodyShapeType.Rectangle; 
             InUse = true;
-            entity.containerWorld.Hitboxes.Add(this);
             this.entity = entity;
+            entity.containerWorld.Hitboxes.Add(this);
+            Center = entity.transform.Position;    
         }
 
         public override void Update(GameTime gameTime)
@@ -176,15 +185,8 @@ namespace NeonEngine
         {
             InUse = false;
             entity.containerWorld.Hitboxes.Remove(this);
+            entity.containerWorld.HitboxPool.FlagAvailableItem(this);
             base.Remove();
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            /*PolygonRenderer lr = new PolygonRenderer(Neon.graphicsDevice, new Vector2(hitboxRectangle.X + hitboxRectangle.Width / 2, hitboxRectangle.Y + hitboxRectangle.Height / 2), vectors);
-            lr.Color = Color.Black;
-            lr.Draw(spriteBatch);
-            base.Draw(spriteBatch);*/
         }
 
     }

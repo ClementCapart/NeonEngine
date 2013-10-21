@@ -7,9 +7,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:0 Y:0}" />
+              <InitialPosition Value="{X:0 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:0 Y:0}" />
             </Properties>
           </Transform>
           <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
@@ -29,18 +29,18 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:730,4745 Y:189,2337}" />
+              <Position Value="{X:-450 Y:190}" />
+              <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:-450 Y:190}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:730 Y:189}" />
-              <X Value="710" />
-              <Y Value="121" />
+              <Center Value="{X:-450 Y:190}" />
+              <X Value="-470" />
+              <Y Value="122" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -122,24 +122,50 @@
               <MaxJumpInputDelay Value="0.5" />
             </Properties>
           </ThirdPersonController>
+          <ParticleEmitter Type="NeonEngine.ParticleEmitter" ID="6">
+            <Properties>
+              <MovementType1 Value="Linear" />
+              <MinimumDispersionAngle Value="-180" />
+              <MaximumDispersionAngle Value="0" />
+              <MininimumSpeed Value="0" />
+              <MaximumSpeed Value="0" />
+              <MinimumDuration Value="0" />
+              <MaximumDuration Value="0" />
+              <MaximumSpawnPerTick Value="0" />
+              <MinimumSpawnPerTick Value="0" />
+              <MinimumFadeInTime Value="0" />
+              <MaximumFadeInTime Value="0" />
+              <MinimumFadeOutTime Value="0" />
+              <MaximumFadeOutTime Value="0" />
+              <SpawnRate Value="0" />
+              <MinimumAngle Value="0" />
+              <MaximumAngle Value="0" />
+              <MinimumOpacity Value="0" />
+              <MaximumOpacity Value="0" />
+              <GraphicTag Value="RedParticle" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ParticleEmitter>
         </Components>
       </Entity>
       <Entity Name="Enemy">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:1338,393 Y:240}" />
+              <Position Value="{X:737 Y:200}" />
+              <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:737 Y:200}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1338 Y:224}" />
-              <X Value="1301" />
-              <Y Value="167" />
+              <Center Value="{X:737 Y:185}" />
+              <X Value="700" />
+              <Y Value="128" />
               <OffsetX Value="0" />
               <OffsetY Value="-15" />
               <Width Value="75" />
@@ -186,9 +212,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:0 Y:235,9998}" />
+              <InitialPosition Value="{X:0 Y:235,9998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:0 Y:235,9998}" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Graphic" ID="1">
@@ -207,9 +233,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:0 Y:308}" />
+              <InitialPosition Value="{X:0 Y:308}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:0 Y:308}" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Graphic" ID="1">
@@ -228,9 +254,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1280 Y:0}" />
+              <InitialPosition Value="{X:1280 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:1280 Y:0}" />
             </Properties>
           </Transform>
           <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
@@ -251,9 +277,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1280 Y:235,9998}" />
+              <InitialPosition Value="{X:1280 Y:235,9998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:1280 Y:235,9998}" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Graphic" ID="1">
@@ -272,9 +298,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1280 Y:308}" />
+              <InitialPosition Value="{X:1280 Y:308}" />
               <Rotation Value="0" />
               <Scale Value="2" />
-              <InitialPosition Value="{X:1280 Y:308}" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Graphic" ID="1">
@@ -293,9 +319,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:-491 Y:310}" />
+              <InitialPosition Value="{X:-491 Y:310}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:-491 Y:310}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -333,9 +359,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:0 Y:330}" />
+              <InitialPosition Value="{X:0 Y:330}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:0 Y:330}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -373,9 +399,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1280 Y:329}" />
+              <InitialPosition Value="{X:1280 Y:329}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:1280 Y:329}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -413,9 +439,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:637 Y:309}" />
+              <InitialPosition Value="{X:637 Y:309}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:637 Y:309}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -453,9 +479,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1770 Y:309}" />
+              <InitialPosition Value="{X:1770 Y:309}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:1770 Y:309}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -493,9 +519,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:-656 Y:19}" />
+              <InitialPosition Value="{X:-656 Y:19}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:-656 Y:19}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -533,9 +559,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1929 Y:20}" />
+              <InitialPosition Value="{X:1929 Y:20}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:1929 Y:20}" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -573,9 +599,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:-641 Y:0}" />
+              <InitialPosition Value="{X:-641 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:-641 Y:0}" />
             </Properties>
           </Transform>
           <CameraBound Type="NeonEngine.CameraBound" ID="1">
@@ -590,9 +616,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1921 Y:0}" />
+              <InitialPosition Value="{X:1921 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:1921 Y:0}" />
             </Properties>
           </Transform>
           <CameraBound Type="NeonEngine.CameraBound" ID="1">
@@ -607,9 +633,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:0 Y:361}" />
+              <InitialPosition Value="{X:0 Y:361}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:0 Y:361}" />
             </Properties>
           </Transform>
           <CameraBound Type="NeonEngine.CameraBound" ID="1">
@@ -624,9 +650,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:1280 Y:361}" />
+              <InitialPosition Value="{X:1280 Y:361}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:1280 Y:361}" />
             </Properties>
           </Transform>
           <CameraBound Type="NeonEngine.CameraBound" ID="1">
@@ -640,10 +666,10 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:584,3795 Y:-500}" />
+              <Position Value="{X:-0,8 Y:-500}" />
+              <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:0 Y:-500}" />
             </Properties>
           </Transform>
           <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
@@ -668,9 +694,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <Position Value="{X:640 Y:0}" />
+              <InitialPosition Value="{X:640 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
-              <InitialPosition Value="{X:640 Y:0}" />
             </Properties>
           </Transform>
           <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">

@@ -204,7 +204,8 @@ namespace NeonStarLibrary
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         _meleeFight.CurrentComboHit = ComboSequence.None;
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, false, false, 0);
+                        entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, false, false, 0);
+                        entity.spritesheets.CurrentPriority = 0;
                         _startJumping = true;
                     }
                     else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
@@ -212,7 +213,8 @@ namespace NeonStarLibrary
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         _meleeFight.CurrentComboHit = ComboSequence.None;
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 0, true, true, false, 0);
+                        entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, true, false, 0);
+                        entity.spritesheets.CurrentPriority = 0;
                         _startJumping = true;
                         _jumpInputDelay = 0.0f;
                         _mustJumpAsSoonAsPossible = false;
