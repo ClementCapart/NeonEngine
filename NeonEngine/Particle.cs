@@ -34,6 +34,7 @@ namespace NeonEngine
         public float FadeOutDelay;
 
         public Texture2D Texture;
+        public SpriteSheet spriteSheet;
         public ParticlePattern ParticleMovement;
         
         public Color StartingColor;
@@ -54,6 +55,7 @@ namespace NeonEngine
         public float Scale;
 
         public ParticleEmitter Emitter;
+        public bool IsAnimated = false;
 
         public Particle()
             : base(1.0f ,null, "Particle")
@@ -69,17 +71,7 @@ namespace NeonEngine
         {
             _duration = 0;
 
-            StartingBrightness = 0f;
-            EndingBrightness = 0.2f;
 
-            StartingColor = Color.Red;
-            EndingColor = Color.Red;
-
-            StartingOpacity = 0.7f;
-            EndingOpacity = 1f;
-
-            StartingScale = 1f;
-            EndingScale = 2f;
 
             if (FadeInDelay > 0f)
             {
@@ -102,6 +94,14 @@ namespace NeonEngine
                 ManageMovement(gameTime);
 
                 _duration += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (spriteSheet != null)
+                {
+                    spriteSheet.Update(gameTime);
+                    spriteSheet.opacity = _opacity;
+                    spriteSheet.TintColor = this.TintColor;
+                    spriteSheet.scale = Scale;
+                    spriteSheet.TintColor = Color.Lerp(Color.White, TintColor, _brightness);
+                }
             }
             else
             {
@@ -165,7 +165,10 @@ namespace NeonEngine
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, null, TintColor, Angle, new Vector2(Texture.Width / 2, Texture.Height / 2), Scale, SpriteEffects.None, Layer);
+            if (spriteSheet != null)
+                spriteSheet.Draw(spriteBatch);
+            else
+                spriteBatch.Draw(Texture, Position, null, Color.Lerp(TintColor, Color.Transparent, _opacity), Angle, new Vector2(Texture.Width / 2, Texture.Height / 2), Scale, SpriteEffects.None, Layer);
             base.Draw(spriteBatch);
         }
 

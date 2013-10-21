@@ -39,6 +39,8 @@ namespace NeonEngine
             }
         }
 
+        public float scale = 1.0f;
+
         public float DrawLayer
         {
             get { return Layer; }
@@ -59,12 +61,14 @@ namespace NeonEngine
             this.entity = entity;
         }
 
-        public SpriteSheet(SpriteSheetInfo ssi, float Layer, Vector2 Position, Entity entity)
-            :base(Layer, entity, "Spritesheet")
+        private Particle particle;
+
+        public SpriteSheet(SpriteSheetInfo ssi, float Layer, Particle particle)
+            : base(0, null, "Spritesheet")
         {
+            DrawLayer = Layer;
             spriteSheetInfo = ssi;
-            this.Position = Position;
-            isHUD = true;
+            this.particle = particle;
         }
 
         private bool _isFinished = false;
@@ -174,12 +178,12 @@ namespace NeonEngine
         {
             if (spriteSheetInfo != null)
             {
-                if (!isHUD)
+                if(particle == null)
                     spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + this._parallaxPosition.X +  ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X) * entity.transform.Scale), (int)entity.transform.Position.Y + this._parallaxPosition.Y +((int)spriteSheetInfo.Offset.Y * entity.transform.Scale)), frames[currentFrame],
                         Color.Lerp(Color.Transparent, TintColor, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
                 else
-                    spritebatch.Draw(spriteSheetInfo.Texture, new Rectangle((int)Position.X, (int)Position.Y, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight), frames[currentFrame],
-                        Color.White, entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), spriteEffects, Layer);
+                    spritebatch.Draw(spriteSheetInfo.Texture, particle.Position, frames[currentFrame],
+                        TintColor, particle.Angle, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), scale, spriteEffects, Layer);
             }
             base.Draw(spritebatch);
         }

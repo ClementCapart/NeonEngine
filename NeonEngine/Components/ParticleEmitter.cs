@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace NeonEngine
 {
@@ -69,9 +66,7 @@ namespace NeonEngine
         {
             get { return _maximumEndingSpeed; }
             set { _maximumEndingSpeed = value; }
-        }
-        
-        
+        }     
 
         private float _minimumDuration = 2.0f;
 
@@ -281,6 +276,45 @@ namespace NeonEngine
             }
         }
 
+        SpriteSheetInfo _spriteSheetInfo;
+
+        private string _spriteSheetTag;
+
+        public string SpriteSheetTag
+        {
+            get { return _spriteSheetTag; }
+            set 
+            {
+                _spriteSheetTag = value;
+                _spriteSheetInfo = AssetManager.GetSpriteSheet(SpriteSheetTag);
+            }
+        }
+
+        private bool _useSpriteSheet;
+
+        public bool UseSpriteSheet
+        {
+            get { return _useSpriteSheet; }
+            set 
+            { 
+                _useSpriteSheet = value; 
+            }
+        }
+        private bool _loop;
+
+        public bool Loop
+        {
+            get { return _loop; }
+            set { _loop = value; }
+        }
+        private bool _startAtRandomFrame;
+
+        public bool StartAtRandomFrame
+        {
+            get { return _startAtRandomFrame; }
+            set { _startAtRandomFrame = value; }
+        }
+
         public bool Active = true;
 
         private float _SpawnTimer = 0.0f;
@@ -291,7 +325,6 @@ namespace NeonEngine
             particles = new List<Particle>();
            
             random = new Random();
-            Init();
         }
 
         public override void Init()
@@ -350,7 +383,19 @@ namespace NeonEngine
         {
             Particle p = Neon.world.ParticlePool.GetAvailableItem();
 
-            p.Texture = _particleTexture;
+            if (UseSpriteSheet)
+            {
+                p.spriteSheet = new SpriteSheet(_spriteSheetInfo, Layer, p);
+                if(this.StartAtRandomFrame)
+                    p.spriteSheet.SetFrame(random.Next(0, _spriteSheetInfo.FrameCount));
+                p.spriteSheet.IsLooped = this.Loop;
+                p.spriteSheet.Init();
+            }
+            else
+            {
+                p.Texture = _particleTexture;
+            }
+            
             float randomAngle = random.Next((int)_minimumDispersionAngle, (int)_maximumDispersionAngle);
             p.Direction = new Vector2((float)Math.Cos(MathHelper.ToRadians(randomAngle)), -(float)(Math.Sin(randomAngle)));
             p.Duration = _minimumDuration + (float)random.NextDouble() * (_maximumDuration - _minimumDuration);
@@ -367,7 +412,7 @@ namespace NeonEngine
 
             p.StartingOpacity = _minimumStartingOpacity + (float)random.NextDouble() * (_maximumStartingOpacity - _minimumStartingOpacity);
             p.EndingOpacity = _minimumEndingOpacity + (float)random.NextDouble() * (_maximumEndingOpacity - _minimumEndingOpacity);
-            p.StartingSpeed = _minimumStartingSpeed + (float)random.NextDouble() * (_maximumEndingSpeed - _maximumEndingSpeed);
+            p.StartingSpeed = _minimumStartingSpeed + (float)random.NextDouble() * (_maximumStartingSpeed - _maximumStartingSpeed);
             p.EndingSpeed = _minimumEndingSpeed + (float)random.NextDouble() * (_maximumEndingSpeed - _maximumEndingSpeed);
             p.StartingScale = _minimumStartingScale + (float)random.NextDouble() * (_maximumStartingScale - _minimumStartingScale);
             p.EndingScale = _minimumEndingScale + (float)random.NextDouble() * (_maximumEndingScale - _minimumEndingScale);
