@@ -417,10 +417,6 @@ namespace NeonStarEditor
             pcc.pi.SetValue(pcc.c, (bool)((sender as CheckBox).Checked), null);
         }
 
-        void button_Click(object sender, EventArgs e)
-        {
-            GameWorld.CurrentTool = new AddWaypoint(GameWorld);
-        }
 
         private void comboBox_SelectedValueChanged(object sender, EventArgs e)
         {

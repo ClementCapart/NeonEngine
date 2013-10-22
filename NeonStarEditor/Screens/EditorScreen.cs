@@ -19,6 +19,8 @@ namespace NeonStarEditor
     {
         public bool EntityChangedThisFrame = false;
 
+        public bool DisplayAllPathNodeList = false;
+
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
@@ -124,6 +126,7 @@ namespace NeonStarEditor
             if (_isPathNodeManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(PathNodePanel);
+                this.CurrentTool = new Selection(this);
                 PathNodePanel = null;
                 _isPathNodeManagerDisplayed = false;
             }
@@ -150,7 +153,7 @@ namespace NeonStarEditor
         {
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
-            if (CurrentTool != null && MouseInGameWindow)
+            if (CurrentTool != null)
                 CurrentTool.Update(gameTime);
 
             if (Neon.Input.MouseCheck(MouseButton.MiddleButton) && MouseInGameWindow)
@@ -232,7 +235,7 @@ namespace NeonStarEditor
                             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
                             spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
                             spriteBatch.End();
-                            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
+                            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
                             dc.Draw(spriteBatch);
                         }
                     }
@@ -241,13 +244,75 @@ namespace NeonStarEditor
                 {
                     if (_isPathNodeManagerDisplayed)
                     {
-                        foreach (PathNodeList pnl in this.NodeLists)
+                        if (DisplayAllPathNodeList)
                         {
-                            foreach (Node n in pnl.Nodes)
+                            foreach (PathNodeList pnl in this.NodeLists)
                             {
-                                spriteBatch.Draw(_nodeTexture, n.Position, null, Color.White, 0, new Vector2(_nodeTexture.Width / 2, _nodeTexture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+                                for (int i = pnl.Nodes.Count - 1; i >= 0; i--)
+                                {
+                                    Node n = pnl.Nodes[i];
+
+                                    
+                                    if (pnl.Nodes.Count > 1)
+                                    {
+                                        Node nextNode;
+                                        if (i == 0)
+                                            nextNode = pnl.Nodes[pnl.Nodes.Count - 1];
+                                        else
+                                            nextNode = pnl.Nodes[i - 1];
+
+                                        PrimitiveLine pl = new PrimitiveLine(Neon.graphicsDevice);
+                                        pl.vectors.Add(n.Position);
+                                        pl.Colour = Color.Red;
+                                        pl.Depth = 0.6f;
+                                        pl.vectors.Add(nextNode.Position);
+                                        pl.Render(spriteBatch);
+                                    }
+
+                                }
+
+                                foreach (Node n in pnl.Nodes)
+                                {
+                                        spriteBatch.Draw(_nodeTexture, n.Position, null, PathNodePanel.CurrentNodeSelected == n ? Color.Red :Color.White, 0, new Vector2(_nodeTexture.Width / 2, _nodeTexture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+                                }
                             }
                         }
+                        else
+                        {
+                            if (PathNodePanel.NodeLists.SelectedIndex != -1)
+                            {
+                                for(int i = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes.Count - 1; i >= 0; i --)
+                                {
+                                    Node n = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes[i];
+                                    
+                                    
+                                    if(NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes.Count > 1)
+                                    {
+                                        Node nextNode;
+                                        if (i == 0)
+                                            nextNode = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes[NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes.Count - 1];
+                                        else
+                                            nextNode = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes[i - 1];
+
+                                        PrimitiveLine pl = new PrimitiveLine(Neon.graphicsDevice);
+                                        pl.vectors.Add(n.Position);
+                                        pl.Colour = Color.Red;
+                                        pl.Depth = 0.6f;
+                                        pl.vectors.Add(nextNode.Position);
+                                        pl.Render(spriteBatch);
+                                    }
+                                    
+                                }
+
+                                for (int i = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes.Count - 1; i >= 0; i--)
+                                {
+                                    Node n = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes[i];
+
+                                    spriteBatch.Draw(_nodeTexture, n.Position, null, PathNodePanel.CurrentNodeSelected == n ? Color.Red : Color.White, 0, new Vector2(_nodeTexture.Width / 2, _nodeTexture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+                                }
+                            }
+                        }
+                        
                     }
 
                     foreach (Entity entity in entities)
@@ -297,7 +362,6 @@ namespace NeonStarEditor
                     }
                 }
             }
-           
             base.ManualDrawGame(spriteBatch);
         }
 

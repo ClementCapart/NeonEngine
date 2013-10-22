@@ -687,8 +687,23 @@
       </Entity>
     </Entities>
     <PathNodeLists>
-      <PathNodeList Name="NodeLis" Type="Ground" />
-      <PathNodeList Name="NoList2" Type="Ground" />
+      <PathNodeList Name="NodeLis" Type="Ground">
+        <Node Type="Move" Index="0" Position="{X:-209 Y:36}" />
+        <Node Type="Move" Index="1" Position="{X:55 Y:46}" />
+        <Node Type="Move" Index="2" Position="{X:221 Y:-64}" />
+        <Node Type="Jump" Index="3" Position="{X:-50 Y:-107}" />
+      </PathNodeList>
+      <PathNodeList Name="NoList2" Type="Ground">
+        <Node Type="Move" Index="0" Position="{X:-342 Y:-14}" />
+        <Node Type="Move" Index="1" Position="{X:59 Y:-47}" />
+        <Node Type="Move" Index="2" Position="{X:27 Y:230}" />
+        <Node Type="Move" Index="3" Position="{X:-381 Y:176}" />
+        <Node Type="Move" Index="4" Position="{X:-30 Y:-152}" />
+        <Node Type="Move" Index="5" Position="{X:145 Y:-187}" />
+        <Node Type="Move" Index="6" Position="{X:301 Y:-133}" />
+        <Node Type="Move" Index="7" Position="{X:306 Y:94}" />
+        <Node Type="Move" Index="8" Position="{X:286 Y:195}" />
+      </PathNodeList>
     </PathNodeLists>
   </Level>
 </XnaContent>

@@ -33,10 +33,18 @@
             this.AddPathButton = new System.Windows.Forms.Button();
             this.RemovePathButton = new System.Windows.Forms.Button();
             this.InfoBox = new System.Windows.Forms.GroupBox();
-            this.PathName = new System.Windows.Forms.TextBox();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.PathName = new System.Windows.Forms.TextBox();
+            this.ToggleDisplayAll = new System.Windows.Forms.Button();
+            this.AddPathNode = new System.Windows.Forms.Button();
+            this.SelectionButton = new System.Windows.Forms.Button();
+            this.NodeTypeCombobox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.NodeInfo = new System.Windows.Forms.GroupBox();
+            this.DeleteNode = new System.Windows.Forms.Button();
             this.InfoBox.SuspendLayout();
+            this.NodeInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // NodeLists
@@ -76,7 +84,10 @@
             // 
             // InfoBox
             // 
+            this.InfoBox.Controls.Add(this.NodeInfo);
             this.InfoBox.Controls.Add(this.label1);
+            this.InfoBox.Controls.Add(this.SelectionButton);
+            this.InfoBox.Controls.Add(this.AddPathNode);
             this.InfoBox.Controls.Add(this.TypeComboBox);
             this.InfoBox.Controls.Add(this.PathName);
             this.InfoBox.Location = new System.Drawing.Point(145, 2);
@@ -85,6 +96,25 @@
             this.InfoBox.TabIndex = 6;
             this.InfoBox.TabStop = false;
             this.InfoBox.Text = "Info";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Type";
+            // 
+            // TypeComboBox
+            // 
+            this.TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.Location = new System.Drawing.Point(6, 80);
+            this.TypeComboBox.Name = "TypeComboBox";
+            this.TypeComboBox.Size = new System.Drawing.Size(67, 21);
+            this.TypeComboBox.TabIndex = 8;
+            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
             // PathName
             // 
@@ -100,24 +130,88 @@
             this.PathName.Enter += new System.EventHandler(this.PathName_Enter);
             this.PathName.Leave += new System.EventHandler(this.PathName_Leave);
             // 
-            // TypeComboBox
+            // ToggleDisplayAll
             // 
-            this.TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(6, 80);
-            this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(81, 21);
-            this.TypeComboBox.TabIndex = 8;
-            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
+            this.ToggleDisplayAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ToggleDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToggleDisplayAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ToggleDisplayAll.Location = new System.Drawing.Point(75, 156);
+            this.ToggleDisplayAll.Name = "ToggleDisplayAll";
+            this.ToggleDisplayAll.Size = new System.Drawing.Size(64, 30);
+            this.ToggleDisplayAll.TabIndex = 5;
+            this.ToggleDisplayAll.Text = "Show All";
+            this.ToggleDisplayAll.UseVisualStyleBackColor = true;
+            this.ToggleDisplayAll.Click += new System.EventHandler(this.ToggleDisplayAll_Click);
             // 
-            // label1
+            // AddPathNode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Type";
+            this.AddPathNode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddPathNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPathNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddPathNode.Location = new System.Drawing.Point(9, 112);
+            this.AddPathNode.Name = "AddPathNode";
+            this.AddPathNode.Size = new System.Drawing.Size(64, 30);
+            this.AddPathNode.TabIndex = 5;
+            this.AddPathNode.Text = "Add";
+            this.AddPathNode.UseVisualStyleBackColor = true;
+            this.AddPathNode.Click += new System.EventHandler(this.AddPathNode_Click);
+            // 
+            // SelectionButton
+            // 
+            this.SelectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SelectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.SelectionButton.Location = new System.Drawing.Point(9, 148);
+            this.SelectionButton.Name = "SelectionButton";
+            this.SelectionButton.Size = new System.Drawing.Size(64, 30);
+            this.SelectionButton.TabIndex = 5;
+            this.SelectionButton.Text = "Selection";
+            this.SelectionButton.UseVisualStyleBackColor = true;
+            this.SelectionButton.Click += new System.EventHandler(this.SelectionButton_Click);
+            // 
+            // NodeTypeCombobox
+            // 
+            this.NodeTypeCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NodeTypeCombobox.FormattingEnabled = true;
+            this.NodeTypeCombobox.Location = new System.Drawing.Point(12, 31);
+            this.NodeTypeCombobox.Name = "NodeTypeCombobox";
+            this.NodeTypeCombobox.Size = new System.Drawing.Size(67, 21);
+            this.NodeTypeCombobox.TabIndex = 8;
+            this.NodeTypeCombobox.SelectedIndexChanged += new System.EventHandler(this.NodeTypeCombobox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Type";
+            // 
+            // NodeInfo
+            // 
+            this.NodeInfo.Controls.Add(this.NodeTypeCombobox);
+            this.NodeInfo.Controls.Add(this.label2);
+            this.NodeInfo.Controls.Add(this.DeleteNode);
+            this.NodeInfo.Location = new System.Drawing.Point(79, 61);
+            this.NodeInfo.Name = "NodeInfo";
+            this.NodeInfo.Size = new System.Drawing.Size(204, 117);
+            this.NodeInfo.TabIndex = 10;
+            this.NodeInfo.TabStop = false;
+            this.NodeInfo.Text = "Selected Node";
+            // 
+            // DeleteNode
+            // 
+            this.DeleteNode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteNode.BackgroundImage")));
+            this.DeleteNode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.DeleteNode.Location = new System.Drawing.Point(168, 81);
+            this.DeleteNode.Name = "DeleteNode";
+            this.DeleteNode.Size = new System.Drawing.Size(30, 30);
+            this.DeleteNode.TabIndex = 5;
+            this.DeleteNode.UseVisualStyleBackColor = true;
+            this.DeleteNode.Click += new System.EventHandler(this.DeleteNode_Click);
             // 
             // PathNodesPanel
             // 
@@ -126,6 +220,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.InfoBox);
+            this.Controls.Add(this.ToggleDisplayAll);
             this.Controls.Add(this.RemovePathButton);
             this.Controls.Add(this.AddPathButton);
             this.Controls.Add(this.NodeLists);
@@ -134,18 +229,27 @@
             this.Size = new System.Drawing.Size(442, 197);
             this.InfoBox.ResumeLayout(false);
             this.InfoBox.PerformLayout();
+            this.NodeInfo.ResumeLayout(false);
+            this.NodeInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox NodeLists;
         private System.Windows.Forms.Button AddPathButton;
         private System.Windows.Forms.Button RemovePathButton;
         private System.Windows.Forms.GroupBox InfoBox;
         private System.Windows.Forms.TextBox PathName;
         private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ToggleDisplayAll;
+        public System.Windows.Forms.ListBox NodeLists;
+        private System.Windows.Forms.Button AddPathNode;
+        private System.Windows.Forms.Button SelectionButton;
+        private System.Windows.Forms.GroupBox NodeInfo;
+        private System.Windows.Forms.ComboBox NodeTypeCombobox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button DeleteNode;
     }
 }

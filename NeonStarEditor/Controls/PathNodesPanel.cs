@@ -13,6 +13,7 @@ namespace NeonStarEditor
     public partial class PathNodesPanel : UserControl
     {
         public EditorScreen GameWorld;
+        public Node CurrentNodeSelected;
 
         public PathNodesPanel(EditorScreen GameWorld)
         {
@@ -20,17 +21,33 @@ namespace NeonStarEditor
             this.GameWorld = GameWorld;
             this.Location = new Point(36, 0);
             InitializeData();
+            InitializeNodeData();
         }
 
         public void InitializeData()
         {
             this.TypeComboBox.DataSource = Enum.GetValues(typeof(PathType));
+            this.NodeTypeCombobox.DataSource = Enum.GetValues(typeof(NodeType));
             
             this.NodeLists.DataSource = null;
             this.NodeLists.DataSource = GameWorld.NodeLists;
             this.NodeLists.DisplayMember = "Name";
 
             
+        }
+
+        public void InitializeNodeData()
+        {
+            if (CurrentNodeSelected != null)
+            {
+                this.NodeInfo.Show();
+                this.NodeTypeCombobox.SelectedItem = CurrentNodeSelected.Type;
+                
+            }
+            else
+            {
+                this.NodeInfo.Hide();
+            }
         }
 
         private void RemovePathButton_Click(object sender, EventArgs e)
@@ -61,6 +78,8 @@ namespace NeonStarEditor
 
         private void NodeLists_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GameWorld.CurrentTool = new Selection(GameWorld);
+            CurrentNodeSelected = null;
             if (NodeLists.SelectedIndex != -1)
             {
                 this.PathName.Text = GameWorld.NodeLists[NodeLists.SelectedIndex].Name;
@@ -84,6 +103,39 @@ namespace NeonStarEditor
         {
             if(NodeLists.SelectedIndex != -1 && (NodeLists.DataSource as List<PathNodeList>).Count > 0)
                 GameWorld.NodeLists[NodeLists.SelectedIndex].Type = (PathType)Enum.Parse(typeof(PathType), (sender as ComboBox).SelectedItem.ToString());
+        }
+
+        private void ToggleDisplayAll_Click(object sender, EventArgs e)
+        {
+            GameWorld.DisplayAllPathNodeList = !GameWorld.DisplayAllPathNodeList;
+        }
+
+        private void AddPathNode_Click(object sender, EventArgs e)
+        {
+            GameWorld.CurrentTool = new AddNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
+        }
+
+        private void SelectionButton_Click(object sender, EventArgs e)
+        {
+            GameWorld.CurrentTool = new SelectNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
+        }
+
+        private void DeleteNode_Click(object sender, EventArgs e)
+        {
+            if (CurrentNodeSelected != null)
+            {
+                GameWorld.NodeLists[NodeLists.SelectedIndex].Nodes.Remove(CurrentNodeSelected);
+                CurrentNodeSelected = null;
+                InitializeNodeData();
+            }
+        }
+
+        private void NodeTypeCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CurrentNodeSelected != null)
+            {
+                CurrentNodeSelected.Type = (NodeType)Enum.Parse(typeof(NodeType), (sender as ComboBox).SelectedItem.ToString());
+            }
         }
     }
 }
