@@ -51,6 +51,9 @@ namespace NeonStarEditor
         private bool _isAttackManagerDisplayed = false;
         private bool _isCameraSettingsDisplayed = false;
 
+        public bool _lightGizmoToggled = false;
+        public bool _boundsGizmoToggled = false;
+
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
         {
@@ -220,42 +223,48 @@ namespace NeonStarEditor
                 {
                     foreach (Entity entity in entities)
                     {
-                        ColorEmitter colorEmitter = entity.GetComponent<ColorEmitter>();
-
-                        if (colorEmitter != null && colorEmitter.Debug)
+                        if (_lightGizmoToggled)
                         {
-                            float scale = colorEmitter.Range / _colorEmitterCircleTexture.Width * 2;
-                            spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, colorEmitter.currentColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
-                            spriteBatch.Draw(_colorEmitterTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), colorEmitter.Color);
-                        }
+                            ColorEmitter colorEmitter = entity.GetComponent<ColorEmitter>();
 
-                        CameraBound cameraBound = entity.GetComponent<CameraBound>();
-
-                        if (cameraBound != null)
-                        {
-                            float angle = 0.0f;
-
-                            switch(cameraBound.BoundSide)
+                            if (colorEmitter != null && colorEmitter.Debug)
                             {
-                                case Side.Left:
-                                    angle = 0.0f;
-                                    break;
-
-                                case Side.Down:
-                                    angle = (float)(Math.PI + Math.PI / 2);
-                                    break;
-
-                                case Side.Right:
-                                    angle = (float)Math.PI;
-                                    break;
-
-                                case Side.Up:
-                                    angle = (float)(Math.PI / 2);
-                                    break;
+                                float scale = colorEmitter.Range / _colorEmitterCircleTexture.Width * 2;
+                                spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, colorEmitter.currentColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+                                spriteBatch.Draw(_colorEmitterTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), colorEmitter.Color);
                             }
-
-                            spriteBatch.Draw(_boundTexture, entity.transform.Position, null, Color.White, angle, new Vector2(_boundTexture.Width / 2, _boundTexture.Height / 2), 1f, SpriteEffects.None, 0);
                         }
+
+                        if (_boundsGizmoToggled)
+                        {
+                            CameraBound cameraBound = entity.GetComponent<CameraBound>();
+
+                            if (cameraBound != null)
+                            {
+                                float angle = 0.0f;
+
+                                switch (cameraBound.BoundSide)
+                                {
+                                    case Side.Left:
+                                        angle = 0.0f;
+                                        break;
+
+                                    case Side.Down:
+                                        angle = (float)(Math.PI + Math.PI / 2);
+                                        break;
+
+                                    case Side.Right:
+                                        angle = (float)Math.PI;
+                                        break;
+
+                                    case Side.Up:
+                                        angle = (float)(Math.PI / 2);
+                                        break;
+                                }
+
+                                spriteBatch.Draw(_boundTexture, entity.transform.Position, null, Color.White, angle, new Vector2(_boundTexture.Width / 2, _boundTexture.Height / 2), 1f, SpriteEffects.None, 0);
+                            }
+                        }                      
                     }
                 }
             }

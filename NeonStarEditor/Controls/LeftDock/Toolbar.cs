@@ -108,5 +108,15 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.ToggleCameraManager();
         }
+
+        private void ToggleBoundsButton_Click(object sender, EventArgs e)
+        {
+            GameWorld._boundsGizmoToggled = !GameWorld._boundsGizmoToggled;
+        }
+
+        private void ToggleLightButton_Click(object sender, EventArgs e)
+        {
+            GameWorld._lightGizmoToggled = !GameWorld._lightGizmoToggled;
+        }
     }
 }

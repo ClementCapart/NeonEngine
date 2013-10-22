@@ -38,6 +38,8 @@
             this.ReloadAssetsButton = new System.Windows.Forms.Button();
             this.AttackManagerButton = new System.Windows.Forms.Button();
             this.CameraPanel = new System.Windows.Forms.Button();
+            this.ToggleLightButton = new System.Windows.Forms.Button();
+            this.ToggleBoundsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveCurrentMap
@@ -147,12 +149,38 @@
             this.CameraPanel.UseVisualStyleBackColor = true;
             this.CameraPanel.Click += new System.EventHandler(this.CameraPanel_Click);
             // 
+            // ToggleLightButton
+            // 
+            this.ToggleLightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ToggleLightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToggleLightButton.Location = new System.Drawing.Point(3, 412);
+            this.ToggleLightButton.Name = "ToggleLightButton";
+            this.ToggleLightButton.Size = new System.Drawing.Size(30, 30);
+            this.ToggleLightButton.TabIndex = 4;
+            this.ToggleLightButton.Text = "L";
+            this.ToggleLightButton.UseVisualStyleBackColor = true;
+            this.ToggleLightButton.Click += new System.EventHandler(this.ToggleLightButton_Click);
+            // 
+            // ToggleBoundsButton
+            // 
+            this.ToggleBoundsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ToggleBoundsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToggleBoundsButton.Location = new System.Drawing.Point(3, 376);
+            this.ToggleBoundsButton.Name = "ToggleBoundsButton";
+            this.ToggleBoundsButton.Size = new System.Drawing.Size(30, 30);
+            this.ToggleBoundsButton.TabIndex = 4;
+            this.ToggleBoundsButton.Text = "B";
+            this.ToggleBoundsButton.UseVisualStyleBackColor = true;
+            this.ToggleBoundsButton.Click += new System.EventHandler(this.ToggleBoundsButton_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.ToggleBoundsButton);
+            this.Controls.Add(this.ToggleLightButton);
             this.Controls.Add(this.CameraPanel);
             this.Controls.Add(this.AttackManagerButton);
             this.Controls.Add(this.ReloadAssetsButton);
@@ -179,5 +207,7 @@
         private System.Windows.Forms.Button ReloadAssetsButton;
         private System.Windows.Forms.Button AttackManagerButton;
         private System.Windows.Forms.Button CameraPanel;
+        private System.Windows.Forms.Button ToggleLightButton;
+        private System.Windows.Forms.Button ToggleBoundsButton;
     }
 }

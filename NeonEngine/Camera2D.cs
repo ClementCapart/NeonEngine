@@ -156,26 +156,29 @@ namespace NeonEngine
                         switch (cb.BoundSide)
                         {
                             case Side.Up:
-                                NewPosition.Y = MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue);
+                                NewPosition.Y = (float)Math.Floor(MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue));
                                 break;
 
                             case Side.Right:
-                                NewPosition.X = MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom);
+                                NewPosition.X = (float)Math.Floor(MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom));
                                 break;
 
                             case Side.Down:
-                                NewPosition.Y = MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom);
+                                NewPosition.Y = (float)Math.Floor(MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom));
                                 break;
 
                             case Side.Left:
-                                NewPosition.X = MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue);
+                                NewPosition.X = (float)Math.Floor(MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue));
                                 break;
                         }
                     }
                 }
 
-                _pos = NewPosition;
+                
             }
+
+            if (Math.Abs(NewPosition.X - _pos.X) >= 1) _pos.X = NewPosition.X;
+            if (Math.Abs(NewPosition.Y - _pos.Y) >= 1) _pos.Y = NewPosition.Y;
         }
 
 

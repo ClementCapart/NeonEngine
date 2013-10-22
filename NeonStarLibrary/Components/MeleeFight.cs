@@ -189,11 +189,12 @@ namespace NeonStarLibrary
                                 PerformDiveAttack();
                                 break;
 
-                            case "RushAttack":
-                                if (entity.spritesheets.CurrentSide == Side.Left)
-                                    PerformLeftRushAttack();
-                                else
-                                    PerformRightRushAttack();
+                            case "LeftRushAttack":
+                                PerformLeftRushAttack();
+                                break;
+
+                            case "RightRushAttack":
+                                PerformRightRushAttack();
                                 break;
 
                             case "LightAttack":
@@ -241,7 +242,7 @@ namespace NeonStarLibrary
                         }
                         else if(NextAttack == "")
                         {
-                            NextAttack = "RushAttack";
+                            NextAttack = "LeftRushAttack";
                             _chainDelayTimer = 0;
                         }
                     }
@@ -263,7 +264,7 @@ namespace NeonStarLibrary
                         }
                         else if (NextAttack == "")
                         {
-                            NextAttack = "RushAttack";
+                            NextAttack = "RightRushAttack";
                             _chainDelayTimer = 0;
                         }
                     }
@@ -406,7 +407,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {               
-                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", Side.Left, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
@@ -416,7 +417,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttack", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack("RushAttack", Side.Left, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
@@ -434,7 +435,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", Side.Right, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
@@ -444,7 +445,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttack", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack("RushAttack", Side.Right, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
