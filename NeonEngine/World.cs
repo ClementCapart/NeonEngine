@@ -43,6 +43,7 @@ namespace NeonEngine
         public List<DrawableComponent> HUDComponents;
         public List<Water> waterzones;
         public List<LightArea> lightAreas;
+        public List<PathNodeList> NodeLists;
 
         public NeonPool<Hitbox> HitboxPool;
         public NeonPool<Particle> ParticlePool;
@@ -87,6 +88,7 @@ namespace NeonEngine
             HitboxPool = new NeonPool<Hitbox>(() => new Hitbox());
             ParticlePool = new NeonPool<Particle>(() => new Particle());
             Hitboxes = new List<Hitbox>();
+            NodeLists = new List<PathNodeList>();
 
 
             _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);

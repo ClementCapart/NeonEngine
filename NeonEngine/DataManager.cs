@@ -83,6 +83,25 @@ namespace NeonEngine
                 level.Add(Entities);
             }
 
+            if (CurrentWorld.NodeLists.Count > 0)
+            {
+                XElement pathNodeLists = new XElement("PathNodeLists");
+
+                foreach (PathNodeList pnl in CurrentWorld.NodeLists)
+                {
+                    XElement nodeList = new XElement("PathNodeList", new XAttribute("Name", pnl.Name), new XAttribute("Type", pnl.Type.ToString()));
+    
+                    foreach (Node n in pnl.Nodes)
+                    {
+                        XElement node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
+                        nodeList.Add(node);
+                    }
+                    pathNodeLists.Add(nodeList);
+                }
+
+                level.Add(pathNodeLists);
+            }
+
             content.Add(level);
             document.Add(content);
             document.Save(FilePath+ ".xml");

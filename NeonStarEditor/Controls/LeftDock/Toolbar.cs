@@ -118,5 +118,10 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld._lightGizmoToggled = !GameWorld._lightGizmoToggled;
         }
+
+        private void PathNodeTool_Click(object sender, EventArgs e)
+        {
+            GameWorld.TogglePathNodeManager();
+        }
     }
 }

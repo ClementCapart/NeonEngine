@@ -32,8 +32,31 @@ namespace NeonEngine
             XElement WaterZones = Level.Element("WaterZones");
             XElement Entities = Level.Element("Entities");
 
+            XElement PathNodeLists = Level.Element("PathNodeLists");
+
             if(Entities != null)
                 EntityImport(Entities, container);
+
+            if (PathNodeLists != null)
+            {
+                foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))
+                {
+                    PathNodeList pnl = new PathNodeList();
+                    pnl.Name = pathNodeList.Attribute("Name").Value;
+                    pnl.Type = (PathType)Enum.Parse(typeof(PathType), pathNodeList.Attribute("Type").Value);
+
+                    foreach (XElement node in pathNodeList.Elements("Node"))
+                    {
+                        Node n = new Node();
+                        n.index = int.Parse(node.Attribute("Index").Value);
+                        n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
+                        n.Position = Neon.utils.ParseVector2(node.Attribute("Position").Value);
+                        pnl.Nodes.Add(n);
+                    }
+
+                    container.NodeLists.Add(pnl);
+                }
+            }
             
             if(WaterZones != null)
                 if (WaterZones != null)

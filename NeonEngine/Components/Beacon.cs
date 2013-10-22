@@ -50,7 +50,7 @@ namespace NeonEngine.Private
             GroundRaycastTarget = GroundRaycast + new Vector2(0, 8);
 
             RearGroundRaycast = GroundRaycastTarget;
-            RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2 -2, 0);
+            RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2 - 2, 0);
 
             FrontGroundRaycast = GroundRaycastTarget;
             FrontGroundRaycastTarget = FrontGroundRaycast + new Vector2(hitbox.Width / 2 + 2, 0);

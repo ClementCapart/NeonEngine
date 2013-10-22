@@ -130,6 +130,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinimizableControl.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PathNodesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PathNodesPanel.Designer.cs">
+      <DependentUpon>PathNodesPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RightDock\SpritesheetInspector.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +208,9 @@
       <DependentUpon>MinimizableControl.cs</DependentUpon>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MinimizableControl1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PathNodesPanel.resx">
+      <DependentUpon>PathNodesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RightDock\RightDock.resx">
       <DependentUpon>RightDock.cs</DependentUpon>

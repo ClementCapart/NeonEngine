@@ -27,6 +27,7 @@ namespace NeonStarEditor
 
         public AttacksSettingsManager AttacksSettingsManager;
         public CameraPanel CameraSettings;
+        public PathNodesPanel PathNodePanel;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -45,11 +46,13 @@ namespace NeonStarEditor
         private Texture2D _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
         private Texture2D _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
         private Texture2D _boundTexture = AssetManager.GetTexture("BoundIcon");
+        private Texture2D _nodeTexture = AssetManager.GetTexture("NodeIcon");
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
         private bool _isAttackManagerDisplayed = false;
         private bool _isCameraSettingsDisplayed = false;
+        private bool _isPathNodeManagerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -78,9 +81,9 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
-            foreach (Control c in GameAsForm.Controls)
+            /*foreach (Control c in GameAsForm.Controls)
                 c.Hide();
-            EditorVisible = false;
+            EditorVisible = false;*/
             
 
         }
@@ -104,7 +107,6 @@ namespace NeonStarEditor
         {
             if (_isCameraSettingsDisplayed)
             {
-                
                 GameAsForm.Controls.Remove(CameraSettings);
                 CameraSettings = null;
                 _isCameraSettingsDisplayed = false;
@@ -114,6 +116,22 @@ namespace NeonStarEditor
                 CameraSettings = new CameraPanel();
                 GameAsForm.Controls.Add(CameraSettings);
                 _isCameraSettingsDisplayed = true;
+            }
+        }
+
+        public void TogglePathNodeManager()
+        {
+            if (_isPathNodeManagerDisplayed)
+            {
+                GameAsForm.Controls.Remove(PathNodePanel);
+                PathNodePanel = null;
+                _isPathNodeManagerDisplayed = false;
+            }
+            else
+            {
+                PathNodePanel = new PathNodesPanel(this);
+                GameAsForm.Controls.Add(PathNodePanel);
+                _isPathNodeManagerDisplayed = true;
             }
         }
 
@@ -221,6 +239,17 @@ namespace NeonStarEditor
                 }
                 else
                 {
+                    if (_isPathNodeManagerDisplayed)
+                    {
+                        foreach (PathNodeList pnl in this.NodeLists)
+                        {
+                            foreach (Node n in pnl.Nodes)
+                            {
+                                spriteBatch.Draw(_nodeTexture, n.Position, null, Color.White, 0, new Vector2(_nodeTexture.Width / 2, _nodeTexture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+                            }
+                        }
+                    }
+
                     foreach (Entity entity in entities)
                     {
                         if (_lightGizmoToggled)
@@ -581,6 +610,8 @@ namespace NeonStarEditor
                 AttacksSettingsManager.Dispose();
             if (CameraSettings != null)
                 CameraSettings.Dispose();
+            if (PathNodePanel != null)
+                PathNodePanel.Dispose();
             ChangeScreen(new EditorScreen(game, graphics));
         }
     }

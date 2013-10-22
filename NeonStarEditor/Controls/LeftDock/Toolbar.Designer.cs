@@ -29,42 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Toolbar));
-            this.SaveCurrentMap = new System.Windows.Forms.Button();
-            this.ReloadButton = new System.Windows.Forms.Button();
             this.PausePlayButton = new System.Windows.Forms.Button();
-            this.CreateRectangle = new System.Windows.Forms.Button();
-            this.Selection = new System.Windows.Forms.Button();
             this.ReloadScript = new System.Windows.Forms.Button();
             this.ReloadAssetsButton = new System.Windows.Forms.Button();
             this.AttackManagerButton = new System.Windows.Forms.Button();
             this.CameraPanel = new System.Windows.Forms.Button();
             this.ToggleLightButton = new System.Windows.Forms.Button();
             this.ToggleBoundsButton = new System.Windows.Forms.Button();
+            this.PathNodeTool = new System.Windows.Forms.Button();
+            this.Selection = new System.Windows.Forms.Button();
+            this.CreateRectangle = new System.Windows.Forms.Button();
+            this.ReloadButton = new System.Windows.Forms.Button();
+            this.SaveCurrentMap = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // SaveCurrentMap
-            // 
-            this.SaveCurrentMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveCurrentMap.BackgroundImage")));
-            this.SaveCurrentMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SaveCurrentMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveCurrentMap.Location = new System.Drawing.Point(3, 7);
-            this.SaveCurrentMap.Name = "SaveCurrentMap";
-            this.SaveCurrentMap.Size = new System.Drawing.Size(30, 30);
-            this.SaveCurrentMap.TabIndex = 1;
-            this.SaveCurrentMap.UseVisualStyleBackColor = true;
-            this.SaveCurrentMap.Click += new System.EventHandler(this.SaveCurrentMap_Click);
-            // 
-            // ReloadButton
-            // 
-            this.ReloadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadButton.BackgroundImage")));
-            this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ReloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReloadButton.Location = new System.Drawing.Point(3, 42);
-            this.ReloadButton.Name = "ReloadButton";
-            this.ReloadButton.Size = new System.Drawing.Size(30, 30);
-            this.ReloadButton.TabIndex = 3;
-            this.ReloadButton.UseVisualStyleBackColor = true;
-            this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
             // 
             // PausePlayButton
             // 
@@ -76,30 +53,6 @@
             this.PausePlayButton.TabIndex = 3;
             this.PausePlayButton.UseVisualStyleBackColor = true;
             this.PausePlayButton.Click += new System.EventHandler(this.PausePlayButton_Click);
-            // 
-            // CreateRectangle
-            // 
-            this.CreateRectangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CreateRectangle.BackgroundImage")));
-            this.CreateRectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CreateRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateRectangle.Location = new System.Drawing.Point(3, 215);
-            this.CreateRectangle.Name = "CreateRectangle";
-            this.CreateRectangle.Size = new System.Drawing.Size(30, 30);
-            this.CreateRectangle.TabIndex = 4;
-            this.CreateRectangle.UseVisualStyleBackColor = true;
-            this.CreateRectangle.Click += new System.EventHandler(this.CreateRectangle_Click);
-            // 
-            // Selection
-            // 
-            this.Selection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Selection.BackgroundImage")));
-            this.Selection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Selection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Selection.Location = new System.Drawing.Point(3, 179);
-            this.Selection.Name = "Selection";
-            this.Selection.Size = new System.Drawing.Size(30, 30);
-            this.Selection.TabIndex = 5;
-            this.Selection.UseVisualStyleBackColor = true;
-            this.Selection.Click += new System.EventHandler(this.Selection_Click);
             // 
             // ReloadScript
             // 
@@ -173,12 +126,73 @@
             this.ToggleBoundsButton.UseVisualStyleBackColor = true;
             this.ToggleBoundsButton.Click += new System.EventHandler(this.ToggleBoundsButton_Click);
             // 
+            // PathNodeTool
+            // 
+            this.PathNodeTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PathNodeTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathNodeTool.Location = new System.Drawing.Point(3, 251);
+            this.PathNodeTool.Name = "PathNodeTool";
+            this.PathNodeTool.Size = new System.Drawing.Size(30, 30);
+            this.PathNodeTool.TabIndex = 4;
+            this.PathNodeTool.Text = "N";
+            this.PathNodeTool.UseVisualStyleBackColor = true;
+            this.PathNodeTool.Click += new System.EventHandler(this.PathNodeTool_Click);
+            // 
+            // Selection
+            // 
+            this.Selection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Selection.BackgroundImage")));
+            this.Selection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Selection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Selection.Location = new System.Drawing.Point(3, 179);
+            this.Selection.Name = "Selection";
+            this.Selection.Size = new System.Drawing.Size(30, 30);
+            this.Selection.TabIndex = 5;
+            this.Selection.UseVisualStyleBackColor = true;
+            this.Selection.Click += new System.EventHandler(this.Selection_Click);
+            // 
+            // CreateRectangle
+            // 
+            this.CreateRectangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CreateRectangle.BackgroundImage")));
+            this.CreateRectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CreateRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateRectangle.Location = new System.Drawing.Point(3, 215);
+            this.CreateRectangle.Name = "CreateRectangle";
+            this.CreateRectangle.Size = new System.Drawing.Size(30, 30);
+            this.CreateRectangle.TabIndex = 4;
+            this.CreateRectangle.UseVisualStyleBackColor = true;
+            this.CreateRectangle.Click += new System.EventHandler(this.CreateRectangle_Click);
+            // 
+            // ReloadButton
+            // 
+            this.ReloadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadButton.BackgroundImage")));
+            this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReloadButton.Location = new System.Drawing.Point(3, 42);
+            this.ReloadButton.Name = "ReloadButton";
+            this.ReloadButton.Size = new System.Drawing.Size(30, 30);
+            this.ReloadButton.TabIndex = 3;
+            this.ReloadButton.UseVisualStyleBackColor = true;
+            this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
+            // 
+            // SaveCurrentMap
+            // 
+            this.SaveCurrentMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveCurrentMap.BackgroundImage")));
+            this.SaveCurrentMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveCurrentMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveCurrentMap.Location = new System.Drawing.Point(3, 7);
+            this.SaveCurrentMap.Name = "SaveCurrentMap";
+            this.SaveCurrentMap.Size = new System.Drawing.Size(30, 30);
+            this.SaveCurrentMap.TabIndex = 1;
+            this.SaveCurrentMap.UseVisualStyleBackColor = true;
+            this.SaveCurrentMap.Click += new System.EventHandler(this.SaveCurrentMap_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.PathNodeTool);
             this.Controls.Add(this.ToggleBoundsButton);
             this.Controls.Add(this.ToggleLightButton);
             this.Controls.Add(this.CameraPanel);
@@ -209,5 +223,6 @@
         private System.Windows.Forms.Button CameraPanel;
         private System.Windows.Forms.Button ToggleLightButton;
         private System.Windows.Forms.Button ToggleBoundsButton;
+        private System.Windows.Forms.Button PathNodeTool;
     }
 }
