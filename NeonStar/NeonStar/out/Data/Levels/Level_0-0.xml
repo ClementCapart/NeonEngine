@@ -38,9 +38,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:189}" />
+              <Center Value="{X:-450 Y:190}" />
               <X Value="-470" />
-              <Y Value="121" />
+              <Y Value="122" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -122,50 +122,6 @@
               <MaxJumpInputDelay Value="0.5" />
             </Properties>
           </ThirdPersonController>
-          <ParticleEmitter Type="NeonEngine.ParticleEmitter" ID="6">
-            <Properties>
-              <MovementType Value="Linear" />
-              <MinimumDispersionAngle Value="-90" />
-              <MaximumDispersionAngle Value="90" />
-              <MininimumStartingSpeed Value="50" />
-              <MaximumStartingSpeed Value="70" />
-              <MinimumEndingSpeed Value="100" />
-              <MaximumEndingSpeed Value="70" />
-              <MinimumDuration Value="2" />
-              <MaximumDuration Value="3" />
-              <MaximumSpawnPerTick Value="3" />
-              <MinimumSpawnPerTick Value="1" />
-              <MinimumFadeInTime Value="0.4" />
-              <MaximumFadeInTime Value="0.4" />
-              <MinimumFadeOutTime Value="0.3" />
-              <MaximumFadeOutTime Value="0.3" />
-              <SpawnRate Value="0.6" />
-              <MinimumOpacity Value="0.7" />
-              <MaximumOpacity Value="1" />
-              <MinimumStartingBrightness Value="1" />
-              <MaximumStartingBrightness Value="1" />
-              <MinimumEndingBrightness Value="1" />
-              <MaximumEndingBrightness Value="1" />
-              <StartingColor Value="{R:255 G:255 B:255 A:255}" />
-              <EndingColor Value="{R:255 G:255 B:255 A:255}" />
-              <MinimumStartingOpacity Value="0.5" />
-              <MaximumStartingOpacity Value="0.5" />
-              <MinimumEndingOpacity Value="1" />
-              <MaximumEndingOpacity Value="1" />
-              <MinimumStartingScale Value="0.7" />
-              <MaximumStartingScale Value="1.5" />
-              <MinimumEndingScale Value="1" />
-              <MaximumEndingScale Value="2" />
-              <GraphicTag Value="RedParticle" />
-              <SpriteSheetTag Value="HoloScreen2" />
-              <UseSpriteSheet Value="False" />
-              <Loop Value="False" />
-              <StartAtRandomFrame Value="False" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </ParticleEmitter>
         </Components>
       </Entity>
       <Entity Name="Enemy">
