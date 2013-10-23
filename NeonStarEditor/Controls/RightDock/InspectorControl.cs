@@ -299,6 +299,23 @@ namespace NeonStarEditor
 
                         localY += ssinspector.Height + 5;
                     }
+                    else if(pi.PropertyType.Equals(typeof(PathNodeList)))
+                    {
+                        ComboBox cb = new ComboBox();
+                        cb.DropDownStyle = ComboBoxStyle.DropDownList;
+                        cb.Location = new Point(10, localY);
+                        cb.BindingContext = new BindingContext();
+                        cb.DataSource = GameWorld.NodeLists;
+                        cb.DisplayMember = "Name";
+                        gb.Controls.Add(cb);
+                        cb.SelectedIndex = GameWorld.NodeLists.IndexOf((PathNodeList)pi.GetValue(c, null));
+                        
+
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, cb));
+
+                        cb.SelectedValueChanged += cb_SelectedValueChanged;
+                        localY += cb.Height + 5;
+                    }
                 }
 
                 Y += localY != 20 ? localY + 50 : gb.Height + 10;
@@ -320,6 +337,12 @@ namespace NeonStarEditor
 
                 Inspector.Controls.Add(gb);
             }
+        }
+
+        void cb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            pcc.pi.SetValue(pcc.c, (PathNodeList)((sender as ComboBox).SelectedValue), null);
         }
 
         void chooseColor_Click(object sender, EventArgs e)

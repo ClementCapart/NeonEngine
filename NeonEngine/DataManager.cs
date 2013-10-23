@@ -58,6 +58,11 @@ namespace NeonEngine
 
                                 Properties.Add(Property);
                             }
+                            else if(pi.PropertyType.Equals(typeof(PathNodeList)))
+                            {
+                                XElement Property = new XElement(pi.Name, new XAttribute("Value", (pi.GetValue(c, null) as PathNodeList).Name));
+                                Properties.Add(Property);
+                            }
                             else
                             {
                                 XElement Property = null;
@@ -160,6 +165,11 @@ namespace NeonEngine
 
                             Properties.Add(Property);
                         }
+                        else if (pi.PropertyType.Equals(typeof(PathNodeList)))
+                        {
+                            XElement Property = new XElement(pi.Name, new XAttribute("Value", (pi.GetValue(c, null) as PathNodeList).Name));
+                            Properties.Add(Property);
+                        }
                         else
                         {
                             XElement Property = null;
@@ -233,9 +243,11 @@ namespace NeonEngine
                     {
 
                         PropertyInfo pi = t.GetProperty(Property.Name.ToString());
-
+                        
                         if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                             continue;
+                        else if (pi.PropertyType.Equals(typeof(PathNodeList)))
+                            pi.SetValue(component, gameWorld.NodeLists.First(nl => nl.Name == Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Vector2)))
                             pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Color)))

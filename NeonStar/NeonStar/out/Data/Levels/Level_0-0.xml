@@ -128,7 +128,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:737 Y:200}" />
+              <Position Value="{X:232,9999 Y:240,0432}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -137,9 +137,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:737 Y:185}" />
-              <X Value="700" />
-              <Y Value="128" />
+              <Center Value="{X:232 Y:225}" />
+              <X Value="195" />
+              <Y Value="168" />
               <OffsetX Value="0" />
               <OffsetY Value="-15" />
               <Width Value="75" />
@@ -179,6 +179,15 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
+          <FollowNodes Type="NeonEngine.FollowNodes" ID="5">
+            <Properties>
+              <CurrentNodeList Value="NodeLis" />
+              <Speed Value="100" />
+              <Roundtrip Value="False" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="5" />
+            </Properties>
+          </FollowNodes>
         </Components>
       </Entity>
       <Entity Name="RoomFences">
@@ -640,7 +649,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-0,8 Y:-500}" />
+              <Position Value="{X:173,6 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -688,10 +697,8 @@
     </Entities>
     <PathNodeLists>
       <PathNodeList Name="NodeLis" Type="Ground">
-        <Node Type="Move" Index="0" Position="{X:-209 Y:36}" />
-        <Node Type="Move" Index="1" Position="{X:55 Y:46}" />
-        <Node Type="Move" Index="2" Position="{X:221 Y:-64}" />
-        <Node Type="Jump" Index="3" Position="{X:-50 Y:-107}" />
+        <Node Type="Move" Index="0" Position="{X:-227 Y:265}" />
+        <Node Type="Move" Index="1" Position="{X:233 Y:265}" />
       </PathNodeList>
       <PathNodeList Name="NoList2" Type="Ground">
         <Node Type="Move" Index="0" Position="{X:-342 Y:-14}" />

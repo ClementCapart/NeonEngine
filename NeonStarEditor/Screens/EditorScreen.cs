@@ -153,7 +153,7 @@ namespace NeonStarEditor
         {
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
-            if (CurrentTool != null)
+            if (CurrentTool != null && MouseInGameWindow)
                 CurrentTool.Update(gameTime);
 
             if (Neon.Input.MouseCheck(MouseButton.MiddleButton) && MouseInGameWindow)

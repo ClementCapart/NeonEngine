@@ -137,5 +137,16 @@ namespace NeonStarEditor
                 CurrentNodeSelected.Type = (NodeType)Enum.Parse(typeof(NodeType), (sender as ComboBox).SelectedItem.ToString());
             }
         }
+
+        private void Align_Click(object sender, EventArgs e)
+        {
+            if (CurrentNodeSelected != null)
+            {
+                foreach (Node n in GameWorld.NodeLists[NodeLists.SelectedIndex].Nodes)
+                {
+                    n.Position.Y = CurrentNodeSelected.Position.Y;
+                }
+            }
+        }
     }
 }

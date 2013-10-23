@@ -34,9 +34,7 @@ namespace NeonEngine
 
             XElement PathNodeLists = Level.Element("PathNodeLists");
 
-            if(Entities != null)
-                EntityImport(Entities, container);
-
+           
             if (PathNodeLists != null)
             {
                 foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))
@@ -57,6 +55,9 @@ namespace NeonEngine
                     container.NodeLists.Add(pnl);
                 }
             }
+
+            if (Entities != null)
+                EntityImport(Entities, container);
             
             if(WaterZones != null)
                 if (WaterZones != null)
@@ -116,14 +117,16 @@ namespace NeonEngine
 
                             if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                                 continue;
+                            else if (pi.PropertyType.Equals(typeof(PathNodeList)))
+                                pi.SetValue(component, containerWorld.NodeLists.Where(nl => nl.Name == Property.Attribute("Value").Value).First(), null);
                             else if (pi.PropertyType.Equals(typeof(Vector2)))
                                 pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
-                            else if(pi.PropertyType.Equals(typeof(Color)))
+                            else if (pi.PropertyType.Equals(typeof(Color)))
                                 pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.IsEnum)
                                 pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Single)))
-                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture),  null);
+                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture), null);
                             else if (pi.PropertyType.Equals(typeof(bool)))
                                 pi.SetValue(component, bool.Parse(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Int32)))
