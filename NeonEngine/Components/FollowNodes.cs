@@ -19,7 +19,7 @@ namespace NeonEngine
             }
         }
 
-        private float _speed = 100f;
+        private float _speed = 1f;
 
         public float Speed
         {
@@ -53,6 +53,7 @@ namespace NeonEngine
 
         private Node _nextNode;
         private Node _previousNode;
+        private bool _reverse;
 
         public FollowNodes(Entity entity)
             :base(entity, "FollowNodes")
@@ -78,6 +79,9 @@ namespace NeonEngine
                 }
                 _nextNode = CloserNode;
             }
+
+            _reverseStart = _reverse;
+
             base.Init();
         }
 
@@ -87,15 +91,45 @@ namespace NeonEngine
             {
                 if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
                     SearchNextNode();
-            }
-                
+
+                if(this._nextNode.Position.X < this.entity.transform.Position.X)
+                {
+                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, 0);
+                }
+                else
+                {
+                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, 0);
+                }
+            }               
             
             base.Update(gameTime);
         }
 
         private void SearchNextNode()
         {
+            this._previousNode = this._nextNode;
 
+            int newIndex = 0;
+            int oldIndex = _currentNodeList.Nodes.IndexOf(_previousNode);
+            if (_roundtrip)
+            {
+                if (oldIndex == 0)
+                {
+                    newIndex = 1;
+                    _reverse = false;
+                }
+                else if (oldIndex == _currentNodeList.Nodes.Count - 1)
+                {
+                    newIndex = _currentNodeList.Nodes.Count - 2;
+                    _reverse = true;
+                }
+                else
+                {
+                    newIndex = oldIndex + (_reverse ? -1 : 1);
+                }
+
+            }
+            this._nextNode = _currentNodeList.Nodes[newIndex];
         }
 
     }

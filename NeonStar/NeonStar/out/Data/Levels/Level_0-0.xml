@@ -128,7 +128,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:232,9999 Y:240,0432}" />
+              <Position Value="{X:12,16851 Y:240,3673}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -137,8 +137,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:232 Y:225}" />
-              <X Value="195" />
+              <Center Value="{X:12 Y:225}" />
+              <X Value="-25" />
               <Y Value="168" />
               <OffsetX Value="0" />
               <OffsetY Value="-15" />
@@ -182,10 +182,10 @@
           <FollowNodes Type="NeonEngine.FollowNodes" ID="5">
             <Properties>
               <CurrentNodeList Value="NodeLis" />
-              <Speed Value="100" />
-              <Roundtrip Value="False" />
+              <Speed Value="5" />
+              <Roundtrip Value="True" />
               <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="5" />
+              <PathPrecisionTreshold Value="10" />
             </Properties>
           </FollowNodes>
         </Components>
@@ -375,6 +375,11 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="NodeLis" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry">
@@ -649,7 +654,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:173,6 Y:-500}" />
+              <Position Value="{X:130,4 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
