@@ -60,8 +60,14 @@ namespace NeonEngine
                             }
                             else if(pi.PropertyType.Equals(typeof(PathNodeList)))
                             {
-                                XElement Property = new XElement(pi.Name, new XAttribute("Value", (pi.GetValue(c, null) as PathNodeList).Name));
-                                Properties.Add(Property);
+                                PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
+                                XElement Property;
+                                if (pnl != null)
+                                {
+                                    Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
+                                    Properties.Add(Property);
+                                }
+                                
                             }
                             else
                             {
@@ -167,8 +173,13 @@ namespace NeonEngine
                         }
                         else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                         {
-                            XElement Property = new XElement(pi.Name, new XAttribute("Value", (pi.GetValue(c, null) as PathNodeList).Name));
-                            Properties.Add(Property);
+                            PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
+                            XElement Property;
+                            if (pnl != null)
+                            {
+                                Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
+                                Properties.Add(Property);
+                            }
                         }
                         else
                         {

@@ -38,9 +38,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:190}" />
+              <Center Value="{X:-450 Y:189}" />
               <X Value="-470" />
-              <Y Value="122" />
+              <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -128,7 +128,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:12,16851 Y:240,3673}" />
+              <Position Value="{X:1232,955 Y:240}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -137,9 +137,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:12 Y:225}" />
-              <X Value="-25" />
-              <Y Value="168" />
+              <Center Value="{X:1232 Y:209}" />
+              <X Value="1195" />
+              <Y Value="152" />
               <OffsetX Value="0" />
               <OffsetY Value="-15" />
               <Width Value="75" />
@@ -179,13 +179,13 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
-          <FollowNodes Type="NeonEngine.FollowNodes" ID="5">
+          <FollowNodes Type="NeonEngine.FollowPlatformNodes" ID="5">
             <Properties>
-              <CurrentNodeList Value="NodeLis" />
-              <Speed Value="5" />
+              <CurrentNodeList Value="NodeList2" />
+              <Speed Value="3" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="10" />
+              <PathPrecisionTreshold Value="5" />
             </Properties>
           </FollowNodes>
         </Components>
@@ -420,6 +420,11 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="NodeList2" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry">
@@ -460,6 +465,11 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="NodeList1" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry">
@@ -654,7 +664,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:130,4 Y:-500}" />
+              <Position Value="{X:1003,2 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -705,16 +715,13 @@
         <Node Type="Move" Index="0" Position="{X:-227 Y:265}" />
         <Node Type="Move" Index="1" Position="{X:233 Y:265}" />
       </PathNodeList>
-      <PathNodeList Name="NoList2" Type="Ground">
-        <Node Type="Move" Index="0" Position="{X:-342 Y:-14}" />
-        <Node Type="Move" Index="1" Position="{X:59 Y:-47}" />
-        <Node Type="Move" Index="2" Position="{X:27 Y:230}" />
-        <Node Type="Move" Index="3" Position="{X:-381 Y:176}" />
-        <Node Type="Move" Index="4" Position="{X:-30 Y:-152}" />
-        <Node Type="Move" Index="5" Position="{X:145 Y:-187}" />
-        <Node Type="Move" Index="6" Position="{X:301 Y:-133}" />
-        <Node Type="Move" Index="7" Position="{X:306 Y:94}" />
-        <Node Type="Move" Index="8" Position="{X:286 Y:195}" />
+      <PathNodeList Name="NodeList1" Type="Ground">
+        <Node Type="Move" Index="0" Position="{X:401 Y:222}" />
+        <Node Type="Move" Index="1" Position="{X:905 Y:224}" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList2" Type="Ground">
+        <Node Type="Move" Index="0" Position="{X:1181 Y:259}" />
+        <Node Type="Move" Index="1" Position="{X:1406 Y:259}" />
       </PathNodeList>
     </PathNodeLists>
   </Level>

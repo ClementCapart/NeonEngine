@@ -42,6 +42,7 @@ namespace NeonEngine.Private
         {
             this.hitbox = hitbox;
             this.PhysicWorld = PhysicWorld;
+            RefreshRaycastPosition();
         }
 
         public void RefreshRaycastPosition()

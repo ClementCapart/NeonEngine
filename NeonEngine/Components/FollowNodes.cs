@@ -62,45 +62,49 @@ namespace NeonEngine
 
         public override void Init()
         {
-            if (_currentNodeList == null)
+            if (_currentNodeList != null)
             {
-                _currentNodeList = entity.containerWorld.NodeLists[0];
-            }
-            if (_currentNodeList.Type == PathType.Ground)
-            {
-                Node CloserNode = CurrentNodeList.Nodes[0];
-
-                for (int i = 1; i < CurrentNodeList.Nodes.Count; i++ )
+                if (_currentNodeList.Type == PathType.Ground)
                 {
-                    if (Math.Sqrt(Math.Pow(CurrentNodeList.Nodes[i].Position.X - entity.transform.Position.X, 2)) < Math.Sqrt(Math.Pow(CloserNode.Position.X - entity.transform.Position.X, 2)))
-                    {
-                        CloserNode = CurrentNodeList.Nodes[i];
-                    }
-                }
-                _nextNode = CloserNode;
-            }
+                    Node CloserNode = CurrentNodeList.Nodes[0];
 
-            _reverseStart = _reverse;
+                    for (int i = 1; i < CurrentNodeList.Nodes.Count; i++)
+                    {
+                        if (Math.Sqrt(Math.Pow(CurrentNodeList.Nodes[i].Position.X - entity.transform.Position.X, 2)) < Math.Sqrt(Math.Pow(CloserNode.Position.X - entity.transform.Position.X, 2)))
+                        {
+                            CloserNode = CurrentNodeList.Nodes[i];
+                        }
+                    }
+                    _nextNode = CloserNode;
+                }
+
+                _reverseStart = _reverse;
+            }
+            
 
             base.Init();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_currentNodeList.Type == PathType.Ground)
+            if (CurrentNodeList != null)
             {
-                if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
-                    SearchNextNode();
+                if (_currentNodeList.Type == PathType.Ground)
+                {
+                    if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
+                        SearchNextNode();
 
-                if(this._nextNode.Position.X < this.entity.transform.Position.X)
-                {
-                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, 0);
-                }
-                else
-                {
-                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, 0);
-                }
-            }               
+                    if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                    {
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, 0);
+                    }
+                    else
+                    {
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, 0);
+                    }
+                }   
+            }
+                        
             
             base.Update(gameTime);
         }

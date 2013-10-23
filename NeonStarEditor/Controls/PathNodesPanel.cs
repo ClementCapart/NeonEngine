@@ -55,6 +55,7 @@ namespace NeonStarEditor
             if (this.NodeLists.SelectedItem != null)
             {
                 this.GameWorld.NodeLists.RemoveAt(this.NodeLists.SelectedIndex);
+                this.NodeLists.SelectedIndex = -1;
                 this.InitializeData();
             }
         }
