@@ -1,9 +1,11 @@
-﻿using System;
+﻿using NeonEngine;
+using NeonStarLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine
+namespace NeonStarLibrary
 {
     public class FollowNodes : Component
     {
@@ -55,6 +57,8 @@ namespace NeonEngine
         private Node _previousNode;
         private bool _reverse;
 
+        public Enemy EnemyComponent;
+
         public bool Active = true;
 
         public FollowNodes(Entity entity)
@@ -64,6 +68,7 @@ namespace NeonEngine
 
         public override void Init()
         {
+            this.EnemyComponent = entity.GetComponent<Enemy>();
             if (_currentNodeList != null)
             {
                 if (_currentNodeList.Type == PathType.Ground)
@@ -95,7 +100,7 @@ namespace NeonEngine
                 {
                     if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
                         SearchNextNode();
-                    if (Active)
+                    if (EnemyComponent.State == EnemyState.Patrol)
                     {
                         if (this._nextNode.Position.X < this.entity.transform.Position.X)
                         {

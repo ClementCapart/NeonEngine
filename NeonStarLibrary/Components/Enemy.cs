@@ -8,6 +8,15 @@ using System.Text;
 
 namespace NeonStarLibrary
 {
+    public enum EnemyState
+    {
+        Idle,
+        Patrol,
+        Chase,
+        Attack,
+        StunLock
+    }
+
     public class Enemy : Component
     {
         private bool _debug;
@@ -23,11 +32,14 @@ namespace NeonStarLibrary
             set { _startingHealthPoints = value; }
         }
 
+        public EnemyState State;
+
         private float _currentHealthPoints;
         private float _airLockDuration = 0.0f;
 
         public FollowNodes _followNodes;
         public ThreatArea _threatArea;
+        public Chase _chase;
         public bool CanMove = true;
         private float _stunLockDuration = 0.0f;
 
@@ -42,6 +54,8 @@ namespace NeonStarLibrary
                 _threatArea = entity.GetComponent<ThreatArea>();
             if (_followNodes == null)
                 _followNodes = entity.GetComponent<FollowNodes>();
+            if (_chase == null)
+                _chase = entity.GetComponent<Chase>();
             _currentHealthPoints = _startingHealthPoints;
             base.Init();
         }
@@ -61,9 +75,7 @@ namespace NeonStarLibrary
             if (_stunLockDuration > 0)
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                CanMove = false;
-                if (_followNodes != null)
-                    _followNodes.Active = false;
+                State = EnemyState.StunLock;
             }         
         }
 
@@ -97,16 +109,20 @@ namespace NeonStarLibrary
             if (_stunLockDuration > 0)
             {
                 _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                CanMove = false;
-                if (_followNodes != null)
-                    _followNodes.Active = false;
+                State = EnemyState.StunLock;
             }
             else
-            { 
-                CanMove = true;
-                if (_followNodes != null)
-                    _followNodes.Active = true;
+            {               
+                if (_followNodes != null && (State == EnemyState.Idle || State == EnemyState.StunLock))
+                {
+                    State = EnemyState.Patrol;
+                }
+                else if(_followNodes == null)
+                {
+                    State = EnemyState.Idle;
+                }
             }
+            Console.WriteLine(State);
             base.Update(gameTime);
         }
     }

@@ -30,19 +30,35 @@ namespace NeonStarLibrary
         public ThreatArea(Entity entity)
             :base(entity, "ThreatArea")
         {
-            entity.GetComponent<Enemy>();
+        }
+
+        public override void Init()
+        {
+            EnemyComponent = entity.GetComponent<Enemy>();
             if (EnemyComponent != null)
                 EnemyComponent._threatArea = this;
+            base.Init();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
             {
-               // if (Vector2.Distance(ent.transform.Position, entity.transform.Position) < ThreatRange)
-
+                if (Vector2.Distance(ent.transform.Position, entity.transform.Position) < ThreatRange)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else if (EnemyComponent.State == EnemyState.Chase)
+                {
+                    EnemyComponent.State = EnemyState.Idle;
+                }
             }
             base.Update(gameTime);
+        }
+
+        public void SwitchMode()
+        {
+
         }
 
     }

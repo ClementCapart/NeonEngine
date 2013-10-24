@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NeonEngine
 {
-    class LinkedToPath : Component
+    public class LinkedToPath : Component
     {
         private PathNodeList _linkedPathNodeList;
 
