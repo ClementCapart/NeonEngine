@@ -101,7 +101,15 @@ namespace NeonStarLibrary
         {
             get { return _airLock; }
             set { _airLock = value; }
-        }     
+        }
+
+        private float _stunLock = 0.0f;
+
+        public float StunLock
+        {
+            get { return _stunLock; }
+            set { _stunLock = value; }
+        }
 
         private Side _side = Side.Right;
         public Side CurrentSide
@@ -226,6 +234,7 @@ namespace NeonStarLibrary
             this.Duration = attackInfo.Duration;
             this.AirLock = attackInfo.AirLock;
             this.TargetAirLock = attackInfo.TargetAirLock;
+            this.StunLock = attackInfo.StunLock;
             this.AirOnly = attackInfo.AirOnly;
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
@@ -495,6 +504,7 @@ namespace NeonStarLibrary
             {
                 _hit = true;
                 enemy.ChangeHealthPoints(_damageOnHit);
+                enemy.StunLock(_stunLock);
                 if(!enemy.entity.rigidbody.isGrounded)
                     enemy.AirLock(TargetAirLock);
 

@@ -14,7 +14,7 @@ namespace NeonEngine
         public FollowPlatformNodes(Entity entity)
             :base(entity)
         {
-            
+            this.Name = "FollowPlatformNodes";
         }
 
         public override void Init()

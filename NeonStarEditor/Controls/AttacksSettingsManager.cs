@@ -122,6 +122,9 @@ namespace NeonStarEditor
                 XElement airFactor = new XElement("AirFactor", kvp.Value.AirFactor.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(airFactor);
 
+                XElement stunLock = new XElement("StunLock", kvp.Value.StunLock.ToString("G", CultureInfo.InvariantCulture));
+                attack.Add(stunLock);
+
                 XElement specialEffects = new XElement("SpecialEffects");
                 foreach (AttackEffect effect in kvp.Value.SpecialEffects)
                 {
@@ -346,6 +349,7 @@ namespace NeonStarEditor
             this.GroundCancelCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround;
             this.OnlyOnceInAir.Checked = _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir;
             this.AirFactorNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirFactor;
+            this.StunLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].StunLock;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -554,6 +558,10 @@ namespace NeonStarEditor
 
                 case "AirFactorNU":
                     _attackList[AttacksList.SelectedValue.ToString()].AirFactor = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "StunLockNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].StunLock = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

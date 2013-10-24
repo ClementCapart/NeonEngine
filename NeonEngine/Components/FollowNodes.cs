@@ -19,7 +19,7 @@ namespace NeonEngine
             }
         }
 
-        private float _speed = 1f;
+        private float _speed = 5f;
 
         public float Speed
         {
@@ -27,7 +27,7 @@ namespace NeonEngine
             set { _speed = value; }
         }
 
-        private bool _roundtrip;
+        private bool _roundtrip = true;
 
         public bool Roundtrip
         {
@@ -54,6 +54,8 @@ namespace NeonEngine
         private Node _nextNode;
         private Node _previousNode;
         private bool _reverse;
+
+        public bool Active = true;
 
         public FollowNodes(Entity entity)
             :base(entity, "FollowNodes")
@@ -93,19 +95,20 @@ namespace NeonEngine
                 {
                     if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
                         SearchNextNode();
-
-                    if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                    if (Active)
                     {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, 0);
-                    }
-                    else
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, 0);
-                    }
+                        if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
+                        else
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
+                    }                
                 }   
             }
-                        
-            
+                                   
             base.Update(gameTime);
         }
 

@@ -84,7 +84,7 @@ namespace NeonEngine.Private
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
-                if (fixture.Body != body)
+                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
                     CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).GetComponent<Rigidbody>();
                     hasHit = true;

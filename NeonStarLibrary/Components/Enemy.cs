@@ -26,6 +26,11 @@ namespace NeonStarLibrary
         private float _currentHealthPoints;
         private float _airLockDuration = 0.0f;
 
+        public FollowNodes _followNodes;
+        public ThreatArea _threatArea;
+        public bool CanMove = true;
+        private float _stunLockDuration = 0.0f;
+
         public Enemy(Entity entity)
             :base(entity, "Enemy")
         {
@@ -33,6 +38,10 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            if (_threatArea == null)
+                _threatArea = entity.GetComponent<ThreatArea>();
+            if (_followNodes == null)
+                _followNodes = entity.GetComponent<FollowNodes>();
             _currentHealthPoints = _startingHealthPoints;
             base.Init();
         }
@@ -44,6 +53,18 @@ namespace NeonStarLibrary
             {
                 Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
             }
+        }
+
+        public void StunLock(float duration)
+        {
+            _stunLockDuration = duration;
+            if (_stunLockDuration > 0)
+            {
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                CanMove = false;
+                if (_followNodes != null)
+                    _followNodes.Active = false;
+            }         
         }
 
         public void AirLock(float duration)
@@ -71,6 +92,20 @@ namespace NeonStarLibrary
             {
                 entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                 _airLockDuration = 0.0f;
+            }
+
+            if (_stunLockDuration > 0)
+            {
+                _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                CanMove = false;
+                if (_followNodes != null)
+                    _followNodes.Active = false;
+            }
+            else
+            { 
+                CanMove = true;
+                if (_followNodes != null)
+                    _followNodes.Active = true;
             }
             base.Update(gameTime);
         }
