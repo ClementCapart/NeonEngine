@@ -15,7 +15,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>1</StunLock>
+      <StunLock>0.35</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
@@ -34,7 +34,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.55</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -57,7 +57,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>1.5</StunLock>
+      <StunLock>0.8</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -80,7 +80,7 @@
       <AirLock>0.4</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>1.5</StunLock>
+      <StunLock>0.9</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -103,7 +103,7 @@
       <AirLock>0.5</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.5</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -126,7 +126,7 @@
       <AirLock>0.6</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.6</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -212,7 +212,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.7</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -227,6 +227,7 @@
     <Attack ID="0" Name="DiveEffectFinish" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="43" Width="200" Height="50" />
+        <Hitbox OffsetX="0" OffsetY="-5" Width="80" Height="50" />
       </Hitboxes>
       <DamageOnHit>1</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -238,7 +239,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.8</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
