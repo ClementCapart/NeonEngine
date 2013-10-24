@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-450 Y:190}" />
+              <Position Value="{X:1212,896 Y:229,5}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,9 +38,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:190}" />
-              <X Value="-470" />
-              <Y Value="122" />
+              <Center Value="{X:1212 Y:229}" />
+              <X Value="1192" />
+              <Y Value="161" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -128,7 +128,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:722,4454 Y:199,5105}" />
+              <Position Value="{X:-60,90214 Y:240,5}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -137,9 +137,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:722 Y:169}" />
-              <X Value="685" />
-              <Y Value="112" />
+              <Center Value="{X:-60 Y:210}" />
+              <X Value="-97" />
+              <Y Value="153" />
               <OffsetX Value="0" />
               <OffsetY Value="-15" />
               <Width Value="75" />
@@ -181,10 +181,10 @@
           </Spritesheet>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="5">
             <Properties>
-              <CurrentNodeList Value="NodeList1" />
+              <CurrentNodeList Value="NodeLis" />
               <Speed Value="3" />
               <Roundtrip Value="True" />
-              <ReverseStart Value="False" />
+              <ReverseStart Value="True" />
               <PathPrecisionTreshold Value="5" />
             </Properties>
           </FollowPlatformNodes>
@@ -194,6 +194,11 @@
               <EntityToSearchFor Value="LiOn" />
             </Properties>
           </ThreatArea>
+          <Chase Type="NeonStarLibrary.Chase" ID="7">
+            <Properties>
+              <Speed Value="7" />
+            </Properties>
+          </Chase>
         </Components>
       </Entity>
       <Entity Name="RoomFences">
@@ -670,7 +675,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:502,4 Y:-500}" />
+              <Position Value="{X:966,1439 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />

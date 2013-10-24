@@ -122,7 +122,6 @@ namespace NeonStarLibrary
                     State = EnemyState.Idle;
                 }
             }
-            Console.WriteLine(State);
             base.Update(gameTime);
         }
     }

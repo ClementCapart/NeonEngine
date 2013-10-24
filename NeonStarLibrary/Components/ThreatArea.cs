@@ -10,6 +10,7 @@ namespace NeonStarLibrary
     public class ThreatArea : Component
     {
         public Enemy EnemyComponent;
+        public Entity EntityFollowed;
 
         private float _threatRange = 300f;
 
@@ -46,11 +47,13 @@ namespace NeonStarLibrary
             {
                 if (Vector2.Distance(ent.transform.Position, entity.transform.Position) < ThreatRange)
                 {
+                    EntityFollowed = ent;
                     EnemyComponent.State = EnemyState.Chase;
                 }
                 else if (EnemyComponent.State == EnemyState.Chase)
                 {
                     EnemyComponent.State = EnemyState.Idle;
+                    EntityFollowed = null;
                 }
             }
             base.Update(gameTime);
