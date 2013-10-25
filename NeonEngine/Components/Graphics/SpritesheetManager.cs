@@ -90,9 +90,7 @@ namespace NeonEngine
         }
 
         public void ChangeAnimation(string spriteSheetName, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
-        {         
-            
-
+        {          
             if (CurrentPriority > priority)
                 return;
 

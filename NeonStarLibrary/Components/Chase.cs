@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace NeonStarLibrary
     public class Chase : Component
     {
         public Enemy EnemyComponent;
+        public Vector2 LastTargetPosition;
+        public bool HavingTarget = false;
 
         private float _speed;
 
@@ -17,6 +20,15 @@ namespace NeonStarLibrary
             get { return _speed; }
             set { _speed = value; }
         }
+
+        private float _waitDelay = 1.0f;
+
+        public float WaitDelay
+        {
+            get { return _waitDelay; }
+            set { _waitDelay = value; }
+        }
+        private float _waitTimer = 0.0f;
 
 
         public Chase(Entity entity)
@@ -32,15 +44,101 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (EnemyComponent.State == EnemyState.Chase)
+            if (EnemyComponent.State == EnemyState.FinishChase)
             {
-                if (EnemyComponent._threatArea.EntityFollowed.transform.Position.X < this.entity.transform.Position.X)
+                if (HavingTarget)
                 {
-                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                    if (LastTargetPosition.X < this.entity.transform.Position.X)
+                    {
+                        if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
+                        {
+                            if (this.entity.spritesheets != null)
+                            {
+                                entity.spritesheets.ChangeSide(Side.Left);
+                            }
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
+                        else
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                            HavingTarget = false;
+                            _waitTimer = _waitDelay;
+                        }
+                    }
+                    else
+                    {
+                        if (entity.rigidbody.beacon.CheckRightGround() && !entity.rigidbody.beacon.CheckRightSide())
+                        {
+                            if (this.entity.spritesheets != null)
+                            {
+                                entity.spritesheets.ChangeSide(Side.Right);
+                            }
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
+                        else
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                            _waitTimer = _waitDelay;
+                            HavingTarget = false;
+                        }
+                    }
+
+                    if (LastTargetPosition.X + _speed > entity.transform.Position.X && LastTargetPosition.X - _speed < entity.transform.Position.X)
+                    {
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                        HavingTarget = false;
+                        _waitTimer = _waitDelay;
+                    }
+                }
+                else if (_waitTimer > 0.0f)
+                {
+                    _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    entity.spritesheets.ChangeAnimation("idle");
                 }
                 else
                 {
-                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                    EnemyComponent.State = EnemyState.Idle;
+                    EnemyComponent._threatArea.ShouldDetectAgain = false;
+                }
+            }
+            else if (EnemyComponent.State == EnemyState.Chase)
+            {
+                HavingTarget = true;
+                LastTargetPosition = new Vector2(EnemyComponent._threatArea.EntityFollowed.transform.Position.X, EnemyComponent._threatArea.EntityFollowed.transform.Position.Y);
+                
+                if (LastTargetPosition.X < this.entity.transform.Position.X)
+                {
+                    if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
+                    {
+                        if (this.entity.spritesheets != null)
+                        {
+                            entity.spritesheets.ChangeSide(Side.Left);
+                        }
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                    }
+                    else
+                    {
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                        _waitTimer = _waitDelay;
+                        EnemyComponent.State = EnemyState.FinishChase;
+                    }
+                }
+                else
+                {
+                    if (entity.rigidbody.beacon.CheckRightGround() && !entity.rigidbody.beacon.CheckRightSide())
+                    {
+                        if (this.entity.spritesheets != null)
+                        {
+                            entity.spritesheets.ChangeSide(Side.Right);
+                        }
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                    }
+                    else
+                    {
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                        _waitTimer = _waitDelay;
+                        EnemyComponent.State = EnemyState.FinishChase;
+                    }                     
                 }
             }
             base.Update(gameTime);

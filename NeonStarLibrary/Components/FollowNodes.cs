@@ -104,10 +104,18 @@ namespace NeonStarLibrary
                     {
                         if (this._nextNode.Position.X < this.entity.transform.Position.X)
                         {
+                            if (entity.spritesheets != null)
+                            {
+                                entity.spritesheets.ChangeSide(Side.Left);
+                            }
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
                         }
                         else
                         {
+                            if (entity.spritesheets != null)
+                            {
+                                entity.spritesheets.ChangeSide(Side.Right);
+                            }
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
                         }
                     }                

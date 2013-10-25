@@ -13,6 +13,7 @@ namespace NeonStarLibrary
         Idle,
         Patrol,
         Chase,
+        FinishChase,
         Attack,
         StunLock
     }
@@ -42,6 +43,14 @@ namespace NeonStarLibrary
         public Chase _chase;
         public bool CanMove = true;
         private float _stunLockDuration = 0.0f;
+
+        private string _runAnim = "";
+
+        public string RunAnim
+        {
+            get { return _runAnim; }
+            set { _runAnim = value; }
+        }
 
         public Enemy(Entity entity)
             :base(entity, "Enemy")
@@ -112,16 +121,35 @@ namespace NeonStarLibrary
                 State = EnemyState.StunLock;
             }
             else
-            {               
-                if (_followNodes != null && (State == EnemyState.Idle || State == EnemyState.StunLock))
+            {
+                if (State == EnemyState.Idle && _followNodes != null)
                 {
                     State = EnemyState.Patrol;
                 }
-                else if(_followNodes == null)
+                else if(_followNodes == null || State == EnemyState.StunLock)
                 {
                     State = EnemyState.Idle;
                 }
             }
+
+            if (entity.spritesheets != null)
+            {
+                switch (State)
+                {
+                    case EnemyState.Patrol:
+                        entity.spritesheets.ChangeAnimation(_runAnim);
+                        break;
+
+                    case EnemyState.Chase:
+                        entity.spritesheets.ChangeAnimation(_runAnim);
+                        break;
+
+                    case EnemyState.FinishChase:
+                        entity.spritesheets.ChangeAnimation(_runAnim);
+                        break;
+                }
+            }
+            
             base.Update(gameTime);
         }
     }

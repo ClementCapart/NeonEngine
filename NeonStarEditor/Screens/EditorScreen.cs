@@ -18,7 +18,6 @@ namespace NeonStarEditor
     public class EditorScreen : GameScreen
     {
         public bool EntityChangedThisFrame = false;
-
         public bool DisplayAllPathNodeList = false;
 
         public bool EditorVisible = true;

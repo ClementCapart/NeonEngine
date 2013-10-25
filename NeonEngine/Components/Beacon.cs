@@ -47,7 +47,7 @@ namespace NeonEngine.Private
 
         public void RefreshRaycastPosition()
         {
-            GroundRaycast = new Vector2(hitbox.X - hitbox.OffsetX + hitbox.Width / 2, hitbox.Y - hitbox.OffsetY + hitbox.Height - 5);
+            GroundRaycast = new Vector2(hitbox.Center.X - hitbox.OffsetX, hitbox.Center.Y - hitbox.OffsetY + hitbox.Height / 2- 5);
             GroundRaycastTarget = GroundRaycast + new Vector2(0, 8);
 
             RearGroundRaycast = GroundRaycastTarget;
@@ -56,14 +56,14 @@ namespace NeonEngine.Private
             FrontGroundRaycast = GroundRaycastTarget;
             FrontGroundRaycastTarget = FrontGroundRaycast + new Vector2(hitbox.Width / 2 + 2, 0);
 
-            LeftRaycast = new Vector2(hitbox.X + 5, hitbox.Y + hitbox.Height / 2);
+            LeftRaycast = new Vector2(hitbox.Center.X - hitbox.Width / 2 - hitbox.OffsetX + 5, hitbox.Center.Y - hitbox.OffsetY);
             LeftRaycastTarget = LeftRaycast + new Vector2(-10, 0);
             LeftBottomRaycast = LeftRaycastTarget;
             LeftBottomRaycastTarget = LeftRaycastTarget + new Vector2(0, hitbox.Height / 2);
             LeftTopRaycast = LeftRaycastTarget;
             LeftTopRaycastTarget = LeftRaycastTarget + new Vector2(0, -hitbox.Height / 2);
 
-            RightRaycast = new Vector2(hitbox.X + hitbox.Width - 5, hitbox.Y + hitbox.Height / 2);
+            RightRaycast = new Vector2(hitbox.X - hitbox.OffsetX + hitbox.Width - 5, (hitbox.Y + hitbox.Height / 2) - hitbox.OffsetY);
             RightRaycastTarget = RightRaycast + new Vector2(10, 0);
             RightBottomRaycast = RightRaycastTarget;
             RightBottomRaycastTarget = RightRaycastTarget + new Vector2(0, hitbox.Height / 2);
@@ -125,6 +125,44 @@ namespace NeonEngine.Private
             }
 
             return CurrentGround;
+        }
+
+        public bool CheckLeftGround(Body body = null)
+        {
+            bool hasHit = false;
+
+            PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+            {
+                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                {
+                    hasHit = true;
+                    return 0;
+                }
+                return -1;
+            },
+            CoordinateConversion.screenToWorld(LeftRaycastTarget + new Vector2(-10, 0)),
+            CoordinateConversion.screenToWorld(LeftRaycastTarget + new Vector2(-10,  hitbox.Height / 2 + 5)));
+
+            return hasHit;
+        }
+
+        public bool CheckRightGround(Body body = null)
+        {
+            bool hasHit = false;
+
+            PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+            {
+                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                {
+                    hasHit = true;
+                    return 0;
+                }
+                return -1;
+            },
+            CoordinateConversion.screenToWorld(RightRaycastTarget + new Vector2(10, 0)),
+            CoordinateConversion.screenToWorld(RightRaycastTarget + new Vector2(10, hitbox.Height / 2 + 5)));
+
+            return hasHit;
         }
 
         public bool CheckLeftSide(Body body = null)

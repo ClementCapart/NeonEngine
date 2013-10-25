@@ -11,6 +11,7 @@ namespace NeonStarLibrary
     {
         public Enemy EnemyComponent;
         public Entity EntityFollowed;
+        public bool ShouldDetectAgain = true;
 
         private float _threatRange = 300f;
 
@@ -43,26 +44,42 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
+            if (EntityFollowed != null)
             {
-                if (Vector2.Distance(ent.transform.Position, entity.transform.Position) < ThreatRange)
+                if (EnemyComponent.State == EnemyState.Patrol && ShouldDetectAgain || EnemyComponent.State == EnemyState.Chase)
                 {
-                    EntityFollowed = ent;
-                    EnemyComponent.State = EnemyState.Chase;
+                    if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else if (EnemyComponent.State == EnemyState.Chase)
+                    {
+                        EnemyComponent.State = EnemyState.FinishChase;
+                    }
                 }
-                else if (EnemyComponent.State == EnemyState.Chase)
+                else
                 {
-                    EnemyComponent.State = EnemyState.Idle;
-                    EntityFollowed = null;
+                    Rigidbody rg = EntityFollowed.rigidbody.beacon.CheckGround();
+                    Rigidbody rg2 = this.entity.rigidbody.beacon.CheckGround();
+                    if (rg != null && rg2 != null && rg == rg2)
+                    {
+                        ShouldDetectAgain = true;
+                    }
+                }
+            }   
+            else
+            {
+                foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
+                {
+                    if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < ThreatRange * ThreatRange)
+                    {
+                        EntityFollowed = ent;
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
                 }
             }
+           
             base.Update(gameTime);
         }
-
-        public void SwitchMode()
-        {
-
-        }
-
     }
 }
