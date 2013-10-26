@@ -13,12 +13,22 @@ namespace NeonStarLibrary
         public Entity EntityFollowed;
         public bool ShouldDetectAgain = true;
 
+        public Entity EntityAttacked;
+
         private float _threatRange = 300f;
 
         public float ThreatRange
         {
             get { return _threatRange; }
             set { _threatRange = value; }
+        }
+
+        private float _attackRange = 150f;
+
+        public float AttackRange
+        {
+            get { return _attackRange; }
+            set { _attackRange = value; }
         }
 
         private string _entityToSearchFor= "";
@@ -43,12 +53,16 @@ namespace NeonStarLibrary
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
+        {           
             if (EntityFollowed != null)
             {
-                if (EnemyComponent.State == EnemyState.Patrol && ShouldDetectAgain || EnemyComponent.State == EnemyState.Chase)
+                if (ShouldDetectAgain && EnemyComponent.State != EnemyState.Wait && EnemyComponent.State != EnemyState.MustFinishChase)
                 {
-                    if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
+                    if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
+                    {
+                        EnemyComponent.State = EnemyState.Attack;
+                    }
+                    else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
                         EnemyComponent.State = EnemyState.Chase;
                     }
@@ -76,9 +90,14 @@ namespace NeonStarLibrary
                         EntityFollowed = ent;
                         EnemyComponent.State = EnemyState.Chase;
                     }
+
+                    if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
+                    {
+                        EntityFollowed = ent;
+                        EnemyComponent.State = EnemyState.Attack;
+                    }
                 }
             }
-           
             base.Update(gameTime);
         }
     }

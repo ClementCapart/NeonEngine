@@ -44,6 +44,9 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (EnemyComponent.State == EnemyState.MustFinishChase)
+                EnemyComponent.State = EnemyState.FinishChase;
+
             if (EnemyComponent.State == EnemyState.FinishChase)
             {
                 if (HavingTarget)
@@ -62,6 +65,7 @@ namespace NeonStarLibrary
                         {
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                             HavingTarget = false;
+                            EnemyComponent.State = EnemyState.Wait;
                             _waitTimer = _waitDelay;
                         }
                     }
@@ -78,6 +82,7 @@ namespace NeonStarLibrary
                         else
                         {
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                            EnemyComponent.State = EnemyState.Wait;
                             _waitTimer = _waitDelay;
                             HavingTarget = false;
                         }
@@ -87,25 +92,28 @@ namespace NeonStarLibrary
                     {
                         this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                         HavingTarget = false;
+                        EnemyComponent.State = EnemyState.Wait;
                         _waitTimer = _waitDelay;
                     }
-                }
-                else if (_waitTimer > 0.0f)
+                }           
+            }
+            else if (EnemyComponent.State == EnemyState.Wait)
+            {
+                if (_waitTimer > 0.0f)
                 {
                     _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    entity.spritesheets.ChangeAnimation("idle");
                 }
                 else
                 {
-                    EnemyComponent.State = EnemyState.Idle;
                     EnemyComponent._threatArea.ShouldDetectAgain = false;
+                    EnemyComponent.State = EnemyState.Idle;
                 }
             }
             else if (EnemyComponent.State == EnemyState.Chase)
             {
                 HavingTarget = true;
                 LastTargetPosition = new Vector2(EnemyComponent._threatArea.EntityFollowed.transform.Position.X, EnemyComponent._threatArea.EntityFollowed.transform.Position.Y);
-                
+
                 if (LastTargetPosition.X < this.entity.transform.Position.X)
                 {
                     if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
@@ -120,7 +128,7 @@ namespace NeonStarLibrary
                     {
                         this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                         _waitTimer = _waitDelay;
-                        EnemyComponent.State = EnemyState.FinishChase;
+                        EnemyComponent.State = EnemyState.MustFinishChase;
                     }
                 }
                 else
@@ -137,8 +145,8 @@ namespace NeonStarLibrary
                     {
                         this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                         _waitTimer = _waitDelay;
-                        EnemyComponent.State = EnemyState.FinishChase;
-                    }                     
+                        EnemyComponent.State = EnemyState.MustFinishChase;
+                    }
                 }
             }
             base.Update(gameTime);

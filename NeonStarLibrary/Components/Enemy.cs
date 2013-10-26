@@ -13,7 +13,9 @@ namespace NeonStarLibrary
         Idle,
         Patrol,
         Chase,
+        MustFinishChase,
         FinishChase,
+        Wait,
         Attack,
         StunLock
     }
@@ -50,6 +52,22 @@ namespace NeonStarLibrary
         {
             get { return _runAnim; }
             set { _runAnim = value; }
+        }
+
+        private string _idleAnim = "";
+
+        public string IdleAnim
+        {
+            get { return _idleAnim; }
+            set { _idleAnim = value; }
+        }
+
+        private string _attackAnim = "";
+
+        public string AttackAnim
+        {
+            get { return _attackAnim; }
+            set { _attackAnim = value; }
         }
 
         public Enemy(Entity entity)
@@ -147,10 +165,23 @@ namespace NeonStarLibrary
                     case EnemyState.FinishChase:
                         entity.spritesheets.ChangeAnimation(_runAnim);
                         break;
+
+                    case EnemyState.Wait:
+                        entity.spritesheets.ChangeAnimation(_idleAnim);
+                        break;
+
+                    case EnemyState.Idle:
+                        entity.spritesheets.ChangeAnimation(_idleAnim);
+                        break;
+
+                    case EnemyState.Attack:
+                        entity.spritesheets.ChangeAnimation(_attackAnim);
+                        break;
                 }
             }
             
             base.Update(gameTime);
+            Console.WriteLine(State);
         }
     }
 }
