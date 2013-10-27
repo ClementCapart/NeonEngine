@@ -30,11 +30,10 @@ namespace NeonStarLibrary
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
 
             AttacksManager.LoadAttacks();
+            BulletsManager.LoadBullets();
             camera.Bounded = true;
 
-            BulletInfo bi = new BulletInfo();
-            bi.HitboxInfo = new Rectangle(12, 10, 100, 100);
-            BulletsManager.CreateBullet(bi, this);
+            BulletsManager.CreateBullet(BulletsManager.GetBulletInfo("SimpleBullet"), Side.Right, Vector2.UnitX, this);
         }
 
         public override void Update(GameTime gameTime)

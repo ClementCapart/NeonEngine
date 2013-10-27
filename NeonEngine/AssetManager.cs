@@ -146,6 +146,9 @@ namespace NeonEngine
 
         static public SpriteSheetInfo GetSpriteSheet(string tag)
         {
+            if (tag == "" || tag == null)
+                return null;
+
             if (_spritesheetList.ContainsKey(tag))
                 return _spritesheetList[tag];
 

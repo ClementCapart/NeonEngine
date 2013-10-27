@@ -9,6 +9,8 @@ namespace NeonStarLibrary
 {
     public class Bullet : Component
     {
+        public bool EnemyBullet = false;
+
         private MovePattern _movementStyle;
 
         public MovePattern MovementStyle
@@ -41,6 +43,37 @@ namespace NeonStarLibrary
             set { _lifeTime = value; }
         }
 
+        private float _damageOnHit;
+
+        public float DamageOnHit
+        {
+            get { return _damageOnHit; }
+            set { _damageOnHit = value; }
+        }
+
+        private List<AttackEffect> _onHitSpecialEffects;
+
+        public List<AttackEffect> OnHitSpecialEffects
+        {
+            get { return _onHitSpecialEffects; }
+            set { _onHitSpecialEffects = value; }
+        }
+
+        private SpriteSheetInfo _livingSpriteSheetInfo;
+
+        public SpriteSheetInfo LivingSpriteSheetInfo
+        {
+            get { return _livingSpriteSheetInfo; }
+            set { _livingSpriteSheetInfo = value; }
+        }
+
+        private SpriteSheetInfo _onHitSpriteSheetInfo;
+
+        public SpriteSheetInfo OnHitSpriteSheetInfo
+        {
+            get { return _onHitSpriteSheetInfo; }
+            set { _onHitSpriteSheetInfo = value; }
+        }
 
         public Bullet(Entity entity)
             :base(entity, "Bullet")
