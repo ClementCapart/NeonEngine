@@ -16,16 +16,25 @@ namespace NeonStarLibrary
     {
         public List<Enemy> enemies;
         public List<Attack> FreeAttacks = new List<Attack>();
+        public List<Entity> Bullets = new List<Entity>();
+
+        public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
 
         public GameScreen(Game game)
             : base(game)
         {
             enemies = new List<Enemy>();
-            
+            BulletsPool = new NeonPool<Entity>(() => new Entity(this));
+
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
+
             AttacksManager.LoadAttacks();
             camera.Bounded = true;
+
+            BulletInfo bi = new BulletInfo();
+            bi.HitboxInfo = new Rectangle(12, 10, 100, 100);
+            BulletsManager.CreateBullet(bi, this);
         }
 
         public override void Update(GameTime gameTime)
@@ -45,8 +54,12 @@ namespace NeonStarLibrary
                 }
             }
 
+
+            for (int i = Bullets.Count - 1; i >= 0; i--)
+                Bullets[i].Update(gameTime);
+
             if (Neon.Input.Pressed(Buttons.Start))
-                Pause = !Pause;
+                    Pause = !Pause;
             base.Update(gameTime);
         }
 

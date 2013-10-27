@@ -9,7 +9,7 @@ namespace NeonEngine
 {
     public enum HitboxType
     {
-        None, Main, Hit, Part
+        None, Main, Hit, Part, Bullet
     }
 
     public class Hitbox : Component

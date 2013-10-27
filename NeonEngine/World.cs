@@ -193,6 +193,10 @@ namespace NeonEngine
                         case HitboxType.None:
                             _polygonRenderer.Color = Color.White;
                             break;
+
+                        case HitboxType.Bullet:
+                            _polygonRenderer.Color = Color.LightPink;
+                            break;
                     }
                     _polygonRenderer.vectors = hb.vectors;
                     _polygonRenderer.Position = hb.Center;
@@ -310,7 +314,8 @@ namespace NeonEngine
 
         public virtual void RemoveEntity(Entity entity)
         {
-            entities.Remove(entity);
+            if(entities.Contains(entity))
+                entities.Remove(entity);
             Console.WriteLine("Remove : " + entity.Name);
         }
 

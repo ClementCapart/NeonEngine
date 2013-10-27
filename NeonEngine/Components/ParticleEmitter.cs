@@ -12,9 +12,9 @@ namespace NeonEngine
         public List<Particle> particles;
 
 
-        private ParticlePattern _movementType = ParticlePattern.Linear;
+        private MovePattern _movementType = MovePattern.Linear;
 
-        public ParticlePattern MovementType
+        public MovePattern MovementType
         {
             get { return _movementType; }
             set { _movementType = value; }

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NeonEngine
 {
-    public enum ParticlePattern
+    public enum MovePattern
     {
         Linear,
         Sinusoidal,
@@ -35,7 +35,7 @@ namespace NeonEngine
 
         public Texture2D Texture;
         public SpriteSheet spriteSheet;
-        public ParticlePattern ParticleMovement;
+        public MovePattern ParticleMovement;
         
         public Color StartingColor;
         public Color EndingColor;
@@ -151,14 +151,14 @@ namespace NeonEngine
         {
             switch(ParticleMovement)
             {
-                case ParticlePattern.Linear:
+                case MovePattern.Linear:
                     Position += Direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
 
-                case ParticlePattern.Curve:
+                case MovePattern.Curve:
                     break;
 
-                case ParticlePattern.Sinusoidal:
+                case MovePattern.Sinusoidal:
                     break;
             }
         }

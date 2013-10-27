@@ -19,7 +19,8 @@ namespace NeonEngine
 
         public void FlagAvailableItem(T item)
         {
-            _AvailableItems.Enqueue(item);
+            if(_Items.Contains(item))
+                _AvailableItems.Enqueue(item);
         }
 
         public T GetAvailableItem()
