@@ -16,7 +16,8 @@ namespace NeonStarLibrary
         PositionalPulse,
         DamageOverTime,
         Boost,
-        StartAttack
+        StartAttack,
+        ShootBullet
     }
 
     public enum AttackType
@@ -106,6 +107,11 @@ namespace NeonStarLibrary
                             Vector2 pulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, pulseForce));
                             break;
+
+                        case SpecialEffect.ShootBullet:
+                            BulletInfo bi = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            break;
                     }         
                 }
 
@@ -131,6 +137,11 @@ namespace NeonStarLibrary
                             Vector2 pulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, pulseForce));
                             break;
+
+                        case SpecialEffect.ShootBullet:
+                            BulletInfo bi = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            break;
                     }         
                 }
 
@@ -155,6 +166,11 @@ namespace NeonStarLibrary
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            break;
+
+                        case SpecialEffect.ShootBullet:
+                            BulletInfo bi = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
                             break;
                     }
                 }

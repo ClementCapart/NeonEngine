@@ -375,6 +375,11 @@ namespace NeonStarLibrary
                             string attackName = (string)ae.Parameters;
                             AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                             break;
+
+                        case SpecialEffect.ShootBullet:
+                            BulletInfo bi = (BulletInfo)ae.Parameters;
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                            break;
                     }
                     _specialEffects.Remove(ae);
                 }
@@ -478,6 +483,11 @@ namespace NeonStarLibrary
                                 string attackName = (string)ae.Parameters;
                                 AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                                 break;
+
+                            case SpecialEffect.ShootBullet:
+                                BulletInfo bi = (BulletInfo)ae.Parameters;
+                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -558,6 +568,11 @@ namespace NeonStarLibrary
                     case SpecialEffect.StartAttack:
                         string attackName = (string)ae.Parameters;
                         AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                        break;
+
+                    case SpecialEffect.ShootBullet:
+                        BulletInfo bi = (BulletInfo)ae.Parameters;
+                        BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                         break;
                 }
             }

@@ -105,7 +105,7 @@ namespace NeonStarLibrary
             return _bulletsInformation.First(bi => bi.Name == name);
         }
 
-        static public void CreateBullet(BulletInfo bulletInfo, Side side, Vector2 newDirection, GameScreen world, bool isEnemy = true)
+        static public void CreateBullet(BulletInfo bulletInfo, Side side, Vector2 newDirection, Entity shooter, GameScreen world, bool isEnemy = true)
         {
             _world = world;
 
@@ -151,7 +151,7 @@ namespace NeonStarLibrary
                 bullet.OnHitSpecialEffects.Add(ae);
             }
 
-
+            newBullet.transform.Position = shooter.transform.Position;
             _world.Bullets.Add(newBullet);
         }
 

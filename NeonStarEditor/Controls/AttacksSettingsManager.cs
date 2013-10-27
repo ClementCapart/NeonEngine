@@ -186,6 +186,12 @@ namespace NeonStarEditor
                     XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
                     effect.Add(parameterString);
                     break;
+
+                case SpecialEffect.ShootBullet:
+                    string bulletName = (string)(effectKvp.Parameters as BulletInfo).Name;
+                    XElement parameterBullet = new XElement("Parameter", new XAttribute("Value", bulletName));
+                    effect.Add(parameterBullet);
+                    break;
             }
 
             return effect;
@@ -302,13 +308,33 @@ namespace NeonStarEditor
                         textBox.Text = (string)CurrentAttackEffectSelected.Parameters;
                         this.EffectsInfoPanel.Controls.Add(textBox);
                         break;
+
+                    case SpecialEffect.ShootBullet:
+                        label = new Label();
+                        label.Text = "Bullet to launch";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        TextBox textBox2 = new TextBox();
+                        textBox2.Name = "BulletName";
+                        textBox2.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        textBox2.Width = 150;
+                        textBox2.Enter += textBox_Enter;
+                        textBox2.Leave += textBox_Leave;
+                        textBox2.Text =  (CurrentAttackEffectSelected.Parameters as BulletInfo) != null ? (string)(CurrentAttackEffectSelected.Parameters as BulletInfo).Name : "";
+                        this.EffectsInfoPanel.Controls.Add(textBox2);
+                        break;
                 }
             }
         }
 
         void textBox_Leave(object sender, EventArgs e)
         {
-            CurrentAttackEffectSelected.Parameters = (sender as TextBox).Text;
+            if((sender as TextBox).Name == "BulletName")
+                CurrentAttackEffectSelected.Parameters = BulletsManager.GetBulletInfo((sender as TextBox).Text);
+            else
+                CurrentAttackEffectSelected.Parameters = (sender as TextBox).Text;
             (Neon.world as EditorScreen).FocusedTextBox = null;
         }
 

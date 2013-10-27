@@ -32,8 +32,6 @@ namespace NeonStarLibrary
             AttacksManager.LoadAttacks();
             BulletsManager.LoadBullets();
             camera.Bounded = true;
-
-            BulletsManager.CreateBullet(BulletsManager.GetBulletInfo("SimpleBullet"), Side.Right, Vector2.UnitX, this);
         }
 
         public override void Update(GameTime gameTime)
