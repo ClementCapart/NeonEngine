@@ -165,6 +165,8 @@ namespace NeonStarLibrary
 
         static public Attack GetAttack(string name, Side side, Entity launcher)
         {
+            if (name == "")
+                return null;
             AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
             Attack attack = new Attack(attackInfo, side, launcher);
 

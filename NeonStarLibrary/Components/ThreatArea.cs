@@ -64,7 +64,8 @@ namespace NeonStarLibrary
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
-                        EnemyComponent.State = EnemyState.Chase;
+                        if(EnemyComponent.State != EnemyState.Attack || ( EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null))
+                            EnemyComponent.State = EnemyState.Chase;
                     }
                     else if (EnemyComponent.State == EnemyState.Chase)
                     {
@@ -88,7 +89,8 @@ namespace NeonStarLibrary
                     if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < ThreatRange * ThreatRange)
                     {
                         EntityFollowed = ent;
-                        EnemyComponent.State = EnemyState.Chase;
+                        if (EnemyComponent.State != EnemyState.Attack || EnemyComponent._attack.CurrentAttack == null)
+                            EnemyComponent.State = EnemyState.Chase;
                     }
 
                     if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < AttackRange * AttackRange)

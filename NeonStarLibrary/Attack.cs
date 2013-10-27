@@ -207,6 +207,7 @@ namespace NeonStarLibrary
         public Entity _entity;
         public AttackInfo AttackInfo;
         private MeleeFight _meleeFight;
+        private bool _fromEnemy = false;
 
         public Attack()
         {
@@ -220,7 +221,7 @@ namespace NeonStarLibrary
             _entity.transform.Position = Position;
         }
 
-        public Attack(AttackInfo attackInfo, Side side, Entity launcher)
+        public Attack(AttackInfo attackInfo, Side side, Entity launcher, bool FromEnemy = false)
         {           
             AttackInfo = attackInfo;
             _hitboxes = new List<Hitbox>();
@@ -239,6 +240,7 @@ namespace NeonStarLibrary
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
             this._airFactor = attackInfo.AirFactor;
+            this._fromEnemy = FromEnemy;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -318,7 +320,7 @@ namespace NeonStarLibrary
                 _hitboxes.Add(hb);
             }
 
-            if(_entity.Name != "AttackHolder" && _meleeFight.Debug)
+            if(_entity.Name != "AttackHolder" && (_meleeFight != null && _meleeFight.Debug))
                 Console.WriteLine(AttackInfo.Name + " launched ! Current Combo -> " + _meleeFight.CurrentComboHit.ToString());
 
             foreach (AttackEffect ae in AttackInfo.SpecialEffects)
@@ -499,49 +501,64 @@ namespace NeonStarLibrary
 
         private void Effect(Entity entity)
         {
-            Enemy enemy = entity.GetComponent<Enemy>();
-            if (enemy != null)
+            if (!_fromEnemy)
             {
-                _hit = true;
-                enemy.ChangeHealthPoints(_damageOnHit);
-                enemy.StunLock(_stunLock);
-                if(!enemy.entity.rigidbody.isGrounded)
-                    enemy.AirLock(TargetAirLock);
-
-                bool velocityReset = false;
-
-                foreach(AttackEffect ae in _onHitSpecialEffects)
+                Enemy enemy = entity.GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    switch(ae.specialEffect)
-                    {
-                        case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)ae.Parameters;                           
-                            if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
-                            velocityReset = true;
-                            break;
+                    _hit = true;
+                    enemy.ChangeHealthPoints(_damageOnHit);
+                    enemy.StunLock(_stunLock);
+                    if (!enemy.entity.rigidbody.isGrounded)
+                        enemy.AirLock(TargetAirLock);
+                }
+            }
+            else
+            {
+                Avatar avatar = entity.GetComponent<Avatar>();
+                if(avatar != null)
+                {
+                    _hit = true;
+                    avatar.ChangeHealthPoints(_damageOnHit);
+                    avatar.StunLock(_stunLock);
+                    if(!avatar.entity.rigidbody.IsGround)
+                        avatar.AirLock(TargetAirLock);
+                }
+            }
 
-                        case SpecialEffect.PositionalPulse:
-                            Vector2 pulseForce = (Vector2)ae.Parameters;
-                            if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
-                            entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
-                            velocityReset = true;
-                            break;
+            bool velocityReset = false;
 
-                        case SpecialEffect.Boost:
-                            break;
+            foreach(AttackEffect ae in _onHitSpecialEffects)
+            {
+                switch(ae.specialEffect)
+                {
+                    case SpecialEffect.Impulse:
+                        Vector2 impulseForce = (Vector2)ae.Parameters;                           
+                        if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
+                        velocityReset = true;
+                        break;
 
-                        case SpecialEffect.DamageOverTime:
-                            break;
+                    case SpecialEffect.PositionalPulse:
+                        Vector2 pulseForce = (Vector2)ae.Parameters;
+                        if(!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
+                        entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
+                        velocityReset = true;
+                        break;
 
-                        case SpecialEffect.StartAttack:
-                            string attackName = (string)ae.Parameters;
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
-                            break;
-                    }
+                    case SpecialEffect.Boost:
+                        break;
+
+                    case SpecialEffect.DamageOverTime:
+                        break;
+
+                    case SpecialEffect.StartAttack:
+                        string attackName = (string)ae.Parameters;
+                        AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                        break;
                 }
             }
         }

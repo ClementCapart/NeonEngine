@@ -43,6 +43,7 @@ namespace NeonStarLibrary
         public FollowNodes _followNodes;
         public ThreatArea _threatArea;
         public Chase _chase;
+        public EnemyAttack _attack;
         public bool CanMove = true;
         private float _stunLockDuration = 0.0f;
 
@@ -83,6 +84,8 @@ namespace NeonStarLibrary
                 _followNodes = entity.GetComponent<FollowNodes>();
             if (_chase == null)
                 _chase = entity.GetComponent<Chase>();
+            if (_attack == null)
+                _attack = entity.GetComponent<EnemyAttack>();
             _currentHealthPoints = _startingHealthPoints;
             base.Init();
         }

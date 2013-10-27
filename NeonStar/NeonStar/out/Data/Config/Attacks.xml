@@ -251,5 +251,28 @@
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemyPush" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="100" Height="200" />
+      </Hitboxes>
+      <DamageOnHit>5</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <Duration>1</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <SpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:0}" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
   </Attacks>
 </XnaContent>
