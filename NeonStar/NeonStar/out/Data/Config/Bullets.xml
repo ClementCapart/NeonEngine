@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Bullets>
+    <Bullet ID="0" Name="SimpleBullet">
+		<LivingSpriteSheet>GunShot</LivingSpriteSheet>
+		<OnHitSpriteSheet></OnHitSpriteSheet>
+		<Hitbox OffsetX="0" OffsetY="0" Width="30" Height="30"></Hitbox>
+		<MovePattern>Linear</MovePattern>
+		<Direction>{X:1 Y:0}</Direction>
+		<Speed>200</Speed>
+		<LifeTime>5</LifeTime>
+		<DamageOnHit>5</DamageOnHit>
+		<OnHitSpecialEffects>
+			<Effect Type="Impulse">
+				<Parameter Value="{X:3900 Y:0}" />
+			</Effect>
+		</OnHitSpecialEffects>	
+	</Bullet>
+  </Bullets>
+</XnaContent>
