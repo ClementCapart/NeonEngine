@@ -16,17 +16,13 @@
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
-      <SpecialEffects>
-        <Effect Type="ShootBullet">
-          <Parameter Value="SimpleBullet" />
-        </Effect>
-      </SpecialEffects>
+      <SpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LightAttackFinish" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="20" Width="100" Height="75" />
+        <Hitbox OffsetX="40" OffsetY="20" Width="80" Height="75" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -141,7 +137,7 @@
     </Attack>
     <Attack ID="0" Name="DiveAttack" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="40" Width="80" Height="130" />
+        <Hitbox OffsetX="0" OffsetY="40" Width="100" Height="130" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>True</AirOnly>
@@ -172,7 +168,7 @@
     </Attack>
     <Attack ID="0" Name="DiveAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="40" Width="80" Height="130" />
+        <Hitbox OffsetX="0" OffsetY="40" Width="100" Height="130" />
       </Hitboxes>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>True</AirOnly>
