@@ -101,7 +101,7 @@ namespace NeonStarLibrary
             set { _canTurn = value; }
         }
 
-        private Side _currentSide = Side.Right;
+        public Side CurrentSide = Side.Right;
         public bool StartJumping = false;
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();
         private MeleeFight _meleeFight;
@@ -147,21 +147,21 @@ namespace NeonStarLibrary
             {
                 if (Neon.Input.Check(NeonStarInput.MoveLeft))
                 {
-                    if (_currentSide != Side.Left)
+                    if (CurrentSide != Side.Left)
                     {
-                        _currentSide = Side.Left;
+                        CurrentSide = Side.Left;
                         LastSideChangedDelay = 0.0f;
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
                     }
                     
                 }
                 else if(Neon.Input.Check(NeonStarInput.MoveRight))
                 {
-                    if (_currentSide != Side.Right)
+                    if (CurrentSide != Side.Right)
                     {
-                        _currentSide = Side.Right;
+                        CurrentSide = Side.Right;
                         LastSideChangedDelay = 0.0f;
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
                     }             
                 }
             }    
@@ -178,7 +178,7 @@ namespace NeonStarLibrary
                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
                         entity.spritesheets.ChangeAnimation(WalkAnimation);
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
                         NotMoving = false;
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
@@ -186,7 +186,7 @@ namespace NeonStarLibrary
                         if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
                             entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
                         entity.spritesheets.ChangeAnimation(WalkAnimation);
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
 
                         NotMoving = false;
                     }
@@ -230,21 +230,21 @@ namespace NeonStarLibrary
                 {
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
-                        _currentSide = Side.Left;
+                        CurrentSide = Side.Left;
                         if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
                         {
                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
                         }
 
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
-                        _currentSide = Side.Right;
+                        CurrentSide = Side.Right;
                         if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
                             entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
 
-                        entity.spritesheets.ChangeSide(_currentSide);
+                        entity.spritesheets.ChangeSide(CurrentSide);
                     }
                     else
                         entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);

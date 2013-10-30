@@ -177,6 +177,26 @@ namespace NeonStarLibrary
             {
                 if (NextAttack != "")
                 {
+                    if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                    {
+                        if (ThirdPersonController.CurrentSide != Side.Left)
+                        {
+                            ThirdPersonController.CurrentSide = Side.Left;
+                            ThirdPersonController.LastSideChangedDelay = 0.0f;
+                            entity.spritesheets.ChangeSide(ThirdPersonController.CurrentSide);
+                        }
+
+                    }
+                    else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                    {
+                        if (ThirdPersonController.CurrentSide != Side.Right)
+                        {
+                            ThirdPersonController.CurrentSide = Side.Right;
+                            ThirdPersonController.LastSideChangedDelay = 0.0f;
+                            entity.spritesheets.ChangeSide(ThirdPersonController.CurrentSide);
+                        }
+                    }
+
                     if (_chainDelayTimer < _chainDelay)
                     {
                         switch (NextAttack)
@@ -189,12 +209,18 @@ namespace NeonStarLibrary
                                 PerformDiveAttack();
                                 break;
 
-                            case "LeftRushAttack":
-                                PerformLeftRushAttack();
+                            case "LeftRushAttack": 
+                                if(ThirdPersonController.CurrentSide == Side.Left && _rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
+                                    PerformLeftRushAttack();
+                                else
+                                    PerformLightAttack();
                                 break;
 
                             case "RightRushAttack":
-                                PerformRightRushAttack();
+                                if (ThirdPersonController.CurrentSide == Side.Right && _rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
+                                    PerformRightRushAttack();
+                                else
+                                    PerformLightAttack();
                                 break;
 
                             case "LightAttack":

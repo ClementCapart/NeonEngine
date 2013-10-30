@@ -184,7 +184,6 @@ namespace NeonStarLibrary
             }
             
             base.Update(gameTime);
-            Console.WriteLine(State);
         }
     }
 }

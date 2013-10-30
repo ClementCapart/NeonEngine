@@ -301,7 +301,12 @@ namespace NeonStarLibrary
 
                 if (AirLock <= 0.0f || (_entity.rigidbody.isGrounded && (_meleeFight != null && _meleeFight.ThirdPersonController != null && !_meleeFight.ThirdPersonController.StartJumping)))
                     AirLockFinished = true;
-            }          
+            }
+
+            if (_type == AttackType.MeleeSpecial && _meleeFight != null)
+            {
+                _meleeFight.CurrentComboHit = ComboSequence.None;
+            }
         }
 
         public void Init()
@@ -507,11 +512,14 @@ namespace NeonStarLibrary
 
         private void Effect(Entity entity)
         {
+            bool validTarget = false;
+
             if (!_fromEnemy)
             {
                 Enemy enemy = entity.GetComponent<Enemy>();
                 if (enemy != null)
                 {
+                    validTarget = true;
                     _hit = true;
                     enemy.ChangeHealthPoints(_damageOnHit);
                     enemy.StunLock(_stunLock);
@@ -524,6 +532,7 @@ namespace NeonStarLibrary
                 Avatar avatar = entity.GetComponent<Avatar>();
                 if(avatar != null)
                 {
+                    validTarget = true;
                     _hit = true;
                     avatar.ChangeHealthPoints(_damageOnHit);
                     avatar.StunLock(_stunLock);
@@ -532,7 +541,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (_hit)
+            if (validTarget)
             {
                 bool velocityReset = false;
 
