@@ -45,7 +45,7 @@ namespace NeonStarLibrary
                         CurrentAttack.Update(gameTime);
                 }
                 else
-                    CurrentAttack = AttacksManager.GetAttack(_attackToLaunch, entity.spritesheets.CurrentSide, entity);
+                    CurrentAttack = AttacksManager.GetAttack(_attackToLaunch, entity.spritesheets.CurrentSide, entity, true);
             }
             else
             {

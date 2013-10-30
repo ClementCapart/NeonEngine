@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-450 Y:190}" />
+              <Position Value="{X:601,7585 Y:189,5}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:189}" />
-              <X Value="-470" />
+              <Center Value="{X:601 Y:189}" />
+              <X Value="581" />
               <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -122,13 +122,20 @@
               <MaxJumpInputDelay Value="0.5" />
             </Properties>
           </ThirdPersonController>
+          <Avatar Type="NeonStarLibrary.Avatar" ID="6">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="0" />
+              <CurrentHealthPoints Value="0" />
+            </Properties>
+          </Avatar>
         </Components>
       </Entity>
       <Entity Name="Enemy">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:649,4818 Y:175}" />
+              <Position Value="{X:580,1912 Y:175}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -137,8 +144,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:649 Y:175}" />
-              <X Value="604" />
+              <Center Value="{X:580 Y:175}" />
+              <X Value="535" />
               <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -207,7 +214,9 @@
             </Properties>
           </SpritesheetManager>
           <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="9">
-            <Properties />
+            <Properties>
+              <AttackToLaunch Value="Uppercut" />
+            </Properties>
           </EnemyAttack>
         </Components>
       </Entity>
@@ -685,7 +694,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:405,6 Y:-500}" />
+              <Position Value="{X:484,0462 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />

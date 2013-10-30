@@ -25,12 +25,14 @@ namespace NeonStarLibrary
             : base(game)
         {
             enemies = new List<Enemy>();
+            
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
+
+            BulletsManager.LoadBullets();
+            AttacksManager.LoadAttacks();          
 
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
 
-            AttacksManager.LoadAttacks();
-            BulletsManager.LoadBullets();
             camera.Bounded = true;
         }
 

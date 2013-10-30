@@ -179,12 +179,12 @@ namespace NeonStarLibrary
             }
         }
 
-        static public Attack GetAttack(string name, Side side, Entity launcher)
+        static public Attack GetAttack(string name, Side side, Entity launcher, bool isEnemy = false)
         {
-            if (name == "")
+            if (name == "" || name == null)
                 return null;
             AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
-            Attack attack = new Attack(attackInfo, side, launcher);
+            Attack attack = new Attack(attackInfo, side, launcher, isEnemy);
 
             return attack;
         }
