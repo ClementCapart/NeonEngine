@@ -198,6 +198,7 @@ namespace NeonStarLibrary
         }
 
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
+
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
         private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
 
@@ -298,7 +299,7 @@ namespace NeonStarLibrary
                         return;
                     }
 
-                if (AirLock <= 0.0f || _entity.rigidbody.isGrounded)
+                if (AirLock <= 0.0f || (_entity.rigidbody.isGrounded && (_meleeFight != null && _meleeFight.ThirdPersonController != null && !_meleeFight.ThirdPersonController.StartJumping)))
                     AirLockFinished = true;
             }          
         }
@@ -453,11 +454,6 @@ namespace NeonStarLibrary
                         AirLocked = false;
                         AirLockFinished = true;
                     }
-                }
-                else
-                {
-                    AirLocked = false;
-                    AirLockFinished = true;
                 }
 
                 if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)

@@ -484,7 +484,7 @@ namespace NeonStarLibrary
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(LightAttackAnimation + "Finish", 1, true, true, false);
-                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    //entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }
             }
             else
@@ -497,7 +497,7 @@ namespace NeonStarLibrary
                     else
                         entity.spritesheets.ChangeAnimation(LightAttackAnimation + "Link", 1, true, true, false);
 
-                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    //entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 }
                            
             }

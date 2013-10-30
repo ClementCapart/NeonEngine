@@ -102,7 +102,7 @@ namespace NeonStarLibrary
         }
 
         private Side _currentSide = Side.Right;
-        private bool _startJumping = false;
+        public bool StartJumping = false;
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();
         private MeleeFight _meleeFight;
 
@@ -170,7 +170,7 @@ namespace NeonStarLibrary
 
             if (CanMove)
             {
-                if (entity.rigidbody.isGrounded && !_startJumping)
+                if (entity.rigidbody.isGrounded && !StartJumping)
                 {
 
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
@@ -206,7 +206,7 @@ namespace NeonStarLibrary
                         _meleeFight.CurrentComboHit = ComboSequence.None;
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, false, false, 0);
                         entity.spritesheets.CurrentPriority = 0;
-                        _startJumping = true;
+                        StartJumping = true;
                     }
                     else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
                     {
@@ -215,7 +215,7 @@ namespace NeonStarLibrary
                         _meleeFight.CurrentComboHit = ComboSequence.None;
                         entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, true, false, 0);
                         entity.spritesheets.CurrentPriority = 0;
-                        _startJumping = true;
+                        StartJumping = true;
                         _jumpInputDelay = 0.0f;
                         _mustJumpAsSoonAsPossible = false;
                     }
@@ -267,7 +267,7 @@ namespace NeonStarLibrary
                                 entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
                             }  
                         }
-                        _startJumping = false;                                            
+                        StartJumping = false;                                            
                     }
 
                     if (_mustJumpAsSoonAsPossible)
@@ -277,7 +277,7 @@ namespace NeonStarLibrary
                     
                 }
 
-                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && !_startJumping)
+                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && !StartJumping)
                     entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
 
                 if (entity.rigidbody.isGrounded && NotMoving && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished || !entity.spritesheets.CurrentSpritesheet.isPlaying))
