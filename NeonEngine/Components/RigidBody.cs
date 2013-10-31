@@ -39,7 +39,7 @@ namespace NeonEngine
         }
 
         public float InitialGravityScale;
-        private float gravityScale;
+        private float gravityScale = 2f;
         public float GravityScale
         {
             get 
@@ -57,8 +57,8 @@ namespace NeonEngine
             }
         }
 
-        
-        bool useGravity;
+
+        bool useGravity = true;
         public bool UseGravity
         {
             get 
@@ -95,7 +95,7 @@ namespace NeonEngine
             }
         }
 
-        float friction;
+        float friction = 10f;
         public float Friction
         {
             get
@@ -109,8 +109,8 @@ namespace NeonEngine
             {
                 if (body != null)
                     body.Friction = value;
-                else
-                    friction = value;
+
+                friction = value;
             }
         }
 
@@ -196,7 +196,7 @@ namespace NeonEngine
             }
         }
 
-        bool fixedRotation;
+        bool fixedRotation = true;
         public bool FixedRotation
         {
             get 
