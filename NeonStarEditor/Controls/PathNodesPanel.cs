@@ -43,6 +43,12 @@ namespace NeonStarEditor
                 this.NodeInfo.Show();
                 this.NodeTypeCombobox.SelectedItem = CurrentNodeSelected.Type;
 
+                for (int i = NodeInfo.Controls.Count - 1; i >= 0; i--)
+                {
+                    if (NodeInfo.Controls[i].Name != "NodeTypeCombobox" && NodeInfo.Controls[i].Name != "TypeLabel" && NodeInfo.Controls[i].Name != "Align" && NodeInfo.Controls[i].Name != "DeleteNode")
+                        NodeInfo.Controls.RemoveAt(i);
+                }
+
                 if (CurrentNodeSelected.Type == NodeType.DelayedMove)
                 {
                     Label lb = new Label();

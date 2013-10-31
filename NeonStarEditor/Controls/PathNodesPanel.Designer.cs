@@ -35,7 +35,8 @@
             this.InfoBox = new System.Windows.Forms.GroupBox();
             this.NodeInfo = new System.Windows.Forms.GroupBox();
             this.NodeTypeCombobox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.TypeLabel = new System.Windows.Forms.Label();
+            this.Align = new System.Windows.Forms.Button();
             this.DeleteNode = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectionButton = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.PathName = new System.Windows.Forms.TextBox();
             this.ToggleDisplayAll = new System.Windows.Forms.Button();
-            this.Align = new System.Windows.Forms.Button();
             this.InfoBox.SuspendLayout();
             this.NodeInfo.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@
             // NodeInfo
             // 
             this.NodeInfo.Controls.Add(this.NodeTypeCombobox);
-            this.NodeInfo.Controls.Add(this.label2);
+            this.NodeInfo.Controls.Add(this.TypeLabel);
             this.NodeInfo.Controls.Add(this.Align);
             this.NodeInfo.Controls.Add(this.DeleteNode);
             this.NodeInfo.Location = new System.Drawing.Point(79, 61);
@@ -121,14 +121,27 @@
             this.NodeTypeCombobox.TabIndex = 8;
             this.NodeTypeCombobox.SelectedIndexChanged += new System.EventHandler(this.NodeTypeCombobox_SelectedIndexChanged);
             // 
-            // label2
+            // TypeLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Type";
+            this.TypeLabel.AutoSize = true;
+            this.TypeLabel.Location = new System.Drawing.Point(9, 15);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(31, 13);
+            this.TypeLabel.TabIndex = 9;
+            this.TypeLabel.Text = "Type";
+            // 
+            // Align
+            // 
+            this.Align.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Align.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Align.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Align.Location = new System.Drawing.Point(12, 81);
+            this.Align.Name = "Align";
+            this.Align.Size = new System.Drawing.Size(51, 30);
+            this.Align.TabIndex = 5;
+            this.Align.Text = "V-Align";
+            this.Align.UseVisualStyleBackColor = true;
+            this.Align.Click += new System.EventHandler(this.Align_Click);
             // 
             // DeleteNode
             // 
@@ -215,19 +228,6 @@
             this.ToggleDisplayAll.UseVisualStyleBackColor = true;
             this.ToggleDisplayAll.Click += new System.EventHandler(this.ToggleDisplayAll_Click);
             // 
-            // Align
-            // 
-            this.Align.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Align.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Align.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Align.Location = new System.Drawing.Point(12, 81);
-            this.Align.Name = "Align";
-            this.Align.Size = new System.Drawing.Size(51, 30);
-            this.Align.TabIndex = 5;
-            this.Align.Text = "V-Align";
-            this.Align.UseVisualStyleBackColor = true;
-            this.Align.Click += new System.EventHandler(this.Align_Click);
-            // 
             // PathNodesPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,7 +264,7 @@
         private System.Windows.Forms.Button SelectionButton;
         private System.Windows.Forms.GroupBox NodeInfo;
         private System.Windows.Forms.ComboBox NodeTypeCombobox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Button DeleteNode;
         private System.Windows.Forms.Button Align;
     }
