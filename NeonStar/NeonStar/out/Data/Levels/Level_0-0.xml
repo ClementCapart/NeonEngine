@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-618,5001 Y:190}" />
+              <Position Value="{X:-480,4462 Y:190}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-618 Y:190}" />
-              <X Value="-638" />
+              <Center Value="{X:-480 Y:190}" />
+              <X Value="-500" />
               <Y Value="122" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -126,7 +126,7 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="0" />
-              <CurrentHealthPoints Value="83" />
+              <CurrentHealthPoints Value="146" />
               <StunLockDuration Value="0" />
             </Properties>
           </Avatar>
@@ -136,7 +136,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:676,8572 Y:175}" />
+              <Position Value="{X:471,0271 Y:175}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -145,8 +145,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:676 Y:175}" />
-              <X Value="631" />
+              <Center Value="{X:471 Y:175}" />
+              <X Value="426" />
               <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -409,7 +409,7 @@
           </Rigidbody>
           <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
             <Properties>
-              <LinkedPathNodeList Value="NodeLis" />
+              <LinkedPathNodeList Value="NodeList3" />
             </Properties>
           </LinkedToPath>
         </Components>
@@ -745,33 +745,17 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:63,58297 Y:210,5}" />
+              <Position Value="{X:0 Y:210,5}" />
               <InitialPosition Value="{X:0 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="1">
-            <Properties>
-              <BodyType Value="Dynamic" />
-              <GravityScale Value="2" />
-              <UseGravity Value="False" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="400" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="2" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <Hitbox Type="NeonEngine.Hitbox" ID="2">
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:65 Y:210}" />
-              <X Value="8" />
+              <Center Value="{X:0 Y:210}" />
+              <X Value="-57" />
               <Y Value="123" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -779,7 +763,32 @@
               <Height Value="175" />
             </Properties>
           </Hitbox>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="3">
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="400" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Spritesheets />
+              <DrawLayer Value="0" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="10" />
@@ -789,18 +798,9 @@
               <Type Value="Ground" />
             </Properties>
           </Enemy>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="4">
-            <Properties>
-              <CurrentNodeList Value="NodeLis" />
-              <Speed Value="1.5" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="True" />
-              <PathPrecisionTreshold Value="5" />
-            </Properties>
-          </FollowPlatformNodes>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
             <Properties>
-              <ThreatRange Value="300" />
+              <ThreatRange Value="330" />
               <AttackRange Value="120" />
               <EntityToSearchFor Value="LiOn" />
             </Properties>
@@ -811,20 +811,20 @@
               <WaitDelay Value="1" />
             </Properties>
           </Chase>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="7">
-            <Properties>
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Spritesheets />
-              <DrawLayer Value="0" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-          <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="8">
+          <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
             <Properties>
               <AttackToLaunch Value="RobotPunch" />
             </Properties>
           </EnemyAttack>
+          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
+            <Properties>
+              <CurrentNodeList Value="NodeList3" />
+              <Speed Value="1.5" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="5" />
+            </Properties>
+          </FollowPlatformNodes>
         </Components>
       </Entity>
     </Entities>
@@ -836,6 +836,10 @@
       <PathNodeList Name="NodeList2" Type="Ground">
         <Node Type="Move" Index="0" Position="{X:1181 Y:259}" />
         <Node Type="Move" Index="1" Position="{X:1406 Y:259}" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList3" Type="Ground">
+        <Node Type="Move" Index="0" Position="{X:-266,1112 Y:267,5556}" />
+        <Node Type="Move" Index="1" Position="{X:259,2224 Y:267,5556}" />
       </PathNodeList>
     </PathNodeLists>
   </Level>
