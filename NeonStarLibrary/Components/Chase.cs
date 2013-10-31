@@ -95,7 +95,12 @@ namespace NeonStarLibrary
                         EnemyComponent.State = EnemyState.Wait;
                         _waitTimer = _waitDelay;
                     }
-                }           
+                }
+                else
+                {
+                    EnemyComponent.State = EnemyState.Wait;
+                    _waitTimer = _waitDelay;
+                }
             }
             else if (EnemyComponent.State == EnemyState.Wait)
             {

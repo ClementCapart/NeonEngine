@@ -31,16 +31,16 @@ namespace NeonStarLibrary
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            
+        {          
             if (EnemyComponent.State == EnemyState.Attack)
             {
                 if (CurrentAttack != null)
                 {
-                    if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished && (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished())))
+                    if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished)
                     {
                         CurrentAttack = null;
-                        entity.spritesheets.CurrentPriority = 0;
+                        if(entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
+                            entity.spritesheets.CurrentPriority = 0;
                     }
                     else
                         CurrentAttack.Update(gameTime);

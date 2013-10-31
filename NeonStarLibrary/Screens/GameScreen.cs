@@ -59,6 +59,8 @@ namespace NeonStarLibrary
 
             if (Neon.Input.Pressed(Buttons.Start))
                     Pause = !Pause;
+
+
             base.Update(gameTime);
         }
 
