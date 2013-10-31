@@ -274,5 +274,28 @@
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="RobotPunch" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="60" OffsetY="0" Width="80" Height="80" />
+      </Hitboxes>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0.6</Delay>
+      <Cooldown>1</Cooldown>
+      <Duration>0.2</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <SpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:0}" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
   </Attacks>
 </XnaContent>
