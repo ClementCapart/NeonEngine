@@ -21,6 +21,14 @@ namespace NeonStarLibrary
             set { _speed = value; }
         }
 
+        private float _waitBeforeChasingDelay = 0.0f;
+
+        public float WaitBeforeChasingDelay
+        {
+            get { return _waitBeforeChasingDelay; }
+            set { _waitBeforeChasingDelay = value; }
+        }
+        
         private float _waitDelay = 1.0f;
 
         public float WaitDelay
