@@ -56,7 +56,7 @@ namespace NeonStarLibrary
         {           
             if (EntityFollowed != null)
             {
-                if (ShouldDetectAgain && EnemyComponent.State != EnemyState.Wait && EnemyComponent.State != EnemyState.MustFinishChase)
+                if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
                 {
                     if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                     {

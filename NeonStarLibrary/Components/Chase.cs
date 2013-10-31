@@ -65,6 +65,7 @@ namespace NeonStarLibrary
                         {
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                             HavingTarget = false;
+                            EnemyComponent._threatArea.ShouldDetectAgain = false;
                             EnemyComponent.State = EnemyState.Wait;
                             _waitTimer = _waitDelay;
                         }
@@ -82,6 +83,7 @@ namespace NeonStarLibrary
                         else
                         {
                             this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                            EnemyComponent._threatArea.ShouldDetectAgain = false;
                             EnemyComponent.State = EnemyState.Wait;
                             _waitTimer = _waitDelay;
                             HavingTarget = false;
@@ -92,6 +94,7 @@ namespace NeonStarLibrary
                     {
                         this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
                         HavingTarget = false;
+                        EnemyComponent._threatArea.ShouldDetectAgain = false;
                         EnemyComponent.State = EnemyState.Wait;
                         _waitTimer = _waitDelay;
                     }
@@ -99,6 +102,7 @@ namespace NeonStarLibrary
                 else
                 {
                     EnemyComponent.State = EnemyState.Wait;
+                    EnemyComponent._threatArea.ShouldDetectAgain = false;
                     _waitTimer = _waitDelay;
                 }
             }
@@ -109,8 +113,7 @@ namespace NeonStarLibrary
                     _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 else
-                {
-                    EnemyComponent._threatArea.ShouldDetectAgain = false;
+                {                   
                     EnemyComponent.State = EnemyState.Idle;
                 }
             }
