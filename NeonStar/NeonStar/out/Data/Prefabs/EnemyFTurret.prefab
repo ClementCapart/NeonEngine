@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="EnemyFTurret">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <Position Value="{X:4,474464E-09 Y:248}" />
+          <InitialPosition Value="{X:0 Y:0}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Main" />
+          <Center Value="{X:0 Y:248}" />
+          <X Value="-50" />
+          <Y Value="198" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="100" />
+          <Height Value="100" />
+        </Properties>
+      </Hitbox>
+      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+        <Properties>
+          <BodyType Value="Dynamic" />
+          <GravityScale Value="2" />
+          <UseGravity Value="True" />
+          <Restitution Value="0" />
+          <Friction Value="10" />
+          <Mass Value="40000" />
+          <OneWayPlatform Value="False" />
+          <SleepingAllowed Value="False" />
+          <IsGround Value="False" />
+          <Hitbox Value="1" />
+          <Sensors Value="True" />
+          <FixedRotation Value="True" />
+        </Properties>
+      </Rigidbody>
+      <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+        <Properties>
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Spritesheets />
+          <DrawLayer Value="0" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+        </Properties>
+      </SpritesheetManager>
+      <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+        <Properties>
+          <Debug Value="False" />
+          <StartingHealthPoints Value="10" />
+          <RunAnim Value="" />
+          <IdleAnim Value="" />
+          <AttackAnim Value="" />
+          <Type Value="Ground" />
+        </Properties>
+      </Enemy>
+      <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
+        <Properties>
+          <ThreatRange Value="300" />
+          <AttackRange Value="100" />
+          <EntityToSearchFor Value="LiOn" />
+        </Properties>
+      </ThreatArea>
+      <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
+        <Properties>
+          <AttackToLaunch Value="" />
+        </Properties>
+      </EnemyAttack>
+    </Components>
+  </Entity>
+</Prefab>
