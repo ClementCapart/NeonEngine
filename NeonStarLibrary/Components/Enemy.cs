@@ -20,6 +20,12 @@ namespace NeonStarLibrary
         StunLock
     }
 
+    public enum EnemyType
+    {
+        Ground,
+        Flying
+    }
+
     public class Enemy : Component
     {
         private bool _debug;
@@ -69,6 +75,14 @@ namespace NeonStarLibrary
         {
             get { return _attackAnim; }
             set { _attackAnim = value; }
+        }
+
+        private EnemyType _type = EnemyType.Ground;
+
+        public EnemyType Type
+        {
+            get { return _type; }
+            set { _type = value; }
         }
 
         public Enemy(Entity entity)
