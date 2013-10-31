@@ -32,6 +32,9 @@ namespace NeonEngine
                     XElement Components = new XElement("Components");
                     foreach (Component c in e.Components)
                     {
+                        if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
+                            return;
+
                         XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
                         XElement Properties = new XElement("Properties");
                         foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
