@@ -94,6 +94,9 @@ namespace NeonEngine
             if (CurrentPriority > priority)
                 return;
 
+            if (spriteSheetName == null || spriteSheetName == "")
+                return;
+
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
             if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
