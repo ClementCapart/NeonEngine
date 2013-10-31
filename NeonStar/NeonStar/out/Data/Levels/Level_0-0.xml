@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-618,5001 Y:190}" />
+              <Position Value="{X:57,17781 Y:230}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,9 +38,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-618 Y:190}" />
-              <X Value="-638" />
-              <Y Value="122" />
+              <Center Value="{X:57 Y:230}" />
+              <X Value="37" />
+              <Y Value="162" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -126,7 +126,7 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="0" />
-              <CurrentHealthPoints Value="28" />
+              <CurrentHealthPoints Value="77" />
             </Properties>
           </Avatar>
         </Components>
@@ -135,7 +135,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:550,0677 Y:175}" />
+              <Position Value="{X:862,8581 Y:175}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -144,8 +144,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:550 Y:175}" />
-              <X Value="505" />
+              <Center Value="{X:862 Y:175}" />
+              <X Value="817" />
               <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -694,7 +694,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-0,8 Y:-500}" />
+              <Position Value="{X:64,40693 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -743,7 +743,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:82,04415 Y:210,109}" />
+              <Position Value="{X:187,9845 Y:210,3548}" />
               <InitialPosition Value="{X:0 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -768,8 +768,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:84 Y:210}" />
-              <X Value="27" />
+              <Center Value="{X:187 Y:210}" />
+              <X Value="130" />
               <Y Value="123" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -789,7 +789,7 @@
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="4">
             <Properties>
               <CurrentNodeList Value="NodeLis" />
-              <Speed Value="2" />
+              <Speed Value="1.5" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
               <PathPrecisionTreshold Value="5" />
@@ -798,7 +798,7 @@
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
             <Properties>
               <ThreatRange Value="300" />
-              <AttackRange Value="100" />
+              <AttackRange Value="120" />
               <EntityToSearchFor Value="LiOn" />
             </Properties>
           </ThreatArea>
@@ -822,6 +822,18 @@
               <AttackToLaunch Value="RobotPunch" />
             </Properties>
           </EnemyAttack>
+          <Hitbox Type="NeonEngine.Hitbox" ID="0">
+            <Properties>
+              <Type Value="Hit" />
+              <Center Value="{X:147 Y:210}" />
+              <X Value="87" />
+              <Y Value="170" />
+              <OffsetX Value="-40" />
+              <OffsetY Value="0" />
+              <Width Value="120" />
+              <Height Value="80" />
+            </Properties>
+          </Hitbox>
         </Components>
       </Entity>
     </Entities>

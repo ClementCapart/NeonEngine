@@ -149,7 +149,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.5</StunLock>
       <SpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:800}" />
@@ -180,7 +180,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.6</StunLock>
       <SpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:800}" />
@@ -276,7 +276,7 @@
     </Attack>
     <Attack ID="0" Name="RobotPunch" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="60" OffsetY="0" Width="80" Height="80" />
+        <Hitbox OffsetX="40" OffsetY="0" Width="120" Height="80" />
       </Hitboxes>
       <DamageOnHit>1</DamageOnHit>
       <AirOnly>False</AirOnly>
@@ -292,7 +292,7 @@
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:200 Y:0}" />
+          <Parameter Value="{X:275 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
