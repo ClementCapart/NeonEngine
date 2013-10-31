@@ -118,7 +118,11 @@ namespace NeonEngine
                             if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                                 continue;
                             else if (pi.PropertyType.Equals(typeof(PathNodeList)))
-                                pi.SetValue(component, containerWorld.NodeLists.Where(nl => nl.Name == Property.Attribute("Value").Value).First(), null);
+                            {
+                                List<PathNodeList> pnl = containerWorld.NodeLists.Where(nl => nl.Name == Property.Attribute("Value").Value).ToList<PathNodeList>();
+                                if(pnl.Count > 0)
+                                    pi.SetValue(component, pnl.First(), null);
+                            }                              
                             else if (pi.PropertyType.Equals(typeof(Vector2)))
                                 pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Color)))
