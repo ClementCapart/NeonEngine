@@ -13,8 +13,6 @@ namespace NeonStarLibrary
         public Entity EntityFollowed;
         public bool ShouldDetectAgain = true;
 
-        public Entity EntityAttacked;
-
         private float _threatRange = 300f;
 
         public float ThreatRange

@@ -299,7 +299,7 @@ namespace NeonStarLibrary
                         return;
                     }
 
-                if (AirLock <= 0.0f || (_entity.rigidbody.isGrounded && (_meleeFight != null && _meleeFight.ThirdPersonController != null && !_meleeFight.ThirdPersonController.StartJumping)))
+                if (AirLock <= 0.0f || (_entity.rigidbody.isGrounded && ((_meleeFight != null && _meleeFight.ThirdPersonController != null && !_meleeFight.ThirdPersonController.StartJumping) || _meleeFight == null)))
                     AirLockFinished = true;
             }
 
