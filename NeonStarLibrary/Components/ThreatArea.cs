@@ -61,6 +61,8 @@ namespace NeonStarLibrary
                     if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                     {
                         EnemyComponent.State = EnemyState.Attack;
+                        if(entity.spritesheets != null)
+                            entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
