@@ -49,6 +49,9 @@ namespace NeonEngine
                         n.index = int.Parse(node.Attribute("Index").Value);
                         n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
                         n.Position = Neon.utils.ParseVector2(node.Attribute("Position").Value);
+
+                        if (n.Type == NodeType.DelayedMove)
+                            n.NodeDelay = float.Parse(node.Attribute("Delay").Value, CultureInfo.InvariantCulture);
                         pnl.Nodes.Add(n);
                     }
 

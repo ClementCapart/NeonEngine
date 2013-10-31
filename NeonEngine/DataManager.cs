@@ -107,7 +107,11 @@ namespace NeonEngine
     
                     foreach (Node n in pnl.Nodes)
                     {
-                        XElement node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
+                        XElement node;
+                        if(n.Type == NodeType.DelayedMove) 
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
+                        else
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
                         nodeList.Add(node);
                     }
                     pathNodeLists.Add(nodeList);

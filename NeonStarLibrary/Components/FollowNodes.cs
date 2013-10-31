@@ -57,6 +57,9 @@ namespace NeonStarLibrary
         private Node _previousNode;
         private bool _reverse;
 
+        private float _currentNodeDelay = 0.0f;
+        private bool _isDelayed = false;
+
         public Enemy EnemyComponent;
 
         public bool Active = true;
@@ -84,7 +87,6 @@ namespace NeonStarLibrary
                     }
                     _nextNode = CloserNode;
                 }
-
                 _reverseStart = _reverse;
             }
             
@@ -99,7 +101,35 @@ namespace NeonStarLibrary
                 if (_currentNodeList.Type == PathType.Ground)
                 {
                     if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
-                        SearchNextNode();
+                    {
+                        switch(_nextNode.Type)
+                        {
+                            case NodeType.Move:
+                                SearchNextNode();
+                                break;
+
+                            case NodeType.DelayedMove:
+                                if (!_isDelayed)
+                                {
+                                    _currentNodeDelay = _nextNode.NodeDelay;
+                                    this._isDelayed = true;
+                                    this.EnemyComponent.State = EnemyState.Wait;
+                                }
+                                else
+                                {
+                                    _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                    if (_currentNodeDelay <= 0.0f)
+                                    {
+                                        _currentNodeDelay = 0.0f;
+                                        this._isDelayed = false;
+                                        this.EnemyComponent.State = EnemyState.Patrol;
+                                        SearchNextNode();
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                        
                     if (EnemyComponent.State == EnemyState.Patrol)
                     {
                         if (this._nextNode.Position.X < this.entity.transform.Position.X)

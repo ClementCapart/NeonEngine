@@ -42,12 +42,52 @@ namespace NeonStarEditor
             {
                 this.NodeInfo.Show();
                 this.NodeTypeCombobox.SelectedItem = CurrentNodeSelected.Type;
-                
+
+                if (CurrentNodeSelected.Type == NodeType.DelayedMove)
+                {
+                    Label lb = new Label();
+                    lb.Text = "Delay";
+                    lb.Width = 40;
+                    lb.Height = 15;
+                    lb.Location = new Point(10, 60);
+
+                    NodeInfo.Controls.Add(lb);
+
+                    NumericUpDown nu = new NumericUpDown();
+                    nu.Width = 70;
+                    nu.Height = 10;
+                    nu.DecimalPlaces = 2;
+                    nu.Location = new Point(50, 58);
+                    nu.ValueChanged += nu_ValueChanged;
+                    nu.Enter += nu_Enter;
+                    nu.Leave += nu_Leave;
+
+                    nu.Value = (decimal)CurrentNodeSelected.NodeDelay;
+
+                    NodeInfo.Controls.Add(nu);
+                }            
             }
             else
             {
                 this.NodeInfo.Hide();
             }
+        }
+
+        void nu_Leave(object sender, EventArgs e)
+        {
+            CurrentNodeSelected.NodeDelay = (float)(sender as NumericUpDown).Value;
+            (Neon.world as EditorScreen).FocusedNumericUpDown = null;
+            
+        }
+
+        void nu_Enter(object sender, EventArgs e)
+        {
+            (Neon.world as EditorScreen).FocusedNumericUpDown = (sender as NumericUpDown);
+        }
+
+        void nu_ValueChanged(object sender, EventArgs e)
+        {
+            CurrentNodeSelected.NodeDelay = (float)(sender as NumericUpDown).Value;
         }
 
         private void RemovePathButton_Click(object sender, EventArgs e)
@@ -85,6 +125,7 @@ namespace NeonStarEditor
             {
                 this.PathName.Text = GameWorld.NodeLists[NodeLists.SelectedIndex].Name;
                 this.TypeComboBox.SelectedItem = GameWorld.NodeLists[NodeLists.SelectedIndex].Type;
+                InitializeNodeData();
             }
         }
 
@@ -104,6 +145,7 @@ namespace NeonStarEditor
         {
             if(NodeLists.SelectedIndex != -1 && (NodeLists.DataSource as List<PathNodeList>).Count > 0)
                 GameWorld.NodeLists[NodeLists.SelectedIndex].Type = (PathType)Enum.Parse(typeof(PathType), (sender as ComboBox).SelectedItem.ToString());
+            
         }
 
         private void ToggleDisplayAll_Click(object sender, EventArgs e)
@@ -136,6 +178,7 @@ namespace NeonStarEditor
             if (CurrentNodeSelected != null)
             {
                 CurrentNodeSelected.Type = (NodeType)Enum.Parse(typeof(NodeType), (sender as ComboBox).SelectedItem.ToString());
+                InitializeNodeData();
             }
         }
 

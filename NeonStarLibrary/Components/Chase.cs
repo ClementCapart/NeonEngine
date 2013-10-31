@@ -111,7 +111,6 @@ namespace NeonStarLibrary
                 else
                 {
                     EnemyComponent._threatArea.ShouldDetectAgain = false;
-                    EnemyComponent.State = EnemyState.Idle;
                 }
             }
             else if (EnemyComponent.State == EnemyState.Chase)
