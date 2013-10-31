@@ -34,12 +34,28 @@ namespace NeonStarLibrary
         }
 
         private float _stunLockDuration;
+
+        public float StunLockDuration
+        {
+            get { return _stunLockDuration; }
+            set { _stunLockDuration = value; }
+        }
         private float _airLockDuration;
+
+        public MeleeFight meleeFight;
+        public ThirdPersonController thirdPersonController;
+
 
         public Avatar(Entity entity)
             :base(entity, "Avatar")
         {
+        }
 
+        public override void Init()
+        {
+            meleeFight = this.entity.GetComponent<MeleeFight>();
+            thirdPersonController = this.entity.GetComponent<ThirdPersonController>();
+            base.Init();
         }
 
         public void ChangeHealthPoints(float value)
@@ -48,15 +64,6 @@ namespace NeonStarLibrary
             if (Debug)
             {
                 Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
-            }
-        }
-
-        public void StunLock(float duration)
-        {
-            _stunLockDuration = duration;
-            if (_stunLockDuration > 0)
-            {
-                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
         }
 
@@ -71,6 +78,21 @@ namespace NeonStarLibrary
             else
             {
                 entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+            }
+        }
+
+        public void StunLockEffect(float duration)
+        {
+            _stunLockDuration = duration;
+            if (meleeFight != null && meleeFight.CurrentAttack != null)
+            {
+                meleeFight.CurrentAttack.CancelAttack();
+                meleeFight.CurrentAttack = null;
+                entity.spritesheets.CurrentPriority = 0;
+            }
+            if (_stunLockDuration > 0)
+            {
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
         }
 

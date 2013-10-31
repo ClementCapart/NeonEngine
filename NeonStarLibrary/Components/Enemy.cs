@@ -99,7 +99,7 @@ namespace NeonStarLibrary
             }
         }
 
-        public void StunLock(float duration)
+        public void StunLockEffect(float duration)
         {
             _stunLockDuration = duration;
             if (_stunLockDuration > 0)

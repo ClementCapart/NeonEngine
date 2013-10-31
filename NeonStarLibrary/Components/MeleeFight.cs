@@ -129,6 +129,8 @@ namespace NeonStarLibrary
             set { _currentComboHit = value; }
         }
 
+        private Avatar _avatar;
+
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")
         {
@@ -136,6 +138,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            _avatar = entity.GetComponent<Avatar>();
             base.Init();
         }
 
@@ -173,7 +176,7 @@ namespace NeonStarLibrary
                     CurrentAttack.Update(gameTime);
             }        
 
-            if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished))
+            if ((CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
             {
                 if (NextAttack != "")
                 {
@@ -248,7 +251,7 @@ namespace NeonStarLibrary
             {
                 if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
                 {
-                    if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
+                    if ((CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished))) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
                     {
                         PerformUppercut();
                     }
@@ -262,7 +265,7 @@ namespace NeonStarLibrary
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
-                        if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
+                        if ((CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished))) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
                         {
                             PerformLeftRushAttack();
                         }
@@ -284,7 +287,7 @@ namespace NeonStarLibrary
                 {
                     if (_rushAttackSideDelay <= ThirdPersonController.LastSideChangedDelay)
                     {
-                        if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
+                        if ((CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished))) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
                         {
                             PerformRightRushAttack();
                         }
@@ -304,7 +307,7 @@ namespace NeonStarLibrary
                 }
                 else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))                  
                 {
-                    if (CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished)))
+                    if ((CurrentAttack == null || CurrentAttack != null && (CurrentAttack.CooldownFinished || (CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished))) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
                     {
                         PerformDiveAttack();
                         if (CurrentAttack == null)
@@ -320,7 +323,7 @@ namespace NeonStarLibrary
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking)
                 {
-                    if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished))
+                    if ((CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
                         PerformLightAttack();
                     else if (NextAttack == "")
                     {
@@ -375,6 +378,13 @@ namespace NeonStarLibrary
             {
                 ThirdPersonController.CanMove = true;
                 ThirdPersonController.CanTurn = true;
+
+                if (_avatar != null && _avatar.StunLockDuration > 0)
+                {
+                    entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                    ThirdPersonController.CanMove = false;
+                    ThirdPersonController.CanTurn = false;
+                }
             }
             else
             {
@@ -385,7 +395,15 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    if(CurrentAttack.AirLocked)
+                    if (_avatar != null && _avatar.StunLockDuration > 0)
+                    {
+                        CurrentAttack.AirLock = 0.0f;
+                        CurrentAttack.AirLockFinished = true;
+                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                        ThirdPersonController.CanMove = false;
+                        ThirdPersonController.CanTurn = false;
+                    }
+                    else if(CurrentAttack.AirLocked)
                     {
                         ThirdPersonController.CanMove = false;
                         ThirdPersonController.CanTurn = true;

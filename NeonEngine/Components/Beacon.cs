@@ -48,7 +48,7 @@ namespace NeonEngine.Private
         public void RefreshRaycastPosition()
         {
             GroundRaycast = new Vector2(hitbox.Center.X - hitbox.OffsetX, hitbox.Center.Y - hitbox.OffsetY + hitbox.Height / 2- 5);
-            GroundRaycastTarget = GroundRaycast + new Vector2(0, 8);
+            GroundRaycastTarget = GroundRaycast + new Vector2(0, 9);
 
             RearGroundRaycast = GroundRaycastTarget;
             RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2 - 2, 0);

@@ -168,124 +168,131 @@ namespace NeonStarLibrary
 
              bool NotMoving = true;
 
-            if (CanMove)
-            {
-                if (entity.rigidbody.isGrounded && !StartJumping)
-                {
+             if (CanMove)
+             {
+                 if (entity.rigidbody.isGrounded && !StartJumping)
+                 {
 
-                    if (Neon.Input.Check(NeonStarInput.MoveLeft))
-                    {
-                        if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
-                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
-                        entity.spritesheets.ChangeAnimation(WalkAnimation);
-                        entity.spritesheets.ChangeSide(CurrentSide);
-                        NotMoving = false;
-                    }
-                    else if (Neon.Input.Check(NeonStarInput.MoveRight))
-                    {
-                        if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
-                            entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
-                        entity.spritesheets.ChangeAnimation(WalkAnimation);
-                        entity.spritesheets.ChangeSide(CurrentSide);
+                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                     {
+                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
+                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
+                         entity.spritesheets.ChangeAnimation(WalkAnimation);
+                         entity.spritesheets.ChangeSide(CurrentSide);
+                         NotMoving = false;
+                     }
+                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                     {
+                         if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
+                             entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
+                         entity.spritesheets.ChangeAnimation(WalkAnimation);
+                         entity.spritesheets.ChangeSide(CurrentSide);
 
-                        NotMoving = false;
-                    }
+                         NotMoving = false;
+                     }
 
-                    if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
-                    {
-                        Rigidbody rg = entity.rigidbody.beacon.CheckGround();
-                        if (rg != null)
-                            if (rg.OneWayPlatform)
-                                _ignoredGeometry.Add(rg);
+                     if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
+                     {
+                         Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+                         if (rg != null)
+                             if (rg.OneWayPlatform)
+                                 _ignoredGeometry.Add(rg);
 
-                    }
-                    else if (Neon.Input.Pressed(NeonStarInput.Jump))
-                    {
-                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
-                        if(_meleeFight != null) _meleeFight.CurrentComboHit = ComboSequence.None;
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, false, false, 0);
-                        entity.spritesheets.CurrentPriority = 0;
-                        StartJumping = true;
-                    }
-                    else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
-                    {
-                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
-                        _meleeFight.CurrentComboHit = ComboSequence.None;
-                        entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, true, false, 0);
-                        entity.spritesheets.CurrentPriority = 0;
-                        StartJumping = true;
-                        _jumpInputDelay = 0.0f;
-                        _mustJumpAsSoonAsPossible = false;
-                    }
-                    
-                    if (_jumpInputDelay >= _maxJumpInputDelay || !Neon.Input.Check(NeonStarInput.Jump))
-                    {
-                        _jumpInputDelay = 0.0f;
-                        _mustJumpAsSoonAsPossible = false;
-                    }
-                }
-                else
-                {
-                    if (Neon.Input.Check(NeonStarInput.MoveLeft))
-                    {
-                        CurrentSide = Side.Left;
-                        if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
-                        {
-                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
-                        }
+                     }
+                     else if (Neon.Input.Pressed(NeonStarInput.Jump))
+                     {
+                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                         if (_meleeFight != null) _meleeFight.CurrentComboHit = ComboSequence.None;
+                         entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, false, false, 0);
+                         entity.spritesheets.CurrentPriority = 0;
+                         StartJumping = true;
+                     }
+                     else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
+                     {
+                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                         _meleeFight.CurrentComboHit = ComboSequence.None;
+                         entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, true, false, 0);
+                         entity.spritesheets.CurrentPriority = 0;
+                         StartJumping = true;
+                         _jumpInputDelay = 0.0f;
+                         _mustJumpAsSoonAsPossible = false;
+                     }
 
-                        entity.spritesheets.ChangeSide(CurrentSide);
-                    }
-                    else if (Neon.Input.Check(NeonStarInput.MoveRight))
-                    {
-                        CurrentSide = Side.Right;
-                        if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
-                            entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
+                     if (_jumpInputDelay >= _maxJumpInputDelay || !Neon.Input.Check(NeonStarInput.Jump))
+                     {
+                         _jumpInputDelay = 0.0f;
+                         _mustJumpAsSoonAsPossible = false;
+                     }
+                 }
+                 else
+                 {
+                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                     {
+                         CurrentSide = Side.Left;
+                         if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
+                         {
+                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
+                         }
 
-                        entity.spritesheets.ChangeSide(CurrentSide);
-                    }
-                    else
-                        entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
+                         entity.spritesheets.ChangeSide(CurrentSide);
+                     }
+                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                     {
+                         CurrentSide = Side.Right;
+                         if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
+                             entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
 
-                    if (Neon.Input.Pressed(NeonStarInput.Jump))
-                    {
-                        _mustJumpAsSoonAsPossible = true;
-                    }
+                         entity.spritesheets.ChangeSide(CurrentSide);
+                     }
+                     else
+                         entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
 
-                    if (entity.rigidbody.body.LinearVelocity.Y > 0)
-                    {
-                        if (!entity.rigidbody.isGrounded)
-                        {
-                            if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
-                            {
-                                entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
-                            }
-                            else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
-                            {
-                                entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
-                            }  
-                        }
-                        StartJumping = false;                                            
-                    }
+                     if (Neon.Input.Pressed(NeonStarInput.Jump))
+                     {
+                         _mustJumpAsSoonAsPossible = true;
+                     }
 
-                    if (_mustJumpAsSoonAsPossible)
-                        _jumpInputDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    else
-                        _jumpInputDelay = 0.0f;
-                    
-                }
+                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
+                     {
+                         if (!entity.rigidbody.isGrounded)
+                         {
+                             if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
+                             {
+                                 entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                             }
+                             else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
+                             {
+                                 entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
+                             }
+                         }
+                         StartJumping = false;
+                     }
 
-                if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && !StartJumping)
-                    entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
+                     if (_mustJumpAsSoonAsPossible)
+                         _jumpInputDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                     else
+                         _jumpInputDelay = 0.0f;
 
-                if (entity.rigidbody.isGrounded && NotMoving && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished || !entity.spritesheets.CurrentSpritesheet.isPlaying))
-                {
-                    entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);                   
-                }
+                 }
 
-            }
+                 if (entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && !StartJumping)
+                     entity.spritesheets.ChangeAnimation(LandingAnimation, 0, true, false, false, -1);
+
+                 if (entity.rigidbody.isGrounded && NotMoving && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished || !entity.spritesheets.CurrentSpritesheet.isPlaying))
+                 {
+                     entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);
+                 }
+
+             }
+             else
+             {
+                 if (entity.rigidbody.isGrounded && NotMoving && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished || !entity.spritesheets.CurrentSpritesheet.isPlaying))
+                 {
+                     entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);
+                 }
+             }
             
             foreach (Rigidbody rg in _ignoredGeometry)
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);

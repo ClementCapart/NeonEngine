@@ -522,7 +522,7 @@ namespace NeonStarLibrary
                     validTarget = true;
                     _hit = true;
                     enemy.ChangeHealthPoints(_damageOnHit);
-                    enemy.StunLock(_stunLock);
+                    enemy.StunLockEffect(_stunLock);
                     if (!enemy.entity.rigidbody.isGrounded)
                         enemy.AirLock(TargetAirLock);
                 }
@@ -535,7 +535,7 @@ namespace NeonStarLibrary
                     validTarget = true;
                     _hit = true;
                     avatar.ChangeHealthPoints(_damageOnHit);
-                    avatar.StunLock(_stunLock);
+                    avatar.StunLockEffect(_stunLock);
                     if(!avatar.entity.rigidbody.IsGround)
                         avatar.AirLock(TargetAirLock);
                 }
