@@ -113,7 +113,7 @@ namespace NeonStarLibrary
                                 {
                                     _currentNodeDelay = _nextNode.NodeDelay;
                                     this._isDelayed = true;
-                                    this.EnemyComponent.State = EnemyState.Wait;
+                                    this.EnemyComponent.State = EnemyState.WaitNode;
                                 }
                                 else
                                 {

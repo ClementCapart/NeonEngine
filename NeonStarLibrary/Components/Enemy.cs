@@ -16,6 +16,7 @@ namespace NeonStarLibrary
         MustFinishChase,
         FinishChase,
         Wait,
+        WaitNode,
         Attack,
         StunLock
     }
@@ -184,6 +185,7 @@ namespace NeonStarLibrary
                         break;
 
                     case EnemyState.Wait:
+                    case EnemyState.WaitNode:
                         entity.spritesheets.ChangeAnimation(_idleAnim);
                         break;
 
