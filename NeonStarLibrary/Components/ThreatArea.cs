@@ -67,7 +67,7 @@ namespace NeonStarLibrary
                         if(EnemyComponent.State != EnemyState.Attack || ( EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null))
                             EnemyComponent.State = EnemyState.Chase;
                     }
-                    else if (EnemyComponent.State == EnemyState.Chase || EnemyComponent.State == EnemyState.Attack)
+                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null))
                     {
                         EnemyComponent.State = EnemyState.MustFinishChase;
                     }
