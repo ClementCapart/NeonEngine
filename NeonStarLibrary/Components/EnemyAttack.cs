@@ -106,6 +106,8 @@ namespace NeonStarLibrary
                         CurrentAttack = null;
                         if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
                             entity.spritesheets.CurrentPriority = 0;
+
+                        EnemyComponent.State = EnemyState.Idle;
                     }
                     else
                         CurrentAttack.Update(gameTime);

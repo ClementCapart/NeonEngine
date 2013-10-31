@@ -64,7 +64,7 @@ namespace NeonStarLibrary
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
-                        if(EnemyComponent.State != EnemyState.Attack || ( EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null))
+                        if( (EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
                             EnemyComponent.State = EnemyState.Chase;
                     }
                     else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null))
