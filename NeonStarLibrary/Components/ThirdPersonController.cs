@@ -284,7 +284,6 @@ namespace NeonStarLibrary
                  {
                      entity.spritesheets.ChangeAnimation(IdleAnimation, 0, true, false, true);
                  }
-
              }
              else
              {
