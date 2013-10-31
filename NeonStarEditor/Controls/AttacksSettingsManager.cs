@@ -33,6 +33,7 @@ namespace NeonStarEditor
             if (fromGame)
             {
                 _attackList.Clear();
+                AttacksManager._attacksInformation = AttacksManager._attacksInformation.OrderBy(ai => ai.Name).ToList<AttackInfo>();
                 foreach (AttackInfo ai in AttacksManager._attacksInformation)
                 {
                     _attackList.Add(ai.Name, ai);

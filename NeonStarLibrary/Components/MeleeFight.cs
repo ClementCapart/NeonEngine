@@ -27,6 +27,38 @@ namespace NeonStarLibrary
 
         public Attack CurrentAttack;
 
+        private string _lightAttackName;
+
+        public string LightAttackName
+        {
+            get { return _lightAttackName; }
+            set { _lightAttackName = value; }
+        }
+
+        private string _rushAttackName;
+
+        public string RushAttackName
+        {
+            get { return _rushAttackName; }
+            set { _rushAttackName = value; }
+        }
+
+        private string _uppercutName;
+
+        public string UppercutName
+        {
+            get { return _uppercutName; }
+            set { _uppercutName = value; }
+        }
+
+        private string _diveAttackName;
+
+        public string DiveAttackName
+        {
+            get { return _diveAttackName; }
+            set { _diveAttackName = value; }
+        }
+
         private float _comboDelayMax = 1.0f;
         public float ComboDelayMax
         {
@@ -153,7 +185,7 @@ namespace NeonStarLibrary
                 AttacksWhileInAir.Clear();
             }
 
-            if (CurrentAttack != null && (CurrentAttack.AttackInfo.Name == "DiveAttack" || CurrentAttack.AttackInfo.Name == "DiveAttackFinish"))
+            if (CurrentAttack != null && (CurrentAttack.AttackInfo.Name == _diveAttackName || CurrentAttack.AttackInfo.Name == _diveAttackName+"Finish"))
             {
                 if (entity.spritesheets.CurrentSpritesheetName == DiveAttackStartAnimation && entity.spritesheets.IsFinished())
                 {
@@ -425,7 +457,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack("UppercutFinish", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_uppercutName+"Finish", entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, true, false);
@@ -434,7 +466,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("Uppercut", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_uppercutName, entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, true, false);
@@ -451,7 +483,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {               
-                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", Side.Left, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName+"Finish", Side.Left, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
@@ -461,7 +493,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttack", Side.Left, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName, Side.Left, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
@@ -479,7 +511,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttackFinish", Side.Right, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName + "Finish", Side.Right, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
@@ -489,7 +521,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("RushAttack", Side.Right, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName, Side.Right, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
@@ -506,13 +538,13 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack("DiveAttackFinish", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_diveAttackName+"Finish", entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                     entity.spritesheets.ChangeAnimation(DiveAttackStartAnimation, 1, true, true, false);
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("DiveAttack", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_diveAttackName, entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                     entity.spritesheets.ChangeAnimation(DiveAttackStartAnimation, 1, true, true, false);
             }
@@ -524,7 +556,7 @@ namespace NeonStarLibrary
             CheckComboHit();
             if (_currentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack("LightAttackFinish", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_lightAttackName+"Finish", entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(LightAttackAnimation + "Finish", 1, true, true, false);
@@ -533,7 +565,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                CurrentAttack = AttacksManager.GetAttack("LightAttack", entity.spritesheets.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_lightAttackName, entity.spritesheets.CurrentSide, entity);
                 if (!CurrentAttack.Canceled)
                 {
                     if (_currentComboHit == ComboSequence.Starter)

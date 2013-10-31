@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-497,1642 Y:190}" />
+              <Position Value="{X:-450 Y:190}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-497 Y:190}" />
-              <X Value="-517" />
+              <Center Value="{X:-450 Y:190}" />
+              <X Value="-470" />
               <Y Value="122" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -90,6 +90,10 @@
           <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
             <Properties>
               <Debug Value="True" />
+              <LightAttackName Value="LiOnLightAttack" />
+              <RushAttackName Value="LiOnRushAttack" />
+              <UppercutName Value="LiOnUppercut" />
+              <DiveAttackName Value="LiOnDiveAttack" />
               <ComboDelayMax Value="0.5" />
               <LightAttackAnimation Value="lightattack" />
               <UppercutAnimation Value="uppercut" />
@@ -136,7 +140,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:1733,466 Y:175}" />
+              <Position Value="{X:1680,855 Y:175}" />
               <InitialPosition Value="{X:1700 Y:180}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -145,8 +149,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1733 Y:175}" />
-              <X Value="1688" />
+              <Center Value="{X:1680 Y:175}" />
+              <X Value="1635" />
               <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -706,7 +710,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:126,4 Y:-500}" />
+              <Position Value="{X:-0,8 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -755,7 +759,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:0 Y:210,5}" />
+              <Position Value="{X:258,5755 Y:210,5}" />
               <InitialPosition Value="{X:0 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -764,8 +768,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:0 Y:210}" />
-              <X Value="-57" />
+              <Center Value="{X:258 Y:210}" />
+              <X Value="201" />
               <Y Value="123" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -823,7 +827,7 @@
           </Chase>
           <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
             <Properties>
-              <AttackToLaunch Value="RobotPunch" />
+              <AttackToLaunch Value="EnemyRobotPunch" />
             </Properties>
           </EnemyAttack>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
