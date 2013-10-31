@@ -162,7 +162,7 @@ namespace NeonStarLibrary
                 {
                     State = EnemyState.Patrol;
                 }
-                else if(_followNodes == null || State == EnemyState.StunLock)
+                else if(State == EnemyState.StunLock)
                 {
                     State = EnemyState.Idle;
                 }

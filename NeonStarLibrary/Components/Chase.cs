@@ -22,6 +22,8 @@ namespace NeonStarLibrary
         }
 
         private float _waitBeforeChasingDelay = 0.0f;
+        public bool HasToWait = true;
+        private float _timerBeforeChasing = 0.0f;
 
         public float WaitBeforeChasingDelay
         {
@@ -121,7 +123,8 @@ namespace NeonStarLibrary
                     _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 else
-                {                   
+                {
+                    HasToWait = true;
                     EnemyComponent.State = EnemyState.Idle;
                 }
             }
@@ -130,8 +133,18 @@ namespace NeonStarLibrary
                 HavingTarget = true;
                 LastTargetPosition = new Vector2(EnemyComponent._threatArea.EntityFollowed.transform.Position.X, EnemyComponent._threatArea.EntityFollowed.transform.Position.Y);
 
-                if (LastTargetPosition.X < this.entity.transform.Position.X)
+                if (HasToWait)
                 {
+                    HasToWait = false;
+                    _timerBeforeChasing = _waitBeforeChasingDelay;
+                }
+                else if (_timerBeforeChasing > 0.0f)
+                {
+                    _timerBeforeChasing -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else if (LastTargetPosition.X < this.entity.transform.Position.X)
+                {
+                    _timerBeforeChasing = 0.0f;
                     if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
                     {
                         if (this.entity.spritesheets != null)
