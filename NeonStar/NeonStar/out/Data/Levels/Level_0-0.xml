@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-177,546 Y:230}" />
+              <Position Value="{X:-72,7186 Y:230}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-177 Y:230}" />
-              <X Value="-197" />
+              <Center Value="{X:-72 Y:230}" />
+              <X Value="-92" />
               <Y Value="162" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -135,7 +135,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:864,2795 Y:175}" />
+              <Position Value="{X:879,7879 Y:175}" />
               <InitialPosition Value="{X:737 Y:200}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -144,9 +144,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:864 Y:175}" />
-              <X Value="819" />
-              <Y Value="93" />
+              <Center Value="{X:879 Y:174}" />
+              <X Value="834" />
+              <Y Value="92" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="90" />
@@ -737,6 +737,64 @@
               <PulseDuration Value="1" />
             </Properties>
           </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="Robot">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <Position Value="{X:119,9675 Y:210,1629}" />
+              <InitialPosition Value="{X:0 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="1">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="400" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="2" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Hitbox" ID="2">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:119 Y:210}" />
+              <X Value="62" />
+              <Y Value="123" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="115" />
+              <Height Value="175" />
+            </Properties>
+          </Hitbox>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="3">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="10" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <AttackAnim Value="" />
+            </Properties>
+          </Enemy>
+          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="4">
+            <Properties>
+              <CurrentNodeList Value="NodeLis" />
+              <Speed Value="5" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="5" />
+            </Properties>
+          </FollowPlatformNodes>
         </Components>
       </Entity>
     </Entities>
