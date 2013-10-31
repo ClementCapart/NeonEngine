@@ -11,7 +11,7 @@ namespace NeonStarLibrary
         public Enemy EnemyComponent;
         public Attack CurrentAttack;
 
-        private string _attackToLaunch;
+        private string _attackToLaunch = "";
 
         public string AttackToLaunch
         {
@@ -32,11 +32,12 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            
             if (EnemyComponent.State == EnemyState.Attack)
             {
                 if (CurrentAttack != null)
                 {
-                    if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
+                    if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished && (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished())))
                     {
                         CurrentAttack = null;
                         entity.spritesheets.CurrentPriority = 0;
