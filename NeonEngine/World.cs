@@ -63,7 +63,7 @@ namespace NeonEngine
         {
             Console.WriteLine(GetType().Name + " (World) loading...");
             Console.WriteLine("");
-
+            Neon.world = this;
             this.game = game;
             physicWorld = new FarseerPhysics.Dynamics.World(new Vector2(0.0f, 9.8f));
             lightingSystem = new LightingSystem();
