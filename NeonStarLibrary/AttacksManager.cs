@@ -17,7 +17,8 @@ namespace NeonStarLibrary
         DamageOverTime,
         Boost,
         StartAttack,
-        ShootBullet
+        ShootBullet,
+        ShootBulletAtTarget
     }
 
     public enum AttackType
@@ -112,6 +113,11 @@ namespace NeonStarLibrary
                             BulletInfo bi = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, bi));
                             break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
+                            break;
                     }         
                 }
 
@@ -141,6 +147,11 @@ namespace NeonStarLibrary
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
                             break;
                     }         
                 }
@@ -172,6 +183,11 @@ namespace NeonStarLibrary
                             BulletInfo bi = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, bi));
                             break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
+                            break;
                     }
                 }
 
@@ -179,20 +195,27 @@ namespace NeonStarLibrary
             }
         }
 
-        static public Attack GetAttack(string name, Side side, Entity launcher, bool isEnemy = false)
+        static public Attack GetAttack(string name, Side side, Entity launcher, Entity target = null , bool isEnemy = false)
         {
             if (name == "" || name == null)
                 return null;
-            AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
-            Attack attack = new Attack(attackInfo, side, launcher, isEnemy);
+            AttackInfo[] aiList = _attacksInformation.Where(ai => ai.Name == name).ToArray();
+            
+            if (aiList.Length == 0)
+                return null;
+
+            Attack attack = new Attack(aiList.First(), side, launcher, target, isEnemy);
 
             return attack;
         }
 
         static public Attack StartFreeAttack(string name, Side side, Vector2 Position)
         {
-            AttackInfo attackInfo = _attacksInformation.First(ai => ai.Name == name);
-            Attack attack = new Attack(attackInfo, side, Position);
+            AttackInfo[] aiList = _attacksInformation.Where(ai => ai.Name == name).ToArray();
+
+            if (aiList.Length == 0)
+                return null;
+            Attack attack = new Attack(aiList.First(), side, Position);
             (Neon.world as GameScreen).FreeAttacks.Add(attack);
 
             return attack;

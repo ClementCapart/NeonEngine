@@ -11,6 +11,8 @@ namespace NeonStarLibrary
     {
         public bool EnemyBullet = false;
 
+        public Entity launcher;
+
         private MovePattern _movementStyle;
 
         public MovePattern MovementStyle
@@ -89,18 +91,62 @@ namespace NeonStarLibrary
         {
             if (_lifeTime > 0f)
             {
-                switch(MovementStyle)
+                foreach (Hitbox hb in entity.containerWorld.Hitboxes)
+                {
+                    if (hb != launcher.hitbox && hb != entity.hitbox && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet)
+                    {
+                        if (hb.hitboxRectangle.Intersects(entity.hitbox.hitboxRectangle))
+                        {
+                            if (EnemyBullet)
+                            {
+                                if (hb.Type == HitboxType.Main)
+                                {
+                                    Avatar avatar = hb.entity.GetComponent<Avatar>();
+                                    if (avatar != null)
+                                    {
+                                        avatar.ChangeHealthPoints(DamageOnHit);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (hb.Type == HitboxType.Main)
+                                {
+                                    Enemy enemy = hb.entity.GetComponent<Enemy>();
+                                    if (enemy != null)
+                                    {
+                                        enemy.ChangeHealthPoints(DamageOnHit);
+                                    }
+                                }
+                            }
+                            LifeTime = 0f;
+                            entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                            return;
+                        }
+                        
+                            
+                    }
+                }
+
+                switch (MovementStyle)
                 {
                     case MovePattern.Linear:
                         entity.transform.Position += (float)gameTime.ElapsedGameTime.TotalSeconds * Direction * Speed;
                         break;
-
                 }
                 _lifeTime -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             else
             {
-                BulletsManager.DestroyBullet(this.entity);
+                if (entity.spritesheets.CurrentSpritesheetName != "hit")
+                    entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                else
+                {
+                    if (entity.spritesheets.IsFinished())
+                    {
+                        BulletsManager.DestroyBullet(this.entity);
+                    }
+                }           
             }
             base.Update(gameTime);
         }

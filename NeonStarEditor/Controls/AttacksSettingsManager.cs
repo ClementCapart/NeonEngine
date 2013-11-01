@@ -193,6 +193,12 @@ namespace NeonStarEditor
                     XElement parameterBullet = new XElement("Parameter", new XAttribute("Value", bulletName));
                     effect.Add(parameterBullet);
                     break;
+
+                case SpecialEffect.ShootBulletAtTarget:
+                    string bulletName2 = (string)(effectKvp.Parameters as BulletInfo).Name;
+                    XElement parameterBullet2 = new XElement("Parameter", new XAttribute("Value", bulletName2));
+                    effect.Add(parameterBullet2);
+                    break;
             }
 
             return effect;
@@ -311,6 +317,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.ShootBullet:
+                    case SpecialEffect.ShootBulletAtTarget:
                         label = new Label();
                         label.Text = "Bullet to launch";
                         label.Height = 15;

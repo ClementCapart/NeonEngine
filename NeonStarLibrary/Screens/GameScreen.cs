@@ -21,6 +21,8 @@ namespace NeonStarLibrary
         public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
 
+        public Entity entityToChase;
+
         public GameScreen(Game game)
             : base(game)
         {
@@ -33,33 +35,35 @@ namespace NeonStarLibrary
 
             LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
 
+            entityToChase = entities.Where(e => e.Name == "LiOn").First();
             camera.Bounded = true;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if(MustFollowAvatar)
-                camera.Chase(entities.Where(e => e.Name == "LiOn").First().transform.Position, gameTime);
-
-            for(int i = FreeAttacks.Count - 1; i >= 0; i--)
+            if (!Pause)
             {
-                Attack attack = FreeAttacks[i];
-                attack.Update(gameTime);
-                if (attack.CooldownFinished)
+                if (MustFollowAvatar)
+                    camera.Chase(entityToChase.transform.Position, gameTime);
+
+                for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
-                    FreeAttacks.Remove(attack);
-                    attack._entity.Destroy();
-                    attack.CancelAttack();
+                    Attack attack = FreeAttacks[i];
+                    attack.Update(gameTime);
+                    if (attack.CooldownFinished)
+                    {
+                        FreeAttacks.Remove(attack);
+                        attack._entity.Destroy();
+                        attack.CancelAttack();
+                    }
                 }
+
+                for (int i = Bullets.Count - 1; i >= 0; i--)
+                    Bullets[i].Update(gameTime);             
             }
 
-
-            for (int i = Bullets.Count - 1; i >= 0; i--)
-                Bullets[i].Update(gameTime);
-
             if (Neon.Input.Pressed(Buttons.Start))
-                    Pause = !Pause;
-
+                Pause = !Pause;
 
             base.Update(gameTime);
         }

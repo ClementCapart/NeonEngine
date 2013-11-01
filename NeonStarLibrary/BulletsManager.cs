@@ -112,11 +112,13 @@ namespace NeonStarLibrary
             Entity newBullet = _world.BulletsPool.GetAvailableItem();
             Hitbox hitbox;
             Bullet bullet;
+            SpritesheetManager ssm;
 
             if(newBullet.Components.Count > 1)
             {
                 hitbox = newBullet.GetComponent<Hitbox>();
-                bullet = newBullet.GetComponent<Bullet>();              
+                bullet = newBullet.GetComponent<Bullet>();
+                ssm = newBullet.GetComponent<SpritesheetManager>();
             }
             else
             {
@@ -124,10 +126,13 @@ namespace NeonStarLibrary
                 newBullet.AddComponent(hitbox);
                 bullet = new Bullet(newBullet);
                 newBullet.AddComponent(bullet);
+
+                ssm = new SpritesheetManager(newBullet);
+                newBullet.AddComponent(ssm);
             }
 
             newBullet.Name = "Bullet";
-            
+            newBullet.transform.Position = shooter.transform.Position;
             hitbox.PoolInit(newBullet);
             hitbox.Type = HitboxType.Bullet;
             hitbox.Width = bulletInfo.HitboxInfo.Width;
@@ -145,20 +150,31 @@ namespace NeonStarLibrary
             bullet.OnHitSpriteSheetInfo = bulletInfo.OnHitSpriteSheet;
             bullet.EnemyBullet = isEnemy;
             bullet.OnHitSpecialEffects = new List<AttackEffect>();
+            bullet.launcher = shooter;
+
+            ssm.SpritesheetList.Clear();
+            ssm.SpritesheetList.Add("living", bulletInfo.LivingSpriteSheet);
+            ssm.SpritesheetList.Add("hit", bulletInfo.OnHitSpriteSheet);
+            ssm.ChangeSide(side);
+            ssm.Layer = 0.7f;
+            ssm.ChangeAnimation("living");
+            ssm.Active = true;
 
             foreach (AttackEffect ae in bulletInfo.OnHitSpecialEffects)
             {
                 bullet.OnHitSpecialEffects.Add(ae);
             }
 
-            newBullet.transform.Position = shooter.transform.Position;
+            
             _world.Bullets.Add(newBullet);
         }
 
         static public void DestroyBullet(Entity entity)
         {
             _world.Bullets.Remove(entity);
+            entity.spritesheets.Active = false;
             BulletsManager._world.Hitboxes.Remove(entity.hitbox);
+
             _world.BulletsPool.FlagAvailableItem(entity);
         }
     }

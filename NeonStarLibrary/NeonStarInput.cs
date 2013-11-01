@@ -13,9 +13,8 @@ namespace NeonStarLibrary
         MoveDown,
         Jump,
         Attack,
-        UseElement,
-        SwitchElements,
-        MixElements,
-        DropElement,
+        Guard,
+        UseElementOne,
+        UseElementTwo,
     }
 }

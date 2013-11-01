@@ -209,9 +209,16 @@ namespace NeonStarLibrary
         public AttackInfo AttackInfo;
         private MeleeFight _meleeFight;
         private bool _fromEnemy = false;
+        private Entity _target;
 
         public Attack()
         {
+        }
+
+        public Attack(AttackInfo attackInfo, Side side, Entity launcher, Entity target, bool FromEnemy = false)
+            : this(attackInfo, side, launcher, FromEnemy)
+        {
+            this._target = target;
         }
 
         public Attack(AttackInfo attackInfo, Side side, Vector2 Position)
@@ -384,8 +391,15 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters;
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                            BulletsManager.CreateBullet(bi, _side,  Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                            if(_target != null)
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
+                            break;
+
                     }
                     _specialEffects.Remove(ae);
                 }
@@ -489,6 +503,12 @@ namespace NeonStarLibrary
                                 BulletInfo bi = (BulletInfo)ae.Parameters;
                                 BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                                 break;
+
+                            case SpecialEffect.ShootBulletAtTarget:
+                                BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                                if (_target != null)
+                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -581,6 +601,13 @@ namespace NeonStarLibrary
                             BulletInfo bi = (BulletInfo)ae.Parameters;
                             BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                            if (_target != null)
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
+                            break;
+
                     }
                 }
             }

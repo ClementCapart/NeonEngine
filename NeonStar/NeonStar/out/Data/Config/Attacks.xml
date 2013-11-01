@@ -9,14 +9,18 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.6</Delay>
-      <Cooldown>1</Cooldown>
-      <Duration>0.2</Duration>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <Duration>0</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="ShootBulletAtTarget">
+          <Parameter Value="SimpleBullet" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:275 Y:0}" />
@@ -180,6 +184,27 @@
           <Parameter Value="{X:3900 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="LiOnRoll" Type="Special">
+      <Hitboxes />
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0.1</Cooldown>
+      <Duration>0.3</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>0</AirFactor>
+      <StunLock>0</StunLock>
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:700 Y:0}" />
+        </Effect>
+      </SpecialEffects>
+      <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnRushAttack" Type="MeleeSpecial">

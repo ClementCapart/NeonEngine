@@ -13,6 +13,7 @@ namespace NeonEngine
         public SpriteSheet CurrentSpritesheet;
         public string CurrentSpritesheetName;
         public int CurrentPriority;
+        public bool Active = true;
 
         public Side CurrentSide = Side.Right;
 
@@ -55,17 +56,25 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            if(CurrentSpritesheet != null)
-                CurrentSpritesheet.Update(gameTime);
+            if (Active)
+            {
+                if (CurrentSpritesheet != null)
+                    CurrentSpritesheet.Update(gameTime);
+            }
+            
             base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (CurrentSpritesheet != null)
+            if (Active)
             {
-                CurrentSpritesheet.Draw(spriteBatch);
+                if (CurrentSpritesheet != null)
+                {
+                    CurrentSpritesheet.Draw(spriteBatch);
+                }
             }
+            
             base.Draw(spriteBatch);
         }
 

@@ -261,6 +261,10 @@ namespace NeonStarLibrary
                             case "LightAttack":
                                 PerformLightAttack();
                                 break;
+
+                            case "Roll":
+                                PerformRoll();
+                                break;
                         }
                         NextAttack = "";
                         _chainDelayTimer = 0.0f;
@@ -367,6 +371,15 @@ namespace NeonStarLibrary
                 {
                     ThirdPersonController._mustJumpAsSoonAsPossible = true;
                 }
+                else if (Neon.Input.Pressed(NeonStarInput.Guard))
+                {
+                    if ((CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f) && (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.MoveRight)))
+                        PerformRoll();
+                    else if (NextAttack == "" && (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.MoveRight)))
+                    {
+                        NextAttack = "Roll";
+                    }
+                }
             }
 
             if (_currentComboHit != ComboSequence.None && (CurrentAttack != null && CurrentAttack.DurationFinished) || CurrentAttack == null)
@@ -397,7 +410,6 @@ namespace NeonStarLibrary
                 {
                     entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
                 }
-
                 if (CurrentAttack.DurationFinished && entity.spritesheets.IsFinished())
                 {
                     
@@ -578,6 +590,12 @@ namespace NeonStarLibrary
                            
             }
             ReleasedAttackButton = false;
+        }
+
+        private void PerformRoll()
+        {
+            Console.WriteLine("Roll");
+            CurrentAttack = AttacksManager.GetAttack("LiOnRoll", entity.spritesheets.CurrentSide, entity);
         }
 
         private void CheckComboHit()
