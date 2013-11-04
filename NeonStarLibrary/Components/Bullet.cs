@@ -122,9 +122,7 @@ namespace NeonStarLibrary
                             LifeTime = 0f;
                             entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
                             return;
-                        }
-                        
-                            
+                        }                                 
                     }
                 }
 

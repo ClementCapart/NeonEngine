@@ -47,7 +47,9 @@ namespace NeonEngine
 
         public NeonPool<Hitbox> HitboxPool;
         public NeonPool<Particle> ParticlePool;
+        public NeonPool<AnimatedSpecialEffect> EffectsPool;
         public List<Hitbox> Hitboxes;
+        public List<AnimatedSpecialEffect> SpecialEffects;
 
         public Level levelMap;
         public string levelFilePath;
@@ -136,7 +138,10 @@ namespace NeonEngine
                     entities[i].Update(gameTime);
             }
 
-            lightingSystem.ComposeLightMask(Neon.spriteBatch, this);          
+            lightingSystem.ComposeLightMask(Neon.spriteBatch, this);
+            /*oreach (AnimatedSpecialEffect se in SpecialEffects)
+                se.Update(gameTime);*/
+
             DeferredDrawGame(Neon.spriteBatch);
 
             if (!change)

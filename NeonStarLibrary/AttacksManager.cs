@@ -20,6 +20,7 @@ namespace NeonStarLibrary
         ShootBullet,
         ShootBulletAtTarget,
         Invincible,
+        EffectAnimation
     }
 
     public enum AttackType
@@ -123,6 +124,11 @@ namespace NeonStarLibrary
                         case SpecialEffect.Invincible:
                             ai.SpecialEffects.Add(new AttackEffect(se, float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture)));
                             break;
+
+                        case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(specialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, ssi));
+                            break;
                     }         
                 }
 
@@ -162,6 +168,11 @@ namespace NeonStarLibrary
                         case SpecialEffect.Invincible:
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, onHitSpecialEffect.Element("Parameter").Attribute("Value").Value));
                             break;
+
+                        case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, ssi));
+                            break;
                     }         
                 }
 
@@ -200,6 +211,11 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.Invincible:
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value));
+                            break;
+
+                        case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, ssi));
                             break;
                     }
                 }

@@ -321,6 +321,7 @@ namespace NeonStarLibrary
             foreach (Rectangle hitbox in AttackInfo.Hitboxes)
             {
                 Hitbox hb = Neon.world.HitboxPool.GetAvailableItem();
+                hb.Type = HitboxType.Hit;
                 hb.PoolInit(_entity);
                 hb.Width = hitbox.Width;
                 hb.Height = hitbox.Height;
@@ -328,7 +329,7 @@ namespace NeonStarLibrary
 
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
-                hb.Type = HitboxType.Hit;
+                
                 _entity.AddComponent(hb);
                 _hitboxes.Add(hb);
             }
@@ -402,6 +403,9 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.Invincible:
                             _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                            break;
+
+                        case SpecialEffect.EffectAnimation:
                             break;
 
                     }
