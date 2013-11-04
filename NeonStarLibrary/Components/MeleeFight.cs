@@ -95,7 +95,6 @@ namespace NeonStarLibrary
         }
 
         private string _diveAttackLoopAnimation;
-
         public string DiveAttackLoopAnimation
         {
             get { return _diveAttackLoopAnimation; }
@@ -220,7 +219,6 @@ namespace NeonStarLibrary
                             ThirdPersonController.LastSideChangedDelay = 0.0f;
                             entity.spritesheets.ChangeSide(ThirdPersonController.CurrentSide);
                         }
-
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
@@ -594,8 +592,8 @@ namespace NeonStarLibrary
 
         private void PerformRoll()
         {
-            Console.WriteLine("Roll");
             CurrentAttack = AttacksManager.GetAttack("LiOnRoll", entity.spritesheets.CurrentSide, entity);
+            entity.spritesheets.ChangeAnimation("Roll", 1, true, true, false);
         }
 
         private void CheckComboHit()
