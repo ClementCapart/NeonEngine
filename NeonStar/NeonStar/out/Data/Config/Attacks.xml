@@ -29,24 +29,32 @@
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyTigerDash" Type="MeleeLight">
-      <Hitboxes />
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="500" Height="10" />
+      </Hitboxes>
       <DamageOnHit>1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>1</Delay>
       <Cooldown>1</Cooldown>
       <Duration>1</Duration>
-      <AirLock>1</AirLock>
-      <TargetAirLock>1</TargetAirLock>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:4400 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyTigerPunch" Type="MeleeLight">
-      <Hitboxes />
+      <Hitboxes>
+        <Hitbox OffsetX="35" OffsetY="0" Width="70" Height="100" />
+      </Hitboxes>
       <DamageOnHit>1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
@@ -54,12 +62,16 @@
       <Delay>0</Delay>
       <Cooldown>1</Cooldown>
       <Duration>1</Duration>
-      <AirLock>1</AirLock>
-      <TargetAirLock>1</TargetAirLock>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
       <SpecialEffects />
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:400 Y:0}" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnDiveAttack" Type="MeleeSpecial">
