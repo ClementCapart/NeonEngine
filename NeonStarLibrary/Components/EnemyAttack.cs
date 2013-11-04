@@ -116,22 +116,72 @@ namespace NeonStarLibrary
                 {
                     if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
                     {
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                        if (_attackToLaunchFive == "Chase")
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        else
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+
+                        if (CurrentAttack == null)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
                     }
                     else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
                     {
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                        if (_attackToLaunchFour == "Chase")
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        else
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+
+                        if (CurrentAttack == null)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
                     }
                     else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
                     {
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                        if (_attackToLaunchThree == "Chase")
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        else
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+
+                        if (CurrentAttack == null)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
                     }
                     else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
                     {
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                        if (_attackToLaunchTwo == "Chase")
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        else
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+
+                        if (CurrentAttack == null)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
                     }
                     else
+                    {
+                        if (_attackToLaunchOne == "Chase")
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                        if (CurrentAttack == null)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                    }
                 }
                     
             }
