@@ -168,9 +168,9 @@ namespace NeonStarEditor
                     Vector2 impulseValue = (Vector2)effectKvp.Parameters[0];
 
                     XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
-                    XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[0]).ToString()));
+                    //XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[0]).ToString()));
                     effect.Add(parameter);
-                    effect.Add(boolPulse);
+                    //effect.Add(boolPulse);
                     break;
 
                 case SpecialEffect.DamageOverTime:
@@ -205,7 +205,7 @@ namespace NeonStarEditor
                     break;
 
                 case SpecialEffect.Invincible:
-                    XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters[0].ToString()));
+                    XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", ((float)effectKvp.Parameters[0]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterInvincibility);
                     break;
             }
