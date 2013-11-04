@@ -168,9 +168,9 @@ namespace NeonStarEditor
                     Vector2 impulseValue = (Vector2)effectKvp.Parameters[0];
 
                     XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
-                    //XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[0]).ToString()));
+                    XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[1]).ToString()));
                     effect.Add(parameter);
-                    //effect.Add(boolPulse);
+                    effect.Add(boolPulse);
                     break;
 
                 case SpecialEffect.DamageOverTime:
@@ -274,6 +274,14 @@ namespace NeonStarEditor
                         impulsePower.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(impulsePower);
 
+                        CheckBox checkBox = new CheckBox();
+                        checkBox.Text = "Must stop on target";
+                        checkBox.Name = "TargetStop";
+                        checkBox.Checked = (bool)CurrentAttackEffectSelected.Parameters[1];
+                        checkBox.Location = new System.Drawing.Point(label.Location.X, impulsePower.Location.Y + impulsePower.Height + 5);
+                        checkBox.CheckedChanged += checkBox_CheckedChanged;
+                        EffectsInfoPanel.Controls.Add(checkBox);
+
                         break;
 
                     case SpecialEffect.PositionalPulse:
@@ -365,6 +373,11 @@ namespace NeonStarEditor
                         break;
                 }
             }
+        }
+
+        void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
         }
 
         void textBox_Leave(object sender, EventArgs e)

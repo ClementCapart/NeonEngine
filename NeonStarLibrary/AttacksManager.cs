@@ -98,7 +98,8 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
+                            bool impulseBool = bool.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool }));
                             break;
 
                         case SpecialEffect.StartAttack:
@@ -142,7 +143,8 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
+                            bool impulseBool = bool.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value);
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool }));
                             break;
 
                         case SpecialEffect.StartAttack:
@@ -186,7 +188,8 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
+                            bool impulseBool = bool.Parse(onGroundCancelSpecialEffect.Element("ParameterTwo").Attribute("Value").Value);
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool }));
                             break;
 
                         case SpecialEffect.StartAttack:
