@@ -18,7 +18,8 @@ namespace NeonStarLibrary
         Boost,
         StartAttack,
         ShootBullet,
-        ShootBulletAtTarget
+        ShootBulletAtTarget,
+        Invincible,
     }
 
     public enum AttackType
@@ -118,6 +119,10 @@ namespace NeonStarLibrary
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, bi2));
                             break;
+                            
+                        case SpecialEffect.Invincible:
+                            ai.SpecialEffects.Add(new AttackEffect(se, float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture)));
+                            break;
                     }         
                 }
 
@@ -146,12 +151,16 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, bi));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, bi2));
+                            break;
+
+                        case SpecialEffect.Invincible:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, onHitSpecialEffect.Element("Parameter").Attribute("Value").Value));
                             break;
                     }         
                 }
@@ -181,12 +190,16 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, bi));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, bi2));
+                            break;
+
+                        case SpecialEffect.Invincible:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value));
                             break;
                     }
                 }

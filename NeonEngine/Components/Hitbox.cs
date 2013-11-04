@@ -9,7 +9,7 @@ namespace NeonEngine
 {
     public enum HitboxType
     {
-        None, Main, Hit, Part, Bullet
+        None, Main, Hit, Part, Bullet, Invincible
     }
 
     public class Hitbox : Component
@@ -18,6 +18,8 @@ namespace NeonEngine
 
         public BodyShapeType ShapeType;
         private HitboxType _type;
+        private HitboxType _initialType;
+        private float _switchDuration = 0.0f;
 
         public Hitbox LastIntersects;
 
@@ -146,7 +148,8 @@ namespace NeonEngine
 
         public override void Init()
         {       
-            Center = entity.transform.Position;    
+            Center = entity.transform.Position;
+            _initialType = _type;
             base.Init();
         }
 
@@ -163,12 +166,17 @@ namespace NeonEngine
             InUse = true;
             this.entity = entity;
             entity.containerWorld.Hitboxes.Add(this);
-            Center = entity.transform.Position;    
+            Center = entity.transform.Position;
+            _initialType = _type;
         }
 
         public override void Update(GameTime gameTime)
         {
             Center = entity.transform.Position;
+            if (_switchDuration > 0.0f)
+                _switchDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            else
+                _type = _initialType;
             base.Update(gameTime);
         }
         public void GenerateVectorList(int Width, int Height)
@@ -187,6 +195,12 @@ namespace NeonEngine
             entity.containerWorld.Hitboxes.Remove(this);
             entity.containerWorld.HitboxPool.FlagAvailableItem(this);
             base.Remove();
+        }
+
+        public void SwitchType(HitboxType type, float duration)
+        {
+            _type = type;
+            _switchDuration = duration;
         }
 
     }

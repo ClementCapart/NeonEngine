@@ -133,13 +133,15 @@ namespace NeonStarLibrary
 
             newBullet.Name = "Bullet";
             newBullet.transform.Position = shooter.transform.Position;
-            hitbox.PoolInit(newBullet);
+            
             hitbox.Type = HitboxType.Bullet;
+            hitbox.PoolInit(newBullet);
             hitbox.Width = bulletInfo.HitboxInfo.Width;
             hitbox.Height = bulletInfo.HitboxInfo.Height;
             hitbox.OffsetX = side == Side.Right ? bulletInfo.HitboxInfo.X : -bulletInfo.HitboxInfo.X;
             hitbox.OffsetY = side == Side.Right ? bulletInfo.HitboxInfo.Y : -bulletInfo.HitboxInfo.Y;
             hitbox.Center = newBullet.transform.Position;
+
 
             bullet.LifeTime = bulletInfo.LifeTime;
 

@@ -197,6 +197,10 @@ namespace NeonEngine
                         case HitboxType.Bullet:
                             _polygonRenderer.Color = Color.LightPink;
                             break;
+
+                        case HitboxType.Invincible:
+                            _polygonRenderer.Color = Color.LightBlue;
+                            break;
                     }
                     _polygonRenderer.vectors = hb.vectors;
                     _polygonRenderer.Position = hb.Center;

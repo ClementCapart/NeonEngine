@@ -93,7 +93,7 @@ namespace NeonStarLibrary
             {
                 foreach (Hitbox hb in entity.containerWorld.Hitboxes)
                 {
-                    if (hb != launcher.hitbox && hb != entity.hitbox && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet)
+                    if (hb != launcher.hitbox && hb != entity.hitbox && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet && hb.Type != HitboxType.Invincible)
                     {
                         if (hb.hitboxRectangle.Intersects(entity.hitbox.hitboxRectangle))
                         {

@@ -400,6 +400,10 @@ namespace NeonStarLibrary
                                 BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
+                        case SpecialEffect.Invincible:
+                            _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                            break;
+
                     }
                     _specialEffects.Remove(ae);
                 }
@@ -509,6 +513,10 @@ namespace NeonStarLibrary
                                 if (_target != null)
                                     BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                                 break;
+
+                            case SpecialEffect.Invincible:
+                                _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -608,6 +616,9 @@ namespace NeonStarLibrary
                                 BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
+                        case SpecialEffect.Invincible:
+                            entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                            break;
                     }
                 }
             }

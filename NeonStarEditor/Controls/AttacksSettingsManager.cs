@@ -199,6 +199,11 @@ namespace NeonStarEditor
                     XElement parameterBullet2 = new XElement("Parameter", new XAttribute("Value", bulletName2));
                     effect.Add(parameterBullet2);
                     break;
+
+                case SpecialEffect.Invincible:
+                    XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters.ToString()));
+                    effect.Add(parameterInvincibility);
+                    break;
             }
 
             return effect;
@@ -333,6 +338,27 @@ namespace NeonStarEditor
                         textBox2.Text =  (CurrentAttackEffectSelected.Parameters as BulletInfo) != null ? (string)(CurrentAttackEffectSelected.Parameters as BulletInfo).Name : "";
                         this.EffectsInfoPanel.Controls.Add(textBox2);
                         break;
+
+                    case SpecialEffect.Invincible:
+                        label = new Label();
+                        label.Text = "Duration";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown duration = new NumericUpDown();
+                        duration.Name = "InvincibleDuration";
+                        duration.Maximum = 50000;
+                        duration.Minimum = -50000;
+                        duration.Width = 80;
+                        duration.DecimalPlaces = 2;
+                        duration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters);
+                        duration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        duration.Enter += Numeric_Enter;
+                        duration.Leave += Numeric_Leave;
+                        duration.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(duration);
+                        break;
                 }
             }
         }
@@ -363,8 +389,12 @@ namespace NeonStarEditor
                     case SpecialEffect.Impulse:
                         CurrentAttackEffectSelected.Parameters = new Vector2();
                         break;
+
+                    case SpecialEffect.Invincible:
+                        CurrentAttackEffectSelected.Parameters = 0.0f;
+                        break;
                 }
-                InitInformations();
+                this.InitEffectData();
             }
         }
 
@@ -596,6 +626,10 @@ namespace NeonStarEditor
 
                 case "StunLockNumeric":
                     _attackList[AttacksList.SelectedValue.ToString()].StunLock = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "InvincibleDuration":
+                    CurrentAttackEffectSelected.Parameters = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

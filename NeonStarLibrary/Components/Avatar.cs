@@ -45,7 +45,6 @@ namespace NeonStarLibrary
         public MeleeFight meleeFight;
         public ThirdPersonController thirdPersonController;
 
-
         public Avatar(Entity entity)
             :base(entity, "Avatar")
         {
