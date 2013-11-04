@@ -205,11 +205,7 @@
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
-      <SpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:200 Y:0}" />
-        </Effect>
-      </SpecialEffects>
+      <SpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -228,11 +224,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
       <StunLock>0.55</StunLock>
-      <SpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:400 Y:0}" />
-        </Effect>
-      </SpecialEffects>
+      <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3900 Y:0}" />
@@ -258,7 +250,7 @@
           <Parameter Value="{X:600 Y:0}" />
         </Effect>
         <Effect Type="Invincible">
-          <Parameter Value="0,3" />
+          <Parameter Value="3" />
         </Effect>
       </SpecialEffects>
       <OnHitSpecialEffects />
