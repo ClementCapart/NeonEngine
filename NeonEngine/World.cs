@@ -206,6 +206,10 @@ namespace NeonEngine
                         case HitboxType.Invincible:
                             _polygonRenderer.Color = Color.LightBlue;
                             break;
+
+                        case HitboxType.Solid:
+                            _polygonRenderer.Color = Color.Plum;
+                            break;
                     }
                     _polygonRenderer.vectors = hb.vectors;
                     _polygonRenderer.Position = hb.Center;

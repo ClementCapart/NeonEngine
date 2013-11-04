@@ -93,10 +93,17 @@ namespace NeonStarLibrary
             {
                 foreach (Hitbox hb in entity.containerWorld.Hitboxes)
                 {
-                    if (hb != launcher.hitbox && hb != entity.hitbox && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet && hb.Type != HitboxType.Invincible)
+                    if (hb != launcher.hitbox && hb != entity.hitbox && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet && hb.Type != HitboxType.Invincible && hb.Type != HitboxType.None)
                     {
                         if (hb.hitboxRectangle.Intersects(entity.hitbox.hitboxRectangle))
                         {
+                            if (hb.Type == HitboxType.Solid)
+                            {
+                                LifeTime = 0f;
+                                entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                return;
+                            }
+
                             if (EnemyBullet)
                             {
                                 if (hb.Type == HitboxType.Main)
@@ -105,6 +112,9 @@ namespace NeonStarLibrary
                                     if (avatar != null)
                                     {
                                         avatar.ChangeHealthPoints(DamageOnHit);
+                                        LifeTime = 0f;
+                                        entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                        return;
                                     }
                                 }
                             }
@@ -116,12 +126,12 @@ namespace NeonStarLibrary
                                     if (enemy != null)
                                     {
                                         enemy.ChangeHealthPoints(DamageOnHit);
+                                        LifeTime = 0f;
+                                        entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                        return;
                                     }
                                 }
                             }
-                            LifeTime = 0f;
-                            entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
-                            return;
                         }                                 
                     }
                 }

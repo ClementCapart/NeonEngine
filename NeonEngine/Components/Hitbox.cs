@@ -9,7 +9,7 @@ namespace NeonEngine
 {
     public enum HitboxType
     {
-        None, Main, Hit, Part, Bullet, Invincible
+        None, Solid, Main, Hit, Part, Bullet, Invincible
     }
 
     public class Hitbox : Component
@@ -26,7 +26,11 @@ namespace NeonEngine
         public HitboxType Type
         {
             get { return _type; }
-            set { _type = value; }
+            set 
+            { 
+                _type = value;
+                _initialType = value;
+            }
         }
         
         public Vector2 Center
@@ -177,6 +181,7 @@ namespace NeonEngine
                 _switchDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             else
                 _type = _initialType;
+
             base.Update(gameTime);
         }
         public void GenerateVectorList(int Width, int Height)
@@ -202,6 +207,5 @@ namespace NeonEngine
             _type = type;
             _switchDuration = duration;
         }
-
     }
 }
