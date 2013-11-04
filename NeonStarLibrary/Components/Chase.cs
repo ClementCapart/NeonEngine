@@ -63,7 +63,7 @@ namespace NeonStarLibrary
                 {
                     if (LastTargetPosition.X < this.entity.transform.Position.X)
                     {
-                        if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
+                        if (entity.rigidbody.beacon.CheckLeftGround() && entity.rigidbody.beacon.CheckLeftSide(0) == null)
                         {
                             if (this.entity.spritesheets != null)
                             {
@@ -82,7 +82,7 @@ namespace NeonStarLibrary
                     }
                     else
                     {
-                        if (entity.rigidbody.beacon.CheckRightGround() && !entity.rigidbody.beacon.CheckRightSide())
+                        if (entity.rigidbody.beacon.CheckRightGround() && entity.rigidbody.beacon.CheckRightSide(0) == null)
                         {
                             if (this.entity.spritesheets != null)
                             {
@@ -145,7 +145,7 @@ namespace NeonStarLibrary
                 else if (LastTargetPosition.X < this.entity.transform.Position.X)
                 {
                     _timerBeforeChasing = 0.0f;
-                    if (entity.rigidbody.beacon.CheckLeftGround() && !entity.rigidbody.beacon.CheckLeftSide())
+                    if (entity.rigidbody.beacon.CheckLeftGround() && entity.rigidbody.beacon.CheckLeftSide(0) == null)
                     {
                         if (this.entity.spritesheets != null)
                         {
@@ -163,7 +163,7 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    if (entity.rigidbody.beacon.CheckRightGround() && !entity.rigidbody.beacon.CheckRightSide())
+                    if (entity.rigidbody.beacon.CheckRightGround() && entity.rigidbody.beacon.CheckRightSide(0) == null)
                     {
                         if (this.entity.spritesheets != null)
                         {

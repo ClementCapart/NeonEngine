@@ -175,7 +175,7 @@ namespace NeonStarLibrary
 
                      if (Neon.Input.Check(NeonStarInput.MoveLeft))
                      {
-                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
+                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(0) == null)
                              entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
                          entity.spritesheets.ChangeAnimation(WalkAnimation);
                          entity.spritesheets.ChangeSide(CurrentSide);
@@ -183,7 +183,7 @@ namespace NeonStarLibrary
                      }
                      else if (Neon.Input.Check(NeonStarInput.MoveRight))
                      {
-                         if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
+                         if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && entity.rigidbody.beacon.CheckRightSide(0) == null)
                              entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
                          entity.spritesheets.ChangeAnimation(WalkAnimation);
                          entity.spritesheets.ChangeSide(CurrentSide);
@@ -231,7 +231,7 @@ namespace NeonStarLibrary
                      if (Neon.Input.Check(NeonStarInput.MoveLeft))
                      {
                          CurrentSide = Side.Left;
-                         if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && !entity.rigidbody.beacon.CheckLeftSide())
+                         if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(0) == null)
                          {
                              entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
                          }
@@ -241,7 +241,7 @@ namespace NeonStarLibrary
                      else if (Neon.Input.Check(NeonStarInput.MoveRight))
                      {
                          CurrentSide = Side.Right;
-                         if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && !entity.rigidbody.beacon.CheckRightSide())
+                         if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && entity.rigidbody.beacon.CheckRightSide(0) == null)
                              entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
 
                          entity.spritesheets.ChangeSide(CurrentSide);

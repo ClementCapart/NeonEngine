@@ -165,97 +165,105 @@ namespace NeonEngine.Private
             return hasHit;
         }
 
-        public bool CheckLeftSide(Body body = null)
+        public Entity CheckLeftSide(float OffsetX, bool searchForAll = false, Body body = null)
         {
             bool hasHit = false;
+            Entity hitEntity = null;
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
-                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
+                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                     hasHit = true;
                     return 0;
                 }
                 return -1;
             },
             CoordinateConversion.screenToWorld(LeftRaycast),
-            CoordinateConversion.screenToWorld(LeftRaycastTarget));
+            CoordinateConversion.screenToWorld(LeftRaycastTarget + new Vector2(-OffsetX, 0)));
 
             if (!hasHit)
             {
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
-                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
+                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                         hasHit = true;
                         return 0;
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(LeftBottomRaycast),
-                CoordinateConversion.screenToWorld(LeftBottomRaycastTarget));
+                CoordinateConversion.screenToWorld(LeftBottomRaycast + new Vector2(-OffsetX, 0)),
+                CoordinateConversion.screenToWorld(LeftBottomRaycastTarget + new Vector2(-OffsetX, 0)));
 
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
-                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
+                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                         hasHit = true;
                         return 0;
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(LeftTopRaycast),
-                CoordinateConversion.screenToWorld(LeftTopRaycastTarget));
+                CoordinateConversion.screenToWorld(LeftTopRaycast + new Vector2(-OffsetX, 0)),
+                CoordinateConversion.screenToWorld(LeftTopRaycastTarget + new Vector2(-OffsetX, 0)));
             }
 
-            return hasHit;
+            return hitEntity;
         }
 
-        public bool CheckRightSide(Body body = null)
+        public Entity CheckRightSide(float OffsetX, bool searchForAll = false, Body body = null)
         {
             bool hasHit = false;
+            Entity hitEntity = null;
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
-                if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
+                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                     hasHit = true;
                     return 0;
                 }
                 return -1;
             },
             CoordinateConversion.screenToWorld(RightRaycast),
-            CoordinateConversion.screenToWorld(RightRaycastTarget));
+            CoordinateConversion.screenToWorld(RightRaycastTarget + new Vector2(OffsetX, 0)));
 
             if (!hasHit)
             {
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
-                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
+                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                         hasHit = true;
                         return 0;
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(RightBottomRaycast),
-                CoordinateConversion.screenToWorld(RightBottomRaycastTarget));
+                CoordinateConversion.screenToWorld(RightBottomRaycast + new Vector2(OffsetX, 0)),
+                CoordinateConversion.screenToWorld(RightBottomRaycastTarget + new Vector2(OffsetX, 0)));
 
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
-                    if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
+                    if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
+                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
                         hasHit = true;
                         return 0;
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(RightTopRaycast),
-                CoordinateConversion.screenToWorld(RightTopRaycastTarget));
+                CoordinateConversion.screenToWorld(RightTopRaycast + new Vector2(OffsetX, 0)),
+                CoordinateConversion.screenToWorld(RightTopRaycastTarget + new Vector2(OffsetX, 0)));
             }
 
 
-            return hasHit;
+            return hitEntity;
         }
 
         public bool CheckCeiling(Body body = null)

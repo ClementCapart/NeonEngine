@@ -26,6 +26,7 @@ namespace NeonStarLibrary
     public class Attack
     {
         private bool _hit = false;
+        private bool _mustStopAtTargetSight = false;
 
         string _name;
         public string Name
@@ -374,6 +375,7 @@ namespace NeonStarLibrary
                             if (_entity != null)
                             {
                                 Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                _mustStopAtTargetSight = (bool)ae.Parameters[1];
                                 _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             }
@@ -539,7 +541,18 @@ namespace NeonStarLibrary
                     this.AirLockFinished = true;
                     this.Canceled = true;
                 }
-            }           
+            }
+
+            if (_mustStopAtTargetSight)
+            {
+                if(_side == Side.Left)
+                    if (_entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+
+                if (_side == Side.Right)
+                    if (_entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
         }
 
         private void Effect(Entity entity)
