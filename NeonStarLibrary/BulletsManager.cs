@@ -79,17 +79,17 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
                             break;
 
                         case SpecialEffect.StartAttack:
                             string attackToLaunch = onHitSpecialEffect.Element("Parameter").Attribute("Value").Value;
-                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
                             break;
 
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            bi.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
                     }
                 }

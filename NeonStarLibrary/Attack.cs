@@ -14,9 +14,9 @@ namespace NeonStarLibrary
         {
             get { return specialEffect.ToString(); }
         }
-        public object Parameters;
+        public object[] Parameters;
 
-        public AttackEffect(SpecialEffect specialEffect, object Parameters)
+        public AttackEffect(SpecialEffect specialEffect, object[] Parameters)
         {
             this.specialEffect = specialEffect;
             this.Parameters = Parameters;
@@ -373,7 +373,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             if (_entity != null)
                             {
-                                Vector2 impulseForce = (Vector2)ae.Parameters;
+                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                 _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                             }
@@ -386,23 +386,23 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.StartAttack:
-                            string attackName = (string)ae.Parameters;
+                            string attackName = (string)(ae.Parameters[0]);
                             AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                             break;
 
                         case SpecialEffect.ShootBullet:
-                            BulletInfo bi = (BulletInfo)ae.Parameters;
+                            BulletInfo bi = (BulletInfo)ae.Parameters[0];
                             BulletsManager.CreateBullet(bi, _side,  Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
-                            BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                            BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if(_target != null)
                                 BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
-                            _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                            _entity.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
                             break;
 
                         case SpecialEffect.EffectAnimation:
@@ -491,7 +491,7 @@ namespace NeonStarLibrary
                         switch (ae.specialEffect)
                         {
                             case SpecialEffect.Impulse:
-                                Vector2 impulseForce = (Vector2)ae.Parameters;
+                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                 _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                                 break;
@@ -503,23 +503,23 @@ namespace NeonStarLibrary
                                 break;
 
                             case SpecialEffect.StartAttack:
-                                string attackName = (string)ae.Parameters;
+                                string attackName = (string)ae.Parameters[0];
                                 AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                                 break;
 
                             case SpecialEffect.ShootBullet:
-                                BulletInfo bi = (BulletInfo)ae.Parameters;
+                                BulletInfo bi = (BulletInfo)ae.Parameters[0];
                                 BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                                 break;
 
                             case SpecialEffect.ShootBulletAtTarget:
-                                BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                                BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                                 if (_target != null)
                                     BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                                 break;
 
                             case SpecialEffect.Invincible:
-                                _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                                _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
                                 break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
@@ -582,7 +582,7 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)ae.Parameters;
+                            Vector2 impulseForce = (Vector2)ae.Parameters[0];
                             if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
@@ -590,7 +590,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            Vector2 pulseForce = (Vector2)ae.Parameters;
+                            Vector2 pulseForce = (Vector2)ae.Parameters[0];
                             if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
@@ -605,23 +605,23 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.StartAttack:
-                            string attackName = (string)ae.Parameters;
+                            string attackName = (string)ae.Parameters[0];
                             AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
                             break;
 
                         case SpecialEffect.ShootBullet:
-                            BulletInfo bi = (BulletInfo)ae.Parameters;
+                            BulletInfo bi = (BulletInfo)ae.Parameters[0];
                             BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
-                            BulletInfo bi2 = (BulletInfo)ae.Parameters;
+                            BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if (_target != null)
                                 BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
-                            entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters);
+                            entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
                             break;
                     }
                 }

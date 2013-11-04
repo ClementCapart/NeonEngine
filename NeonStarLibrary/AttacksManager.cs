@@ -98,36 +98,36 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
                             break;
 
                         case SpecialEffect.StartAttack:
                             string attackToLaunch = specialEffect.Element("Parameter").Attribute("Value").Value;
-                            ai.SpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
                             break;
 
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, bi2));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
                             break;
                             
                         case SpecialEffect.Invincible:
-                            ai.SpecialEffects.Add(new AttackEffect(se, float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture)));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, ssi));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
                             break;
                     }         
                 }
@@ -142,36 +142,36 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
                             break;
 
                         case SpecialEffect.StartAttack:
                             string attackToLaunch = onHitSpecialEffect.Element("Parameter").Attribute("Value").Value;
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
                             break;
 
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, bi));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, bi2));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
                             break;
 
                         case SpecialEffect.Invincible:
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, onHitSpecialEffect.Element("Parameter").Attribute("Value").Value));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { onHitSpecialEffect.Element("Parameter").Attribute("Value").Value }));
                             break;
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, ssi));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
                             break;
                     }         
                 }
@@ -186,36 +186,36 @@ namespace NeonStarLibrary
                     {
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, impulseForce));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
                             break;
 
                         case SpecialEffect.StartAttack:
                             string attackToLaunch = onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value;
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, attackToLaunch));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
                             break;
 
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, pulseForce));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, bi));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, bi2));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
                             break;
 
                         case SpecialEffect.Invincible:
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value }));
                             break;
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, ssi));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
                             break;
                     }
                 }

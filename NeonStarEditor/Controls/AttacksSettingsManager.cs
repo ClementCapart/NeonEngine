@@ -165,9 +165,12 @@ namespace NeonStarEditor
             switch(effectKvp.specialEffect)
             {
                 case SpecialEffect.Impulse:
-                    Vector2 impulseValue = (Vector2)effectKvp.Parameters;
+                    Vector2 impulseValue = (Vector2)effectKvp.Parameters[0];
+
                     XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
+                    XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[0]).ToString()));
                     effect.Add(parameter);
+                    effect.Add(boolPulse);
                     break;
 
                 case SpecialEffect.DamageOverTime:
@@ -177,31 +180,32 @@ namespace NeonStarEditor
                     break;
 
                 case SpecialEffect.PositionalPulse:
-                    Vector2 pulseValue = (Vector2)effectKvp.Parameters;
+                    Vector2 pulseValue = (Vector2)effectKvp.Parameters[0];
                     XElement parameterPulse = new XElement("Parameter", new XAttribute("Value", "{X:" + pulseValue.X + " Y:" + pulseValue.Y + "}"));
+
                     effect.Add(parameterPulse);
                     break;
 
                 case SpecialEffect.StartAttack:
-                    string attackValue = (string)effectKvp.Parameters;
+                    string attackValue = (string)effectKvp.Parameters[0];
                     XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
                     effect.Add(parameterString);
                     break;
 
                 case SpecialEffect.ShootBullet:
-                    string bulletName = (string)(effectKvp.Parameters as BulletInfo).Name;
+                    string bulletName = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet = new XElement("Parameter", new XAttribute("Value", bulletName));
                     effect.Add(parameterBullet);
                     break;
 
                 case SpecialEffect.ShootBulletAtTarget:
-                    string bulletName2 = (string)(effectKvp.Parameters as BulletInfo).Name;
+                    string bulletName2 = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet2 = new XElement("Parameter", new XAttribute("Value", bulletName2));
                     effect.Add(parameterBullet2);
                     break;
 
                 case SpecialEffect.Invincible:
-                    XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters.ToString()));
+                    XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters[0].ToString()));
                     effect.Add(parameterInvincibility);
                     break;
             }
@@ -251,7 +255,7 @@ namespace NeonStarEditor
                         impulsePower.Maximum = 50000;
                         impulsePower.Minimum = -50000;
                         impulsePower.Width = 80;
-                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
+                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[0]).X;
                         impulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
                         impulsePower.Enter += Numeric_Enter;
                         impulsePower.Leave += Numeric_Leave;
@@ -263,7 +267,7 @@ namespace NeonStarEditor
                         impulsePower.Maximum = 50000;
                         impulsePower.Minimum = -50000;
                         impulsePower.Width = 80;
-                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
+                        impulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[0]).Y;
                         impulsePower.Location = new System.Drawing.Point(impulsePower.Width + 10, label.Location.Y + label.Height + 5);
                         impulsePower.Enter += Numeric_Enter;
                         impulsePower.Leave += Numeric_Leave;
@@ -284,7 +288,7 @@ namespace NeonStarEditor
                         pulsePower.Maximum = 50000;
                         pulsePower.Minimum = -50000;
                         pulsePower.Width = 80;
-                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).X;
+                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[0]).X;
                         pulsePower.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
                         pulsePower.Enter += Numeric_Enter;
                         pulsePower.Leave += Numeric_Leave;
@@ -296,7 +300,7 @@ namespace NeonStarEditor
                         pulsePower.Maximum = 50000;
                         pulsePower.Minimum = -50000;
                         pulsePower.Width = 80;
-                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters).Y;
+                        pulsePower.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[0]).Y;
                         pulsePower.Location = new System.Drawing.Point(pulsePower.Width + 10, label.Location.Y + label.Height + 5);
                         pulsePower.Enter += Numeric_Enter;
                         pulsePower.Leave += Numeric_Leave;
@@ -317,7 +321,7 @@ namespace NeonStarEditor
                         textBox.Width = 150;
                         textBox.Enter += textBox_Enter;
                         textBox.Leave += textBox_Leave;
-                        textBox.Text = (string)CurrentAttackEffectSelected.Parameters;
+                        textBox.Text = (string)CurrentAttackEffectSelected.Parameters[0];
                         this.EffectsInfoPanel.Controls.Add(textBox);
                         break;
 
@@ -335,7 +339,7 @@ namespace NeonStarEditor
                         textBox2.Width = 150;
                         textBox2.Enter += textBox_Enter;
                         textBox2.Leave += textBox_Leave;
-                        textBox2.Text =  (CurrentAttackEffectSelected.Parameters as BulletInfo) != null ? (string)(CurrentAttackEffectSelected.Parameters as BulletInfo).Name : "";
+                        textBox2.Text = (CurrentAttackEffectSelected.Parameters[0] as BulletInfo) != null ? (string)(CurrentAttackEffectSelected.Parameters[0] as BulletInfo).Name : "";
                         this.EffectsInfoPanel.Controls.Add(textBox2);
                         break;
 
@@ -352,7 +356,7 @@ namespace NeonStarEditor
                         duration.Minimum = -50000;
                         duration.Width = 80;
                         duration.DecimalPlaces = 2;
-                        duration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters);
+                        duration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
                         duration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
                         duration.Enter += Numeric_Enter;
                         duration.Leave += Numeric_Leave;
@@ -366,9 +370,9 @@ namespace NeonStarEditor
         void textBox_Leave(object sender, EventArgs e)
         {
             if((sender as TextBox).Name == "BulletName")
-                CurrentAttackEffectSelected.Parameters = BulletsManager.GetBulletInfo((sender as TextBox).Text);
+                CurrentAttackEffectSelected.Parameters[0] = BulletsManager.GetBulletInfo((sender as TextBox).Text);
             else
-                CurrentAttackEffectSelected.Parameters = (sender as TextBox).Text;
+                CurrentAttackEffectSelected.Parameters[0] = (sender as TextBox).Text;
             (Neon.world as EditorScreen).FocusedTextBox = null;
         }
 
@@ -386,12 +390,27 @@ namespace NeonStarEditor
                 switch(CurrentAttackEffectSelected.specialEffect)
                 {
                     case SpecialEffect.PositionalPulse:
+                        CurrentAttackEffectSelected.Parameters = new object[] { new Vector2() };
+                        break;
+
                     case SpecialEffect.Impulse:
-                        CurrentAttackEffectSelected.Parameters = new Vector2();
+                        CurrentAttackEffectSelected.Parameters = new object[] { new Vector2(), false };
                         break;
 
                     case SpecialEffect.Invincible:
-                        CurrentAttackEffectSelected.Parameters = 0.0f;
+                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f };
+                        break;
+
+                    case SpecialEffect.ShootBullet:
+                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0] };
+                        break;
+
+                    case SpecialEffect.ShootBulletAtTarget:
+                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0] };
+                        break;
+
+                    case SpecialEffect.StartAttack:
+                        CurrentAttackEffectSelected.Parameters = new object[] { "" };
                         break;
                 }
                 this.InitEffectData();
@@ -611,13 +630,13 @@ namespace NeonStarEditor
                     break;
 
                 case "ImpulsePowerX":
-                    Vector2 impulsePowerY = (Vector2)CurrentAttackEffectSelected.Parameters;
-                    CurrentAttackEffectSelected.Parameters = new Vector2((float)(sender as NumericUpDown).Value, impulsePowerY.Y);
+                    Vector2 impulsePowerY = (Vector2)CurrentAttackEffectSelected.Parameters[0];
+                    CurrentAttackEffectSelected.Parameters[0] = new Vector2((float)(sender as NumericUpDown).Value, impulsePowerY.Y);
                     break;
 
                 case "ImpulsePowerY":
-                    Vector2 impulsePowerX = (Vector2)CurrentAttackEffectSelected.Parameters;
-                    CurrentAttackEffectSelected.Parameters = new Vector2(impulsePowerX.X, (float)(sender as NumericUpDown).Value);
+                    Vector2 impulsePowerX = (Vector2)CurrentAttackEffectSelected.Parameters[0];
+                    CurrentAttackEffectSelected.Parameters[0] = new Vector2(impulsePowerX.X, (float)(sender as NumericUpDown).Value);
                     break;
 
                 case "AirFactorNU":
@@ -629,7 +648,7 @@ namespace NeonStarEditor
                     break;
 
                 case "InvincibleDuration":
-                    CurrentAttackEffectSelected.Parameters = (float)(sender as NumericUpDown).Value;
+                    CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }
@@ -662,19 +681,19 @@ namespace NeonStarEditor
 
         private void AddSpecial_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].SpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            _attackList[this.AttacksList.SelectedValue.ToString()].SpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
             InitInformations();
         }
 
         private void AddOnHit_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
             InitInformations();
         }
 
         private void AddOnGround_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, Vector2.Zero));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
             InitInformations();
         }
 
