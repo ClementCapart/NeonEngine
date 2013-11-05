@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-450 Y:190}" />
+              <Position Value="{X:-66,65516 Y:230}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,9 +38,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:190}" />
-              <X Value="-470" />
-              <Y Value="122" />
+              <Center Value="{X:-66 Y:230}" />
+              <X Value="-86" />
+              <Y Value="162" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -135,6 +135,17 @@
               <StunLockDuration Value="-0.0006899312" />
             </Properties>
           </Avatar>
+          <Roll Type="NeonStarLibrary.Guard" ID="7">
+            <Properties>
+              <RollAnimation Value="Roll" />
+              <GuardAnimation Value="Roll" />
+              <RollDuration Value="0.3" />
+              <GuardDuration Value="0.3" />
+              <RollCooldown Value="0.3" />
+              <GuardCooldown Value="0.3" />
+              <RollImpulse Value="650" />
+            </Properties>
+          </Roll>
         </Components>
       </Entity>
       <Entity Name="EnemyTest">
@@ -720,7 +731,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-0,8 Y:-500}" />
+              <Position Value="{X:-0,1554791 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
