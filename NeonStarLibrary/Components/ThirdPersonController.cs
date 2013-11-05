@@ -187,7 +187,6 @@ namespace NeonStarLibrary
                              entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
                          entity.spritesheets.ChangeAnimation(WalkAnimation);
                          entity.spritesheets.ChangeSide(CurrentSide);
-
                          NotMoving = false;
                      }
 
@@ -297,6 +296,13 @@ namespace NeonStarLibrary
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);
             base.Update(gameTime);
 
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            CanMove = true;
+            CanTurn = true;
+            base.PostUpdate(gameTime);
         }
     }
 }

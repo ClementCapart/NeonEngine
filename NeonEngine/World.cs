@@ -134,12 +134,16 @@ namespace NeonEngine
                 physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
                 foreach (Water w in waterzones)
                     w.Update(gameTime);
-                for(int i = entities.Count - 1; i >= 0; i--)
+                for (int i = entities.Count - 1; i >= 0; i--)
+                    entities[i].PreUpdate(gameTime);
+                for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].Update(gameTime);
+                for (int i = entities.Count - 1; i >= 0; i--)
+                    entities[i].PostUpdate(gameTime);
             }
 
             lightingSystem.ComposeLightMask(Neon.spriteBatch, this);
-            /*oreach (AnimatedSpecialEffect se in SpecialEffects)
+            /*foreach (AnimatedSpecialEffect se in SpecialEffects)
                 se.Update(gameTime);*/
 
             DeferredDrawGame(Neon.spriteBatch);

@@ -161,6 +161,7 @@ namespace NeonStarLibrary
         }
 
         private Avatar _avatar;
+        public bool CanAttack = true;
 
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")
@@ -173,8 +174,46 @@ namespace NeonStarLibrary
             base.Init();
         }
 
+        public override void PreUpdate(GameTime gameTime)
+        {
+            if (CurrentAttack == null)
+            {
+                if (_avatar != null && _avatar.StunLockDuration > 0)
+                {
+                    entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                    ThirdPersonController.CanMove = false;
+                    ThirdPersonController.CanTurn = false;
+                }
+            }
+            else
+            {
+                if (((CurrentAttack.DelayStarted && !CurrentAttack.DelayFinished) || (CurrentAttack.DurationStarted && !CurrentAttack.DurationFinished) || (CurrentAttack.CooldownStarted && !CurrentAttack.CooldownFinished)))
+                {
+                    ThirdPersonController.CanMove = false;
+                    ThirdPersonController.CanTurn = false;
+                }
+                else
+                {
+                    if (_avatar != null && _avatar.StunLockDuration > 0)
+                    {
+                        CurrentAttack.AirLock = 0.0f;
+                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
+                        ThirdPersonController.CanMove = false;
+                        ThirdPersonController.CanTurn = false;
+                    }
+                    else if (CurrentAttack.AirLocked)
+                    {
+                        ThirdPersonController.CanMove = false;
+                    }
+                }
+
+            }
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            
             if (!ReleasedAttackButton)
                 if (!Neon.Input.Check(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
@@ -207,7 +246,7 @@ namespace NeonStarLibrary
                     CurrentAttack.Update(gameTime);
             }        
 
-            if ((CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
+            if (CanAttack && (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
             {
                 if (NextAttack != "")
                 {
@@ -259,10 +298,6 @@ namespace NeonStarLibrary
                             case "LightAttack":
                                 PerformLightAttack();
                                 break;
-
-                            case "Roll":
-                                PerformRoll();
-                                break;
                         }
                         NextAttack = "";
                         _chainDelayTimer = 0.0f;
@@ -281,7 +316,7 @@ namespace NeonStarLibrary
                 _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if (ReleasedAttackButton)
+            if (ReleasedAttackButton && CanAttack)
             {
                 if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
                 {
@@ -369,15 +404,7 @@ namespace NeonStarLibrary
                 {
                     ThirdPersonController._mustJumpAsSoonAsPossible = true;
                 }
-                else if (Neon.Input.Pressed(NeonStarInput.Guard))
-                {
-                    if ((CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f) && (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.MoveRight)))
-                        PerformRoll();
-                    else if (NextAttack == "" && (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.MoveRight)))
-                    {
-                        NextAttack = "Roll";
-                    }
-                }
+                
             }
 
             if (_currentComboHit != ComboSequence.None && (CurrentAttack != null && CurrentAttack.DurationFinished) || CurrentAttack == null)
@@ -416,50 +443,15 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (CurrentAttack == null)
-            {
-                ThirdPersonController.CanMove = true;
-                ThirdPersonController.CanTurn = true;
-
-                if (_avatar != null && _avatar.StunLockDuration > 0)
-                {
-                    entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-                    ThirdPersonController.CanMove = false;
-                    ThirdPersonController.CanTurn = false;
-                }
-            }
-            else
-            {
-                if (((CurrentAttack.DelayStarted && !CurrentAttack.DelayFinished) || (CurrentAttack.DurationStarted && !CurrentAttack.DurationFinished) || (CurrentAttack.CooldownStarted && !CurrentAttack.CooldownFinished)))
-                {
-                    ThirdPersonController.CanMove = false;
-                    ThirdPersonController.CanTurn = false;
-                }
-                else
-                {
-                    if (_avatar != null && _avatar.StunLockDuration > 0)
-                    {
-                        CurrentAttack.AirLock = 0.0f;
-                        CurrentAttack.AirLockFinished = true;
-                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-                        ThirdPersonController.CanMove = false;
-                        ThirdPersonController.CanTurn = false;
-                    }
-                    else if(CurrentAttack.AirLocked)
-                    {
-                        ThirdPersonController.CanMove = false;
-                        ThirdPersonController.CanTurn = true;
-                    }
-                    else
-                    {
-                        ThirdPersonController.CanMove = true;
-                        ThirdPersonController.CanTurn = true;
-                    }
-                }
-
-            }
+            
             _triedAttacking = false;
             base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            CanAttack = true;
+            base.PostUpdate(gameTime);
         }
 
         private void PerformUppercut()
@@ -590,11 +582,7 @@ namespace NeonStarLibrary
             ReleasedAttackButton = false;
         }
 
-        private void PerformRoll()
-        {
-            CurrentAttack = AttacksManager.GetAttack("LiOnRoll", entity.spritesheets.CurrentSide, entity);
-            entity.spritesheets.ChangeAnimation("Roll", 1, true, true, false);
-        }
+        
 
         private void CheckComboHit()
         {
@@ -629,6 +617,11 @@ namespace NeonStarLibrary
             }
 
             _lastHitDelay = 0.0f;
+        }
+
+        public void ResetComboHit()
+        {
+            _currentComboHit = ComboSequence.None;
         }
     }
 }

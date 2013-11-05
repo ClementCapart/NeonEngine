@@ -546,11 +546,11 @@ namespace NeonStarLibrary
             if (_mustStopAtTargetSight)
             {
                 if(_side == Side.Left)
-                    if (_entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    if (_target.hitbox.Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
                 if (_side == Side.Right)
-                    if (_entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    if (_target.hitbox.Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
         }

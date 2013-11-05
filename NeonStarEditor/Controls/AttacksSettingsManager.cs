@@ -694,19 +694,19 @@ namespace NeonStarEditor
 
         private void AddSpecial_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].SpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].SpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
             InitInformations();
         }
 
         private void AddOnHit_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
             InitInformations();
         }
 
         private void AddOnGround_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
             InitInformations();
         }
 

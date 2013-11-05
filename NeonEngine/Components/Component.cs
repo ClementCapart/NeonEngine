@@ -27,7 +27,15 @@ namespace NeonEngine
             this.Name = Name;
         }
 
+        public virtual void PreUpdate(GameTime gameTime)
+        {
+        }
+
         public virtual void Update(GameTime gameTime)
+        {
+        }
+
+        public virtual void PostUpdate(GameTime gameTime)
         {
         }
 
