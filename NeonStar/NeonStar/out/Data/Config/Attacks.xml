@@ -16,11 +16,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects>
-        <Effect Type="ShootBulletAtTarget">
-          <Parameter Value="SimpleBullet" />
-        </Effect>
-      </SpecialEffects>
+      <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:275 Y:0}" />
@@ -31,19 +27,19 @@
     </Attack>
     <Attack ID="0" Name="EnemyTigerDash" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="500" Height="10" />
+        <Hitbox OffsetX="50" OffsetY="0" Width="50" Height="100" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>1</Delay>
-      <Cooldown>1</Cooldown>
-      <Duration>1</Duration>
+      <Delay>0.5</Delay>
+      <Cooldown>0</Cooldown>
+      <Duration>0.4</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>1</StunLock>
       <SpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:4400 Y:0}" />
@@ -61,13 +57,13 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>1</Cooldown>
-      <Duration>1</Duration>
+      <Delay>0.3</Delay>
+      <Cooldown>0.7</Cooldown>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.6</StunLock>
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -261,7 +257,7 @@
           <SecondParameter Value="False" />
         </Effect>
         <Effect Type="Invincible">
-          <Parameter Value="0.3" />
+          <Parameter Value="0.4" />
         </Effect>
       </SpecialEffects>
       <OnHitSpecialEffects />
