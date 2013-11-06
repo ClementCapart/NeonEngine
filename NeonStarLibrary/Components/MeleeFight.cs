@@ -176,6 +176,18 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (CurrentAttack != null && (CurrentAttack.AttackInfo.Name == _diveAttackName || CurrentAttack.AttackInfo.Name == _diveAttackName + "Finish"))
+            {
+                if (entity.spritesheets.CurrentSpritesheetName == DiveAttackStartAnimation && entity.spritesheets.IsFinished())
+                {
+                    entity.spritesheets.ChangeAnimation(DiveAttackLoopAnimation, 1, true, false, true);
+                }
+                else if (entity.spritesheets.CurrentSpritesheetName == DiveAttackLoopAnimation && entity.rigidbody.isGrounded)
+                {
+                    entity.spritesheets.ChangeAnimation(DiveAttackLandAnimation, 1, true, false, false);
+                }
+            }
+
             if (CurrentAttack == null)
             {
                 if (_avatar != null && _avatar.StunLockDuration > 0)
@@ -223,17 +235,7 @@ namespace NeonStarLibrary
                 AttacksWhileInAir.Clear();
             }
 
-            if (CurrentAttack != null && (CurrentAttack.AttackInfo.Name == _diveAttackName || CurrentAttack.AttackInfo.Name == _diveAttackName+"Finish"))
-            {
-                if (entity.spritesheets.CurrentSpritesheetName == DiveAttackStartAnimation && entity.spritesheets.IsFinished())
-                {
-                    entity.spritesheets.ChangeAnimation(DiveAttackLoopAnimation, 1, true, false, true);
-                }
-                else if (entity.spritesheets.CurrentSpritesheetName == DiveAttackLoopAnimation && entity.rigidbody.isGrounded)
-                {
-                    entity.spritesheets.ChangeAnimation(DiveAttackLandAnimation, 1, true, false, false);
-                }
-            }
+            
 
             if (CurrentAttack != null)
             {
@@ -450,6 +452,7 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
+
             CanAttack = true;
             base.PostUpdate(gameTime);
         }

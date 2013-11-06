@@ -131,12 +131,12 @@ namespace NeonStarLibrary
                 if (_guardCooldownTimer <= 0.0f && _durationTimer <= 0.0f)
                 {
                     _guardCooldownTimer = 0.0f;
-                    if (Neon.Input.Pressed(NeonStarInput.Guard))
+                    /*if (Neon.Input.Pressed(NeonStarInput.Guard))
                     {
                         PerformGuard();
                         _durationTimer = _guardDuration;
                         isGuarding = true;
-                    }
+                    }*/
                 }
                 else
                 {
