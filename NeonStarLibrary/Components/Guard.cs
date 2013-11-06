@@ -105,7 +105,7 @@ namespace NeonStarLibrary
                 if (_rollCooldownTimer <= 0.0f && entity.rigidbody.isGrounded)
                 {
                     _rollCooldownTimer = 0.0f;
-                    if (Neon.Input.Pressed(NeonStarInput.Guard))
+                    if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f)
                     {
                         if (Neon.Input.Check(NeonStarInput.MoveLeft))
                         {
@@ -128,15 +128,15 @@ namespace NeonStarLibrary
                     _rollCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
 
-                if (_guardCooldownTimer <= 0.0f && _durationTimer <= 0.0f)
+                if (_guardCooldownTimer <= 0.0f && _durationTimer <= 0.0f )
                 {
                     _guardCooldownTimer = 0.0f;
-                    /*if (Neon.Input.Pressed(NeonStarInput.Guard))
+                    if (Neon.Input.Pressed(NeonStarInput.Guard) && !Neon.Input.Check(NeonStarInput.MoveRight) && !Neon.Input.Check(NeonStarInput.MoveLeft) && AvatarComponent.StunLockDuration <= 0.0f)
                     {
                         PerformGuard();
                         _durationTimer = _guardDuration;
                         isGuarding = true;
-                    }*/
+                    }
                 }
                 else
                 {
