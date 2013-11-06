@@ -105,6 +105,11 @@ namespace NeonEngine
             levelFilePath = level.levelFilePath;
         }
 
+        public virtual void PreUpdate(GameTime gameTime)
+        {
+
+        }
+
         public virtual void Update(GameTime gameTime)
         {
             if (FirstUpdate)
@@ -131,18 +136,26 @@ namespace NeonEngine
             Neon.elapsedTime = gameTime.ElapsedGameTime.Milliseconds;
             if (!Pause)
             {
-                physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+                
                 foreach (Water w in waterzones)
                     w.Update(gameTime);
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].PreUpdate(gameTime);
+
+                
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].Update(gameTime);
+
+                physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+
+                
+                
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].PostUpdate(gameTime);
             }
 
             lightingSystem.ComposeLightMask(Neon.spriteBatch, this);
+           
             /*foreach (AnimatedSpecialEffect se in SpecialEffects)
                 se.Update(gameTime);*/
 
@@ -158,9 +171,19 @@ namespace NeonEngine
             }
             
             InputEngine();
+
+            PreUpdate(gameTime);
+
             Update(gameTime);
+            
+            PostUpdate(gameTime);
+
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
+        }
+
+        public virtual void PostUpdate(GameTime gameTime)
+        {
         }
 
         public void DeferredDrawGame(SpriteBatch spriteBatch)

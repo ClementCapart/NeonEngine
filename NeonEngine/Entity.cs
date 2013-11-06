@@ -52,6 +52,7 @@ namespace NeonEngine
         {
             for (int i = Components.Count - 1; i >= 0; i--)
                 Components[i].PostUpdate(gameTime);
+
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

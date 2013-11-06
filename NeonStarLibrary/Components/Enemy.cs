@@ -132,10 +132,6 @@ namespace NeonStarLibrary
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 entity.rigidbody.GravityScale = 0.0f;
             }
-            else
-            {
-                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-            }
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -147,7 +143,6 @@ namespace NeonStarLibrary
             }
             else
             {
-                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                 _airLockDuration = 0.0f;
             }
 

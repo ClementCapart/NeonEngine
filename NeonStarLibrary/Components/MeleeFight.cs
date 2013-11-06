@@ -192,7 +192,6 @@ namespace NeonStarLibrary
             {
                 if (_avatar != null && _avatar.StunLockDuration > 0)
                 {
-                    entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                     ThirdPersonController.CanMove = false;
                     ThirdPersonController.CanTurn = false;
                 }
@@ -209,7 +208,6 @@ namespace NeonStarLibrary
                     if (_avatar != null && _avatar.StunLockDuration > 0)
                     {
                         CurrentAttack.AirLock = 0.0f;
-                        entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                         ThirdPersonController.CanMove = false;
                         ThirdPersonController.CanTurn = false;
                     }
@@ -433,10 +431,7 @@ namespace NeonStarLibrary
                 {
                     entity.rigidbody.body.GravityScale = 0.0f;                    
                 }
-                else
-                {
-                    entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
-                }
+
                 if (CurrentAttack.DurationFinished && entity.spritesheets.IsFinished())
                 {
                     

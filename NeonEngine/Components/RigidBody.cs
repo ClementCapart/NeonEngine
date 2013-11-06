@@ -321,10 +321,15 @@ namespace NeonEngine
             base.Update(gameTime);
         }
 
+        public override void PostUpdate(GameTime gameTime)
+        {
+            body.GravityScale = InitialGravityScale;
+            base.PostUpdate(gameTime);
+        }
+
         public override void Remove()
         {
             body.Dispose();
-
             base.Remove();
         }
 

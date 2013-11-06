@@ -597,7 +597,6 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             Vector2 impulseForce = (Vector2)ae.Parameters[0];
                             if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
                             velocityReset = true;
                             break;
@@ -605,9 +604,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.PositionalPulse:
                             Vector2 pulseForce = (Vector2)ae.Parameters[0];
                             if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
-                            entity.rigidbody.body.GravityScale = entity.rigidbody.InitialGravityScale;
                             velocityReset = true;
                             break;
 

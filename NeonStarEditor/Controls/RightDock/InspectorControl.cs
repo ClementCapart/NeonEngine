@@ -449,15 +449,22 @@ namespace NeonStarEditor
 
         void VectorX_ValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
-            Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
-            pcc.pi.SetValue(pcc.c, new Vector2((float)((sender as NumericUpDown).Value), vector.Y), null);
+            if (!GameWorld.ManagingInspector)
+            {
+                PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
+                pcc.pi.SetValue(pcc.c, new Vector2((float)((sender as NumericUpDown).Value), vector.Y), null);
+            }
+            
         }
         void VectorY_ValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
-            Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
-            pcc.pi.SetValue(pcc.c, new Vector2(vector.X, (float)(sender as NumericUpDown).Value), null); 
+            if (!GameWorld.ManagingInspector)
+            {
+                PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
+                pcc.pi.SetValue(pcc.c, new Vector2(vector.X, (float)(sender as NumericUpDown).Value), null); 
+            }           
         }
 
         private void AddComponent_Click(object sender, EventArgs e)
