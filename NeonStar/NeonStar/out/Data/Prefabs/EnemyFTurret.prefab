@@ -4,7 +4,7 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:4,474464E-09 Y:248}" />
+          <Position Value="{X:472 Y:207,5}" />
           <InitialPosition Value="{X:0 Y:0}" />
           <Rotation Value="0" />
           <Scale Value="1" />
@@ -13,9 +13,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:0 Y:248}" />
-          <X Value="-50" />
-          <Y Value="198" />
+          <Center Value="{X:471 Y:207}" />
+          <X Value="421" />
+          <Y Value="157" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -59,14 +59,22 @@
       </Enemy>
       <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
         <Properties>
-          <ThreatRange Value="300" />
-          <AttackRange Value="100" />
+          <ThreatRange Value="500" />
+          <AttackRange Value="1500" />
           <EntityToSearchFor Value="LiOn" />
         </Properties>
       </ThreatArea>
       <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
         <Properties>
-          <AttackToLaunchOne Value="" />
+          <AttackToLaunchOne Value="EnemyFTurretShot" />
+          <RangeForAttackTwo Value="0" />
+          <AttackToLaunchTwo Value="" />
+          <RangeForAttackThree Value="0" />
+          <AttackToLaunchThree Value="" />
+          <RangeForAttackFour Value="0" />
+          <AttackToLaunchFour Value="" />
+          <RangeForAttackFive Value="0" />
+          <AttackToLaunchFive Value="" />
         </Properties>
       </EnemyAttack>
     </Components>

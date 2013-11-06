@@ -1,7 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <XnaContent>
   <Attacks>
-    <Attack ID="0" Name="EnemyRobotPunch" Type="MeleeLight">
+    <Attack ID="0" Name="EnemyFTurretShot" Type="Range">
+      <Hitboxes />
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>1</Delay>
+      <Cooldown>0.4</Cooldown>
+      <Duration>0</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <SpecialEffects>
+        <Effect Type="ShootBulletAtTarget">
+          <Parameter Value="SimpleBullet" />
+        </Effect>
+      </SpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="EnemyRobotPunch" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="40" OffsetY="0" Width="120" Height="80" />
       </Hitboxes>
@@ -9,23 +30,28 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>1</Cooldown>
-      <Duration>0</Duration>
+      <Delay>0.5</Delay>
+      <Cooldown>0.5</Cooldown>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
-      <SpecialEffects />
+      <StunLock>0.45</StunLock>
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:2950 Y:0}" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:275 Y:0}" />
+          <Parameter Value="{X:400 Y:0}" />
           <SecondParameter Value="False" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="EnemyTigerDash" Type="MeleeLight">
+    <Attack ID="0" Name="EnemyTigerDash" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="50" OffsetY="0" Width="50" Height="100" />
       </Hitboxes>
@@ -49,7 +75,7 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="EnemyTigerPunch" Type="MeleeLight">
+    <Attack ID="0" Name="EnemyTigerPunch" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="40" OffsetY="0" Width="80" Height="100" />
       </Hitboxes>
