@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-450 Y:190}" />
+              <Position Value="{X:-435,2293 Y:190}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-450 Y:190}" />
-              <X Value="-470" />
+              <Center Value="{X:-435 Y:190}" />
+              <X Value="-455" />
               <Y Value="122" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -131,8 +131,8 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="0" />
-              <CurrentHealthPoints Value="22245" />
-              <StunLockDuration Value="-0.0006899312" />
+              <CurrentHealthPoints Value="22251" />
+              <StunLockDuration Value="-4.04343E-05" />
             </Properties>
           </Avatar>
           <Roll Type="NeonStarLibrary.Guard" ID="7">
@@ -152,8 +152,8 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:-295,5 Y:215,5}" />
-              <InitialPosition Value="{X:1700 Y:180}" />
+              <Position Value="{X:877,7506 Y:175}" />
+              <InitialPosition Value="{X:450 Y:180}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -161,9 +161,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-295 Y:215}" />
-              <X Value="-340" />
-              <Y Value="133" />
+              <Center Value="{X:877 Y:175}" />
+              <X Value="832" />
+              <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="90" />
@@ -198,7 +198,7 @@
           </Enemy>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="5">
             <Properties>
-              <CurrentNodeList Value="NodeList2" />
+              <CurrentNodeList Value="NodeList3" />
               <Speed Value="2" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -207,8 +207,8 @@
           </FollowPlatformNodes>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="6">
             <Properties>
-              <ThreatRange Value="300" />
-              <AttackRange Value="1500" />
+              <ThreatRange Value="400" />
+              <AttackRange Value="100" />
               <EntityToSearchFor Value="LiOn" />
             </Properties>
           </ThreatArea>
@@ -234,7 +234,7 @@
           </SpritesheetManager>
           <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="9">
             <Properties>
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
+              <AttackToLaunchOne Value="Empty" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <RangeForAttackThree Value="0" />
