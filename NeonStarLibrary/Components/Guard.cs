@@ -19,6 +19,14 @@ namespace NeonStarLibrary
             set { _rollAnimation = value; }
         }
 
+        private string _dashAnimation = "";
+
+        public string DashAnimation
+        {
+            get { return _dashAnimation; }
+            set { _dashAnimation = value; }
+        }
+
         private string _guardAnimation = "";
 
         public string GuardAnimation
@@ -33,6 +41,14 @@ namespace NeonStarLibrary
         {
             get { return _rollDuration; }
             set { _rollDuration = value; }
+        }
+
+        private float _dashDuration = 0.0f;
+
+        public float DashDuration
+        {
+            get { return _dashDuration; }
+            set { _dashDuration = value; }
         }
 
         private float _guardDuration = 0.0f;
@@ -51,6 +67,14 @@ namespace NeonStarLibrary
             set { _rollCooldown = value; }
         }
 
+        private float _dashCooldown = 0.0f;
+
+        public float DashCooldown
+        {
+            get { return _dashCooldown; }
+            set { _dashCooldown = value; }
+        }
+
         private float _guardCooldown = 0.0f;
 
         public float GuardCooldown
@@ -67,11 +91,23 @@ namespace NeonStarLibrary
             set { _rollImpulse = value; }
         }
 
+        private float _dashImpulse = 0.0f;
+
+        public float DashImpulse
+        {
+            get { return _dashImpulse; }
+            set { _dashImpulse = value; }
+        }
+
+
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
         private float _durationTimer = 0.0f;
 
         private bool isGuarding = false;
+        private bool isDashing = false;
+
+        private bool _alreadyDashed = false;
 
         public Guard(Entity entity)
             :base(entity, "Roll")
@@ -86,12 +122,24 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (entity.rigidbody.isGrounded)
+            {
+                _alreadyDashed = false;
+            }
             if (_durationTimer > 0f)
             {
                 AvatarComponent.thirdPersonController.CanMove = false;
                 AvatarComponent.thirdPersonController.CanTurn = false;
                 AvatarComponent.meleeFight.CanAttack = false;
+                if (isDashing)
+                    entity.rigidbody.body.GravityScale = 0;
             }
+            else if (isDashing)
+            {
+                isDashing = false;
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+
             base.PreUpdate(gameTime);
         }
 
@@ -102,26 +150,56 @@ namespace NeonStarLibrary
                 if (entity.spritesheets.CurrentSpritesheetName == _rollAnimation)
                     entity.spritesheets.CurrentPriority = 0;
 
-                if (_rollCooldownTimer <= 0.0f && entity.rigidbody.isGrounded)
+                if (_rollCooldownTimer <= 0.0f)
                 {
-                    _rollCooldownTimer = 0.0f;
-                    if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f)
+                    if (entity.rigidbody.isGrounded)
                     {
-                        if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                        _rollCooldownTimer = 0.0f;
+                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f)
                         {
-                            entity.spritesheets.ChangeSide(Side.Left);
-                            PerformRoll();
-                            _durationTimer = _rollDuration;
-                            isGuarding = false;
-                        }
-                        else if (Neon.Input.Check(NeonStarInput.MoveRight))
-                        {
-                            entity.spritesheets.ChangeSide(Side.Right);
-                            PerformRoll();
-                            _durationTimer = _rollDuration;
-                            isGuarding = false;
+                            if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                            {
+                                entity.spritesheets.ChangeSide(Side.Left);
+                                PerformRoll();
+                                _durationTimer = _rollDuration;
+                                isGuarding = false;
+                                isDashing = false;
+                            }
+                            else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                            {
+                                entity.spritesheets.ChangeSide(Side.Right);
+                                PerformRoll();
+                                _durationTimer = _rollDuration;
+                                isGuarding = false;
+                                isDashing = false;
+                            }
                         }
                     }
+                    else
+                    {
+                        _rollCooldownTimer = 0.0f;
+                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f && !_alreadyDashed)
+                        {
+                            if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                            {
+                                entity.spritesheets.ChangeSide(Side.Left);
+                                PerformDash();
+                                _durationTimer = _dashDuration;
+                                _alreadyDashed = true;
+                                isGuarding = false;
+                                isDashing = true;
+                            }
+                            else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                            {
+                                entity.spritesheets.ChangeSide(Side.Right);
+                                PerformDash();
+                                _alreadyDashed = true;
+                                _durationTimer = _dashDuration;
+                                isGuarding = false;
+                                isDashing = true;
+                            }
+                        }
+                    }                  
                 }
                 else
                 {
@@ -136,6 +214,7 @@ namespace NeonStarLibrary
                         PerformGuard();
                         _durationTimer = _guardDuration;
                         isGuarding = true;
+                        isDashing = false;
                     }
                 }
                 else
@@ -154,12 +233,10 @@ namespace NeonStarLibrary
                     else
                         _rollCooldownTimer = _rollCooldown;
                 }
-                AvatarComponent.thirdPersonController.CanMove = false;
-                AvatarComponent.thirdPersonController.CanTurn = false;
-                AvatarComponent.meleeFight.CanAttack = false;
             }
-               
+
             base.Update(gameTime);
+            
         }
 
         private void PerformRoll()
@@ -172,8 +249,7 @@ namespace NeonStarLibrary
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
             entity.spritesheets.ChangeAnimation(_rollAnimation, 1, true, true, false);
-            entity.hitbox.SwitchType(HitboxType.Invincible, _rollDuration);
-            
+            entity.hitbox.SwitchType(HitboxType.Invincible, _rollDuration); 
         }
 
         private void PerformGuard()
@@ -183,6 +259,20 @@ namespace NeonStarLibrary
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
             entity.spritesheets.ChangeAnimation(_guardAnimation, 1, true, true, false);
+        }
+
+        private void PerformDash()
+        {
+            if (AvatarComponent.meleeFight.CurrentAttack != null)
+                AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
+
+            entity.rigidbody.GravityScale = 0;
+            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
+            AvatarComponent.meleeFight.CurrentAttack = null;
+            AvatarComponent.meleeFight.ResetComboHit();
+            entity.spritesheets.ChangeAnimation(_dashAnimation, 1, true, true, false);
+            entity.hitbox.SwitchType(HitboxType.Invincible, _dashDuration);
         }
     }
 }

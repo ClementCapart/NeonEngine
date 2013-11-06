@@ -76,10 +76,6 @@ namespace NeonStarLibrary
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 entity.rigidbody.GravityScale = 0.0f;
             }
-            else
-            {
-                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
-            }
         }
 
         public void StunLockEffect(float duration)
@@ -106,7 +102,6 @@ namespace NeonStarLibrary
             }
             else
             {
-                entity.rigidbody.GravityScale = entity.rigidbody.InitialGravityScale;
                 _airLockDuration = 0.0f;
             }
 

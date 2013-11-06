@@ -58,6 +58,8 @@ namespace NeonStarEditor
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
 
+        public bool ManagingInspector = false;
+
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
         {
@@ -214,9 +216,14 @@ namespace NeonStarEditor
                 PressedDelay = 0.0f;
 
             base.Update(gameTime);
-            ManageInspector();
+            
+        }
 
+        public override void PreUpdate(GameTime gameTime)
+        {
+            ManageInspector();
             EntityChangedThisFrame = false;
+            base.PreUpdate(gameTime);
         }
 
         public override void ManualDrawGame(SpriteBatch spriteBatch)
@@ -392,6 +399,7 @@ namespace NeonStarEditor
         {
             if (SelectedEntity != null)
             {
+                ManagingInspector = true;
                 foreach (PropertyComponentControl pcc in RightDockControl.InspectorControl.PropertyControlList)
                 {
                     if (pcc.ctrl.Name == "X")
@@ -420,10 +428,9 @@ namespace NeonStarEditor
                     ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
-                    RightDockControl.InspectorControl.ClearInspector();
-                    
+                    RightDockControl.InspectorControl.ClearInspector();                 
                 }
-                
+                ManagingInspector = false;
             }
 
             if (FocusedTextBox != null)
