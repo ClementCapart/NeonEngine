@@ -153,6 +153,7 @@ namespace NeonStarLibrary
             bullet.EnemyBullet = isEnemy;
             bullet.OnHitSpecialEffects = new List<AttackEffect>();
             bullet.launcher = shooter;
+            bullet.Init();
 
             ssm.SpritesheetList.Clear();
             ssm.SpritesheetList.Add("living", bulletInfo.LivingSpriteSheet);

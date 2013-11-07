@@ -213,6 +213,12 @@ namespace NeonStarEditor
                     XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
                     effect.Add(parameterAnimation);
                     break;
+
+                case SpecialEffect.MoveWhileAttacking:
+                    XElement parameterChase = new XElement("Parameter", new XAttribute("Value", ((float)(effectKvp.Parameters[0])).ToString("G", CultureInfo.InvariantCulture)));
+                    effect.Add(parameterChase);
+                    break;
+                       
             }
 
             return effect;
@@ -397,6 +403,27 @@ namespace NeonStarEditor
                         comboBox2.SelectedValueChanged += comboBox_SelectedValueChanged;                       
                         this.EffectsInfoPanel.Controls.Add(comboBox2);
                         break;
+
+                    case SpecialEffect.MoveWhileAttacking:
+                        label = new Label();
+                        label.Text = "Chase speed";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown speed = new NumericUpDown();
+                        speed.Name = "ChaseSpeed";
+                        speed.Maximum = 50000;
+                        speed.Minimum = -50000;
+                        speed.Width = 80;
+                        speed.DecimalPlaces = 2;
+                        speed.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
+                        speed.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        speed.Enter += Numeric_Enter;
+                        speed.Leave += Numeric_Leave;
+                        speed.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(speed);
+                        break;
                 }
             }
         }
@@ -460,6 +487,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.EffectAnimation:
                         CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo() };
+                        break;
+
+                    case SpecialEffect.MoveWhileAttacking:
+                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f };
                         break;
                 }
                 this.InitEffectData();
@@ -697,6 +728,10 @@ namespace NeonStarEditor
                     break;
 
                 case "InvincibleDuration":
+                    CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ChaseSpeed":
                     CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
                     break;
             }

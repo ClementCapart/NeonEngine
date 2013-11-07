@@ -20,7 +20,8 @@ namespace NeonStarLibrary
         ShootBullet,
         ShootBulletAtTarget,
         Invincible,
-        EffectAnimation
+        EffectAnimation,
+        MoveWhileAttacking,
     }
 
     public enum AttackType
@@ -130,6 +131,10 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(specialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.SpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
                             break;
+
+                        case SpecialEffect.MoveWhileAttacking:
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value) }));
+                            break;
                     }         
                 }
 
@@ -175,6 +180,10 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
                             break;
+
+                        case SpecialEffect.MoveWhileAttacking:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value) }));
+                            break;
                     }         
                 }
 
@@ -219,6 +228,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
+                            break;
+
+                        case SpecialEffect.MoveWhileAttacking:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value) }));
                             break;
                     }
                 }

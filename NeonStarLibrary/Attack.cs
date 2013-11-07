@@ -211,6 +211,8 @@ namespace NeonStarLibrary
         private MeleeFight _meleeFight;
         private bool _fromEnemy = false;
         private Entity _target;
+        private bool _isMoving = false;
+        private float _movingSpeed = 0.0f;
 
         public Attack()
         {
@@ -412,6 +414,11 @@ namespace NeonStarLibrary
                             EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, 1.0f);
                             break;
 
+                        case SpecialEffect.MoveWhileAttacking:
+                            _isMoving = true;
+                            _movingSpeed = (float)(ae.Parameters[0]);
+                            break;
+
                     }
                     _specialEffects.Remove(ae);
                 }
@@ -466,6 +473,12 @@ namespace NeonStarLibrary
                     CooldownFinished = true;
                 }
             }
+
+            if (_isMoving)
+            {
+                _entity.rigidbody.body.LinearVelocity = CurrentSide == Side.Right ? new Vector2(_movingSpeed, 0) : new Vector2(-_movingSpeed, 0);
+            }
+
             if (_entity.Name != "AttackHolder")
             {
                 if (!_entity.rigidbody.isGrounded)
@@ -565,10 +578,12 @@ namespace NeonStarLibrary
         private void Effect(Entity entity, Hitbox collidedHitbox)
         {
             bool validTarget = false;
+            Avatar avatar = null;
+            Enemy enemy = null;;
 
             if (!_fromEnemy)
             {
-                Enemy enemy = entity.GetComponent<Enemy>();
+                enemy = entity.GetComponent<Enemy>();
                 if (enemy != null)
                 {
                     validTarget = true;
@@ -581,12 +596,12 @@ namespace NeonStarLibrary
             }
             else
             {
-                Avatar avatar = entity.GetComponent<Avatar>();
+                avatar = entity.GetComponent<Avatar>();
                 if(avatar != null)
                 {
                     validTarget = true;
                     _hit = true;
-                    avatar.ChangeHealthPoints(_damageOnHit);
+                    avatar.ChangeHealthPoints(avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit);
                     avatar.StunLockEffect(_stunLock);
                     if(!avatar.entity.rigidbody.IsGround)
                         avatar.AirLock(TargetAirLock);
@@ -602,23 +617,33 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = (Vector2)ae.Parameters[0];
-                            if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
-                            velocityReset = true;
+                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
+                            {
+                                Vector2 impulseForce = (Vector2)ae.Parameters[0];
+                                if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
+                                velocityReset = true;
+                            }                
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            Vector2 pulseForce = (Vector2)ae.Parameters[0];
-                            if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
-                            velocityReset = true;
+                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
+                            {
+                                Vector2 pulseForce = (Vector2)ae.Parameters[0];
+                                if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                entity.rigidbody.body.ApplyLinearImpulse(new Vector2(pulseForce.X * (_entity.transform.Position.X < entity.transform.Position.X ? 1 : -1), pulseForce.Y * (_entity.transform.Position.Y < entity.transform.Position.Y ? 1 : -1)));
+                                velocityReset = true;
+                            }
                             break;
 
                         case SpecialEffect.Boost:
                             break;
 
                         case SpecialEffect.DamageOverTime:
+                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
+                            {
+
+                            }
                             break;
 
                         case SpecialEffect.StartAttack:
@@ -650,7 +675,6 @@ namespace NeonStarLibrary
                     }
                 }
             }
-
             
         }
 

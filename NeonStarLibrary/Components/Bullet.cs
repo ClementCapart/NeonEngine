@@ -38,6 +38,7 @@ namespace NeonStarLibrary
         }
 
         private float _lifeTime;
+        private float _initialLifeTime;
 
         public float LifeTime
         {
@@ -84,6 +85,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            _initialLifeTime = LifeTime;
             base.Init();
         }
 
@@ -111,10 +113,20 @@ namespace NeonStarLibrary
                                     Avatar avatar = hb.entity.GetComponent<Avatar>();
                                     if (avatar != null)
                                     {
-                                        avatar.ChangeHealthPoints(DamageOnHit);
-                                        LifeTime = 0f;
-                                        entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
-                                        return;
+                                        if (avatar.guard.IsGuarding)
+                                        {
+                                            launcher = avatar.entity;
+                                            EnemyBullet = false;
+                                            LifeTime = _initialLifeTime;
+                                            Direction = -Direction;
+                                        }
+                                        else
+                                        {
+                                            avatar.ChangeHealthPoints(DamageOnHit);
+                                            LifeTime = 0f;
+                                            entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                            return;
+                                        }                                
                                     }
                                 }
                             }

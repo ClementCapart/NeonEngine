@@ -99,12 +99,26 @@ namespace NeonStarLibrary
             set { _dashImpulse = value; }
         }
 
+        private float _guardDamageReduce = 0.0f;
+
+        public float GuardDamageReduce
+        {
+            get { return _guardDamageReduce; }
+            set { _guardDamageReduce = value; }
+        }
+
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
         private float _durationTimer = 0.0f;
 
         private bool isGuarding = false;
+
+        public bool IsGuarding
+        {
+            get { return isGuarding; }
+            set { isGuarding = value; }
+        }
         private bool isDashing = false;
 
         private bool _alreadyDashed = false;
@@ -138,6 +152,10 @@ namespace NeonStarLibrary
             {
                 isDashing = false;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+            else if (isGuarding)
+            {
+                isGuarding = false;
             }
 
             base.PreUpdate(gameTime);
