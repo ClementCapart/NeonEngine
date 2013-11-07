@@ -29,7 +29,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:223,9817 Y:230}" />
+              <Position Value="{X:-149,449 Y:230}" />
               <InitialPosition Value="{X:-450 Y:190}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -38,8 +38,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:223 Y:230}" />
-              <X Value="203" />
+              <Center Value="{X:-149 Y:230}" />
+              <X Value="-169" />
               <Y Value="162" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -138,12 +138,16 @@
           <Roll Type="NeonStarLibrary.Guard" ID="7">
             <Properties>
               <RollAnimation Value="Roll" />
+              <DashAnimation Value="Roll" />
               <GuardAnimation Value="Roll" />
               <RollDuration Value="0.3" />
+              <DashDuration Value="0.17" />
               <GuardDuration Value="0.3" />
               <RollCooldown Value="0.3" />
+              <DashCooldown Value="0.3" />
               <GuardCooldown Value="0.3" />
               <RollImpulse Value="650" />
+              <DashImpulse Value="550" />
             </Properties>
           </Roll>
         </Components>
@@ -152,7 +156,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:615,8506 Y:175}" />
+              <Position Value="{X:-527,4513 Y:175,5}" />
               <InitialPosition Value="{X:450 Y:180}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -161,8 +165,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:615 Y:175}" />
-              <X Value="570" />
+              <Center Value="{X:-527 Y:175}" />
+              <X Value="-572" />
               <Y Value="93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -198,7 +202,7 @@
           </Enemy>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="5">
             <Properties>
-              <CurrentNodeList Value="NodeList3" />
+              <CurrentNodeList Value="NodeList1" />
               <Speed Value="2" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -731,7 +735,7 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <Position Value="{X:174,7348 Y:-500}" />
+              <Position Value="{X:-0,8 Y:-500}" />
               <InitialPosition Value="{X:0 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
