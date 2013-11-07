@@ -619,10 +619,25 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     _hit = true;
-                    avatar.ChangeHealthPoints(avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit);
-                    avatar.StunLockEffect(_stunLock);
-                    if(!avatar.entity.rigidbody.IsGround)
-                        avatar.AirLock(TargetAirLock);
+                    if (avatar.entity.spritesheets.CurrentSide != _entity.spritesheets.CurrentSide)
+                    {
+                        float damage = avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit;
+                        if (damage > 0)
+                        {
+                            avatar.ChangeHealthPoints(damage);
+                            avatar.StunLockEffect(_stunLock);
+                        }
+                        if (!avatar.entity.rigidbody.IsGround)
+                            avatar.AirLock(TargetAirLock);
+                    }
+                    else
+                    {
+                        avatar.ChangeHealthPoints(_damageOnHit);
+                        avatar.StunLockEffect(_stunLock);
+
+                        if (!avatar.entity.rigidbody.IsGround)
+                            avatar.AirLock(TargetAirLock);
+                    }                  
                 }
             }
 

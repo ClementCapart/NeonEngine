@@ -140,6 +140,7 @@ namespace NeonStarLibrary
             {
                 _alreadyDashed = false;
             }
+
             if (_durationTimer > 0f)
             {
                 AvatarComponent.thirdPersonController.CanMove = false;
@@ -157,6 +158,7 @@ namespace NeonStarLibrary
             {
                 isGuarding = false;
             }
+
 
             base.PreUpdate(gameTime);
         }

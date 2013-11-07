@@ -300,6 +300,8 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
+            if (entity.spritesheets.IsFinished())
+                entity.spritesheets.CurrentPriority = 0;
             CanMove = true;
             CanTurn = true;
             base.PostUpdate(gameTime);

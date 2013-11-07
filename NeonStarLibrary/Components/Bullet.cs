@@ -113,7 +113,7 @@ namespace NeonStarLibrary
                                     Avatar avatar = hb.entity.GetComponent<Avatar>();
                                     if (avatar != null)
                                     {
-                                        if (avatar.guard.IsGuarding)
+                                        if (avatar.guard.IsGuarding && avatar.entity.spritesheets.CurrentSide != entity.spritesheets.CurrentSide)
                                         {
                                             launcher = avatar.entity;
                                             EnemyBullet = false;

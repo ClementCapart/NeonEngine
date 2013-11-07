@@ -142,7 +142,6 @@ namespace NeonStarLibrary
             hitbox.OffsetY = side == Side.Right ? bulletInfo.HitboxInfo.Y : -bulletInfo.HitboxInfo.Y;
             hitbox.Center = newBullet.transform.Position;
 
-
             bullet.LifeTime = bulletInfo.LifeTime;
 
             bullet.Speed = bulletInfo.Speed;
