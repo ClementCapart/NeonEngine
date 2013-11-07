@@ -90,6 +90,14 @@ namespace NeonStarLibrary
             set { _cooldown = value; }
         }
 
+        private float _localCooldown = 0.0f;
+
+        public float LocalCooldown
+        {
+            get { return _localCooldown; }
+            set { _localCooldown = value; }
+        }
+
         private float _duration = 1.0f;
         public float Duration
         {
@@ -243,6 +251,7 @@ namespace NeonStarLibrary
             this.Delay = attackInfo.Delay;
             this.DamageOnHit = attackInfo.DamageOnHit;
             this.Cooldown = attackInfo.Cooldown;
+            this.LocalCooldown = attackInfo.LocalCooldown;
             this.Duration = attackInfo.Duration;
             this.AirLock = attackInfo.AirLock;
             this.TargetAirLock = attackInfo.TargetAirLock;
@@ -259,7 +268,6 @@ namespace NeonStarLibrary
             }
 
             DelayStarted = true;
-
 
             if (_entity != null && _entity.Name != "AttackHolder")
             {
@@ -454,6 +462,15 @@ namespace NeonStarLibrary
                 {
                     DurationFinished = true;
                     CooldownStarted = true;
+                    
+                    if (LocalCooldown > 0.0f)
+                    {
+                        if (_fromEnemy)
+                        {
+                            _entity.GetComponent<Enemy>()._attack.LocalAttacksInCooldown.Add(this);
+                        }
+                    }
+
                     for (int i = _hitboxes.Count - 1; i >= 0; i--)
                     {
                         _hitboxes[i].Remove();

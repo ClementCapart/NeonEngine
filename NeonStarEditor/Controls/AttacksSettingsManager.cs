@@ -111,6 +111,9 @@ namespace NeonStarEditor
                 XElement cooldown = new XElement("Cooldown", kvp.Value.Cooldown.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(cooldown);
 
+                XElement localCooldown = new XElement("LocalCooldown", kvp.Value.LocalCooldown.ToString("G", CultureInfo.InvariantCulture));
+                attack.Add(localCooldown);
+
                 XElement duration = new XElement("Duration", kvp.Value.Duration.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(duration);
 
@@ -406,13 +409,13 @@ namespace NeonStarEditor
 
                     case SpecialEffect.MoveWhileAttacking:
                         label = new Label();
-                        label.Text = "Chase speed";
+                        label.Text = "Move speed";
                         label.Height = 15;
                         label.Location = new System.Drawing.Point(5, 60);
                         this.EffectsInfoPanel.Controls.Add(label);
 
                         NumericUpDown speed = new NumericUpDown();
-                        speed.Name = "ChaseSpeed";
+                        speed.Name = "MoveSpeed";
                         speed.Maximum = 50000;
                         speed.Minimum = -50000;
                         speed.Width = 80;
@@ -513,6 +516,7 @@ namespace NeonStarEditor
             this.OnlyOnceInAir.Checked = _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir;
             this.AirFactorNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirFactor;
             this.StunLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].StunLock;
+            this.LocalCooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].LocalCooldown;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -731,8 +735,12 @@ namespace NeonStarEditor
                     CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
                     break;
 
-                case "ChaseSpeed":
+                case "MoveSpeed":
                     CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "LocalCooldownNumeric":
+                    _attackList[AttacksList.SelectedValue.ToString()].LocalCooldown = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

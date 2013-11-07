@@ -49,6 +49,8 @@ namespace NeonStarLibrary
         public override void Init()
         {
             EnemyComponent = entity.GetComponent<Enemy>();
+            if(EnemyComponent != null)
+                EnemyComponent._chase = this;
             base.Init();
         }
 

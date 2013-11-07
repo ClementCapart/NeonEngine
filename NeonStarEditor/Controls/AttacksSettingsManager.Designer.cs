@@ -52,6 +52,7 @@
             this.OnGroundCancelSpecialEffectList = new System.Windows.Forms.ListBox();
             this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
             this.SpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.StunLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirFactorNU = new System.Windows.Forms.NumericUpDown();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.DamageNumeric = new System.Windows.Forms.NumericUpDown();
@@ -61,6 +62,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,17 +72,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.StunLockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.LocalCooldownNumeric = new System.Windows.Forms.NumericUpDown();
+            this.LocalCooldown = new System.Windows.Forms.Label();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CooldownNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -143,7 +146,7 @@
             // 
             this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClosePanel.Location = new System.Drawing.Point(585, 3);
+            this.ClosePanel.Location = new System.Drawing.Point(647, 3);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(27, 26);
             this.ClosePanel.TabIndex = 2;
@@ -159,9 +162,14 @@
             this.AttackInfo.Controls.Add(this.AttackName);
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
+            this.AttackInfo.Controls.Add(this.LocalCooldownNumeric);
             this.AttackInfo.Controls.Add(this.CooldownNumeric);
+            this.AttackInfo.Controls.Add(this.label11);
+            this.AttackInfo.Controls.Add(this.AirFactorNU);
             this.AttackInfo.Controls.Add(this.RemoveOnGround);
             this.AttackInfo.Controls.Add(this.RemoveOnHit);
+            this.AttackInfo.Controls.Add(this.label12);
+            this.AttackInfo.Controls.Add(this.StunLockNumeric);
             this.AttackInfo.Controls.Add(this.AddOnGround);
             this.AttackInfo.Controls.Add(this.AddOnHit);
             this.AttackInfo.Controls.Add(this.RemoveSpecial);
@@ -170,18 +178,15 @@
             this.AttackInfo.Controls.Add(this.OnGroundCancelSpecialEffectList);
             this.AttackInfo.Controls.Add(this.OnHitSpecialEffectsList);
             this.AttackInfo.Controls.Add(this.SpecialEffectsList);
-            this.AttackInfo.Controls.Add(this.StunLockNumeric);
-            this.AttackInfo.Controls.Add(this.AirFactorNU);
             this.AttackInfo.Controls.Add(this.DurationNumeric);
             this.AttackInfo.Controls.Add(this.DamageNumeric);
             this.AttackInfo.Controls.Add(this.EffectsInfoPanel);
             this.AttackInfo.Controls.Add(this.HitboxesPanel);
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
+            this.AttackInfo.Controls.Add(this.LocalCooldown);
             this.AttackInfo.Controls.Add(this.label6);
             this.AttackInfo.Controls.Add(this.label111);
-            this.AttackInfo.Controls.Add(this.label12);
-            this.AttackInfo.Controls.Add(this.label11);
             this.AttackInfo.Controls.Add(this.label5);
             this.AttackInfo.Controls.Add(this.label10);
             this.AttackInfo.Controls.Add(this.label4);
@@ -193,7 +198,7 @@
             this.AttackInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.AttackInfo.Location = new System.Drawing.Point(201, 49);
             this.AttackInfo.Name = "AttackInfo";
-            this.AttackInfo.Size = new System.Drawing.Size(405, 448);
+            this.AttackInfo.Size = new System.Drawing.Size(473, 448);
             this.AttackInfo.TabIndex = 3;
             this.AttackInfo.TabStop = false;
             this.AttackInfo.Text = "Attack Info";
@@ -295,7 +300,7 @@
             0,
             0,
             65536});
-            this.CooldownNumeric.Location = new System.Drawing.Point(80, 132);
+            this.CooldownNumeric.Location = new System.Drawing.Point(301, 84);
             this.CooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -388,7 +393,7 @@
             0,
             0,
             65536});
-            this.DelayNumeric.Location = new System.Drawing.Point(12, 132);
+            this.DelayNumeric.Location = new System.Drawing.Point(167, 84);
             this.DelayNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -428,6 +433,27 @@
             this.SpecialEffectsList.TabIndex = 1;
             this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
             // 
+            // StunLockNumeric
+            // 
+            this.StunLockNumeric.DecimalPlaces = 2;
+            this.StunLockNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.StunLockNumeric.Location = new System.Drawing.Point(82, 132);
+            this.StunLockNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.StunLockNumeric.Name = "StunLockNumeric";
+            this.StunLockNumeric.Size = new System.Drawing.Size(60, 20);
+            this.StunLockNumeric.TabIndex = 3;
+            this.StunLockNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.StunLockNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.StunLockNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            // 
             // AirFactorNU
             // 
             this.AirFactorNU.DecimalPlaces = 2;
@@ -436,7 +462,7 @@
             0,
             0,
             65536});
-            this.AirFactorNU.Location = new System.Drawing.Point(252, 84);
+            this.AirFactorNU.Location = new System.Drawing.Point(16, 132);
             this.AirFactorNU.Maximum = new decimal(new int[] {
             300,
             0,
@@ -457,7 +483,7 @@
             0,
             0,
             65536});
-            this.DurationNumeric.Location = new System.Drawing.Point(178, 85);
+            this.DurationNumeric.Location = new System.Drawing.Point(234, 84);
             this.DurationNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -496,7 +522,7 @@
             this.EffectsInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EffectsInfoPanel.Location = new System.Drawing.Point(174, 258);
             this.EffectsInfoPanel.Name = "EffectsInfoPanel";
-            this.EffectsInfoPanel.Size = new System.Drawing.Size(225, 184);
+            this.EffectsInfoPanel.Size = new System.Drawing.Size(293, 184);
             this.EffectsInfoPanel.TabIndex = 2;
             // 
             // HitboxesPanel
@@ -505,7 +531,7 @@
             this.HitboxesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HitboxesPanel.Location = new System.Drawing.Point(12, 182);
             this.HitboxesPanel.Name = "HitboxesPanel";
-            this.HitboxesPanel.Size = new System.Drawing.Size(387, 70);
+            this.HitboxesPanel.Size = new System.Drawing.Size(455, 70);
             this.HitboxesPanel.TabIndex = 2;
             // 
             // label8
@@ -529,7 +555,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(77, 116);
+            this.label6.Location = new System.Drawing.Point(298, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 1;
@@ -544,10 +570,19 @@
             this.label111.TabIndex = 1;
             this.label111.Text = "SpecialEffectsOnGround";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(79, 115);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "StunLock";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(249, 67);
+            this.label11.Location = new System.Drawing.Point(14, 116);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 1;
@@ -556,7 +591,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(175, 67);
+            this.label5.Location = new System.Drawing.Point(230, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 1;
@@ -574,7 +609,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 116);
+            this.label4.Location = new System.Drawing.Point(167, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 1;
@@ -626,35 +661,35 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // label12
+            // LocalCooldownNumeric
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(318, 67);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "StunLock";
-            // 
-            // StunLockNumeric
-            // 
-            this.StunLockNumeric.DecimalPlaces = 2;
-            this.StunLockNumeric.Increment = new decimal(new int[] {
+            this.LocalCooldownNumeric.DecimalPlaces = 2;
+            this.LocalCooldownNumeric.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.StunLockNumeric.Location = new System.Drawing.Point(321, 84);
-            this.StunLockNumeric.Maximum = new decimal(new int[] {
+            this.LocalCooldownNumeric.Location = new System.Drawing.Point(367, 84);
+            this.LocalCooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
             0,
             0});
-            this.StunLockNumeric.Name = "StunLockNumeric";
-            this.StunLockNumeric.Size = new System.Drawing.Size(60, 20);
-            this.StunLockNumeric.TabIndex = 3;
-            this.StunLockNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
-            this.StunLockNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
-            this.StunLockNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            this.LocalCooldownNumeric.Name = "LocalCooldownNumeric";
+            this.LocalCooldownNumeric.Size = new System.Drawing.Size(60, 20);
+            this.LocalCooldownNumeric.TabIndex = 3;
+            this.LocalCooldownNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.LocalCooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.LocalCooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            // 
+            // LocalCooldown
+            // 
+            this.LocalCooldown.AutoSize = true;
+            this.LocalCooldown.Location = new System.Drawing.Point(364, 67);
+            this.LocalCooldown.Name = "LocalCooldown";
+            this.LocalCooldown.Size = new System.Drawing.Size(80, 13);
+            this.LocalCooldown.TabIndex = 1;
+            this.LocalCooldown.Text = "LocalCooldown";
             // 
             // AttacksSettingsManager
             // 
@@ -670,17 +705,18 @@
             this.Controls.Add(this.AttacksList);
             this.Controls.Add(this.Title);
             this.Name = "AttacksSettingsManager";
-            this.Size = new System.Drawing.Size(615, 511);
+            this.Size = new System.Drawing.Size(677, 511);
             this.AttackInfo.ResumeLayout(false);
             this.AttackInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CooldownNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -732,5 +768,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown StunLockNumeric;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown LocalCooldownNumeric;
+        private System.Windows.Forms.Label LocalCooldown;
     }
 }

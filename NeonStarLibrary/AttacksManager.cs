@@ -40,6 +40,7 @@ namespace NeonStarLibrary
         public float DamageOnHit = 1.0f;
         public float Delay = 0.0f;
         public float Cooldown = 1.0f;
+        public float LocalCooldown = 0.0f;
         public float Duration = 1.0f;
         public float AirLock = 1.0f;
         public float TargetAirLock = 1.0f;
@@ -83,6 +84,7 @@ namespace NeonStarLibrary
                 ai.DamageOnHit = float.Parse(attack.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
                 ai.Delay = float.Parse(attack.Element("Delay").Value, CultureInfo.InvariantCulture);
                 ai.Cooldown = float.Parse(attack.Element("Cooldown").Value, CultureInfo.InvariantCulture);
+                ai.LocalCooldown = float.Parse(attack.Element("LocalCooldown").Value, CultureInfo.InvariantCulture);
                 ai.Duration = float.Parse(attack.Element("Duration").Value, CultureInfo.InvariantCulture);
                 ai.AirLock = float.Parse(attack.Element("AirLock").Value, CultureInfo.InvariantCulture);
                 ai.TargetAirLock = float.Parse(attack.Element("TargetAirLock").Value, CultureInfo.InvariantCulture);
