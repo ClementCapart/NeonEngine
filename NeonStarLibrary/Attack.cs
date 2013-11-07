@@ -644,7 +644,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
                             Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitbox.hitboxRectangle);
-                            Vector2 hitPosition = new Vector2(intersectionRectangle.Center.X, intersectionRectangle.Center.Y);
+                            Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, intersectionRectangle.Center.Y);
                             EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, 1.0f);
                             break;
                     }
