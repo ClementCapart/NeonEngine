@@ -19,6 +19,7 @@ namespace NeonEngine
         public float opacity = 1f;
         private bool _reverseLoop = false;
         private bool _reverse = false;
+        public bool Active = true;
 
         public bool ReverseLoop
         {
@@ -109,6 +110,8 @@ namespace NeonEngine
                 isPlaying = false;
             else
                 timePerFrame = 1 / spriteSheetInfo.Fps;
+            
+            isPlaying = true;
             frameTimer = 0;
             _isFinished = false;
         }
@@ -161,8 +164,9 @@ namespace NeonEngine
                                         currentFrame--;
                                 }
                             }
-                                                    
+
                         }
+
                         frameTimer -= timePerFrame;
                     }                  
             }
@@ -176,7 +180,7 @@ namespace NeonEngine
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            if (spriteSheetInfo != null)
+            if (spriteSheetInfo != null && Active)
             {
                 if(particle == null)
                     spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + this._parallaxPosition.X +  ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X : -(int)spriteSheetInfo.Offset.X) * entity.transform.Scale), (int)entity.transform.Position.Y + this._parallaxPosition.Y +((int)spriteSheetInfo.Offset.Y * entity.transform.Scale)), frames[currentFrame],

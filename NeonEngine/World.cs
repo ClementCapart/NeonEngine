@@ -47,7 +47,6 @@ namespace NeonEngine
 
         public NeonPool<Hitbox> HitboxPool;
         public NeonPool<Particle> ParticlePool;
-        public NeonPool<AnimatedSpecialEffect> EffectsPool;
         public List<Hitbox> Hitboxes;
         public List<AnimatedSpecialEffect> SpecialEffects;
 
@@ -91,6 +90,7 @@ namespace NeonEngine
             ParticlePool = new NeonPool<Particle>(() => new Particle());
             Hitboxes = new List<Hitbox>();
             NodeLists = new List<PathNodeList>();
+            SpecialEffects = new List<AnimatedSpecialEffect>();
 
 
             _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
@@ -146,18 +146,18 @@ namespace NeonEngine
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].Update(gameTime);
 
-                physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+                for(int i = SpecialEffects.Count - 1; i >= 0; i--)
+                    SpecialEffects[i].Update(gameTime);
 
-                
-                
+                physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+                              
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].PostUpdate(gameTime);
             }
 
             lightingSystem.ComposeLightMask(Neon.spriteBatch, this);
            
-            /*foreach (AnimatedSpecialEffect se in SpecialEffects)
-                se.Update(gameTime);*/
+
 
             DeferredDrawGame(Neon.spriteBatch);
 
