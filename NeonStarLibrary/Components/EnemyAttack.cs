@@ -218,7 +218,7 @@ namespace NeonStarLibrary
                         bool inLocalCooldown = false;
                         foreach (Attack a in LocalAttacksInCooldown)
                         {
-                            if (a.Name == _attackToLaunchFive)
+                            if (a.Name == _attackToLaunchOne)
                                 inLocalCooldown = true;
                         }
 
