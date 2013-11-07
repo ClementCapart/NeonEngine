@@ -71,6 +71,50 @@
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemySleeperDash" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="100" Height="100" />
+      </Hitboxes>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>3</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <SpecialEffects>
+        <Effect Type="MoveWhileAttacking">
+          <Parameter Value="3" />
+        </Effect>
+      </SpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="EnemySleeperPunch" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="25" OffsetY="0" Width="70" Height="100" />
+      </Hitboxes>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0.3</Delay>
+      <Cooldown>0.5</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.2</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0.5</StunLock>
+      <SpecialEffects />
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyTigerDash" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="50" OffsetY="0" Width="50" Height="100" />

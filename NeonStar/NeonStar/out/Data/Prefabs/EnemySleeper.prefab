@@ -4,7 +4,7 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:-310,5 Y:173}" />
+          <Position Value="{X:-256,3723 Y:173}" />
           <InitialPosition Value="{X:0 Y:0}" />
           <Rotation Value="0" />
           <Scale Value="1" />
@@ -13,8 +13,8 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-310 Y:173}" />
-          <X Value="-340" />
+          <Center Value="{X:-256 Y:173}" />
+          <X Value="-286" />
           <Y Value="48" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -60,22 +60,22 @@
       <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
         <Properties>
           <ThreatRange Value="400" />
-          <AttackRange Value="100" />
+          <AttackRange Value="400" />
           <EntityToSearchFor Value="LiOn" />
         </Properties>
       </ThreatArea>
       <Chase Type="NeonStarLibrary.Chase" ID="6">
         <Properties>
-          <Speed Value="5" />
+          <Speed Value="2" />
           <WaitBeforeChasingDelay Value="1" />
           <WaitDelay Value="3" />
         </Properties>
       </Chase>
       <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
         <Properties>
-          <AttackToLaunchOne Value="" />
-          <RangeForAttackTwo Value="0" />
-          <AttackToLaunchTwo Value="" />
+          <AttackToLaunchOne Value="EnemySleeperDash" />
+          <RangeForAttackTwo Value="90" />
+          <AttackToLaunchTwo Value="EnemySleeperPunch" />
           <RangeForAttackThree Value="0" />
           <AttackToLaunchThree Value="" />
           <RangeForAttackFour Value="0" />
