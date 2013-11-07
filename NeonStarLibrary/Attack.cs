@@ -480,6 +480,7 @@ namespace NeonStarLibrary
             }
             else if(CooldownStarted && !CooldownFinished)
             {
+                _isMoving = false;
                 if (Cooldown > 0.0f)
                 {
                     Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
