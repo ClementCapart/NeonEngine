@@ -408,6 +408,8 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, 1.0f);
                             break;
 
                     }
@@ -424,7 +426,7 @@ namespace NeonStarLibrary
                         {
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.Contains(hb))
                             {
-                                Effect(hb.entity);
+                                Effect(hb.entity, hitbox);
                                 if (this.Type == AttackType.MeleeLight || this.Type == AttackType.MeleeSpecial)
                                 {
                                     _alreadyTouched.Add(hb);
@@ -523,6 +525,11 @@ namespace NeonStarLibrary
                             case SpecialEffect.Invincible:
                                 _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
                                 break;
+
+                            case SpecialEffect.EffectAnimation:
+                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, 1.0f);
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -555,7 +562,7 @@ namespace NeonStarLibrary
             }
         }
 
-        private void Effect(Entity entity)
+        private void Effect(Entity entity, Hitbox collidedHitbox)
         {
             bool validTarget = false;
 
@@ -632,6 +639,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.Invincible:
                             entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                            break;
+
+                        case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                            Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitbox.hitboxRectangle);
+                            Vector2 hitPosition = new Vector2(intersectionRectangle.Center.X, intersectionRectangle.Center.Y);
+                            EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, 1.0f);
                             break;
                     }
                 }

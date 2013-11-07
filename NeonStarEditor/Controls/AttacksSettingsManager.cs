@@ -208,6 +208,11 @@ namespace NeonStarEditor
                     XElement parameterInvincibility = new XElement("Parameter", new XAttribute("Value", ((float)effectKvp.Parameters[0]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterInvincibility);
                     break;
+
+                case SpecialEffect.EffectAnimation:
+                    XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
+                    effect.Add(parameterAnimation);
+                    break;
             }
 
             return effect;
@@ -371,6 +376,27 @@ namespace NeonStarEditor
                         duration.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(duration);
                         break;
+
+                    case SpecialEffect.EffectAnimation:
+                        label = new Label();
+                        label.Text = "Spritesheet";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        ComboBox comboBox2 = new ComboBox();
+                        comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+                        comboBox2.BindingContext = new BindingContext();
+                        BindingSource bs = new BindingSource();
+                        bs.DataSource = AssetManager.Spritesheets.Keys;
+                        comboBox2.DataSource = bs;
+                        comboBox2.Name = "SpritesheetName";
+                        comboBox2.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        comboBox2.Width = 150;
+                        comboBox2.SelectedItem = (string)AssetManager.GetSpritesheetTag((SpriteSheetInfo)CurrentAttackEffectSelected.Parameters[0]);
+                        comboBox2.SelectedValueChanged += comboBox_SelectedValueChanged;                       
+                        this.EffectsInfoPanel.Controls.Add(comboBox2);
+                        break;
                 }
             }
         }
@@ -396,6 +422,12 @@ namespace NeonStarEditor
 
         private void comboBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            if ((sender as ComboBox).Name == "SpritesheetName")
+            {
+                CurrentAttackEffectSelected.Parameters[0] = AssetManager.GetSpriteSheet((string)((sender as ComboBox).SelectedItem));
+                return;
+            }
+
             if (CurrentAttackEffectSelected.specialEffect != (SpecialEffect)(sender as ComboBox).SelectedItem)
             {
                 CurrentAttackEffectSelected.specialEffect = (SpecialEffect)(sender as ComboBox).SelectedItem;
@@ -424,6 +456,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.StartAttack:
                         CurrentAttackEffectSelected.Parameters = new object[] { "" };
+                        break;
+
+                    case SpecialEffect.EffectAnimation:
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo() };
                         break;
                 }
                 this.InitEffectData();

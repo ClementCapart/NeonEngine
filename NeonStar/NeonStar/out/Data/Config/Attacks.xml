@@ -254,7 +254,11 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
       <SpecialEffects />
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="EffectLiOnLightAttack" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnLightAttackFinish" Type="MeleeLight">

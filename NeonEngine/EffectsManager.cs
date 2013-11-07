@@ -15,6 +15,7 @@ namespace NeonEngine
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
             animatedSpecialEffect.containerWorld = Neon.world;
+            animatedSpecialEffect.transform.Scale = 2.0f;
 
             SpriteSheet spriteSheet;
 
