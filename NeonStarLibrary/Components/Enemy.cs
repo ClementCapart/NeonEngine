@@ -206,7 +206,6 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            Console.WriteLine(State);
             base.PostUpdate(gameTime);
         }
     }

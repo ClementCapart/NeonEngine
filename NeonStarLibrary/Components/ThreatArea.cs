@@ -69,6 +69,21 @@ namespace NeonStarLibrary
                     _waitTimer = 0.0f;
             }
 
+           
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {      
+            if(EntityFollowed == null)
+                foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
+                    EntityFollowed = ent;
+         
+            base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
             if (EntityFollowed != null)
             {
                 if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
@@ -80,12 +95,12 @@ namespace NeonStarLibrary
                             EnemyComponent.State = EnemyState.Attack;
                             if (entity.spritesheets != null)
                                 entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
-                        }    
+                        }
                         else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
                         {
                             EnemyComponent.State = EnemyState.WaitThreat;
                             _waitTimer = _waitThreatDelay;
-                        }               
+                        }
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
@@ -100,7 +115,7 @@ namespace NeonStarLibrary
                                 EnemyComponent.State = EnemyState.WaitThreat;
                                 _waitTimer = _waitThreatDelay;
                             }
-                            
+
                         }
                     }
                     else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
@@ -123,16 +138,7 @@ namespace NeonStarLibrary
                     }
                 }
             }   
-            base.PreUpdate(gameTime);
-        }
-
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {      
-            if(EntityFollowed == null)
-                foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
-                    EntityFollowed = ent;
-         
-            base.Update(gameTime);
+            base.PostUpdate(gameTime);
         }
     }
 }
