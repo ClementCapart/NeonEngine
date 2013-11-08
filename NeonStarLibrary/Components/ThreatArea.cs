@@ -37,6 +37,24 @@ namespace NeonStarLibrary
             set { _entityToSearchFor = value; }
         }
 
+        private float _waitBeforeChasingDelay = 0.0f;
+
+        public float WaitBeforeChasingDelay
+        {
+            get { return _waitBeforeChasingDelay; }
+            set { _waitBeforeChasingDelay = value; }
+        }
+
+        private float _waitBeforeAttackingDelay = 0.0f;
+
+        public float WaitBeforeAttackingDelay
+        {
+            get { return _waitBeforeAttackingDelay; }
+            set { _waitBeforeAttackingDelay = value; }
+        }
+
+        private float _waitTimer = 0.0f;
+
         public ThreatArea(Entity entity)
             :base(entity, "ThreatArea")
         {
@@ -50,24 +68,60 @@ namespace NeonStarLibrary
             base.Init();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {           
+        public override void PreUpdate(GameTime gameTime)
+        {
+            if (_waitTimer > 0.0f)
+            {
+                _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_waitTimer < 0.0f)
+                    _waitTimer = 0.0f;
+            }
+
             if (EntityFollowed != null)
             {
                 if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
                 {
                     if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                     {
-                        EnemyComponent.State = EnemyState.Attack;
-                        if(entity.spritesheets != null)
-                            entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
+                        if (EnemyComponent.State == EnemyState.WaitBeforeChase)
+                        {
+                            EnemyComponent.State = EnemyState.WaitBeforeAttack;
+                        }
+
+                        if (_waitBeforeAttackingDelay <= 0.0f || (EnemyComponent.State == EnemyState.WaitBeforeAttack && _waitTimer <= 0.0f))
+                        {
+                            EnemyComponent.State = EnemyState.Attack;
+                            if (entity.spritesheets != null)
+                                entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
+                        }
+                        else if (EnemyComponent.State != EnemyState.WaitBeforeAttack && EnemyComponent.State != EnemyState.Attack)
+                        {
+                            EnemyComponent.State = EnemyState.WaitBeforeAttack;
+                            _waitTimer = _waitBeforeAttackingDelay;
+                        }
+                        
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
-                        if( (EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
-                            EnemyComponent.State = EnemyState.Chase;
+                        if ((EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
+                        {
+                            if (EnemyComponent.State == EnemyState.WaitBeforeAttack)
+                            {
+                                EnemyComponent.State = EnemyState.WaitBeforeChase;
+                            }
+
+                            if (_waitBeforeChasingDelay <= 0.0f || (EnemyComponent.State == EnemyState.WaitBeforeChase && _waitTimer <= 0.0f))
+                            {
+                                EnemyComponent.State = EnemyState.Chase;
+                            }
+                            else if (EnemyComponent.State != EnemyState.WaitBeforeChase && EnemyComponent.State != EnemyState.Chase)
+                            {
+                                EnemyComponent.State = EnemyState.WaitBeforeChase;
+                                _waitTimer = _waitBeforeChasingDelay;
+                            }
+                        }
                     }
-                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null))
+                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitBeforeChase && _waitTimer <= 0.0f))
                     {
                         EnemyComponent.State = EnemyState.MustFinishChase;
                     }
@@ -82,24 +136,15 @@ namespace NeonStarLibrary
                     }
                 }
             }   
-            else
-            {
-                foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
-                {
-                    if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < ThreatRange * ThreatRange)
-                    {
-                        EntityFollowed = ent;
-                        if (EnemyComponent.State != EnemyState.Attack || EnemyComponent._attack.CurrentAttack == null)
-                            EnemyComponent.State = EnemyState.Chase;
-                    }
+            base.PreUpdate(gameTime);
+        }
 
-                    if (Vector2.DistanceSquared(ent.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
-                    {
-                        EntityFollowed = ent;
-                        EnemyComponent.State = EnemyState.Attack;
-                    }
-                }
-            }
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {      
+            if(EntityFollowed == null)
+                foreach (Entity ent in entity.containerWorld.entities.Where(e => e.Name == _entityToSearchFor))
+                    EntityFollowed = ent;
+         
             base.Update(gameTime);
         }
     }

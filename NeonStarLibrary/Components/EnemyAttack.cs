@@ -232,11 +232,7 @@ namespace NeonStarLibrary
                     }
                 }
             }
-            base.PreUpdate(gameTime);
-        }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {          
             if (EnemyComponent.State == EnemyState.Attack)
             {
                 if (CurrentAttack != null)
@@ -246,17 +242,25 @@ namespace NeonStarLibrary
                         CurrentAttack = null;
                         if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
                             entity.spritesheets.CurrentPriority = 0;
-
-                        EnemyComponent.State = EnemyState.Idle;
                     }
-                    else
-                        CurrentAttack.Update(gameTime);
-                }                   
+                }
             }
             else
             {
-                if(CurrentAttack != null ) CurrentAttack.CancelAttack();
+                if (CurrentAttack != null) CurrentAttack.CancelAttack();
                 CurrentAttack = null;
+            }
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {          
+            if (EnemyComponent.State == EnemyState.Attack)
+            {
+                if (CurrentAttack != null)
+                {
+                        CurrentAttack.Update(gameTime);
+                }                   
             }
             base.Update(gameTime);
         }

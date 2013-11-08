@@ -12,11 +12,13 @@ namespace NeonStarLibrary
     {
         Idle,
         Patrol,
+        WaitBeforeChase,
         Chase,
         MustFinishChase,
         FinishChase,
         Wait,
         WaitNode,
+        WaitBeforeAttack,
         Attack,
         StunLock
     }
@@ -134,7 +136,7 @@ namespace NeonStarLibrary
             }
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void PreUpdate(GameTime gameTime)
         {
             if (_airLockDuration > 0.0f)
             {
@@ -157,7 +159,7 @@ namespace NeonStarLibrary
                 {
                     State = EnemyState.Patrol;
                 }
-                else if(State == EnemyState.StunLock)
+                else if (State == EnemyState.StunLock)
                 {
                     State = EnemyState.Idle;
                 }
@@ -181,6 +183,8 @@ namespace NeonStarLibrary
 
                     case EnemyState.Wait:
                     case EnemyState.WaitNode:
+                    case EnemyState.WaitBeforeChase:
+                    case EnemyState.WaitBeforeAttack:
                         entity.spritesheets.ChangeAnimation(_idleAnim);
                         break;
 
@@ -192,9 +196,20 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(_attackAnim);
                         break;
                 }
-            }
-            
+            } 
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+                    
             base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            Console.WriteLine(State);
+            base.PostUpdate(gameTime);
         }
     }
 }
