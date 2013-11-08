@@ -37,20 +37,12 @@ namespace NeonStarLibrary
             set { _entityToSearchFor = value; }
         }
 
-        private float _waitBeforeChasingDelay = 0.0f;
+        private float _waitThreatDelay = 0.0f;
 
-        public float WaitBeforeChasingDelay
+        public float WaitThreatDelay
         {
-            get { return _waitBeforeChasingDelay; }
-            set { _waitBeforeChasingDelay = value; }
-        }
-
-        private float _waitBeforeAttackingDelay = 0.0f;
-
-        public float WaitBeforeAttackingDelay
-        {
-            get { return _waitBeforeAttackingDelay; }
-            set { _waitBeforeAttackingDelay = value; }
+            get { return _waitThreatDelay; }
+            set { _waitThreatDelay = value; }
         }
 
         private float _waitTimer = 0.0f;
@@ -83,47 +75,42 @@ namespace NeonStarLibrary
                 {
                     if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                     {
-                        if (EnemyComponent.State == EnemyState.WaitBeforeChase)
-                        {
-                            EnemyComponent.State = EnemyState.WaitBeforeAttack;
-                        }
-
-                        if (_waitBeforeAttackingDelay <= 0.0f || (EnemyComponent.State == EnemyState.WaitBeforeAttack && _waitTimer <= 0.0f))
+                        if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat && EnemyComponent.State != EnemyState.Attack) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                         {
                             EnemyComponent.State = EnemyState.Attack;
                             if (entity.spritesheets != null)
                                 entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
-                        }
-                        else if (EnemyComponent.State != EnemyState.WaitBeforeAttack && EnemyComponent.State != EnemyState.Attack)
+                        }    
+                        else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
                         {
-                            EnemyComponent.State = EnemyState.WaitBeforeAttack;
-                            _waitTimer = _waitBeforeAttackingDelay;
-                        }
-                        
+                            EnemyComponent.State = EnemyState.WaitThreat;
+                            _waitTimer = _waitThreatDelay;
+                        }               
                     }
                     else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
                     {
                         if ((EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
                         {
-                            if (EnemyComponent.State == EnemyState.WaitBeforeAttack)
-                            {
-                                EnemyComponent.State = EnemyState.WaitBeforeChase;
-                            }
-
-                            if (_waitBeforeChasingDelay <= 0.0f || (EnemyComponent.State == EnemyState.WaitBeforeChase && _waitTimer <= 0.0f))
+                            if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                             {
                                 EnemyComponent.State = EnemyState.Chase;
                             }
-                            else if (EnemyComponent.State != EnemyState.WaitBeforeChase && EnemyComponent.State != EnemyState.Chase)
+                            else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
                             {
-                                EnemyComponent.State = EnemyState.WaitBeforeChase;
-                                _waitTimer = _waitBeforeChasingDelay;
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                                _waitTimer = _waitThreatDelay;
                             }
+                            
                         }
                     }
-                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitBeforeChase && _waitTimer <= 0.0f))
+                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                     {
                         EnemyComponent.State = EnemyState.MustFinishChase;
+                    }
+                    else if (EnemyComponent.State == EnemyState.WaitThreat)
+                    {
+                        EnemyComponent.State = EnemyState.Idle;
+                        _waitTimer = 0.0f;
                     }
                 }
                 else

@@ -61,7 +61,7 @@ namespace NeonStarLibrary
                             {
                                 entity.spritesheets.ChangeSide(Side.Left);
                             }
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);                      
                         }
                         else
                         {
@@ -84,7 +84,7 @@ namespace NeonStarLibrary
                         }
                         else
                         {
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);              
                             EnemyComponent._threatArea.ShouldDetectAgain = false;
                             EnemyComponent.State = EnemyState.Wait;
                             _waitTimer = _waitDelay;
@@ -103,9 +103,9 @@ namespace NeonStarLibrary
                 }
                 else
                 {
-                    EnemyComponent.State = EnemyState.Wait;
-                    EnemyComponent._threatArea.ShouldDetectAgain = false;
-                    _waitTimer = _waitDelay;
+                        EnemyComponent.State = EnemyState.Wait;
+                        EnemyComponent._threatArea.ShouldDetectAgain = false;
+                        _waitTimer = _waitDelay;
                 }
             }
             else if (EnemyComponent.State == EnemyState.Wait)

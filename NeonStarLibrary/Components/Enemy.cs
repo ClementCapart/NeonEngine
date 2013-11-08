@@ -12,13 +12,12 @@ namespace NeonStarLibrary
     {
         Idle,
         Patrol,
-        WaitBeforeChase,
         Chase,
         MustFinishChase,
         FinishChase,
         Wait,
         WaitNode,
-        WaitBeforeAttack,
+        WaitThreat,
         Attack,
         StunLock
     }
@@ -183,8 +182,7 @@ namespace NeonStarLibrary
 
                     case EnemyState.Wait:
                     case EnemyState.WaitNode:
-                    case EnemyState.WaitBeforeChase:
-                    case EnemyState.WaitBeforeAttack:
+                    case EnemyState.WaitThreat:
                         entity.spritesheets.ChangeAnimation(_idleAnim);
                         break;
 
