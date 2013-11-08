@@ -131,7 +131,9 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
+                            float rotation = float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                            Vector2 offset = Neon.utils.ParseVector2(specialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -180,7 +182,9 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
+                            float rotation = float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                            Vector2 offset = Neon.utils.ParseVector2(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -229,7 +233,9 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi }));
+                            float rotation = float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                            Vector2 offset = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:

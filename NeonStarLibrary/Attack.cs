@@ -419,7 +419,7 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, 1.0f);
+                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -518,6 +518,12 @@ namespace NeonStarLibrary
                     }
                 }
 
+                if (_entity.rigidbody.isGrounded)
+                {
+                    AirLocked = false;
+                    AirLockFinished = true;
+                }
+
                 if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
                 {
                     for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
@@ -559,7 +565,7 @@ namespace NeonStarLibrary
 
                             case SpecialEffect.EffectAnimation:
                                 SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, 1.0f);
+                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
                                 break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
@@ -703,7 +709,7 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
                             Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitbox.hitboxRectangle);
                             Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
-                            EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, 1.0f);
+                            EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
                             break;
                     }
                 }

@@ -11,7 +11,7 @@ namespace NeonEngine
     {
         public static NeonPool<AnimatedSpecialEffect> EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
 
-        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float layer)
+        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float layer)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
             animatedSpecialEffect.containerWorld = Neon.world;
@@ -35,11 +35,15 @@ namespace NeonEngine
             spriteSheet.Layer = layer;
             spriteSheet.IsLooped = false;
             spriteSheet.IsFinished = false;
-            spriteSheet.spriteEffects = side == Side.Right ? SpriteEffects.None : SpriteEffects.FlipVertically;
+            if(Rotation == 0)
+                spriteSheet.spriteEffects = side == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             spriteSheet.Active = true;
+            spriteSheet.Tint = true;
             spriteSheet.Init();
 
             animatedSpecialEffect.transform.Position = Position;
+            animatedSpecialEffect.transform.Rotation = Rotation;
+            animatedSpecialEffect.transform.Position += side == Side.Right ? Offset : -Offset;
 
             Neon.world.SpecialEffects.Add(animatedSpecialEffect);
             return animatedSpecialEffect;

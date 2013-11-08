@@ -115,12 +115,14 @@ namespace NeonStarLibrary
                                 EnemyComponent.State = EnemyState.WaitThreat;
                                 _waitTimer = _waitThreatDelay;
                             }
-
                         }
                     }
                     else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                     {
-                        EnemyComponent.State = EnemyState.MustFinishChase;
+                        if (EnemyComponent._chase != null)
+                            EnemyComponent.State = EnemyState.MustFinishChase;
+                        else
+                            EnemyComponent.State = EnemyState.Idle;
                     }
                     else if (EnemyComponent.State == EnemyState.WaitThreat)
                     {

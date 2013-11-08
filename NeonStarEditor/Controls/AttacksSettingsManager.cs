@@ -214,7 +214,11 @@ namespace NeonStarEditor
 
                 case SpecialEffect.EffectAnimation:
                     XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
+                    XElement parameterRotation = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", ((Vector2)effectKvp.Parameters[2]).ToString()));
                     effect.Add(parameterAnimation);
+                    effect.Add(parameterRotation);
+                    effect.Add(parameterOffset);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -405,6 +409,54 @@ namespace NeonStarEditor
                         comboBox2.SelectedItem = (string)AssetManager.GetSpritesheetTag((SpriteSheetInfo)CurrentAttackEffectSelected.Parameters[0]);
                         comboBox2.SelectedValueChanged += comboBox_SelectedValueChanged;                       
                         this.EffectsInfoPanel.Controls.Add(comboBox2);
+
+                        label = new Label();
+                        label.Text = "Offset";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, comboBox2.Location.Y + comboBox2.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown offset = new NumericUpDown();
+                        offset.Name = "OffsetX";
+                        offset.Maximum = 50000;
+                        offset.Minimum = -50000;
+                        offset.Width = 80;
+                        offset.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[2]).X;
+                        offset.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        offset.Enter += Numeric_Enter;
+                        offset.Leave += Numeric_Leave;
+                        offset.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offset);
+
+                        offset = new NumericUpDown();
+                        offset.Name = "OffsetY";
+                        offset.Maximum = 50000;
+                        offset.Minimum = -50000;
+                        offset.Width = 80;
+                        offset.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[2]).Y;
+                        offset.Location = new System.Drawing.Point(offset.Width + 10, label.Location.Y + label.Height + 5);
+                        offset.Enter += Numeric_Enter;
+                        offset.Leave += Numeric_Leave;
+                        offset.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offset);
+
+                        label = new Label();
+                        label.Text = "Rotation";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, offset.Location.Y + offset.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        offset = new NumericUpDown();
+                        offset.Name = "AnimationRotation";
+                        offset.Maximum = 50000;
+                        offset.Minimum = -50000;
+                        offset.Width = 80;
+                        offset.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[1]);
+                        offset.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        offset.Enter += Numeric_Enter;
+                        offset.Leave += Numeric_Leave;
+                        offset.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offset);
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -489,7 +541,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo() };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2() };
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -721,6 +773,20 @@ namespace NeonStarEditor
                 case "ImpulsePowerY":
                     Vector2 impulsePowerX = (Vector2)CurrentAttackEffectSelected.Parameters[0];
                     CurrentAttackEffectSelected.Parameters[0] = new Vector2(impulsePowerX.X, (float)(sender as NumericUpDown).Value);
+                    break;
+
+                case "OffsetX":
+                    Vector2 offset = (Vector2)CurrentAttackEffectSelected.Parameters[2];
+                    CurrentAttackEffectSelected.Parameters[2] = new Vector2((float)(sender as NumericUpDown).Value, offset.Y);
+                    break;
+
+                case "OffsetY":
+                    Vector2 offset2 = (Vector2)CurrentAttackEffectSelected.Parameters[2];
+                    CurrentAttackEffectSelected.Parameters[2] = new Vector2(offset2.X, (float)(sender as NumericUpDown).Value);
+                    break;
+
+                case "AnimationRotation":
+                    CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "AirFactorNU":
