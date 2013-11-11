@@ -80,7 +80,7 @@ namespace NeonStarLibrary
                     if (_leftSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + LeftSlotElement);
-                        UseElement(_leftSlotElement, NeonStarInput.UseLeftSlotElement);
+                        UseElement(_leftSlotElement, _leftSlotLevel, NeonStarInput.UseLeftSlotElement);
                     }
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
@@ -88,7 +88,7 @@ namespace NeonStarLibrary
                     if (_rightSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + RightSlotElement);
-                        UseElement(_rightSlotElement, NeonStarInput.UseRightSlotElement);
+                        UseElement(_rightSlotElement, _rightSlotLevel, NeonStarInput.UseRightSlotElement);
                     }
                 }
 
@@ -117,12 +117,12 @@ namespace NeonStarLibrary
             }
         }
 
-        public void UseElement(Element element, NeonStarInput input)
+        public void UseElement(Element element, int level, NeonStarInput input)
         {
             switch(element)
             {
                 case Element.Fire:
-                    CurrentElementEffect = new Fire(this, entity, input, (GameScreen)entity.containerWorld);
+                    CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
                     CanUseElement = false;
                     break;
 

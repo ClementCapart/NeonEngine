@@ -446,10 +446,14 @@ namespace NeonStarEditor
                 int LastSelectionStart = FocusedTextBox.SelectionStart;
 
                  for (int i = 0; i < Neon.Input.KeysPressed.Length; i++)
-                     if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
+                     if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Split('d')[0] == "NumPa")
                      {
-
-                         
+                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
+                              Neon.Input.KeysPressed[i].ToString().Split('d')[1]);
+                         FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                     }
+                     else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
+                     {                   
                          FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
                              Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
                          FocusedTextBox.SelectionStart = ++LastSelectionStart;

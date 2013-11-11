@@ -21,15 +21,18 @@ namespace NeonStarLibrary
         protected Entity _entity;
         protected ElementSystem _elementSystem;
         protected NeonStarInput _input;
+        protected int _elementLevel = 1;
 
         protected ElementState _state;
 
-        public ElementEffect(ElementSystem elementSystem, Entity entity, NeonStarInput input, GameScreen world)
+
+        public ElementEffect(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
         {
             _world = world;
             _entity = entity;
             _elementSystem = elementSystem;
             _input = input;
+            _elementLevel = elementLevel;
         }
 
         public virtual void PreUpdate(GameTime gameTime)
