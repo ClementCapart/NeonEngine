@@ -19,7 +19,9 @@ namespace NeonStarLibrary
         WaitNode,
         WaitThreat,
         Attack,
-        StunLock
+        StunLock,
+        Dying,
+        Dead
     }
 
     public enum EnemyType
@@ -41,6 +43,14 @@ namespace NeonStarLibrary
         {
             get { return _startingHealthPoints; }
             set { _startingHealthPoints = value; }
+        }
+
+        private Element _coreElement = Element.Neutral;
+
+        public Element CoreElement
+        {
+            get { return _coreElement; }
+            set { _coreElement = value; }
         }
 
         public EnemyState State;
@@ -106,9 +116,17 @@ namespace NeonStarLibrary
             base.Init();
         }
 
-        public void ChangeHealthPoints(float value)
+        public void ChangeHealthPoints(float value, Entity entity)
         {
             _currentHealthPoints += value;
+            if (_currentHealthPoints <= 0.0f)
+            {
+                this.State = EnemyState.Dying;
+                if (entity != null && CoreElement != Element.Neutral)
+                    entity.GetComponent<Avatar>().elementSystem.GetElement(CoreElement);
+
+                this.entity.Destroy();
+            }
             if (Debug)
             {
                 Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");

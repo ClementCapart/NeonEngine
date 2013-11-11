@@ -14,7 +14,9 @@ namespace NeonStarLibrary
         Jump,
         Attack,
         Guard,
-        UseElementOne,
-        UseElementTwo,
+        UseLeftSlotElement,
+        UseRightSlotElement,
+        DropLeftSlotElement,
+        DropRightSlotElement
     }
 }

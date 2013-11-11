@@ -45,6 +45,7 @@ namespace NeonStarLibrary
         public MeleeFight meleeFight;
         public ThirdPersonController thirdPersonController;
         public Guard guard;
+        public ElementSystem elementSystem;
 
         public Avatar(Entity entity)
             :base(entity, "Avatar")
@@ -56,6 +57,7 @@ namespace NeonStarLibrary
             meleeFight = this.entity.GetComponent<MeleeFight>();
             thirdPersonController = this.entity.GetComponent<ThirdPersonController>();
             guard = this.entity.GetComponent<Guard>();
+            elementSystem = this.entity.GetComponent<ElementSystem>();
             base.Init();
         }
 

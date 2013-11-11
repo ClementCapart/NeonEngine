@@ -137,7 +137,7 @@ namespace NeonStarLibrary
                                     Enemy enemy = hb.entity.GetComponent<Enemy>();
                                     if (enemy != null)
                                     {
-                                        enemy.ChangeHealthPoints(DamageOnHit);
+                                        enemy.ChangeHealthPoints(DamageOnHit, launcher);
                                         LifeTime = 0f;
                                         entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
                                         return;

@@ -612,7 +612,7 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     _hit = true;
-                    enemy.ChangeHealthPoints(_damageOnHit);
+                    enemy.ChangeHealthPoints(_damageOnHit, _entity);
                     enemy.StunLockEffect(_stunLock);
                     if (!enemy.entity.rigidbody.isGrounded)
                         enemy.AirLock(TargetAirLock);
