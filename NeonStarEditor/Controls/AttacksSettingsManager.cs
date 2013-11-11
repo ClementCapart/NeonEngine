@@ -179,7 +179,11 @@ namespace NeonStarEditor
                 case SpecialEffect.DamageOverTime:
                     break;
 
-                case SpecialEffect.Boost:
+                case SpecialEffect.PercentageDamageBoost:
+                    XElement percentage = new XElement("Parameter", new XAttribute("Value", ((float)effectKvp.Parameters[0]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement duration = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
+                    effect.Add(percentage);
+                    effect.Add(duration);
                     break;
 
                 case SpecialEffect.PositionalPulse:
@@ -479,6 +483,46 @@ namespace NeonStarEditor
                         speed.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(speed);
                         break;
+
+                    case SpecialEffect.PercentageDamageBoost:
+                        label = new Label();
+                        label.Text = "Duration";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown boostDuration = new NumericUpDown();
+                        boostDuration.Name = "BoostDuration";
+                        boostDuration.Maximum = 50000;
+                        boostDuration.Minimum = -50000;
+                        boostDuration.DecimalPlaces = 2;
+                        boostDuration.Width = 80;
+                        boostDuration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
+                        boostDuration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        boostDuration.Enter += Numeric_Enter;
+                        boostDuration.Leave += Numeric_Leave;
+                        boostDuration.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(boostDuration);
+
+                        label = new Label();
+                        label.Text = "Damage Boost";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, boostDuration.Height + boostDuration.Location.Y + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown boostPercentage = new NumericUpDown();
+                        boostPercentage.Name = "BoostPercentage";
+                        boostPercentage.Maximum = 50000;
+                        boostPercentage.Minimum = -50000;
+                        boostPercentage.DecimalPlaces = 2;
+                        boostPercentage.Width = 80;
+                        boostPercentage.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[1]);
+                        boostPercentage.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        boostPercentage.Enter += Numeric_Enter;
+                        boostPercentage.Leave += Numeric_Leave;
+                        boostPercentage.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(boostPercentage);
+                        break;
                 }
             }
         }
@@ -546,6 +590,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.MoveWhileAttacking:
                         CurrentAttackEffectSelected.Parameters = new object[] { 0.0f };
+                        break;
+
+                    case SpecialEffect.PercentageDamageBoost:
+                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f, 0.0f };
                         break;
                 }
                 this.InitEffectData();
@@ -807,6 +855,14 @@ namespace NeonStarEditor
 
                 case "LocalCooldownNumeric":
                     _attackList[AttacksList.SelectedValue.ToString()].LocalCooldown = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "BoostDuration":
+                    CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "BoostPercentage":
+                    CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

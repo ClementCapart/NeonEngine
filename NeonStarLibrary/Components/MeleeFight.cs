@@ -19,6 +19,9 @@ namespace NeonStarLibrary
     {
         private bool _Debug = false;
 
+        public float DamageModifier = 1.0f;
+        public float DamageModifierTimer = 0.0f;
+
         public bool Debug
         {
             get { return _Debug; }
@@ -176,6 +179,11 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (DamageModifierTimer > 0.0f)
+                DamageModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            else
+                DamageModifier = 1.0f;
+
             if (CurrentAttack != null && (CurrentAttack.AttackInfo.Name == _diveAttackName || CurrentAttack.AttackInfo.Name == _diveAttackName + "Finish"))
             {
                 if (entity.spritesheets.CurrentSpritesheetName == DiveAttackStartAnimation && entity.spritesheets.IsFinished())
@@ -222,8 +230,7 @@ namespace NeonStarLibrary
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            
+        {  
             if (!ReleasedAttackButton)
                 if (!Neon.Input.Check(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
@@ -458,6 +465,10 @@ namespace NeonStarLibrary
             if (_currentComboHit == ComboSequence.Finish)
             {
                 CurrentAttack = AttacksManager.GetAttack(_uppercutName+"Finish", entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, true, false);
@@ -467,6 +478,10 @@ namespace NeonStarLibrary
             else
             {
                 CurrentAttack = AttacksManager.GetAttack(_uppercutName, entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(UppercutAnimation, 1, true, true, false);
@@ -484,6 +499,10 @@ namespace NeonStarLibrary
             if (_currentComboHit == ComboSequence.Finish)
             {               
                 CurrentAttack = AttacksManager.GetAttack(_rushAttackName+"Finish", Side.Left, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Left);
@@ -512,6 +531,10 @@ namespace NeonStarLibrary
             if (_currentComboHit == ComboSequence.Finish)
             {
                 CurrentAttack = AttacksManager.GetAttack(_rushAttackName + "Finish", Side.Right, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
@@ -522,6 +545,10 @@ namespace NeonStarLibrary
             else
             {
                 CurrentAttack = AttacksManager.GetAttack(_rushAttackName, Side.Right, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeSide(Side.Right);
@@ -539,12 +566,20 @@ namespace NeonStarLibrary
             if (_currentComboHit == ComboSequence.Finish)
             {
                 CurrentAttack = AttacksManager.GetAttack(_diveAttackName+"Finish", entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                     entity.spritesheets.ChangeAnimation(DiveAttackStartAnimation, 1, true, true, false);
             }
             else
             {
                 CurrentAttack = AttacksManager.GetAttack(_diveAttackName, entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                     entity.spritesheets.ChangeAnimation(DiveAttackStartAnimation, 1, true, true, false);
             }
@@ -557,6 +592,10 @@ namespace NeonStarLibrary
             if (_currentComboHit == ComboSequence.Finish)
             {
                 CurrentAttack = AttacksManager.GetAttack(_lightAttackName+"Finish", entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     entity.spritesheets.ChangeAnimation(LightAttackAnimation + "Finish", 1, true, true, false);
@@ -566,6 +605,10 @@ namespace NeonStarLibrary
             else
             {
                 CurrentAttack = AttacksManager.GetAttack(_lightAttackName, entity.spritesheets.CurrentSide, entity);
+                if (DamageModifierTimer > 0.0f)
+                {
+                    CurrentAttack.DamageOnHit *= DamageModifier;
+                }
                 if (!CurrentAttack.Canceled)
                 {
                     if (_currentComboHit == ComboSequence.Starter)

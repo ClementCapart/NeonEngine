@@ -364,6 +364,7 @@ namespace NeonStarLibrary
 
         public void Update(GameTime gameTime)
         {
+            Console.WriteLine(DamageOnHit);
             if (DelayStarted && !DelayFinished)
             {
                 if (Delay > 0.0f)
@@ -391,7 +392,12 @@ namespace NeonStarLibrary
                             }
                             break;
 
-                        case SpecialEffect.Boost:
+                        case SpecialEffect.PercentageDamageBoost:
+                            if (_meleeFight != null)
+                            {
+                                _meleeFight.DamageModifier = (float)(ae.Parameters[1]);
+                                _meleeFight.DamageModifierTimer = (float)(ae.Parameters[0]);
+                            }
                             break;
 
                         case SpecialEffect.DamageOverTime:
@@ -537,7 +543,7 @@ namespace NeonStarLibrary
                                 _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
                                 break;
 
-                            case SpecialEffect.Boost:
+                            case SpecialEffect.PercentageDamageBoost:
                                 break;
 
                             case SpecialEffect.DamageOverTime:
@@ -675,7 +681,7 @@ namespace NeonStarLibrary
                             }
                             break;
 
-                        case SpecialEffect.Boost:
+                        case SpecialEffect.PercentageDamageBoost:
                             break;
 
                         case SpecialEffect.DamageOverTime:

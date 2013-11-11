@@ -15,7 +15,7 @@ namespace NeonStarLibrary
         Impulse,
         PositionalPulse,
         DamageOverTime,
-        Boost,
+        PercentageDamageBoost,
         StartAttack,
         ShootBullet,
         ShootBulletAtTarget,
@@ -137,7 +137,11 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value) }));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.PercentageDamageBoost:
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
                     }         
                 }
@@ -190,6 +194,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.MoveWhileAttacking:
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value) }));
                             break;
+
+                        case SpecialEffect.PercentageDamageBoost:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture)}));
+                            break;
                     }         
                 }
 
@@ -240,6 +248,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.MoveWhileAttacking:
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value) }));
+                            break;
+
+                        case SpecialEffect.PercentageDamageBoost:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture)}));
                             break;
                     }
                 }
