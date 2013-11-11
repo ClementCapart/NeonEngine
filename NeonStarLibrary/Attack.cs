@@ -364,7 +364,6 @@ namespace NeonStarLibrary
 
         public void Update(GameTime gameTime)
         {
-            Console.WriteLine(DamageOnHit);
             if (DelayStarted && !DelayFinished)
             {
                 if (Delay > 0.0f)

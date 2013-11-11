@@ -38,7 +38,7 @@ namespace NeonEngine
             if(Rotation == 0)
                 spriteSheet.spriteEffects = side == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             spriteSheet.Active = true;
-            spriteSheet.Tint = true;
+            //spriteSheet.Tint = true;
             spriteSheet.Init();
 
             animatedSpecialEffect.transform.Position = Position;
