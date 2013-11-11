@@ -20,6 +20,7 @@ namespace NeonStarLibrary
         WaitThreat,
         Attack,
         StunLock,
+        StunLockEnd,
         Dying,
         Dead
     }
@@ -165,20 +166,20 @@ namespace NeonStarLibrary
                 _airLockDuration = 0.0f;
             }
 
-            if (_stunLockDuration > 0)
+            if (_stunLockDuration > 0 && State == EnemyState.StunLock)
             {
                 _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 State = EnemyState.StunLock;
+            }
+            else if (State == EnemyState.StunLock)
+            {
+                State = EnemyState.StunLockEnd;
             }
             else
             {
                 if (State == EnemyState.Idle && _followNodes != null)
                 {
                     State = EnemyState.Patrol;
-                }
-                else if (State == EnemyState.StunLock)
-                {
-                    State = EnemyState.Idle;
                 }
             }
 

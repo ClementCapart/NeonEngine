@@ -259,11 +259,12 @@ namespace NeonStarLibrary
                          {
                              if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
                              {
-                                 entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                                 //entity.spritesheets.ChangeAnimation(StartFallAnimation, 0, true, false, false, -1);
+                                 entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
                              }
                              else if (entity.spritesheets.CurrentSpritesheetName == StartFallAnimation && entity.spritesheets.IsFinished())
                              {
-                                 entity.spritesheets.ChangeAnimation(FallLoopAnimation, 0, true, false, true, -1);
+                                 
                              }
                          }
                          StartJumping = false;

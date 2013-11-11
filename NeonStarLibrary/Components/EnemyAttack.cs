@@ -247,7 +247,8 @@ namespace NeonStarLibrary
             }
             else
             {
-                if (CurrentAttack != null) CurrentAttack.CancelAttack();
+                if (CurrentAttack != null) 
+                    CurrentAttack.CancelAttack();
                 CurrentAttack = null;
             }
             base.PreUpdate(gameTime);

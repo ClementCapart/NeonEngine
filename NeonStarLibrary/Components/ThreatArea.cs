@@ -84,31 +84,19 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (EntityFollowed != null)
+            if (EnemyComponent.State != EnemyState.StunLock)
             {
-                if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
+                if (EntityFollowed != null)
                 {
-                    if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
+                    if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
                     {
-                        if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat && EnemyComponent.State != EnemyState.Attack) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
+                        if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                         {
-                            EnemyComponent.State = EnemyState.Attack;
-                            if (entity.spritesheets != null)
-                                entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
-                        }
-                        else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
-                        {
-                            EnemyComponent.State = EnemyState.WaitThreat;
-                            _waitTimer = _waitThreatDelay;
-                        }
-                    }
-                    else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
-                    {
-                        if ((EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
-                        {
-                            if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
+                            if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat && EnemyComponent.State != EnemyState.Attack) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                             {
-                                EnemyComponent.State = EnemyState.Chase;
+                                EnemyComponent.State = EnemyState.Attack;
+                                if (entity.spritesheets != null)
+                                    entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
                             }
                             else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
                             {
@@ -116,30 +104,46 @@ namespace NeonStarLibrary
                                 _waitTimer = _waitThreatDelay;
                             }
                         }
-                    }
-                    else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
-                    {
-                        if (EnemyComponent._chase != null)
-                            EnemyComponent.State = EnemyState.MustFinishChase;
-                        else
+                        else if (Vector2.DistanceSquared(this.entity.transform.Position, EntityFollowed.transform.Position) < ThreatRange * ThreatRange)
+                        {
+                            if ((EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack == null) || EnemyComponent._attack == null)
+                            {
+                                if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
+                                {
+                                    EnemyComponent.State = EnemyState.Chase;
+                                }
+                                else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
+                                {
+                                    EnemyComponent.State = EnemyState.WaitThreat;
+                                    _waitTimer = _waitThreatDelay;
+                                }
+                            }
+                        }
+                        else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
+                        {
+                            if (EnemyComponent._chase != null)
+                                EnemyComponent.State = EnemyState.MustFinishChase;
+                            else
+                                EnemyComponent.State = EnemyState.Idle;
+                        }
+                        else if (EnemyComponent.State == EnemyState.WaitThreat)
+                        {
                             EnemyComponent.State = EnemyState.Idle;
+                            _waitTimer = 0.0f;
+                        }
                     }
-                    else if (EnemyComponent.State == EnemyState.WaitThreat)
+                    else
                     {
-                        EnemyComponent.State = EnemyState.Idle;
-                        _waitTimer = 0.0f;
+                        Rigidbody rg = EntityFollowed.rigidbody.beacon.CheckGround();
+                        Rigidbody rg2 = this.entity.rigidbody.beacon.CheckGround();
+                        if (rg != null && rg2 != null && rg == rg2)
+                        {
+                            ShouldDetectAgain = true;
+                        }
                     }
-                }
-                else
-                {
-                    Rigidbody rg = EntityFollowed.rigidbody.beacon.CheckGround();
-                    Rigidbody rg2 = this.entity.rigidbody.beacon.CheckGround();
-                    if (rg != null && rg2 != null && rg == rg2)
-                    {
-                        ShouldDetectAgain = true;
-                    }
-                }
-            }   
+                }   
+            }
+            
             base.PostUpdate(gameTime);
         }
     }

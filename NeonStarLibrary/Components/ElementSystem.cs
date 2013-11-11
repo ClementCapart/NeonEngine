@@ -25,7 +25,7 @@ namespace NeonStarLibrary
             set { _leftSlotElement = value; }
         }
 
-        private int _leftSlotLevel = 0;
+        private int _leftSlotLevel = 1;
 
         public int LeftSlotLevel
         {
@@ -41,7 +41,13 @@ namespace NeonStarLibrary
             set { _rightSlotElement = value; }
         }
 
-        private int _rightSlotLevel = 0;
+        private int _rightSlotLevel = 1;
+
+        public int RightSlotLevel
+        {
+            get { return _rightSlotLevel; }
+            set { _rightSlotLevel = value; }
+        }
 
         private int _maxLevel = 3;
 
@@ -51,11 +57,8 @@ namespace NeonStarLibrary
             set { _maxLevel = value; }
         }
 
-        public int RightSlotLevel
-        {
-            get { return _rightSlotLevel; }
-            set { _rightSlotLevel = value; }
-        }
+        public ElementEffect CurrentElementEffect = null;
+        public bool CanUseElement = true;
 
         public ElementSystem(Entity entity)
             :base(entity, "ElementSystem")
@@ -70,13 +73,14 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.meleeFight.CanAttack && AvatarComponent.thirdPersonController.CanMove && AvatarComponent.thirdPersonController.CanTurn)
+            if (AvatarComponent.meleeFight.CanAttack && AvatarComponent.thirdPersonController.CanMove && AvatarComponent.thirdPersonController.CanTurn && CanUseElement)
             {
                 if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + LeftSlotElement);
+                        UseElement(_leftSlotElement, NeonStarInput.UseLeftSlotElement);
                     }
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
@@ -84,6 +88,7 @@ namespace NeonStarLibrary
                     if (_rightSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + RightSlotElement);
+                        UseElement(_rightSlotElement, NeonStarInput.UseRightSlotElement);
                     }
                 }
 
@@ -93,6 +98,7 @@ namespace NeonStarLibrary
                     {
                         Console.WriteLine("Drop Element -> " + LeftSlotElement);
                         _leftSlotElement = Element.Neutral;
+                        _leftSlotLevel = 1;
                     }
                 }
                 if (Neon.Input.Pressed(NeonStarInput.DropRightSlotElement))
@@ -101,9 +107,28 @@ namespace NeonStarLibrary
                     {
                         Console.WriteLine("Drop Element -> " + RightSlotElement);
                         _rightSlotElement = Element.Neutral;
+                        _rightSlotLevel = 1;
                     }
                 }
-            }          
+            }
+            else if (CurrentElementEffect != null)
+            {
+                CurrentElementEffect.Update(gameTime);
+            }
+        }
+
+        public void UseElement(Element element, NeonStarInput input)
+        {
+            switch(element)
+            {
+                case Element.Fire:
+                    CurrentElementEffect = new Fire(this, entity, input, (GameScreen)entity.containerWorld);
+                    CanUseElement = false;
+                    break;
+
+                case Element.Thunder:
+                    break;
+            }
         }
 
         public void GetElement(Element element)
