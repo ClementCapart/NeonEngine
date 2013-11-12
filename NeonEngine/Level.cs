@@ -117,6 +117,8 @@ namespace NeonEngine
                         foreach (XElement Property in Comp.Element("Properties").Elements())
                         {
                             PropertyInfo pi = t.GetProperty(Property.Name.ToString());
+                            if (pi == null)
+                                continue;
 
                             if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                                 continue;
@@ -161,6 +163,8 @@ namespace NeonEngine
                     foreach (XElement Property in Comp.Element("Properties").Elements())
                     {
                         PropertyInfo pi = comp.GetType().GetProperty(Property.Name.ToString());
+                        if (pi == null)
+                            continue;
 
                         if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                             if (Property.Attribute("Value").Value != "None")
