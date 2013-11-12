@@ -1,6 +1,7 @@
 ﻿using System;
 using NeonEngine;
 using NeonEngine.Private;
+using NeonStarLibrary;
 using Microsoft.Xna.Framework;
 
 namespace NeonScripts
@@ -11,14 +12,18 @@ namespace NeonScripts
             :base(entity, "ScriptName")
         {
         }
-		
-		public override void Init()
-		{
-		}
+
+        public override void Init()
+        {
+        }
 
         public override void Update(GameTime gameTime)
         {
-		     Console.WriteLine("het");
+        }
+
+        public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+        {
+            Console.WriteLine("HOY");
         }
     }
 }
