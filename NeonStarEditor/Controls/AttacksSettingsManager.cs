@@ -176,9 +176,6 @@ namespace NeonStarEditor
                     effect.Add(boolPulse);
                     break;
 
-                case SpecialEffect.DamageOverTime:
-                    break;
-
                 case SpecialEffect.PercentageDamageBoost:
                     XElement percentage = new XElement("Parameter", new XAttribute("Value", ((float)effectKvp.Parameters[0]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement duration = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
@@ -229,6 +226,16 @@ namespace NeonStarEditor
                     XElement parameterChase = new XElement("Parameter", new XAttribute("Value", ((float)(effectKvp.Parameters[0])).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterChase);
                     break;
+
+                case SpecialEffect.DamageOverTime:
+                    XElement parameterDuration = new XElement("Parameter", new XAttribute("Value", ((float)effectKvp.Parameters[0]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterDamage = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterTick = new XElement("ThirdParameter", new XAttribute("Value", ((float)effectKvp.Parameters[2]).ToString("G", CultureInfo.InvariantCulture)));
+                    effect.Add(parameterDuration);
+                    effect.Add(parameterDamage);
+                    effect.Add(parameterTick);
+                    break;
+                    
                        
             }
 
@@ -523,6 +530,65 @@ namespace NeonStarEditor
                         boostPercentage.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(boostPercentage);
                         break;
+
+                    case SpecialEffect.DamageOverTime:
+                        label = new Label();
+                        label.Text = "Duration";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown dotDuration = new NumericUpDown();
+                        dotDuration.Name = "DamageDuration";
+                        dotDuration.Maximum = 50000;
+                        dotDuration.Minimum = -50000;
+                        dotDuration.DecimalPlaces = 2;
+                        dotDuration.Width = 80;
+                        dotDuration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
+                        dotDuration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        dotDuration.Enter += Numeric_Enter;
+                        dotDuration.Leave += Numeric_Leave;
+                        dotDuration.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(dotDuration);
+
+                        label = new Label();
+                        label.Text = "Damage";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, dotDuration.Height + dotDuration.Location.Y + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown dotDamage = new NumericUpDown();
+                        dotDamage.Name = "DamageValue";
+                        dotDamage.Maximum = 50000;
+                        dotDamage.Minimum = -50000;
+                        dotDamage.DecimalPlaces = 2;
+                        dotDamage.Width = 80;
+                        dotDamage.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[1]);
+                        dotDamage.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        dotDamage.Enter += Numeric_Enter;
+                        dotDamage.Leave += Numeric_Leave;
+                        dotDamage.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(dotDamage);
+
+                        label = new Label();
+                        label.Text = "Tick Timer";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, dotDamage.Height + dotDamage.Location.Y + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown dotSpeed = new NumericUpDown();
+                        dotSpeed.Name = "TickTimer";
+                        dotSpeed.Maximum = 50000;
+                        dotSpeed.Minimum = -50000;
+                        dotSpeed.DecimalPlaces = 2;
+                        dotSpeed.Width = 80;
+                        dotSpeed.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[2]);
+                        dotSpeed.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        dotSpeed.Enter += Numeric_Enter;
+                        dotSpeed.Leave += Numeric_Leave;
+                        dotSpeed.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(dotSpeed);
+                        break;
                 }
             }
         }
@@ -594,6 +660,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.PercentageDamageBoost:
                         CurrentAttackEffectSelected.Parameters = new object[] { 0.0f, 0.0f };
+                        break;
+
+                    case SpecialEffect.DamageOverTime:
+                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f, 0.0f, 0.0f };
                         break;
                 }
                 this.InitEffectData();
@@ -863,6 +933,18 @@ namespace NeonStarEditor
 
                 case "BoostPercentage":
                     CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "DamageDuration":
+                    CurrentAttackEffectSelected.Parameters[0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "DamageValue":
+                    CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "TickTimer":
+                    CurrentAttackEffectSelected.Parameters[2] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

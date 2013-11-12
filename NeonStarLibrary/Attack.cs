@@ -215,6 +215,7 @@ namespace NeonStarLibrary
 
         public bool Canceled = false;
         public Entity _entity;
+        public Entity Launcher;
         public AttackInfo AttackInfo;
         private MeleeFight _meleeFight;
         private bool _fromEnemy = false;
@@ -337,10 +338,8 @@ namespace NeonStarLibrary
                 hb.Width = hitbox.Width;
                 hb.Height = hitbox.Height;
                 hb.Center = _entity.transform.Position;
-
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
-                
                 _entity.AddComponent(hb);
                 _hitboxes.Add(hb);
             }
@@ -386,8 +385,16 @@ namespace NeonStarLibrary
                             {
                                 Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                 _mustStopAtTargetSight = (bool)ae.Parameters[1];
-                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                if (Launcher != null)
+                                {
+                                    Launcher.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    Launcher.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                }
+                                else
+                                {
+                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                }
                             }
                             break;
 
@@ -409,7 +416,7 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side,  Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                            BulletsManager.CreateBullet(bi, _side,  Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)Neon.world, _fromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
@@ -419,12 +426,13 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.Invincible:
-                            _entity.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
+                            if (Launcher != null) Launcher.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
+                            else _entity.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
                             break;
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
+                            EffectsManager.GetEffect(ssi, CurrentSide, Launcher != null ? Launcher.transform.Position : _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -686,7 +694,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.DamageOverTime:
                             if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
                             {
-
+                                enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], Launcher != null ? Launcher : _entity);
                             }
                             break;
 

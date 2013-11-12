@@ -66,6 +66,13 @@ namespace NeonStarLibrary
         public bool CanMove = true;
         private float _stunLockDuration = 0.0f;
 
+
+        private Entity _damageOverTimeSource = null;
+        private float _damageOverTimeValue = 0.0f;
+        private float _damageOverTimeTimer = 0.0f;
+        private float _damageOverTimeSpeed = 0.0f;
+        private float _damageOverTimeTickTimer = 0.0f;
+
         private string _runAnim = "";
 
         public string RunAnim
@@ -130,7 +137,7 @@ namespace NeonStarLibrary
             }
             if (Debug)
             {
-                Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
+                Console.WriteLine(this.entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
             }
         }
 
@@ -218,14 +225,39 @@ namespace NeonStarLibrary
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-                    
+        { 
             base.Update(gameTime);
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
+            if (_damageOverTimeTimer > 0.0f)
+            {
+                _damageOverTimeTickTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_damageOverTimeTickTimer > _damageOverTimeSpeed)
+                {
+                    _damageOverTimeTickTimer = 0.0f;
+                    ChangeHealthPoints(_damageOverTimeValue, _damageOverTimeSource);
+                }
+                _damageOverTimeTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                _damageOverTimeTickTimer = 0.0f;
+                _damageOverTimeTimer = 0.0f;
+                _damageOverTimeSpeed = 0.0f;
+                _damageOverTimeValue = 0.0f;
+                _damageOverTimeSource = null;
+            }
             base.PostUpdate(gameTime);
+        }
+
+        public void AfflictDamageOverTime(float damageValue, float damageTimer, float damageSpeed, Entity source)
+        {
+            _damageOverTimeValue = damageValue;
+            _damageOverTimeTimer = damageTimer;
+            _damageOverTimeSpeed = damageSpeed;
+            _damageOverTimeSource = source;
         }
     }
 }

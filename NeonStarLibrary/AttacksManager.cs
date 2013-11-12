@@ -143,6 +143,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.PercentageDamageBoost:
                             ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
+
+                        case SpecialEffect.DamageOverTime:
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
                     }         
                 }
 
@@ -198,6 +202,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.PercentageDamageBoost:
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture)}));
                             break;
+
+                        case SpecialEffect.DamageOverTime:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
                     }         
                 }
 
@@ -252,6 +260,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.PercentageDamageBoost:
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture)}));
+                            break;
+
+                        case SpecialEffect.DamageOverTime:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
                     }
                 }
