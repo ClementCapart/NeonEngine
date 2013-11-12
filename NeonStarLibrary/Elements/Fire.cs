@@ -45,6 +45,7 @@ namespace NeonStarLibrary
         public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
         {
+            _cooldownDuration = 4.0f;
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -144,8 +145,18 @@ namespace NeonStarLibrary
                                     AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 break;
-                        }                      
+                        }
 
+                        switch(_input)
+                        {
+                            case NeonStarInput.UseLeftSlotElement:
+                                _elementSystem.LeftSlotCooldownTimer = _cooldownDuration;
+                                break;
+
+                            case NeonStarInput.UseRightSlotElement:
+                                _elementSystem.RightSlotCooldownTimer = _cooldownDuration;
+                                break;
+                        }
                         _state = ElementState.End;
                     }
                     break;

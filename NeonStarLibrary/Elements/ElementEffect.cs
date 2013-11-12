@@ -23,8 +23,9 @@ namespace NeonStarLibrary
         protected NeonStarInput _input;
         protected int _elementLevel = 1;
 
-        protected ElementState _state;
+        protected float _cooldownDuration = 0.0f;
 
+        protected ElementState _state;
 
         public ElementEffect(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
         {

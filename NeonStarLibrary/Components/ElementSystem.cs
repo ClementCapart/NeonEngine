@@ -32,6 +32,22 @@ namespace NeonStarLibrary
             get { return _leftSlotLevel; }
             set { _leftSlotLevel = value; }
         }
+
+        private float _leftSlotCooldownTimer = 0.0f;
+
+        public float LeftSlotCooldownTimer
+        {
+            get { return _leftSlotCooldownTimer; }
+            set { _leftSlotCooldownTimer = value; }
+        }
+
+        private float _rightSlotCooldownTimer = 0.0f;
+
+        public float RightSlotCooldownTimer
+        {
+            get { return _rightSlotCooldownTimer; }
+            set { _rightSlotCooldownTimer = value; }
+        }
         
         private Element _rightSlotElement = Element.Neutral;
 
@@ -71,11 +87,29 @@ namespace NeonStarLibrary
             base.Init();
         }
 
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (_leftSlotCooldownTimer > 0.0f)
+            {
+                _leftSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_leftSlotCooldownTimer < 0.0f)
+                    _leftSlotCooldownTimer = 0.0f;
+            }
+
+            if (_rightSlotCooldownTimer > 0.0f)
+            {
+                _rightSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_rightSlotCooldownTimer < 0.0f)
+                    _rightSlotCooldownTimer = 0.0f;
+            }
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (AvatarComponent.meleeFight.CanAttack && AvatarComponent.thirdPersonController.CanMove && AvatarComponent.thirdPersonController.CanTurn && CanUseElement)
             {
-                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
+                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && _leftSlotCooldownTimer <= 0.0f)
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -83,7 +117,7 @@ namespace NeonStarLibrary
                         UseElement(_leftSlotElement, _leftSlotLevel, NeonStarInput.UseLeftSlotElement);
                     }
                 }
-                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
+                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement) && _rightSlotCooldownTimer <= 0.0f)
                 {
                     if (_rightSlotElement != Element.Neutral)
                     {
@@ -92,7 +126,7 @@ namespace NeonStarLibrary
                     }
                 }
 
-                if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                /*if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -109,7 +143,7 @@ namespace NeonStarLibrary
                         _rightSlotElement = Element.Neutral;
                         _rightSlotLevel = 1;
                     }
-                }
+                }*/
             }
             else if (CurrentElementEffect != null)
             {

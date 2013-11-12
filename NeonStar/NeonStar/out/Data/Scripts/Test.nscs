@@ -11,7 +11,6 @@ namespace NeonScripts
         public Test(Entity entity)
             :base(entity, "Test")
         {
-			Console.WriteLine("hi");
         }
 		
 		public override void Init()
@@ -20,8 +19,11 @@ namespace NeonScripts
 
         public override void Update(GameTime gameTime)
         {
-			
-
         }
+		
+		public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+		{
+			Console.WriteLine("HOY");
+		}
     }
 }

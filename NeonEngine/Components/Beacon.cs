@@ -51,10 +51,10 @@ namespace NeonEngine.Private
             GroundRaycastTarget = GroundRaycast + new Vector2(0, 8);
 
             RearGroundRaycast = GroundRaycastTarget;
-            RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2 - 2, 0);
+            RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2, 0);
 
             FrontGroundRaycast = GroundRaycastTarget;
-            FrontGroundRaycastTarget = FrontGroundRaycast + new Vector2(hitbox.Width / 2 + 1.5f, 0);
+            FrontGroundRaycastTarget = FrontGroundRaycast + new Vector2(hitbox.Width / 2 + 1, 0);
 
             LeftRaycast = new Vector2(hitbox.Center.X - hitbox.Width / 2 - hitbox.OffsetX + 5, hitbox.Center.Y - hitbox.OffsetY);
             LeftRaycastTarget = LeftRaycast + new Vector2(-10, 0);
@@ -86,7 +86,7 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
-                    CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).GetComponent<Rigidbody>();
+                    CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
                     hasHit = true;
                     return 0;
                 }
@@ -101,7 +101,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).GetComponent<Rigidbody>();
+                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
                         hasHit = true;
                         return 0;
                     }
@@ -114,7 +114,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).GetComponent<Rigidbody>();
+                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
                         hasHit = true;
                         return 0;
                     }
@@ -175,6 +175,11 @@ namespace NeonEngine.Private
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
                     hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                    if (hitEntity.rigidbody.OneWayPlatform)
+                    {
+                        hitEntity = null;
+                        return -1;
+                    }      
                     hasHit = true;
                     return 0;
                 }
@@ -190,6 +195,11 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }      
                         hasHit = true;
                         return 0;
                     }
@@ -203,7 +213,11 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        hasHit = true;
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }                         
                         return 0;
                     }
                     return -1;
@@ -225,7 +239,11 @@ namespace NeonEngine.Private
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
                     hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                    hasHit = true;
+                    if (hitEntity.rigidbody.OneWayPlatform)
+                    {
+                        hitEntity = null;
+                        return -1;
+                    }      
                     return 0;
                 }
                 return -1;
@@ -240,7 +258,11 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        hasHit = true;
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }      
                         return 0;
                     }
                     return -1;
@@ -253,7 +275,11 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        hasHit = true;
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }      
                         return 0;
                     }
                     return -1;

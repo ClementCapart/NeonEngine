@@ -407,7 +407,7 @@ namespace NeonStarLibrary
                         _chainDelayTimer = 0;
                     }
                 }
-                else if(Neon.Input.Pressed(NeonStarInput.Jump))
+                else if(Neon.Input.Pressed(NeonStarInput.Jump) && !ThirdPersonController.StartJumping)
                 {
                     ThirdPersonController._mustJumpAsSoonAsPossible = true;
                 }

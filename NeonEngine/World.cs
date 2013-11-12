@@ -386,5 +386,16 @@ namespace NeonEngine
             if (Neon.Input.Pressed(Keys.F2))
                 Neon.DrawHitboxes = !Neon.DrawHitboxes;
         }
+
+        public Entity GetEntityByName(string name)
+        {
+            for (int i = entities.Count - 1; i >= 0; i--)
+            {
+                if (entities[i].Name == name)
+                    return entities[i];
+            }
+
+            return null;
+        }
     }
 }

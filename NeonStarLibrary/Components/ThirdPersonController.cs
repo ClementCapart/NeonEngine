@@ -192,22 +192,23 @@ namespace NeonStarLibrary
 
                      if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
                      {
+                         
                          Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+                         
                          if (rg != null)
                              if (rg.OneWayPlatform)
+                             {
                                  _ignoredGeometry.Add(rg);
+                                 StartJumping = true;
+                             }
 
                      }
                      else if (Neon.Input.Pressed(NeonStarInput.Jump))
                      {
-                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
-                         if (_meleeFight != null) _meleeFight.CurrentComboHit = ComboSequence.None;
-                         entity.spritesheets.ChangeAnimation(JumpAnimation, 1, true, false, false, 0);
-                         entity.spritesheets.CurrentPriority = 0;
-                         StartJumping = true;
+                         _mustJumpAsSoonAsPossible = true;
                      }
-                     else if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
+                     
+                     if (_mustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
                      {
                          entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                          entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));

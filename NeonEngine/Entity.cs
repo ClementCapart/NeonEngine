@@ -100,6 +100,15 @@ namespace NeonEngine
             return component;
         }
 
+        public Component GetComponentByName(string name)
+        {
+            foreach (Component comp in Components)
+                if (comp.Name == name)
+                    return comp;
+
+            return null;
+        }
+
         public int GetLastID()
         {
             return Components[Components.Count - 1].ID;
