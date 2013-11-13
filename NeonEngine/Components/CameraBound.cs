@@ -15,6 +15,25 @@ namespace NeonEngine
             set { _boundSide = value; }
         }
 
+        private bool _enabled = true;
+
+        public bool Enabled
+        {
+            get { return _enabled; }
+            set 
+            { 
+                _enabled = value;
+                if (!_enabled && Neon.world.camera.CameraBounds.Contains(this))
+                {
+                    Neon.world.camera.CameraBounds.Remove(this);
+                }
+                else if (_enabled && !Neon.world.camera.CameraBounds.Contains(this))
+                {
+                    Neon.world.camera.CameraBounds.Add(this);
+                }
+            }
+        }
+
         public CameraBound(Entity entity)
             :base(entity, "CameraBound")
         {
@@ -22,13 +41,13 @@ namespace NeonEngine
 
         public override void Init()
         {
-            entity.containerWorld.camera.CameraBounds.Add(this);
             base.Init();
         }
 
         public override void Remove()
         {
-            entity.containerWorld.camera.CameraBounds.Remove(this);
+            if(_enabled)
+                entity.containerWorld.camera.CameraBounds.Remove(this);
             base.Remove();
         }
 
