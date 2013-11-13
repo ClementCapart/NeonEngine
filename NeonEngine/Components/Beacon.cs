@@ -86,7 +86,8 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
-                    CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
+                    Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                    CurrentGround = e != null ? e.rigidbody : null;
                     hasHit = true;
                     return 0;
                 }
@@ -101,7 +102,8 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
+                        Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                        CurrentGround = e != null ? e.rigidbody : null;
                         hasHit = true;
                         return 0;
                     }
@@ -114,7 +116,8 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        CurrentGround = Neon.utils.GetEntityByBody(fixture.Body).rigidbody;
+                        Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                        CurrentGround = e != null ? e.rigidbody : null;
                         hasHit = true;
                         return 0;
                     }

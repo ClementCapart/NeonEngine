@@ -31,6 +31,7 @@ namespace NeonStarEditor
         {
             Fixture fixture;
             Vector2 position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
+            Console.WriteLine(currentWorld.IsActiveForm);
             if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.IsActiveForm)
             {
                 fixture = currentWorld.physicWorld.TestPoint(position);
@@ -38,6 +39,7 @@ namespace NeonStarEditor
                 {
                     if (currentWorld.SelectedEntity != Neon.utils.GetEntityByBody(fixture.Body))
                     {
+                        currentWorld.SelectedEntity = Neon.utils.GetEntityByBody(fixture.Body);
                         currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = Neon.utils.GetEntityByBody(fixture.Body);
                         currentWorld.FocusedTextBox = null;
                         currentWorld.FocusedNumericUpDown = null;
@@ -52,6 +54,7 @@ namespace NeonStarEditor
                         if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
                             && Neon.Input.MousePosition.Y >= e.transform.Position.Y - 30 && Neon.Input.MousePosition.Y <= e.transform.Position.Y + 30)
                         {
+                            currentWorld.SelectedEntity = e;
                             currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = e;
                             currentWorld.FocusedTextBox = null;
                             currentWorld.FocusedNumericUpDown = null;
