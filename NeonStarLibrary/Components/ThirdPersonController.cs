@@ -232,9 +232,7 @@ namespace NeonStarLibrary
                      {
                          CurrentSide = Side.Left;
                          if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(0) == null)
-                         {
                              entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
-                         }
 
                          entity.spritesheets.ChangeSide(CurrentSide);
                      }

@@ -123,5 +123,10 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.TogglePathNodeManager();
         }
+
+        private void magnetCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            GameWorld.MagnetismActivated = (sender as CheckBox).Checked;
+        }
     }
 }

@@ -27,5 +27,20 @@ namespace NeonStarEditor
         {
 
         }
+
+        private void magnetismValue_ValueChanged(object sender, EventArgs e)
+        {
+            GameWorld.MagnetismValue = (float)(sender as NumericUpDown).Value;
+        }
+
+        private void magnetismValue_Leave(object sender, EventArgs e)
+        {
+            GameWorld.FocusedNumericUpDown = null; 
+        }
+
+        private void magnetismValue_Enter(object sender, EventArgs e)
+        {
+            GameWorld.FocusedNumericUpDown = (sender as NumericUpDown);
+        }
     }
 }

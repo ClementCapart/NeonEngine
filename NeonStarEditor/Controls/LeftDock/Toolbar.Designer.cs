@@ -41,6 +41,8 @@
             this.CreateRectangle = new System.Windows.Forms.Button();
             this.ReloadButton = new System.Windows.Forms.Button();
             this.SaveCurrentMap = new System.Windows.Forms.Button();
+            this.magnetCheckbox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PausePlayButton
@@ -186,11 +188,35 @@
             this.SaveCurrentMap.UseVisualStyleBackColor = true;
             this.SaveCurrentMap.Click += new System.EventHandler(this.SaveCurrentMap_Click);
             // 
+            // magnetCheckbox
+            // 
+            this.magnetCheckbox.AutoSize = true;
+            this.magnetCheckbox.Checked = true;
+            this.magnetCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.magnetCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.magnetCheckbox.Location = new System.Drawing.Point(12, 326);
+            this.magnetCheckbox.Name = "magnetCheckbox";
+            this.magnetCheckbox.Size = new System.Drawing.Size(12, 11);
+            this.magnetCheckbox.TabIndex = 6;
+            this.magnetCheckbox.UseVisualStyleBackColor = true;
+            this.magnetCheckbox.CheckedChanged += new System.EventHandler(this.magnetCheckbox_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-2, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Magnet";
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.magnetCheckbox);
             this.Controls.Add(this.Selection);
             this.Controls.Add(this.PathNodeTool);
             this.Controls.Add(this.ToggleBoundsButton);
@@ -207,6 +233,7 @@
             this.Name = "Toolbar";
             this.Size = new System.Drawing.Size(38, 624);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -224,5 +251,7 @@
         private System.Windows.Forms.Button ToggleLightButton;
         private System.Windows.Forms.Button ToggleBoundsButton;
         private System.Windows.Forms.Button PathNodeTool;
+        private System.Windows.Forms.CheckBox magnetCheckbox;
+        private System.Windows.Forms.Label label1;
     }
 }

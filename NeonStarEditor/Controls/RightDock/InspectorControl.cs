@@ -40,7 +40,7 @@ namespace NeonStarEditor
         Dictionary<Button, Component> InitButtons = new Dictionary<Button, Component>();
         Dictionary<Button, Component> RemoveButtons = new Dictionary<Button, Component>();
 
-        public List<PropertyComponentControl> PropertyControlList;
+        public List<PropertyComponentControl> PropertyControlList = new List<PropertyComponentControl>();
 
 
         public InspectorControl()

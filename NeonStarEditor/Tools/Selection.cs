@@ -31,7 +31,6 @@ namespace NeonStarEditor
         {
             Fixture fixture;
             Vector2 position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
-            Console.WriteLine(currentWorld.IsActiveForm);
             if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.IsActiveForm)
             {
                 fixture = currentWorld.physicWorld.TestPoint(position);
@@ -83,7 +82,23 @@ namespace NeonStarEditor
             if (Neon.Input.MouseCheck(MouseButton.RightButton) && currentWorld.IsActiveForm)
             {
                 if (currentWorld.SelectedEntity != null)
-                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom ;
+                {
+                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse * (currentWorld.MagnetismActivated ? currentWorld.MagnetismValue / 2 : 1) / currentWorld.camera.Zoom;
+
+                    if (currentWorld.MagnetismActivated)
+                    {
+                        currentWorld.SelectedEntity.transform.Position = new Vector2((float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.X), (float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.Y)) ;
+                        if (currentWorld.MagnetismValue != 1)
+                        {
+                            int restX = (int)currentWorld.SelectedEntity.transform.Position.X % (int)currentWorld.MagnetismValue;
+                            int restY = (int)currentWorld.SelectedEntity.transform.Position.Y % (int)currentWorld.MagnetismValue;
+
+                            currentWorld.SelectedEntity.transform.Position += new Vector2((restX < currentWorld.MagnetismValue / 2 ? -restX : currentWorld.MagnetismValue - restX), (restY < currentWorld.MagnetismValue / 2 ? -restY : currentWorld.MagnetismValue - restY));
+                        }                   
+                    }
+
+                }
+                    
             }
             if (Neon.Input.MouseReleased(MouseButton.RightButton))
             {

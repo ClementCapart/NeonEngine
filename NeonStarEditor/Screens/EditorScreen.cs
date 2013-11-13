@@ -33,6 +33,9 @@ namespace NeonStarEditor
         public Tool CurrentTool;
         public Entity SelectedEntity;
 
+        public bool MagnetismActivated = true;
+        public float MagnetismValue = 1.0f;
+
         public TextBox FocusedTextBox = null;
         public NumericUpDown FocusedNumericUpDown = null;
         float PressedDelay = 0.0f;
