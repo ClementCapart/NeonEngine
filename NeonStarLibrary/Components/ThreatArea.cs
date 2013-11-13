@@ -11,7 +11,15 @@ namespace NeonStarLibrary
     {
         public Enemy EnemyComponent;
         public Entity EntityFollowed;
-        public bool ShouldDetectAgain = true;
+        public bool ShouldDetect = false;
+
+        private bool _mustBeOnSamePlatform = true;
+
+        public bool MustBeOnSamePlatform
+        {
+            get { return _mustBeOnSamePlatform; }
+            set { _mustBeOnSamePlatform = value; }
+        }
 
         private float _threatRange = 300f;
 
@@ -68,8 +76,18 @@ namespace NeonStarLibrary
                 if (_waitTimer < 0.0f)
                     _waitTimer = 0.0f;
             }
+            if (EntityFollowed != null && _mustBeOnSamePlatform)
+            {
+                Rigidbody rg = EntityFollowed.rigidbody.beacon.CheckGround();
+                Rigidbody rg2 = this.entity.rigidbody.beacon.CheckGround();
+                if (rg != null && rg2 != null && rg == rg2)
+                {
+                    ShouldDetect = true;
+                }
+            }
+            
+            
 
-           
             base.PreUpdate(gameTime);
         }
 
@@ -88,7 +106,7 @@ namespace NeonStarLibrary
             {
                 if (EntityFollowed != null)
                 {
-                    if (ShouldDetectAgain && EnemyComponent.State != EnemyState.MustFinishChase)
+                    if ((ShouldDetect || !_mustBeOnSamePlatform) && EnemyComponent.State != EnemyState.MustFinishChase)
                     {
                         if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                         {
@@ -132,18 +150,15 @@ namespace NeonStarLibrary
                             _waitTimer = 0.0f;
                         }
                     }
-                    else
+                    else if (EnemyComponent.State != EnemyState.MustFinishChase)
                     {
-                        Rigidbody rg = EntityFollowed.rigidbody.beacon.CheckGround();
-                        Rigidbody rg2 = this.entity.rigidbody.beacon.CheckGround();
-                        if (rg != null && rg2 != null && rg == rg2)
-                        {
-                            ShouldDetectAgain = true;
-                        }
+                        EnemyComponent.State = EnemyState.Idle;
                     }
+                    
                 }   
             }
-            
+            ShouldDetect = false;
+            if(entity.Name == "EnemyRobotTest") Console.WriteLine(EnemyComponent.State);
             base.PostUpdate(gameTime);
         }
     }
