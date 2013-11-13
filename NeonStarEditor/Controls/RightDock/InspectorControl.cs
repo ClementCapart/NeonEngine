@@ -341,7 +341,16 @@ namespace NeonStarEditor
 
         void cb_SelectedValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
             pcc.pi.SetValue(pcc.c, (PathNodeList)((sender as ComboBox).SelectedValue), null);
         }
 
@@ -363,7 +372,16 @@ namespace NeonStarEditor
             if (GameWorld.FocusedTextBox == (sender as TextBox))
                 GameWorld.FocusedTextBox = null;
 
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
             pcc.pi.SetValue(pcc.c, ((sender as TextBox).Text), null);
         }
 
@@ -403,7 +421,16 @@ namespace NeonStarEditor
 
         private void Component_SelectedValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
             pcc.pi.SetValue(pcc.c, (Component)((sender as ComboBox).SelectedValue), null);
         }
 
@@ -423,27 +450,66 @@ namespace NeonStarEditor
 
         private void Spritesheet_SelectedValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
             pcc.pi.SetValue(pcc.c, (string)((sender as ComboBox).SelectedValue), null);
             
         }
 
         void number_ValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
+            
             pcc.pi.SetValue(pcc.c, (float)(sender as NumericUpDown).Value, null);
         }
 
         void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
+
             pcc.pi.SetValue(pcc.c, (bool)((sender as CheckBox).Checked), null);
         }
 
 
         private void comboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
             pcc.pi.SetValue(pcc.c, (Enum)((sender as ComboBox).SelectedItem), null);
         }
 
@@ -451,7 +517,16 @@ namespace NeonStarEditor
         {
             if (!GameWorld.ManagingInspector)
             {
-                PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                PropertyComponentControl pcc;
+                try
+                {
+                    pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                }
+                catch (InvalidOperationException exc)
+                {
+                    Console.WriteLine(exc.ToString());
+                    return;
+                }
                 Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
                 pcc.pi.SetValue(pcc.c, new Vector2((float)((sender as NumericUpDown).Value), vector.Y), null);
             }
@@ -461,7 +536,17 @@ namespace NeonStarEditor
         {
             if (!GameWorld.ManagingInspector)
             {
-                PropertyComponentControl pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                PropertyComponentControl pcc;
+                try
+                {
+                    pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+                }
+                catch (InvalidOperationException exc)
+                {
+                    Console.WriteLine(exc.ToString());
+                    return;
+                }
+
                 Vector2 vector = (Vector2)pcc.pi.GetValue(pcc.c, null);
                 pcc.pi.SetValue(pcc.c, new Vector2(vector.X, (float)(sender as NumericUpDown).Value), null); 
             }           

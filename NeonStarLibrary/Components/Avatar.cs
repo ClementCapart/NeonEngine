@@ -64,6 +64,10 @@ namespace NeonStarLibrary
         public void ChangeHealthPoints(float value)
         {
             _currentHealthPoints += value;
+            if (value > 0)
+            {
+                entity.spritesheets.ChangeAnimation("Hit", 0, true, true, false);
+            }
             if (Debug)
             {
                 Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");

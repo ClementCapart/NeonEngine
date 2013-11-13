@@ -57,6 +57,13 @@ namespace NeonStarLibrary
         public EnemyState State;
 
         private float _currentHealthPoints;
+
+        public float CurrentHealthPoints
+        {
+            get { return _currentHealthPoints; }
+            set { _currentHealthPoints = value; }
+        }
+
         private float _airLockDuration = 0.0f;
 
         public FollowNodes _followNodes;
@@ -65,7 +72,6 @@ namespace NeonStarLibrary
         public EnemyAttack _attack;
         public bool CanMove = true;
         private float _stunLockDuration = 0.0f;
-
 
         private Entity _damageOverTimeSource = null;
         private float _damageOverTimeValue = 0.0f;

@@ -13,8 +13,6 @@ namespace NeonStarLibrary
 
         private double _maxCharge = 100.0f;
 
-        private int _chargeLevel = 0;
-
         private bool _chargeGoingDown = false;
 
         private int _levelOneStageTwoChargeRequired = 30;
@@ -85,17 +83,14 @@ namespace NeonStarLibrary
                             case 1:
                                 if (_charge > _levelOneStageThreeChargeRequired)
                                 {
-                                    _chargeLevel = 3;
                                     AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
                                 }
                                 else if (_charge > _levelOneStageTwoChargeRequired)
                                 {
-                                    _chargeLevel = 2;
                                     AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
                                 }
                                 else
                                 {
-                                    _chargeLevel = 1;
                                     AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
                                 }
                                 break;
@@ -103,22 +98,18 @@ namespace NeonStarLibrary
                             case 2:
                                 if (_charge > _levelTwoStageFourChargeRequired)
                                 {
-                                    _chargeLevel = 4;
                                     AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else if (_charge > _levelTwoStageThreeChargeRequired)
                                 {
-                                    _chargeLevel = 3;
                                     AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else if (_charge > _levelTwoStageTwoChargeRequired)
                                 {
-                                    _chargeLevel = 2;
                                     AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else
                                 {
-                                    _chargeLevel = 1;
                                     AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 break;
@@ -126,22 +117,18 @@ namespace NeonStarLibrary
                             case 3:
                                 if (_charge > _levelThreeStageFourChargeRequired)
                                 {
-                                    _chargeLevel = 4;
                                     AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else if (_charge > _levelThreeStageThreeChargeRequired)
                                 {
-                                    _chargeLevel = 3;
                                     AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else if (_charge > _levelThreeStageTwoChargeRequired)
                                 {
-                                    _chargeLevel = 2;
                                     AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 else
                                 {
-                                    _chargeLevel = 1;
                                     AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
                                 }
                                 break;

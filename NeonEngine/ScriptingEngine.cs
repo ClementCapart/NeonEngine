@@ -123,7 +123,6 @@ namespace NeonEngine
                 }
                 else
                 {
-
                     Console.WriteLine(componentType.Name + " (Script) loaded !");
 
                     Neon.Scripts.Add(componentType);
@@ -133,9 +132,7 @@ namespace NeonEngine
                     Console.WriteLine("");
                 }
             }
-
             return componentType;
         }
-
     }
 }
