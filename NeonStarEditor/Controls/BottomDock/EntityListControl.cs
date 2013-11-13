@@ -72,6 +72,8 @@ namespace NeonStarEditor
         {
             GameWorld.SelectedEntity = (Entity)EntityListBox.SelectedItem;
             GameWorld.EntityChangedThisFrame = true;
+            GameWorld.FocusedNumericUpDown = null;
+            GameWorld.FocusedTextBox = null;
             if (GameWorld.SelectedEntity != null)
                 GameWorld.RefreshInspector(GameWorld.SelectedEntity);
             else
