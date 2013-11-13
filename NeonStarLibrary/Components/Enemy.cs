@@ -95,6 +95,14 @@ namespace NeonStarLibrary
             set { _idleAnim = value; }
         }
 
+        private string _startAttackAnim = "";
+
+        public string StartAttackAnim
+        {
+            get { return _startAttackAnim; }
+            set { _startAttackAnim = value; }
+        }
+
         private string _attackAnim = "";
 
         public string AttackAnim
@@ -223,7 +231,10 @@ namespace NeonStarLibrary
                         break;
 
                     case EnemyState.Attack:
-                        entity.spritesheets.ChangeAnimation(_attackAnim);
+                        if (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())
+                            entity.spritesheets.ChangeAnimation(_attackAnim);
+                        else
+                            entity.spritesheets.ChangeAnimation(_startAttackAnim, 0, true, false, false);
                         break;
                 }
             } 

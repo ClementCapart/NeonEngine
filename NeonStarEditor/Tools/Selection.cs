@@ -83,20 +83,7 @@ namespace NeonStarEditor
             {
                 if (currentWorld.SelectedEntity != null)
                 {
-                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse * (currentWorld.MagnetismActivated ? currentWorld.MagnetismValue / 2 : 1) / currentWorld.camera.Zoom;
-
-                    if (currentWorld.MagnetismActivated)
-                    {
-                        currentWorld.SelectedEntity.transform.Position = new Vector2((float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.X), (float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.Y)) ;
-                        if (currentWorld.MagnetismValue != 1)
-                        {
-                            int restX = (int)currentWorld.SelectedEntity.transform.Position.X % (int)currentWorld.MagnetismValue;
-                            int restY = (int)currentWorld.SelectedEntity.transform.Position.Y % (int)currentWorld.MagnetismValue;
-
-                            currentWorld.SelectedEntity.transform.Position += new Vector2((restX < currentWorld.MagnetismValue / 2 ? -restX : currentWorld.MagnetismValue - restX), (restY < currentWorld.MagnetismValue / 2 ? -restY : currentWorld.MagnetismValue - restY));
-                        }                   
-                    }
-
+                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom;
                 }
                     
             }
@@ -104,6 +91,18 @@ namespace NeonStarEditor
             {
                 if (currentWorld.SelectedEntity != null)
                 {
+                    if (currentWorld.MagnetismActivated)
+                    {
+                        currentWorld.SelectedEntity.transform.Position = new Vector2((float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.X), (float)Math.Round((double)currentWorld.SelectedEntity.transform.Position.Y));
+                        if (currentWorld.MagnetismValue != 1)
+                        {
+                            int restX = (int)currentWorld.SelectedEntity.transform.Position.X % (int)currentWorld.MagnetismValue;
+                            int restY = (int)currentWorld.SelectedEntity.transform.Position.Y % (int)currentWorld.MagnetismValue;
+
+                            currentWorld.SelectedEntity.transform.Position += new Vector2((restX < currentWorld.MagnetismValue / 2 ? -restX : currentWorld.MagnetismValue - restX), (restY < currentWorld.MagnetismValue / 2 ? -restY : currentWorld.MagnetismValue - restY));
+                        }
+                    }
+
                     ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
                     TransformState = null;
                 }
