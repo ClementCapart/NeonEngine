@@ -17,6 +17,18 @@ namespace NeonEngine
 
         public Side CurrentSide = Side.Right;
 
+        public override Vector2 Offset
+        {
+            get
+            {
+                return CurrentSpritesheet.Offset;
+            }
+            set
+            {
+                CurrentSpritesheet.Offset = value;
+            }
+        }
+
         public override Color TintColor
         {
             get

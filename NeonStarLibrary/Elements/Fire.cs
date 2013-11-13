@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace NeonStarLibrary
 
         private double _maxCharge = 100.0f;
         private float _airLockDuration = 3.0f;
+        private float _maxChargeTimer = 3.0f;
 
         private bool _chargeGoingDown = false;
 
@@ -47,18 +49,63 @@ namespace NeonStarLibrary
             _cooldownDuration = 4.0f;
         }
 
+        public override void PreUpdate(GameTime gameTime)
+        {
+            switch(_state)
+            {
+                case ElementState.Initialization:
+                case ElementState.Charge:
+                    _elementSystem.AvatarComponent.thirdPersonController.CanMove = false;
+                    _elementSystem.AvatarComponent.thirdPersonController.CanTurn = false;
+                    break;
+            }
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             switch (_state)
             {
                 case ElementState.Initialization:
                     _state = ElementState.Charge;
-                    _elementSystem.AvatarComponent.AirLock(_airLockDuration);
+                    if(!_elementSystem.entity.rigidbody.isGrounded) _elementSystem.AvatarComponent.AirLock(_airLockDuration);
                     break;
 
                 case ElementState.Charge:
                     if (Neon.Input.Check(_input))
                     {
+                        _maxChargeTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (_maxChargeTimer <= 0.0f)
+                        {
+                            _elementSystem.AvatarComponent.AirLock(0.0f);
+                            _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            switch(_elementLevel)
+                            {
+                                case 1:
+                                    AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
+                                    break;
+
+                                case 2:
+                                    AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
+                                    break;
+
+                                case 3:
+                                    AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position)._entity = _entity;
+                                    break;
+                            }
+
+                            switch (_input)
+                            {
+                                case NeonStarInput.UseLeftSlotElement:
+                                    _elementSystem.LeftSlotCooldownTimer = _cooldownDuration;
+                                    break;
+
+                                case NeonStarInput.UseRightSlotElement:
+                                    _elementSystem.RightSlotCooldownTimer = _cooldownDuration;
+                                    break;
+                            }
+                            _state = ElementState.End;
+                        }
                         if (_charge < _maxCharge && !_chargeGoingDown)
                         {
                             _charge += gameTime.ElapsedGameTime.TotalSeconds * _chargeSpeed;
@@ -81,6 +128,7 @@ namespace NeonStarLibrary
                     else if(Neon.Input.Released(_input))
                     {
                         _elementSystem.AvatarComponent.AirLock(0.0f);
+                        _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         switch(_elementLevel)
                         {
                             case 1:

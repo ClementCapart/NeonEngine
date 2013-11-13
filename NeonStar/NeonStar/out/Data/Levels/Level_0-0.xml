@@ -6,9 +6,9 @@
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-478 Y:215}" />
-              <InitialPosition Value="{X:-478 Y:215}" />
+              <AutoChangeInitialPosition Value="False" />
+              <Position Value="{X:231,9786 Y:215,5}" />
+              <InitialPosition Value="{X:-675 Y:215,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-477 Y:214}" />
-              <X Value="-497" />
-              <Y Value="146" />
+              <Center Value="{X:231 Y:215}" />
+              <X Value="211" />
+              <Y Value="147" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -1614,6 +1614,9 @@
                 <Animation Name="JumpTutorial" SpritesheetTag="LiOnJumpUP02" />
                 <Animation Name="FallTutorial" SpritesheetTag="LiOnJumpDownLoop" />
                 <Animation Name="HitTutorial" SpritesheetTag="LiOnLightAttackStarter" />
+                <Animation Name="FinishTutorial" SpritesheetTag="LiOnLightAttackFinish" />
+                <Animation Name="UppercutTutorial" SpritesheetTag="LiOnUppercut" />
+                <Animation Name="DodgeTutorial" SpritesheetTag="LiOnDodge" />
               </Spritesheets>
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -1625,13 +1628,17 @@
               <WalkTriggerName Value="WalkTrigger" />
               <JumpTriggerName Value="JumpTrigger" />
               <FallTriggerName Value="FallTrigger" />
+              <EnemyName Value="PunchingBall" />
+              <AvatarName Value="LiOn" />
+              <FirstAttackName Value="LiOnLightAttack" />
+              <SecondAttackName Value="LiOnUppercut" />
               <WalkTutorialAnimation Value="WalkTutorial" />
               <JumpTutorialAnimation Value="JumpTutorial" />
               <FallTutorialAnimation Value="FallTutorial" />
               <HitTutorialAnimation Value="HitTutorial" />
-              <ComboTutorialAnimation Value="" />
-              <UppercutTutorialAnimation Value="" />
-              <DodgeTutorialAnimation Value="" />
+              <ComboTutorialAnimation Value="FinishTutorial" />
+              <UppercutTutorialAnimation Value="UppercutTutorial" />
+              <DodgeTutorialAnimation Value="DodgeTutorial" />
             </Properties>
           </TutorialScreen>
         </Components>
@@ -2694,8 +2701,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3600 Y:-333,9999}" />
-              <InitialPosition Value="{X:3600 Y:-333,9999}" />
+              <Position Value="{X:3600 Y:-334}" />
+              <InitialPosition Value="{X:3600 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2703,9 +2710,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3600 Y:-333}" />
+              <Center Value="{X:3600 Y:-334}" />
               <X Value="3543" />
-              <Y Value="-420" />
+              <Y Value="-421" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2792,8 +2799,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2317 Y:-333,9999}" />
-              <InitialPosition Value="{X:2317 Y:-333,9999}" />
+              <Position Value="{X:2317 Y:-334}" />
+              <InitialPosition Value="{X:2317 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2801,9 +2808,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2317 Y:-333}" />
+              <Center Value="{X:2317 Y:-334}" />
               <X Value="2260" />
-              <Y Value="-420" />
+              <Y Value="-421" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2885,13 +2892,13 @@
           </FollowPlatformNodes>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot">
+      <Entity Name="PunchingBall">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1019 Y:196}" />
-              <InitialPosition Value="{X:1019 Y:196}" />
+              <Position Value="{X:498 Y:183,5}" />
+              <InitialPosition Value="{X:498 Y:183,5}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2899,13 +2906,13 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1018 Y:196}" />
-              <X Value="961" />
-              <Y Value="109" />
+              <Center Value="{X:498 Y:183}" />
+              <X Value="463" />
+              <Y Value="83" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="115" />
-              <Height Value="175" />
+              <Width Value="70" />
+              <Height Value="200" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
@@ -2936,9 +2943,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
+              <StartingHealthPoints Value="100000" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
+              <CurrentHealthPoints Value="99925" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <StartAttackAnim Value="" />
@@ -2946,41 +2953,15 @@
               <Type Value="Ground" />
             </Properties>
           </Enemy>
-          <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
+          <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
             <Properties>
-              <ThreatRange Value="330" />
-              <AttackRange Value="120" />
-              <EntityToSearchFor Value="LiOn" />
-              <WaitThreatDelay Value="0" />
+              <OneShot Value="False" />
+              <TriggeringComponentName Value="Enemy" />
+              <TriggeringVariableName Value="CurrentHealthPoints" />
+              <TriggeredEntityName Value="TutorialScreen" />
+              <TriggeredComponentName Value="TutorialScreen" />
             </Properties>
-          </ThreatArea>
-          <Chase Type="NeonStarLibrary.Chase" ID="6">
-            <Properties>
-              <Speed Value="3" />
-              <WaitDelay Value="1" />
-            </Properties>
-          </Chase>
-          <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
-            <Properties>
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <RangeForAttackTwo Value="0" />
-              <AttackToLaunchTwo Value="" />
-              <RangeForAttackThree Value="0" />
-              <AttackToLaunchThree Value="" />
-              <RangeForAttackFour Value="0" />
-              <AttackToLaunchFour Value="" />
-              <RangeForAttackFive Value="0" />
-              <AttackToLaunchFive Value="" />
-            </Properties>
-          </EnemyAttack>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
-            <Properties>
-              <Speed Value="1.5" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="5" />
-            </Properties>
-          </FollowPlatformNodes>
+          </ValueTrigger>
         </Components>
       </Entity>
     </Entities>

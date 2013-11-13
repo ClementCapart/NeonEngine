@@ -50,6 +50,7 @@ namespace NeonStarLibrary
 
         public virtual void End()
         {
+            _state = ElementState.End;
         }
     }
 }

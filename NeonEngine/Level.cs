@@ -95,6 +95,7 @@ namespace NeonEngine
                 {
                     if (Comp.Name == "Transform")
                     {
+                        entity.transform.AutoChangeInitialPosition = bool.Parse(Comp.Element("Properties").Element("AutoChangeInitialPosition").Attribute("Value").Value);
                         entity.transform.InitialPosition = Neon.utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
                         entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
                         entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);

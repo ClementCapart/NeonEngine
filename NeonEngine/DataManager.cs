@@ -359,7 +359,7 @@ namespace NeonEngine
                     }
                     else
                     {
-                        property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
+                        //property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
                     }
                     properties.Add(property);
                 }

@@ -102,6 +102,11 @@ namespace NeonStarLibrary
                 if (_rightSlotCooldownTimer < 0.0f)
                     _rightSlotCooldownTimer = 0.0f;
             }
+
+            if (CurrentElementEffect != null)
+            {
+                CurrentElementEffect.PreUpdate(gameTime);
+            }
             base.PreUpdate(gameTime);
         }
 
@@ -149,6 +154,15 @@ namespace NeonStarLibrary
             {
                 CurrentElementEffect.Update(gameTime);
             }
+        }
+
+        public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (CurrentElementEffect != null)
+            {
+                CurrentElementEffect.PostUpdate(gameTime);
+            }
+            base.PostUpdate(gameTime);
         }
 
         public void UseElement(Element element, int level, NeonStarInput input)

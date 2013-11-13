@@ -1,8 +1,8 @@
 ﻿using NeonEngine;
 using NeonEngine.Private;
+using NeonStarLibrary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace NeonStarLibrary
@@ -33,6 +33,38 @@ namespace NeonStarLibrary
             set { _fallTriggerName = value; }
         }
 
+        private string _enemyName = "";
+
+        public string EnemyName
+        {
+            get { return _enemyName; }
+            set { _enemyName = value; }
+        }
+
+        private string _avatarName = "";
+
+        public string AvatarName
+        {
+            get { return _avatarName; }
+            set { _avatarName = value; }
+        }
+
+        private string _firstAttackName = "";
+
+        public string FirstAttackName
+        {
+            get { return _firstAttackName; }
+            set { _firstAttackName = value; }
+        }
+
+        private string _secondAttackName = "";
+
+        public string SecondAttackName
+        {
+            get { return _secondAttackName; }
+            set { _secondAttackName = value; }
+        }
+        
         private string _walkTutorialAnimation = "";
 
         public string WalkTutorialAnimation
@@ -89,6 +121,8 @@ namespace NeonStarLibrary
             set { _dodgeTutorialAnimation = value; }
         }
 
+        private int _currentTutorialState = 1;
+        private Avatar _avatar;
 
         public TutorialScreen(Entity entity)
             :base(entity, "TutorialScreen")
@@ -97,6 +131,8 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            if(_avatarName != "")
+                _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
             base.Init();
         }
@@ -106,20 +142,53 @@ namespace NeonStarLibrary
             base.Update(gameTime);
         }
 
+        public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            base.PostUpdate(gameTime);
+        }
+
         public override void OnTrigger(Entity trigger, Entity triggeringEntity)
         {
-            if (trigger.Name == _walkTriggerName)
+            if (trigger.Name == _walkTriggerName && _currentTutorialState == 1)
             {
+                _currentTutorialState++;
                 entity.spritesheets.ChangeAnimation(_jumpTutorialAnimation);
             }
-            else if (trigger.Name == _jumpTriggerName)
+            else if (trigger.Name == _jumpTriggerName && _currentTutorialState == 2)
             {
+                _currentTutorialState++;
                 entity.spritesheets.ChangeAnimation(_fallTutorialAnimation);
             }
-            else if (trigger.Name == _fallTriggerName)
+            else if (trigger.Name == _fallTriggerName && _currentTutorialState == 3)
             {
+                _currentTutorialState++;
                 entity.spritesheets.ChangeAnimation(_hitTutorialAnimation);
             }
+            else if (trigger.Name == _enemyName && _currentTutorialState == 4)
+            {
+                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName)
+                {
+                    _currentTutorialState++;
+                    entity.spritesheets.ChangeAnimation(_comboTutorialAnimation);
+                }
+            }
+            else if (trigger.Name == _enemyName && _currentTutorialState == 5)
+            {
+                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName + "Finish")
+                {
+                    _currentTutorialState++;
+                    entity.spritesheets.ChangeAnimation(_uppercutTutorialAnimation);
+                }
+            }
+            else if (trigger.Name == _enemyName && _currentTutorialState == 6)
+            {
+                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _secondAttackName)
+                {
+                    _currentTutorialState++;
+                    entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
+                }
+            }
+
             base.OnTrigger(trigger, triggeringEntity);
         }
     }

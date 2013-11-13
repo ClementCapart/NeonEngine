@@ -266,6 +266,8 @@ namespace NeonStarLibrary
             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _rollImpulse : -_rollImpulse, 0));
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
+            if (AvatarComponent.elementSystem.CurrentElementEffect != null)
+                AvatarComponent.elementSystem.CurrentElementEffect.End();
             entity.spritesheets.ChangeAnimation(_rollAnimation, 1, true, true, false);
             entity.hitbox.SwitchType(HitboxType.Invincible, _rollDuration); 
         }
@@ -276,6 +278,8 @@ namespace NeonStarLibrary
                 AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            if(AvatarComponent.elementSystem.CurrentElementEffect != null)
+                AvatarComponent.elementSystem.CurrentElementEffect.End();
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
             entity.spritesheets.ChangeAnimation(_guardAnimation, 1, true, true, false);
@@ -291,6 +295,8 @@ namespace NeonStarLibrary
             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
+            if (AvatarComponent.elementSystem.CurrentElementEffect != null)
+                AvatarComponent.elementSystem.CurrentElementEffect.End();
             entity.spritesheets.ChangeAnimation(_dashAnimation, 1, true, true, false);
             entity.hitbox.SwitchType(HitboxType.Invincible, _dashDuration);
         }

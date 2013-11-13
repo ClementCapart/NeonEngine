@@ -35,6 +35,14 @@ namespace NeonEngine
             set { _parallaxForce = value; }
         }
 
+        private Vector2 _offset;
+
+        public virtual Vector2 Offset
+        {
+            get { return _offset; }
+            set { _offset = value; }
+        }
+
         public Color InitialTintcolor = Color.White;
         private Color _tintColor = Color.White;
         public virtual Color TintColor

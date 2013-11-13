@@ -192,7 +192,7 @@ namespace NeonStarEditor
             else if (Neon.Input.MouseWheel() < 0)
                 camera.Zoom -= 0.1f;
 
-            if (Neon.Input.Check(Keys.R))
+            if (Neon.Input.Check(Keys.R) && FocusedTextBox == null && FocusedNumericUpDown == null)
             {
                 FocusEntity = false;
                 camera.Bounded = true;

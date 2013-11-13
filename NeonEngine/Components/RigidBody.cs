@@ -253,6 +253,7 @@ namespace NeonEngine
                 body.GravityScale = gravityScale;
                 InitialGravityScale = gravityScale;
                 body.Mass = mass;
+                
                 if (IsGround)
                     body.CollisionCategories = Category.Cat1;
                 else
@@ -300,7 +301,7 @@ namespace NeonEngine
                 if (EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitbox;
-                    if (hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
+                    if (!EntityB.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
                         contact.Friction = 0.0f;
                         return true;

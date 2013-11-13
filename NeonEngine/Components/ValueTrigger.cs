@@ -77,7 +77,7 @@ namespace NeonEngine
 
             _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
             if(_triggeredEntity != null)
-                _triggeredComponent = entity.GetComponentByName(_triggeredComponentName);
+                _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             
             base.Init();
         }
@@ -99,7 +99,7 @@ namespace NeonEngine
             {
                 _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
                 if (_triggeredEntity != null)
-                    _triggeredComponent = entity.GetComponentByName(_triggeredComponentName);
+                    _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             }
 
             base.Update(gameTime);
