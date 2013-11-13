@@ -97,6 +97,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
             base.Init();
         }
 

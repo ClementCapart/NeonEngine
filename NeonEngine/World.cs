@@ -233,7 +233,15 @@ namespace NeonEngine
                             break;
 
                         case HitboxType.Solid:
-                            _polygonRenderer.Color = Color.Plum;
+                            _polygonRenderer.Color = Color.Violet;
+                            break;
+
+                        case HitboxType.OneWay:
+                            _polygonRenderer.Color = Color.Purple;
+                            break;
+
+                        case HitboxType.Trigger:
+                            _polygonRenderer.Color = Color.SkyBlue;
                             break;
                     }
                     _polygonRenderer.vectors = hb.vectors;
