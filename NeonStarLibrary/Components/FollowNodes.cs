@@ -130,7 +130,7 @@ namespace NeonStarLibrary
                         }
                     }
                         
-                    if (EnemyComponent.State == EnemyState.Patrol)
+                    if (EnemyComponent.State == EnemyState.Patrol && !_isDelayed)
                     {
                         if (this._nextNode.Position.X < this.entity.transform.Position.X)
                         {

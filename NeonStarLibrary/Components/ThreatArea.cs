@@ -85,8 +85,6 @@ namespace NeonStarLibrary
                     ShouldDetect = true;
                 }
             }
-            
-            
 
             base.PreUpdate(gameTime);
         }
@@ -110,11 +108,12 @@ namespace NeonStarLibrary
                     {
                         if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
                         {
-                            if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat && EnemyComponent.State != EnemyState.Attack) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
+                            if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                             {
-                                EnemyComponent.State = EnemyState.Attack;
-                                if (entity.spritesheets != null)
-                                    entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
+                                    EnemyComponent.State = EnemyState.Attack;
+                                    if (entity.spritesheets != null && (EnemyComponent.State != EnemyState.Attack || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack.CurrentAttack == null)))
+                                        entity.spritesheets.ChangeSide(EntityFollowed.transform.Position.X < entity.transform.Position.X ? Side.Left : Side.Right);
+
                             }
                             else if (EnemyComponent.State == EnemyState.Idle || EnemyComponent.State == EnemyState.Patrol)
                             {
@@ -154,11 +153,13 @@ namespace NeonStarLibrary
                     {
                         EnemyComponent.State = EnemyState.Idle;
                     }
+
+
+
                     
                 }   
             }
             ShouldDetect = false;
-            if(entity.Name == "EnemyRobotTest") Console.WriteLine(EnemyComponent.State);
             base.PostUpdate(gameTime);
         }
     }
