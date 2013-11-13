@@ -146,7 +146,7 @@ namespace NeonStarLibrary
                 AvatarComponent.thirdPersonController.CanMove = false;
                 AvatarComponent.thirdPersonController.CanTurn = false;
                 AvatarComponent.meleeFight.CanAttack = false;
-                if (isDashing)
+                if (isDashing || (isGuarding && !entity.rigidbody.isGrounded))
                     entity.rigidbody.body.GravityScale = 0;
             }
             else if (isDashing)
@@ -158,8 +158,6 @@ namespace NeonStarLibrary
             {
                 isGuarding = false;
             }
-
-
             base.PreUpdate(gameTime);
         }
 
@@ -276,6 +274,7 @@ namespace NeonStarLibrary
         {
             if (AvatarComponent.meleeFight.CurrentAttack != null)
                 AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
+            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
             entity.spritesheets.ChangeAnimation(_guardAnimation, 1, true, true, false);

@@ -93,6 +93,10 @@ namespace NeonStarLibrary
                 meleeFight.CurrentAttack = null;
                 entity.spritesheets.CurrentPriority = 0;
             }
+            if (elementSystem.CurrentElementEffect != null)
+            {
+                elementSystem.CurrentElementEffect.End();
+            }
             if (_stunLockDuration > 0)
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;

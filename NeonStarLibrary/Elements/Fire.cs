@@ -12,6 +12,7 @@ namespace NeonStarLibrary
         private double _chargeSpeed = 200.0f;
 
         private double _maxCharge = 100.0f;
+        private float _airLockDuration = 3.0f;
 
         private bool _chargeGoingDown = false;
 
@@ -52,6 +53,7 @@ namespace NeonStarLibrary
             {
                 case ElementState.Initialization:
                     _state = ElementState.Charge;
+                    _elementSystem.AvatarComponent.AirLock(_airLockDuration);
                     break;
 
                 case ElementState.Charge:
@@ -78,6 +80,7 @@ namespace NeonStarLibrary
                     }
                     else if(Neon.Input.Released(_input))
                     {
+                        _elementSystem.AvatarComponent.AirLock(0.0f);
                         switch(_elementLevel)
                         {
                             case 1:
