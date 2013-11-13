@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NeonEngine
 {
@@ -45,7 +46,13 @@ namespace NeonEngine
                                 XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                                 Properties.Add(Property);
                             }
-                            else if(pi.Name == "Spritesheets")
+                            else if (pi.Name == "Font")
+                            {
+                                XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp => kvp.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
+                                Properties.Add(Property);
+                                
+                            }
+                            else if (pi.Name == "Spritesheets")
                             {
                                 XElement Property = new XElement(pi.Name);
                                 Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
@@ -61,7 +68,7 @@ namespace NeonEngine
 
                                 Properties.Add(Property);
                             }
-                            else if(pi.PropertyType.Equals(typeof(PathNodeList)))
+                            else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                             {
                                 PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
                                 XElement Property;
@@ -70,12 +77,12 @@ namespace NeonEngine
                                     Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
                                     Properties.Add(Property);
                                 }
-                                
+
                             }
                             else
                             {
                                 XElement Property = null;
-                                if(pi.PropertyType == typeof(Single))
+                                if (pi.PropertyType == typeof(Single))
                                 {
                                     Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
                                 }
@@ -161,6 +168,12 @@ namespace NeonEngine
                             Component comp = (Component)pi.GetValue(c, null);
                             XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                             Properties.Add(Property);
+                        }
+                        else if (pi.Name == "Font")
+                        {
+                            XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp => kvp.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
+                            Properties.Add(Property);
+
                         }
                         else if (pi.Name == "Spritesheets")
                         {
@@ -272,6 +285,8 @@ namespace NeonEngine
                         }   
                         else if (pi.PropertyType.Equals(typeof(Vector2)))
                             pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                        else if (pi.PropertyType.Equals(typeof(SpriteFont)))
+                            pi.SetValue(component, TextManager.FontList[Property.Attribute("Value").Value], null);
                         else if (pi.PropertyType.Equals(typeof(Color)))
                             pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.IsEnum)
@@ -304,19 +319,16 @@ namespace NeonEngine
             {
                 Component comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
 
-                if (Comp.Name == "Rigidbody" || Comp.Name == "Spritesheet" || Comp.Name == "Graphic" || Comp.Name == "Hitbox" || Comp.Name == "Mover")
+                foreach (XElement Property in Comp.Element("Properties").Elements())
                 {
-                    foreach (XElement Property in Comp.Element("Properties").Elements())
-                    {
-                        PropertyInfo pi = comp.GetType().GetProperty(Property.Name.ToString());
+                    PropertyInfo pi = comp.GetType().GetProperty(Property.Name.ToString());
 
-                        if (pi.PropertyType.IsSubclassOf(typeof(Component)))
+                    if (pi.PropertyType.IsSubclassOf(typeof(Component)))
+                    {
+                        if (Property.Attribute("Value").Value != "None")
                         {
-                            if (Property.Attribute("Value").Value != "None")
-                            {
-                                Component Value = entity.Components.First(c => c.ID == int.Parse(Property.Attribute("Value").Value));
-                                pi.SetValue(comp, Value, null);
-                            }
+                            Component Value = entity.Components.First(c => c.ID == int.Parse(Property.Attribute("Value").Value));
+                            pi.SetValue(comp, Value, null);
                         }
                     }
                 }

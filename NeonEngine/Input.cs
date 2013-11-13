@@ -132,6 +132,9 @@ namespace NeonEngine
 
         public void Update(Camera2D camera)
         {
+            /*if(keysPressed != null)
+                foreach(Keys k in keysPressed)
+                    Console.WriteLine(k);*/
             ks = Keyboard.GetState();
             ms = Mouse.GetState();
             gps = GamePad.GetState(PlayerIndex.One);

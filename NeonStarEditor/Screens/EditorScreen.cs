@@ -448,19 +448,77 @@ namespace NeonStarEditor
                  for (int i = 0; i < Neon.Input.KeysPressed.Length; i++)
                      if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Split('d')[0] == "NumPa")
                      {
-                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
+                         int SelectionStart = FocusedTextBox.SelectionStart;
+
+                         if(FocusedTextBox.SelectedText.Length > 0)
+                         {
+                             string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
+                             FocusedTextBox.Text = "";
+                             foreach (string s in text)
+                             {
+                                 FocusedTextBox.Text += s;
+                             }
+                         }
+                              
+                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
                               Neon.Input.KeysPressed[i].ToString().Split('d')[1]);
                          FocusedTextBox.SelectionStart = ++LastSelectionStart;
                      }
                      else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
-                     {                   
-                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(FocusedTextBox.SelectionStart,
+                     {
+
+                         int SelectionStart = FocusedTextBox.SelectionStart;
+                         if (FocusedTextBox.SelectedText.Length > 0)
+                         {
+                             string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
+                             FocusedTextBox.Text = "";
+                             foreach (string s in text)
+                             {
+                                 FocusedTextBox.Text += s;
+                             }
+                         }
+                         FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
                              Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
                          FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                         
                      }
                      else
                      {
-                         if (Neon.Input.KeysPressed[i] == Keys.Enter)
+                         if (Neon.Input.KeysPressed[i] == Keys.OemQuestion && PressedDelay <= 0.0f)
+                         {
+                             PressedDelay = 0.2f;
+                             int SelectionStart = FocusedTextBox.SelectionStart;
+                             if (FocusedTextBox.SelectedText.Length > 0)
+                             {
+                                 string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
+                                 FocusedTextBox.Text = "";
+                                 foreach (string s in text)
+                                 {
+                                     FocusedTextBox.Text += s;
+                                 }
+                             }
+                             FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
+                                 ":");
+                             FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                         }
+                         else if (Neon.Input.KeysPressed[i] == Keys.D4 && PressedDelay <= 0.0f)
+                         {
+                             PressedDelay = 0.2f;
+                             int SelectionStart = FocusedTextBox.SelectionStart;
+                             if (FocusedTextBox.SelectedText.Length > 0)
+                             {
+                                 string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
+                                 FocusedTextBox.Text = "";
+                                 foreach (string s in text)
+                                 {
+                                     FocusedTextBox.Text += s;
+                                 }
+                             }
+                             FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
+                                 "'");
+                             FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                         }
+                         else if (Neon.Input.KeysPressed[i] == Keys.Enter)
                          {
                              FocusedTextBox.Parent.Focus();
                              FocusedTextBox = null;
@@ -469,7 +527,7 @@ namespace NeonStarEditor
                          {
                              if (FocusedTextBox.SelectionStart < FocusedTextBox.Text.Length)
                              {
-                                 PressedDelay = 0.5f;
+                                 PressedDelay = 0.1f;
                                  if (FocusedTextBox.SelectionLength > 0)
                                  {
                                      FocusedTextBox.Text = FocusedTextBox.Text.Remove(FocusedTextBox.SelectionStart, FocusedTextBox.SelectionLength);
@@ -480,7 +538,7 @@ namespace NeonStarEditor
                                      FocusedTextBox.Text = FocusedTextBox.Text.Remove(FocusedTextBox.SelectionStart, 1);
                                      FocusedTextBox.SelectionStart = LastSelectionStart;
                                  }
-                             }                                             
+                             }
                          }
                      }
             }

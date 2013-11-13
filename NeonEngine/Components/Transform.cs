@@ -12,6 +12,14 @@ namespace NeonEngine.Private
     {
         public event PositionChange PositionChanged;
 
+        private bool _autoChangeInitialPosition = true;
+
+        public bool AutoChangeInitialPosition
+        {
+            get { return _autoChangeInitialPosition; }
+            set { _autoChangeInitialPosition = value; }
+        }
+
         Vector2 position;
         public Vector2 Position
         {
@@ -19,6 +27,8 @@ namespace NeonEngine.Private
             set 
             { 
                 position = value;
+                if (_autoChangeInitialPosition)
+                    _initialPosition = position;
                 if (PositionChanged != null)
                     PositionChanged();
             }
@@ -27,7 +37,10 @@ namespace NeonEngine.Private
         Vector2 _initialPosition;
         public Vector2 InitialPosition
         {
-            get { return _initialPosition; }
+            get 
+            {
+                return _initialPosition; 
+            }
             set
             {
                 _initialPosition = value;

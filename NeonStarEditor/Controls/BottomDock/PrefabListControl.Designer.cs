@@ -33,6 +33,7 @@
             this.PrefabList = new System.Windows.Forms.Label();
             this.AddPrefabButton = new System.Windows.Forms.Button();
             this.SavePrefabDialog = new System.Windows.Forms.SaveFileDialog();
+            this.SaveAsPrefabButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PrefabListBox
@@ -74,11 +75,25 @@
             this.SavePrefabDialog.DefaultExt = "prefab";
             this.SavePrefabDialog.Filter = "Prefab|*.prefab";
             // 
+            // SaveAsPrefabButton
+            // 
+            this.SaveAsPrefabButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveAsPrefabButton.BackgroundImage")));
+            this.SaveAsPrefabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveAsPrefabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveAsPrefabButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.SaveAsPrefabButton.Location = new System.Drawing.Point(463, 79);
+            this.SaveAsPrefabButton.Name = "SaveAsPrefabButton";
+            this.SaveAsPrefabButton.Size = new System.Drawing.Size(30, 30);
+            this.SaveAsPrefabButton.TabIndex = 4;
+            this.SaveAsPrefabButton.UseVisualStyleBackColor = true;
+            this.SaveAsPrefabButton.Click += new System.EventHandler(this.SaveAsPrefabButton_Click);
+            // 
             // PrefabListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.SaveAsPrefabButton);
             this.Controls.Add(this.AddPrefabButton);
             this.Controls.Add(this.PrefabList);
             this.Controls.Add(this.PrefabListBox);
@@ -97,5 +112,6 @@
         private System.Windows.Forms.Label PrefabList;
         private System.Windows.Forms.Button AddPrefabButton;
         private System.Windows.Forms.SaveFileDialog SavePrefabDialog;
+        private System.Windows.Forms.Button SaveAsPrefabButton;
     }
 }

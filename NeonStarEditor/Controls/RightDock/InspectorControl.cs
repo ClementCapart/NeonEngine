@@ -106,6 +106,7 @@ namespace NeonStarEditor
 
             foreach (Component c in SelectedEntity.Components)
             {
+                
                 GroupBox gb = new GroupBox();
                 gb.Text = c.Name;
                 gb.Width = Inspector.Width - 20;
@@ -188,6 +189,26 @@ namespace NeonStarEditor
                         gb.Controls.Add(comboBox);
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
                         comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
+                        if (comboBox.SelectedIndex == -1)
+                            comboBox.SelectedIndex = 0;
+
+                        localY += comboBox.Height + 5;
+                    }
+                    else if (pi.Name == "Font")
+                    {
+                        ComboBox comboBox = new ComboBox();
+                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                        comboBox.Location = new Point(10, localY);
+                        comboBox.BindingContext = new BindingContext();
+                        BindingSource bs = new BindingSource();
+                        bs.DataSource = TextManager.FontList.Keys;
+
+                        comboBox.DataSource = bs;
+                        comboBox.SelectedItem = pi.GetValue(c, null) != null ? TextManager.FontList.Where(kvp => kvp.Value == pi.GetValue(c, null)).First().Key : null;
+
+                        gb.Controls.Add(comboBox);
+                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
+                        comboBox.SelectedValueChanged += SpriteFont_SelectedValueChanged;
                         if (comboBox.SelectedIndex == -1)
                             comboBox.SelectedIndex = 0;
 
@@ -299,7 +320,7 @@ namespace NeonStarEditor
 
                         localY += ssinspector.Height + 5;
                     }
-                    else if(pi.PropertyType.Equals(typeof(PathNodeList)))
+                    else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                     {
                         ComboBox cb = new ComboBox();
                         cb.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -309,7 +330,7 @@ namespace NeonStarEditor
                         cb.DisplayMember = "Name";
                         gb.Controls.Add(cb);
                         cb.SelectedIndex = GameWorld.NodeLists.IndexOf((PathNodeList)pi.GetValue(c, null));
-                        
+
 
                         PropertyControlList.Add(new PropertyComponentControl(pi, c, cb));
 
@@ -337,6 +358,21 @@ namespace NeonStarEditor
 
                 Inspector.Controls.Add(gb);
             }
+        }
+
+        private void SpriteFont_SelectedValueChanged(object sender, EventArgs e)
+        {
+            PropertyComponentControl pcc;
+            try
+            {
+                pcc = PropertyControlList.First(first => first.ctrl == (Control)sender);
+            }
+            catch (InvalidOperationException exc)
+            {
+                Console.WriteLine(exc.ToString());
+                return;
+            }
+            pcc.pi.SetValue(pcc.c, TextManager.FontList[(string)((sender as ComboBox).SelectedValue)], null);
         }
 
         void cb_SelectedValueChanged(object sender, EventArgs e)

@@ -145,7 +145,6 @@ namespace NeonStarLibrary
         private string NextAttack = "";
 
 
-        private ThirdPersonController _thirdPersonController;
         public ThirdPersonController ThirdPersonController
         {
             get { return _thirdPersonController; }
@@ -165,6 +164,7 @@ namespace NeonStarLibrary
 
         private Avatar _avatar;
         public bool CanAttack = true;
+        private ThirdPersonController _thirdPersonController;
 
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")

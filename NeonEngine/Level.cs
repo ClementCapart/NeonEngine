@@ -6,6 +6,7 @@ using System;
 using System.Reflection;
 using System.Globalization;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NeonEngine
 {
@@ -125,11 +126,13 @@ namespace NeonEngine
                             else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                             {
                                 List<PathNodeList> pnl = containerWorld.NodeLists.Where(nl => nl.Name == Property.Attribute("Value").Value).ToList<PathNodeList>();
-                                if(pnl.Count > 0)
+                                if (pnl.Count > 0)
                                     pi.SetValue(component, pnl.First(), null);
-                            }                              
+                            }
                             else if (pi.PropertyType.Equals(typeof(Vector2)))
                                 pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                            else if (pi.PropertyType.Equals(typeof(SpriteFont)))
+                                pi.SetValue(component, TextManager.FontList[Property.Attribute("Value").Value], null);
                             else if (pi.PropertyType.Equals(typeof(Color)))
                                 pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.IsEnum)

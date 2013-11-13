@@ -197,8 +197,6 @@ namespace NeonEngine
 
             foreach (DrawableComponent dc in DrawableComponents)
                 dc.Draw(spriteBatch);
-
-            
             
             spriteBatch.End();
             foreach (Water w in waterzones)

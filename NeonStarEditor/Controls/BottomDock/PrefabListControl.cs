@@ -48,5 +48,19 @@ namespace NeonStarEditor
             DataManager.LoadPrefab(path, GameWorld);
             ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
         }
+
+        private void SaveAsPrefabButton_Click(object sender, EventArgs e)
+        {
+            if (GameWorld.SelectedEntity != null)
+            {
+                SavePrefabDialog.InitialDirectory = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"../Data/Prefabs");
+                SavePrefabDialog.FileName = GameWorld.SelectedEntity.Name;
+                if (SavePrefabDialog.ShowDialog() == DialogResult.OK)
+                {
+                    DataManager.SavePrefab(GameWorld.SelectedEntity, SavePrefabDialog.FileName);
+                    GameWorld.BottomDockControl.prefabListControl.RefreshList();
+                }
+            }
+        }
     }
 }

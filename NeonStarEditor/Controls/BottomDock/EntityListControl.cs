@@ -77,5 +77,16 @@ namespace NeonStarEditor
             else
                 GameWorld.RefreshInspector(null);
         }
+
+        private void duplicateButton_Click(object sender, EventArgs e)
+        {
+            if (GameWorld.SelectedEntity != null)
+            {
+                DataManager.LoadPrefab(DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld);
+                Entity entity = GameWorld.entities.Last();
+                entity.transform.Position += new Microsoft.Xna.Framework.Vector2(100, -100);
+                entity.transform.InitialPosition = entity.transform.Position;
+            }
+        }
     }
 }
