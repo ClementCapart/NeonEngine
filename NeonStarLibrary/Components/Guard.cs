@@ -274,6 +274,7 @@ namespace NeonStarLibrary
         {
             if (AvatarComponent.meleeFight.CurrentAttack != null)
                 AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
+            entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             AvatarComponent.meleeFight.CurrentAttack = null;
             AvatarComponent.meleeFight.ResetComboHit();
