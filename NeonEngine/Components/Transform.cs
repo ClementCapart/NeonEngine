@@ -51,7 +51,7 @@ namespace NeonEngine.Private
         public float Rotation
         {
             get { return (float)(rotation * (180f / Math.PI)); }
-            set { rotation = (float)(value / (180f / Math.PI)); }
+            set { rotation = (float)(value / (180f / Math.PI)) % 360; }
         }
 
         float scale = 1f;

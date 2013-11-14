@@ -29,6 +29,14 @@ namespace NeonStarLibrary
             set { _threatRange = value; }
         }
 
+        private float _threatAngle = 360.0f;
+
+        public float ThreatAngle
+        {
+            get { return _threatAngle; }
+            set { _threatAngle = value; }
+        }
+
         private float _attackRange = 150f;
 
         public float AttackRange
@@ -85,7 +93,6 @@ namespace NeonStarLibrary
                     ShouldDetect = true;
                 }
             }
-
             base.PreUpdate(gameTime);
         }
 
@@ -103,10 +110,23 @@ namespace NeonStarLibrary
             if (EnemyComponent.State != EnemyState.StunLock)
             {
                 if (EntityFollowed != null)
-                {
+                {       
                     if ((ShouldDetect || !_mustBeOnSamePlatform) && EnemyComponent.State != EnemyState.MustFinishChase)
                     {
-                        if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange)
+                        float angle = MathHelper.ToDegrees(Neon.utils.AngleBetween(EntityFollowed.transform.Position, entity.transform.Position));
+                        float lowerLimit = entity.transform.Rotation;
+                        if (lowerLimit < 0) lowerLimit = 360 + lowerLimit;
+                        float upperLimit = entity.transform.Rotation + _threatAngle;
+                        if (upperLimit < 0) upperLimit = 360 + upperLimit;
+
+                        if (lowerLimit > upperLimit)
+                        {
+                            float limit = upperLimit;
+                            upperLimit = lowerLimit;
+                            lowerLimit = upperLimit;
+                        }
+
+                        if (Vector2.DistanceSquared(EntityFollowed.transform.Position, entity.transform.Position) < AttackRange * AttackRange && (angle > lowerLimit && angle < upperLimit))
                         {
                             if (_waitThreatDelay <= 0.0f || (EnemyComponent.State != EnemyState.Idle && EnemyComponent.State != EnemyState.Patrol && EnemyComponent.State != EnemyState.WaitThreat) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                             {
