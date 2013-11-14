@@ -455,12 +455,7 @@ namespace NeonStarEditor
 
                          if(FocusedTextBox.SelectedText.Length > 0)
                          {
-                             string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
-                             FocusedTextBox.Text = "";
-                             foreach (string s in text)
-                             {
-                                 FocusedTextBox.Text += s;
-                             }
+                             FocusedTextBox.Text = FocusedTextBox.Text.Replace(FocusedTextBox.SelectedText, "");
                          }
                               
                          FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
@@ -473,12 +468,7 @@ namespace NeonStarEditor
                          int SelectionStart = FocusedTextBox.SelectionStart;
                          if (FocusedTextBox.SelectedText.Length > 0)
                          {
-                             string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
-                             FocusedTextBox.Text = "";
-                             foreach (string s in text)
-                             {
-                                 FocusedTextBox.Text += s;
-                             }
+                             FocusedTextBox.Text = FocusedTextBox.Text.Replace(FocusedTextBox.SelectedText, "");
                          }
                          FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
                              Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift) ? Neon.Input.KeysPressed[i].ToString().ToUpper() : Neon.Input.KeysPressed[i].ToString().ToLower());
