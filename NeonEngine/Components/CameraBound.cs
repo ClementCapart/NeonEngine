@@ -15,6 +15,30 @@ namespace NeonEngine
             set { _boundSide = value; }
         }
 
+        private float _boundStrength = 1.0f;
+
+        public float BoundStrength
+        {
+            get { return _boundStrength; }
+            set { _boundStrength = value; }
+        }
+
+        private float _softBoundStrength = 1.0f;
+
+        public float SoftBoundStrength
+        {
+            get { return _softBoundStrength; }
+            set { _softBoundStrength = value; }
+        }
+
+        private float _strengtheningRate = 0.5f;
+
+        public float StrengtheningRate
+        {
+            get { return _strengtheningRate; }
+            set { _strengtheningRate = value; }
+        }
+
         private bool _enabled = true;
 
         public bool Enabled
@@ -53,6 +77,12 @@ namespace NeonEngine
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (_boundStrength < 1.0f)
+                _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+            if (_boundStrength > 1.0f)
+                _boundStrength = 1.0f;
+
             base.Update(gameTime);
         }
     }

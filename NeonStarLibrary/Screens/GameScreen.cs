@@ -39,13 +39,18 @@ namespace NeonStarLibrary
             camera.Bounded = true;
         }
 
+        public override void PreUpdate(GameTime gameTime)
+        {
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (!Pause)
             {
+
                 if (MustFollowAvatar)
                     camera.Chase(entityToChase.transform.Position, gameTime);
-
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
                     Attack attack = FreeAttacks[i];

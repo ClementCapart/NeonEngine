@@ -17,7 +17,23 @@ namespace NeonStarLibrary
             get { return _permanentBoundsPrefix; }
             set { _permanentBoundsPrefix = value; }
         }
-        
+
+        private string _firstBoundsPrefix = "NoPrefix";
+
+        public string FirstBoundsPrefix
+        {
+            get { return _firstBoundsPrefix; }
+            set { _firstBoundsPrefix = value; }
+        }
+
+        private string _secondBoundsPrefix = "NoPrefix";
+
+        public string SecondBoundsPrefix
+        {
+            get { return _secondBoundsPrefix; }
+            set { _secondBoundsPrefix = value; }
+        }
+
         private string _firstTriggerName = "";
 
         public string FirstTriggerName
@@ -32,14 +48,6 @@ namespace NeonStarLibrary
         {
             get { return _firstTriggerZoom; }
             set { _firstTriggerZoom = value; }
-        }
-
-        private string _firstBoundsPrefix = "NoPrefix";
-
-        public string FirstBoundsPrefix
-        {
-            get { return _firstBoundsPrefix; }
-            set { _firstBoundsPrefix = value; }
         }
 
         private string _secondTriggerName = "";
@@ -58,14 +66,6 @@ namespace NeonStarLibrary
             set { _secondTriggerZoom = value; }
         }
 
-        private string _secondBoundsPrefix = "NoPrefix";
-
-        public string SecondBoundsPrefix
-        {
-            get { return _secondBoundsPrefix; }
-            set { _secondBoundsPrefix = value; }
-        }
-
         private string _thirdTriggerName = "";
 
         public string ThirdTriggerName
@@ -82,14 +82,6 @@ namespace NeonStarLibrary
             set { _thirdTriggerZoom = value; }
         }
 
-        private string _thirdBoundsPrefix = "NoPrefix";
-
-        public string ThirdBoundsPrefix
-        {
-            get { return _thirdBoundsPrefix; }
-            set { _thirdBoundsPrefix = value; }
-        }
-
         private string _fourthTriggerName = "";
 
         public string FourthTriggerName
@@ -104,14 +96,6 @@ namespace NeonStarLibrary
         {
             get { return _fourthTriggerZoom; }
             set { _fourthTriggerZoom = value; }
-        }
-
-        private string _fourthBoundsPrefix = "NoPrefix";
-
-        public string FourthBoundsPrefix
-        {
-            get { return _fourthBoundsPrefix; }
-            set { _fourthBoundsPrefix = value; }
         }
 
         private float _targetZoom = 1.0f;
@@ -132,11 +116,15 @@ namespace NeonStarLibrary
             {
                 if (e.Name.StartsWith(_firstBoundsPrefix))
                 {
-                    _firstBoundsToActivate.Add(e.GetComponent<CameraBound>());
+                    CameraBound cb = e.GetComponent<CameraBound>();
+                    if(cb != null)
+                        _firstBoundsToActivate.Add(cb);
                 }
                 else if (e.Name.StartsWith(_secondBoundsPrefix))
                 {
-                    _secondBoundsToActivate.Add(e.GetComponent<CameraBound>());
+                    CameraBound cb = e.GetComponent<CameraBound>();
+                    if (cb != null)
+                        _secondBoundsToActivate.Add(cb);
                 }
             }
             base.Init();
@@ -146,6 +134,7 @@ namespace NeonStarLibrary
         {
             if((entity.containerWorld as GameScreen).MustFollowAvatar)
                 SmoothZoom();
+
             base.Update(gameTime);
         }
 
@@ -166,11 +155,16 @@ namespace NeonStarLibrary
                 _targetZoom = _secondTriggerZoom;
 
                 foreach (CameraBound cb in _firstBoundsToActivate)
+                {
                     cb.Enabled = true;
+                    cb.BoundStrength = cb.SoftBoundStrength;
+                }
             }
             else if (trigger.Name == _thirdTriggerName)
             {
                 _targetZoom = _thirdTriggerZoom;
+
+                Neon.world.camera.ChaseStrength = 0.0f;
 
                 for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
@@ -184,7 +178,10 @@ namespace NeonStarLibrary
                 _targetZoom = _fourthTriggerZoom;
 
                 foreach (CameraBound cb in _secondBoundsToActivate)
+                {
                     cb.Enabled = true;
+                    cb.BoundStrength = cb.SoftBoundStrength;
+                }
             }
             base.OnTrigger(trigger, triggeringEntity);
         }
@@ -193,7 +190,7 @@ namespace NeonStarLibrary
         {
             if (_targetZoom != Neon.world.camera.Zoom)
             {
-                Neon.world.camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.world.camera.Zoom, 0.95f);
+                Neon.world.camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.world.camera.Zoom, 0.98f);
             }
         }
     }

@@ -27,7 +27,6 @@ namespace NeonStarEditor
         public LeftDock LeftDockControl;
 
         public AttacksSettingsManager AttacksSettingsManager;
-        public CameraPanel CameraSettings;
         public PathNodesPanel PathNodePanel;
 
         public Tool CurrentTool;
@@ -55,7 +54,6 @@ namespace NeonStarEditor
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
         private bool _isAttackManagerDisplayed = false;
-        private bool _isCameraSettingsDisplayed = false;
         private bool _isPathNodeManagerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
@@ -106,22 +104,6 @@ namespace NeonStarEditor
                 AttacksSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(AttacksSettingsManager);
                 _isAttackManagerDisplayed = true;
-            }
-        }
-
-        public void ToggleCameraManager()
-        {
-            if (_isCameraSettingsDisplayed)
-            {
-                GameAsForm.Controls.Remove(CameraSettings);
-                CameraSettings = null;
-                _isCameraSettingsDisplayed = false;
-            }
-            else
-            {
-                CameraSettings = new CameraPanel();
-                GameAsForm.Controls.Add(CameraSettings);
-                _isCameraSettingsDisplayed = true;
             }
         }
 
@@ -733,8 +715,6 @@ namespace NeonStarEditor
             RightDockControl.Dispose();
             if (AttacksSettingsManager != null)
                 AttacksSettingsManager.Dispose();
-            if (CameraSettings != null)
-                CameraSettings.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
             ChangeScreen(new EditorScreen(game, graphics));

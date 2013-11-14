@@ -183,6 +183,15 @@ namespace NeonEngine
 
                 containerWorld.AddEntity(entity);
             }
+
+            foreach (Entity e in containerWorld.entities)
+            {
+                foreach(Component c in e.Components)
+                {
+                    c.Init();
+                }
+            }
+
         }
     }
 }

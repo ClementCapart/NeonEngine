@@ -248,6 +248,8 @@ namespace NeonStarLibrary
                 {
                     if (isGuarding)
                         _guardCooldownTimer = _guardCooldown;
+                    else if (isDashing)
+                        _rollCooldownTimer = _dashCooldown;
                     else
                         _rollCooldownTimer = _rollCooldown;
                 }

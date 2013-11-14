@@ -158,7 +158,6 @@ namespace NeonStarLibrary
                         }
                         else if (EnemyComponent.State == EnemyState.Chase || (EnemyComponent.State == EnemyState.Attack && EnemyComponent._attack != null && EnemyComponent._attack.CurrentAttack != null) || (EnemyComponent.State == EnemyState.WaitThreat && _waitTimer <= 0.0f))
                         {
-                            if (entity.Name == "EnemyFTurretE5") Console.WriteLine("ok");
                             if (EnemyComponent._chase != null)
                                 EnemyComponent.State = EnemyState.MustFinishChase;
                             else

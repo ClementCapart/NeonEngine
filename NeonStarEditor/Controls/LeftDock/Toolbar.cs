@@ -104,11 +104,6 @@ namespace NeonStarEditor.Controls.LeftDock
             GameWorld.ToggleAttackManager();
         }
 
-        private void CameraPanel_Click(object sender, EventArgs e)
-        {
-            GameWorld.ToggleCameraManager();
-        }
-
         private void ToggleBoundsButton_Click(object sender, EventArgs e)
         {
             GameWorld._boundsGizmoToggled = !GameWorld._boundsGizmoToggled;

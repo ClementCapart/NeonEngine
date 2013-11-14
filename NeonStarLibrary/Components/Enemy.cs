@@ -235,7 +235,7 @@ namespace NeonStarLibrary
                         break;
 
                     case EnemyState.Attack:
-                        if(_attack.CurrentAttack != null && _attack.CurrentAttack.CooldownStarted && !_attack.CurrentAttack.CooldownFinished)
+                        if (_attack.CurrentAttack != null && _attack.CurrentAttack.CooldownStarted && !_attack.CurrentAttack.CooldownFinished && entity.spritesheets.CurrentSpritesheetName == _attackAnim)
                             entity.spritesheets.ChangeAnimation(_idleAnim);
                         else if (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())
                             entity.spritesheets.ChangeAnimation(_attackAnim);

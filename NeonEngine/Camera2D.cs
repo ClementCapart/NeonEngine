@@ -15,12 +15,9 @@ namespace NeonEngine
         protected float _rotation; // Camera Rotation
         private bool _bounded = false;
 
-        public float mass = 10f;
-        public float stiffness = 1000f;
-        public float damping = 170f;
-        private Vector2 velocity; 
-
         public List<CameraBound> CameraBounds = new List<CameraBound>();
+
+        public float ChaseStrength = 0.9f;
 
         public bool Bounded
         {
@@ -110,42 +107,18 @@ namespace NeonEngine
                 Position -= (Position - targetObject.transform.Position) / Math.Max((1250 / Vector2.Distance(Position, targetObject.transform.Position)), 1);
         }
 
-        public void SetCameraPhysics(float mass, float damping, float stiffness)
-        {
-            this.mass = mass;
-            this.damping = damping;
-            this.stiffness = stiffness;
-        } 
 
         public void Chase(Vector2 desiredPosition,GameTime gameTime)
         {
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+            if (ChaseStrength < 0.9f)
+                ChaseStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.1f;
+            if (ChaseStrength > 0.9f)
+                ChaseStrength = 0.9f;
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
 
-            Vector2 stretch;
-            Vector2.Subtract(ref NewPosition, ref desiredPosition, out stretch);
-
-            Vector2 multOne;
-            Vector2 multTwo;
-            Vector2.Multiply(ref stretch, -stiffness, out multOne);
-            Vector2.Multiply(ref velocity, damping, out multTwo);
-
-            Vector2 force;
-            Vector2.Subtract(ref multOne, ref multTwo, out force);
-
-            Vector2 acceleration;
-            Vector2.Divide(ref force, mass, out acceleration);
-
-            Vector2 multThree;
-            Vector2.Multiply(ref acceleration, elapsed, out multThree);
-
-            Vector2.Add(ref velocity, ref multThree, out velocity);
-
-            Vector2 finalVel;
-            Vector2.Multiply(ref velocity, elapsed, out finalVel);
-
-            Vector2.Add(ref NewPosition, ref finalVel, out NewPosition);
+            _pos = new Vector2(MathHelper.Lerp(NewPosition.X, desiredPosition.X, ChaseStrength), MathHelper.Lerp(NewPosition.Y, desiredPosition.Y, ChaseStrength));
+            NewPosition = _pos;
+              
 
             if (Bounded && CameraBounds.Count > 0)
             {
@@ -156,31 +129,29 @@ namespace NeonEngine
                         switch (cb.BoundSide)
                         {
                             case Side.Up:
-                                NewPosition.Y = (float)Math.Floor(MathHelper.Clamp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Zoom, float.MaxValue));
+                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Neon.world.camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Right:
-                                NewPosition.X = (float)Math.Floor(MathHelper.Clamp(NewPosition.X, float.MinValue, cb.entity.transform.Position.X - Neon.HalfScreen.X / Zoom));
+                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X - Neon.HalfScreen.X / Neon.world.camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Down:
-                                NewPosition.Y = (float)Math.Floor(MathHelper.Clamp(NewPosition.Y, float.MinValue, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Zoom));
+                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Neon.world.camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Left:
-                                NewPosition.X = (float)Math.Floor(MathHelper.Clamp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Zoom, float.MaxValue));
+                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Neon.world.camera.Zoom, cb.BoundStrength);
                                 break;
                         }
                     }
-                }
-
-                
+                }          
             }
 
             if (Math.Abs(NewPosition.X - _pos.X) >= 1) _pos.X = NewPosition.X;
             if (Math.Abs(NewPosition.Y - _pos.Y) >= 1) _pos.Y = NewPosition.Y;
+            
         }
-
 
         public void Move(int x, int y)
         {

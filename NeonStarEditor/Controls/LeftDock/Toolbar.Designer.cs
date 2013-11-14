@@ -102,7 +102,6 @@
             this.CameraPanel.TabIndex = 4;
             this.CameraPanel.Text = "C";
             this.CameraPanel.UseVisualStyleBackColor = true;
-            this.CameraPanel.Click += new System.EventHandler(this.CameraPanel_Click);
             // 
             // ToggleLightButton
             // 
