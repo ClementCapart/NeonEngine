@@ -669,7 +669,7 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
+                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse))
                             {
                                 Vector2 impulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -679,7 +679,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
+                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse))
                             {
                                 Vector2 pulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;

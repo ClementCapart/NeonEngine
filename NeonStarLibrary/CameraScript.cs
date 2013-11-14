@@ -142,6 +142,7 @@ namespace NeonStarLibrary
         {
             if(trigger.Name == _firstTriggerName)
             {
+                Neon.world.camera.ChaseStrength = 0.0f;
                 _targetZoom = _firstTriggerZoom;
                 for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
                 {

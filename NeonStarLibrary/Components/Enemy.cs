@@ -111,6 +111,22 @@ namespace NeonStarLibrary
             set { _attackAnim = value; }
         }
 
+        private bool _immuneToStunLock = false;
+
+        public bool ImmuneToStunLock
+        {
+            get { return _immuneToStunLock; }
+            set { _immuneToStunLock = value; }
+        }
+
+        private bool _immuneToImpulse = false;
+
+        public bool ImmuneToImpulse
+        {
+            get { return _immuneToImpulse; }
+            set { _immuneToImpulse = value; }
+        }
+
         private EnemyType _type = EnemyType.Ground;
 
         public EnemyType Type
@@ -157,12 +173,15 @@ namespace NeonStarLibrary
 
         public void StunLockEffect(float duration)
         {
-            _stunLockDuration = duration;
-            if (_stunLockDuration > 0)
+            if (!_immuneToStunLock)
             {
-                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                State = EnemyState.StunLock;
-            }         
+                _stunLockDuration = duration;
+                if (_stunLockDuration > 0)
+                {
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    State = EnemyState.StunLock;
+                }
+            }                
         }
 
         public void AirLock(float duration)

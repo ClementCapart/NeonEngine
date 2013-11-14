@@ -184,7 +184,7 @@ namespace NeonEngine
             {
                 if(particle == null)
                     spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + this._parallaxPosition.X +  ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X + (int)Offset.X : -(int)spriteSheetInfo.Offset.X - (int)Offset.X) * entity.transform.Scale), (int)entity.transform.Position.Y + this._parallaxPosition.Y + (((int)spriteSheetInfo.Offset.Y + Offset.Y) * entity.transform.Scale)), frames[currentFrame],
-                        Color.Lerp(Color.Transparent, TintColor, opacity), entity.transform.rotation, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), entity.transform.Scale, spriteEffects, Layer);
+                        Color.Lerp(Color.Transparent, TintColor, opacity), entity.transform.rotation + RotationOffset, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2) + RotationCenter, entity.transform.Scale, spriteEffects, Layer);
                 else
                     spritebatch.Draw(spriteSheetInfo.Texture, particle.Position, frames[currentFrame],
                         TintColor, particle.Angle, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), scale, spriteEffects, Layer);

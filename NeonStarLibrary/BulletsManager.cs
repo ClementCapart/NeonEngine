@@ -146,6 +146,8 @@ namespace NeonStarLibrary
 
             bullet.Speed = bulletInfo.Speed;
             bullet.Direction = newDirection != Vector2.Zero ? newDirection : new Vector2(side == Side.Right ? bulletInfo.Direction.X : -bulletInfo.Direction.X, bulletInfo.Direction.Y);
+            if(newDirection != Vector2.Zero)
+                bullet.entity.transform.Rotation = MathHelper.ToDegrees(-Neon.utils.AngleBetween(newDirection, Vector2.Zero));
             bullet.DamageOnHit = bulletInfo.DamageOnHit;
             bullet.LivingSpriteSheetInfo = bulletInfo.LivingSpriteSheet;
             bullet.OnHitSpriteSheetInfo = bulletInfo.OnHitSpriteSheet;

@@ -51,6 +51,22 @@ namespace NeonEngine
             set { _offset = value; }
         }
 
+        private float _rotationOffset = 0.0f;
+
+        public virtual float RotationOffset
+        {
+            get { return _rotationOffset; }
+            set { _rotationOffset = value; }
+        }
+
+        private Vector2 _rotationCenter = new Vector2();
+
+        public virtual Vector2 RotationCenter
+        {
+            get { return _rotationCenter; }
+            set { _rotationCenter = value; }
+        }
+
         public Color InitialTintcolor = Color.White;
         private Color _tintColor = Color.White;
         public virtual Color TintColor

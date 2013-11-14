@@ -51,6 +51,30 @@ namespace NeonEngine
             }
         }
 
+        public override Vector2 RotationCenter
+        {
+            get
+            {
+                return CurrentSpritesheet.RotationCenter;
+            }
+            set
+            {
+                CurrentSpritesheet.RotationCenter = value;
+            }
+        }
+
+        public override float RotationOffset
+        {
+            get
+            {
+                return CurrentSpritesheet.RotationOffset;
+            }
+            set
+            {
+                CurrentSpritesheet.RotationOffset = value;
+            }
+        }
+
         public Dictionary<string, SpriteSheetInfo> Spritesheets
         {
             get { return SpritesheetList; }

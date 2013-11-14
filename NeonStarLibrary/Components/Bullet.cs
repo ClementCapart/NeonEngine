@@ -91,6 +91,7 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+
             if (_lifeTime > 0f)
             {
                 foreach (Hitbox hb in entity.containerWorld.Hitboxes)
