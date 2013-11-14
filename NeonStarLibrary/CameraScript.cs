@@ -144,7 +144,8 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            SmoothZoom();
+            if((entity.containerWorld as GameScreen).MustFollowAvatar)
+                SmoothZoom();
             base.Update(gameTime);
         }
 
