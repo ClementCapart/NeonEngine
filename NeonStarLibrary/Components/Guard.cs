@@ -289,7 +289,7 @@ namespace NeonStarLibrary
         {
             if (AvatarComponent.meleeFight.CurrentAttack != null)
                 AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
-
+            AvatarComponent.AirLock(0.0f);
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
