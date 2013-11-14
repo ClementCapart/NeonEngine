@@ -43,7 +43,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Spritesheets>
@@ -2416,7 +2416,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5103,582 Y:196}" />
+              <Position Value="{X:5312,953 Y:196}" />
               <InitialPosition Value="{X:5200 Y:196}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2425,8 +2425,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5103 Y:195}" />
-              <X Value="5046" />
+              <Center Value="{X:5312 Y:195}" />
+              <X Value="5255" />
               <Y Value="108" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2452,7 +2452,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Spritesheets />
@@ -2621,7 +2621,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3496,808 Y:-63,99998}" />
+              <Position Value="{X:3609,838 Y:-63,99998}" />
               <InitialPosition Value="{X:3250 Y:-63,99998}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2630,8 +2630,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3496 Y:-63}" />
-              <X Value="3439" />
+              <Center Value="{X:3609 Y:-63}" />
+              <X Value="3552" />
               <Y Value="-150" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2757,7 +2757,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3268,607 Y:-334}" />
+              <Position Value="{X:3266,766 Y:-334}" />
               <InitialPosition Value="{X:3500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2766,9 +2766,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3268 Y:-334}" />
-              <X Value="3211" />
-              <Y Value="-421" />
+              <Center Value="{X:3266 Y:-333}" />
+              <X Value="3209" />
+              <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2860,7 +2860,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:1992,353 Y:-334}" />
+              <Position Value="{X:2061,412 Y:-334}" />
               <InitialPosition Value="{X:2500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2869,9 +2869,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1992 Y:-334}" />
-              <X Value="1935" />
-              <Y Value="-421" />
+              <Center Value="{X:2061 Y:-333}" />
+              <X Value="2004" />
+              <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2896,7 +2896,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Spritesheets />
@@ -2983,12 +2983,12 @@
           </Hitbox>
           <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
             <Properties>
-              <BodyType Value="Dynamic" />
+              <BodyType Value="Static" />
               <GravityScale Value="2" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="10" />
-              <Mass Value="400" />
+              <Mass Value="1.4" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
               <IsGround Value="False" />
@@ -3178,6 +3178,7 @@
               <Spritesheets>
                 <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
                 <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
+                <Animation Name="Idle" SpritesheetTag="EnemyRobotIdle" />
               </Spritesheets>
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -3191,8 +3192,8 @@
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="50" />
               <RunAnim Value="Run" />
-              <IdleAnim Value="" />
-              <StartAttackAnim Value="" />
+              <IdleAnim Value="Idle" />
+              <StartAttackAnim Value="Attack" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
             </Properties>
@@ -3226,44 +3227,6 @@
               <AttackToLaunchFive Value="" />
             </Properties>
           </EnemyAttack>
-        </Components>
-      </Entity>
-      <Entity Name="BoundTrainingRoomUp">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:0 Y:-410}" />
-              <InitialPosition Value="{X:0 Y:-410}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
-            <Properties>
-              <BoundSide Value="Up" />
-              <Enabled Value="True" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundTrainingRoomDown">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:0 Y:310}" />
-              <InitialPosition Value="{X:0 Y:310}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
-            <Properties>
-              <BoundSide Value="Down" />
-              <Enabled Value="True" />
-            </Properties>
-          </CameraBound>
         </Components>
       </Entity>
       <Entity Name="BoundTrainingRoomLeft">
@@ -3304,32 +3267,13 @@
           </CameraBound>
         </Components>
       </Entity>
-      <Entity Name="BoundSecondRoomUp">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4000 Y:-1183}" />
-              <InitialPosition Value="{X:4000 Y:-1183}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
-            <Properties>
-              <BoundSide Value="Up" />
-              <Enabled Value="False" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
       <Entity Name="BoundSecondRoomDown">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4000 Y:50}" />
-              <InitialPosition Value="{X:4000 Y:50}" />
+              <Position Value="{X:4000 Y:60}" />
+              <InitialPosition Value="{X:4000 Y:60}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -3347,8 +3291,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3075 Y:-500}" />
-              <InitialPosition Value="{X:3075 Y:-500}" />
+              <Position Value="{X:3060 Y:-500}" />
+              <InitialPosition Value="{X:3060 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -3366,8 +3310,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4850 Y:-500}" />
-              <InitialPosition Value="{X:4850 Y:-500}" />
+              <Position Value="{X:4860 Y:-500}" />
+              <InitialPosition Value="{X:4860 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -3385,8 +3329,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5900 Y:-816}" />
-              <InitialPosition Value="{X:5900 Y:-816}" />
+              <Position Value="{X:5900 Y:-900}" />
+              <InitialPosition Value="{X:5900 Y:-900}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -3394,25 +3338,6 @@
           <CameraBound Type="NeonEngine.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Up" />
-              <Enabled Value="False" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundThirdRoomDown">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5900 Y:320}" />
-              <InitialPosition Value="{X:5900 Y:320}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
-            <Properties>
-              <BoundSide Value="Down" />
               <Enabled Value="False" />
             </Properties>
           </CameraBound>
@@ -3616,6 +3541,202 @@
               <TriggeredComponentName Value="CameraScript" />
             </Properties>
           </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown1">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:0 Y:320}" />
+              <InitialPosition Value="{X:0 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown2">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1000 Y:320}" />
+              <InitialPosition Value="{X:1000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown3">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2000 Y:320}" />
+              <InitialPosition Value="{X:2000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown4">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3000 Y:320}" />
+              <InitialPosition Value="{X:3000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown5">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4000 Y:320}" />
+              <InitialPosition Value="{X:4000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown6">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5000 Y:320}" />
+              <InitialPosition Value="{X:5000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown7">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:6000 Y:320}" />
+              <InitialPosition Value="{X:6000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundGeneralDown8">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:7000 Y:320}" />
+              <InitialPosition Value="{X:7000 Y:320}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="TrainingRoomDoor">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:724 Y:175}" />
+              <InitialPosition Value="{X:724 Y:175}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:724 Y:175}" />
+              <X Value="699" />
+              <Y Value="65" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="220" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="2.5" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties />
+          </LinkedToPath>
         </Components>
       </Entity>
     </Entities>
