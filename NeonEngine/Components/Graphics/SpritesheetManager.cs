@@ -162,6 +162,7 @@ namespace NeonEngine
                 return;
             }
 
+            if (entity.Name == "TrainingRoomDoor") Console.WriteLine("penis");
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;

@@ -111,7 +111,6 @@ namespace NeonEngine
             else
                 timePerFrame = 1 / spriteSheetInfo.Fps;
             
-            isPlaying = true;
             frameTimer = 0;
             _isFinished = false;
         }
