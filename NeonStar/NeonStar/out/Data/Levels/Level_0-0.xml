@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-675 Y:215}" />
+              <Position Value="{X:-675 Y:215,5}" />
               <InitialPosition Value="{X:-675 Y:215,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-675 Y:214}" />
+              <Center Value="{X:-675 Y:215}" />
               <X Value="-695" />
-              <Y Value="146" />
+              <Y Value="147" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -891,7 +891,9 @@
             </Properties>
           </Rigidbody>
           <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
-            <Properties />
+            <Properties>
+              <LinkedPathNodeList Value="NodeList2" />
+            </Properties>
           </LinkedToPath>
         </Components>
       </Entity>
@@ -1067,7 +1069,9 @@
             </Properties>
           </Rigidbody>
           <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
-            <Properties />
+            <Properties>
+              <LinkedPathNodeList Value="NodeList3" />
+            </Properties>
           </LinkedToPath>
         </Components>
       </Entity>
@@ -1155,7 +1159,9 @@
             </Properties>
           </Rigidbody>
           <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
-            <Properties />
+            <Properties>
+              <LinkedPathNodeList Value="NodeList4" />
+            </Properties>
           </LinkedToPath>
         </Components>
       </Entity>
@@ -2393,8 +2399,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5292 Y:196}" />
-              <InitialPosition Value="{X:5292 Y:196}" />
+              <Position Value="{X:5390,514 Y:196}" />
+              <InitialPosition Value="{X:5390,514 Y:196}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2402,8 +2408,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5292 Y:195}" />
-              <X Value="5235" />
+              <Center Value="{X:5390 Y:195}" />
+              <X Value="5333" />
               <Y Value="108" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2480,6 +2486,7 @@
           </EnemyAttack>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="NodeList4" />
               <Speed Value="1.5" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -2593,8 +2600,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3938 Y:-63,99998}" />
-              <InitialPosition Value="{X:3938 Y:-63,99998}" />
+              <Position Value="{X:3727,829 Y:-63,99998}" />
+              <InitialPosition Value="{X:3727,829 Y:-63,99998}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2602,8 +2609,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3937 Y:-63}" />
-              <X Value="3880" />
+              <Center Value="{X:3727 Y:-63}" />
+              <X Value="3670" />
               <Y Value="-150" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2680,6 +2687,7 @@
           </EnemyAttack>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="NodeList3" />
               <Speed Value="1.5" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -2726,8 +2734,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3544 Y:-334}" />
-              <InitialPosition Value="{X:3544 Y:-334}" />
+              <Position Value="{X:3574,305 Y:-334}" />
+              <InitialPosition Value="{X:3574,305 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2735,8 +2743,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3543 Y:-333}" />
-              <X Value="3486" />
+              <Center Value="{X:3574 Y:-333}" />
+              <X Value="3517" />
               <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2813,6 +2821,7 @@
           </EnemyAttack>
           <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="NodeList2" />
               <Speed Value="1.5" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -2826,8 +2835,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2625,112 Y:-334}" />
-              <InitialPosition Value="{X:2625,112 Y:-334}" />
+              <Position Value="{X:2529,848 Y:-334}" />
+              <InitialPosition Value="{X:2529,848 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2835,8 +2844,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2625 Y:-333}" />
-              <X Value="2568" />
+              <Center Value="{X:2529 Y:-333}" />
+              <X Value="2472" />
               <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3000,8 +3009,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4456 Y:-622}" />
-              <InitialPosition Value="{X:4456 Y:-622}" />
+              <Position Value="{X:4682 Y:-621,4999}" />
+              <InitialPosition Value="{X:4682 Y:-621,4999}" />
               <Rotation Value="0" />
               <Scale Value="3" />
             </Properties>
@@ -3009,9 +3018,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4456 Y:-622}" />
-              <X Value="4381" />
-              <Y Value="-732" />
+              <Center Value="{X:4682 Y:-621}" />
+              <X Value="4607" />
+              <Y Value="-731" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="150" />
@@ -3090,14 +3099,6 @@
               <AttackToLaunchFive Value="" />
             </Properties>
           </EnemyAttack>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
-            <Properties>
-              <Speed Value="1.5" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="True" />
-              <PathPrecisionTreshold Value="50" />
-            </Properties>
-          </FollowPlatformNodes>
         </Components>
       </Entity>
       <Entity Name="EnemyRobotA1">
@@ -3203,8 +3204,20 @@
     </Entities>
     <PathNodeLists>
       <PathNodeList Name="NodeList1" Type="Ground">
-        <Node Type="Move" Index="0" Position="{X:1945,915 Y:-296,3808}" />
-        <Node Type="Move" Index="1" Position="{X:2968,251 Y:-296,3808}" />
+        <Node Type="DelayedMove" Index="0" Position="{X:1945,915 Y:-295,1308}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:2642,001 Y:-295,1308}" Delay="1" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList2" Type="Ground">
+        <Node Type="DelayedMove" Index="0" Position="{X:3176,326 Y:-302,5692}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:3610,576 Y:-302,5692}" Delay="1" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList3" Type="Ground">
+        <Node Type="DelayedMove" Index="0" Position="{X:3153,326 Y:-21,3192}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:3727,326 Y:-21,3192}" Delay="1" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList4" Type="Ground">
+        <Node Type="DelayedMove" Index="0" Position="{X:4940,326 Y:226,6808}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:5420,326 Y:226,6808}" Delay="1" />
       </PathNodeList>
     </PathNodeLists>
   </Level>
