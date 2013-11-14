@@ -154,12 +154,12 @@ namespace NeonStarLibrary
             if(trigger.Name == _firstTriggerName)
             {
                 _targetZoom = _firstTriggerZoom;
-                foreach (CameraBound cb in Neon.world.camera.CameraBounds)
-                    if(!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
+                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                {
+                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
-
-                foreach (CameraBound cb in _firstBoundsToActivate)
-                    cb.Enabled = true;
+                }
             }
             else if(trigger.Name == _secondTriggerName)
             {
@@ -172,9 +172,12 @@ namespace NeonStarLibrary
             {
                 _targetZoom = _thirdTriggerZoom;
 
-                foreach (CameraBound cb in Neon.world.camera.CameraBounds)
+                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                {
+                    CameraBound cb = Neon.world.camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
+                }
             }
             else if (trigger.Name == _fourthTriggerName)
             {
