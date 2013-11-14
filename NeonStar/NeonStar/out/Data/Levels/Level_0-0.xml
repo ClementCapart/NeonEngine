@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-438 Y:215,5}" />
+              <Position Value="{X:-438 Y:215}" />
               <InitialPosition Value="{X:-438 Y:215,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-438 Y:215}" />
+              <Center Value="{X:-438 Y:214}" />
               <X Value="-458" />
-              <Y Value="147" />
+              <Y Value="146" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -2417,7 +2417,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5136,396 Y:196}" />
+              <Position Value="{X:5093,083 Y:196}" />
               <InitialPosition Value="{X:5200 Y:196}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2426,8 +2426,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5136 Y:195}" />
-              <X Value="5079" />
+              <Center Value="{X:5093 Y:195}" />
+              <X Value="5036" />
               <Y Value="108" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2622,7 +2622,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3221,917 Y:-63,99998}" />
+              <Position Value="{X:3351,84 Y:-63,99998}" />
               <InitialPosition Value="{X:3250 Y:-63,99998}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2631,8 +2631,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3221 Y:-63}" />
-              <X Value="3164" />
+              <Center Value="{X:3351 Y:-63}" />
+              <X Value="3294" />
               <Y Value="-150" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2658,7 +2658,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Spritesheets />
@@ -2758,7 +2758,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3550,929 Y:-334}" />
+              <Position Value="{X:3539,463 Y:-334}" />
               <InitialPosition Value="{X:3500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2767,8 +2767,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3550 Y:-333}" />
-              <X Value="3493" />
+              <Center Value="{X:3539 Y:-333}" />
+              <X Value="3482" />
               <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2861,7 +2861,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:2543,544 Y:-334}" />
+              <Position Value="{X:2149,356 Y:-334}" />
               <InitialPosition Value="{X:2500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2870,8 +2870,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2543 Y:-333}" />
-              <X Value="2486" />
+              <Center Value="{X:2149 Y:-333}" />
+              <X Value="2092" />
               <Y Value="-420" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2897,7 +2897,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Spritesheets />
@@ -3752,7 +3752,7 @@
               <Position Value="{X:724 Y:175}" />
               <InitialPosition Value="{X:724 Y:175}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
@@ -3783,35 +3783,19 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
-            <Properties />
-          </LinkedToPath>
-        </Components>
-      </Entity>
-      <Entity Name="TrainingRoomDoorGraphic">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:726 Y:175}" />
-              <InitialPosition Value="{X:726 Y:175}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
-            <Properties>
-              <ReverseLoop Value="False" />
-              <SpriteSheetTag Value="Door" />
-              <DrawLayer Value="0" />
-              <IsFinished Value="False" />
               <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Spritesheets>
+                <Animation Name="DoorOpening" SpritesheetTag="Door" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
-          </Spritesheet>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>
