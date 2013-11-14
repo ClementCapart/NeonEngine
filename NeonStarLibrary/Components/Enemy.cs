@@ -230,6 +230,10 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(_idleAnim);
                         break;
 
+                    case EnemyState.StunLock:
+                        entity.spritesheets.ChangeAnimation(_idleAnim);
+                        break;
+
                     case EnemyState.Attack:
                         if(_attack.CurrentAttack != null && _attack.CurrentAttack.CooldownStarted && !_attack.CurrentAttack.CooldownFinished)
                             entity.spritesheets.ChangeAnimation(_idleAnim);
