@@ -15,7 +15,17 @@ namespace NeonEngine
         public int CurrentPriority;
         public bool Active = true;
 
-        public Side CurrentSide = Side.Right;
+        public override Side CurrentSide
+        {
+            get
+            {
+                return base.CurrentSide;
+            }
+            set
+            {
+                ChangeSide(value);
+            }
+        }
 
         public override Vector2 Offset
         {
@@ -100,12 +110,12 @@ namespace NeonEngine
 
         public void ChangeSide(Side side)
         {
-            if (CurrentSide != side)
+            if (_currentSide != side)
             {
-                CurrentSide = side;
-                if (CurrentSide == Side.Left)
+                _currentSide = side;
+                if( _currentSide == Side.Left)
                     CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
-                else if (CurrentSide == Side.Right)
+                else if (_currentSide == Side.Right)
                     CurrentSpritesheet.spriteEffects = SpriteEffects.None;
             }
         }

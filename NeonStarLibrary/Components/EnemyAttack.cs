@@ -102,7 +102,7 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (CurrentAttack != null && this.EnemyComponent.State != EnemyState.StunLock && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
+            if (CurrentAttack != null && !CurrentAttack.CooldownFinished && this.EnemyComponent.State != EnemyState.StunLock && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
                 EnemyComponent.State = EnemyState.Attack;
 
             for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)

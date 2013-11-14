@@ -13,6 +13,14 @@ namespace NeonEngine
         public float Layer = 0;
         private bool _tint = false;
         public ColorEmitter TintedBy;
+
+        protected Side _currentSide = Side.Right;
+
+        public virtual Side CurrentSide
+        {
+            get { return _currentSide; }
+            set { _currentSide = value; }
+        }
         
         public bool Tint
         {
