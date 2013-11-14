@@ -113,6 +113,14 @@ namespace NeonStarLibrary
             set { _uppercutTutorialAnimation = value; }
         }
 
+        private string _doorToOpenName = "";
+
+        public string DoorToOpenName
+        {
+            get { return _doorToOpenName; }
+            set { _doorToOpenName = value; }
+        }
+
         private string _dodgeTutorialAnimation = "";
 
         public string DodgeTutorialAnimation
@@ -120,6 +128,8 @@ namespace NeonStarLibrary
             get { return _dodgeTutorialAnimation; }
             set { _dodgeTutorialAnimation = value; }
         }
+
+        private Entity _doorToOpen = null;
 
         private int _currentTutorialState = 1;
         private Avatar _avatar;
@@ -134,11 +144,17 @@ namespace NeonStarLibrary
             if(_avatarName != "")
                 _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
+
+           if(_doorToOpenName != "")
+                _doorToOpen = Neon.world.GetEntityByName(_doorToOpenName);
             base.Init();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (_doorToOpenName != "")
+                if (_doorToOpen == null)
+                    _doorToOpen = Neon.world.GetEntityByName(_doorToOpenName);
             base.Update(gameTime);
         }
 
@@ -186,6 +202,8 @@ namespace NeonStarLibrary
                 {
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
+                    if (_doorToOpen != null)
+                        _doorToOpen.Destroy();
                 }
             }
 
