@@ -514,92 +514,96 @@ namespace NeonStarLibrary
 
             if (_entity.Name != "AttackHolder")
             {
-                if (!_entity.rigidbody.isGrounded)
+                if (_entity.rigidbody != null)
                 {
-                    if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
+                    if (_entity.rigidbody != null && !_entity.rigidbody.isGrounded)
                     {
-                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        AirLocked = true;
-                    }
-                    else if (AirLocked)
-                    {
-                        AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
+                        {
+                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            AirLocked = true;
+                        }
+                        else if (AirLocked)
+                        {
+                            AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+
+                        if (AirLock <= 0.0f)
+                        {
+                            AirLocked = false;
+                            AirLockFinished = true;
+                        }
                     }
 
-                    if (AirLock <= 0.0f)
+                    if (_entity.rigidbody.isGrounded)
                     {
                         AirLocked = false;
                         AirLockFinished = true;
                     }
-                }
 
-                if (_entity.rigidbody.isGrounded)
-                {
-                    AirLocked = false;
-                    AirLockFinished = true;
-                }
-
-                if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
-                {
-                    for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
+                    if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
                     {
-                        AttackEffect ae = _onGroundCancelSpecialEffects.ElementAt(i);
-                        switch (ae.specialEffect)
+                        for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
                         {
-                            case SpecialEffect.Impulse:
-                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
-                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                break;
+                            AttackEffect ae = _onGroundCancelSpecialEffects.ElementAt(i);
+                            switch (ae.specialEffect)
+                            {
+                                case SpecialEffect.Impulse:
+                                    Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                    break;
 
-                            case SpecialEffect.PercentageDamageBoost:
-                                break;
+                                case SpecialEffect.PercentageDamageBoost:
+                                    break;
 
-                            case SpecialEffect.DamageOverTime:
-                                break;
+                                case SpecialEffect.DamageOverTime:
+                                    break;
 
-                            case SpecialEffect.StartAttack:
-                                string attackName = (string)ae.Parameters[0];
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
-                                break;
+                                case SpecialEffect.StartAttack:
+                                    string attackName = (string)ae.Parameters[0];
+                                    AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                                    break;
 
-                            case SpecialEffect.ShootBullet:
-                                BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
-                                break;
+                                case SpecialEffect.ShootBullet:
+                                    BulletInfo bi = (BulletInfo)ae.Parameters[0];
+                                    BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                                    break;
 
-                            case SpecialEffect.ShootBulletAtTarget:
-                                BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
-                                if (_target != null)
-                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
-                                break;
+                                case SpecialEffect.ShootBulletAtTarget:
+                                    BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
+                                    if (_target != null)
+                                        BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
+                                    break;
 
-                            case SpecialEffect.Invincible:
-                                _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
-                                break;
+                                case SpecialEffect.Invincible:
+                                    _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                                    break;
 
-                            case SpecialEffect.EffectAnimation:
-                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
-                                break;
+                                case SpecialEffect.EffectAnimation:
+                                    SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                    EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
+                                    break;
+                            }
+                            _onGroundCancelSpecialEffects.Remove(ae);
                         }
-                        _onGroundCancelSpecialEffects.Remove(ae);
-                    }
 
-                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
-                    {
-                        _hitboxes[i].Remove();
+                        for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                        {
+                            _hitboxes[i].Remove();
+                        }
+                        _hitboxes.Clear();
+                        this.DurationStarted = true;
+                        this.DurationFinished = true;
+                        this.DelayStarted = true;
+                        this.DelayStarted = true;
+                        this.CooldownStarted = true;
+                        this.AirLocked = false;
+                        this.AirLockFinished = true;
+                        this.Canceled = true;
                     }
-                    _hitboxes.Clear();
-                    this.DurationStarted = true;
-                    this.DurationFinished = true;
-                    this.DelayStarted = true;
-                    this.DelayStarted = true;
-                    this.CooldownStarted = true;
-                    this.AirLocked = false;
-                    this.AirLockFinished = true;
-                    this.Canceled = true;
                 }
+                
             }
 
             if (_mustStopAtTargetSight)
@@ -671,7 +675,7 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse))
+                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
                             {
                                 Vector2 impulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;

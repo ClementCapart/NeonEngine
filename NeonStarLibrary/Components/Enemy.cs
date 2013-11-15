@@ -214,6 +214,8 @@ namespace NeonStarLibrary
                 if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
                 {
                     this.State = EnemyState.Dying;
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    
                     if (entity != null && CoreElement != Element.Neutral)
                         entity.GetComponent<Avatar>().elementSystem.GetElement(CoreElement);
                 }

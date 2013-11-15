@@ -235,7 +235,7 @@ namespace NeonStarLibrary
                 if (!Neon.Input.Check(NeonStarInput.Attack))
                     ReleasedAttackButton = true;
 
-            if (entity.rigidbody.isGrounded)
+            if (entity.rigidbody != null && entity.rigidbody.isGrounded)
             {
                 AttacksWhileInAir.Clear();
             }
