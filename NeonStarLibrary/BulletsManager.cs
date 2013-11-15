@@ -140,14 +140,12 @@ namespace NeonStarLibrary
             hitbox.Height = bulletInfo.HitboxInfo.Height;
             hitbox.OffsetX = side == Side.Right ? bulletInfo.HitboxInfo.X : -bulletInfo.HitboxInfo.X;
             hitbox.OffsetY = side == Side.Right ? bulletInfo.HitboxInfo.Y : -bulletInfo.HitboxInfo.Y;
-            hitbox.Center = newBullet.transform.Position;
+            hitbox.Center = shooter.transform.Position;
 
             bullet.LifeTime = bulletInfo.LifeTime;
 
             bullet.Speed = bulletInfo.Speed;
             bullet.Direction = newDirection != Vector2.Zero ? newDirection : new Vector2(side == Side.Right ? bulletInfo.Direction.X : -bulletInfo.Direction.X, bulletInfo.Direction.Y);
-            if(newDirection != Vector2.Zero)
-                bullet.entity.transform.Rotation = MathHelper.ToDegrees(-Neon.utils.AngleBetween(newDirection, Vector2.Zero));
             bullet.DamageOnHit = bulletInfo.DamageOnHit;
             bullet.LivingSpriteSheetInfo = bulletInfo.LivingSpriteSheet;
             bullet.OnHitSpriteSheetInfo = bulletInfo.OnHitSpriteSheet;
@@ -157,10 +155,11 @@ namespace NeonStarLibrary
             bullet.Init();
 
             ssm.SpritesheetList.Clear();
+            newBullet.transform.Scale = 2.0f;
             ssm.SpritesheetList.Add("living", bulletInfo.LivingSpriteSheet);
             ssm.SpritesheetList.Add("hit", bulletInfo.OnHitSpriteSheet);
             ssm.ChangeSide(side);
-            ssm.Layer = 0.7f;
+            ssm.Layer = shooter.spritesheets != null ? shooter.spritesheets.Layer - 0.01f : 0.5f;
             ssm.ChangeAnimation("living");
             ssm.Active = true;
 

@@ -161,8 +161,6 @@ namespace NeonEngine
                 CurrentSpritesheet.isPlaying = IsPlaying;
                 return;
             }
-
-            if (entity.Name == "TrainingRoomDoor") Console.WriteLine("penis");
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;
@@ -173,6 +171,7 @@ namespace NeonEngine
                 CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;
             CurrentSpritesheet.Init();
+            CurrentSpritesheet.isPlaying = IsPlaying;
         }
             
     }

@@ -199,13 +199,17 @@ namespace NeonStarEditor
                 case SpecialEffect.ShootBullet:
                     string bulletName = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet = new XElement("Parameter", new XAttribute("Value", bulletName));
+                    XElement offsetBullet = new XElement("SecondParameter", new XAttribute("Value", (Vector2)(effectKvp.Parameters[1])));
                     effect.Add(parameterBullet);
+                    effect.Add(offsetBullet);
                     break;
 
                 case SpecialEffect.ShootBulletAtTarget:
                     string bulletName2 = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet2 = new XElement("Parameter", new XAttribute("Value", bulletName2));
+                    XElement offsetBullet2 = new XElement("SecondParameter", new XAttribute("Value", (Vector2)(effectKvp.Parameters[1])));
                     effect.Add(parameterBullet2);
+                    effect.Add(offsetBullet2);
                     break;
 
                 case SpecialEffect.Invincible:
@@ -378,6 +382,36 @@ namespace NeonStarEditor
                         textBox2.Leave += textBox_Leave;
                         textBox2.Text = (CurrentAttackEffectSelected.Parameters[0] as BulletInfo) != null ? (string)(CurrentAttackEffectSelected.Parameters[0] as BulletInfo).Name : "";
                         this.EffectsInfoPanel.Controls.Add(textBox2);
+
+                        label = new Label();
+                        label.Text = "Offset";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, textBox2.Location.Y + textBox2.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown offsetShot = new NumericUpDown();
+                        offsetShot.Name = "OffsetBulletX";
+                        offsetShot.Maximum = 50000;
+                        offsetShot.Minimum = -50000;
+                        offsetShot.Width = 80;
+                        offsetShot.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[1]).X;
+                        offsetShot.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        offsetShot.Enter += Numeric_Enter;
+                        offsetShot.Leave += Numeric_Leave;
+                        offsetShot.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offsetShot);
+
+                        offsetShot = new NumericUpDown();
+                        offsetShot.Name = "OffsetBulletY";
+                        offsetShot.Maximum = 50000;
+                        offsetShot.Minimum = -50000;
+                        offsetShot.Width = 80;
+                        offsetShot.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[1]).Y;
+                        offsetShot.Location = new System.Drawing.Point(offsetShot.Width + 10, label.Location.Y + label.Height + 5);
+                        offsetShot.Enter += Numeric_Enter;
+                        offsetShot.Leave += Numeric_Leave;
+                        offsetShot.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offsetShot);
                         break;
 
                     case SpecialEffect.Invincible:
@@ -639,11 +673,11 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.ShootBullet:
-                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0] };
+                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0], new Vector2() };
                         break;
 
                     case SpecialEffect.ShootBulletAtTarget:
-                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0] };
+                        CurrentAttackEffectSelected.Parameters = new object[] { BulletsManager._bulletsInformation[0], new Vector2() };
                         break;
 
                     case SpecialEffect.StartAttack:
@@ -945,6 +979,16 @@ namespace NeonStarEditor
 
                 case "TickTimer":
                     CurrentAttackEffectSelected.Parameters[2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "OffsetBulletX":
+                    Vector2 offset3 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
+                    CurrentAttackEffectSelected.Parameters[1] = new Vector2((float)(sender as NumericUpDown).Value, offset3.Y);
+                    break;
+
+                case "OffsetBulletY":
+                    Vector2 offset4 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
+                    CurrentAttackEffectSelected.Parameters[1] = new Vector2(offset4.X, (float)(sender as NumericUpDown).Value);
                     break;
             }
         }

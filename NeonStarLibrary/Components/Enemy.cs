@@ -256,10 +256,10 @@ namespace NeonStarLibrary
                     case EnemyState.Attack:
                         if (_attack.CurrentAttack != null && _attack.CurrentAttack.CooldownStarted && !_attack.CurrentAttack.CooldownFinished && entity.spritesheets.CurrentSpritesheetName == _attackAnim)
                             entity.spritesheets.ChangeAnimation(_idleAnim);
-                        else if (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())
+                        else if ((entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished() && _attackAnim != ""))
                             entity.spritesheets.ChangeAnimation(_attackAnim);
-                        else if(entity.spritesheets.CurrentSpritesheetName != _attackAnim)
-                            entity.spritesheets.ChangeAnimation(_startAttackAnim, 0, true, false, false);
+                        else if (entity.spritesheets.CurrentSpritesheetName != _attackAnim && (entity.spritesheets.CurrentSpritesheetName != _startAttackAnim || (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())))
+                            entity.spritesheets.ChangeAnimation(_startAttackAnim, 0, true, true, false, 0);
                         break;
                 }
             } 

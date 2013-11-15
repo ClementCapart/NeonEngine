@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,19 @@ namespace NeonStarLibrary
                 if (EnemyComponent.State == EnemyState.Attack || EnemyComponent.State == EnemyState.Chase)
                 {
                     if (EnemyComponent._threatArea.EntityFollowed != null)
-                        entity.spritesheets.RotationOffset = Neon.utils.AngleBetween(EnemyComponent._threatArea.EntityFollowed.transform.Position, entity.transform.Position);
+                    {
+                        entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.utils.AngleBetween(EnemyComponent._threatArea.EntityFollowed.transform.Position, entity.transform.Position)) - 180) % 360);
+                        if (entity.spritesheets.RotationOffset < -Math.PI / 2)
+                            entity.spritesheets.ChangeSide(Side.Left);
+                        else
+                            entity.spritesheets.ChangeSide(Side.Right);
+                        if (entity.spritesheets.CurrentSide == Side.Left)
+                        {
+                            entity.spritesheets.RotationOffset += (float)Math.PI;
+                        }
+
+                       
+                    }
                 }
             }
                 

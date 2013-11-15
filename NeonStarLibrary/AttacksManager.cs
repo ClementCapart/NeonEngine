@@ -117,12 +117,12 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(specialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
+                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(specialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
                             
                         case SpecialEffect.Invincible:
@@ -176,12 +176,12 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.Invincible:
@@ -235,12 +235,12 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi }));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = BulletsManager.GetBulletInfo(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi2 }));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.Invincible:

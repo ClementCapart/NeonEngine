@@ -40,6 +40,7 @@ namespace NeonEngine
             spriteSheet.Active = true;
             //spriteSheet.Tint = true;
             spriteSheet.Init();
+            spriteSheet.isPlaying = true;
 
             animatedSpecialEffect.transform.Position = Position;
             animatedSpecialEffect.transform.Rotation = Rotation;
