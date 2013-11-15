@@ -11,6 +11,9 @@ using System.Reflection;
 using NeonEngine.Private;
 using Component = NeonEngine.Component;
 using NeonStarLibrary;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace NeonStarEditor.Controls.LeftDock
 {
@@ -122,6 +125,142 @@ namespace NeonStarEditor.Controls.LeftDock
         private void magnetCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             GameWorld.MagnetismActivated = (sender as CheckBox).Checked;
+        }
+
+        private void SaveHitboxes_Click(object sender, EventArgs e)
+        {
+            Dictionary<RenderTarget2D, Vector2> renderTargets = new Dictionary<RenderTarget2D, Vector2>();
+
+            float StartWidth = 10000.0f;
+            float EndWidth = -10000.0f;
+            float StartHeight = 10000.0f;
+            float EndHeight = -10000.0f; 
+
+            foreach (Hitbox hb in GameWorld.Hitboxes)
+            {
+                if (hb.Type != HitboxType.Trigger && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet)
+                {
+                    if (StartWidth > hb.hitboxRectangle.Left)
+                        StartWidth = hb.hitboxRectangle.Left;
+                    if (EndWidth < hb.hitboxRectangle.Right)
+                        EndWidth = hb.hitboxRectangle.Right;
+                    if (StartHeight > hb.hitboxRectangle.Top)
+                        StartHeight = hb.hitboxRectangle.Top;
+                    if (EndHeight < hb.hitboxRectangle.Bottom)
+                        EndHeight = hb.hitboxRectangle.Bottom;
+                }
+            }
+            StartWidth -= 10;
+            EndWidth += 10;
+            StartHeight -= 10;
+            EndWidth += 10;
+
+            int Width = (int)Math.Abs(EndWidth - StartWidth);
+            int Height = (int)Math.Abs(EndHeight -StartHeight);
+
+            Vector2 CurrentOffset = new Vector2(StartWidth, StartHeight);
+
+            Console.WriteLine("Width -> " + Width);
+            Console.WriteLine("Height -> " + Height);
+            Console.WriteLine("...");
+
+            while (Height > 4096)
+            {
+                while (Width > 4096)
+                {
+                    renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, 4096, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                    CurrentOffset += new Vector2(4096, 0);
+                    Width -= 4096;
+                }
+
+                if(Width > 0)
+                {
+                    renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, Width, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                    CurrentOffset += new Vector2(Width, 0);
+                }
+
+                CurrentOffset += new Vector2(0, 4096);
+                Height -= 4096;
+            }
+
+            while (Width > 4096)
+            {
+                renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, 4096, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                CurrentOffset += new Vector2(4096, 0);
+                Width -= 4096;
+            }
+
+            if (Width > 0)
+            {
+                renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, Width, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                CurrentOffset += new Vector2(Width, 0);
+            }
+
+            PolygonRenderer _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
+
+            foreach (KeyValuePair<RenderTarget2D, Vector2> kvp in renderTargets)
+            {
+                RenderTarget2D rt = kvp.Key;
+                Neon.graphicsDevice.SetRenderTarget(rt);
+                Neon.graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
+                Neon.world.camera.Position = kvp.Value + new Vector2(rt.Width / 2, rt.Height / 2);
+                Console.WriteLine(kvp.Value);
+                Neon.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Neon.world.camera.get_transformation(Neon.graphicsDevice));
+
+                foreach (Hitbox hb in Neon.world.Hitboxes)
+                {
+                    switch (hb.Type)
+                    {
+                        case HitboxType.Main:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Green;
+                            _polygonRenderer.vectors = hb.vectors;
+                            _polygonRenderer.Position = hb.Center;
+                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            break;
+
+                        case HitboxType.Hit:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Red;
+                            break;
+
+                        case HitboxType.None:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.White;
+                            break;
+
+                        case HitboxType.Bullet:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.LightPink;
+                            break;
+
+                        case HitboxType.Invincible:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.LightBlue;
+                            break;
+
+                        case HitboxType.Solid:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Violet;
+                            _polygonRenderer.vectors = hb.vectors;
+                            _polygonRenderer.Position = hb.Center;
+                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            break;
+
+                        case HitboxType.OneWay:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Purple;
+                            _polygonRenderer.vectors = hb.vectors;
+                            _polygonRenderer.Position = hb.Center;
+                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            break;
+
+                        case HitboxType.Trigger:
+                            _polygonRenderer.Color = Microsoft.Xna.Framework.Color.SkyBlue;
+                            break;
+                    }
+                }
+
+                Neon.spriteBatch.End();
+                Neon.graphicsDevice.SetRenderTarget(null);
+                Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                Stream stream = File.OpenWrite(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Level0_" + kvp.Value.X + "_" + kvp.Value.Y + ".png");
+                rt.SaveAsPng(stream, rt.Width, rt.Height);
+                stream.Close();
+            }
         }
     }
 }

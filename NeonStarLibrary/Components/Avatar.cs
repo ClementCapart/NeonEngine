@@ -42,6 +42,14 @@ namespace NeonStarLibrary
         }
         private float _airLockDuration;
 
+        private string _stunlockAnim = "";
+
+        public string StunlockAnim
+        {
+            get { return _stunlockAnim; }
+            set { _stunlockAnim = value; }
+        }
+
         public MeleeFight meleeFight;
         public ThirdPersonController thirdPersonController;
         public Guard guard;
@@ -87,19 +95,21 @@ namespace NeonStarLibrary
         public void StunLockEffect(float duration)
         {
             _stunLockDuration = duration;
-            if (meleeFight != null && meleeFight.CurrentAttack != null)
-            {
-                meleeFight.CurrentAttack.CancelAttack();
-                meleeFight.CurrentAttack = null;
-                entity.spritesheets.CurrentPriority = 0;
-            }
-            if (elementSystem.CurrentElementEffect != null)
-            {
-                elementSystem.CurrentElementEffect.End();
-            }
+            
             if (_stunLockDuration > 0)
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                if (meleeFight != null && meleeFight.CurrentAttack != null)
+                {
+                    meleeFight.CurrentAttack.CancelAttack();
+                    meleeFight.CurrentAttack = null;
+                    entity.spritesheets.CurrentPriority = 0;
+                }
+                if (elementSystem.CurrentElementEffect != null)
+                {
+                    elementSystem.CurrentElementEffect.End();
+                }
+                entity.spritesheets.ChangeAnimation(_stunlockAnim, 0, true, false, false);
             }
         }
 

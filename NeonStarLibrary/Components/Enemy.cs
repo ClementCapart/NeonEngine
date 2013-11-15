@@ -111,6 +111,22 @@ namespace NeonStarLibrary
             set { _attackAnim = value; }
         }
 
+        private string _stunlockAnim = "";
+
+        public string StunlockAnim
+        {
+            get { return _stunlockAnim; }
+            set { _stunlockAnim = value; }
+        }
+
+        private string _dyingAnim = "";
+
+        public string DyingAnim
+        {
+            get { return _dyingAnim; }
+            set { _dyingAnim = value; }
+        }
+
         private bool _immuneToStunLock = false;
 
         public bool ImmuneToStunLock
@@ -156,32 +172,38 @@ namespace NeonStarLibrary
 
         public void ChangeHealthPoints(float value, Entity entity)
         {
-            _currentHealthPoints += value;
-            if (_currentHealthPoints <= 0.0f)
+            if (State != EnemyState.Dying && State != EnemyState.Dead)
             {
-                this.State = EnemyState.Dying;
-                if (entity != null && CoreElement != Element.Neutral)
-                    entity.GetComponent<Avatar>().elementSystem.GetElement(CoreElement);
-
-                this.entity.Destroy();
+                _currentHealthPoints += value;
+                if (_currentHealthPoints <= 0.0f)
+                {
+                    this.State = EnemyState.Dying;
+                    if (entity != null && CoreElement != Element.Neutral)
+                        entity.GetComponent<Avatar>().elementSystem.GetElement(CoreElement);
+                }
+                if (Debug)
+                {
+                    Console.WriteLine(this.entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
+                }
             }
-            if (Debug)
-            {
-                Console.WriteLine(this.entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
-            }
+ 
         }
 
         public void StunLockEffect(float duration)
         {
-            if (!_immuneToStunLock)
+            if (State != EnemyState.Dying && State != EnemyState.Dead)
             {
-                _stunLockDuration = duration;
-                if (_stunLockDuration > 0)
+                if (!_immuneToStunLock)
                 {
-                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    State = EnemyState.StunLock;
+                    _stunLockDuration = duration;
+                    if (_stunLockDuration > 0)
+                    {
+                        entity.spritesheets.ChangeAnimation(_stunlockAnim, 0, true, true, false);
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        State = EnemyState.StunLock;
+                    }
                 }
-            }                
+            }
         }
 
         public void AirLock(float duration)
@@ -196,6 +218,17 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (State == EnemyState.Dying)
+            {
+                if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _dyingAnim && entity.spritesheets.IsFinished())
+                    State = EnemyState.Dead;
+                else if (entity.spritesheets == null)
+                    State = EnemyState.Dead;
+
+                entity.spritesheets.ChangeAnimation(_dyingAnim, 0, true, false, false);
+                return;
+            }
+
             if (_airLockDuration > 0.0f)
             {
                 _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -249,10 +282,6 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(_idleAnim);
                         break;
 
-                    case EnemyState.StunLock:
-                        entity.spritesheets.ChangeAnimation(_idleAnim);
-                        break;
-
                     case EnemyState.Attack:
                         if (_attack.CurrentAttack != null && _attack.CurrentAttack.CooldownStarted && !_attack.CurrentAttack.CooldownFinished && entity.spritesheets.CurrentSpritesheetName == _attackAnim)
                             entity.spritesheets.ChangeAnimation(_idleAnim);
@@ -260,6 +289,10 @@ namespace NeonStarLibrary
                             entity.spritesheets.ChangeAnimation(_attackAnim);
                         else if (entity.spritesheets.CurrentSpritesheetName != _attackAnim && (entity.spritesheets.CurrentSpritesheetName != _startAttackAnim || (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())))
                             entity.spritesheets.ChangeAnimation(_startAttackAnim, 0, true, true, false, 0);
+                        break;
+                    
+                    case EnemyState.Dying:
+                        entity.spritesheets.ChangeAnimation(_dyingAnim, 0, true, false, false);
                         break;
                 }
             } 
@@ -291,6 +324,9 @@ namespace NeonStarLibrary
                 _damageOverTimeValue = 0.0f;
                 _damageOverTimeSource = null;
             }
+
+            if (State == EnemyState.Dead)
+                this.entity.Destroy();
             base.PostUpdate(gameTime);
         }
 

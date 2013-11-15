@@ -107,7 +107,7 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (EnemyComponent.State != EnemyState.StunLock)
+            if (EnemyComponent.State != EnemyState.StunLock && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
                 if (EntityFollowed != null)
                 {       

@@ -154,6 +154,7 @@ namespace NeonEngine
 
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
+
             if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
             {
                     if (Reset)

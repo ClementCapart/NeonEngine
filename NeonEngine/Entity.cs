@@ -39,19 +39,31 @@ namespace NeonEngine
         public virtual void PreUpdate(GameTime gameTime)
         {
             for (int i = Components.Count - 1; i >= 0; i--)
+            {
+                if (Components.Count == 0)
+                    break;
                 Components[i].PreUpdate(gameTime);
+            }
         }
 
         public virtual void Update(GameTime gameTime)
         {
             for (int i = Components.Count - 1; i >= 0; i--)
+            {
+                if (Components.Count == 0)
+                    break;
                 Components[i].Update(gameTime);
+            }
         }
 
         public virtual void PostUpdate(GameTime gameTime)
         {
             for (int i = Components.Count - 1; i >= 0; i--)
+            {
+                if (Components.Count == 0)
+                    break;
                 Components[i].PostUpdate(gameTime);
+            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

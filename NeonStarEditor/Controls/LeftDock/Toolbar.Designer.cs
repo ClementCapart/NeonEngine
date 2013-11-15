@@ -43,6 +43,7 @@
             this.SaveCurrentMap = new System.Windows.Forms.Button();
             this.magnetCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.SaveHitboxes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PausePlayButton
@@ -209,6 +210,18 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Magnet";
             // 
+            // SaveHitboxes
+            // 
+            this.SaveHitboxes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveHitboxes.BackgroundImage")));
+            this.SaveHitboxes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveHitboxes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveHitboxes.Location = new System.Drawing.Point(3, 143);
+            this.SaveHitboxes.Name = "SaveHitboxes";
+            this.SaveHitboxes.Size = new System.Drawing.Size(30, 30);
+            this.SaveHitboxes.TabIndex = 1;
+            this.SaveHitboxes.UseVisualStyleBackColor = true;
+            this.SaveHitboxes.Click += new System.EventHandler(this.SaveHitboxes_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +240,7 @@
             this.Controls.Add(this.CreateRectangle);
             this.Controls.Add(this.PausePlayButton);
             this.Controls.Add(this.ReloadButton);
+            this.Controls.Add(this.SaveHitboxes);
             this.Controls.Add(this.SaveCurrentMap);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "Toolbar";
@@ -252,5 +266,6 @@
         private System.Windows.Forms.Button PathNodeTool;
         private System.Windows.Forms.CheckBox magnetCheckbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SaveHitboxes;
     }
 }
