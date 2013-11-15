@@ -26,6 +26,7 @@ namespace NeonStarLibrary
 
         public MovePattern MovementStyle;
 
+        public float StunLock;
         public Vector2 Direction;
         public float Speed;
 
@@ -64,7 +65,7 @@ namespace NeonStarLibrary
 
                 bi.MovementStyle = (MovePattern)Enum.Parse(typeof(MovePattern), bullet.Element("MovePattern").Value);
                 bi.Direction = Neon.utils.ParseVector2(bullet.Element("Direction").Value);
-
+                bi.StunLock = float.Parse(bullet.Element("StunLock").Value, CultureInfo.InvariantCulture);
                 bi.Speed = float.Parse(bullet.Element("Speed").Value, CultureInfo.InvariantCulture);
                 bi.LifeTime = float.Parse(bullet.Element("LifeTime").Value, CultureInfo.InvariantCulture);
                 bi.DamageOnHit = float.Parse(bullet.Element("DamageOnHit").Value, CultureInfo.InvariantCulture);
@@ -144,6 +145,7 @@ namespace NeonStarLibrary
 
             bullet.LifeTime = bulletInfo.LifeTime;
 
+            bullet.StunLock = bulletInfo.StunLock;
             bullet.Speed = bulletInfo.Speed;
             bullet.Direction = newDirection != Vector2.Zero ? newDirection : new Vector2(side == Side.Right ? bulletInfo.Direction.X : -bulletInfo.Direction.X, bulletInfo.Direction.Y);
             bullet.DamageOnHit = bulletInfo.DamageOnHit;

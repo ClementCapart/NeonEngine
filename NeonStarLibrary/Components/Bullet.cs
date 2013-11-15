@@ -54,6 +54,15 @@ namespace NeonStarLibrary
             set { _damageOnHit = value; }
         }
 
+        private float _stunLock;
+
+        public float StunLock
+        {
+            get { return _stunLock; }
+            set { _stunLock = value; }
+        }
+
+       
         private List<AttackEffect> _onHitSpecialEffects;
 
         public List<AttackEffect> OnHitSpecialEffects
@@ -135,6 +144,7 @@ namespace NeonStarLibrary
                                         {
                                             avatar.ChangeHealthPoints(DamageOnHit);
                                             LifeTime = 0f;
+                                            avatar.StunLockEffect(_stunLock);
                                             entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
                                             return;
                                         }                                
