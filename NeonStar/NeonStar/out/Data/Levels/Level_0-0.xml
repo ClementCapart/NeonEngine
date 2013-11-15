@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-438 Y:215}" />
+              <Position Value="{X:-438 Y:215,5}" />
               <InitialPosition Value="{X:-438 Y:215,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-438 Y:214}" />
+              <Center Value="{X:-438 Y:215}" />
               <X Value="-458" />
-              <Y Value="146" />
+              <Y Value="147" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -46,6 +46,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
@@ -1623,6 +1625,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="WalkTutorial" SpritesheetTag="LiOnRun" />
                 <Animation Name="JumpTutorial" SpritesheetTag="LiOnJumpUP02" />
@@ -1637,7 +1641,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <TutorialScreen Type="NeonStarLibrary.TutorialScreen" ID="2">
+          <TutorialScreen Type="NeonStarLibrary.TutorialScreen" ID="0">
             <Properties>
               <WalkTriggerName Value="WalkTrigger" />
               <JumpTriggerName Value="JumpTrigger" />
@@ -1812,6 +1816,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -1829,6 +1835,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -1914,6 +1922,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -1931,6 +1941,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2002,6 +2014,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2019,6 +2033,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2090,6 +2106,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2107,6 +2125,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2178,6 +2198,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2195,6 +2217,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2266,6 +2290,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2283,6 +2309,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2354,6 +2382,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2371,6 +2401,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2417,7 +2449,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5093,083 Y:196}" />
+              <Position Value="{X:5138,381 Y:196}" />
               <InitialPosition Value="{X:5200 Y:196}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2426,8 +2458,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5093 Y:195}" />
-              <X Value="5036" />
+              <Center Value="{X:5138 Y:195}" />
+              <X Value="5081" />
               <Y Value="108" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2453,9 +2485,11 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2473,6 +2507,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2559,6 +2595,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2576,6 +2614,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2622,7 +2662,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3351,84 Y:-63,99998}" />
+              <Position Value="{X:3456,443 Y:-63,99998}" />
               <InitialPosition Value="{X:3250 Y:-63,99998}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2631,8 +2671,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3351 Y:-63}" />
-              <X Value="3294" />
+              <Center Value="{X:3456 Y:-63}" />
+              <X Value="3399" />
               <Y Value="-150" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2658,9 +2698,11 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2678,6 +2720,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2758,7 +2802,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3539,463 Y:-334}" />
+              <Position Value="{X:3309,252 Y:-334}" />
               <InitialPosition Value="{X:3500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2767,9 +2811,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3539 Y:-333}" />
-              <X Value="3482" />
-              <Y Value="-420" />
+              <Center Value="{X:3309 Y:-334}" />
+              <X Value="3252" />
+              <Y Value="-421" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2794,9 +2838,11 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2814,6 +2860,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2861,7 +2909,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:2149,356 Y:-334}" />
+              <Position Value="{X:2005,615 Y:-334}" />
               <InitialPosition Value="{X:2500 Y:-334}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -2870,9 +2918,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2149 Y:-333}" />
-              <X Value="2092" />
-              <Y Value="-420" />
+              <Center Value="{X:2005 Y:-334}" />
+              <X Value="1948" />
+              <Y Value="-421" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="115" />
@@ -2900,6 +2948,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets />
               <DrawLayer Value="0" />
               <Tint Value="False" />
@@ -2917,6 +2967,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3003,6 +3055,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="PunchingBallIdle" />
               </Spritesheets>
@@ -3022,6 +3076,8 @@
               <StartAttackAnim Value="" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
@@ -3079,6 +3135,8 @@
               <CurrentSide Value="Left" />
               <Offset Value="{X:5 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="FlameThrowerIdle" />
                 <Animation Name="Run" SpritesheetTag="FlamethrowerWalk" />
@@ -3101,6 +3159,8 @@
               <StartAttackAnim Value="StartAttack" />
               <AttackAnim Value="Attack" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3178,6 +3238,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
                 <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
@@ -3199,6 +3261,8 @@
               <StartAttackAnim Value="Attack" />
               <AttackAnim Value="" />
               <Type Value="Ground" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3540,8 +3604,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4883 Y:179}" />
-              <InitialPosition Value="{X:4883 Y:179}" />
+              <Position Value="{X:4920 Y:179}" />
+              <InitialPosition Value="{X:4920 Y:179}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -3549,8 +3613,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:4883 Y:179}" />
-              <X Value="4858" />
+              <Center Value="{X:4920 Y:179}" />
+              <X Value="4895" />
               <Y Value="74" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3788,6 +3852,8 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="DoorOpening" SpritesheetTag="Door" />
               </Spritesheets>
@@ -3796,6 +3862,160 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="SecondRoomFireDoor">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3073 Y:-84}" />
+              <InitialPosition Value="{X:3073 Y:-84}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:3073 Y:-84}" />
+              <X Value="3048" />
+              <Y Value="-194" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="220" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.1" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:5 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="FireDoorOpening" SpritesheetTag="FireDoor" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <FireDoorScript Type="NeonScripts.FireDoorScript" ID="0">
+            <Properties />
+          </FireDoorScript>
+        </Components>
+      </Entity>
+      <Entity Name="ThirdRoomDoor">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4855 Y:181}" />
+              <InitialPosition Value="{X:4855 Y:181}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:4855 Y:181}" />
+              <X Value="4830" />
+              <Y Value="76" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="210" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="2">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="DoorClosing" SpritesheetTag="Door" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="1.05" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+          <DoorClosingScript Type="NeonScripts.DoorClosingScript" ID="4">
+            <Properties>
+              <TriggerName Value="TriggerThirdRoomEnter" />
+              <ClosingDoorAnimationName Value="DoorClosing" />
+            </Properties>
+          </DoorClosingScript>
+        </Components>
+      </Entity>
+      <Entity Name="TriggerThirdRoomEnter">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4920 Y:179}" />
+              <InitialPosition Value="{X:4920 Y:179}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4920 Y:179}" />
+              <X Value="4895" />
+              <Y Value="74" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="210" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ThirdRoomDoor" />
+              <TriggeredComponentName Value="DoorClosingScript" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
     </Entities>

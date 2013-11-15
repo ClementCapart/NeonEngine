@@ -150,8 +150,7 @@ namespace NeonStarLibrary
                 _doorToOpen = Neon.world.GetEntityByName(_doorToOpenName);
                 if (_doorToOpen != null)
                 {
-                    Console.WriteLine("closed");
-                    _doorToOpen.spritesheets.ChangeAnimation("DoorOpening", 0, false, true, false,2);
+                    _doorToOpen.spritesheets.ChangeAnimation("DoorOpening", 0, false, true, false,0);
                 }
             }
             base.Init();
@@ -210,7 +209,10 @@ namespace NeonStarLibrary
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
                     if (_doorToOpen != null)
+                    {
                         _doorToOpen.rigidbody.Remove();
+                        _doorToOpen.spritesheets.ChangeAnimation("DoorOpening", 0, true, false, false, 0);
+                    }
                 }
             }
 
