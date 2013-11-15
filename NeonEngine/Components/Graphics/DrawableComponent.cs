@@ -10,7 +10,7 @@ namespace NeonEngine
     public abstract class DrawableComponent : Component
     {
         public bool CastShadow;
-        public float Layer = 0;
+        public float Layer = 0.5f;
         private bool _tint = false;
         public ColorEmitter TintedBy;
 

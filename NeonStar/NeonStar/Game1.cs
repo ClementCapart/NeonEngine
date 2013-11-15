@@ -43,7 +43,6 @@ namespace NeonStar
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
             #else
             Neon.world = new GameScreen(this);
-            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             #endif
         }
