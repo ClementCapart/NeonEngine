@@ -11,6 +11,11 @@ namespace NeonEngine
     {
         public static NeonPool<AnimatedSpecialEffect> EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
 
+        public static void Initialize()
+        {
+            EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
+        }
+
         static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float layer)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();

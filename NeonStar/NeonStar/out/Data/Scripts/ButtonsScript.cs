@@ -227,7 +227,7 @@ namespace NeonScripts
             }
         }
 		
-		public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
             if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
             {

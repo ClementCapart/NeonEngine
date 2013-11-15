@@ -21,7 +21,7 @@ namespace NeonScripts
         {
         }
 
-        public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+        public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             Console.WriteLine("HOY");
         }

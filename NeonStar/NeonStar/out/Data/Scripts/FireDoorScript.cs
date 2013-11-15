@@ -15,16 +15,20 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            //if (entity.spritesheets.Name == "FireDoorOpening")
-                entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, false, true, false, 0);
+			entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, false, true, false, 0);
 		}
 
         public override void Update(GameTime gameTime)
         {
         }
 		
-		public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
+			if(((Attack)parameters[0]).EffectElement == Element.Fire)
+			{
+				entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, true, true, false, 0);
+				entity.rigidbody.Remove();
+			}		
 		}
     }
 }

@@ -69,7 +69,7 @@ namespace NeonStarLibrary
             base.Init();
         }
 
-        public void ChangeHealthPoints(float value)
+        public void ChangeHealthPoints(float value, Attack attack = null)
         {
             _currentHealthPoints += value;
             if (value > 0)
@@ -95,7 +95,6 @@ namespace NeonStarLibrary
         public void StunLockEffect(float duration)
         {
             _stunLockDuration = duration;
-            
             if (_stunLockDuration > 0)
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;

@@ -76,6 +76,7 @@ namespace NeonEngine
             SoundManager.LoadSounds();
             SoundManager.Load(game.Content);
             TextManager.LoadFontList();
+
             Input = Input.Instance;
             utils = new Utils();
             NeonScripting = new ScriptingEngine();

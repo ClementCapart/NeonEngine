@@ -114,7 +114,7 @@ namespace NeonEngine
                         if (_triggeredComponent != null)
                         {
                             _alreadyTriggered = true;
-                            //_triggeredComponent.OnTrigger(entity, entity);
+                            _triggeredComponent.OnTrigger(entity, entity);
                         }
                 if (_triggeringProperty != null)
                     _lastValue = _triggeringProperty.GetValue(_triggeringComponent, null);

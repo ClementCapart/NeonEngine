@@ -23,9 +23,11 @@ namespace NeonStarLibrary
         protected NeonStarInput _input;
         protected int _elementLevel = 1;
 
+        public Element EffectElement;
+
         protected float _cooldownDuration = 0.0f;
 
-        protected ElementState _state;
+        public ElementState State;
 
         public ElementEffect(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
         {
@@ -50,7 +52,7 @@ namespace NeonStarLibrary
 
         public virtual void End()
         {
-            _state = ElementState.End;
+            State = ElementState.End;
         }
     }
 }

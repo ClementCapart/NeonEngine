@@ -28,6 +28,8 @@ namespace NeonStarLibrary
         private bool _hit = false;
         private bool _mustStopAtTargetSight = false;
 
+        public Element EffectElement = Element.Neutral;
+
         string _name;
         public string Name
         {
@@ -625,7 +627,7 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     _hit = true;
-                    enemy.ChangeHealthPoints(_damageOnHit, _entity);
+                    enemy.ChangeHealthPoints(_damageOnHit, _entity, this);
                     enemy.StunLockEffect(_stunLock);
                     if (!enemy.entity.rigidbody.isGrounded)
                         enemy.AirLock(TargetAirLock);
@@ -643,7 +645,7 @@ namespace NeonStarLibrary
                         float damage = avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit;
                         if (damage > 0)
                         {
-                            avatar.ChangeHealthPoints(damage);
+                            avatar.ChangeHealthPoints(damage, this);
                             avatar.StunLockEffect(_stunLock);
                         }
                         if (!avatar.entity.rigidbody.IsGround)

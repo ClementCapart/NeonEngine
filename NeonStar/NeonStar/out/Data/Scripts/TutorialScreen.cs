@@ -169,7 +169,7 @@ namespace NeonStarLibrary
             base.PostUpdate(gameTime);
         }
 
-        public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+        public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             if (trigger.Name == _walkTriggerName && _currentTutorialState == 1)
             {

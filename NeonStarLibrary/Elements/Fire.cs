@@ -47,11 +47,12 @@ namespace NeonStarLibrary
             :base(elementSystem, elementLevel, entity, input, world)
         {
             _cooldownDuration = 4.0f;
+            EffectElement = Element.Fire;
         }
 
         public override void PreUpdate(GameTime gameTime)
         {
-            switch(_state)
+            switch(State)
             {
                 case ElementState.Initialization:
                 case ElementState.Charge:
@@ -64,10 +65,10 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            switch (_state)
+            switch (State)
             {
                 case ElementState.Initialization:
-                    _state = ElementState.Charge;
+                    State = ElementState.Charge;
                     if(!_elementSystem.entity.rigidbody.isGrounded) _elementSystem.AvatarComponent.AirLock(_airLockDuration);
                     break;
 
@@ -104,7 +105,7 @@ namespace NeonStarLibrary
                                     _elementSystem.RightSlotCooldownTimer = _cooldownDuration;
                                     break;
                             }
-                            _state = ElementState.End;
+                            State = ElementState.End;
                         }
                         if (_charge < _maxCharge && !_chargeGoingDown)
                         {
@@ -134,15 +135,21 @@ namespace NeonStarLibrary
                             case 1:
                                 if (_charge > _levelOneStageThreeChargeRequired)
                                 {
-                                    AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
+                                    Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                                    a.Launcher = _entity;
+                                    a.EffectElement = Element.Fire;
                                 }
                                 else if (_charge > _levelOneStageTwoChargeRequired)
                                 {
-                                    AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
+                                    Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                                    a.Launcher = _entity;
+                                    a.EffectElement = Element.Fire;
                                 }
                                 else
                                 {
-                                    AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position).Launcher = _entity;
+                                    Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                                    a.Launcher = _entity;
+                                    a.EffectElement = Element.Fire;
                                 }
                                 break;
 
@@ -195,7 +202,7 @@ namespace NeonStarLibrary
                                 _elementSystem.RightSlotCooldownTimer = _cooldownDuration;
                                 break;
                         }
-                        _state = ElementState.End;
+                        State = ElementState.End;
                     }
                     break;
 

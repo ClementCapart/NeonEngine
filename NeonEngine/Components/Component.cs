@@ -39,7 +39,7 @@ namespace NeonEngine
         {
         }
 
-        public virtual void OnTrigger(Entity trigger, Entity triggeringEntity)
+        public virtual void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             
         }

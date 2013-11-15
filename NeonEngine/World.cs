@@ -88,6 +88,7 @@ namespace NeonEngine
             lightAreas = new List<LightArea>();
             HitboxPool = new NeonPool<Hitbox>(() => new Hitbox());
             ParticlePool = new NeonPool<Particle>(() => new Particle());
+            EffectsManager.Initialize();
             Hitboxes = new List<Hitbox>();
             NodeLists = new List<PathNodeList>();
             SpecialEffects = new List<AnimatedSpecialEffect>();

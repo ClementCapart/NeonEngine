@@ -138,7 +138,7 @@ namespace NeonStarLibrary
             base.Update(gameTime);
         }
 
-        public override void OnTrigger(Entity trigger, Entity triggeringEntity)
+        public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             if(trigger.Name == _firstTriggerName)
             {

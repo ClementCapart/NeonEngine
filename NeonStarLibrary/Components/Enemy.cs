@@ -143,6 +143,14 @@ namespace NeonStarLibrary
             set { _immuneToImpulse = value; }
         }
 
+        private bool _immuneToDeath = false;
+
+        public bool ImmuneToDeath
+        {
+            get { return _immuneToDeath; }
+            set { _immuneToDeath = value; }
+        }
+
         private EnemyType _type = EnemyType.Ground;
 
         public EnemyType Type
@@ -150,6 +158,24 @@ namespace NeonStarLibrary
             get { return _type; }
             set { _type = value; }
         }
+
+        private bool _triggerOnDamage = false;
+
+        public bool TriggerOnDamage
+        {
+            get { return _triggerOnDamage; }
+            set { _triggerOnDamage = value; }
+        }
+
+        private string _componentToTriggerName = "";
+
+        public string ComponentToTriggerName
+        {
+            get { return _componentToTriggerName; }
+            set { _componentToTriggerName = value; }
+        }
+
+        private Component _componentToTrigger = null;
 
         public Enemy(Entity entity)
             :base(entity, "Enemy")
@@ -166,16 +192,26 @@ namespace NeonStarLibrary
                 _chase = entity.GetComponent<Chase>();
             if (_attack == null)
                 _attack = entity.GetComponent<EnemyAttack>();
+            if (_componentToTrigger == null && _componentToTriggerName != "")
+            {
+                _componentToTrigger = entity.GetComponentByName(_componentToTriggerName);
+            }
+
             _currentHealthPoints = _startingHealthPoints;
             base.Init();
         }
 
-        public void ChangeHealthPoints(float value, Entity entity)
+        public void ChangeHealthPoints(float value, Entity entity, Attack attack = null)
         {
             if (State != EnemyState.Dying && State != EnemyState.Dead)
             {
                 _currentHealthPoints += value;
-                if (_currentHealthPoints <= 0.0f)
+                if (_triggerOnDamage && value < 0)
+                {
+                    if (_componentToTrigger != null)
+                        _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
+                }
+                if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
                 {
                     this.State = EnemyState.Dying;
                     if (entity != null && CoreElement != Element.Neutral)
@@ -222,7 +258,7 @@ namespace NeonStarLibrary
             {
                 if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _dyingAnim && entity.spritesheets.IsFinished())
                     State = EnemyState.Dead;
-                else if (entity.spritesheets == null)
+                else if (entity.spritesheets == null || (entity.spritesheets != null && _dyingAnim == ""))
                     State = EnemyState.Dead;
 
                 entity.spritesheets.ChangeAnimation(_dyingAnim, 0, true, false, false);
