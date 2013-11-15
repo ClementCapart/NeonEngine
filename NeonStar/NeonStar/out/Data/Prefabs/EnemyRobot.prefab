@@ -4,22 +4,23 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:252,1478 Y:210,5}" />
-          <InitialPosition Value="{X:0 Y:0}" />
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:1186 Y:203}" />
+          <InitialPosition Value="{X:1186 Y:203}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:252 Y:210}" />
-          <X Value="195" />
+          <Center Value="{X:1186 Y:203}" />
+          <X Value="1136" />
           <Y Value="123" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
-          <Width Value="115" />
-          <Height Value="175" />
+          <Width Value="100" />
+          <Height Value="160" />
         </Properties>
       </Hitbox>
       <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
@@ -40,8 +41,18 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:-3}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
-          <Spritesheets />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
+            <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
+            <Animation Name="Idle" SpritesheetTag="EnemyRobotIdle" />
+            <Animation Name="TakeHit" SpritesheetTag="EnemyRobotTakeHit" />
+            <Animation Name="Death" SpritesheetTag="Explosion" />
+          </Spritesheets>
           <DrawLayer Value="0" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
@@ -50,18 +61,28 @@
       <Enemy Type="NeonStarLibrary.Enemy" ID="4">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="10" />
-          <RunAnim Value="" />
-          <IdleAnim Value="" />
+          <StartingHealthPoints Value="50" />
+          <CoreElement Value="Neutral" />
+          <CurrentHealthPoints Value="50" />
+          <RunAnim Value="Run" />
+          <IdleAnim Value="Idle" />
+          <StartAttackAnim Value="Attack" />
           <AttackAnim Value="" />
           <Type Value="Ground" />
+          <ImmuneToStunLock Value="False" />
+          <ImmuneToImpulse Value="False" />
+          <StunlockAnim Value="TakeHit" />
+          <DyingAnim Value="Death" />
         </Properties>
       </Enemy>
       <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
         <Properties>
-          <ThreatRange Value="330" />
-          <AttackRange Value="120" />
+          <MustBeOnSamePlatform Value="True" />
+          <ThreatRange Value="400" />
+          <ThreatAngle Value="360" />
+          <AttackRange Value="110" />
           <EntityToSearchFor Value="LiOn" />
+          <WaitThreatDelay Value="0" />
         </Properties>
       </ThreatArea>
       <Chase Type="NeonStarLibrary.Chase" ID="6">
@@ -83,15 +104,6 @@
           <AttackToLaunchFive Value="" />
         </Properties>
       </EnemyAttack>
-      <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
-        <Properties>
-          <CurrentNodeList Value="NodeList2" />
-          <Speed Value="1.5" />
-          <Roundtrip Value="True" />
-          <ReverseStart Value="False" />
-          <PathPrecisionTreshold Value="50" />
-        </Properties>
-      </FollowPlatformNodes>
     </Components>
   </Entity>
 </Prefab>

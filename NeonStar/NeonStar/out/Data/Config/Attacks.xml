@@ -19,24 +19,29 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="EnemyFirebatFlame" Type="MeleeLight">
+    <Attack ID="0" Name="EnemyFirebatFlame" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="140" OffsetY="-35" Width="280" Height="80" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.2</Delay>
-      <Cooldown>2</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>3</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.2</StunLock>
       <SpecialEffects />
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:50 Y:100}" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyFTurretShot" Type="Range">
@@ -71,9 +76,9 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.5</Delay>
-      <Cooldown>0.5</Cooldown>
+      <Cooldown>0.26</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>0.25</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -316,7 +321,7 @@
       <Hitboxes>
         <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -324,19 +329,25 @@
       <Cooldown>1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>1</Duration>
-      <AirLock>1</AirLock>
-      <TargetAirLock>1</TargetAirLock>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire12" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="105" OffsetY="10" Width="160" Height="110" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -348,15 +359,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire13" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="125" OffsetY="10" Width="200" Height="110" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -368,15 +385,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire21" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -388,15 +411,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire22" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -408,15 +437,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire23" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -428,15 +463,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire24" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -448,15 +489,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire31" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -468,15 +515,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire32" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -488,15 +541,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire33" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -508,15 +567,21 @@
       <TargetAirLock>1</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire34" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="0" Height="0" />
+        <Hitbox OffsetX="85" OffsetY="10" Width="120" Height="110" />
       </Hitboxes>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -524,11 +589,17 @@
       <Cooldown>1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>1</Duration>
-      <AirLock>1</AirLock>
-      <TargetAirLock>1</TargetAirLock>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnFlameLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:50 Y:0}" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
