@@ -56,6 +56,7 @@
       <SpecialEffects>
         <Effect Type="ShootBulletAtTarget">
           <Parameter Value="SimpleBullet" />
+          <SecondParameter Value="{X:10 Y:0}" />
         </Effect>
       </SpecialEffects>
       <OnHitSpecialEffects />
@@ -82,6 +83,11 @@
         <Effect Type="Impulse">
           <Parameter Value="{X:100 Y:-150}" />
           <SecondParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FXImpact02" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -545,7 +551,7 @@
       <SpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="EffectAnimation">
-          <Parameter Value="EffectLiOnLightAttackFinish" />
+          <Parameter Value="FXImpact01" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:20 Y:0}" />
         </Effect>
@@ -573,6 +579,11 @@
         <Effect Type="Impulse">
           <Parameter Value="{X:3900 Y:0}" />
           <SecondParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FXImpact02" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:20 Y:-15}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />

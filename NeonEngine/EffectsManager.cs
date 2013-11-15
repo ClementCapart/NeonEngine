@@ -44,7 +44,7 @@ namespace NeonEngine
 
             animatedSpecialEffect.transform.Position = Position;
             animatedSpecialEffect.transform.Rotation = Rotation;
-            animatedSpecialEffect.transform.Position += side == Side.Right ? Offset : -Offset;
+            animatedSpecialEffect.transform.Position += new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
 
             Neon.world.SpecialEffects.Add(animatedSpecialEffect);
             return animatedSpecialEffect;
