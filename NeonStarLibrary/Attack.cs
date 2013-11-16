@@ -647,7 +647,7 @@ namespace NeonStarLibrary
                     if (avatar.entity.spritesheets.CurrentSide != _entity.spritesheets.CurrentSide)
                     {
                         float damage = avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit;
-                        if (damage > 0)
+                        if (damage < 0)
                         {
                             avatar.ChangeHealthPoints(damage, this);
                             avatar.StunLockEffect(_stunLock);

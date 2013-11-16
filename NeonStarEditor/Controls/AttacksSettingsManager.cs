@@ -709,7 +709,7 @@ namespace NeonStarEditor
         {
             this.AttackName.Text = _attackList[AttacksList.SelectedValue.ToString()].Name;
             this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
-            this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit;
+            this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit * -1;
             this.DelayNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Delay;
             this.DurationNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Duration;
             this.CooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Cooldown;
@@ -894,7 +894,7 @@ namespace NeonStarEditor
             switch((sender as NumericUpDown).Name)
             {
                 case "DamageNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].DamageOnHit = (float)(sender as NumericUpDown).Value;
+                    _attackList[AttacksList.SelectedValue.ToString()].DamageOnHit = (float)(sender as NumericUpDown).Value * -1;
                     break;
 
                 case "DelayNumeric":
