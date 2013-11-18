@@ -66,7 +66,7 @@
                 <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
                 <Animation Name="Guard" SpritesheetTag="LiOnCounter" />
                 <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
-                <Animation Name="TakeHit" SpritesheetTag="LiOnHit" />
+                <Animation Name="Hit" SpritesheetTag="LiOnHit" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
@@ -119,7 +119,7 @@
               <StartingHealthPoints Value="0" />
               <CurrentHealthPoints Value="21429" />
               <StunLockDuration Value="-0.01665397" />
-              <StunlockAnim Value="TakeHit" />
+              <HitAnim Value="Hit" />
             </Properties>
           </Avatar>
           <Roll Type="NeonStarLibrary.Guard" ID="7">
@@ -141,6 +141,7 @@
           </Roll>
           <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
             <Properties>
+              <FireLaunchAnimation Value="" />
               <LeftSlotElement Value="Neutral" />
               <LeftSlotLevel Value="1" />
               <LeftSlotCooldownTimer Value="0" />
@@ -1866,6 +1867,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2018,6 +2020,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
@@ -2108,6 +2111,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2146,8 +2150,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1186 Y:203,5}" />
-              <InitialPosition Value="{X:1186 Y:203,5}" />
+              <Position Value="{X:1186 Y:203}" />
+              <InitialPosition Value="{X:1186 Y:203}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2218,6 +2222,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="TakeHit" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -2896,6 +2901,7 @@
               <ImmuneToDeath Value="True" />
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="FireDoorScript" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
         </Components>
@@ -3072,6 +3078,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3178,6 +3185,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
@@ -3297,6 +3305,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
@@ -3383,6 +3392,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ValueTrigger Type="NeonEngine.ValueTrigger" ID="5">
@@ -3401,7 +3411,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:2595,422 Y:-326,5}" />
+              <Position Value="{X:2068,175 Y:-326,4999}" />
               <InitialPosition Value="{X:2310 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3410,8 +3420,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2595 Y:-326}" />
-              <X Value="2545" />
+              <Center Value="{X:2068 Y:-326}" />
+              <X Value="2018" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3437,7 +3447,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -3473,6 +3483,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3520,7 +3531,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3416,122 Y:-326,5}" />
+              <Position Value="{X:3434,184 Y:-326,4999}" />
               <InitialPosition Value="{X:3200 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3529,8 +3540,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3416 Y:-326}" />
-              <X Value="3366" />
+              <Center Value="{X:3434 Y:-326}" />
+              <X Value="3384" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3592,6 +3603,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3639,7 +3651,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3221,496 Y:-56,49998}" />
+              <Position Value="{X:3396,978 Y:-56,49998}" />
               <InitialPosition Value="{X:3600 Y:-56,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3648,8 +3660,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3221 Y:-56}" />
-              <X Value="3171" />
+              <Center Value="{X:3396 Y:-56}" />
+              <X Value="3346" />
               <Y Value="-136" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3675,7 +3687,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -3711,6 +3723,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3830,6 +3843,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -3940,6 +3954,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4050,6 +4065,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4088,7 +4104,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5356,95 Y:203,5}" />
+              <Position Value="{X:5093,609 Y:203}" />
               <InitialPosition Value="{X:5037,384 Y:203}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4097,8 +4113,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5356 Y:203}" />
-              <X Value="5306" />
+              <Center Value="{X:5093 Y:203}" />
+              <X Value="5043" />
               <Y Value="123" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4124,7 +4140,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -4160,6 +4176,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4384,6 +4401,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4502,6 +4520,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4620,6 +4639,7 @@
               <ImmuneToDeath Value="False" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
+              <HitAnim Value="" />
             </Properties>
           </Enemy>
           <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
@@ -4765,7 +4785,7 @@
           <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
               <Font Value="TimerFont" />
-              <Text Value="02:23:85" />
+              <Text Value="00:10:61" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />

@@ -42,13 +42,14 @@ namespace NeonStarLibrary
         }
         private float _airLockDuration;
 
-        private string _stunlockAnim = "";
+        private string _hitAnim = "";
 
-        public string StunlockAnim
+        public string HitAnim
         {
-            get { return _stunlockAnim; }
-            set { _stunlockAnim = value; }
+            get { return _hitAnim; }
+            set { _hitAnim = value; }
         }
+
 
         public MeleeFight meleeFight;
         public ThirdPersonController thirdPersonController;
@@ -74,7 +75,7 @@ namespace NeonStarLibrary
             _currentHealthPoints += value;
             if (value < 0)
             {
-                entity.spritesheets.ChangeAnimation("Hit", 0, true, true, false);
+                entity.spritesheets.ChangeAnimation(_hitAnim, 1, true, false, false);
             }
             if (Debug)
             {
@@ -108,7 +109,6 @@ namespace NeonStarLibrary
                 {
                     elementSystem.CurrentElementEffect.End();
                 }
-                entity.spritesheets.ChangeAnimation(_stunlockAnim, 0, true, false, false);
             }
         }
 

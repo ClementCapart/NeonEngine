@@ -127,6 +127,14 @@ namespace NeonStarLibrary
             set { _dyingAnim = value; }
         }
 
+        private string _hitAnim = "";
+
+        public string HitAnim
+        {
+            get { return _hitAnim; }
+            set { _hitAnim = value; }
+        }
+
         private bool _immuneToStunLock = false;
 
         public bool ImmuneToStunLock
@@ -206,6 +214,8 @@ namespace NeonStarLibrary
             if (State != EnemyState.Dying && State != EnemyState.Dead)
             {
                 _currentHealthPoints += value;
+                if(value < 0)
+                    this.entity.spritesheets.ChangeAnimation(_hitAnim, 0, true, true, false);
                 if (_triggerOnDamage && value < 0)
                 {
                     if (_componentToTrigger != null)
@@ -240,7 +250,6 @@ namespace NeonStarLibrary
                     _stunLockDuration = duration;
                     if (_stunLockDuration > 0)
                     {
-                        entity.spritesheets.ChangeAnimation(_stunlockAnim, 0, true, true, false);
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         State = EnemyState.StunLock;
                     }
@@ -289,6 +298,7 @@ namespace NeonStarLibrary
             else if (State == EnemyState.StunLock)
             {
                 State = EnemyState.StunLockEnd;
+                entity.spritesheets.CurrentPriority = 0;
             }
             else
             {
@@ -298,7 +308,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (entity.spritesheets != null)
+            if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || entity.spritesheets.CurrentSpritesheet.IsFinished))
             {
                 switch (State)
                 {
