@@ -130,6 +130,7 @@ namespace NeonStarLibrary
         }
 
         private Entity _doorToOpen = null;
+        private Entity _enemy = null;
 
         private int _currentTutorialState = 1;
         private Avatar _avatar;
@@ -144,6 +145,9 @@ namespace NeonStarLibrary
             if(_avatarName != "")
                 _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
+
+            if (_enemyName != "")
+                _enemy = Neon.world.GetEntityByName(_enemyName);
 
             if (_doorToOpenName != "")
             {
@@ -208,6 +212,11 @@ namespace NeonStarLibrary
                 {
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
+                    if (_enemy != null)
+                    {
+                        _enemy.spritesheets.ChangeAnimation("Death", 0, true, false, false, 0);
+                        _enemy.hitbox.Remove();
+                    }
                     if (_doorToOpen != null)
                     {
                         _doorToOpen.rigidbody.Remove();
