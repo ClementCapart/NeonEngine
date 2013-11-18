@@ -169,10 +169,12 @@ namespace NeonStarLibrary
                             _waitTimer = 0.0f;
                         }
                     }
-                    else if (EnemyComponent.State != EnemyState.MustFinishChase)
+                    else if (EnemyComponent.State != EnemyState.MustFinishChase && EnemyComponent.State != EnemyState.WaitNode && EnemyComponent.State != EnemyState.Wait)
                     {
-                        if (entity.Name == "EnemyFTurretE5") Console.WriteLine("ok2");
-                        EnemyComponent.State = EnemyState.Idle;
+                        if (EnemyComponent._followNodes != null)
+                            EnemyComponent.State = EnemyState.Patrol;
+                        else
+                            EnemyComponent.State = EnemyState.Idle;
                     }
 
 

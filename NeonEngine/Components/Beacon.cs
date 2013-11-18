@@ -178,13 +178,17 @@ namespace NeonEngine.Private
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
                     hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                    if (hitEntity.rigidbody.OneWayPlatform)
+                    if (hitEntity != null)
                     {
-                        hitEntity = null;
-                        return -1;
-                    }      
-                    hasHit = true;
-                    return 0;
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }
+                        hasHit = true;
+                        return 0;
+                    }
+                    return -1;                   
                 }
                 return -1;
             },
@@ -198,13 +202,17 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        if (hitEntity.rigidbody.OneWayPlatform)
+                        if (hitEntity != null)
                         {
-                            hitEntity = null;
-                            return -1;
-                        }      
-                        hasHit = true;
-                        return 0;
+                            if (hitEntity.rigidbody.OneWayPlatform)
+                            {
+                                hitEntity = null;
+                                return -1;
+                            }
+                            hasHit = true;
+                            return 0;
+                        }
+                        return -1;
                     }
                     return -1;
                 },
@@ -216,12 +224,17 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        if (hitEntity.rigidbody.OneWayPlatform)
+                        if (hitEntity != null)
                         {
-                            hitEntity = null;
-                            return -1;
-                        }                         
-                        return 0;
+                            if (hitEntity.rigidbody.OneWayPlatform)
+                            {
+                                hitEntity = null;
+                                return -1;
+                            }
+                            return 0;
+                        }
+                        return -1;
+                        
                     }
                     return -1;
                 },
@@ -241,13 +254,19 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
+                    
                     hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                    if (hitEntity.rigidbody.OneWayPlatform)
+                    if (hitEntity != null)
                     {
-                        hitEntity = null;
-                        return -1;
-                    }      
-                    return 0;
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }
+                        return 0;
+                    }
+                    return -1;
+                    
                 }
                 return -1;
             },
@@ -261,12 +280,17 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        if (hitEntity.rigidbody.OneWayPlatform)
+                        if (hitEntity != null)
                         {
-                            hitEntity = null;
-                            return -1;
-                        }      
-                        return 0;
+                            if (hitEntity.rigidbody.OneWayPlatform)
+                            {
+                                hitEntity = null;
+                                return -1;
+                            }
+                            return 0;
+                        }
+                        return -1;
+                        
                     }
                     return -1;
                 },
@@ -278,12 +302,17 @@ namespace NeonEngine.Private
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
                         hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                        if (hitEntity.rigidbody.OneWayPlatform)
+                        if (hitEntity != null)
                         {
-                            hitEntity = null;
-                            return -1;
-                        }      
-                        return 0;
+                            if (hitEntity.rigidbody.OneWayPlatform)
+                            {
+                                hitEntity = null;
+                                return -1;
+                            }
+                            return 0;
+                        }
+                        return -1;
+                        
                     }
                     return -1;
                 },

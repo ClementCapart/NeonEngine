@@ -192,6 +192,8 @@ namespace NeonStarLibrary
             if (_targetZoom != Neon.world.camera.Zoom)
             {
                 Neon.world.camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.world.camera.Zoom, 0.98f);
+                if (Math.Sqrt(_targetZoom * _targetZoom + Neon.world.camera.Zoom * Neon.world.camera.Zoom) < 0.05f)
+                    Neon.world.camera.Zoom = _targetZoom;
             }
         }
     }

@@ -326,7 +326,7 @@ namespace NeonEngine
 
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             
-            foreach (HUDComponent hudc in HUDComponents)
+            foreach (DrawableComponent hudc in HUDComponents)
                 hudc.Draw(spriteBatch);
             
             ManualDrawHUD(spriteBatch);

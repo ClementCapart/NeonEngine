@@ -85,8 +85,8 @@ namespace NeonEngine
                 graphic = component as Graphic;
 
             if (component is DrawableComponent)
-                if(component is HUDComponent)
-                    containerWorld.HUDComponents.Add(component as HUDComponent);            
+                if((component  as DrawableComponent).IsHUD)
+                    containerWorld.HUDComponents.Add(component as DrawableComponent);            
                 else
                     containerWorld.DrawableComponents.Add(component as DrawableComponent);
             return component;

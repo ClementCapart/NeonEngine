@@ -14,6 +14,14 @@ namespace NeonEngine
         private bool _tint = false;
         public ColorEmitter TintedBy;
 
+        private bool isHUD = false;
+
+        public bool IsHUD
+        {
+            get { return isHUD; }
+            set { isHUD = value; }
+        }
+
         protected Side _currentSide = Side.Right;
 
         public virtual Side CurrentSide
