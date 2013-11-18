@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-438 Y:215}" />
+              <Position Value="{X:-438 Y:213,5}" />
               <InitialPosition Value="{X:-438 Y:215,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-438 Y:214}" />
+              <Center Value="{X:-438 Y:213}" />
               <X Value="-458" />
-              <Y Value="146" />
+              <Y Value="145" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -69,6 +69,7 @@
                 <Animation Name="TakeHit" SpritesheetTag="LiOnHit" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
               <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -159,8 +160,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-390 Y:310}" />
-              <InitialPosition Value="{X:-390 Y:310}" />
+              <Position Value="{X:-390 Y:308}" />
+              <InitialPosition Value="{X:-390 Y:308}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -168,9 +169,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-390 Y:310}" />
+              <Center Value="{X:-390 Y:308}" />
               <X Value="-530" />
-              <Y Value="285" />
+              <Y Value="283" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="280" />
@@ -1575,8 +1576,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-555 Y:85}" />
-              <InitialPosition Value="{X:-555 Y:85}" />
+              <Position Value="{X:-555 Y:-68}" />
+              <InitialPosition Value="{X:-555 Y:-68}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -1584,13 +1585,13 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-555 Y:85}" />
+              <Center Value="{X:-555 Y:-68}" />
               <X Value="-580" />
-              <Y Value="-165" />
+              <Y Value="-468" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
-              <Height Value="500" />
+              <Height Value="800" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
@@ -1600,7 +1601,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.5" />
+              <Mass Value="4" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1642,6 +1643,7 @@
                 <Animation Name="DodgeTutorial" SpritesheetTag="TutorialDODGE" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -1783,19 +1785,20 @@
                 <Animation Name="DoorOpening" SpritesheetTag="Door" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyFTurret">
+      <Entity Name="EnemyFTurretD1">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3092 Y:234}" />
-              <InitialPosition Value="{X:3092 Y:234}" />
+              <Position Value="{X:3369 Y:236}" />
+              <InitialPosition Value="{X:3369 Y:236}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1803,9 +1806,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3092 Y:233}" />
-              <X Value="3042" />
-              <Y Value="183" />
+              <Center Value="{X:3368 Y:235}" />
+              <X Value="3318" />
+              <Y Value="185" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -1831,7 +1834,7 @@
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:8}" />
+              <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
@@ -1840,7 +1843,8 @@
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
               </Spritesheets>
               <DrawLayer Value="0.39" />
-              <Tint Value="False" />
+              <IsHUD Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -1894,10 +1898,11 @@
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:27}" />
+              <Offset Value="{X:0 Y:15}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1990,6 +1995,7 @@
                 <Animation Name="Death" SpritesheetTag="PunchingBallDeath" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -2079,7 +2085,8 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
-              <Tint Value="False" />
+              <IsHUD Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -2139,8 +2146,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1186 Y:203}" />
-              <InitialPosition Value="{X:1186 Y:203}" />
+              <Position Value="{X:1186 Y:203,5}" />
+              <InitialPosition Value="{X:1186 Y:203,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2188,6 +2195,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -2805,6 +2813,7 @@
                 <Animation Name="DoorOpening" SpritesheetTag="Door" />
               </Spritesheets>
               <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -2861,6 +2870,7 @@
                 <Animation Name="FireDoorOpening" SpritesheetTag="FireDoor" />
               </Spritesheets>
               <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -2924,7 +2934,8 @@
                 <Animation Name="DoorClosing" SpritesheetTag="Door" />
               </Spritesheets>
               <DrawLayer Value="0.6" />
-              <Tint Value="False" />
+              <IsHUD Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -2985,7 +2996,7 @@
           </HitboxTrigger>
         </Components>
       </Entity>
-      <Entity Name="EnemyFirebatC3">
+      <Entity Name="EnemyFirebatE6">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -3038,7 +3049,8 @@
                 <Animation Name="StartAttack" SpritesheetTag="FlamethrowerStart" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
-              <Tint Value="False" />
+              <IsHUD Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -3143,6 +3155,7 @@
                 <Animation Name="Button" SpritesheetTag="Button" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3261,6 +3274,7 @@
                 <Animation Name="Button" SpritesheetTag="Button" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3346,6 +3360,7 @@
                 <Animation Name="Button" SpritesheetTag="Button" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3381,12 +3396,12 @@
           </ValueTrigger>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot">
+      <Entity Name="EnemyRobotB1">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:1993,01 Y:-326,4999}" />
+              <Position Value="{X:2595,422 Y:-326,5}" />
               <InitialPosition Value="{X:2310 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3395,8 +3410,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1993 Y:-326}" />
-              <X Value="1943" />
+              <Center Value="{X:2595 Y:-326}" />
+              <X Value="2545" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3422,7 +3437,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -3435,7 +3450,8 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
-              <Tint Value="False" />
+              <IsHUD Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -3499,12 +3515,12 @@
           </FollowPlatformNodes>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot">
+      <Entity Name="EnemyRobotC1">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3270,987 Y:-326,4999}" />
+              <Position Value="{X:3416,122 Y:-326,5}" />
               <InitialPosition Value="{X:3200 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3513,8 +3529,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3270 Y:-326}" />
-              <X Value="3220" />
+              <Center Value="{X:3416 Y:-326}" />
+              <X Value="3366" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3553,6 +3569,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3617,12 +3634,12 @@
           </FollowPlatformNodes>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot">
+      <Entity Name="EnemyRobotC2">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3546,518 Y:-56,49998}" />
+              <Position Value="{X:3221,496 Y:-56,49998}" />
               <InitialPosition Value="{X:3600 Y:-56,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3631,8 +3648,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3546 Y:-56}" />
-              <X Value="3496" />
+              <Center Value="{X:3221 Y:-56}" />
+              <X Value="3171" />
               <Y Value="-136" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3658,7 +3675,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -3671,6 +3688,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3735,7 +3753,7 @@
           </FollowPlatformNodes>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobotA1">
+      <Entity Name="EnemyRobotE3">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -3789,6 +3807,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3844,7 +3863,7 @@
           </EnemyAttack>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobotA1">
+      <Entity Name="EnemyRobotE4">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -3898,6 +3917,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -3953,7 +3973,7 @@
           </EnemyAttack>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobotA1">
+      <Entity Name="EnemyRobotE7">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -4007,6 +4027,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -4062,12 +4083,12 @@
           </EnemyAttack>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot">
+      <Entity Name="EnemyRobotE1">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:4987,018 Y:203}" />
+              <Position Value="{X:5356,95 Y:203,5}" />
               <InitialPosition Value="{X:5037,384 Y:203}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4076,8 +4097,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4987 Y:203}" />
-              <X Value="4937" />
+              <Center Value="{X:5356 Y:203}" />
+              <X Value="5306" />
               <Y Value="123" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4103,7 +4124,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -4116,6 +4137,7 @@
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -4195,6 +4217,7 @@
             <Properties>
               <GraphicTag Value="fondintensif" />
               <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4221,6 +4244,7 @@
             <Properties>
               <GraphicTag Value="barriereintensives" />
               <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4247,6 +4271,7 @@
             <Properties>
               <GraphicTag Value="lightintensive1" />
               <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4273,6 +4298,7 @@
             <Properties>
               <GraphicTag Value="lightintensive2" />
               <DrawLayer Value="0.8" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4284,13 +4310,13 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="EnemyFTurret">
+      <Entity Name="EnemyFTurretD2">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4312 Y:234}" />
-              <InitialPosition Value="{X:4312 Y:234}" />
+              <Position Value="{X:4494 Y:236}" />
+              <InitialPosition Value="{X:4494 Y:236}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4298,9 +4324,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4312 Y:233}" />
-              <X Value="4262" />
-              <Y Value="183" />
+              <Center Value="{X:4494 Y:235}" />
+              <X Value="4444" />
+              <Y Value="185" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -4326,7 +4352,7 @@
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:8}" />
+              <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
@@ -4335,6 +4361,7 @@
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
               </Spritesheets>
               <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -4389,10 +4416,11 @@
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:27}" />
+              <Offset Value="{X:0 Y:15}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -4400,13 +4428,13 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="EnemyFTurret">
+      <Entity Name="EnemyFTurretE5">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4917 Y:-382}" />
-              <InitialPosition Value="{X:4917 Y:-382}" />
+              <Position Value="{X:4926 Y:-382}" />
+              <InitialPosition Value="{X:4926 Y:-382}" />
               <Rotation Value="90" />
               <Scale Value="2" />
             </Properties>
@@ -4414,8 +4442,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4917 Y:-382}" />
-              <X Value="4867" />
+              <Center Value="{X:4926 Y:-382}" />
+              <X Value="4876" />
               <Y Value="-432" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4442,7 +4470,7 @@
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:8}" />
+              <Offset Value="{X:3 Y:8}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
@@ -4451,6 +4479,7 @@
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
               </Spritesheets>
               <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -4505,6 +4534,7 @@
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4516,13 +4546,13 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="EnemyFTurret">
+      <Entity Name="EnemyFTurretE2">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5614 Y:234}" />
-              <InitialPosition Value="{X:5614 Y:234}" />
+              <Position Value="{X:5613 Y:236}" />
+              <InitialPosition Value="{X:5613 Y:236}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4530,9 +4560,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5614 Y:233}" />
-              <X Value="5564" />
-              <Y Value="183" />
+              <Center Value="{X:5612 Y:235}" />
+              <X Value="5562" />
+              <Y Value="185" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -4558,7 +4588,7 @@
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:8}" />
+              <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
@@ -4567,6 +4597,7 @@
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
               </Spritesheets>
               <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -4621,10 +4652,11 @@
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:27}" />
+              <Offset Value="{X:0 Y:15}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -4637,8 +4669,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2617 Y:175}" />
-              <InitialPosition Value="{X:2617 Y:175}" />
+              <Position Value="{X:2602 Y:173}" />
+              <InitialPosition Value="{X:2602 Y:173}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4649,8 +4681,9 @@
               <SpriteSheetTag Value="TutorialGUARD" />
               <DrawLayer Value="0.11" />
               <IsFinished Value="False" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
-              <Tint Value="False" />
+              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
@@ -4677,6 +4710,7 @@
               <SpriteSheetTag Value="TutorialPOWERPUNCH" />
               <DrawLayer Value="0.11" />
               <IsFinished Value="False" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4705,6 +4739,7 @@
               <SpriteSheetTag Value="TutorialUPPERCUTandDIVE" />
               <DrawLayer Value="0.11" />
               <IsFinished Value="False" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4721,8 +4756,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-589 Y:-332}" />
-              <InitialPosition Value="{X:-589 Y:-332}" />
+              <Position Value="{X:15 Y:5}" />
+              <InitialPosition Value="{X:15 Y:5}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -4730,14 +4765,15 @@
           <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
               <Font Value="TimerFont" />
-              <Text Value="00:11:45" />
+              <Text Value="02:23:85" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
               <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
-              <ParallaxForce Value="{X:1 Y:1}" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -4769,6 +4805,7 @@
               <SpriteSheetTag Value="TutorialELEMENT" />
               <DrawLayer Value="0.11" />
               <IsFinished Value="False" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4797,6 +4834,7 @@
               <SpriteSheetTag Value="TutorialAERIAL" />
               <DrawLayer Value="0.11" />
               <IsFinished Value="False" />
+              <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
@@ -4806,6 +4844,167 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="YellowTintB">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2397 Y:-884}" />
+              <InitialPosition Value="{X:2397 Y:-884}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:226 G:171 B:56 A:255}" />
+              <Range Value="500" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="PurpleTintD1">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2317 Y:180}" />
+              <InitialPosition Value="{X:2317 Y:180}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:172 G:64 B:169 A:255}" />
+              <Range Value="200" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="YellowTintC">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3967 Y:-1037}" />
+              <InitialPosition Value="{X:3967 Y:-1037}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:226 G:171 B:56 A:255}" />
+              <Range Value="500" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="YellowTintE">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5774 Y:-637}" />
+              <InitialPosition Value="{X:5774 Y:-637}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:226 G:171 B:56 A:255}" />
+              <Range Value="500" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="PurpleTintD2">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2907 Y:180}" />
+              <InitialPosition Value="{X:2907 Y:180}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:172 G:64 B:169 A:255}" />
+              <Range Value="200" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="PurpleTintD3">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4207 Y:167,5}" />
+              <InitialPosition Value="{X:4207 Y:167,5}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:172 G:64 B:169 A:255}" />
+              <Range Value="200" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="PurpleTintD4">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4797 Y:175}" />
+              <InitialPosition Value="{X:4797 Y:175}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+            <Properties>
+              <Debug Value="True" />
+              <Color Value="{R:172 G:64 B:169 A:255}" />
+              <Range Value="200" />
+              <Pulse Value="False" />
+              <PulseStartDelay Value="1" />
+              <PulseDuration Value="2" />
+            </Properties>
+          </ColorEmitter>
         </Components>
       </Entity>
     </Entities>
