@@ -25,7 +25,7 @@ namespace NeonEngine.Private
         {
             get { return position; }
             set 
-            { 
+            {
                 position = value;
                 if (_autoChangeInitialPosition)
                     _initialPosition = position;
@@ -70,6 +70,11 @@ namespace NeonEngine.Private
         {
             this.position = InitialPosition;
             base.Init();
+        }
+
+        public override void PreUpdate(GameTime gameTime)
+        {
+            base.PreUpdate(gameTime);
         }
     }
 }

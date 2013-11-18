@@ -116,6 +116,7 @@ namespace NeonStarLibrary
                     {
                         _elementSystem.AvatarComponent.AirLock(0.0f);
                         _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        _entity.spritesheets.ChangeAnimation(_elementSystem.FireLaunchAnimation, 0, true, false, false);
                         switch(_elementLevel)
                         {
                             case 1:

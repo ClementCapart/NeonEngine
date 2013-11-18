@@ -17,6 +17,14 @@ namespace NeonStarLibrary
     {
         public Avatar AvatarComponent;
 
+        private string _fireLaunchAnimation = "";
+
+        public string FireLaunchAnimation
+        {
+            get { return _fireLaunchAnimation; }
+            set { _fireLaunchAnimation = value; }
+        }
+
         private Element _leftSlotElement = Element.Neutral;
 
         public Element LeftSlotElement

@@ -7,7 +7,6 @@ namespace NeonEngine
     public class SpriteSheet : DrawableComponent
     {
         public bool isPlaying = true;
-        Rectangle[] frames;
         public int currentFrame = 0;
         public SpriteSheetInfo spriteSheetInfo;
         double timePerFrame;
@@ -84,28 +83,6 @@ namespace NeonEngine
             if (spriteSheetInfo == null)
                 return;
 
-            int mapWidth = spriteSheetInfo.Texture.Width;
-            int mapHeight = spriteSheetInfo.Texture.Height;
-
-            int columns = mapWidth / spriteSheetInfo.FrameWidth;
-            int rows = mapHeight / spriteSheetInfo.FrameWidth;
-
-            frames = new Rectangle[spriteSheetInfo.FrameCount];
-
-            int currentColumn = 0, currentRow = 0;
-            for (int i = 0; i < spriteSheetInfo.FrameCount; i++)
-            {
-                frames[i] = new Rectangle(currentColumn * spriteSheetInfo.FrameWidth, currentRow * spriteSheetInfo.FrameHeight, spriteSheetInfo.FrameWidth, spriteSheetInfo.FrameHeight);
-
-                if (currentColumn == columns - 1)
-                {
-                    currentColumn = 0;
-                    currentRow++;
-                }
-                else
-                    currentColumn++;
-            }
-
             if (spriteSheetInfo.Fps == 0)
                 isPlaying = false;
             else
@@ -127,7 +104,8 @@ namespace NeonEngine
                         {
                             if (!_reverseLoop)
                             {
-                                if (currentFrame == frames.Length - 1)
+
+                                if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                 {
                                     if (IsLooped)
                                         currentFrame = 0;
@@ -144,7 +122,7 @@ namespace NeonEngine
                             {
                                 if (!_reverse)
                                 {
-                                    if (currentFrame == frames.Length - 1)
+                                    if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                     {
                                         _reverse = true;
                                         currentFrame--;
@@ -182,10 +160,10 @@ namespace NeonEngine
             if (spriteSheetInfo != null && Active)
             {
                 if(particle == null)
-                    spritebatch.Draw(spriteSheetInfo.Texture, new Vector2((int)entity.transform.Position.X + this._parallaxPosition.X +  ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X + (int)Offset.X : -(int)spriteSheetInfo.Offset.X - (int)Offset.X) * entity.transform.Scale), (int)entity.transform.Position.Y + this._parallaxPosition.Y + (((int)spriteSheetInfo.Offset.Y + Offset.Y) * entity.transform.Scale)), frames[currentFrame],
-                        Color.Lerp(Color.Transparent, TintColor, opacity),  RotationOffset, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2) + RotationCenter, entity.transform.Scale, spriteEffects, Layer);
+                    spritebatch.Draw(spriteSheetInfo.Frames[currentFrame], new Vector2((int)(entity.transform.Position.X + this._parallaxPosition.X + ((spriteEffects == SpriteEffects.None ? (int)spriteSheetInfo.Offset.X + (int)Offset.X : -(int)spriteSheetInfo.Offset.X - (int)Offset.X) * entity.transform.Scale)), (int)(entity.transform.Position.Y + this._parallaxPosition.Y + (((int)spriteSheetInfo.Offset.Y + Offset.Y) * entity.transform.Scale))), null,
+                        Color.Lerp(Color.Transparent, TintColor, opacity), RotationOffset, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2) + RotationCenter, entity.transform.Scale, spriteEffects, Layer);
                 else
-                    spritebatch.Draw(spriteSheetInfo.Texture, particle.Position, frames[currentFrame],
+                    spritebatch.Draw(spriteSheetInfo.Frames[currentFrame], particle.Position, null,
                         TintColor, particle.Angle, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2), scale, spriteEffects, Layer);
             }
             base.Draw(spritebatch);

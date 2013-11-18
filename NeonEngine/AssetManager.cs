@@ -10,7 +10,7 @@ namespace NeonEngine
 {
     public class SpriteSheetInfo
     {
-        public Texture2D Texture;
+        public Texture2D[] Frames;
         public int FrameWidth;
         public int FrameHeight;
         public int FrameCount;
@@ -159,11 +159,12 @@ namespace NeonEngine
             string[] ssiInfo = fileName.Split('_');
 
             SpriteSheetInfo ssi = new SpriteSheetInfo();
-            ssi.Texture = texture;
-            string name = ssiInfo[0];
             ssi.FrameCount = int.Parse(ssiInfo[1].Remove(ssiInfo[1].Length - 1));
             ssi.FrameWidth = int.Parse(ssiInfo[2].Remove(ssiInfo[2].Length - 3));
             ssi.FrameHeight = int.Parse(ssiInfo[3].Remove(ssiInfo[3].Length - 3));
+            ssi.Frames = GenerateSpritesheetFrames(texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount);
+            string name = ssiInfo[0];
+            
             if (ssiInfo.Length >= 5)
                 ssi.Fps = int.Parse(ssiInfo[4].Remove(ssiInfo[4].Length - 3));
             else
@@ -183,6 +184,37 @@ namespace NeonEngine
                 return _spritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
             else
                 return null;
+        }
+
+        static public Texture2D[] GenerateSpritesheetFrames(Texture2D texture, int frameWidth, int frameHeight, int frameCount)
+        {
+            Texture2D[] frames = null;            
+
+            int columns = texture.Width / frameWidth;
+            int rows = texture.Height / frameHeight;
+
+            frames = new Texture2D[frameCount];
+
+            int currentColumn = 0, currentRow = 0;
+
+            for (int i = 0; i < frameCount; i++)
+            {
+                Color[] currentColors = new Color[frameWidth * frameHeight];
+                texture.GetData<Color>(0, new Rectangle(currentColumn * frameWidth, currentRow * frameHeight, frameWidth, frameHeight), currentColors, 0, currentColors.Length);
+
+                frames[i] = new Texture2D(Neon.graphicsDevice, frameWidth, frameHeight, true, SurfaceFormat.Color);
+                frames[i].SetData(currentColors);
+
+                if (currentColumn == columns - 1)
+                {
+                    currentColumn = 0;
+                    currentRow++;
+                }
+                else
+                    currentColumn++;
+            }
+            
+            return frames;
         }
 
         static public Effect GetEffect(string tag)

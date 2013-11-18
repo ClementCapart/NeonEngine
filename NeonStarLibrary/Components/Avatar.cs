@@ -72,7 +72,7 @@ namespace NeonStarLibrary
         public void ChangeHealthPoints(float value, Attack attack = null)
         {
             _currentHealthPoints += value;
-            if (value > 0)
+            if (value < 0)
             {
                 entity.spritesheets.ChangeAnimation("Hit", 0, true, true, false);
             }
