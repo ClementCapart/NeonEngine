@@ -271,7 +271,7 @@ namespace NeonStarLibrary
             if (AvatarComponent.elementSystem.CurrentElementEffect != null)
                 AvatarComponent.elementSystem.CurrentElementEffect.End();
             entity.spritesheets.ChangeAnimation(_rollAnimation, 1, true, true, false);
-            entity.hitbox.SwitchType(HitboxType.Invincible, _rollDuration); 
+            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration); 
         }
 
         private void PerformGuard()
@@ -300,7 +300,7 @@ namespace NeonStarLibrary
             if (AvatarComponent.elementSystem.CurrentElementEffect != null)
                 AvatarComponent.elementSystem.CurrentElementEffect.End();
             entity.spritesheets.ChangeAnimation(_dashAnimation, 1, true, true, false);
-            entity.hitbox.SwitchType(HitboxType.Invincible, _dashDuration);
+            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
         }
     }
 }

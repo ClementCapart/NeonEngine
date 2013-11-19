@@ -196,6 +196,16 @@ namespace NeonEngine
             }
         }
 
+        private Vector2 Position
+        {
+            get { return CoordinateConversion.worldToScreen(body.Position); }
+            set
+            {
+                body.Position = CoordinateConversion.screenToWorld(value);
+                entity.transform.Position = CoordinateConversion.worldToScreen(body.Position);
+            }
+        }
+
         bool fixedRotation = true;
         public bool FixedRotation
         {
@@ -283,7 +293,7 @@ namespace NeonEngine
 
                 if (EntityB != null)
                 {
-                    Hitbox hitboxB = EntityB.hitbox;
+                    Hitbox hitboxB = EntityB.hitboxes[0];
                     if (hitbox != null && EntityB.transform.Position.Y + hitboxB.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2 
                         || (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
@@ -300,7 +310,7 @@ namespace NeonEngine
 
                 if (EntityB != null)
                 {
-                    Hitbox hitboxB = EntityB.hitbox;
+                    Hitbox hitboxB = EntityB.hitboxes[0];
                     if (!EntityB.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
                         contact.Friction = 0.0f;
@@ -312,7 +322,7 @@ namespace NeonEngine
             return true;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void PreUpdate(GameTime gameTime)
         {
             if (body != null)
             {
@@ -335,6 +345,11 @@ namespace NeonEngine
                 Position = Position;
             }
             
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
             base.Update(gameTime);
         }
 
@@ -346,19 +361,12 @@ namespace NeonEngine
 
         public override void Remove()
         {
+
             body.Dispose();
             base.Remove();
         }
 
-        private Vector2 Position
-        {
-            get { return CoordinateConversion.worldToScreen(body.Position); }
-            set 
-            { 
-                body.Position = CoordinateConversion.screenToWorld(value);
-                entity.transform.Position = CoordinateConversion.worldToScreen(body.Position);
-            }
-        }
+        
 
         public void GenerateNewBody(Hitbox hitbox)
         {

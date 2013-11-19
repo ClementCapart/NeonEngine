@@ -262,5 +262,16 @@ namespace NeonStarEditor.Controls.LeftDock
                 stream.Close();
             }
         }
+
+        private void frameByFrame_Click(object sender, EventArgs e)
+        {
+            if (!Neon.world.Pause)
+                Neon.world.Pause = true;
+            else
+            {
+                GameWorld.UnpauseTillNextFrame = true;
+                Neon.world.Pause = false;
+            }
+        }
     }
 }

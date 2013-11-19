@@ -226,6 +226,17 @@ namespace NeonStarLibrary
                 }
 
             }
+
+            if (CurrentAttack != null)
+            {
+                if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
+                {
+                    CurrentAttack = null;
+                    entity.spritesheets.CurrentPriority = 0;
+                }
+                else
+                    CurrentAttack.Update(gameTime);
+            }    
             base.PreUpdate(gameTime);
         }
 
@@ -238,20 +249,9 @@ namespace NeonStarLibrary
             if (entity.rigidbody != null && entity.rigidbody.isGrounded)
             {
                 AttacksWhileInAir.Clear();
-            }
+            }            
 
-            
-
-            if (CurrentAttack != null)
-            {
-                if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
-                {
-                    CurrentAttack = null;
-                    entity.spritesheets.CurrentPriority = 0;
-                }
-                else
-                    CurrentAttack.Update(gameTime);
-            }        
+                
 
             if (CanAttack && (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.CooldownFinished)) && (_avatar != null && _avatar.StunLockDuration <= 0.0f))
             {

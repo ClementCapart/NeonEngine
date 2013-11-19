@@ -61,6 +61,8 @@ namespace NeonStarEditor
 
         public bool ManagingInspector = false;
 
+        public bool UnpauseTillNextFrame = false;
+
         public EditorScreen(Game game, GraphicsDeviceManager graphics)
             : base(game)
         {
@@ -137,6 +139,12 @@ namespace NeonStarEditor
 
         public override void Update(GameTime gameTime)
         {
+            if (!Pause)
+                if (UnpauseTillNextFrame)
+                {
+                    Pause = true;
+                    UnpauseTillNextFrame = false;
+                }
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
             if (CurrentTool != null && MouseInGameWindow)

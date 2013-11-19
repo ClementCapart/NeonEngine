@@ -75,11 +75,11 @@ namespace NeonEngine
             }
             else
             {
-                if (_triggeringEntity.hitbox != null && entity.hitbox != null)
+                if (_triggeringEntity.hitboxes != null && entity.hitboxes != null)
                 {
                     if ((_oneShot && !_alreadyTouched) || !_oneShot)
                     {
-                        if (_triggeringEntity.hitbox.hitboxRectangle.Intersects(entity.hitbox.hitboxRectangle))
+                        if (_triggeringEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                         {
                             if (!_notOutYet)
                             {

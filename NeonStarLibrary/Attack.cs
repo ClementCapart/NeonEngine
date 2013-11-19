@@ -428,8 +428,8 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.Invincible:
-                            if (Launcher != null) Launcher.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
-                            else _entity.hitbox.SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
+                            if (Launcher != null) Launcher.hitboxes[0].SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
+                            else _entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)(ae.Parameters[0]));
                             break;
 
                         case SpecialEffect.EffectAnimation:
@@ -577,7 +577,7 @@ namespace NeonStarLibrary
                                     break;
 
                                 case SpecialEffect.Invincible:
-                                    _entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                                    _entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
                                     break;
 
                                 case SpecialEffect.EffectAnimation:
@@ -609,11 +609,11 @@ namespace NeonStarLibrary
             if (_mustStopAtTargetSight)
             {
                 if(_side == Side.Left)
-                    if (_target.hitbox.Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    if (_target.hitboxes[0].Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
                 if (_side == Side.Right)
-                    if (_target.hitbox.Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
         }
@@ -721,12 +721,12 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.Invincible:
-                            entity.hitbox.SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                            entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
                             break;
 
                         case SpecialEffect.EffectAnimation:
                             SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitbox.hitboxRectangle);
+                            Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
                             Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
                             EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
                             break;

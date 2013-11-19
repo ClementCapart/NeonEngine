@@ -176,13 +176,18 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
+            base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
             Center = entity.transform.Position;
+
             if (_switchDuration > 0.0f)
                 _switchDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             else
                 _type = _initialType;
-
-            base.Update(gameTime);
+            base.PostUpdate(gameTime);
         }
         public void GenerateVectorList(int Width, int Height)
         {
@@ -198,6 +203,7 @@ namespace NeonEngine
         {
             InUse = false;
             entity.containerWorld.Hitboxes.Remove(this);
+            entity.hitboxes.Remove(this);
             entity.containerWorld.HitboxPool.FlagAvailableItem(this);
             base.Remove();
         }

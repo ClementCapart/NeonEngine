@@ -17,7 +17,7 @@ namespace NeonEngine
         public Rigidbody rigidbody;
         public SpritesheetManager spritesheets;
         public Graphic graphic;
-        public Hitbox hitbox;
+        public List<Hitbox> hitboxes = new List<Hitbox>();
 
         private string name = "Entity";
         public string Name
@@ -79,8 +79,8 @@ namespace NeonEngine
                 spritesheets = component as SpritesheetManager;
             else if (component is Rigidbody)
                 rigidbody = component as Rigidbody;
-            else if (component is Hitbox && hitbox == null)
-                hitbox = component as Hitbox;
+            else if (component is Hitbox)
+                hitboxes.Add(component as Hitbox);
             else if (component is Graphic)
                 graphic = component as Graphic;
 

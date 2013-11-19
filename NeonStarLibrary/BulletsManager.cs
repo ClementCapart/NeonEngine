@@ -178,7 +178,7 @@ namespace NeonStarLibrary
         {
             _world.Bullets.Remove(entity);
             entity.spritesheets.Active = false;
-            BulletsManager._world.Hitboxes.Remove(entity.hitbox);
+            BulletsManager._world.Hitboxes.Remove(entity.hitboxes[0]);
             _world.BulletsPool.FlagAvailableItem(entity);
         }
     }

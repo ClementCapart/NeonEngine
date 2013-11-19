@@ -44,13 +44,14 @@
             this.magnetCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SaveHitboxes = new System.Windows.Forms.Button();
+            this.frameByFrame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PausePlayButton
             // 
             this.PausePlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PausePlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PausePlayButton.Location = new System.Drawing.Point(3, 97);
+            this.PausePlayButton.Location = new System.Drawing.Point(4, 78);
             this.PausePlayButton.Name = "PausePlayButton";
             this.PausePlayButton.Size = new System.Drawing.Size(30, 30);
             this.PausePlayButton.TabIndex = 3;
@@ -222,6 +223,18 @@
             this.SaveHitboxes.UseVisualStyleBackColor = true;
             this.SaveHitboxes.Click += new System.EventHandler(this.SaveHitboxes_Click);
             // 
+            // frameByFrame
+            // 
+            this.frameByFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.frameByFrame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.frameByFrame.Location = new System.Drawing.Point(4, 110);
+            this.frameByFrame.Name = "frameByFrame";
+            this.frameByFrame.Size = new System.Drawing.Size(30, 30);
+            this.frameByFrame.TabIndex = 3;
+            this.frameByFrame.Text = ">";
+            this.frameByFrame.UseVisualStyleBackColor = true;
+            this.frameByFrame.Click += new System.EventHandler(this.frameByFrame_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +251,7 @@
             this.Controls.Add(this.ReloadAssetsButton);
             this.Controls.Add(this.ReloadScript);
             this.Controls.Add(this.CreateRectangle);
+            this.Controls.Add(this.frameByFrame);
             this.Controls.Add(this.PausePlayButton);
             this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.SaveHitboxes);
@@ -267,5 +281,6 @@
         private System.Windows.Forms.CheckBox magnetCheckbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SaveHitboxes;
+        private System.Windows.Forms.Button frameByFrame;
     }
 }
