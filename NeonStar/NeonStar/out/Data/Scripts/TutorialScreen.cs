@@ -227,7 +227,7 @@ namespace NeonStarLibrary
                     if (_enemy != null)
                     {
                         _enemy.spritesheets.ChangeAnimation("Death", 0, true, false, false, 0);
-                        _enemy.hitbox.Remove();
+                        _enemy.hitboxes[0].Remove();
                     }
 
                     if (_incomingEnemy != null)
