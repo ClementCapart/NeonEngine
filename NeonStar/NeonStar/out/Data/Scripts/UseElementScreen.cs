@@ -17,6 +17,8 @@ namespace NeonScripts
         }
 
         private Avatar _avatar = null;
+		
+		private int _scriptStep = 0;
 
         public UseElementScreenScript(Entity entity)
             : base(entity, "UseElementScreenScript")
@@ -33,10 +35,15 @@ namespace NeonScripts
         public override void Update(GameTime gameTime)
         {
             if (_avatar != null)
-                if (_avatar.elementSystem.LeftSlotElement == Element.Fire)
+                if (_avatar.elementSystem.LeftSlotElement == Element.Fire && _scriptStep == 0)
 				{
-                    entity.graphic.Remove();
-                    entity.spritesheets.ChangeAnimation("UseElement");
+					_scriptStep++;
+                    entity.spritesheets.ChangeAnimation("Noise", 0, true, false, false,0);
+				}
+				if (_scriptStep == 1 && entity.spritesheets.IsFinished())
+				{
+					_scriptStep++;
+					entity.spritesheets.ChangeAnimation("UseElement");
 				}
         }
 		
