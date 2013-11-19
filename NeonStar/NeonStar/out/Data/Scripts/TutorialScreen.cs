@@ -41,6 +41,14 @@ namespace NeonStarLibrary
             set { _enemyName = value; }
         }
 
+        private string _incomingEnemyName = "";
+
+        public string IncomingEnemyName
+        {
+            get { return _incomingEnemyName; }
+            set { _incomingEnemyName = value; }
+        }
+
         private string _avatarName = "";
 
         public string AvatarName
@@ -131,6 +139,7 @@ namespace NeonStarLibrary
 
         private Entity _doorToOpen = null;
         private Entity _enemy = null;
+        private Enemy _incomingEnemy = null;
 
         private int _currentTutorialState = 1;
         private Avatar _avatar;
@@ -148,6 +157,9 @@ namespace NeonStarLibrary
 
             if (_enemyName != "")
                 _enemy = Neon.world.GetEntityByName(_enemyName);
+
+            if (_incomingEnemyName != "")
+                _incomingEnemy = Neon.world.GetEntityByName(_incomingEnemyName).GetComponent<Enemy>();
 
             if (_doorToOpenName != "")
             {
@@ -217,6 +229,10 @@ namespace NeonStarLibrary
                         _enemy.spritesheets.ChangeAnimation("Death", 0, true, false, false, 0);
                         _enemy.hitbox.Remove();
                     }
+
+                    if (_incomingEnemy != null)
+                        _incomingEnemy._threatArea.ThreatRange = 1000.0f;
+
                     if (_doorToOpen != null)
                     {
                         _doorToOpen.rigidbody.Remove();
