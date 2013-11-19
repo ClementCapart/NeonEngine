@@ -40,6 +40,16 @@ namespace NeonStarLibrary
             get { return _stunLockDuration; }
             set { _stunLockDuration = value; }
         }
+
+        private float _invincibilityDuration = 0.0f;
+
+        public float InvincibilityDuration
+        {
+            get { return _invincibilityDuration; }
+            set { _invincibilityDuration = value; }
+        }
+        private float _invincibilityTimer = 0.0f;
+
         private float _airLockDuration;
 
         private string _hitAnim = "";
@@ -50,11 +60,12 @@ namespace NeonStarLibrary
             set { _hitAnim = value; }
         }
 
-
         public MeleeFight meleeFight;
         public ThirdPersonController thirdPersonController;
         public Guard guard;
         public ElementSystem elementSystem;
+
+        private bool _opacityGoingDown = false;
 
         public Avatar(Entity entity)
             :base(entity, "Avatar")
@@ -70,17 +81,24 @@ namespace NeonStarLibrary
             base.Init();
         }
 
-        public void ChangeHealthPoints(float value, Attack attack = null)
+        public bool ChangeHealthPoints(float value, Attack attack = null)
         {
-            _currentHealthPoints += value;
-            if (value < 0)
+            if (_invincibilityTimer <= 0)
             {
-                entity.spritesheets.ChangeAnimation(_hitAnim, 1, true, false, false);
+                _currentHealthPoints += value;
+                if (value < 0)
+                {
+                    entity.spritesheets.ChangeAnimation(_hitAnim, 1, true, false, false);
+                    this._invincibilityTimer = this._invincibilityDuration;
+                }
+                if (Debug)
+                {
+                    Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
+                }
+                return true;
             }
-            if (Debug)
-            {
-                Console.WriteLine(entity.Name + " have lost " + value + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
-            }
+            else
+                return false;
         }
 
         public void AirLock(float duration)
@@ -95,25 +113,66 @@ namespace NeonStarLibrary
 
         public void StunLockEffect(float duration)
         {
-            _stunLockDuration = duration;
-            if (_stunLockDuration > 0)
+            if (_invincibilityTimer <= 0)
             {
-                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                if (meleeFight != null && meleeFight.CurrentAttack != null)
+                _stunLockDuration = duration;
+                if (_stunLockDuration > 0)
                 {
-                    meleeFight.CurrentAttack.CancelAttack();
-                    meleeFight.CurrentAttack = null;
-                    entity.spritesheets.CurrentPriority = 0;
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    if (meleeFight != null && meleeFight.CurrentAttack != null)
+                    {
+                        meleeFight.CurrentAttack.CancelAttack();
+                        meleeFight.CurrentAttack = null;
+                        entity.spritesheets.CurrentPriority = 0;
+                    }
+                    if (elementSystem.CurrentElementEffect != null)
+                    {
+                        elementSystem.CurrentElementEffect.End();
+                    }
                 }
-                if (elementSystem.CurrentElementEffect != null)
-                {
-                    elementSystem.CurrentElementEffect.End();
-                }
-            }
+            }         
         }
 
         public override void Update(GameTime gameTime)
         {
+            
+
+            if (_invincibilityTimer > 0.0f)
+            {
+                _invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_opacityGoingDown)
+                {
+                    if (entity.spritesheets.CurrentSpritesheet.opacity > 0)
+                    {
+                        entity.spritesheets.ChangeOpacity(-5 * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                    }
+                    else
+                    {
+                        _opacityGoingDown = false;
+                        entity.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                    }
+                    
+                }
+                else
+                {
+                    if (entity.spritesheets.CurrentSpritesheet.opacity < 1)
+                    {
+                        entity.spritesheets.ChangeOpacity(5 * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                    }
+                    else
+                    {
+                        _opacityGoingDown = true;
+                        entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                    }
+                }
+            }
+            else
+            {
+                _invincibilityTimer = 0.0f;
+                _opacityGoingDown = true;
+                entity.spritesheets.CurrentSpritesheet.opacity = 1f;
+            }
+
             if (_airLockDuration > 0.0f)
             {
                 _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;

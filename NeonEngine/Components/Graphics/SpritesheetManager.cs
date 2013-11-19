@@ -27,6 +27,7 @@ namespace NeonEngine
             }
         }
 
+
         public override Vector2 Offset
         {
             get
@@ -173,6 +174,11 @@ namespace NeonEngine
             CurrentSpritesheet.IsLooped = Loop;
             CurrentSpritesheet.Init();
             CurrentSpritesheet.isPlaying = IsPlaying;
+        }
+
+        public void ChangeOpacity(float value)
+        {
+            CurrentSpritesheet.opacity += value;
         }
             
     }

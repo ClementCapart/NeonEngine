@@ -454,7 +454,7 @@ namespace NeonStarLibrary
                         Hitbox hb = Neon.world.Hitboxes[j];
                         if (hb.Type == HitboxType.Main && hb.entity != this._entity)
                         {
-                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.Contains(hb))
+                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle))
                             {
                                 Effect(hb.entity, hitbox);
                                 if (this.Type == AttackType.MeleeLight || this.Type == AttackType.MeleeSpecial)
@@ -631,9 +631,9 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     _hit = true;
-                    enemy.ChangeHealthPoints(_damageOnHit, _entity, this);
-                    enemy.StunLockEffect(_stunLock);
-                    if (!enemy.entity.rigidbody.isGrounded)
+                    validTarget = enemy.ChangeHealthPoints(_damageOnHit, _entity, this);
+                    if(validTarget) enemy.StunLockEffect(_stunLock);
+                    if (!enemy.entity.rigidbody.isGrounded && validTarget)
                         enemy.AirLock(TargetAirLock);
                 }
             }
@@ -649,19 +649,24 @@ namespace NeonStarLibrary
                         float damage = avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit;
                         if (damage < 0)
                         {
-                            avatar.ChangeHealthPoints(damage, this);
-                            avatar.StunLockEffect(_stunLock);
+                            validTarget = avatar.ChangeHealthPoints(damage, this);
+                            if(validTarget)
+                                avatar.StunLockEffect(_stunLock);
                         }
-                        if (!avatar.entity.rigidbody.IsGround)
+                        if (!avatar.entity.rigidbody.IsGround && validTarget)
                             avatar.AirLock(TargetAirLock);
                     }
                     else
                     {
-                        avatar.ChangeHealthPoints(_damageOnHit);
-                        avatar.StunLockEffect(_stunLock);
+                        validTarget = avatar.ChangeHealthPoints(_damageOnHit);
+                        if (validTarget)
+                        {
+                            avatar.StunLockEffect(_stunLock);
 
-                        if (!avatar.entity.rigidbody.IsGround)
-                            avatar.AirLock(TargetAirLock);
+                            if (!avatar.entity.rigidbody.IsGround)
+                                avatar.AirLock(TargetAirLock);
+                        }
+                        
                     }                  
                 }
             }
