@@ -12,6 +12,7 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
+using System.IO;
 
 namespace NeonStarEditor
 {
@@ -90,8 +91,6 @@ namespace NeonStarEditor
             foreach (Control c in GameAsForm.Controls)
                 c.Hide();
             EditorVisible = false;
-            
-
         }
 
         public void ToggleAttackManager()

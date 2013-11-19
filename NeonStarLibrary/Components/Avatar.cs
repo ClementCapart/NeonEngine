@@ -144,7 +144,7 @@ namespace NeonStarLibrary
                 {
                     if (entity.spritesheets.CurrentSpritesheet.opacity > 0)
                     {
-                        entity.spritesheets.ChangeOpacity(-5 * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                        entity.spritesheets.ChangeOpacity(-15 * (float)gameTime.ElapsedGameTime.TotalSeconds);
                     }
                     else
                     {
@@ -157,7 +157,7 @@ namespace NeonStarLibrary
                 {
                     if (entity.spritesheets.CurrentSpritesheet.opacity < 1)
                     {
-                        entity.spritesheets.ChangeOpacity(5 * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                        entity.spritesheets.ChangeOpacity(15 * (float)gameTime.ElapsedGameTime.TotalSeconds);
                     }
                     else
                     {

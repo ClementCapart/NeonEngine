@@ -75,7 +75,7 @@ namespace NeonEngine
             SmoothInterpolate();
 
             if(_display != null)
-                _display.Text = Math.Floor(_currentValue).ToString();
+                _display.Text = _currentValue < 10 && _currentValue > -1 ? "0"+Math.Floor(_currentValue).ToString() : Math.Floor(_currentValue).ToString();
             base.PreUpdate(gameTime);
         }
 

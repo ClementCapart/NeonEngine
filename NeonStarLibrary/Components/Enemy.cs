@@ -383,7 +383,6 @@ namespace NeonStarLibrary
                         _opacityGoingDown = false;
                         entity.spritesheets.CurrentSpritesheet.opacity = 0.0f;
                     }
-
                 }
                 else
                 {

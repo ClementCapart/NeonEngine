@@ -47,6 +47,7 @@ namespace NeonEngine
              * ex : assets.Add("menuPlayButton", @"menu\buttons\play");
              */    
             Effects.Add("ChromaticAberration", @"Shaders\ChromaticAberration");
+            Effects.Add("WhiteBlink", @"Shaders\WhiteBlink");
 
             Load(device);
         }

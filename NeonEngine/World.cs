@@ -254,38 +254,6 @@ namespace NeonEngine
             ManualDrawGame(spriteBatch);
             spriteBatch.End();
             Neon.graphicsDevice.SetRenderTarget(null);
-
-#region lightning & shadow system
-            if (lightingSystem.LightingEnabled)
-            {
-                Neon.graphicsDevice.SetRenderTarget(ShadowCasters);
-                Neon.graphicsDevice.Clear(Color.Transparent);
-                spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
-
-                foreach (DrawableComponent dc in DrawableComponents)
-                    dc.Draw(spriteBatch);
-
-                spriteBatch.End();
-
-                foreach (LightArea la in lightAreas)
-                {
-                    la.BeginDrawingShadowCasters();
-                    DrawCaster(la);
-                    la.EndDrawingShadowCasters();
-                    shadowmapResolver.ResolveShadows(la.RenderTarget, la.RenderTarget, la.LightPosition);
-                }
-
-                Neon.graphicsDevice.SetRenderTarget(screenShadows);
-                Neon.graphicsDevice.Clear(Color.Black);
-                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
-                
-                foreach (LightArea la in lightAreas)
-                    spriteBatch.Draw(la.RenderTarget, la.LightPosition - la.LightAreaSize * 0.5f, la.color);
-
-                spriteBatch.End();
-                Neon.graphicsDevice.SetRenderTarget(null);
-            }
-#endregion
             
         }
 
@@ -324,7 +292,7 @@ namespace NeonEngine
             }
             
 
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             
             foreach (DrawableComponent hudc in HUDComponents)
                 hudc.Draw(spriteBatch);
@@ -333,13 +301,6 @@ namespace NeonEngine
             DrawDebugView(Neon.graphicsDevice);
             spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Neon.fadeColor, alpha));
             spriteBatch.End();
-        }
-
-        private void DrawCaster(LightArea lightArea)
-        {
-            Neon.spriteBatch.Begin();
-            Neon.spriteBatch.Draw(ShadowCasters, lightArea.ToRelativePosition(camera.Position - Neon.HalfScreen), Color.Black);
-            Neon.spriteBatch.End();
         }
 
         public virtual void ManualDrawBackHUD(SpriteBatch sb)
