@@ -137,6 +137,14 @@ namespace NeonStarLibrary
             set { _dodgeTutorialAnimation = value; }
         }
 
+        private string _transitionAnimation = "";
+
+        public string TransitionAnimation
+        {
+            get { return _transitionAnimation; }
+            set { _transitionAnimation = value; }
+        }
+
         private Entity _doorToOpen = null;
         private Entity _enemy = null;
         private Enemy _incomingEnemy = null;
@@ -177,6 +185,21 @@ namespace NeonStarLibrary
             if (_doorToOpenName != "")
                 if (_doorToOpen == null)
                     _doorToOpen = Neon.world.GetEntityByName(_doorToOpenName);
+            if (entity.spritesheets.CurrentSpritesheetName == _transitionAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
+            {
+                if (_currentTutorialState == 2)
+                    entity.spritesheets.ChangeAnimation(_jumpTutorialAnimation);
+                if (_currentTutorialState == 3)
+                    entity.spritesheets.ChangeAnimation(_fallTutorialAnimation);
+                if (_currentTutorialState == 4)
+                    entity.spritesheets.ChangeAnimation(_hitTutorialAnimation);
+                if (_currentTutorialState == 5)
+                    entity.spritesheets.ChangeAnimation(_comboTutorialAnimation);
+                if (_currentTutorialState == 6)
+                    entity.spritesheets.ChangeAnimation(_uppercutTutorialAnimation);
+                if (_currentTutorialState == 7)
+                    entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
+            }
             base.Update(gameTime);
         }
 
@@ -190,24 +213,24 @@ namespace NeonStarLibrary
             if (trigger.Name == _walkTriggerName && _currentTutorialState == 1)
             {
                 _currentTutorialState++;
-                entity.spritesheets.ChangeAnimation(_jumpTutorialAnimation);
+                entity.spritesheets.ChangeAnimation(_transitionAnimation);
             }
             else if (trigger.Name == _jumpTriggerName && _currentTutorialState == 2)
             {
                 _currentTutorialState++;
-                entity.spritesheets.ChangeAnimation(_fallTutorialAnimation);
+                entity.spritesheets.ChangeAnimation(_transitionAnimation);
             }
             else if (trigger.Name == _fallTriggerName && _currentTutorialState == 3)
             {
                 _currentTutorialState++;
-                entity.spritesheets.ChangeAnimation(_hitTutorialAnimation);
+                entity.spritesheets.ChangeAnimation(_transitionAnimation);
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 4)
             {
                 if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName)
                 {
                     _currentTutorialState++;
-                    entity.spritesheets.ChangeAnimation(_comboTutorialAnimation);
+                    entity.spritesheets.ChangeAnimation(_transitionAnimation);
                 }
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 5)
@@ -215,7 +238,7 @@ namespace NeonStarLibrary
                 if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName + "Finish")
                 {
                     _currentTutorialState++;
-                    entity.spritesheets.ChangeAnimation(_uppercutTutorialAnimation);
+                    entity.spritesheets.ChangeAnimation(_transitionAnimation);
                 }
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 6)
@@ -223,11 +246,12 @@ namespace NeonStarLibrary
                 if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _secondAttackName)
                 {
                     _currentTutorialState++;
-                    entity.spritesheets.ChangeAnimation(_dodgeTutorialAnimation);
+                    entity.spritesheets.ChangeAnimation(_transitionAnimation);
+
                     if (_enemy != null)
                     {
                         _enemy.spritesheets.ChangeAnimation("Death", 0, true, false, false, 0);
-                        _enemy.hitboxes[0].Remove();
+                        _enemy.GetComponent<Enemy>().Remove();
                     }
 
                     if (_incomingEnemy != null)

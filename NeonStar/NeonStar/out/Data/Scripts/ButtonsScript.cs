@@ -32,14 +32,6 @@ namespace NeonScripts
             set { _firstButtonNeededAttack = value; }
         }
 
-        private string _firstButtonSpritesheetName = "";
-
-        public string FirstButtonSpritesheetName
-        {
-            get { return _firstButtonSpritesheetName; }
-            set { _firstButtonSpritesheetName = value; }
-        }
-
         private bool _firstButtonNeedsToSynchronise = false;
 
         public bool FirstButtonNeedsToSynchronise
@@ -64,14 +56,6 @@ namespace NeonScripts
             set { _secondButtonNeededAttack = value; }
         }
 
-        private string _secondButtonSpritesheetName = "";
-
-        public string SecondButtonSpritesheetName
-        {
-            get { return _secondButtonSpritesheetName; }
-            set { _secondButtonSpritesheetName = value; }
-        }
-
         private bool _secondButtonNeedsToSynchronize = false;
 
         public bool SecondButtonNeedsToSynchronize
@@ -94,14 +78,6 @@ namespace NeonScripts
         {
             get { return _thirdButtonNeededAttack; }
             set { _thirdButtonNeededAttack = value; }
-        }
-
-        private string _thirdButtonSpritesheetName = "";
-
-        public string ThirdButtonSpritesheetName
-        {
-            get { return _thirdButtonSpritesheetName; }
-            set { _thirdButtonSpritesheetName = value; }
         }
 
         private bool _thirdButtonNeedsToSynchronize = false;
@@ -163,19 +139,19 @@ namespace NeonScripts
             {
                 _firstButton = Neon.world.GetEntityByName(_firstButtonName);
                 if (_firstButton != null)
-                    _firstButton.spritesheets.ChangeAnimation(_firstButtonSpritesheetName, 0, false, true, false, 0);
+                    _firstButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_secondButtonName != "")
             {
                 _secondButton = Neon.world.GetEntityByName(_secondButtonName);
                 if (_secondButton != null)
-                    _secondButton.spritesheets.ChangeAnimation(_secondButtonSpritesheetName, 0, false, true, false, 0);
+                    _secondButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_thirdButtonName != "")
             {
                 _thirdButton = Neon.world.GetEntityByName(_thirdButtonName);
                 if (_thirdButton != null)
-                    _thirdButton.spritesheets.ChangeAnimation(_thirdButtonSpritesheetName, 0, false, true, false, 0);
+                    _thirdButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_doorToOpenName != "")
             {
@@ -201,29 +177,25 @@ namespace NeonScripts
                         if (_secondButtonActivated == true)
                         {
                             _secondButtonActivated = false;
-                            _secondButton.spritesheets.ChangeAnimation(_secondButtonSpritesheetName, 0, true, true, true, _secondButton.spritesheets.SpritesheetList[_secondButtonSpritesheetName].FrameCount - 1);
-                            _secondButton.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+                            _secondButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
                         }
                         if (_thirdButtonActivated == true)
                         {
                             _thirdButtonActivated = false;
-                            _thirdButton.spritesheets.ChangeAnimation(_thirdButtonSpritesheetName, 0, true, true, true, _thirdButton.spritesheets.SpritesheetList[_thirdButtonSpritesheetName].FrameCount - 1);
-                            _thirdButton.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+                            _thirdButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
                         }
                         _timer = 0.0f;
                     }
                 }
             }
 
-            if (_secondButton.spritesheets.CurrentSpritesheet.ReverseLoop == true && _secondButton.spritesheets.CurrentSpritesheet.currentFrame == 0)
+            if (_secondButton.spritesheets.CurrentSpritesheetName == "Unpush" && _secondButton.spritesheets.CurrentSpritesheet.currentFrame == _secondButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
             {
-                _secondButton.spritesheets.CurrentSpritesheet.ReverseLoop = false;
-                _secondButton.spritesheets.ChangeAnimation(_secondButtonSpritesheetName, 0, false, true, false, 0);
+                _secondButton.spritesheets.ChangeAnimation("Idle",0, true, false, true);
             }
-            if (_thirdButton.spritesheets.CurrentSpritesheet.ReverseLoop == true && _thirdButton.spritesheets.CurrentSpritesheet.currentFrame == 0)
+            if (_thirdButton.spritesheets.CurrentSpritesheetName == "Unpush" && _thirdButton.spritesheets.CurrentSpritesheet.currentFrame == _thirdButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount -1)
             {
-                _thirdButton.spritesheets.CurrentSpritesheet.ReverseLoop = false;
-                _thirdButton.spritesheets.ChangeAnimation(_thirdButtonSpritesheetName, 0, false, true, false, 0);
+                _thirdButton.spritesheets.ChangeAnimation("Idle", 0, true, false, true);
             }
         }
 		
@@ -231,7 +203,7 @@ namespace NeonScripts
 		{
             if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
             {
-                _firstButton.spritesheets.ChangeAnimation(_firstButtonSpritesheetName, 0, true, false, false, 0);
+                _firstButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _firstButtonActivated = true;
                 if (_firstButtonNeedsToSynchronise == true)
                 {
@@ -248,7 +220,7 @@ namespace NeonScripts
             }
             if (trigger.Name == _secondButtonName && _secondButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _secondButtonNeededAttack)
             {
-                _secondButton.spritesheets.ChangeAnimation(_secondButtonSpritesheetName, 0, true, false, false, 0);
+                _secondButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _secondButtonActivated = true;
                 if (_secondButtonNeedsToSynchronize == true)
                 {
@@ -266,7 +238,7 @@ namespace NeonScripts
             }
             if (trigger.Name == _thirdButtonName && _thirdButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _thirdButtonNeededAttack)
             {
-                _thirdButton.spritesheets.ChangeAnimation(_thirdButtonSpritesheetName, 0, true, false, false, 0);
+                _thirdButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _thirdButtonActivated = true;
                 if (_thirdButtonNeedsToSynchronize == true)
                 {
