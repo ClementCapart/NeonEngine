@@ -8,6 +8,8 @@ namespace NeonScripts
 {
     public class FireDoorScript : ScriptComponent
     {
+        private Enemy _enemyComponent = null;
+
         public FireDoorScript(Entity entity)
             :base(entity, "FireDoorScript")
         {
@@ -15,6 +17,7 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
+            _enemyComponent = entity.GetComponent<Enemy>();
 			entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, false, true, false, 0);
 		}
 
@@ -28,6 +31,7 @@ namespace NeonScripts
 			{
 				entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, true, true, false, 0);
 				entity.rigidbody.Remove();
+                _enemyComponent.Remove();
 			}		
 		}
     }
