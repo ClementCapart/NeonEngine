@@ -169,8 +169,7 @@ namespace NeonStarLibrary
             {
                 bullet.OnHitSpecialEffects.Add(ae);
             }
-
-            
+         
             _world.Bullets.Add(newBullet);
         }
 

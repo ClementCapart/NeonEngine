@@ -174,19 +174,25 @@ namespace NeonEngine
             _initialType = _type;
         }
 
+        public override void PreUpdate(GameTime gameTime)
+        {
+            
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(GameTime gameTime)
         {
+            Center = entity.transform.Position;
             base.Update(gameTime);
         }
 
         public override void PostUpdate(GameTime gameTime)
-        {
-            Center = entity.transform.Position;
-
+        {          
             if (_switchDuration > 0.0f)
                 _switchDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             else
                 _type = _initialType;
+
             base.PostUpdate(gameTime);
         }
         public void GenerateVectorList(int Width, int Height)

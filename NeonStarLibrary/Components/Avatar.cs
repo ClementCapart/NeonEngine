@@ -113,24 +113,21 @@ namespace NeonStarLibrary
 
         public void StunLockEffect(float duration)
         {
-            if (_invincibilityTimer <= 0)
+            _stunLockDuration = duration;
+            if (_stunLockDuration > 0)
             {
-                _stunLockDuration = duration;
-                if (_stunLockDuration > 0)
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                if (meleeFight != null && meleeFight.CurrentAttack != null)
                 {
-                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    if (meleeFight != null && meleeFight.CurrentAttack != null)
-                    {
-                        meleeFight.CurrentAttack.CancelAttack();
-                        meleeFight.CurrentAttack = null;
-                        entity.spritesheets.CurrentPriority = 0;
-                    }
-                    if (elementSystem.CurrentElementEffect != null)
-                    {
-                        elementSystem.CurrentElementEffect.End();
-                    }
+                    meleeFight.CurrentAttack.CancelAttack();
+                    meleeFight.CurrentAttack = null;
+                    entity.spritesheets.CurrentPriority = 0;
                 }
-            }         
+                if (elementSystem.CurrentElementEffect != null)
+                {
+                    elementSystem.CurrentElementEffect.End();
+                }
+            }        
         }
 
         public override void Update(GameTime gameTime)
