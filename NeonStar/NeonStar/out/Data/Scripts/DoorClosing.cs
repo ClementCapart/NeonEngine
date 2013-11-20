@@ -31,7 +31,7 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, false, true, false, 9);
+            entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, false, true, false, entity.spritesheets.SpritesheetList[_closingDoorAnimationName].FrameCount-1);
 		}
 
         public override void Update(GameTime gameTime)
