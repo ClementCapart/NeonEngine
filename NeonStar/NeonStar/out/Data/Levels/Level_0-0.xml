@@ -43,7 +43,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -1842,7 +1842,7 @@
               <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
+              <RotationOffset Value="-0.1396263" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
@@ -2282,7 +2282,7 @@
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
+              <Enabled Value="False" />
             </Properties>
           </CameraBound>
         </Components>
@@ -2304,7 +2304,7 @@
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
+              <Enabled Value="False" />
             </Properties>
           </CameraBound>
         </Components>
@@ -2392,7 +2392,7 @@
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="0.5" />
-              <Enabled Value="False" />
+              <Enabled Value="True" />
             </Properties>
           </CameraBound>
         </Components>
@@ -2414,7 +2414,7 @@
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="0" />
               <StrengtheningRate Value="0.5" />
-              <Enabled Value="False" />
+              <Enabled Value="True" />
             </Properties>
           </CameraBound>
         </Components>
@@ -2424,8 +2424,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:7200 Y:-300}" />
-              <InitialPosition Value="{X:7200 Y:-300}" />
+              <Position Value="{X:7230 Y:-300}" />
+              <InitialPosition Value="{X:7230 Y:-300}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -2436,7 +2436,7 @@
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="0.5" />
-              <Enabled Value="False" />
+              <Enabled Value="True" />
             </Properties>
           </CameraBound>
         </Components>
@@ -3017,7 +3017,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5746 Y:-429,5421}" />
+              <Position Value="{X:5746 Y:-429,4999}" />
               <InitialPosition Value="{X:5746 Y:-431,4999}" />
               <Rotation Value="0" />
               <Scale Value="3" />
@@ -3430,7 +3430,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:2398,658 Y:-326,4999}" />
+              <Position Value="{X:2201,751 Y:-326,4999}" />
               <InitialPosition Value="{X:2310 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3439,8 +3439,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2398 Y:-326}" />
-              <X Value="2348" />
+              <Center Value="{X:2201 Y:-326}" />
+              <X Value="2151" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3466,7 +3466,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -3551,7 +3551,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3438,678 Y:-327,4999}" />
+              <Position Value="{X:3561,342 Y:-327,4999}" />
               <InitialPosition Value="{X:3200 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3560,8 +3560,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3438 Y:-327}" />
-              <X Value="3388" />
+              <Center Value="{X:3561 Y:-327}" />
+              <X Value="3511" />
               <Y Value="-407" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3672,7 +3672,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3453,899 Y:-55,49998}" />
+              <Position Value="{X:3230,529 Y:-55,49998}" />
               <InitialPosition Value="{X:3600 Y:-56,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3681,8 +3681,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3453 Y:-55}" />
-              <X Value="3403" />
+              <Center Value="{X:3230 Y:-55}" />
+              <X Value="3180" />
               <Y Value="-135" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3708,7 +3708,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -4129,7 +4129,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5372,354 Y:201,5}" />
+              <Position Value="{X:5263,992 Y:201,5}" />
               <InitialPosition Value="{X:5037,384 Y:203}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4138,8 +4138,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5372 Y:201}" />
-              <X Value="5322" />
+              <Center Value="{X:5263 Y:201}" />
+              <X Value="5213" />
               <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4165,7 +4165,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -4317,7 +4317,7 @@
               <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
+              <RotationOffset Value="-0.8377581" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
@@ -4437,7 +4437,7 @@
               <Offset Value="{X:3 Y:8}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
+              <RotationOffset Value="0.8377581" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
@@ -4474,7 +4474,7 @@
             <Properties>
               <MustBeOnSamePlatform Value="False" />
               <ThreatRange Value="600" />
-              <ThreatAngle Value="360" />
+              <ThreatAngle Value="180" />
               <AttackRange Value="600" />
               <EntityToSearchFor Value="LiOn" />
               <WaitThreatDelay Value="0" />
@@ -4553,11 +4553,11 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
+              <RotationOffset Value="0.1745331" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
@@ -4594,7 +4594,7 @@
             <Properties>
               <MustBeOnSamePlatform Value="False" />
               <ThreatRange Value="600" />
-              <ThreatAngle Value="360" />
+              <ThreatAngle Value="180" />
               <AttackRange Value="600" />
               <EntityToSearchFor Value="LiOn" />
               <WaitThreatDelay Value="0" />
@@ -4661,13 +4661,13 @@
           </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="AirDashScreen">
+      <Entity Name="PowerPunchScreen">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:7092 Y:-113}" />
-              <InitialPosition Value="{X:7092 Y:-113}" />
+              <Position Value="{X:7100 Y:-113}" />
+              <InitialPosition Value="{X:7100 Y:-113}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4676,7 +4676,7 @@
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="TutorialPOWERPUNCH" />
-              <DrawLayer Value="0.11" />
+              <DrawLayer Value="0.95" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -4690,13 +4690,13 @@
           </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="AirDashScreen">
+      <Entity Name="UppercutDiveScreen">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:7089 Y:-609}" />
-              <InitialPosition Value="{X:7089 Y:-609}" />
+              <Position Value="{X:7100 Y:-609}" />
+              <InitialPosition Value="{X:7100 Y:-609}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4705,7 +4705,7 @@
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="TutorialUPPERCUTandDIVE" />
-              <DrawLayer Value="0.11" />
+              <DrawLayer Value="0.95" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -4734,7 +4734,7 @@
             <Properties>
               <DrawLayer Value="1" />
               <Font Value="TimerFont" />
-              <Text Value="00:17:15" />
+              <Text Value="00:08:73" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
