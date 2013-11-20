@@ -244,7 +244,7 @@ namespace NeonStarLibrary
 
                          entity.spritesheets.ChangeSide(CurrentSide);
                      }
-                     else
+                     else if(_canMove)
                          entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
 
                      if (Neon.Input.Pressed(NeonStarInput.Jump))
@@ -254,7 +254,7 @@ namespace NeonStarLibrary
 
                      if (entity.rigidbody.body.LinearVelocity.Y > 0)
                      {
-                         if (!entity.rigidbody.isGrounded)
+                              if (!entity.rigidbody.isGrounded)
                          {
                              if (entity.spritesheets.CurrentSpritesheetName != FallLoopAnimation && entity.spritesheets.CurrentSpritesheetName != StartFallAnimation)
                              {

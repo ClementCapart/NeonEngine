@@ -109,7 +109,11 @@ namespace NeonEngine
 
         public override void Remove()
         {
-            entity.containerWorld.DrawableComponents.Remove(this);
+            if (isHUD)
+                entity.containerWorld.HUDComponents.Remove(this);
+            else
+                entity.containerWorld.DrawableComponents.Remove(this);
+            
             base.Remove();
         }
     }

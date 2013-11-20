@@ -183,6 +183,8 @@ namespace NeonStarLibrary
                     break;
 
                 case Element.Thunder:
+                    CurrentElementEffect = new Lightning(this, level, entity, input, (GameScreen)entity.containerWorld);
+                    CanUseElement = false;
                     break;
             }
         }
