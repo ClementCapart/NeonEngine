@@ -37,7 +37,7 @@ namespace NeonStarLibrary
                     {
                         _entity.rigidbody.GravityScale = 0.0f;
                         _dashDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        _entity.spritesheets.ChangeAnimation("AirDash", 1);
+                        _entity.spritesheets.ChangeAnimation("AirDash", true, 1);
                     }
                     else
                     {

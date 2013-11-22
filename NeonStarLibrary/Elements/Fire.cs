@@ -56,8 +56,8 @@ namespace NeonStarLibrary
             {
                 case ElementState.Initialization:
                 case ElementState.Charge:
-                    _elementSystem.AvatarComponent.thirdPersonController.CanMove = false;
-                    _elementSystem.AvatarComponent.thirdPersonController.CanTurn = false;
+                    _elementSystem.AvatarComponent.CanMove = false;
+                    _elementSystem.AvatarComponent.CanTurn = false;
                     break;
             }
             base.PreUpdate(gameTime);
@@ -116,7 +116,7 @@ namespace NeonStarLibrary
                     {
                         _elementSystem.AvatarComponent.AirLock(0.0f);
                         _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        _entity.spritesheets.ChangeAnimation(_elementSystem.FireLaunchAnimation, 0, true, false, false);
+                        _entity.spritesheets.ChangeAnimation(_elementSystem.FireLaunchAnimation, true, 0, true, false, false);
                         switch(_elementLevel)
                         {
                             case 1:

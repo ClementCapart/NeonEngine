@@ -228,7 +228,7 @@ namespace NeonStarLibrary
                 _currentHealthPoints += value;
                 _invincibilityTimer = _invincibilityDuration;
                 if (value < 0)
-                    this.entity.spritesheets.ChangeAnimation(_hitAnim, 0, true, true, false);
+                    this.entity.spritesheets.ChangeAnimation(_hitAnim, true, 0, true, true, false);
                 if (_triggerOnDamage && value < 0)
                 {
                     if (_componentToTrigger != null)
@@ -244,7 +244,7 @@ namespace NeonStarLibrary
                     }
 
                     if (entity != null && CoreElement != Element.Neutral)
-                        entity.GetComponent<Avatar>().elementSystem.GetElement(CoreElement);
+                        entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
                 }
                 if (Debug)
                 {
@@ -292,7 +292,7 @@ namespace NeonStarLibrary
                 else if (entity.spritesheets == null || (entity.spritesheets != null && _dyingAnim == ""))
                     State = EnemyState.Dead;
 
-                entity.spritesheets.ChangeAnimation(_dyingAnim, 0, true, false, false);
+                entity.spritesheets.ChangeAnimation(_dyingAnim, true, 0, true, false, false);
                 return;
             }
 
@@ -356,11 +356,11 @@ namespace NeonStarLibrary
                         else if ((entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished() && _attackAnim != ""))
                             entity.spritesheets.ChangeAnimation(_attackAnim);
                         else if (entity.spritesheets.CurrentSpritesheetName != _attackAnim && (entity.spritesheets.CurrentSpritesheetName != _startAttackAnim || (entity.spritesheets.CurrentSpritesheetName == _startAttackAnim && entity.spritesheets.IsFinished())))
-                            entity.spritesheets.ChangeAnimation(_startAttackAnim, 0, true, true, false, 0);
+                            entity.spritesheets.ChangeAnimation(_startAttackAnim, true, 0, true, true, false, 0);
                         break;
                     
                     case EnemyState.Dying:
-                        entity.spritesheets.ChangeAnimation(_dyingAnim, 0, true, false, false);
+                        entity.spritesheets.ChangeAnimation(_dyingAnim, true, 0, true, false, false);
                         break;
                 }
             } 

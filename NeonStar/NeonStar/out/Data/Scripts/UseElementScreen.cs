@@ -35,7 +35,7 @@ namespace NeonScripts
         public override void Update(GameTime gameTime)
         {
             if (_avatar != null)
-                if (_avatar.elementSystem.LeftSlotElement == Element.Fire && _scriptStep == 0)
+                if (_avatar.ElementSystem.LeftSlotElement == Element.Fire && _scriptStep == 0)
 				{
 					_scriptStep++;
                     entity.spritesheets.ChangeAnimation("Noise", 0, true, false, false,0);

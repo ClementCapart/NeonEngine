@@ -9,8 +9,7 @@ namespace NeonStarLibrary
 {
     public class Guard : Component
     {
-        public Avatar AvatarComponent;
-
+        #region Properties
         private string _rollAnimation = "";
 
         public string RollAnimation
@@ -106,21 +105,17 @@ namespace NeonStarLibrary
             get { return _guardDamageReduce; }
             set { _guardDamageReduce = value; }
         }
+        #endregion       
 
+        public Avatar AvatarComponent;
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
         private float _durationTimer = 0.0f;
 
-        private bool isGuarding = false;
-
-        public bool IsGuarding
-        {
-            get { return isGuarding; }
-            set { isGuarding = value; }
-        }
-        private bool isDashing = false;
-
+        private bool _isGuarding = false;
+        private bool _isAirDashing = false;
+        private bool _isRolling = false;
         private bool _alreadyDashed = false;
 
         public Guard(Entity entity)
@@ -137,27 +132,49 @@ namespace NeonStarLibrary
         public override void PreUpdate(GameTime gameTime)
         {
             if (entity.rigidbody.isGrounded)
-            {
                 _alreadyDashed = false;
-            }
 
             if (_durationTimer > 0f)
             {
-                AvatarComponent.thirdPersonController.CanMove = false;
-                AvatarComponent.thirdPersonController.CanTurn = false;
-                AvatarComponent.meleeFight.CanAttack = false;
-                if (isDashing || (isGuarding && !entity.rigidbody.isGrounded))
-                    entity.rigidbody.body.GravityScale = 0;
+                AvatarComponent.CanMove = false;
+                AvatarComponent.CanTurn = false;
+                AvatarComponent.CanAttack = false;
+                AvatarComponent.CanUseElement = false;
+
+                _durationTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (_isAirDashing)
+                {
+                    if(_durationTimer <= 0.0f)
+                        _rollCooldownTimer = _dashCooldown;
+                    AvatarComponent.State = AvatarState.AirDashing;
+                    entity.rigidbody.body.GravityScale = 0.0f;
+                }
+                else if (_isGuarding)
+                {
+                    if(_durationTimer <= 0.0f)
+                        _guardCooldownTimer = _guardCooldown;
+                    AvatarComponent.State = AvatarState.Guarding;
+                    if (!entity.rigidbody.isGrounded)
+                        entity.rigidbody.body.GravityScale = 0.0f;
+                }
+                else if (_isRolling)
+                {
+                    if(_durationTimer <= 0.0f)
+                        _rollCooldownTimer = _rollCooldown;
+                    AvatarComponent.State = AvatarState.Rolling;
+                }
             }
-            else if (isDashing)
+            else if (_isAirDashing)
             {
-                isDashing = false;
+                _isAirDashing = false;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
-            else if (isGuarding)
-            {
-                isGuarding = false;
-            }
+            else if (_isGuarding)
+                _isGuarding = false;
+            else if (_isRolling)
+                _isRolling = false;
+
             base.PreUpdate(gameTime);
         }
 
@@ -165,56 +182,65 @@ namespace NeonStarLibrary
         {
             if (_durationTimer <= 0.0f)
             {
-                if (entity.spritesheets.CurrentSpritesheetName == _rollAnimation)
-                    entity.spritesheets.CurrentPriority = 0;
-
                 if (_rollCooldownTimer <= 0.0f)
                 {
                     if (entity.rigidbody.isGrounded)
                     {
                         _rollCooldownTimer = 0.0f;
-                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f)
+                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked)
                         {
                             if (Neon.Input.Check(NeonStarInput.MoveLeft))
                             {
-                                entity.spritesheets.ChangeSide(Side.Left);
+                                AvatarComponent.CurrentSide = Side.Left;
+                                AvatarComponent.State = AvatarState.Rolling;
+
                                 PerformRoll();
                                 _durationTimer = _rollDuration;
-                                isGuarding = false;
-                                isDashing = false;
+                                _isGuarding = false;
+                                _isAirDashing = false;
+                                _isRolling = true;
                             }
                             else if (Neon.Input.Check(NeonStarInput.MoveRight))
                             {
-                                entity.spritesheets.ChangeSide(Side.Right);
+                                AvatarComponent.CurrentSide = Side.Right;
+                                AvatarComponent.State = AvatarState.Rolling;
+
                                 PerformRoll();
                                 _durationTimer = _rollDuration;
-                                isGuarding = false;
-                                isDashing = false;
+                                _isGuarding = false;
+                                _isAirDashing = false;
+                                _isRolling = true;
                             }
                         }
                     }
                     else
                     {
                         _rollCooldownTimer = 0.0f;
-                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.StunLockDuration <= 0.0f && !_alreadyDashed)
+                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked && !_alreadyDashed)
                         {
                             if (Neon.Input.Check(NeonStarInput.MoveLeft))
                             {
-                                entity.spritesheets.ChangeSide(Side.Left);
+                                AvatarComponent.CurrentSide = Side.Left;
+                                AvatarComponent.State = AvatarState.AirDashing;
+
                                 PerformDash();
                                 _durationTimer = _dashDuration;
                                 _alreadyDashed = true;
-                                isGuarding = false;
-                                isDashing = true;
+                                _isGuarding = false;
+                                _isAirDashing = true;
+                                _isRolling = false;
                             }
                             else if (Neon.Input.Check(NeonStarInput.MoveRight))
                             {
-                                entity.spritesheets.ChangeSide(Side.Right);
+                                AvatarComponent.CurrentSide = Side.Right;
+                                AvatarComponent.State = AvatarState.AirDashing;
+
                                 PerformDash();
-                                _alreadyDashed = true;
                                 _durationTimer = _dashDuration;
-                                isGuarding = false;
-                                isDashing = true;
+                                _alreadyDashed = true;
+                                _isGuarding = false;
+                                _isAirDashing = true;
+                                _isRolling = false;
                             }
                         }
                     }                  
@@ -227,12 +253,15 @@ namespace NeonStarLibrary
                 if (_guardCooldownTimer <= 0.0f && _durationTimer <= 0.0f )
                 {
                     _guardCooldownTimer = 0.0f;
-                    if (Neon.Input.Pressed(NeonStarInput.Guard) && !Neon.Input.Check(NeonStarInput.MoveRight) && !Neon.Input.Check(NeonStarInput.MoveLeft) && AvatarComponent.StunLockDuration <= 0.0f)
+                    if (Neon.Input.Pressed(NeonStarInput.Guard) && !Neon.Input.Check(NeonStarInput.MoveRight) && !Neon.Input.Check(NeonStarInput.MoveLeft) && AvatarComponent.State != AvatarState.Stunlocked)
                     {
+                        AvatarComponent.State = AvatarState.Guarding;
+
                         PerformGuard();
                         _durationTimer = _guardDuration;
-                        isGuarding = true;
-                        isDashing = false;
+                        _isGuarding = true;
+                        _isAirDashing = false;
+                        _isRolling = false;
                     }
                 }
                 else
@@ -240,66 +269,55 @@ namespace NeonStarLibrary
                     _guardCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
-            else
-            {               
-                _durationTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (_durationTimer <= 0.0f)
-                {
-                    if (isGuarding)
-                        _guardCooldownTimer = _guardCooldown;
-                    else if (isDashing)
-                        _rollCooldownTimer = _dashCooldown;
-                    else
-                        _rollCooldownTimer = _rollCooldown;
-                }
-            }
 
             base.Update(gameTime);
             
         }
 
+        public override void PostUpdate(GameTime gameTime)
+        {
+            base.PostUpdate(gameTime);
+        }
+
         private void PerformRoll()
         {
-            if(AvatarComponent.meleeFight.CurrentAttack != null)
-                AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
+            if(AvatarComponent.MeleeFight.CurrentAttack != null)
+                AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
 
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _rollImpulse : -_rollImpulse, 0));
-            AvatarComponent.meleeFight.CurrentAttack = null;
-            AvatarComponent.meleeFight.ResetComboHit();
-            if (AvatarComponent.elementSystem.CurrentElementEffect != null)
-                AvatarComponent.elementSystem.CurrentElementEffect.End();
-            entity.spritesheets.ChangeAnimation(_rollAnimation, 1, true, true, false);
+            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(AvatarComponent.CurrentSide == Side.Right ? _rollImpulse : -_rollImpulse, 0));
+            AvatarComponent.MeleeFight.CurrentAttack = null;
+            AvatarComponent.MeleeFight.ResetComboHit();
+            if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
+                AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration); 
         }
 
         private void PerformGuard()
         {
-            if (AvatarComponent.meleeFight.CurrentAttack != null)
-                AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
+            if (AvatarComponent.MeleeFight.CurrentAttack != null)
+                AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
+
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-            if(AvatarComponent.elementSystem.CurrentElementEffect != null)
-                AvatarComponent.elementSystem.CurrentElementEffect.End();
-            AvatarComponent.meleeFight.CurrentAttack = null;
-            AvatarComponent.meleeFight.ResetComboHit();
-            entity.spritesheets.ChangeAnimation(_guardAnimation, 1, true, true, false);
+            if(AvatarComponent.ElementSystem.CurrentElementEffect != null)
+                AvatarComponent.ElementSystem.CurrentElementEffect.End();
+            AvatarComponent.MeleeFight.CurrentAttack = null;
+            AvatarComponent.MeleeFight.ResetComboHit();
         }
 
         private void PerformDash()
         {
-            if (AvatarComponent.meleeFight.CurrentAttack != null)
-                AvatarComponent.meleeFight.CurrentAttack.CancelAttack();
-            AvatarComponent.AirLock(0.0f);
+            if (AvatarComponent.MeleeFight.CurrentAttack != null)
+                AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
+
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(entity.spritesheets.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
-            AvatarComponent.meleeFight.CurrentAttack = null;
-            AvatarComponent.meleeFight.ResetComboHit();
-            if (AvatarComponent.elementSystem.CurrentElementEffect != null)
-                AvatarComponent.elementSystem.CurrentElementEffect.End();
-            entity.spritesheets.ChangeAnimation(_dashAnimation, 1, true, true, false);
+            entity.rigidbody.body.ApplyLinearImpulse(new Vector2(AvatarComponent.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
+            AvatarComponent.MeleeFight.CurrentAttack = null;
+            AvatarComponent.MeleeFight.ResetComboHit();
+            if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
+                AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
         }
     }

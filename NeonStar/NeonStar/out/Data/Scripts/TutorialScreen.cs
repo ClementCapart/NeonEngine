@@ -227,7 +227,7 @@ namespace NeonStarLibrary
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 4)
             {
-                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName)
+                if (_avatar != null && _avatar.MeleeFight.CurrentAttack.Name == _firstAttackName)
                 {
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_transitionAnimation);
@@ -235,7 +235,7 @@ namespace NeonStarLibrary
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 5)
             {
-                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _firstAttackName + "Finish")
+                if (_avatar != null && _avatar.MeleeFight.CurrentAttack.Name == _firstAttackName + "Finish")
                 {
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_transitionAnimation);
@@ -243,7 +243,7 @@ namespace NeonStarLibrary
             }
             else if (trigger.Name == _enemyName && _currentTutorialState == 6)
             {
-                if (_avatar != null && _avatar.meleeFight.CurrentAttack.Name == _secondAttackName)
+                if (_avatar != null && _avatar.MeleeFight.CurrentAttack.Name == _secondAttackName)
                 {
                     _currentTutorialState++;
                     entity.spritesheets.ChangeAnimation(_transitionAnimation);

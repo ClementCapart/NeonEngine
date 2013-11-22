@@ -120,7 +120,7 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.meleeFight.CanAttack && AvatarComponent.thirdPersonController.CanMove && AvatarComponent.thirdPersonController.CanTurn && CanUseElement)
+            if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && CanUseElement)
             {
                 if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && _leftSlotCooldownTimer <= 0.0f)
                 {
