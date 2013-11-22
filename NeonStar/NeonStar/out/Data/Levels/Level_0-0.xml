@@ -67,6 +67,7 @@
                 <Animation Name="Guard" SpritesheetTag="LiOnCounter" />
                 <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
                 <Animation Name="Hit" SpritesheetTag="LiOnHit" />
+                <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
@@ -142,8 +143,8 @@
           </Roll>
           <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
             <Properties>
-              <FireLaunchAnimation Value="" />
-              <LeftSlotElement Value="Neutral" />
+              <FireLaunchAnimation Value="FireLaunch" />
+              <LeftSlotElement Value="Fire" />
               <LeftSlotLevel Value="1" />
               <LeftSlotCooldownTimer Value="0" />
               <RightSlotCooldownTimer Value="0" />
@@ -2158,8 +2159,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1051 Y:201}" />
-              <InitialPosition Value="{X:1051 Y:201}" />
+              <Position Value="{X:1051 Y:201,5}" />
+              <InitialPosition Value="{X:1051 Y:201,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -3430,7 +3431,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:2593,877 Y:-326,4999}" />
+              <Position Value="{X:2064,383 Y:-326,5}" />
               <InitialPosition Value="{X:2310 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3439,8 +3440,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2593 Y:-326}" />
-              <X Value="2543" />
+              <Center Value="{X:2064 Y:-326}" />
+              <X Value="2014" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3551,7 +3552,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3306,735 Y:-327,4999}" />
+              <Position Value="{X:3561,234 Y:-327,5}" />
               <InitialPosition Value="{X:3200 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3560,8 +3561,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3306 Y:-327}" />
-              <X Value="3256" />
+              <Center Value="{X:3561 Y:-327}" />
+              <X Value="3511" />
               <Y Value="-407" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3672,7 +3673,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3676,427 Y:-55,49998}" />
+              <Position Value="{X:3298,388 Y:-55,50001}" />
               <InitialPosition Value="{X:3600 Y:-56,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3681,8 +3682,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3676 Y:-55}" />
-              <X Value="3626" />
+              <Center Value="{X:3298 Y:-55}" />
+              <X Value="3248" />
               <Y Value="-135" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3793,7 +3794,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:6457 Y:-79,49998}" />
+              <Position Value="{X:6457 Y:-79,49999}" />
               <InitialPosition Value="{X:6457 Y:-76,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -3905,7 +3906,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:6637 Y:-79,49998}" />
+              <Position Value="{X:6637 Y:-79,49999}" />
               <InitialPosition Value="{X:6637 Y:-76,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4129,7 +4130,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:5130,482 Y:201,5}" />
+              <Position Value="{X:5026,089 Y:201,5}" />
               <InitialPosition Value="{X:5037,384 Y:203}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4138,8 +4139,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5130 Y:201}" />
-              <X Value="5080" />
+              <Center Value="{X:5026 Y:201}" />
+              <X Value="4976" />
               <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4734,7 +4735,7 @@
             <Properties>
               <DrawLayer Value="1" />
               <Font Value="TimerFont" />
-              <Text Value="02:46:59" />
+              <Text Value="00:50:64" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
