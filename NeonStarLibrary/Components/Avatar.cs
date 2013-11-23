@@ -227,8 +227,6 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            Console.WriteLine(State);
-
             CanMove = true;
             CanTurn = true;
             CanAttack = true;

@@ -118,9 +118,6 @@ namespace NeonStarLibrary
             set { _rushAttackSideDelay = value; }
         }
 
-        private float _lastHitDelay = 0.0f;
-        private bool ReleasedAttackButton = true;
-
         private float _chainDelay = 0.3f;
 
         public float ChainDelay
@@ -146,7 +143,9 @@ namespace NeonStarLibrary
         public List<string> AttacksWhileInAir = new List<string>();
         public float DamageModifier = 1.0f;
         public float DamageModifierTimer = 0.0f;
-        
+
+        private float _lastHitDelay = 0.0f;
+        private bool ReleasedAttackButton = true;
         private float _chainDelayTimer = 0.0f;
         private string _nextAttack = "";
         private bool _triedAttacking = false;
