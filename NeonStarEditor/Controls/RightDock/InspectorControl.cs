@@ -184,7 +184,7 @@ namespace NeonStarEditor
                         comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Spritesheets.Keys;
+                        bs.DataSource = AssetManager.Spritesheets.Keys.OrderBy(k => k.ToString());
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
@@ -223,7 +223,7 @@ namespace NeonStarEditor
                         comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Assets.Keys;
+                        bs.DataSource = AssetManager.Assets.Keys.OrderBy(k => k.ToString());
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
@@ -512,7 +512,9 @@ namespace NeonStarEditor
             {
                 GameWorld.FocusedTextBox = null;
                 GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
-                GameWorld.entityList.ResetItem(GameWorld.entityList.IndexOf(GameWorld.SelectedEntity));
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.entities;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
             }
         }
 

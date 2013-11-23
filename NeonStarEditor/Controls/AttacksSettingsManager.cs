@@ -26,6 +26,9 @@ namespace NeonStarEditor
             this.Location = new System.Drawing.Point(Neon.graphicsDevice.PresentationParameters.BackBufferWidth / 2 - this.Width / 2, Neon.graphicsDevice.PresentationParameters.BackBufferHeight / 2 - this.Height / 2);
             foreach (Enum e in Enum.GetValues(typeof(AttackType)))
                 TypeComboBox.Items.Add(e);
+
+            foreach (Enum e in Enum.GetValues(typeof(Element)))
+                ElementCombobox.Items.Add(e);
         }
 
         public void InitializeData(bool fromGame = true)
@@ -92,6 +95,9 @@ namespace NeonStarEditor
                 }
 
                 attack.Add(hitboxes);
+
+                XElement element = new XElement("AttackElement", kvp.Value.AttackElement.ToString());
+                attack.Add(element);
 
                 XElement damageOnHit = new XElement("DamageOnHit", kvp.Value.DamageOnHit.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(damageOnHit);
@@ -709,6 +715,7 @@ namespace NeonStarEditor
         {
             this.AttackName.Text = _attackList[AttacksList.SelectedValue.ToString()].Name;
             this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
+            this.ElementCombobox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].AttackElement;
             this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit * -1;
             this.DelayNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Delay;
             this.DurationNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Duration;
@@ -887,6 +894,11 @@ namespace NeonStarEditor
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _attackList[AttacksList.SelectedValue.ToString()].Type = (AttackType)this.TypeComboBox.SelectedIndex;
+        }
+
+        private void ElementComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].AttackElement = (Element)this.ElementCombobox.SelectedIndex;
         }
 
         private void Numeric_ValueChanged(object sender, EventArgs e)

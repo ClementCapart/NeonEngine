@@ -36,6 +36,7 @@ namespace NeonStarLibrary
     {
         public string Name;
         public AttackType Type = AttackType.MeleeLight;
+        public Element AttackElement = Element.Neutral;
         public List<Rectangle> Hitboxes = new List<Rectangle>();
         public float DamageOnHit = 1.0f;
         public float Delay = 0.0f;
@@ -78,6 +79,8 @@ namespace NeonStarLibrary
                         int.Parse(hitbox.Attribute("Width").Value), int.Parse(hitbox.Attribute("Height").Value)));
                 }
 
+                if (attack.Element("AttackElement") != null)
+                    ai.AttackElement = (Element)Enum.Parse(typeof(Element), attack.Element("AttackElement").Value);
                 ai.AirOnly = bool.Parse(attack.Element("AirOnly").Value);
                 ai.CancelOnGround = bool.Parse(attack.Element("GroundCancel").Value);
                 ai.OnlyOnceInAir = bool.Parse(attack.Element("OnlyOnceInAir").Value);

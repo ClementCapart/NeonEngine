@@ -27,7 +27,7 @@ namespace NeonScripts
 		
 		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
-			if(((Attack)parameters[0]).EffectElement == Element.Fire)
+			if(((Attack)parameters[0]).AttackElement == Element.Fire)
 			{
 				entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, true, true, false, 0);
 				entity.rigidbody.Remove();

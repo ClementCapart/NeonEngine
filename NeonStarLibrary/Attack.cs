@@ -29,7 +29,7 @@ namespace NeonStarLibrary
         private bool _mustStopAtTargetSight = false;
         private bool _alreadyLocked = false;
 
-        public Element EffectElement = Element.Neutral;
+        public Element AttackElement = Element.Neutral;
 
         string _name;
         public string Name
@@ -265,6 +265,7 @@ namespace NeonStarLibrary
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
             this._airFactor = attackInfo.AirFactor;
             this._fromEnemy = FromEnemy;
+            this.AttackElement = attackInfo.AttackElement;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {

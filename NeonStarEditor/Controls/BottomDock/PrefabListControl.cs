@@ -46,7 +46,7 @@ namespace NeonStarEditor
         {
             string path = @"../Data/Prefabs/" + PrefabListBox.Text + ".prefab";
             DataManager.LoadPrefab(path, GameWorld);
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

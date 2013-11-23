@@ -130,19 +130,16 @@ namespace NeonStarLibrary
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else if (_charge > _levelOneStageTwoChargeRequired)
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             break;
 
@@ -151,25 +148,21 @@ namespace NeonStarLibrary
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else if (_charge > _levelTwoStageThreeChargeRequired)
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else if (_charge > _levelTwoStageTwoChargeRequired)
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             break;
 
@@ -178,25 +171,21 @@ namespace NeonStarLibrary
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else if (_charge > _levelThreeStageThreeChargeRequired)
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else if (_charge > _levelThreeStageTwoChargeRequired)
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             else
                             {
                                 Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                                 a.Launcher = _entity;
-                                a.EffectElement = Element.Fire;
                             }
                             break;
                     }
