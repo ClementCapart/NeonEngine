@@ -33,6 +33,8 @@
             this.AddComponent = new System.Windows.Forms.Button();
             this.ComponentList = new System.Windows.Forms.ComboBox();
             this.OpenScript = new System.Windows.Forms.OpenFileDialog();
+            this.InspectorTab = new System.Windows.Forms.TabControl();
+            this.Inspector.SuspendLayout();
             this.SuspendLayout();
             // 
             // EntityList
@@ -49,10 +51,11 @@
             // Inspector
             // 
             this.Inspector.AutoScroll = true;
+            this.Inspector.Controls.Add(this.InspectorTab);
             this.Inspector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Inspector.Location = new System.Drawing.Point(40, 0);
             this.Inspector.Name = "Inspector";
-            this.Inspector.Size = new System.Drawing.Size(269, 563);
+            this.Inspector.Size = new System.Drawing.Size(325, 595);
             this.Inspector.TabIndex = 4;
             // 
             // AddComponent
@@ -60,7 +63,7 @@
             this.AddComponent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddComponent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddComponent.Location = new System.Drawing.Point(240, 595);
+            this.AddComponent.Location = new System.Drawing.Point(269, 599);
             this.AddComponent.Name = "AddComponent";
             this.AddComponent.Size = new System.Drawing.Size(69, 23);
             this.AddComponent.TabIndex = 6;
@@ -72,7 +75,7 @@
             // 
             this.ComponentList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComponentList.FormattingEnabled = true;
-            this.ComponentList.Location = new System.Drawing.Point(40, 595);
+            this.ComponentList.Location = new System.Drawing.Point(69, 601);
             this.ComponentList.Name = "ComponentList";
             this.ComponentList.Size = new System.Drawing.Size(194, 21);
             this.ComponentList.TabIndex = 5;
@@ -80,6 +83,20 @@
             // OpenScript
             // 
             this.OpenScript.Filter = "\"Fichiers NeonStar C#|*.nscs";
+            // 
+            // InspectorTab
+            // 
+            this.InspectorTab.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.InspectorTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.InspectorTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InspectorTab.ItemSize = new System.Drawing.Size(156, 20);
+            this.InspectorTab.Location = new System.Drawing.Point(3, 45);
+            this.InspectorTab.Multiline = true;
+            this.InspectorTab.Name = "InspectorTab";
+            this.InspectorTab.SelectedIndex = 0;
+            this.InspectorTab.Size = new System.Drawing.Size(320, 550);
+            this.InspectorTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.InspectorTab.TabIndex = 0;
             // 
             // InspectorControl
             // 
@@ -92,7 +109,8 @@
             this.Controls.Add(this.EntityList);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "InspectorControl";
-            this.Size = new System.Drawing.Size(320, 640);
+            this.Size = new System.Drawing.Size(368, 640);
+            this.Inspector.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +123,6 @@
         private System.Windows.Forms.Button AddComponent;
         public System.Windows.Forms.ComboBox ComponentList;
         private System.Windows.Forms.OpenFileDialog OpenScript;
+        private System.Windows.Forms.TabControl InspectorTab;
     }
 }
