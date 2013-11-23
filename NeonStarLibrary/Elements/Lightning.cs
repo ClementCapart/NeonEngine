@@ -50,9 +50,6 @@ namespace NeonStarLibrary
                     break;
 
                 case ElementState.End:
-                    _entity.spritesheets.CurrentPriority = 0;
-                    _elementSystem.CurrentElementEffect = null;
-                    _elementSystem.CanUseElement = true;
                     break;
             }
             base.Update(gameTime);

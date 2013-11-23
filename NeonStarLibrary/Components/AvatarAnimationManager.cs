@@ -123,6 +123,19 @@ namespace NeonStarLibrary
                     }
                         
                     break;
+
+                case AvatarState.UsingElement:
+                    if (AvatarComponent.ElementSystem.CurrentElementEffect.EffectElement == Element.Fire)
+                    {
+                        switch(AvatarComponent.ElementSystem.CurrentElementEffect.State)
+                        {
+                            case ElementState.Effect:
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, 0, true, false, false);
+                                break;
+                        }
+
+                    }
+                    break;
             }
 
                
