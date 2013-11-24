@@ -221,7 +221,6 @@ namespace NeonStarLibrary
                 _invincibilityTimer = 0.0f;
                 entity.spritesheets.CurrentSpritesheet.opacity = 1f;
             }
-   
             base.Update(gameTime);
         }
 
@@ -231,9 +230,7 @@ namespace NeonStarLibrary
             CanTurn = true;
             CanAttack = true;
             CanUseElement = true;
-
             State = AvatarState.Idle;
-
             base.PostUpdate(gameTime);
         }
 

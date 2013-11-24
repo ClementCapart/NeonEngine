@@ -242,7 +242,7 @@ namespace NeonStarLibrary
                 {
                     if (CurrentAttack != null)
                     {
-                        if (CurrentAttack.CooldownFinished && CurrentAttack.AirLockFinished)
+                        if (CurrentAttack.CooldownFinished)
                         {
                             CurrentAttack = null;
                             if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))

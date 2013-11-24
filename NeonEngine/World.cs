@@ -135,30 +135,31 @@ namespace NeonEngine
             Neon.Input.Update(camera);
   
             Neon.elapsedTime = gameTime.ElapsedGameTime.Milliseconds;
-            if (!Pause)
-            {
-                
-                foreach (Water w in waterzones)
-                    w.Update(gameTime);
+
+            if(!Pause)
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].PreUpdate(gameTime);
 
-                
+            PreUpdate(gameTime);
+
+            if(!Pause)
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].Update(gameTime);
 
+            Update(gameTime);
+
+            if(!Pause)
                 for(int i = SpecialEffects.Count - 1; i >= 0; i--)
                     SpecialEffects[i].Update(gameTime);
 
+            if(!Pause)
                 physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
-                              
+                    
+            if(!Pause)
                 for (int i = entities.Count - 1; i >= 0; i--)
                     entities[i].PostUpdate(gameTime);
-            }
 
-            lightingSystem.ComposeLightMask(Neon.spriteBatch, this);
-           
-
+            PostUpdate(gameTime);
 
             DeferredDrawGame(Neon.spriteBatch);
 
@@ -173,11 +174,7 @@ namespace NeonEngine
             
             InputEngine();
 
-            PreUpdate(gameTime);
 
-            Update(gameTime);
-            
-            PostUpdate(gameTime);
 
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();

@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using NeonStarEditor;
 using NeonStarLibrary;
+using System.IO;
 
 namespace NeonStar
 {

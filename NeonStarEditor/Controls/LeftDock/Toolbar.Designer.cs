@@ -42,16 +42,17 @@
             this.ReloadButton = new System.Windows.Forms.Button();
             this.SaveCurrentMap = new System.Windows.Forms.Button();
             this.magnetCheckbox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SaveHitboxes = new System.Windows.Forms.Button();
             this.frameByFrame = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PausePlayButton
             // 
-            this.PausePlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PausePlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PausePlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PausePlayButton.Location = new System.Drawing.Point(4, 78);
+            this.PausePlayButton.Location = new System.Drawing.Point(4, 77);
             this.PausePlayButton.Name = "PausePlayButton";
             this.PausePlayButton.Size = new System.Drawing.Size(30, 30);
             this.PausePlayButton.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             // AttackManagerButton
             // 
-            this.AttackManagerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AttackManagerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.AttackManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AttackManagerButton.Location = new System.Drawing.Point(3, 517);
             this.AttackManagerButton.Name = "AttackManagerButton";
@@ -96,7 +97,8 @@
             // 
             // CameraPanel
             // 
-            this.CameraPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CameraPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CameraPanel.BackgroundImage")));
+            this.CameraPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CameraPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CameraPanel.Location = new System.Drawing.Point(3, 481);
             this.CameraPanel.Name = "CameraPanel";
@@ -107,37 +109,37 @@
             // 
             // ToggleLightButton
             // 
-            this.ToggleLightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ToggleLightButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleLightButton.BackgroundImage")));
+            this.ToggleLightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ToggleLightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToggleLightButton.Location = new System.Drawing.Point(3, 412);
+            this.ToggleLightButton.Location = new System.Drawing.Point(3, 395);
             this.ToggleLightButton.Name = "ToggleLightButton";
             this.ToggleLightButton.Size = new System.Drawing.Size(30, 30);
             this.ToggleLightButton.TabIndex = 4;
-            this.ToggleLightButton.Text = "L";
             this.ToggleLightButton.UseVisualStyleBackColor = true;
             this.ToggleLightButton.Click += new System.EventHandler(this.ToggleLightButton_Click);
             // 
             // ToggleBoundsButton
             // 
-            this.ToggleBoundsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ToggleBoundsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleBoundsButton.BackgroundImage")));
+            this.ToggleBoundsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ToggleBoundsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToggleBoundsButton.Location = new System.Drawing.Point(3, 376);
+            this.ToggleBoundsButton.Location = new System.Drawing.Point(3, 359);
             this.ToggleBoundsButton.Name = "ToggleBoundsButton";
             this.ToggleBoundsButton.Size = new System.Drawing.Size(30, 30);
             this.ToggleBoundsButton.TabIndex = 4;
-            this.ToggleBoundsButton.Text = "B";
             this.ToggleBoundsButton.UseVisualStyleBackColor = true;
             this.ToggleBoundsButton.Click += new System.EventHandler(this.ToggleBoundsButton_Click);
             // 
             // PathNodeTool
             // 
+            this.PathNodeTool.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PathNodeTool.BackgroundImage")));
             this.PathNodeTool.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PathNodeTool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathNodeTool.Location = new System.Drawing.Point(3, 251);
             this.PathNodeTool.Name = "PathNodeTool";
             this.PathNodeTool.Size = new System.Drawing.Size(30, 30);
             this.PathNodeTool.TabIndex = 4;
-            this.PathNodeTool.Text = "N";
             this.PathNodeTool.UseVisualStyleBackColor = true;
             this.PathNodeTool.Click += new System.EventHandler(this.PathNodeTool_Click);
             // 
@@ -168,9 +170,9 @@
             // ReloadButton
             // 
             this.ReloadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadButton.BackgroundImage")));
-            this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ReloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReloadButton.Location = new System.Drawing.Point(3, 42);
+            this.ReloadButton.Location = new System.Drawing.Point(4, 42);
             this.ReloadButton.Name = "ReloadButton";
             this.ReloadButton.Size = new System.Drawing.Size(30, 30);
             this.ReloadButton.TabIndex = 3;
@@ -180,9 +182,9 @@
             // SaveCurrentMap
             // 
             this.SaveCurrentMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveCurrentMap.BackgroundImage")));
-            this.SaveCurrentMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveCurrentMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.SaveCurrentMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveCurrentMap.Location = new System.Drawing.Point(3, 7);
+            this.SaveCurrentMap.Location = new System.Drawing.Point(4, 7);
             this.SaveCurrentMap.Name = "SaveCurrentMap";
             this.SaveCurrentMap.Size = new System.Drawing.Size(30, 30);
             this.SaveCurrentMap.TabIndex = 1;
@@ -202,21 +204,12 @@
             this.magnetCheckbox.UseVisualStyleBackColor = true;
             this.magnetCheckbox.CheckedChanged += new System.EventHandler(this.magnetCheckbox_CheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-2, 307);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Magnet";
-            // 
             // SaveHitboxes
             // 
             this.SaveHitboxes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveHitboxes.BackgroundImage")));
-            this.SaveHitboxes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SaveHitboxes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.SaveHitboxes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveHitboxes.Location = new System.Drawing.Point(3, 143);
+            this.SaveHitboxes.Location = new System.Drawing.Point(4, 143);
             this.SaveHitboxes.Name = "SaveHitboxes";
             this.SaveHitboxes.Size = new System.Drawing.Size(30, 30);
             this.SaveHitboxes.TabIndex = 1;
@@ -225,22 +218,32 @@
             // 
             // frameByFrame
             // 
-            this.frameByFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.frameByFrame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("frameByFrame.BackgroundImage")));
+            this.frameByFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.frameByFrame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frameByFrame.Location = new System.Drawing.Point(4, 110);
             this.frameByFrame.Name = "frameByFrame";
             this.frameByFrame.Size = new System.Drawing.Size(30, 30);
             this.frameByFrame.TabIndex = 3;
-            this.frameByFrame.Text = ">";
             this.frameByFrame.UseVisualStyleBackColor = true;
             this.frameByFrame.Click += new System.EventHandler(this.frameByFrame_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 290);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.magnetCheckbox);
             this.Controls.Add(this.Selection);
             this.Controls.Add(this.PathNodeTool);
@@ -259,6 +262,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "Toolbar";
             this.Size = new System.Drawing.Size(38, 624);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,8 +283,8 @@
         private System.Windows.Forms.Button ToggleBoundsButton;
         private System.Windows.Forms.Button PathNodeTool;
         private System.Windows.Forms.CheckBox magnetCheckbox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SaveHitboxes;
         private System.Windows.Forms.Button frameByFrame;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -133,7 +133,7 @@ namespace NeonStarEditor
             MouseInGameWindow = true;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void PostUpdate(GameTime gameTime)
         {
             if (!Pause)
                 if (UnpauseTillNextFrame)
