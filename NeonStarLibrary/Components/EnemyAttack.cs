@@ -96,7 +96,7 @@ namespace NeonStarLibrary
             LocalAttacksInCooldown = new List<Attack>();
             EnemyComponent = entity.GetComponent<Enemy>();
             if (EnemyComponent != null)
-                EnemyComponent._attack = this;
+                EnemyComponent.Attack = this;
             base.Init();
         }
 
@@ -104,8 +104,8 @@ namespace NeonStarLibrary
         {
             if(EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
-                if (CurrentAttack != null && !CurrentAttack.CooldownFinished && this.EnemyComponent.State != EnemyState.StunLock && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
-                    EnemyComponent.State = EnemyState.Attack;
+                if (CurrentAttack != null && !CurrentAttack.CooldownFinished && this.EnemyComponent.State != EnemyState.StunLocked && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
+                    EnemyComponent.State = EnemyState.Attacking;
 
                 for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)
                 {
@@ -114,9 +114,9 @@ namespace NeonStarLibrary
                         LocalAttacksInCooldown.RemoveAt(i);
                 }
 
-                if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attack)
+                if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
                 {
-                    if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
+                    if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
                     {
                         if (_attackToLaunchFive == "Chase")
                         {
@@ -132,7 +132,7 @@ namespace NeonStarLibrary
                             }
 
                             if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
                         }
 
                         if (CurrentAttack == null)
@@ -140,7 +140,7 @@ namespace NeonStarLibrary
                             EnemyComponent.State = EnemyState.Chase;
                         }
                     }
-                    else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
+                    else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
                     {
                         if (_attackToLaunchFour == "Chase")
                         {
@@ -156,7 +156,7 @@ namespace NeonStarLibrary
                             }
 
                             if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
                         }
 
                         if (CurrentAttack == null)
@@ -164,7 +164,7 @@ namespace NeonStarLibrary
                             EnemyComponent.State = EnemyState.Chase;
                         }
                     }
-                    else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
+                    else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
                     {
                         if (_attackToLaunchThree == "Chase")
                         {
@@ -180,7 +180,7 @@ namespace NeonStarLibrary
                             }
 
                             if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
                         }
 
                         if (CurrentAttack == null)
@@ -188,7 +188,7 @@ namespace NeonStarLibrary
                             EnemyComponent.State = EnemyState.Chase;
                         }
                     }
-                    else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent._threatArea.EntityFollowed.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
+                    else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
                     {
                         if (_attackToLaunchTwo == "Chase")
                         {
@@ -204,7 +204,7 @@ namespace NeonStarLibrary
                             }
 
                             if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
                         }
 
                         if (CurrentAttack == null)
@@ -228,7 +228,7 @@ namespace NeonStarLibrary
                             }
 
                             if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EnemyComponent._threatArea.EntityFollowed, true);
+                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
                         }
 
                         if (CurrentAttack == null)
@@ -238,7 +238,7 @@ namespace NeonStarLibrary
                     }
                 }
 
-                if (EnemyComponent.State == EnemyState.Attack)
+                if (EnemyComponent.State == EnemyState.Attacking)
                 {
                     if (CurrentAttack != null)
                     {
@@ -264,7 +264,7 @@ namespace NeonStarLibrary
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
 
-            if (EnemyComponent.State == EnemyState.Attack && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
+            if (EnemyComponent.State == EnemyState.Attacking && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
                 if (CurrentAttack != null)
                 {

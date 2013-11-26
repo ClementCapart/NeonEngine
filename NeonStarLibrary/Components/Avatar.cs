@@ -46,14 +46,6 @@ namespace NeonStarLibrary
             set { _currentHealthPoints = value; }
         }
 
-        private float _stunLockDuration;
-
-        public float StunLockDuration
-        {
-            get { return _stunLockDuration; }
-            set { _stunLockDuration = value; }
-        }
-
         private float _invincibilityDuration = 0.0f;
 
         public float InvincibilityDuration
@@ -61,9 +53,6 @@ namespace NeonStarLibrary
             get { return _invincibilityDuration; }
             set { _invincibilityDuration = value; }
         }
-        private float _invincibilityTimer = 0.0f;
-
-        private float _airLockDuration;
 
         private string _hitAnim = "";
 
@@ -92,6 +81,10 @@ namespace NeonStarLibrary
         public bool IsInvincible = false;
         public bool IsAirLocked = false;
 
+        private float _stunLockDuration = 0.0f;
+        private float _invincibilityTimer = 0.0f;
+        private float _airLockDuration = 0.0f;
+        
         private bool _opacityGoingDown = false;
 
         public Avatar(Entity entity)
@@ -160,7 +153,7 @@ namespace NeonStarLibrary
                 State = AvatarState.Stunlocked;
             }
             
-            if (entity.rigidbody.isGrounded)
+            if (!entity.rigidbody.isGrounded)
             {
                 AirLock(airLockDuration);
             }
@@ -219,7 +212,7 @@ namespace NeonStarLibrary
             else
             {
                 _invincibilityTimer = 0.0f;
-                entity.spritesheets.CurrentSpritesheet.opacity = 1f;
+                entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
             }
             base.Update(gameTime);
         }

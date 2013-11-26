@@ -26,11 +26,11 @@ namespace NeonStarLibrary
         {
             if(EnemyComponent != null)
             {
-                if (EnemyComponent.State == EnemyState.Attack || EnemyComponent.State == EnemyState.Chase)
+                if (EnemyComponent.State == EnemyState.Attacking || EnemyComponent.State == EnemyState.Chase)
                 {
-                    if (EnemyComponent._threatArea.EntityFollowed != null)
+                    if (EnemyComponent.ThreatArea.EntityFollowed != null)
                     {
-                        entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.utils.AngleBetween(EnemyComponent._threatArea.EntityFollowed.transform.Position, entity.transform.Position)) - 180) % 360);
+                        entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.utils.AngleBetween(EnemyComponent.ThreatArea.EntityFollowed.transform.Position, entity.transform.Position)) - 180) % 360);
                         if (entity.spritesheets.RotationOffset < -Math.PI / 2)
                             entity.spritesheets.ChangeSide(Side.Left);
                         else

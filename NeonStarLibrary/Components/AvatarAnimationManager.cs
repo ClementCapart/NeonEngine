@@ -52,7 +52,6 @@ namespace NeonStarLibrary
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
                         else
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.WalkAnimation);
-
                     }
                     else
                     {

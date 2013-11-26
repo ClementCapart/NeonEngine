@@ -481,7 +481,7 @@ namespace NeonStarLibrary
                     {
                         if (_fromEnemy)
                         {
-                            _entity.GetComponent<Enemy>()._attack.LocalAttacksInCooldown.Add(this);
+                            _entity.GetComponent<Enemy>().Attack.LocalAttacksInCooldown.Add(this);
                         }
                     }
 
@@ -607,11 +607,7 @@ namespace NeonStarLibrary
                 if (enemy != null)
                 {
                     validTarget = true;
-                    _hit = true;
-                    validTarget = enemy.ChangeHealthPoints(_damageOnHit, _entity, this);
-                    if(validTarget) enemy.StunLockEffect(_stunLock);
-                    if (!enemy.entity.rigidbody.isGrounded && validTarget)
-                        enemy.AirLock(TargetAirLock);
+                    _hit = validTarget = enemy.TakeDamage(this);
                 }
             }
             else
@@ -620,9 +616,7 @@ namespace NeonStarLibrary
                 if(avatar != null)
                 {
                     validTarget = true;
-                    _hit = true;
-
-                    validTarget = avatar.TakeDamage(this);                
+                    _hit = validTarget = avatar.TakeDamage(this);                
                 }
             }
 
@@ -659,7 +653,7 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.DamageOverTime:
                             if(enemy != null)
-                                enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], Launcher != null ? Launcher : _entity);
+                                enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], this);
                             break;
 
                         case SpecialEffect.StartAttack:

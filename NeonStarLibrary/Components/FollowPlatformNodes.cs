@@ -20,7 +20,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            if (entity.rigidbody.beacon != null)
+            if (entity.rigidbody != null && entity.rigidbody.beacon != null)
             {
                 _lastRigidBody = entity.rigidbody.beacon.CheckGround();
                 if (_lastRigidBody != null)

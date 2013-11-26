@@ -255,7 +255,7 @@ namespace NeonStarLibrary
                     }
 
                     if (_incomingEnemy != null)
-                        _incomingEnemy._threatArea.ThreatRange = 1000.0f;
+                        _incomingEnemy.ThreatArea.ThreatRange = 1000.0f;
 
                     if (_doorToOpen != null)
                     {

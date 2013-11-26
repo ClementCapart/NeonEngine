@@ -9,12 +9,14 @@ namespace NeonStarLibrary
 {
     public class FollowNodes : Component
     {
+
+        #region Properties
         private PathNodeList _currentNodeList;
 
         public PathNodeList CurrentNodeList
         {
             get { return _currentNodeList; }
-            set 
+            set
             {
                 _currentNodeList = value;
                 Init();
@@ -52,18 +54,18 @@ namespace NeonStarLibrary
             get { return _pathPrecisionTreshold; }
             set { _pathPrecisionTreshold = value; }
         }
-
-        private Node _nextNode;
-        private Node _previousNode;
-        private bool _reverse;
-
-        private float _currentNodeDelay = 0.0f;
-        private bool _isDelayed = false;
+        #endregion
 
         public Enemy EnemyComponent;
 
         public bool Active = true;
 
+        private Node _nextNode;
+        private Node _previousNode;
+        private bool _reverse;
+        private float _currentNodeDelay = 0.0f;
+        private bool _isDelayed = false;
+        
         public FollowNodes(Entity entity)
             :base(entity, "FollowNodes")
         {
@@ -88,15 +90,24 @@ namespace NeonStarLibrary
                     _nextNode = CloserNode;
                 }
                 _reverseStart = _reverse;
-            }
-            
-
+            }  
             base.Init();
         }
 
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
+            {
+                if(EnemyComponent.State == EnemyState.Idle)
+                {
+                    EnemyComponent.State = EnemyState.Patrol;
+                }
+            }
+            base.PreUpdate(gameTime);
+        }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (CurrentNodeList != null)
+            if (CurrentNodeList != null && EnemyComponent.State == EnemyState.Patrol)
             {
                 if (_currentNodeList.Type == PathType.Ground)
                 {
@@ -134,19 +145,13 @@ namespace NeonStarLibrary
                     {
                         if (this._nextNode.Position.X < this.entity.transform.Position.X)
                         {
-                            if (entity.spritesheets != null)
-                            {
-                                entity.spritesheets.ChangeSide(Side.Left);
-                            }
+                            EnemyComponent.CurrentSide = Side.Left;
                             if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
                                 this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
                         }
                         else
                         {
-                            if (entity.spritesheets != null)
-                            {
-                                entity.spritesheets.ChangeSide(Side.Right);
-                            }
+                            EnemyComponent.CurrentSide = Side.Right;
                             if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
                                 this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
                         }
