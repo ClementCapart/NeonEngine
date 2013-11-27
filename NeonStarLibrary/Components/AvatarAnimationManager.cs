@@ -31,17 +31,24 @@ namespace NeonStarLibrary
                 case AvatarState.Idle:
                     if (entity.rigidbody.isGrounded)
                     {
+                        if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
+                        else if (entity.rigidbody.body.LinearVelocity.Y < 0.0f)
+                            break;
                         if (entity.rigidbody.wasGrounded)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                         else
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
+                        
                     }
                     else
                     {
                         if (AvatarComponent.ThirdPersonController.StartJumping)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, false, false);
+                        else if(entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, false, false);
                         else
-                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation);
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation, false);
                     }
                     break;
 
@@ -57,8 +64,10 @@ namespace NeonStarLibrary
                     {
                         if (AvatarComponent.ThirdPersonController.StartJumping)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, false, false);
+                        else if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, false, false);
                         else
-                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation);
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation, false);
                     }
                     break;
 
@@ -112,8 +121,7 @@ namespace NeonStarLibrary
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartAnimation, 0, true, true, false);
                         if(entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation && entity.spritesheets.IsFinished())
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, 0, true, true, true);
-                        if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation && entity.rigidbody.isGrounded)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, true, false);
+                        
                     }
 
                     if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)

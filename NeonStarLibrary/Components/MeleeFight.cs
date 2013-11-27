@@ -171,8 +171,11 @@ namespace NeonStarLibrary
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
+                if(CurrentAttack.DurationFinished)
+                    AvatarComponent.State = AvatarState.Idle;    
                 if (CurrentAttack.CooldownFinished)
                     CurrentAttack = null;
+            
             }
 
             if (!ReleasedAttackButton)
@@ -182,7 +185,7 @@ namespace NeonStarLibrary
             if (entity.rigidbody != null && entity.rigidbody.isGrounded)
                 AttacksWhileInAir.Clear();
 
-            if (CurrentComboHit != ComboSequence.None && (CurrentAttack != null && CurrentAttack.DurationFinished) || CurrentAttack == null)
+            if ((CurrentAttack != null && CurrentAttack.DurationFinished) || (CurrentAttack == null))
             {
                 _lastHitDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_lastHitDelay >= ComboDelayMax)
@@ -291,7 +294,16 @@ namespace NeonStarLibrary
             }       
 
             _triedAttacking = false;
+
+            
             base.Update(gameTime);
+        }
+
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            if (CurrentAttack != null)
+                CurrentAttack.FinalUpdate(gameTime);
+            base.FinalUpdate(gameTime);
         }
 
         private void LaunchBufferedAttack()

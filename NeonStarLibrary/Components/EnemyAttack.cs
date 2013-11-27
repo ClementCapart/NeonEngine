@@ -9,9 +9,8 @@ namespace NeonStarLibrary
 {
     public class EnemyAttack : Component
     {
-        public Enemy EnemyComponent;
-        public Attack CurrentAttack;
-
+        
+        #region Properties
         private string _attackToLaunchOne = "";
 
         public string AttackToLaunchOne
@@ -83,6 +82,10 @@ namespace NeonStarLibrary
             get { return _attackToLaunchFive; }
             set { _attackToLaunchFive = value; }
         }
+        #endregion
+
+        public Enemy EnemyComponent;
+        public Attack CurrentAttack;
 
         public List<Attack> LocalAttacksInCooldown;
 
@@ -104,9 +107,6 @@ namespace NeonStarLibrary
         {
             if(EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
-                if (CurrentAttack != null && !CurrentAttack.CooldownFinished && this.EnemyComponent.State != EnemyState.StunLocked && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
-                    EnemyComponent.State = EnemyState.Attacking;
-
                 for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)
                 {
                     LocalAttacksInCooldown[i].LocalCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -114,148 +114,8 @@ namespace NeonStarLibrary
                         LocalAttacksInCooldown.RemoveAt(i);
                 }
 
-                if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
-                {
-                    if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
-                    {
-                        if (_attackToLaunchFive == "Chase")
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                        else
-                        {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == _attackToLaunchFive)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
-                        }
-
-                        if (CurrentAttack == null)
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                    }
-                    else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
-                    {
-                        if (_attackToLaunchFour == "Chase")
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                        else
-                        {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == _attackToLaunchFour)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
-                        }
-
-                        if (CurrentAttack == null)
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                    }
-                    else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
-                    {
-                        if (_attackToLaunchThree == "Chase")
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                        else
-                        {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == _attackToLaunchThree)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
-                        }
-
-                        if (CurrentAttack == null)
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                    }
-                    else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
-                    {
-                        if (_attackToLaunchTwo == "Chase")
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                        else
-                        {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == _attackToLaunchTwo)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
-                        }
-
-                        if (CurrentAttack == null)
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                    }
-                    else
-                    {
-                        if (_attackToLaunchOne == "Chase")
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                        else
-                        {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == _attackToLaunchOne)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                                CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
-                        }
-
-                        if (CurrentAttack == null)
-                        {
-                            EnemyComponent.State = EnemyState.Chase;
-                        }
-                    }
-                }
-
-                if (EnemyComponent.State == EnemyState.Attacking)
-                {
-                    if (CurrentAttack != null)
-                    {
-                        if (CurrentAttack.CooldownFinished)
-                        {
-                            CurrentAttack = null;
-                            if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
-                                entity.spritesheets.CurrentPriority = 0;
-                        }
-                    }
-                }
-                else
-                {
-                    if (CurrentAttack != null)
-                        CurrentAttack.CancelAttack();
-                    CurrentAttack = null;
-                }
+                if (CurrentAttack != null && !CurrentAttack.CooldownFinished && this.EnemyComponent.State != EnemyState.StunLocked && EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
+                    EnemyComponent.State = EnemyState.Attacking;
             }
             
             base.PreUpdate(gameTime);
@@ -263,7 +123,6 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-
             if (EnemyComponent.State == EnemyState.Attacking && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
                 if (CurrentAttack != null)
@@ -271,6 +130,149 @@ namespace NeonStarLibrary
                         CurrentAttack.Update(gameTime);
                 }                   
             }
+
+           /* if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
+            {
+                if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
+                {
+                    if (_attackToLaunchFive == "Chase")
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else
+                    {
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchFive)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
+                    }
+
+                    if (CurrentAttack == null)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                }
+                else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
+                {
+                    if (_attackToLaunchFour == "Chase")
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else
+                    {
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchFour)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
+                    }
+
+                    if (CurrentAttack == null)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                }
+                else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
+                {
+                    if (_attackToLaunchThree == "Chase")
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else
+                    {
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchThree)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
+                    }
+
+                    if (CurrentAttack == null)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                }
+                else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EnemyComponent.ThreatArea.EntityFollowed.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
+                {
+                    if (_attackToLaunchTwo == "Chase")
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else
+                    {
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchTwo)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
+                    }
+
+                    if (CurrentAttack == null)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                }
+                else
+                {
+                    if (_attackToLaunchOne == "Chase")
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                    else
+                    {
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchOne)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EnemyComponent.ThreatArea.EntityFollowed, true);
+                    }
+
+                    if (CurrentAttack == null)
+                    {
+                        EnemyComponent.State = EnemyState.Chase;
+                    }
+                }
+            }
+
+            if (EnemyComponent.State == EnemyState.Attacking)
+            {
+                if (CurrentAttack != null)
+                {
+                    if (CurrentAttack.CooldownFinished)
+                    {
+                        CurrentAttack = null;
+                        if (entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheet.IsLooped || !entity.spritesheets.CurrentSpritesheet.IsLooped && entity.spritesheets.IsFinished()))
+                            entity.spritesheets.CurrentPriority = 0;
+                    }
+                }
+            }
+            else
+            {
+                if (CurrentAttack != null)
+                    CurrentAttack.CancelAttack();
+                CurrentAttack = null;
+            }*/
             base.Update(gameTime);
         }
 

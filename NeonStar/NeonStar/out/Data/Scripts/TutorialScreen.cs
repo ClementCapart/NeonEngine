@@ -254,9 +254,6 @@ namespace NeonStarLibrary
                         _enemy.GetComponent<Enemy>().Remove();
                     }
 
-                    if (_incomingEnemy != null)
-                        _incomingEnemy.ThreatArea.ThreatRange = 1000.0f;
-
                     if (_doorToOpen != null)
                     {
                         _doorToOpen.rigidbody.Remove();

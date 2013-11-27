@@ -180,7 +180,6 @@ namespace NeonStarLibrary
         public EnemyState State = EnemyState.Idle;
 
         public FollowNodes FollowNodes;
-        public ThreatArea ThreatArea;
         public Chase Chase;
         public EnemyAttack Attack;
 
@@ -213,14 +212,13 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            if (ThreatArea == null)
-                ThreatArea = entity.GetComponent<ThreatArea>();
             if (FollowNodes == null)
                 FollowNodes = entity.GetComponent<FollowNodes>();
-            if (Chase == null)
-                Chase = entity.GetComponent<Chase>();
             if (Attack == null)
                 Attack = entity.GetComponent<EnemyAttack>();
+            if (Chase == null)
+                Chase = entity.GetComponent<Chase>();
+            
             if (_componentToTrigger == null && _componentToTriggerName != "")
             {
                 _componentToTrigger = entity.GetComponentByName(_componentToTriggerName);
@@ -382,6 +380,12 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {            
+            
+            base.PostUpdate(gameTime);
+        }
+
+        public override void FinalUpdate(GameTime gameTime)
+        {
             if (State == EnemyState.Dead)
             {
                 this.entity.Destroy();
@@ -389,12 +393,13 @@ namespace NeonStarLibrary
             }
             else if (State != EnemyState.Dying && State != EnemyState.StunLocked)
             {
-                State = EnemyState.Idle;
                 CanMove = true;
                 CanTurn = true;
                 CanAttack = true;
             }
-            base.PostUpdate(gameTime);
+
+            Console.WriteLine(State);
+            base.FinalUpdate(gameTime);
         }
 
         public void AfflictDamageOverTime(float damageValue, float damageTimer, float damageSpeed, Attack source)

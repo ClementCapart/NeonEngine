@@ -223,7 +223,7 @@ namespace NeonStarLibrary
             CanTurn = true;
             CanAttack = true;
             CanUseElement = true;
-            State = AvatarState.Idle;
+
             base.PostUpdate(gameTime);
         }
 

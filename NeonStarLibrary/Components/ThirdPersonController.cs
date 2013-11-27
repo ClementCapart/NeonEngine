@@ -128,7 +128,7 @@ namespace NeonStarLibrary
         {
             for(int i = _ignoredGeometry.Count - 1; i >= 0; i --)
             {
-                if (entity.rigidbody.body.Position.Y > _ignoredGeometry[i].body.Position.Y)
+                if (entity.transform.Position.Y + entity.hitboxes[0].Height / 2 > _ignoredGeometry[i].entity.transform.Position.Y + _ignoredGeometry[i].entity.hitboxes[0].Height / 2)
                 {
                     entity.rigidbody.body.RestoreCollisionWith(_ignoredGeometry[i].body);
                     _ignoredGeometry.RemoveAt(i);
@@ -173,6 +173,8 @@ namespace NeonStarLibrary
 
                         AvatarComponent.State = AvatarState.Moving;
                     }
+                    else
+                        AvatarComponent.State = AvatarState.Idle;
 
                     if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
                     {    
@@ -189,13 +191,14 @@ namespace NeonStarLibrary
                     {
                         MustJumpAsSoonAsPossible = true;
                     }
-                     
+
                     if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
                     {
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                         StartJumping = true;
+                        EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), entity.spritesheets.DrawLayer + 0.01f);
                         _jumpInputDelay = 0.0f;
                         MustJumpAsSoonAsPossible = false;
                     }
@@ -224,8 +227,12 @@ namespace NeonStarLibrary
                         if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && entity.rigidbody.beacon.CheckRightSide(0) == null)
                             entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
                     }
-                    else if(AvatarComponent.CanMove)
+                    else if (AvatarComponent.CanMove)
+                    {
                         entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
+                        AvatarComponent.State = AvatarState.Idle;
+                    }
+
 
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
@@ -242,6 +249,9 @@ namespace NeonStarLibrary
 
                 }
             }
+
+            if(entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
+                EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), entity.spritesheets.DrawLayer + 0.01f);
 
             foreach (Rigidbody rg in _ignoredGeometry)
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);

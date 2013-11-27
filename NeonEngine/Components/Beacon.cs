@@ -345,6 +345,34 @@ namespace NeonEngine.Private
             return hasHit;
         }
 
+        public Entity Raycast(Vector2 StartPosition, Vector2 EndPosition, Body body = null)
+        {
+            Entity hitEntity = null;
+
+            PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
+            {
+                if (fixture.Body != body)
+                {
+                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                    if (hitEntity != null)
+                    {
+                        if (hitEntity.rigidbody.OneWayPlatform)
+                        {
+                            hitEntity = null;
+                            return -1;
+                        }
+                        return 0;
+                    }
+                    return -1;
+
+                }
+                return -1;
+            },
+                CoordinateConversion.screenToWorld(StartPosition),
+                CoordinateConversion.screenToWorld(EndPosition));
+
+            return hitEntity;
+        }
 
     }
 }

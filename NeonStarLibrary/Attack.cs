@@ -511,6 +511,29 @@ namespace NeonStarLibrary
                 _entity.rigidbody.body.LinearVelocity = CurrentSide == Side.Right ? new Vector2(_movingSpeed, 0) : new Vector2(-_movingSpeed, 0);
             }
 
+            
+
+            if (_mustStopAtTargetSight)
+            {
+                if(_side == Side.Left)
+                    if (_target.hitboxes[0].Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+
+                if (_side == Side.Right)
+                    if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+
+            if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _hit && _meleeFight != null)
+            {
+                _meleeFight.AvatarComponent.AirLock(AirLock);
+                _alreadyLocked = true;
+            }
+                
+        }
+
+        public void FinalUpdate(GameTime gameTime)
+        {
             if (_entity.Name != "AttackHolder")
             {
                 if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
@@ -573,26 +596,8 @@ namespace NeonStarLibrary
                     this.AirLocked = false;
                     this.AirLockFinished = true;
                     this.Canceled = true;
-                }           
+                }
             }
-
-            if (_mustStopAtTargetSight)
-            {
-                if(_side == Side.Left)
-                    if (_target.hitboxes[0].Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
-                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-
-                if (_side == Side.Right)
-                    if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
-                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-            }
-
-            if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _hit && _meleeFight != null)
-            {
-                _meleeFight.AvatarComponent.AirLock(AirLock);
-                _alreadyLocked = true;
-            }
-                
         }
 
         private void Effect(Entity entity, Hitbox collidedHitbox)

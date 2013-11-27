@@ -178,7 +178,6 @@ namespace NeonEngine
                             }
                     }
 
-                    comp.Init();
                 }
 
                 containerWorld.AddEntity(entity);

@@ -161,7 +161,13 @@ namespace NeonEngine
 
             PostUpdate(gameTime);
 
-            DeferredDrawGame(Neon.spriteBatch);
+            if (!Pause)
+                for (int i = entities.Count - 1; i >= 0; i--)
+                    entities[i].FinalUpdate(gameTime);
+
+            FinalUpdate(gameTime);
+
+                    DeferredDrawGame(Neon.spriteBatch);
 
             if (!change)
                 alpha = Math.Max(alpha - 0.01f, 0.0f);
@@ -181,6 +187,10 @@ namespace NeonEngine
         }
 
         public virtual void PostUpdate(GameTime gameTime)
+        {
+        }
+
+        public virtual void FinalUpdate(GameTime gameTime)
         {
         }
 

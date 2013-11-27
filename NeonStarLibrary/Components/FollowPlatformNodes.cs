@@ -36,11 +36,14 @@ namespace NeonStarLibrary
         {
             if (CurrentPlatform != null && this.CurrentNodeList != CurrentPlatform.LinkedPathNodeList)
                 this.CurrentNodeList = CurrentPlatform.LinkedPathNodeList;
-            
-            Rigidbody rg = entity.rigidbody.beacon.CheckGround();
-            if (rg != null && rg != _lastRigidBody)
+            if (entity.rigidbody.beacon != null)
             {
-                SearchForNewPath(rg);
+                Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+
+                if (rg != null && rg != _lastRigidBody)
+                {
+                    SearchForNewPath(rg);
+                }
             }
             base.Update(gameTime);
         }

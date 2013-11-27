@@ -10,152 +10,65 @@ namespace NeonStarLibrary
     public class Chase : Component
     {
         #region Properties
-        private float _speed;
+        protected string _entityToChaseName = "";
 
-        public float Speed
+        public string EntityToChaseName
         {
-            get { return _speed; }
-            set { _speed = value; }
+            get { return _entityToChaseName; }
+            set { _entityToChaseName = value; }
         }
 
-        private float _waitDelay = 1.0f;
-
-        public float WaitDelay
+        protected float _detectionDistance = 1.0f;
+        
+        public float DetectionDistance
         {
-            get { return _waitDelay; }
-            set { _waitDelay = value; }
+            get { return _detectionDistance; }
+            set { _detectionDistance = value; }
+        }
+
+        protected float _waitThreatDuration = 1.0f;
+
+        public float WaitThreatDuration
+        {
+            get { return _waitThreatDuration; }
+            set { _waitThreatDuration = value; }
+        }
+
+        protected float _waitStopDuration = 1.0f;
+
+        public float WaitStopDuration
+        {
+            get { return _waitStopDuration; }
+            set { _waitStopDuration = value; }
+        }
+
+        protected float _chaseSpeed = 5.0f;
+
+        public float ChaseSpeed
+        {
+            get { return _chaseSpeed; }
+            set { _chaseSpeed = value; }
+        }
+
+        protected float _chasePrecision = 0.0f;
+
+        public float ChasePrecision
+        {
+          get { return _chasePrecision; }
+          set { _chasePrecision = value; }
         }
         #endregion
-        
-        public Enemy EnemyComponent;
 
-        public Vector2 LastTargetPosition;
-        public bool HavingTarget = false;
+        public Enemy EnemyComponent = null;
 
-        private float _waitTimer = 0.0f;
+        public Entity EntityToChase = null;
+
+        protected Vector2 _positionToReach = new Vector2(-9999, -9999);     
+        protected float _waitThreatTimer = 0.0f;
+        protected float _waitStopTimer = 0.0f;
 
         public Chase(Entity entity)
             :base(entity, "Chase")
-        {
-        }
-
-        public override void Init()
-        {
-            EnemyComponent = entity.GetComponent<Enemy>();
-            base.Init();
-        }
-
-        public override void PreUpdate(GameTime gameTime)
-        {
-            base.PreUpdate(gameTime);
-        }
-
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            if (EnemyComponent.State == EnemyState.MustFinishChase)
-                EnemyComponent.State = EnemyState.FinishChase;
-
-            if (EnemyComponent.State == EnemyState.FinishChase)
-            {
-                if (HavingTarget)
-                {
-                    if (LastTargetPosition.X < this.entity.transform.Position.X)
-                    {
-                        if (entity.rigidbody.beacon.CheckLeftGround() && entity.rigidbody.beacon.CheckLeftSide(0) == null)
-                        {
-                            EnemyComponent.CurrentSide = Side.Left;
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);                      
-                        }
-                        else
-                        {
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
-                            HavingTarget = false;
-                            EnemyComponent.ThreatArea.ShouldDetect = false;
-                            EnemyComponent.State = EnemyState.Wait;
-                            _waitTimer = _waitDelay;
-                        }
-                    }
-                    else
-                    {
-                        if (entity.rigidbody.beacon.CheckRightGround() && entity.rigidbody.beacon.CheckRightSide(0) == null)
-                        {
-                            EnemyComponent.CurrentSide = Side.Right;
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                        }
-                        else
-                        {
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);              
-                            EnemyComponent.ThreatArea.ShouldDetect = false;
-                            EnemyComponent.State = EnemyState.Wait;
-                            _waitTimer = _waitDelay;
-                            HavingTarget = false;
-                        }
-                    }
-
-                    if (LastTargetPosition.X + _speed > entity.transform.Position.X && LastTargetPosition.X - _speed < entity.transform.Position.X)
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
-                        HavingTarget = false;
-                        EnemyComponent.ThreatArea.ShouldDetect = false;
-                        EnemyComponent.State = EnemyState.Wait;
-                        _waitTimer = _waitDelay;
-                    }
-                }
-                else
-                {
-                        EnemyComponent.State = EnemyState.Wait;
-                        EnemyComponent.ThreatArea.ShouldDetect = false;
-                        _waitTimer = _waitDelay;
-                }
-            }
-            else if (EnemyComponent.State == EnemyState.Wait)
-            {
-                if (_waitTimer > 0.0f)
-                {
-                    _waitTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                }
-                else
-                {
-                    EnemyComponent.State = EnemyState.Idle;
-                }
-            }
-            else if (EnemyComponent.State == EnemyState.Chase)
-            {
-                HavingTarget = true;
-                LastTargetPosition = new Vector2(EnemyComponent.ThreatArea.EntityFollowed.transform.Position.X, EnemyComponent.ThreatArea.EntityFollowed.transform.Position.Y);
-
-                if (LastTargetPosition.X < this.entity.transform.Position.X)
-                {   
-                    if (entity.rigidbody.beacon.CheckLeftGround() && entity.rigidbody.beacon.CheckLeftSide(0) == null)
-                    {
-                        EnemyComponent.CurrentSide = Side.Left;
-                        if(EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                    }
-                    else
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
-                        _waitTimer = _waitDelay;
-                        EnemyComponent.State = EnemyState.MustFinishChase;
-                    }
-                }
-                else
-                {
-                    if (entity.rigidbody.beacon.CheckRightGround() && entity.rigidbody.beacon.CheckRightSide(0) == null)
-                    {
-                        EnemyComponent.CurrentSide = Side.Right;
-                        if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                    }
-                    else
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(0, this.entity.rigidbody.body.LinearVelocity.Y);
-                        _waitTimer = _waitDelay;
-                        EnemyComponent.State = EnemyState.MustFinishChase;
-                    }
-                }
-            }
-            base.Update(gameTime);
-        }
+        {}
     }
 }

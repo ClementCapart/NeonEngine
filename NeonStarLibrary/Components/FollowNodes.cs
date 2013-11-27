@@ -64,7 +64,6 @@ namespace NeonStarLibrary
         private Node _previousNode;
         private bool _reverse;
         private float _currentNodeDelay = 0.0f;
-        private bool _isDelayed = false;
         
         public FollowNodes(Entity entity)
             :base(entity, "FollowNodes")
@@ -96,69 +95,75 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (EnemyComponent.State != EnemyState.Dead && EnemyComponent.State != EnemyState.Dying)
+            if (entity.rigidbody.isGrounded)
             {
-                if(EnemyComponent.State == EnemyState.Idle)
+                if (EnemyComponent.State == EnemyState.Idle)
                 {
                     EnemyComponent.State = EnemyState.Patrol;
                 }
-            }
-            base.PreUpdate(gameTime);
-        }
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            if (CurrentNodeList != null && EnemyComponent.State == EnemyState.Patrol)
-            {
-                if (_currentNodeList.Type == PathType.Ground)
-                {
-                    if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
-                    {
-                        switch(_nextNode.Type)
-                        {
-                            case NodeType.Move:
-                                SearchNextNode();
-                                break;
 
-                            case NodeType.DelayedMove:
-                                if (!_isDelayed)
+                if (_currentNodeList != null)
+                {
+                    switch (EnemyComponent.State)
+                    {
+                        case EnemyState.WaitNode:
+                            _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (_currentNodeDelay <= 0.0f)
+                            {
+                                _currentNodeDelay = 0.0f;
+                                EnemyComponent.State = EnemyState.Patrol;
+                                SearchNextNode();
+                            }
+                            break;
+
+                        case EnemyState.Patrol:
+                            if (_currentNodeList.Type == PathType.Ground)
+                            {
+                                if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
                                 {
-                                    _currentNodeDelay = _nextNode.NodeDelay;
-                                    this._isDelayed = true;
-                                    this.EnemyComponent.State = EnemyState.WaitNode;
-                                }
-                                else
-                                {
-                                    _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                                    if (_currentNodeDelay <= 0.0f)
+                                    switch (_nextNode.Type)
                                     {
-                                        _currentNodeDelay = 0.0f;
-                                        this._isDelayed = false;
-                                        this.EnemyComponent.State = EnemyState.Patrol;
-                                        SearchNextNode();
+                                        case NodeType.Move:
+                                            SearchNextNode();
+                                            break;
+
+                                        case NodeType.DelayedMove:
+                                            _currentNodeDelay = _nextNode.NodeDelay;
+                                            this.EnemyComponent.State = EnemyState.WaitNode;
+                                            break;
                                     }
                                 }
-                                break;
-                        }
+                            }
+                            break;
                     }
-                        
-                    if (EnemyComponent.State == EnemyState.Patrol && !_isDelayed)
-                    {
-                        if (this._nextNode.Position.X < this.entity.transform.Position.X)
-                        {
-                            EnemyComponent.CurrentSide = Side.Left;
-                            if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                                this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                        }
-                        else
-                        {
-                            EnemyComponent.CurrentSide = Side.Right;
-                            if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                                this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                        }
-                    }                
-                }   
+                }
             }
-                                   
+            else
+            {
+                EnemyComponent.State = EnemyState.Idle;
+            }
+            
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (EnemyComponent.State == EnemyState.Patrol)
+            {
+                if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                {
+                    EnemyComponent.CurrentSide = Side.Left;
+                    if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                }
+                else
+                {
+                    EnemyComponent.CurrentSide = Side.Right;
+                    if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
+                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                }
+            }        
+                                                         
             base.Update(gameTime);
         }
 
