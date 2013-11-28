@@ -90,5 +90,13 @@ namespace NeonStarEditor
                 entity.transform.InitialPosition = entity.transform.Position;
             }
         }
+
+        private void OrderList_Click(object sender, EventArgs e)
+        {
+            GameWorld.entities = GameWorld.entities.OrderBy(en => en.Name).ToList();
+            EntityListBox.DataSource = null;
+            EntityListBox.DataSource = GameWorld.entities;
+            EntityListBox.DisplayMember = "Name";
+        }
     }
 }

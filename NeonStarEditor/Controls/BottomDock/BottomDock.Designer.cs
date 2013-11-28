@@ -52,7 +52,7 @@
             // prefabListControl
             // 
             this.prefabListControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.prefabListControl.Location = new System.Drawing.Point(505, 0);
+            this.prefabListControl.Location = new System.Drawing.Point(560, -1);
             this.prefabListControl.MaximumSize = new System.Drawing.Size(540, 160);
             this.prefabListControl.MinimumSize = new System.Drawing.Size(540, 35);
             this.prefabListControl.Name = "prefabListControl";

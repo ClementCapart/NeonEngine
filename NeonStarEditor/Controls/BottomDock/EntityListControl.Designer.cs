@@ -35,6 +35,7 @@
             this.RemoveEntityButton = new System.Windows.Forms.Button();
             this.SavePrefabDialog = new System.Windows.Forms.SaveFileDialog();
             this.duplicateButton = new System.Windows.Forms.Button();
+            this.OrderList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EntityListBox
@@ -103,6 +104,20 @@
             this.duplicateButton.UseVisualStyleBackColor = true;
             this.duplicateButton.Click += new System.EventHandler(this.duplicateButton_Click);
             // 
+            // OrderList
+            // 
+            this.OrderList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OrderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderList.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.OrderList.Location = new System.Drawing.Point(499, 41);
+            this.OrderList.Name = "OrderList";
+            this.OrderList.Size = new System.Drawing.Size(31, 30);
+            this.OrderList.TabIndex = 3;
+            this.OrderList.Text = "ABC";
+            this.OrderList.UseVisualStyleBackColor = true;
+            this.OrderList.Click += new System.EventHandler(this.OrderList_Click);
+            // 
             // EntityListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +125,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.duplicateButton);
             this.Controls.Add(this.RemoveEntityButton);
+            this.Controls.Add(this.OrderList);
             this.Controls.Add(this.AddEntityButton);
             this.Controls.Add(this.EntityList);
             this.Controls.Add(this.EntityListBox);
@@ -130,5 +146,6 @@
         private System.Windows.Forms.Button RemoveEntityButton;
         private System.Windows.Forms.SaveFileDialog SavePrefabDialog;
         private System.Windows.Forms.Button duplicateButton;
+        private System.Windows.Forms.Button OrderList;
     }
 }
