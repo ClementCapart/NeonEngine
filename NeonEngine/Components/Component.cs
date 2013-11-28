@@ -39,6 +39,10 @@ namespace NeonEngine
         {
         }
 
+        public virtual void FinalUpdate(GameTime gameTime)
+        {
+        }
+
         public virtual void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             

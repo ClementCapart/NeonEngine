@@ -27,7 +27,7 @@ namespace NeonStarEditor
         {
             if (GameWorld != null)
             {
-                EntityListBox.DataSource = GameWorld.entityList;
+                EntityListBox.DataSource = GameWorld.entities;
                 EntityListBox.DisplayMember = "Name";
                 EntityListBox.SelectedItem = null;
             }
@@ -50,8 +50,8 @@ namespace NeonStarEditor
         private void AddEntityButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Add : Entity");
-            GameWorld.entityList.Add(new Entity(GameWorld));
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entityList.Last());
+            GameWorld.AddEntity(new Entity(GameWorld));
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

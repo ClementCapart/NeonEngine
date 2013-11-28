@@ -41,9 +41,14 @@
             this.AttackName = new System.Windows.Forms.TextBox();
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
+            this.LocalCooldownNumeric = new System.Windows.Forms.NumericUpDown();
             this.CooldownNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.AirFactorNU = new System.Windows.Forms.NumericUpDown();
             this.RemoveOnGround = new System.Windows.Forms.Button();
             this.RemoveOnHit = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.StunLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AddOnGround = new System.Windows.Forms.Button();
             this.AddOnHit = new System.Windows.Forms.Button();
             this.RemoveSpecial = new System.Windows.Forms.Button();
@@ -52,18 +57,15 @@
             this.OnGroundCancelSpecialEffectList = new System.Windows.Forms.ListBox();
             this.OnHitSpecialEffectsList = new System.Windows.Forms.ListBox();
             this.SpecialEffectsList = new System.Windows.Forms.ListBox();
-            this.StunLockNumeric = new System.Windows.Forms.NumericUpDown();
-            this.AirFactorNU = new System.Windows.Forms.NumericUpDown();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.DamageNumeric = new System.Windows.Forms.NumericUpDown();
             this.EffectsInfoPanel = new System.Windows.Forms.Panel();
             this.HitboxesPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.LocalCooldown = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -72,18 +74,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.LocalCooldownNumeric = new System.Windows.Forms.NumericUpDown();
-            this.LocalCooldown = new System.Windows.Forms.Label();
+            this.Element = new System.Windows.Forms.Label();
+            this.ElementCombobox = new System.Windows.Forms.ComboBox();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CooldownNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -193,7 +195,9 @@
             this.AttackInfo.Controls.Add(this.label9);
             this.AttackInfo.Controls.Add(this.label3);
             this.AttackInfo.Controls.Add(this.label2);
+            this.AttackInfo.Controls.Add(this.Element);
             this.AttackInfo.Controls.Add(this.label1);
+            this.AttackInfo.Controls.Add(this.ElementCombobox);
             this.AttackInfo.Controls.Add(this.TypeComboBox);
             this.AttackInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.AttackInfo.Location = new System.Drawing.Point(201, 49);
@@ -206,7 +210,7 @@
             // OnlyOnceInAir
             // 
             this.OnlyOnceInAir.AutoSize = true;
-            this.OnlyOnceInAir.Location = new System.Drawing.Point(293, 158);
+            this.OnlyOnceInAir.Location = new System.Drawing.Point(378, 159);
             this.OnlyOnceInAir.Name = "OnlyOnceInAir";
             this.OnlyOnceInAir.Size = new System.Drawing.Size(78, 17);
             this.OnlyOnceInAir.TabIndex = 5;
@@ -217,7 +221,7 @@
             // GroundCancelCheckbox
             // 
             this.GroundCancelCheckbox.AutoSize = true;
-            this.GroundCancelCheckbox.Location = new System.Drawing.Point(293, 137);
+            this.GroundCancelCheckbox.Location = new System.Drawing.Point(378, 138);
             this.GroundCancelCheckbox.Name = "GroundCancelCheckbox";
             this.GroundCancelCheckbox.Size = new System.Drawing.Size(94, 17);
             this.GroundCancelCheckbox.TabIndex = 5;
@@ -228,7 +232,7 @@
             // AirOnlyCheckbox
             // 
             this.AirOnlyCheckbox.AutoSize = true;
-            this.AirOnlyCheckbox.Location = new System.Drawing.Point(293, 116);
+            this.AirOnlyCheckbox.Location = new System.Drawing.Point(378, 117);
             this.AirOnlyCheckbox.Name = "AirOnlyCheckbox";
             this.AirOnlyCheckbox.Size = new System.Drawing.Size(59, 17);
             this.AirOnlyCheckbox.TabIndex = 5;
@@ -258,7 +262,7 @@
             0,
             0,
             65536});
-            this.TargetAirLockNumeric.Location = new System.Drawing.Point(217, 132);
+            this.TargetAirLockNumeric.Location = new System.Drawing.Point(302, 133);
             this.TargetAirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -279,7 +283,7 @@
             0,
             0,
             65536});
-            this.AirLockNumeric.Location = new System.Drawing.Point(149, 132);
+            this.AirLockNumeric.Location = new System.Drawing.Point(234, 133);
             this.AirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -292,6 +296,27 @@
             this.AirLockNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.AirLockNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
+            // LocalCooldownNumeric
+            // 
+            this.LocalCooldownNumeric.DecimalPlaces = 2;
+            this.LocalCooldownNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.LocalCooldownNumeric.Location = new System.Drawing.Point(12, 133);
+            this.LocalCooldownNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.LocalCooldownNumeric.Name = "LocalCooldownNumeric";
+            this.LocalCooldownNumeric.Size = new System.Drawing.Size(60, 20);
+            this.LocalCooldownNumeric.TabIndex = 3;
+            this.LocalCooldownNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.LocalCooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.LocalCooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            // 
             // CooldownNumeric
             // 
             this.CooldownNumeric.DecimalPlaces = 2;
@@ -300,7 +325,7 @@
             0,
             0,
             65536});
-            this.CooldownNumeric.Location = new System.Drawing.Point(301, 84);
+            this.CooldownNumeric.Location = new System.Drawing.Point(409, 84);
             this.CooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -312,6 +337,36 @@
             this.CooldownNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
             this.CooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
             this.CooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(99, 117);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "AirFactor";
+            // 
+            // AirFactorNU
+            // 
+            this.AirFactorNU.DecimalPlaces = 2;
+            this.AirFactorNU.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AirFactorNU.Location = new System.Drawing.Point(101, 133);
+            this.AirFactorNU.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.AirFactorNU.Name = "AirFactorNU";
+            this.AirFactorNU.Size = new System.Drawing.Size(60, 20);
+            this.AirFactorNU.TabIndex = 3;
+            this.AirFactorNU.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.AirFactorNU.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.AirFactorNU.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
             // RemoveOnGround
             // 
@@ -336,6 +391,36 @@
             this.RemoveOnHit.Text = "-";
             this.RemoveOnHit.UseVisualStyleBackColor = true;
             this.RemoveOnHit.Click += new System.EventHandler(this.RemoveOnHit_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(164, 116);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "StunLock";
+            // 
+            // StunLockNumeric
+            // 
+            this.StunLockNumeric.DecimalPlaces = 2;
+            this.StunLockNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.StunLockNumeric.Location = new System.Drawing.Point(167, 133);
+            this.StunLockNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.StunLockNumeric.Name = "StunLockNumeric";
+            this.StunLockNumeric.Size = new System.Drawing.Size(60, 20);
+            this.StunLockNumeric.TabIndex = 3;
+            this.StunLockNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.StunLockNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.StunLockNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
             // AddOnGround
             // 
@@ -393,7 +478,7 @@
             0,
             0,
             65536});
-            this.DelayNumeric.Location = new System.Drawing.Point(167, 84);
+            this.DelayNumeric.Location = new System.Drawing.Point(275, 84);
             this.DelayNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -433,48 +518,6 @@
             this.SpecialEffectsList.TabIndex = 1;
             this.SpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.SpecialEffectsList_SelectedIndexChanged);
             // 
-            // StunLockNumeric
-            // 
-            this.StunLockNumeric.DecimalPlaces = 2;
-            this.StunLockNumeric.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.StunLockNumeric.Location = new System.Drawing.Point(82, 132);
-            this.StunLockNumeric.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.StunLockNumeric.Name = "StunLockNumeric";
-            this.StunLockNumeric.Size = new System.Drawing.Size(60, 20);
-            this.StunLockNumeric.TabIndex = 3;
-            this.StunLockNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
-            this.StunLockNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
-            this.StunLockNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
-            // 
-            // AirFactorNU
-            // 
-            this.AirFactorNU.DecimalPlaces = 2;
-            this.AirFactorNU.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.AirFactorNU.Location = new System.Drawing.Point(16, 132);
-            this.AirFactorNU.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.AirFactorNU.Name = "AirFactorNU";
-            this.AirFactorNU.Size = new System.Drawing.Size(60, 20);
-            this.AirFactorNU.TabIndex = 3;
-            this.AirFactorNU.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
-            this.AirFactorNU.Enter += new System.EventHandler(this.Numeric_Enter);
-            this.AirFactorNU.Leave += new System.EventHandler(this.Numeric_Leave);
-            // 
             // DurationNumeric
             // 
             this.DurationNumeric.DecimalPlaces = 2;
@@ -483,7 +526,7 @@
             0,
             0,
             65536});
-            this.DurationNumeric.Location = new System.Drawing.Point(234, 84);
+            this.DurationNumeric.Location = new System.Drawing.Point(342, 84);
             this.DurationNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -498,7 +541,7 @@
             // 
             // DamageNumeric
             // 
-            this.DamageNumeric.Location = new System.Drawing.Point(89, 84);
+            this.DamageNumeric.Location = new System.Drawing.Point(197, 84);
             this.DamageNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -537,7 +580,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(214, 116);
+            this.label8.Location = new System.Drawing.Point(299, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 1;
@@ -546,16 +589,25 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(146, 116);
+            this.label7.Location = new System.Drawing.Point(231, 117);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "AirLock";
             // 
+            // LocalCooldown
+            // 
+            this.LocalCooldown.AutoSize = true;
+            this.LocalCooldown.Location = new System.Drawing.Point(9, 116);
+            this.LocalCooldown.Name = "LocalCooldown";
+            this.LocalCooldown.Size = new System.Drawing.Size(80, 13);
+            this.LocalCooldown.TabIndex = 1;
+            this.LocalCooldown.Text = "LocalCooldown";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(298, 68);
+            this.label6.Location = new System.Drawing.Point(406, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 1;
@@ -570,28 +622,10 @@
             this.label111.TabIndex = 1;
             this.label111.Text = "SpecialEffectsOnGround";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(79, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "StunLock";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 116);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "AirFactor";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 67);
+            this.label5.Location = new System.Drawing.Point(338, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 1;
@@ -609,7 +643,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(167, 69);
+            this.label4.Location = new System.Drawing.Point(275, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 1;
@@ -627,7 +661,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 67);
+            this.label3.Location = new System.Drawing.Point(194, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 1;
@@ -636,7 +670,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 166);
+            this.label2.Location = new System.Drawing.Point(9, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 1;
@@ -645,7 +679,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 67);
+            this.label1.Location = new System.Drawing.Point(9, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
@@ -661,35 +695,24 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // LocalCooldownNumeric
+            // Element
             // 
-            this.LocalCooldownNumeric.DecimalPlaces = 2;
-            this.LocalCooldownNumeric.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.LocalCooldownNumeric.Location = new System.Drawing.Point(367, 84);
-            this.LocalCooldownNumeric.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.LocalCooldownNumeric.Name = "LocalCooldownNumeric";
-            this.LocalCooldownNumeric.Size = new System.Drawing.Size(60, 20);
-            this.LocalCooldownNumeric.TabIndex = 3;
-            this.LocalCooldownNumeric.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
-            this.LocalCooldownNumeric.Enter += new System.EventHandler(this.Numeric_Enter);
-            this.LocalCooldownNumeric.Leave += new System.EventHandler(this.Numeric_Leave);
+            this.Element.AutoSize = true;
+            this.Element.Location = new System.Drawing.Point(86, 67);
+            this.Element.Name = "Element";
+            this.Element.Size = new System.Drawing.Size(45, 13);
+            this.Element.TabIndex = 1;
+            this.Element.Text = "Element";
             // 
-            // LocalCooldown
+            // ElementCombobox
             // 
-            this.LocalCooldown.AutoSize = true;
-            this.LocalCooldown.Location = new System.Drawing.Point(364, 67);
-            this.LocalCooldown.Name = "LocalCooldown";
-            this.LocalCooldown.Size = new System.Drawing.Size(80, 13);
-            this.LocalCooldown.TabIndex = 1;
-            this.LocalCooldown.Text = "LocalCooldown";
+            this.ElementCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ElementCombobox.FormattingEnabled = true;
+            this.ElementCombobox.Location = new System.Drawing.Point(90, 84);
+            this.ElementCombobox.Name = "ElementCombobox";
+            this.ElementCombobox.Size = new System.Drawing.Size(101, 21);
+            this.ElementCombobox.TabIndex = 0;
+            this.ElementCombobox.SelectedIndexChanged += new System.EventHandler(this.ElementComboBox_SelectedIndexChanged);
             // 
             // AttacksSettingsManager
             // 
@@ -710,13 +733,13 @@
             this.AttackInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CooldownNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirFactorNU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StunLockNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocalCooldownNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -770,5 +793,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown LocalCooldownNumeric;
         private System.Windows.Forms.Label LocalCooldown;
+        private System.Windows.Forms.Label Element;
+        private System.Windows.Forms.ComboBox ElementCombobox;
     }
 }

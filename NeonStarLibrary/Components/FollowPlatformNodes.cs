@@ -20,7 +20,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            if (entity.rigidbody.beacon != null)
+            if (entity.rigidbody != null && entity.rigidbody.beacon != null)
             {
                 _lastRigidBody = entity.rigidbody.beacon.CheckGround();
                 if (_lastRigidBody != null)
@@ -36,11 +36,14 @@ namespace NeonStarLibrary
         {
             if (CurrentPlatform != null && this.CurrentNodeList != CurrentPlatform.LinkedPathNodeList)
                 this.CurrentNodeList = CurrentPlatform.LinkedPathNodeList;
-            
-            Rigidbody rg = entity.rigidbody.beacon.CheckGround();
-            if (rg != null && rg != _lastRigidBody)
+            if (entity.rigidbody.beacon != null)
             {
-                SearchForNewPath(rg);
+                Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+
+                if (rg != null && rg != _lastRigidBody)
+                {
+                    SearchForNewPath(rg);
+                }
             }
             base.Update(gameTime);
         }

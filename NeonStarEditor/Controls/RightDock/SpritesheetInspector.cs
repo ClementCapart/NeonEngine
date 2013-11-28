@@ -49,7 +49,7 @@ namespace NeonStarEditor
                 cb.Location = new Point(75, (int)NextItemHeight);
                 cb.BindingContext = new BindingContext();
                 BindingSource bs = new BindingSource();
-                bs.DataSource = AssetManager.Spritesheets.Keys;
+                bs.DataSource = AssetManager.Spritesheets.Keys.OrderBy(k => k.ToString());
                 cb.DataSource = bs;
                 
                 cb.SelectedItem = AssetManager.GetSpritesheetTag(kvp.Value);

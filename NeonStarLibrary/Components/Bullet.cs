@@ -121,7 +121,7 @@ namespace NeonStarLibrary
                             if (hb.Type == HitboxType.Solid)
                             {
                                 LifeTime = 0f;
-                                entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                entity.spritesheets.ChangeAnimation("hit", true, 0, true, true, false);
                                 return;
                             }
 
@@ -132,21 +132,19 @@ namespace NeonStarLibrary
                                     Avatar avatar = hb.entity.GetComponent<Avatar>();
                                     if (avatar != null)
                                     {
-                                        if (avatar.guard.IsGuarding && avatar.entity.spritesheets.CurrentSide != entity.spritesheets.CurrentSide)
-                                        {
+                                       if(avatar.TakeDamage(this))
+                                       {
+                                            LifeTime = 0f;
+                                            entity.spritesheets.ChangeAnimation("hit", true, 0, true, true, false);
+                                            return;
+                                       }
+                                       else
+                                       {
                                             launcher = avatar.entity;
                                             EnemyBullet = false;
                                             LifeTime = _initialLifeTime;
                                             Direction = -Direction;
-                                        }
-                                        else
-                                        {
-                                            avatar.ChangeHealthPoints(DamageOnHit);
-                                            LifeTime = 0f;
-                                            avatar.StunLockEffect(_stunLock);
-                                            entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
-                                            return;
-                                        }                                
+                                        }                              
                                     }
                                 }
                             }
@@ -157,9 +155,9 @@ namespace NeonStarLibrary
                                     Enemy enemy = hb.entity.GetComponent<Enemy>();
                                     if (enemy != null)
                                     {
-                                        enemy.ChangeHealthPoints(DamageOnHit, launcher);
+                                        enemy.TakeDamage(this);
                                         LifeTime = 0f;
-                                        entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                                        entity.spritesheets.ChangeAnimation("hit", true, 0, true, true, false);
                                         return;
                                     }
                                 }
@@ -179,7 +177,7 @@ namespace NeonStarLibrary
             else
             {
                 if (entity.spritesheets.CurrentSpritesheetName != "hit")
-                    entity.spritesheets.ChangeAnimation("hit", 0, true, true, false);
+                    entity.spritesheets.ChangeAnimation("hit", true, 0, true, true, false);
                 else
                 {
                     if (entity.spritesheets.IsFinished())

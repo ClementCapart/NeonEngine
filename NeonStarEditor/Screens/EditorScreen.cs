@@ -45,8 +45,6 @@ namespace NeonStarEditor
         public bool FocusEntity = false;
         public bool LockedCamera = true;
 
-        public BindingList<Entity> entityList = new BindingList<Entity>();
-
         private Texture2D _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
         private Texture2D _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
         private Texture2D _boundTexture = AssetManager.GetTexture("BoundIcon");
@@ -69,7 +67,6 @@ namespace NeonStarEditor
         {
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
-            entityList = new BindingList<Entity>(entities);
             game.IsMouseVisible = true;
             CurrentTool = new Selection(this);
 
@@ -136,7 +133,7 @@ namespace NeonStarEditor
             MouseInGameWindow = true;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void PostUpdate(GameTime gameTime)
         {
             if (!Pause)
                 if (UnpauseTillNextFrame)
@@ -706,13 +703,29 @@ namespace NeonStarEditor
         public override void AddEntity(Entity newEntity)
         {
             base.AddEntity(newEntity);
-            entityList.ResetBindings();
+            entities = entities.OrderBy(e => e.Name).ToList();
+            if (BottomDockControl != null)
+            {
+                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
+                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
+            }
+
         }
 
-        public override void RemoveEntity(Entity newEntity)
+        public override void RemoveEntity(Entity entity)
         {
-            base.RemoveEntity(newEntity);
-            entityList.ResetBindings();
+            base.RemoveEntity(entity);
+            entities = entities.OrderBy(e => e.Name).ToList();
+            if (BottomDockControl != null)
+            {
+                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
+                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                BottomDockControl.entityListControl.EntityListBox.SelectedItem = null;
+            }
+
         }
 
         public override void ReloadLevel()

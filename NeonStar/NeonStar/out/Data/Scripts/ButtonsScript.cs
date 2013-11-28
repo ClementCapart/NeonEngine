@@ -201,7 +201,7 @@ namespace NeonScripts
 		
 		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
-            if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
+            if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
             {
                 _firstButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _firstButtonActivated = true;
@@ -218,7 +218,7 @@ namespace NeonScripts
                     _doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
                 }
             }
-            if (trigger.Name == _secondButtonName && _secondButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _secondButtonNeededAttack)
+            if (trigger.Name == _secondButtonName && _secondButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _secondButtonNeededAttack)
             {
                 _secondButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _secondButtonActivated = true;
@@ -236,7 +236,7 @@ namespace NeonScripts
                         _timer = _delay;
                 }
             }
-            if (trigger.Name == _thirdButtonName && _thirdButtonActivated == false && _avatar.meleeFight.CurrentAttack.Name == _thirdButtonNeededAttack)
+            if (trigger.Name == _thirdButtonName && _thirdButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _thirdButtonNeededAttack)
             {
                 _thirdButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
                 _thirdButtonActivated = true;

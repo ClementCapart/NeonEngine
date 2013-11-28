@@ -161,12 +161,14 @@ namespace NeonStarEditor
 
         private void AddPathNode_Click(object sender, EventArgs e)
         {
-            GameWorld.CurrentTool = new AddNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
+            if(NodeLists.SelectedIndex != -1)
+                GameWorld.CurrentTool = new AddNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
         }
 
         private void SelectionButton_Click(object sender, EventArgs e)
         {
-            GameWorld.CurrentTool = new SelectNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
+            if (NodeLists.SelectedIndex != -1)
+                GameWorld.CurrentTool = new SelectNode(GameWorld.NodeLists[NodeLists.SelectedIndex], GameWorld);
         }
 
         private void DeleteNode_Click(object sender, EventArgs e)

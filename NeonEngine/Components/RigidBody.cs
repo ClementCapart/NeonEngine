@@ -248,10 +248,10 @@ namespace NeonEngine
                         body = BodyFactory.CreateRectangle(physicWorld,
                             CoordinateConversion.screenToWorld(hitbox.Width),
                             CoordinateConversion.screenToWorld(hitbox.Height),
-                            1f);
+                            1f, entity);
                         break;
                     case BodyShapeType.Circle:
-                        body = BodyFactory.CreateCircle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width / 2), 1f);
+                        body = BodyFactory.CreateCircle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width / 2), 1f, entity);
                         break;
                 }
 
@@ -355,7 +355,7 @@ namespace NeonEngine
 
         public override void PostUpdate(GameTime gameTime)
         {
-            body.GravityScale = InitialGravityScale;
+            if(body != null) body.GravityScale = InitialGravityScale;
             base.PostUpdate(gameTime);
         }
 
@@ -374,7 +374,7 @@ namespace NeonEngine
             body = BodyFactory.CreateRectangle(physicWorld,
                         CoordinateConversion.screenToWorld(hitbox.Width),
                         CoordinateConversion.screenToWorld(hitbox.Height),
-                        1f);
+                        1f, entity);
 
             body.BodyType = BodyType.Dynamic; ;
             body.Position = CoordinateConversion.screenToWorld(new Vector2(hitbox.X + hitbox.Width / 2, hitbox.Y + hitbox.Height / 2));

@@ -66,6 +66,16 @@ namespace NeonEngine
             }
         }
 
+        public virtual void FinalUpdate(GameTime gameTime)
+        {
+            for (int i = Components.Count - 1; i >= 0; i--)
+            {
+                if (Components.Count == 0)
+                    break;
+                Components[i].FinalUpdate(gameTime);
+            }
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
 

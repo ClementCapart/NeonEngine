@@ -15,8 +15,7 @@ namespace NeonStarLibrary
 
     public class ElementSystem : Component
     {
-        public Avatar AvatarComponent;
-
+        #region Properties
         private string _fireLaunchAnimation = "";
 
         public string FireLaunchAnimation
@@ -33,9 +32,9 @@ namespace NeonStarLibrary
             set { _leftSlotElement = value; }
         }
 
-        private int _leftSlotLevel = 1;
+        private float _leftSlotLevel = 1;
 
-        public int LeftSlotLevel
+        public float LeftSlotLevel
         {
             get { return _leftSlotLevel; }
             set { _leftSlotLevel = value; }
@@ -56,7 +55,7 @@ namespace NeonStarLibrary
             get { return _rightSlotCooldownTimer; }
             set { _rightSlotCooldownTimer = value; }
         }
-        
+
         private Element _rightSlotElement = Element.Neutral;
 
         public Element RightSlotElement
@@ -65,24 +64,26 @@ namespace NeonStarLibrary
             set { _rightSlotElement = value; }
         }
 
-        private int _rightSlotLevel = 1;
+        private float _rightSlotLevel = 1;
 
-        public int RightSlotLevel
+        public float RightSlotLevel
         {
             get { return _rightSlotLevel; }
             set { _rightSlotLevel = value; }
         }
 
-        private int _maxLevel = 3;
+        private float _maxLevel = 3;
 
-        public int MaxLevel
+        public float MaxLevel
         {
             get { return _maxLevel; }
             set { _maxLevel = value; }
         }
+        #endregion
+
+        public Avatar AvatarComponent = null;
 
         public ElementEffect CurrentElementEffect = null;
-        public bool CanUseElement = true;
 
         public ElementSystem(Entity entity)
             :base(entity, "ElementSystem")
@@ -113,21 +114,23 @@ namespace NeonStarLibrary
 
             if (CurrentElementEffect != null)
             {
+                AvatarComponent.State = AvatarState.UsingElement;
                 CurrentElementEffect.PreUpdate(gameTime);
+                AvatarComponent.CanUseElement = false;
             }
             base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.meleeFight.CanAttack && AvatarComponent.thirdPersonController.CanMove && AvatarComponent.thirdPersonController.CanTurn && CanUseElement)
+            if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
             {
                 if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && _leftSlotCooldownTimer <= 0.0f)
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + LeftSlotElement);
-                        UseElement(_leftSlotElement, _leftSlotLevel, NeonStarInput.UseLeftSlotElement);
+                        UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
                     }
                 }
                 else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement) && _rightSlotCooldownTimer <= 0.0f)
@@ -135,11 +138,11 @@ namespace NeonStarLibrary
                     if (_rightSlotElement != Element.Neutral)
                     {
                         Console.WriteLine("Use Element -> " + RightSlotElement);
-                        UseElement(_rightSlotElement, _rightSlotLevel, NeonStarInput.UseRightSlotElement);
+                        UseElement(_rightSlotElement, (int)_rightSlotLevel, NeonStarInput.UseRightSlotElement);
                     }
                 }
 
-                /*if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -156,7 +159,7 @@ namespace NeonStarLibrary
                         _rightSlotElement = Element.Neutral;
                         _rightSlotLevel = 1;
                     }
-                }*/
+                }
             }
             else if (CurrentElementEffect != null)
             {
@@ -169,6 +172,8 @@ namespace NeonStarLibrary
             if (CurrentElementEffect != null)
             {
                 CurrentElementEffect.PostUpdate(gameTime);
+                if (CurrentElementEffect.State == ElementState.End)
+                    CurrentElementEffect = null;
             }
             base.PostUpdate(gameTime);
         }
@@ -179,12 +184,10 @@ namespace NeonStarLibrary
             {
                 case Element.Fire:
                     CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
-                    CanUseElement = false;
                     break;
 
                 case Element.Thunder:
                     CurrentElementEffect = new Lightning(this, level, entity, input, (GameScreen)entity.containerWorld);
-                    CanUseElement = false;
                     break;
             }
         }

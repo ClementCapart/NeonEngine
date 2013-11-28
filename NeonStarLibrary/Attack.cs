@@ -27,8 +27,9 @@ namespace NeonStarLibrary
     {
         private bool _hit = false;
         private bool _mustStopAtTargetSight = false;
+        private bool _alreadyLocked = false;
 
-        public Element EffectElement = Element.Neutral;
+        public Element AttackElement = Element.Neutral;
 
         string _name;
         public string Name
@@ -264,6 +265,7 @@ namespace NeonStarLibrary
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
             this._airFactor = attackInfo.AirFactor;
             this._fromEnemy = FromEnemy;
+            this.AttackElement = attackInfo.AttackElement;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -285,7 +287,6 @@ namespace NeonStarLibrary
                             _meleeFight.CurrentComboHit = _meleeFight.LastComboHit;
                             this.CancelAttack();
                             Canceled = true;
-                            _entity.spritesheets.CurrentPriority = 0;
                             return;
                         }
                         else
@@ -319,14 +320,12 @@ namespace NeonStarLibrary
                         Canceled = true;
                         return;
                     }
-
-                if (AirLock <= 0.0f || (_entity.rigidbody.isGrounded && ((_meleeFight != null && _meleeFight.ThirdPersonController != null && !_meleeFight.ThirdPersonController.StartJumping) || _meleeFight == null)))
-                    AirLockFinished = true;
             }
 
             if (_type == AttackType.MeleeSpecial && _meleeFight != null)
             {
                 _meleeFight.CurrentComboHit = ComboSequence.None;
+                _meleeFight.AvatarComponent.AirLock(this.AirLock);
             }
         }
 
@@ -482,7 +481,7 @@ namespace NeonStarLibrary
                     {
                         if (_fromEnemy)
                         {
-                            _entity.GetComponent<Enemy>()._attack.LocalAttacksInCooldown.Add(this);
+                            _entity.GetComponent<Enemy>().Attack.LocalAttacksInCooldown.Add(this);
                         }
                     }
 
@@ -512,99 +511,7 @@ namespace NeonStarLibrary
                 _entity.rigidbody.body.LinearVelocity = CurrentSide == Side.Right ? new Vector2(_movingSpeed, 0) : new Vector2(-_movingSpeed, 0);
             }
 
-            if (_entity.Name != "AttackHolder")
-            {
-                if (_entity.rigidbody != null)
-                {
-                    if (_entity.rigidbody != null && !_entity.rigidbody.isGrounded)
-                    {
-                        if (!AirLocked && !AirLockFinished && (_type != AttackType.MeleeLight || _type == AttackType.MeleeLight && _hit))
-                        {
-                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            AirLocked = true;
-                        }
-                        else if (AirLocked)
-                        {
-                            AirLock -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        }
-
-                        if (AirLock <= 0.0f)
-                        {
-                            AirLocked = false;
-                            AirLockFinished = true;
-                        }
-                    }
-
-                    if (_entity.rigidbody.isGrounded)
-                    {
-                        AirLocked = false;
-                        AirLockFinished = true;
-                    }
-
-                    if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
-                    {
-                        for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
-                        {
-                            AttackEffect ae = _onGroundCancelSpecialEffects.ElementAt(i);
-                            switch (ae.specialEffect)
-                            {
-                                case SpecialEffect.Impulse:
-                                    Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
-                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                    break;
-
-                                case SpecialEffect.PercentageDamageBoost:
-                                    break;
-
-                                case SpecialEffect.DamageOverTime:
-                                    break;
-
-                                case SpecialEffect.StartAttack:
-                                    string attackName = (string)ae.Parameters[0];
-                                    AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
-                                    break;
-
-                                case SpecialEffect.ShootBullet:
-                                    BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                                    BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
-                                    break;
-
-                                case SpecialEffect.ShootBulletAtTarget:
-                                    BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
-                                    if (_target != null)
-                                        BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
-                                    break;
-
-                                case SpecialEffect.Invincible:
-                                    _entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
-                                    break;
-
-                                case SpecialEffect.EffectAnimation:
-                                    SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                                    EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
-                                    break;
-                            }
-                            _onGroundCancelSpecialEffects.Remove(ae);
-                        }
-
-                        for (int i = _hitboxes.Count - 1; i >= 0; i--)
-                        {
-                            _hitboxes[i].Remove();
-                        }
-                        _hitboxes.Clear();
-                        this.DurationStarted = true;
-                        this.DurationFinished = true;
-                        this.DelayStarted = true;
-                        this.DelayStarted = true;
-                        this.CooldownStarted = true;
-                        this.AirLocked = false;
-                        this.AirLockFinished = true;
-                        this.Canceled = true;
-                    }
-                }
-                
-            }
+            
 
             if (_mustStopAtTargetSight)
             {
@@ -615,6 +522,81 @@ namespace NeonStarLibrary
                 if (_side == Side.Right)
                     if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+
+            if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _hit && _meleeFight != null)
+            {
+                _meleeFight.AvatarComponent.AirLock(AirLock);
+                _alreadyLocked = true;
+            }
+                
+        }
+
+        public void FinalUpdate(GameTime gameTime)
+        {
+            if (_entity.Name != "AttackHolder")
+            {
+                if (CancelOnGround && _entity.rigidbody.isGrounded && !Canceled)
+                {
+                    for (int i = _onGroundCancelSpecialEffects.Count - 1; i >= 0; i--)
+                    {
+                        AttackEffect ae = _onGroundCancelSpecialEffects.ElementAt(i);
+                        switch (ae.specialEffect)
+                        {
+                            case SpecialEffect.Impulse:
+                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                break;
+
+                            case SpecialEffect.PercentageDamageBoost:
+                                break;
+
+                            case SpecialEffect.DamageOverTime:
+                                break;
+
+                            case SpecialEffect.StartAttack:
+                                string attackName = (string)ae.Parameters[0];
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                                break;
+
+                            case SpecialEffect.ShootBullet:
+                                BulletInfo bi = (BulletInfo)ae.Parameters[0];
+                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)Neon.world, _fromEnemy);
+                                break;
+
+                            case SpecialEffect.ShootBulletAtTarget:
+                                BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
+                                if (_target != null)
+                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)Neon.world, _fromEnemy);
+                                break;
+
+                            case SpecialEffect.Invincible:
+                                _entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                                break;
+
+                            case SpecialEffect.EffectAnimation:
+                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), 1.0f);
+                                break;
+                        }
+                        _onGroundCancelSpecialEffects.Remove(ae);
+                    }
+
+                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                    {
+                        _hitboxes[i].Remove();
+                    }
+                    _hitboxes.Clear();
+                    this.DurationStarted = true;
+                    this.DurationFinished = true;
+                    this.DelayStarted = true;
+                    this.DelayStarted = true;
+                    this.CooldownStarted = true;
+                    this.AirLocked = false;
+                    this.AirLockFinished = true;
+                    this.Canceled = true;
+                }
             }
         }
 
@@ -630,11 +612,7 @@ namespace NeonStarLibrary
                 if (enemy != null)
                 {
                     validTarget = true;
-                    _hit = true;
-                    validTarget = enemy.ChangeHealthPoints(_damageOnHit, _entity, this);
-                    if(validTarget) enemy.StunLockEffect(_stunLock);
-                    if (!enemy.entity.rigidbody.isGrounded && validTarget)
-                        enemy.AirLock(TargetAirLock);
+                    _hit = validTarget = enemy.TakeDamage(this);
                 }
             }
             else
@@ -643,31 +621,7 @@ namespace NeonStarLibrary
                 if(avatar != null)
                 {
                     validTarget = true;
-                    _hit = true;
-                    if (avatar.entity.spritesheets.CurrentSide != _entity.spritesheets.CurrentSide)
-                    {
-                        float damage = avatar.guard.IsGuarding ? Math.Min(_damageOnHit + avatar.guard.GuardDamageReduce, 0) : _damageOnHit;
-                        if (damage < 0)
-                        {
-                            validTarget = avatar.ChangeHealthPoints(damage, this);
-                            if(validTarget)
-                                avatar.StunLockEffect(_stunLock);
-                        }
-                        if (!avatar.entity.rigidbody.IsGround && validTarget)
-                            avatar.AirLock(TargetAirLock);
-                    }
-                    else
-                    {
-                        validTarget = avatar.ChangeHealthPoints(_damageOnHit);
-                        if (validTarget)
-                        {
-                            avatar.StunLockEffect(_stunLock);
-
-                            if (!avatar.entity.rigidbody.IsGround)
-                                avatar.AirLock(TargetAirLock);
-                        }
-                        
-                    }                  
+                    _hit = validTarget = avatar.TakeDamage(this);                
                 }
             }
 
@@ -680,7 +634,7 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
+                            if (avatar != null || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
                             {
                                 Vector2 impulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -690,7 +644,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            if ((avatar != null && !avatar.guard.IsGuarding) || (enemy != null && !enemy.ImmuneToImpulse))
+                            if (avatar != null || (enemy != null && !enemy.ImmuneToImpulse))
                             {
                                 Vector2 pulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -703,10 +657,8 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.DamageOverTime:
-                            if (avatar == null || avatar != null && !avatar.guard.IsGuarding)
-                            {
-                                enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], Launcher != null ? Launcher : _entity);
-                            }
+                            if(enemy != null)
+                                enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], this);
                             break;
 
                         case SpecialEffect.StartAttack:
