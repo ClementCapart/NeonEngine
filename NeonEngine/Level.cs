@@ -113,6 +113,8 @@ namespace NeonEngine
                                     t = type;
                                     break;
                                 }
+                        if (t == null)
+                            break;
 
                         Component component = (Component)Activator.CreateInstance(t, entity);
                         component.ID = int.Parse(Comp.Attribute("ID").Value);
@@ -162,7 +164,16 @@ namespace NeonEngine
 
                 foreach (XElement Comp in Ent.Element("Components").Elements())
                 {
-                    Component comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
+                    Component comp;
+                    try
+                    {
+                        comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                     
 
                     foreach (XElement Property in Comp.Element("Properties").Elements())
                     {

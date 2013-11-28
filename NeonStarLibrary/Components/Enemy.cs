@@ -422,7 +422,8 @@ namespace NeonStarLibrary
                     break;
             }
 
-            Console.WriteLine(State);
+            if (Debug)
+                Console.WriteLine(entity.Name + " current state is : " + State);
             base.FinalUpdate(gameTime);
         }
 
