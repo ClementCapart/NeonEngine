@@ -703,11 +703,26 @@ namespace NeonStarEditor
         public override void AddEntity(Entity newEntity)
         {
             base.AddEntity(newEntity);
+            
+            if (BottomDockControl != null)
+            {
+                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
+                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
+            }
+            
         }
 
         public override void RemoveEntity(Entity entity)
         {
             base.RemoveEntity(entity);
+            if (BottomDockControl != null)
+            {
+                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
+                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+            }
         }
 
         public override void ReloadLevel()
