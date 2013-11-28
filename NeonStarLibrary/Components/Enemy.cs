@@ -175,6 +175,14 @@ namespace NeonStarLibrary
             get { return _componentToTriggerName; }
             set { _componentToTriggerName = value; }
         }
+
+        private float _waitThreatDuration = 1.0f;
+
+        public float WaitThreatDuration
+        {
+            get { return _waitThreatDuration; }
+            set { _waitThreatDuration = value; }
+        }
         #endregion
 
         public EnemyState State = EnemyState.Idle;
@@ -191,6 +199,8 @@ namespace NeonStarLibrary
 
         public bool IsInvincible = false;
         public bool IsAirLocked = false;
+
+        public float WaitThreatTimer = 0.0f;
         
         private float _stunLockDuration = 0.0f;
         private float _airLockDuration = 0.0f;
@@ -204,6 +214,7 @@ namespace NeonStarLibrary
 
         private bool _opacityGoingDown = true;
         private Component _componentToTrigger = null;
+        private Entity[] _raycastHits;
 
         public Enemy(Entity entity)
             :base(entity, "Enemy")
@@ -335,6 +346,8 @@ namespace NeonStarLibrary
                 else if (State == EnemyState.StunLocked)
                     State = EnemyState.Idle;
             }
+
+            
             base.PreUpdate(gameTime);
         }
 
@@ -397,6 +410,17 @@ namespace NeonStarLibrary
                 CanTurn = true;
                 CanAttack = true;
             }
+            _raycastHits = null;
+
+            if (WaitThreatTimer > WaitThreatDuration)
+                WaitThreatTimer = 0.0f;
+
+            switch (State)
+            {
+                case EnemyState.WaitThreat:
+                    WaitThreatTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    break;
+            }
 
             Console.WriteLine(State);
             base.FinalUpdate(gameTime);
@@ -436,6 +460,32 @@ namespace NeonStarLibrary
                     entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
                 }
             }
+        }
+
+        public Entity[] UniqueRaycast(Vector2 offset, float distance, bool bothSide)
+        {
+            if (_raycastHits == null)
+            {
+                Entity[] hitEntities = new Entity[2];
+                if (bothSide)
+                {
+                    if (entity.rigidbody != null)
+                    {
+                        if (entity.rigidbody.beacon != null)
+                        {
+                            hitEntities[0] = entity.rigidbody.beacon.Raycast(entity.transform.Position + offset, entity.transform.Position + offset + new Vector2(distance, 0));
+                            hitEntities[1] = entity.rigidbody.beacon.Raycast(entity.transform.Position + offset, entity.transform.Position + offset + new Vector2(-distance, 0));
+                        }
+                    }
+                }
+                else
+                {
+                    hitEntities[0] = entity.rigidbody.beacon.Raycast(entity.transform.Position + offset, entity.transform.Position + offset + new Vector2(distance, 0) * (CurrentSide == Side.Right ? 1 : -1));
+                }
+                _raycastHits = hitEntities;
+            }
+            
+            return _raycastHits;
         }
     }
 }

@@ -54,13 +54,14 @@ namespace NeonStarLibrary
                         case EnemyState.WaitNode:
                             if (_checkBothSide)
                             {
-                                if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, true);
+                                if(hitEntities[0] == EntityToChase)
                                 {
                                     EnemyComponent.State = EnemyState.WaitThreat;
                                     _positionToReach = EntityToChase.transform.Position;
                                     EnemyComponent.CurrentSide = Side.Right;
                                 }
-                                else if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset - new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                else if (hitEntities[1] == EntityToChase)
                                 {
                                     EnemyComponent.State = EnemyState.WaitThreat;
                                     _positionToReach = EntityToChase.transform.Position;
@@ -69,7 +70,8 @@ namespace NeonStarLibrary
                             }
                             else
                             {
-                                if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0) * (EnemyComponent.CurrentSide == Side.Right ? 1 : -1)) == EntityToChase)
+                                Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, false);
+                                if (hitEntities[0] == EntityToChase)
                                 {
                                     EnemyComponent.State = EnemyState.WaitThreat;
                                     _positionToReach = EntityToChase.transform.Position;
@@ -78,42 +80,56 @@ namespace NeonStarLibrary
                             break;
 
                         case EnemyState.WaitThreat:
-                            _waitThreatTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                            if (_waitThreatTimer >= _waitThreatDuration)
+                            if (EnemyComponent.WaitThreatTimer >= EnemyComponent.WaitThreatDuration)
                             {
-                                _waitThreatTimer = 0.0f;
                                 EnemyComponent.State = EnemyState.Chase;
                             }
                             else
                             {
                                 if (_checkBothSide)
                                 {
-                                    if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                    Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, true);
+                                    if(hitEntities[0] == EntityToChase)
                                     {
                                         _positionToReach = EntityToChase.transform.Position;
                                         EnemyComponent.CurrentSide = Side.Right;
                                     }
-                                    else if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset - new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                    else if (hitEntities[1] == EntityToChase)
                                     {
                                         _positionToReach = EntityToChase.transform.Position;
                                         EnemyComponent.CurrentSide = Side.Left;
                                     }
+                                    else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                                    {
+                                        if (entity.transform.Position.X < EntityToChase.transform.Position.X)
+                                            EnemyComponent.CurrentSide = Side.Right;
+                                        else
+                                            EnemyComponent.CurrentSide = Side.Left;
+                                    }
                                     else
                                     {
                                         EnemyComponent.State = EnemyState.Idle;
-                                        _waitThreatTimer = 0.0f;
+                                        EnemyComponent.WaitThreatTimer = 0.0f;
                                     }
                                 }
                                 else
                                 {
-                                    if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0) * (EnemyComponent.CurrentSide == Side.Right ? 1 : -1)) == EntityToChase)
+                                    Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, false);
+                                    if (hitEntities[0] == EntityToChase)
                                     {
                                         _positionToReach = EntityToChase.transform.Position;
+                                    }
+                                    else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                                    {
+                                        if (entity.transform.Position.X < EntityToChase.transform.Position.X)
+                                            EnemyComponent.CurrentSide = Side.Right;
+                                        else
+                                            EnemyComponent.CurrentSide = Side.Left;
                                     }
                                     else
                                     {
                                         EnemyComponent.State = EnemyState.Idle;
-                                        _waitThreatTimer = 0.0f;
+                                        EnemyComponent.WaitThreatTimer = 0.0f;
                                     }
                                 }
                             }
@@ -130,7 +146,8 @@ namespace NeonStarLibrary
                             {
                                 if (_checkBothSide)
                                 {
-                                    if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                    Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, true);
+                                    if(hitEntities[0] == EntityToChase)
                                     {
                                         if (entity.rigidbody.beacon.CheckRightGround())
                                         {
@@ -143,7 +160,7 @@ namespace NeonStarLibrary
                                         }
                                         EnemyComponent.CurrentSide = Side.Right;
                                     }
-                                    else if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset - new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                    else if (hitEntities[1] == EntityToChase)
                                     {
                                         if (entity.rigidbody.beacon.CheckLeftGround())
                                         {
@@ -156,10 +173,18 @@ namespace NeonStarLibrary
                                         }
                                         EnemyComponent.CurrentSide = Side.Left;
                                     }
+                                    else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                                    {
+                                        if (entity.transform.Position.X < EntityToChase.transform.Position.X)
+                                            EnemyComponent.CurrentSide = Side.Right;
+                                        else
+                                            EnemyComponent.CurrentSide = Side.Left;
+                                    }
                                 }
                                 else
                                 {
-                                    if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0) * (EnemyComponent.CurrentSide == Side.Right ? 1 : -1)) == EntityToChase)
+                                    Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, false);
+                                    if(hitEntities[0] == EntityToChase)
                                     {
                                         switch (EnemyComponent.CurrentSide)
                                         {
@@ -209,13 +234,14 @@ namespace NeonStarLibrary
 
                             if (_checkBothSide)
                             {
-                                if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, true);
+                                if(hitEntities[0] == EntityToChase)
                                 {
                                     EnemyComponent.CurrentSide = Side.Right;
                                     EnemyComponent.State = EnemyState.Chase;
                                     _positionToReach = EntityToChase.transform.Position;
                                 }
-                                else if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset - new Vector2(_detectionDistance, 0)) == EntityToChase)
+                                else if(hitEntities[1] == EntityToChase)
                                 {
                                     EnemyComponent.CurrentSide = Side.Left;
                                     EnemyComponent.State = EnemyState.Chase;
@@ -226,7 +252,8 @@ namespace NeonStarLibrary
                             }
                             else
                             {
-                                if (entity.rigidbody.beacon.Raycast(entity.transform.Position + _raycastOffset, entity.transform.Position + _raycastOffset + new Vector2(_detectionDistance, 0) * (EnemyComponent.CurrentSide == Side.Right ? 1 : -1)) == EntityToChase)
+                                Entity[] hitEntities = EnemyComponent.UniqueRaycast(_raycastOffset, _detectionDistance, false);
+                                if (hitEntities[0] == EntityToChase)
                                 {
                                     EnemyComponent.State = EnemyState.Chase;
                                     _positionToReach = EntityToChase.transform.Position;
@@ -243,8 +270,9 @@ namespace NeonStarLibrary
 
                     }
 
-                    if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
-                        EnemyComponent.State = EnemyState.Wait;
+                    if(EnemyComponent.Attack == null)
+                        if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                            EnemyComponent.State = EnemyState.Wait;
                 }
                 else
                 {

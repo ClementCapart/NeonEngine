@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NeonStarLibrary
 {
-    public class Chase : Component
+    public abstract class Chase : Component
     {
         #region Properties
         protected string _entityToChaseName = "";
@@ -24,14 +24,6 @@ namespace NeonStarLibrary
         {
             get { return _detectionDistance; }
             set { _detectionDistance = value; }
-        }
-
-        protected float _waitThreatDuration = 1.0f;
-
-        public float WaitThreatDuration
-        {
-            get { return _waitThreatDuration; }
-            set { _waitThreatDuration = value; }
         }
 
         protected float _waitStopDuration = 1.0f;
@@ -64,7 +56,6 @@ namespace NeonStarLibrary
         public Entity EntityToChase = null;
 
         protected Vector2 _positionToReach = new Vector2(-9999, -9999);     
-        protected float _waitThreatTimer = 0.0f;
         protected float _waitStopTimer = 0.0f;
 
         public Chase(Entity entity)

@@ -1,0 +1,445 @@
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace NeonStarLibrary
+{
+    public class GroundAttack : EnemyAttack
+    {
+        #region Properties
+        private bool _checkBothSide = true;
+
+        public bool CheckBothSide
+        {
+            get { return _checkBothSide; }
+            set { _checkBothSide = value; }
+        }
+
+        private Vector2 _detectionOffset = Vector2.Zero;
+
+        public Vector2 DetectionOffset
+        {
+          get { return _detectionOffset; }
+          set { _detectionOffset = value; }
+        }
+        #endregion
+
+        public GroundAttack(Entity entity)
+            :base(entity)
+        {
+            Name = "GroundAttack";
+        }
+
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
+            {
+                for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)
+                {
+                    LocalAttacksInCooldown[i].LocalCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (LocalAttacksInCooldown[i].LocalCooldown <= 0.0f)
+                        LocalAttacksInCooldown.RemoveAt(i);
+                }
+            }
+
+            if(EntityToAttack != null)
+            {
+                switch (EnemyComponent.State)
+                {
+                    case EnemyState.Chase:
+                    case EnemyState.FinishChase:
+                    case EnemyState.Wait:
+                    case EnemyState.WaitNode:
+                        if (_checkBothSide)
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, true);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                            }
+
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
+                                EnemyComponent.CurrentSide = Side.Right;
+                            }
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
+                                EnemyComponent.CurrentSide = Side.Left;
+                            }
+                            else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
+                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Left;
+                            }
+                        }
+                        else
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, false);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                            }
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
+                            }
+                            else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
+                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Left;
+                            }
+                        }
+                        break;
+
+                    case EnemyState.Idle:
+                    case EnemyState.Patrol:
+                        if (_checkBothSide)
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, true);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                            }
+
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                                EnemyComponent.CurrentSide = Side.Right;
+                            }
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                                EnemyComponent.CurrentSide = Side.Left;
+                            }
+                            else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Left;
+                            }
+                        }
+                        else
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, false);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                            }
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                            }
+                            else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.WaitThreat;
+                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Left;
+                            }
+                        }
+                        break;
+
+                    case EnemyState.WaitThreat:
+                        if (EnemyComponent.WaitThreatTimer > EnemyComponent.WaitThreatDuration)
+                        {
+                            if (_checkBothSide)
+                            {
+                                Entity[] hitEntities;
+                                if (EnemyComponent.Chase != null)
+                                {
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, true);
+                                }
+                                else
+                                {
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                                }
+
+                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                {
+                                    EnemyComponent.State = EnemyState.Attacking;
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                }
+                                else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                {
+                                    EnemyComponent.State = EnemyState.Attacking;
+                                    EnemyComponent.CurrentSide = Side.Left;
+                                }
+                                else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                                {
+                                    EnemyComponent.State = EnemyState.Attacking;
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
+                            }
+                            else
+                            {
+                                Entity[] hitEntities;
+                                if (EnemyComponent.Chase != null)
+                                {
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, false);
+                                }
+                                else
+                                {
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                                }
+                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                {
+                                    EnemyComponent.State = EnemyState.Attacking;
+                                }
+                                else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                                {
+                                    EnemyComponent.State = EnemyState.Attacking;
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
+                            }
+                        }
+                        else if(_checkBothSide)
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, true);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                            }
+
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.CurrentSide = Side.Right;
+                            }
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            {
+                                EnemyComponent.CurrentSide = Side.Left;
+                            }
+                            else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Right;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Left;
+                            }
+                            else if (EnemyComponent.Chase == null)
+                                EnemyComponent.State = EnemyState.Idle;
+                        }
+                        else
+                        {
+                            Entity[] hitEntities;
+                            if (EnemyComponent.Chase != null)
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, EnemyComponent.Chase.DetectionDistance, false);
+                            }
+                            else
+                            {
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                            }
+                            if (hitEntities[0] != EntityToAttack || Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) > _rangeForAttackOne && !entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                            {
+                                if (EnemyComponent.Chase != null)
+                                    EnemyComponent.State = EnemyState.Idle;
+                            }
+                        }
+                        break;
+                }
+            }
+            
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (CurrentAttack != null)
+            {
+                CurrentAttack.Update(gameTime);
+                if (CurrentAttack.CooldownFinished)
+                {
+                    CurrentAttack = null;
+                }
+            }
+            else
+            {
+                switch (EnemyComponent.State)
+                {
+                    case EnemyState.Attacking:
+                        ChooseAttack();
+                        break;
+                }
+            }
+            
+            base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
+                 EnemyComponent.State = EnemyState.Wait;
+
+            if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
+            {
+                CurrentAttack.CancelAttack();
+                CurrentAttack = null;
+            }
+            base.PostUpdate(gameTime);
+        }
+
+        private void ChooseAttack()
+        {
+            if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
+            {
+                if (_attackToLaunchFive == "Chase")
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else
+                {
+                    bool inLocalCooldown = false;
+                    foreach (Attack a in LocalAttacksInCooldown)
+                    {
+                        if (a.Name == _attackToLaunchFive)
+                            inLocalCooldown = true;
+                    }
+
+                    if (!inLocalCooldown)
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                }
+
+                if (CurrentAttack == null)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+            }
+            else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
+            {
+                if (_attackToLaunchFour == "Chase")
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else
+                {
+                    bool inLocalCooldown = false;
+                    foreach (Attack a in LocalAttacksInCooldown)
+                    {
+                        if (a.Name == _attackToLaunchFour)
+                            inLocalCooldown = true;
+                    }
+
+                    if (!inLocalCooldown)
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                }
+
+                if (CurrentAttack == null)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+            }
+            else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
+            {
+                if (_attackToLaunchThree == "Chase")
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else
+                {
+                    bool inLocalCooldown = false;
+                    foreach (Attack a in LocalAttacksInCooldown)
+                    {
+                        if (a.Name == _attackToLaunchThree)
+                            inLocalCooldown = true;
+                    }
+
+                    if (!inLocalCooldown)
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                }
+
+                if (CurrentAttack == null)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+            }
+            else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
+            {
+                if (_attackToLaunchTwo == "Chase")
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else
+                {
+                    bool inLocalCooldown = false;
+                    foreach (Attack a in LocalAttacksInCooldown)
+                    {
+                        if (a.Name == _attackToLaunchTwo)
+                            inLocalCooldown = true;
+                    }
+
+                    if (!inLocalCooldown)
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                }
+
+                if (CurrentAttack == null)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+            }
+            else
+            {
+                if (_attackToLaunchOne == "Chase")
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+                else
+                {
+                    bool inLocalCooldown = false;
+                    foreach (Attack a in LocalAttacksInCooldown)
+                    {
+                        if (a.Name == _attackToLaunchOne)
+                            inLocalCooldown = true;
+                    }
+
+                    if (!inLocalCooldown)
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                }
+
+                if (CurrentAttack == null)
+                {
+                    EnemyComponent.State = EnemyState.Chase;
+                }
+            }
+        }
+    }
+}

@@ -22,6 +22,13 @@ namespace NeonStarLibrary
             base.Init();
         }
 
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if(entity.spritesheets != null)
+            entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
+            base.PreUpdate(gameTime);
+        }
+
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if(entity.spritesheets != null)
