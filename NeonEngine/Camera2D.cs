@@ -111,7 +111,7 @@ namespace NeonEngine
         public void Chase(Vector2 desiredPosition,GameTime gameTime)
         {
             if (ChaseStrength < 0.9f)
-                ChaseStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.1f;
+                ChaseStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.05f;
             if (ChaseStrength > 0.9f)
                 ChaseStrength = 0.9f;
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
