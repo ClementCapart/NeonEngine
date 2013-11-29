@@ -336,7 +336,7 @@ namespace NeonStarLibrary
                     }
 
                     if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
                 if (CurrentAttack == null)
@@ -360,7 +360,7 @@ namespace NeonStarLibrary
                     }
 
                     if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
                 if (CurrentAttack == null)
@@ -384,7 +384,7 @@ namespace NeonStarLibrary
                     }
 
                     if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
                 if (CurrentAttack == null)
@@ -408,7 +408,7 @@ namespace NeonStarLibrary
                     }
 
                     if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
                 if (CurrentAttack == null)
@@ -432,7 +432,7 @@ namespace NeonStarLibrary
                     }
 
                     if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, entity.spritesheets.CurrentSide, entity, EntityToAttack, true);
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
                 if (CurrentAttack == null)
