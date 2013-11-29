@@ -209,12 +209,20 @@ namespace NeonStarLibrary
             set { _airFactor = value; }
         }
 
+        private float _multiHitDelay = 0.0f;
+
+        public float MultiHitDelay
+        {
+            get { return _multiHitDelay; }
+            set { _multiHitDelay = value; }
+        }
+
         private List<AttackEffect> _specialEffects = new List<AttackEffect>();
 
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
         private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
 
-        private List<Hitbox> _alreadyTouched = new List<Hitbox>();
+        private Dictionary<Hitbox, float> _alreadyTouched = new Dictionary<Hitbox, float>();
 
         public bool Canceled = false;
         public Entity _entity;
@@ -225,6 +233,7 @@ namespace NeonStarLibrary
         private Entity _target;
         private bool _isMoving = false;
         private float _movingSpeed = 0.0f;
+        private bool _shouldMultiHit = true;
 
         public Attack()
         {
@@ -263,9 +272,12 @@ namespace NeonStarLibrary
             this.AirOnly = attackInfo.AirOnly;
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
-            this._airFactor = attackInfo.AirFactor;
+            this.AirFactor = attackInfo.AirFactor;
             this._fromEnemy = FromEnemy;
             this.AttackElement = attackInfo.AttackElement;
+            this.MultiHitDelay = attackInfo.MultiHitDelay;
+            if (MultiHitDelay <= 0.0f)
+                this._shouldMultiHit = false;
 
             foreach (AttackEffect ae in attackInfo.OnHitSpecialEffects)
             {
@@ -364,6 +376,18 @@ namespace NeonStarLibrary
 
         public void Update(GameTime gameTime)
         {
+            if (_shouldMultiHit && _alreadyTouched.Count > 0)
+            {
+                Hitbox[] keys = _alreadyTouched.Keys.ToArray();
+                for(int i = keys.Length - 1; i >= 0; i --)
+                {
+                    Hitbox key = keys[i];
+                    _alreadyTouched[key] -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_alreadyTouched[key] <= 0.0f)
+                        _alreadyTouched.Remove(key);
+                }
+            }
+
             if (DelayStarted && !DelayFinished)
             {
                 if (Delay > 0.0f)
@@ -453,18 +477,10 @@ namespace NeonStarLibrary
                         Hitbox hb = Neon.world.Hitboxes[j];
                         if (hb.Type == HitboxType.Main && hb.entity != this._entity)
                         {
-                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle))
+                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
                             {
-                                Effect(hb.entity, hitbox);
-                                if (this.Type == AttackType.MeleeLight || this.Type == AttackType.MeleeSpecial)
-                                {
-                                    _alreadyTouched.Add(hb);
-                                }
-                                else
-                                {
-                                    hitbox.Remove();
-                                    _hitboxes.Remove(hitbox);
-                                }
+                                Effect(hb.entity, hitbox);    
+                                _alreadyTouched.Add(hb, _multiHitDelay);
                             }
                         }                      
                     }

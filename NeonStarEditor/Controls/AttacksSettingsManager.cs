@@ -135,6 +135,9 @@ namespace NeonStarEditor
                 XElement stunLock = new XElement("StunLock", kvp.Value.StunLock.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(stunLock);
 
+                XElement multiHitDelay = new XElement("MultiHitDelay", kvp.Value.MultiHitDelay.ToString("G", CultureInfo.InvariantCulture));
+                attack.Add(multiHitDelay);
+
                 XElement specialEffects = new XElement("SpecialEffects");
                 foreach (AttackEffect effect in kvp.Value.SpecialEffects)
                 {
@@ -728,6 +731,7 @@ namespace NeonStarEditor
             this.AirFactorNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirFactor;
             this.StunLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].StunLock;
             this.LocalCooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].LocalCooldown;
+            this.MultiHitDelayNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -1001,6 +1005,10 @@ namespace NeonStarEditor
                 case "OffsetBulletY":
                     Vector2 offset4 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
                     CurrentAttackEffectSelected.Parameters[1] = new Vector2(offset4.X, (float)(sender as NumericUpDown).Value);
+                    break;
+
+                case "MultiHitDelayNU":
+                    _attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

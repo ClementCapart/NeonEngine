@@ -72,10 +72,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.Element = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.ElementCombobox = new System.Windows.Forms.ComboBox();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.MultiHitDelayNU = new System.Windows.Forms.NumericUpDown();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -86,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MultiHitDelayNU)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -148,7 +151,7 @@
             // 
             this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClosePanel.Location = new System.Drawing.Point(647, 3);
+            this.ClosePanel.Location = new System.Drawing.Point(682, 2);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(27, 26);
             this.ClosePanel.TabIndex = 2;
@@ -165,6 +168,7 @@
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
             this.AttackInfo.Controls.Add(this.LocalCooldownNumeric);
+            this.AttackInfo.Controls.Add(this.MultiHitDelayNU);
             this.AttackInfo.Controls.Add(this.CooldownNumeric);
             this.AttackInfo.Controls.Add(this.label11);
             this.AttackInfo.Controls.Add(this.AirFactorNU);
@@ -187,6 +191,7 @@
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
             this.AttackInfo.Controls.Add(this.LocalCooldown);
+            this.AttackInfo.Controls.Add(this.label13);
             this.AttackInfo.Controls.Add(this.label6);
             this.AttackInfo.Controls.Add(this.label111);
             this.AttackInfo.Controls.Add(this.label5);
@@ -202,7 +207,7 @@
             this.AttackInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.AttackInfo.Location = new System.Drawing.Point(201, 49);
             this.AttackInfo.Name = "AttackInfo";
-            this.AttackInfo.Size = new System.Drawing.Size(473, 448);
+            this.AttackInfo.Size = new System.Drawing.Size(508, 448);
             this.AttackInfo.TabIndex = 3;
             this.AttackInfo.TabStop = false;
             this.AttackInfo.Text = "Attack Info";
@@ -262,7 +267,7 @@
             0,
             0,
             65536});
-            this.TargetAirLockNumeric.Location = new System.Drawing.Point(302, 133);
+            this.TargetAirLockNumeric.Location = new System.Drawing.Point(279, 135);
             this.TargetAirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -283,7 +288,7 @@
             0,
             0,
             65536});
-            this.AirLockNumeric.Location = new System.Drawing.Point(234, 133);
+            this.AirLockNumeric.Location = new System.Drawing.Point(211, 135);
             this.AirLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -304,7 +309,7 @@
             0,
             0,
             65536});
-            this.LocalCooldownNumeric.Location = new System.Drawing.Point(12, 133);
+            this.LocalCooldownNumeric.Location = new System.Drawing.Point(438, 84);
             this.LocalCooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -325,7 +330,7 @@
             0,
             0,
             65536});
-            this.CooldownNumeric.Location = new System.Drawing.Point(409, 84);
+            this.CooldownNumeric.Location = new System.Drawing.Point(373, 85);
             this.CooldownNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -341,7 +346,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(99, 117);
+            this.label11.Location = new System.Drawing.Point(76, 119);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 1;
@@ -355,7 +360,7 @@
             0,
             0,
             65536});
-            this.AirFactorNU.Location = new System.Drawing.Point(101, 133);
+            this.AirFactorNU.Location = new System.Drawing.Point(78, 135);
             this.AirFactorNU.Maximum = new decimal(new int[] {
             300,
             0,
@@ -395,7 +400,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(164, 116);
+            this.label12.Location = new System.Drawing.Point(141, 118);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 1;
@@ -409,7 +414,7 @@
             0,
             0,
             65536});
-            this.StunLockNumeric.Location = new System.Drawing.Point(167, 133);
+            this.StunLockNumeric.Location = new System.Drawing.Point(144, 135);
             this.StunLockNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -478,7 +483,7 @@
             0,
             0,
             65536});
-            this.DelayNumeric.Location = new System.Drawing.Point(275, 84);
+            this.DelayNumeric.Location = new System.Drawing.Point(242, 85);
             this.DelayNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -526,7 +531,7 @@
             0,
             0,
             65536});
-            this.DurationNumeric.Location = new System.Drawing.Point(342, 84);
+            this.DurationNumeric.Location = new System.Drawing.Point(308, 85);
             this.DurationNumeric.Maximum = new decimal(new int[] {
             300,
             0,
@@ -541,7 +546,7 @@
             // 
             // DamageNumeric
             // 
-            this.DamageNumeric.Location = new System.Drawing.Point(197, 84);
+            this.DamageNumeric.Location = new System.Drawing.Point(164, 85);
             this.DamageNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -565,7 +570,7 @@
             this.EffectsInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EffectsInfoPanel.Location = new System.Drawing.Point(174, 258);
             this.EffectsInfoPanel.Name = "EffectsInfoPanel";
-            this.EffectsInfoPanel.Size = new System.Drawing.Size(293, 184);
+            this.EffectsInfoPanel.Size = new System.Drawing.Size(326, 184);
             this.EffectsInfoPanel.TabIndex = 2;
             // 
             // HitboxesPanel
@@ -574,13 +579,13 @@
             this.HitboxesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HitboxesPanel.Location = new System.Drawing.Point(12, 182);
             this.HitboxesPanel.Name = "HitboxesPanel";
-            this.HitboxesPanel.Size = new System.Drawing.Size(455, 70);
+            this.HitboxesPanel.Size = new System.Drawing.Size(490, 70);
             this.HitboxesPanel.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(299, 117);
+            this.label8.Location = new System.Drawing.Point(276, 119);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 1;
@@ -589,7 +594,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(231, 117);
+            this.label7.Location = new System.Drawing.Point(208, 119);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 1;
@@ -598,7 +603,7 @@
             // LocalCooldown
             // 
             this.LocalCooldown.AutoSize = true;
-            this.LocalCooldown.Location = new System.Drawing.Point(9, 116);
+            this.LocalCooldown.Location = new System.Drawing.Point(426, 67);
             this.LocalCooldown.Name = "LocalCooldown";
             this.LocalCooldown.Size = new System.Drawing.Size(80, 13);
             this.LocalCooldown.TabIndex = 1;
@@ -607,7 +612,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(406, 68);
+            this.label6.Location = new System.Drawing.Point(369, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 1;
@@ -625,7 +630,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(338, 67);
+            this.label5.Location = new System.Drawing.Point(305, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 1;
@@ -643,7 +648,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(275, 69);
+            this.label4.Location = new System.Drawing.Point(239, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 1;
@@ -661,7 +666,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 67);
+            this.label3.Location = new System.Drawing.Point(161, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 1;
@@ -676,43 +681,73 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Hitboxes";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Type";
-            // 
-            // TypeComboBox
-            // 
-            this.TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(12, 84);
-            this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(72, 21);
-            this.TypeComboBox.TabIndex = 0;
-            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
-            // 
             // Element
             // 
             this.Element.AutoSize = true;
-            this.Element.Location = new System.Drawing.Point(86, 67);
+            this.Element.Location = new System.Drawing.Point(83, 67);
             this.Element.Name = "Element";
             this.Element.Size = new System.Drawing.Size(45, 13);
             this.Element.TabIndex = 1;
             this.Element.Text = "Element";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Type";
+            // 
             // ElementCombobox
             // 
             this.ElementCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ElementCombobox.FormattingEnabled = true;
-            this.ElementCombobox.Location = new System.Drawing.Point(90, 84);
+            this.ElementCombobox.Location = new System.Drawing.Point(86, 84);
             this.ElementCombobox.Name = "ElementCombobox";
-            this.ElementCombobox.Size = new System.Drawing.Size(101, 21);
+            this.ElementCombobox.Size = new System.Drawing.Size(71, 21);
             this.ElementCombobox.TabIndex = 0;
             this.ElementCombobox.SelectedIndexChanged += new System.EventHandler(this.ElementComboBox_SelectedIndexChanged);
+            // 
+            // TypeComboBox
+            // 
+            this.TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.Location = new System.Drawing.Point(9, 84);
+            this.TypeComboBox.Name = "TypeComboBox";
+            this.TypeComboBox.Size = new System.Drawing.Size(72, 21);
+            this.TypeComboBox.TabIndex = 0;
+            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(9, 118);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "MultiHitDelay";
+            // 
+            // MultiHitDelayNU
+            // 
+            this.MultiHitDelayNU.DecimalPlaces = 2;
+            this.MultiHitDelayNU.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.MultiHitDelayNU.Location = new System.Drawing.Point(12, 135);
+            this.MultiHitDelayNU.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.MultiHitDelayNU.Name = "MultiHitDelayNU";
+            this.MultiHitDelayNU.Size = new System.Drawing.Size(60, 20);
+            this.MultiHitDelayNU.TabIndex = 3;
+            this.MultiHitDelayNU.ValueChanged += new System.EventHandler(this.Numeric_ValueChanged);
+            this.MultiHitDelayNU.Enter += new System.EventHandler(this.Numeric_Enter);
+            this.MultiHitDelayNU.Leave += new System.EventHandler(this.Numeric_Leave);
             // 
             // AttacksSettingsManager
             // 
@@ -728,7 +763,7 @@
             this.Controls.Add(this.AttacksList);
             this.Controls.Add(this.Title);
             this.Name = "AttacksSettingsManager";
-            this.Size = new System.Drawing.Size(677, 511);
+            this.Size = new System.Drawing.Size(712, 511);
             this.AttackInfo.ResumeLayout(false);
             this.AttackInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).EndInit();
@@ -740,6 +775,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DelayNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MultiHitDelayNU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -795,5 +831,7 @@
         private System.Windows.Forms.Label LocalCooldown;
         private System.Windows.Forms.Label Element;
         private System.Windows.Forms.ComboBox ElementCombobox;
+        private System.Windows.Forms.NumericUpDown MultiHitDelayNU;
+        private System.Windows.Forms.Label label13;
     }
 }
