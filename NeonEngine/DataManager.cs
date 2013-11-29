@@ -268,6 +268,8 @@ namespace NeonEngine
                                 break;
                             }
 
+                    if (t == null || t.IsAbstract)
+                        continue;
                     Component component = (Component)Activator.CreateInstance(t, entity);
                     component.ID = int.Parse(Comp.Attribute("ID").Value);
                     foreach (XElement Property in Comp.Element("Properties").Elements())
@@ -317,12 +319,21 @@ namespace NeonEngine
             }
             foreach (XElement Comp in ent.Element("Components").Elements())
             {
-                Component comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
+                Component comp;
+                try
+                {
+                    comp = entity.Components.First(c => c.ID == int.Parse(Comp.Attribute("ID").Value));
+                }
+                catch
+                {
+                    continue;
+                }
 
                 foreach (XElement Property in Comp.Element("Properties").Elements())
                 {
                     PropertyInfo pi = comp.GetType().GetProperty(Property.Name.ToString());
-
+                    if (pi == null)
+                        continue;
                     if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                     {
                         if (Property.Attribute("Value").Value != "None")

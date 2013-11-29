@@ -61,6 +61,22 @@ namespace NeonStarLibrary
             get { return _hitAnim; }
             set { _hitAnim = value; }
         }
+
+        private string _hitGuardAnim = "";
+
+        public string HitGuardAnim
+        {
+            get { return _hitGuardAnim; }
+            set { _hitGuardAnim = value; }
+        }
+
+        private string _hitGuardFX = "";
+
+        public string HitGuardFX
+        {
+            get { return _hitGuardFX; }
+            set { _hitGuardFX = value; }
+        }
         #endregion       
 
         public AvatarState State = AvatarState.Idle;
@@ -86,6 +102,8 @@ namespace NeonStarLibrary
         private float _airLockDuration = 0.0f;
         
         private bool _opacityGoingDown = false;
+        private SpriteSheetInfo _hitGuardSpritesheet = null;
+
 
         public Avatar(Entity entity)
             :base(entity, "Avatar")
@@ -99,6 +117,7 @@ namespace NeonStarLibrary
             ThirdPersonController = this.entity.GetComponent<ThirdPersonController>();
             Guard = this.entity.GetComponent<Guard>();
             ElementSystem = this.entity.GetComponent<ElementSystem>();
+            _hitGuardSpritesheet = AssetManager.GetSpriteSheet(_hitGuardFX);
 
             base.Init();
         }
@@ -124,9 +143,14 @@ namespace NeonStarLibrary
             }
 
             if (damageValue >= 0.0f)
+            {
+                entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
+                EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 0.9f);
                 return false;
+            }
 
             _currentHealthPoints += damageValue;
+            entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, false, false);
 
             if (Debug)
             {

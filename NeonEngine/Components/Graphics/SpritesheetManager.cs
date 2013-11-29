@@ -145,7 +145,7 @@ namespace NeonEngine
             }
         }
 
-        public void ChangeAnimation(string spriteSheetName, bool forceSwitch = true, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
+        public void ChangeAnimation(string spriteSheetName, bool forceSwitch = false, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
             if (!forceSwitch && !CurrentSpritesheet.IsLooped && !CurrentSpritesheet.IsFinished)
                 return;
@@ -181,12 +181,12 @@ namespace NeonEngine
 
         public void ChangeAnimation(string spriteSheetName, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
-            ChangeAnimation(spriteSheetName, true, priority, IsPlaying, Reset, Loop, StartingFrame);
+            ChangeAnimation(spriteSheetName, false, priority, IsPlaying, Reset, Loop, StartingFrame);
         }
 
         public void ChangeAnimation(string spriteSheetName)
         {
-            ChangeAnimation(spriteSheetName, true, 0, true, false, true, -1);
+            ChangeAnimation(spriteSheetName, false, 0, true, false, true, -1);
         }
 
         public void ChangeOpacity(float value)

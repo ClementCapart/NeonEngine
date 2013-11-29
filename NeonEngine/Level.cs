@@ -113,8 +113,8 @@ namespace NeonEngine
                                     t = type;
                                     break;
                                 }
-                        if (t == null)
-                            break;
+                        if (t == null || t.IsAbstract)
+                            continue;
 
                         Component component = (Component)Activator.CreateInstance(t, entity);
                         component.ID = int.Parse(Comp.Attribute("ID").Value);
@@ -171,7 +171,7 @@ namespace NeonEngine
                     }
                     catch
                     {
-                        break;
+                        continue;
                     }
                      
 

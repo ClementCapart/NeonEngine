@@ -72,7 +72,8 @@ namespace NeonStarLibrary
                     break;
 
                 case AvatarState.Guarding:
-                    entity.spritesheets.ChangeAnimation(AvatarComponent.Guard.GuardAnimation, true, 0, true, false, false);
+                    if(entity.spritesheets.CurrentSpritesheetName != AvatarComponent.HitGuardAnim)
+                        entity.spritesheets.ChangeAnimation(AvatarComponent.Guard.GuardAnimation, true, 0, true, false, false);
                     break;
 
                 case AvatarState.Rolling:
@@ -90,37 +91,37 @@ namespace NeonStarLibrary
                         {
                             case ComboSequence.Starter:
                                 if(AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Starter", 0, true, true, false);
+                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Starter", true, 0, true, true, false);
                                 break;
 
                             case ComboSequence.Link:
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Link", 0, true, true, false);
+                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Link", true, 0, true, true, false);
                                 break;
 
                             case ComboSequence.Finish:
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Finish", 0, true, true, false);
+                                    entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Finish", true, 0, true, true, false);
                                 break;
                         }                   
                     }
                     else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.UppercutName))
                     {
                         if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.UppercutAnimation, 0, true, true, false);
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.UppercutAnimation, true, 0, true, true, false);
                     }
                     else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.RushAttackName))
                     {
                         if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.RushAttackAnimation, 0, true, true, false);
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.RushAttackAnimation, true, 0, true, true, false);
                     }
                     else if(AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.DiveAttackName))
                     {
                         if(entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLoopAnimation && entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLandAnimation)
                             if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartAnimation, 0, true, true, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartAnimation, true, 0, true, true, false);
                         if(entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation && entity.spritesheets.IsFinished())
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, 0, true, true, true);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, true, 0, true, true, true);
                         
                     }
 
