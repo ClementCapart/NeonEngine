@@ -4,8 +4,9 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:170,7002 Y:212,8601}" />
-          <InitialPosition Value="{X:0 Y:0}" />
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:1566,433 Y:-111,5}" />
+          <InitialPosition Value="{X:1566,433 Y:-111,5}" />
           <Rotation Value="0" />
           <Scale Value="1" />
         </Properties>
@@ -13,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:170 Y:212}" />
-          <X Value="130" />
-          <Y Value="127" />
+          <Center Value="{X:1566 Y:-111}" />
+          <X Value="1526" />
+          <Y Value="-196" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
@@ -40,9 +41,14 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
           <Spritesheets />
           <DrawLayer Value="0" />
+          <IsHUD Value="False" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
@@ -51,27 +57,49 @@
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="10" />
+          <CoreElement Value="Neutral" />
+          <CurrentHealthPoints Value="10" />
+          <InvincibilityDuration Value="0.5" />
           <RunAnim Value="" />
           <IdleAnim Value="" />
+          <StartAttackAnim Value="" />
           <AttackAnim Value="" />
+          <StunlockAnim Value="" />
+          <DyingAnim Value="" />
+          <HitAnim Value="" />
+          <ImmuneToStunLock Value="False" />
+          <ImmuneToImpulse Value="False" />
+          <ImmuneToDeath Value="False" />
           <Type Value="Ground" />
+          <TriggerOnDamage Value="False" />
+          <ComponentToTriggerName Value="" />
+          <WaitThreatDuration Value="0" />
         </Properties>
       </Enemy>
-      <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
+      <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
         <Properties>
-          <ThreatRange Value="450" />
-          <AttackRange Value="250" />
-          <EntityToSearchFor Value="LiOn" />
+          <Speed Value="2" />
+          <Roundtrip Value="True" />
+          <ReverseStart Value="False" />
+          <PathPrecisionTreshold Value="50" />
         </Properties>
-      </ThreatArea>
-      <Chase Type="NeonStarLibrary.Chase" ID="6">
+      </FollowPlatformNodes>
+      <GroundChase Type="NeonStarLibrary.GroundChase" ID="9">
         <Properties>
-          <Speed Value="3" />
-          <WaitDelay Value="3" />
+          <CheckBothSide Value="True" />
+          <RaycastOffset Value="{X:0 Y:0}" />
+          <EntityToChaseName Value="LiOn" />
+          <DetectionDistance Value="450" />
+          <WaitStopDuration Value="1" />
+          <ChaseSpeed Value="3.5" />
+          <ChasePrecision Value="10" />
         </Properties>
-      </Chase>
-      <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
+      </GroundChase>
+      <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="10">
         <Properties>
+          <CheckBothSide Value="True" />
+          <DetectionOffset Value="{X:0 Y:0}" />
+          <RangeForAttackOne Value="325" />
           <AttackToLaunchOne Value="EnemyTigerDash" />
           <RangeForAttackTwo Value="180" />
           <AttackToLaunchTwo Value="" />
@@ -81,17 +109,9 @@
           <AttackToLaunchFour Value="" />
           <RangeForAttackFive Value="0" />
           <AttackToLaunchFive Value="" />
+          <EntityToAttackName Value="LiOn" />
         </Properties>
-      </EnemyAttack>
-      <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
-        <Properties>
-          <CurrentNodeList Value="NodeList2" />
-          <Speed Value="2" />
-          <Roundtrip Value="True" />
-          <ReverseStart Value="False" />
-          <PathPrecisionTreshold Value="50" />
-        </Properties>
-      </FollowPlatformNodes>
+      </GroundAttack>
     </Components>
   </Entity>
 </Prefab>
