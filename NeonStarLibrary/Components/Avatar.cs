@@ -247,7 +247,7 @@ namespace NeonStarLibrary
             CanTurn = true;
             CanAttack = true;
             CanUseElement = true;
-
+            if (Debug) Console.WriteLine("LiOn State -> " + State);
             base.PostUpdate(gameTime);
         }
 

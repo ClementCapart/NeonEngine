@@ -361,7 +361,15 @@ namespace NeonStarEditor
 
                 tp.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 this.InspectorTab.DrawItem += InspectorTab_DrawItem;
-                this.InspectorTab.TabPages.Add(tp);
+                try
+                {
+                    this.InspectorTab.TabPages.Add(tp);
+                }
+                catch
+                {
+                    Console.WriteLine("Exception while creation window handle !");
+                }
+                
                 tp.Height += 20;
 
 

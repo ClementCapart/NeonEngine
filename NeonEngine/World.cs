@@ -167,7 +167,7 @@ namespace NeonEngine
 
             FinalUpdate(gameTime);
 
-                    DeferredDrawGame(Neon.spriteBatch);
+            DeferredDrawGame(Neon.spriteBatch);
 
             if (!change)
                 alpha = Math.Max(alpha - 0.01f, 0.0f);

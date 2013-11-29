@@ -1893,8 +1893,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:862,578 Y:-94,49998}" />
-              <InitialPosition Value="{X:862,578 Y:-94,49998}" />
+              <Position Value="{X:5256,045 Y:-559,4999}" />
+              <InitialPosition Value="{X:5256,045 Y:-559,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1902,9 +1902,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:862 Y:-94}" />
-              <X Value="842" />
-              <Y Value="-162" />
+              <Center Value="{X:5256 Y:-559}" />
+              <X Value="5236" />
+              <Y Value="-627" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -1955,6 +1955,7 @@
                 <Animation Name="Hit" SpritesheetTag="LiOnHit" />
                 <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
                 <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
+                <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
@@ -2027,7 +2028,8 @@
           <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
             <Properties>
               <FireLaunchAnimation Value="FireLaunch" />
-              <LeftSlotElement Value="Fire" />
+              <ThunderLaunchAnimation Value="ThunderLaunch" />
+              <LeftSlotElement Value="Thunder" />
               <LeftSlotLevel Value="1" />
               <LeftSlotCooldownTimer Value="0" />
               <RightSlotCooldownTimer Value="0" />

@@ -717,12 +717,6 @@ namespace NeonStarEditor
         public override void RemoveEntity(Entity entity)
         {
             base.RemoveEntity(entity);
-            if (BottomDockControl != null)
-            {
-                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
-                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
-            }
         }
 
         public override void ReloadLevel()

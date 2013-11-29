@@ -138,10 +138,19 @@ namespace NeonStarLibrary
                         switch(AvatarComponent.ElementSystem.CurrentElementEffect.State)
                         {
                             case ElementState.Effect:
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, 0, true, false, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, true, 0, true, false, false);
                                 break;
                         }
 
+                    }
+                    else if (AvatarComponent.ElementSystem.CurrentElementEffect.EffectElement == Element.Thunder)
+                    {
+                        switch(AvatarComponent.ElementSystem.CurrentElementEffect.State)
+                        {
+                            case ElementState.Charge:
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.ThunderLaunchAnimation, true, 0, true, false, false);
+                                break;
+                        }
                     }
                     break;
             }

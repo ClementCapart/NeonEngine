@@ -24,6 +24,14 @@ namespace NeonStarLibrary
             set { _fireLaunchAnimation = value; }
         }
 
+        private string _thunderLaunchAnimation = "";
+
+        public string ThunderLaunchAnimation
+        {
+            get { return _thunderLaunchAnimation; }
+            set { _thunderLaunchAnimation = value; }
+        }
+
         private Element _leftSlotElement = Element.Neutral;
 
         public Element LeftSlotElement
@@ -173,7 +181,10 @@ namespace NeonStarLibrary
             {
                 CurrentElementEffect.PostUpdate(gameTime);
                 if (CurrentElementEffect.State == ElementState.End)
+                {
                     CurrentElementEffect = null;
+                    AvatarComponent.State = AvatarState.Idle;
+                }
             }
             base.PostUpdate(gameTime);
         }
@@ -187,7 +198,7 @@ namespace NeonStarLibrary
                     break;
 
                 case Element.Thunder:
-                    CurrentElementEffect = new Lightning(this, level, entity, input, (GameScreen)entity.containerWorld);
+                    CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
                     break;
             }
         }

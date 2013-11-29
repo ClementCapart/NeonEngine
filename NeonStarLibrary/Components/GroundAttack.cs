@@ -414,7 +414,6 @@ namespace NeonStarLibrary
                     if (!inLocalCooldown)
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
-
             }
         }
     }
