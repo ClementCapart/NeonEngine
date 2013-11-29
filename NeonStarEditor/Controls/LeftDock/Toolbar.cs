@@ -197,7 +197,8 @@ namespace NeonStarEditor.Controls.LeftDock
             }
 
             PolygonRenderer _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
-
+            float formerZoom = Neon.world.camera.Zoom;
+            Neon.world.camera.Zoom = 1.0f;
             foreach (KeyValuePair<RenderTarget2D, Vector2> kvp in renderTargets)
             {
                 RenderTarget2D rt = kvp.Key;
@@ -256,10 +257,11 @@ namespace NeonStarEditor.Controls.LeftDock
 
                 Neon.spriteBatch.End();
                 Neon.graphicsDevice.SetRenderTarget(null);
-                Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Level0_" + kvp.Value.X + "_" + kvp.Value.Y + ".png");
                 Stream stream = File.OpenWrite(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Level0_" + kvp.Value.X + "_" + kvp.Value.Y + ".png");
                 rt.SaveAsPng(stream, rt.Width, rt.Height);
                 stream.Close();
+                Neon.world.camera.Zoom = formerZoom;
             }
         }
 

@@ -458,8 +458,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:12282,3 Y:573,5001}" />
-              <InitialPosition Value="{X:12282,3 Y:573,5001}" />
+              <Position Value="{X:12653,5 Y:573,104}" />
+              <InitialPosition Value="{X:12653,5 Y:573,104}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -467,8 +467,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:12282 Y:573}" />
-              <X Value="12262" />
+              <Center Value="{X:12653 Y:573}" />
+              <X Value="12633" />
               <Y Value="505" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -494,7 +494,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -519,11 +519,12 @@
                 <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
                 <Animation Name="Hit" SpritesheetTag="LiOnHit" />
                 <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
+                <Animation Name="HitGuard" SpritesheetTag="LiOnCounterHit" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
               <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
             </Properties>
           </SpritesheetManager>
           <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
@@ -565,9 +566,11 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="99" />
-              <CurrentHealthPoints Value="99" />
+              <CurrentHealthPoints Value="-4761" />
               <InvincibilityDuration Value="1" />
               <HitAnim Value="Hit" />
+              <HitGuardAnim Value="HitGuard" />
+              <HitGuardFX Value="LiOnCounterFX" />
             </Properties>
           </Avatar>
           <Roll Type="NeonStarLibrary.Guard" ID="7">
@@ -583,7 +586,7 @@
               <GuardCooldown Value="0.3" />
               <RollImpulse Value="650" />
               <DashImpulse Value="550" />
-              <GuardDamageReduce Value="0" />
+              <GuardDamageReduce Value="116" />
             </Properties>
           </Roll>
           <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
@@ -2039,6 +2042,107 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="EnemyRobot">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:12520 Y:561,5001}" />
+              <InitialPosition Value="{X:12520 Y:561,5001}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:12520 Y:561}" />
+              <X Value="12470" />
+              <Y Value="481" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="160" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="400" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:-3}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
+                <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
+                <Animation Name="Idle" SpritesheetTag="EnemyRobotIdle" />
+                <Animation Name="TakeHit" SpritesheetTag="EnemyRobotTakeHit" />
+                <Animation Name="Death" SpritesheetTag="Explosion" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+            </Properties>
+          </SpritesheetManager>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="50" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="50" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="Run" />
+              <IdleAnim Value="Idle" />
+              <StartAttackAnim Value="Attack" />
+              <AttackAnim Value="" />
+              <StunlockAnim Value="TakeHit" />
+              <DyingAnim Value="Death" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </Enemy>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="5">
+            <Properties>
+              <CheckBothSide Value="True" />
+              <DetectionOffset Value="{X:0 Y:0}" />
+              <RangeForAttackOne Value="150" />
+              <AttackToLaunchOne Value="EnemyRobotPunch" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <EntityToAttackName Value="LiOn" />
+            </Properties>
+          </GroundAttack>
         </Components>
       </Entity>
     </Entities>
