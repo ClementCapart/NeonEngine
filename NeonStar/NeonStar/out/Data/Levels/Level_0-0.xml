@@ -458,8 +458,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:12653,5 Y:573,104}" />
-              <InitialPosition Value="{X:12653,5 Y:573,104}" />
+              <Position Value="{X:12653,5 Y:573,1378}" />
+              <InitialPosition Value="{X:12653,5 Y:573,1378}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -494,7 +494,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -515,11 +515,11 @@
                 <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
                 <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
                 <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
-                <Animation Name="Guard" SpritesheetTag="LiOnCounter" />
+                <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
                 <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
                 <Animation Name="Hit" SpritesheetTag="LiOnHit" />
                 <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
-                <Animation Name="HitGuard" SpritesheetTag="LiOnCounterHit" />
+                <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <Tint Value="True" />
@@ -566,11 +566,11 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="99" />
-              <CurrentHealthPoints Value="-4761" />
+              <CurrentHealthPoints Value="-5091" />
               <InvincibilityDuration Value="1" />
               <HitAnim Value="Hit" />
               <HitGuardAnim Value="HitGuard" />
-              <HitGuardFX Value="LiOnCounterFX" />
+              <HitGuardFX Value="LiOnGuardFX" />
             </Properties>
           </Avatar>
           <Roll Type="NeonStarLibrary.Guard" ID="7">

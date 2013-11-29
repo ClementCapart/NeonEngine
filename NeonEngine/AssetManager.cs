@@ -153,6 +153,9 @@ namespace NeonEngine
             if (_spritesheetList.ContainsKey(tag))
                 return _spritesheetList[tag];
 
+            if (!Spritesheets.ContainsKey(tag))
+                return null;
+
             string s = Spritesheets[tag];
             Texture2D texture = PremultiplyTexture(s, Neon.graphicsDevice);
             string[] fileNameProcessing = s.Split('\\');
