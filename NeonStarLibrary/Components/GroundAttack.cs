@@ -338,11 +338,6 @@ namespace NeonStarLibrary
                     if (!inLocalCooldown)
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
-
-                if (CurrentAttack == null)
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
             }
             else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
             {
@@ -361,11 +356,6 @@ namespace NeonStarLibrary
 
                     if (!inLocalCooldown)
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-
-                if (CurrentAttack == null)
-                {
-                    EnemyComponent.State = EnemyState.Chase;
                 }
             }
             else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
@@ -386,11 +376,6 @@ namespace NeonStarLibrary
                     if (!inLocalCooldown)
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
-
-                if (CurrentAttack == null)
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
             }
             else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
             {
@@ -409,11 +394,6 @@ namespace NeonStarLibrary
 
                     if (!inLocalCooldown)
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-
-                if (CurrentAttack == null)
-                {
-                    EnemyComponent.State = EnemyState.Chase;
                 }
             }
             else
@@ -435,10 +415,6 @@ namespace NeonStarLibrary
                         CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                 }
 
-                if (CurrentAttack == null)
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
             }
         }
     }

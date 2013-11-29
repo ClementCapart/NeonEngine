@@ -18,12 +18,13 @@ namespace NeonEngine
         {
         }
 
-        public float AngleBetween(Vector2 position1, Vector2 position2)
+        public float AngleBetween(Vector2 position1, Vector2 position2, bool negativeValuesPossible = false)
         {
             float angle = (float)Math.Atan2(position2.Y - position1.Y, position2.X - position1.X);
-            angle = angle < 0 ? 2 * (float)Math.PI + angle : angle;
+            if(!negativeValuesPossible) angle = angle < 0 ? 2 * (float)Math.PI + angle : angle;
             return angle;
         }
+
 
         public Vector2 InputToWorldPosition(Vector2 input)
         {

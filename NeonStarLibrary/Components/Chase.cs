@@ -42,7 +42,7 @@ namespace NeonStarLibrary
             set { _chaseSpeed = value; }
         }
 
-        protected float _chasePrecision = 0.0f;
+        protected float _chasePrecision = 10.0f;
 
         public float ChasePrecision
         {
