@@ -13,8 +13,6 @@ namespace NeonStarLibrary
     public class IntroScreen : World, IDisposable
     {
         VideoPlayer videoPlayer;
-        Video videoEngine;
-        Video videoTeam;
         Video videoIntro;
         int Loop = 0;
         bool Started;
@@ -23,9 +21,7 @@ namespace NeonStarLibrary
         public IntroScreen(Game game)
             : base(game)
         {
-            videoEngine = game.Content.Load<Video>("NeonEngineLogo");
-            videoTeam = game.Content.Load<Video>("ToxicRacoonLogo");
-            videoIntro = game.Content.Load<Video>("Intro");
+            videoIntro = game.Content.Load<Video>("Trailer");
             videoPlayer = new VideoPlayer();
         }
 
@@ -38,21 +34,11 @@ namespace NeonStarLibrary
                     if (Loop == 0)
                     {
                         videoPlayer.IsLooped = false;
-                        videoPlayer.Play(videoEngine);
+                        videoPlayer.Play(videoIntro);
                         Loop = 1;
                     }
-                    else if (Loop == 1)
-                    {
-                        videoPlayer.Play(videoTeam);
-                        Loop = 2;
-                    }
-                    else if (Loop == 2)
-                    {
-                        videoPlayer.Play(videoIntro);
-                        Loop = 3;
-                    }
                     else
-                        ChangeScreen(new TitleScreen(game));
+                        ChangeScreen(new GameScreen(game));
 
                 }
             }

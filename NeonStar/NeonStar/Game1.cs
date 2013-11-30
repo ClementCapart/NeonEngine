@@ -44,7 +44,7 @@ namespace NeonStar
             #else
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-            Neon.world = new GameScreen(this);
+            Neon.world = new IntroScreen(this);
             
             #endif
         }
