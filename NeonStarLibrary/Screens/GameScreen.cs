@@ -73,9 +73,6 @@ namespace NeonStarLibrary
             if (Neon.Input.Pressed(Buttons.Start))
                 Pause = !Pause;
 
-            if (Neon.Input.Pressed(Buttons.Back))
-                MediaPlayer.Play(chipzelSong);
-
             base.Update(gameTime);
         }
 
