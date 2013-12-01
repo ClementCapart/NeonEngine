@@ -31,6 +31,8 @@ namespace NeonEngine
 
             /* WARNING : if you are using mp3 files, add them to songs, if you are using wav or wma files, you can add it to sounds */
 
+            songs.Add("NeonStar", "NeonStar");
+
 
             //assets.Add("", @"");
             //assets.Add("", @"");

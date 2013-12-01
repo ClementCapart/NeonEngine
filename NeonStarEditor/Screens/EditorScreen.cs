@@ -141,6 +141,12 @@ namespace NeonStarEditor
                     Pause = true;
                     UnpauseTillNextFrame = false;
                 }
+
+            if (Neon.Input.Pressed(Buttons.Start))
+            {
+                Pause = !Pause;
+                UnpauseTillNextFrame = false;
+            }
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
             if (CurrentTool != null && MouseInGameWindow)
