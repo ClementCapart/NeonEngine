@@ -241,15 +241,34 @@ namespace NeonStarLibrary
         public bool TakeDamage(Attack attack)
         {
             bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
-            if(tookDamage && _triggerOnDamage)
+            if (tookDamage && _triggerOnDamage)
+            {
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
+            }
+            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath)
+            {
+                if (attack._entity != null && CoreElement != Element.Neutral)
+                    attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+            }
             return tookDamage;
         }
 
         public bool TakeDamage(Bullet bullet)
         {
-            return TakeDamage(bullet.DamageOnHit, bullet.StunLock, 0.0f, bullet.entity.spritesheets.CurrentSide);
+            bool tookDamage = TakeDamage(bullet.DamageOnHit, bullet.StunLock, 0.0f, bullet.entity.spritesheets.CurrentSide);
+            if (tookDamage && _triggerOnDamage)
+            {
+                if (_componentToTrigger != null)
+                    _componentToTrigger.OnTrigger(this.entity, bullet.launcher != null ? bullet.launcher : bullet.launcher, new object[] { bullet });
+            }
+            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath)
+            {
+                if (bullet.launcher != null && CoreElement != Element.Neutral)
+                    bullet.launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+            }
+
+            return tookDamage;
         }
 
         public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side)
@@ -261,6 +280,18 @@ namespace NeonStarLibrary
                 return false;
 
             _currentHealthPoints += damageValue;
+
+            if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
+            {
+                this.State = EnemyState.Dying;
+
+                if (entity.rigidbody != null)
+                {
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                }
+
+                return false;
+            }
 
             if (Debug)
             {
@@ -310,19 +341,6 @@ namespace NeonStarLibrary
             }
             else if (State != EnemyState.Dead)
             {
-                if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
-                {
-                    this.State = EnemyState.Dying;
-
-                    if (entity.rigidbody != null)
-                    {
-                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    }
-
-                    if (entity != null && CoreElement != Element.Neutral)
-                        entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
-                }
-
                 if (_airLockDuration > 0.0f && IsAirLocked)
                 {
                     _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;

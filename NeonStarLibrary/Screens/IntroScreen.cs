@@ -41,10 +41,18 @@ namespace NeonStarLibrary
                         ChangeScreen(new GameScreen(game));
 
                 }
+                if (Neon.Input.Pressed(Buttons.Start))
+                {
+                    if (Loop == 1)
+                        videoPlayer.Stop();
+                }
             }
             else
                 if (Neon.Input.Pressed(Buttons.Start))
-                    Started = true;
+                {
+                    if(!Started)
+                        Started = true;
+                }
 
             base.Update(gameTime);
         }
