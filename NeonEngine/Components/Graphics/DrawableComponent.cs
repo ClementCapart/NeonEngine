@@ -30,7 +30,7 @@ namespace NeonEngine
             set { _currentSide = value; }
         }
         
-        public bool Tint
+        public virtual bool Tint
         {
             get { return _tint; }
             set 
@@ -82,6 +82,8 @@ namespace NeonEngine
             get { return _tintColor; }
             set { _tintColor = value; }
         }
+
+        public Color MainColor = Color.White;
 
         public DrawableComponent(float Layer, Entity entity, string Name)
             :base(entity, Name)

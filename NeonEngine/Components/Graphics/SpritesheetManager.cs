@@ -52,6 +52,18 @@ namespace NeonEngine
             }
         }
 
+        public override bool Tint
+        {
+            get
+            {
+                return CurrentSpritesheet.Tint;
+            }
+            set
+            {
+                CurrentSpritesheet.Tint = value;
+            }
+        }
+
         public override Vector2 RotationCenter
         {
             get

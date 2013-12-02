@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,11 +92,47 @@ namespace NeonStarLibrary
             get { return _maxLevel; }
             set { _maxLevel = value; }
         }
+
+        private string _thunderGatheringFX = "";
+
+        public string ThunderGatheringFX
+        {
+            get { return _thunderGatheringFX; }
+            set { _thunderGatheringFX = value; }
+        }
+
+        private string _fireGatheringFX = "";
+
+        public string FireGatheringFX
+        {
+            get { return _fireGatheringFX; }
+            set { _fireGatheringFX = value; }
+        }
+
+        private float _getElementColorDelay = 0.15f;
+
+        public float GetElementColorDelay
+        {
+            get { return _getElementColorDelay; }
+            set { _getElementColorDelay = value; }
+        }
+
         #endregion
 
         public Avatar AvatarComponent = null;
 
         public ElementEffect CurrentElementEffect = null;
+
+        private SpriteSheetInfo FrontFireGatheringFX = null;
+        private SpriteSheetInfo BackFireGatheringFX = null;
+
+        private SpriteSheetInfo FrontThunderGatheringFX = null;
+        private SpriteSheetInfo BackThunderGatheringFX = null;
+
+        private AnimatedSpecialEffect _currentAnimatedSpecialEffect = null;
+        private bool _getElementColored = false;
+        private float _getElementColorTimer = 0.0f;
+        private Color _nextColorToTint;
 
         public ElementSystem(Entity entity)
             :base(entity, "ElementSystem")
@@ -104,6 +141,10 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
+            FrontFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Front");
+            BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Back");
+            FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Front");
+            BackThunderGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Back");
             AvatarComponent = entity.GetComponent<Avatar>();
             base.Init();
         }
@@ -190,6 +231,31 @@ namespace NeonStarLibrary
                     AvatarComponent.State = AvatarState.Idle;
                 }
             }
+
+            if (_currentAnimatedSpecialEffect != null)
+            {
+                if (_currentAnimatedSpecialEffect.spriteSheet.IsFinished)
+                {
+                    entity.spritesheets.CurrentSpritesheet.MainColor = _nextColorToTint;
+                    entity.spritesheets.CurrentSpritesheet.Tint = false;
+                    _getElementColored = true;
+                    _getElementColorTimer = _getElementColorDelay;
+                    _currentAnimatedSpecialEffect = null;
+                }
+            }
+
+            if (_getElementColored)
+            {
+                if (_getElementColorTimer > 0.0f)
+                    _getElementColorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                else
+                {
+                    _getElementColorTimer = 0.0f;
+                    entity.spritesheets.CurrentSpritesheet.MainColor = Color.White;
+                    entity.spritesheets.Tint = true;
+                    _getElementColored = false;
+                }
+            }
             base.PostUpdate(gameTime);
         }
 
@@ -212,22 +278,30 @@ namespace NeonStarLibrary
             if (_leftSlotElement == element)
             {
                 if (_leftSlotLevel < _maxLevel)
+                {
+                    ElementFeedback(element);
                     _leftSlotLevel++;
+                }
                 Console.WriteLine("Left Slot Level Up -> " + _leftSlotLevel);
             }
             else if (_rightSlotElement == element)
             {
                 if (_rightSlotLevel < _maxLevel)
+                {
+                    ElementFeedback(element);
                     _rightSlotLevel++;
+                }
                 Console.WriteLine("Right Slot Level Up -> " + _rightSlotLevel);
             }
             else if (_leftSlotElement == Element.Neutral)
             {
+                ElementFeedback(element);
                 _leftSlotElement = element;
                 Console.WriteLine("Got " + element + " in Left Slot");
             }
             else if (_rightSlotElement == Element.Neutral)
             {
+                ElementFeedback(element);
                 _rightSlotElement = element;
                 Console.WriteLine("Got " + element + " in Right Slot");
             }
@@ -235,6 +309,24 @@ namespace NeonStarLibrary
             {
                 Console.WriteLine("Fizzle");
             }
+        }
+
+        private void ElementFeedback(Element element)
+        {
+            switch(element)
+                {
+                    case Element.Fire:
+                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer - 0.01f);
+                        EffectsManager.GetEffect(FrontFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
+                        _nextColorToTint = Color.Red;
+                        break;
+
+                    case Element.Thunder:
+                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackThunderGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer - 0.01f);
+                        EffectsManager.GetEffect(FrontThunderGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
+                        _nextColorToTint = Color.FromNonPremultiplied(255, 201, 9, 255);
+                        break;
+                }
         }
     }
 }
