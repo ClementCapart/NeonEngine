@@ -27,6 +27,7 @@ namespace NeonEngine
             parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.dll");
             parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.Game.dll");
             parameters.ReferencedAssemblies.Add(@"../Data/XNA/Microsoft.Xna.Framework.Graphics.dll");
+            parameters.ReferencedAssemblies.Add(@"FarseerPhysics.dll");
         }
 
         public void AddAssembly(string AssemblyPath)
