@@ -123,6 +123,7 @@ namespace NeonEngine
             {
                 texture = Texture2D.FromStream(device, titleStream);
             }
+
             Color[] buffer = new Color[texture.Width * texture.Height];
             texture.GetData(buffer);
             for (int i = 0; i < buffer.Length; i++)

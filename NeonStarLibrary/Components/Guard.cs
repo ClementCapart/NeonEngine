@@ -180,7 +180,7 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_durationTimer <= 0.0f)
+            if (_durationTimer <= 0.0f && AvatarComponent.State != AvatarState.UsingElement)
             {
                 if (_rollCooldownTimer <= 0.0f)
                 {

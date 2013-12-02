@@ -167,11 +167,11 @@ namespace NeonStarLibrary
                     switch (_input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            _elementSystem.LeftSlotCooldownTimer = _cooldownDuration;
+                            _elementSystem.LeftSlotCooldownTimer = _elementSystem.ThunderCooldown;
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            _elementSystem.RightSlotCooldownTimer = _cooldownDuration;
+                            _elementSystem.RightSlotCooldownTimer = _elementSystem.ThunderCooldown;
                             break;
                     }
 

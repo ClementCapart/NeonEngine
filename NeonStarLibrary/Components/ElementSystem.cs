@@ -24,12 +24,28 @@ namespace NeonStarLibrary
             set { _fireLaunchAnimation = value; }
         }
 
+        private float _fireCooldown = 0.0f;
+
+        public float FireCooldown
+        {
+            get { return _fireCooldown; }
+            set { _fireCooldown = value; }
+        }
+
         private string _thunderLaunchAnimation = "";
 
         public string ThunderLaunchAnimation
         {
             get { return _thunderLaunchAnimation; }
             set { _thunderLaunchAnimation = value; }
+        }
+
+        private float _thunderCooldown = 0.0f;
+
+        public float ThunderCooldown
+        {
+            get { return _thunderCooldown; }
+            set { _thunderCooldown = value; }
         }
 
         private Element _leftSlotElement = Element.Neutral;
@@ -48,21 +64,7 @@ namespace NeonStarLibrary
             set { _leftSlotLevel = value; }
         }
 
-        private float _leftSlotCooldownTimer = 0.0f;
-
-        public float LeftSlotCooldownTimer
-        {
-            get { return _leftSlotCooldownTimer; }
-            set { _leftSlotCooldownTimer = value; }
-        }
-
-        private float _rightSlotCooldownTimer = 0.0f;
-
-        public float RightSlotCooldownTimer
-        {
-            get { return _rightSlotCooldownTimer; }
-            set { _rightSlotCooldownTimer = value; }
-        }
+        public float LeftSlotCooldownTimer = 0.0f;
 
         private Element _rightSlotElement = Element.Neutral;
 
@@ -79,6 +81,8 @@ namespace NeonStarLibrary
             get { return _rightSlotLevel; }
             set { _rightSlotLevel = value; }
         }
+
+        public float RightSlotCooldownTimer = 0.0f;      
 
         private float _maxLevel = 3;
 
@@ -106,18 +110,18 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_leftSlotCooldownTimer > 0.0f)
+            if (LeftSlotCooldownTimer > 0.0f)
             {
-                _leftSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_leftSlotCooldownTimer < 0.0f)
-                    _leftSlotCooldownTimer = 0.0f;
+                LeftSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (LeftSlotCooldownTimer < 0.0f)
+                    LeftSlotCooldownTimer = 0.0f;
             }
 
-            if (_rightSlotCooldownTimer > 0.0f)
+            if (RightSlotCooldownTimer > 0.0f)
             {
-                _rightSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_rightSlotCooldownTimer < 0.0f)
-                    _rightSlotCooldownTimer = 0.0f;
+                RightSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (RightSlotCooldownTimer < 0.0f)
+                    RightSlotCooldownTimer = 0.0f;
             }
 
             if (CurrentElementEffect != null)
@@ -133,7 +137,7 @@ namespace NeonStarLibrary
         {
             if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
             {
-                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && _leftSlotCooldownTimer <= 0.0f)
+                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && LeftSlotCooldownTimer <= 0.0f)
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -141,7 +145,7 @@ namespace NeonStarLibrary
                         UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
                     }
                 }
-                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement) && _rightSlotCooldownTimer <= 0.0f)
+                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement) && RightSlotCooldownTimer <= 0.0f)
                 {
                     if (_rightSlotElement != Element.Neutral)
                     {
