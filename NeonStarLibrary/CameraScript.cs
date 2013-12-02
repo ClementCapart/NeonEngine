@@ -142,35 +142,28 @@ namespace NeonStarLibrary
         {
             if(trigger.Name == _firstTriggerName)
             {
-                Neon.world.camera.ChaseStrength = 0.0f;
-                _targetZoom = _firstTriggerZoom;
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                foreach (CameraBound cb in _firstBoundsToActivate)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
-                    if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
-                        cb.Enabled = false;
+                    cb.BoundStrength = cb.SoftBoundStrength;
+                    cb.Enabled = true;                  
                 }
             }
             else if(trigger.Name == _secondTriggerName)
             {
-                _targetZoom = _secondTriggerZoom;
-
-                foreach (CameraBound cb in _firstBoundsToActivate)
+                foreach (CameraBound cb in _secondBoundsToActivate)
                 {
-                    cb.Enabled = true;
                     cb.BoundStrength = cb.SoftBoundStrength;
+                    cb.Enabled = true;
                 }
             }
             else if (trigger.Name == _thirdTriggerName)
             {
-                _targetZoom = _thirdTriggerZoom;
-
                 Neon.world.camera.ChaseStrength = 0.0f;
 
                 for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
                     CameraBound cb = Neon.world.camera.CameraBounds[i];
-                    if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
+                    if (cb.entity.Name.StartsWith("03"))
                         cb.Enabled = false;
                 }
             }

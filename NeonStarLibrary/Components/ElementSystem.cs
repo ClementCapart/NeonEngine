@@ -141,10 +141,10 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            FrontFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Front");
-            BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Back");
-            FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Front");
-            BackThunderGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX + "Back");
+            FrontFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
+            BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
+            FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
+            BackThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             AvatarComponent = entity.GetComponent<Avatar>();
             base.Init();
         }
@@ -234,6 +234,7 @@ namespace NeonStarLibrary
 
             if (_currentAnimatedSpecialEffect != null)
             {
+                _currentAnimatedSpecialEffect.transform.Position = entity.transform.Position + new Vector2((AvatarComponent.CurrentSide == Side.Right ? 10 : - 10), -15);
                 if (_currentAnimatedSpecialEffect.spriteSheet.IsFinished)
                 {
                     entity.spritesheets.CurrentSpritesheet.MainColor = _nextColorToTint;
@@ -316,15 +317,15 @@ namespace NeonStarLibrary
             switch(element)
                 {
                     case Element.Fire:
-                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer - 0.01f);
-                        EffectsManager.GetEffect(FrontFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
+                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackFireGatheringFX, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(10, -15), entity.spritesheets.Layer + 0.01f);
+                        //EffectsManager.GetEffect(FrontFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
                         _nextColorToTint = Color.Red;
                         break;
 
                     case Element.Thunder:
-                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackThunderGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer - 0.01f);
-                        EffectsManager.GetEffect(FrontThunderGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
-                        _nextColorToTint = Color.FromNonPremultiplied(255, 201, 9, 255);
+                        _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackThunderGatheringFX, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(10, -15), entity.spritesheets.Layer + 0.01f);
+                        //EffectsManager.GetEffect(FrontThunderGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
+                        _nextColorToTint = Color.FromNonPremultiplied(255, 230, 100, 255);
                         break;
                 }
         }

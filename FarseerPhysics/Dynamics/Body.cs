@@ -893,10 +893,11 @@ namespace FarseerPhysics.Dynamics
             Sweep.A0 = angle;
 
             IBroadPhase broadPhase = World.ContactManager.BroadPhase;
-            for (int i = 0; i < FixtureList.Count; i++)
-            {
-                FixtureList[i].Synchronize(broadPhase, ref Xf, ref Xf);
-            }
+            if(FixtureList != null)
+                for (int i = 0; i < FixtureList.Count; i++)
+                {
+                    FixtureList[i].Synchronize(broadPhase, ref Xf, ref Xf);
+                }
         }
 
         /// <summary>
