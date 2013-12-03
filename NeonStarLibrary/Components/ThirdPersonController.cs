@@ -95,6 +95,14 @@ namespace NeonStarLibrary
             get { return _maxJumpInputDelay; }
             set { _maxJumpInputDelay = value; }
         }
+
+        private float _maxFallSpeed = 20.0f;
+
+        public float MaxFallSpeed
+        {
+            get { return _maxFallSpeed; }
+            set { _maxFallSpeed = value; }
+        }
         #endregion
 
         public Avatar AvatarComponent = null;
@@ -252,6 +260,9 @@ namespace NeonStarLibrary
 
             if(entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
                 EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), entity.spritesheets.DrawLayer + 0.01f);
+
+            if (entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed)
+                entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, _maxFallSpeed);
 
             foreach (Rigidbody rg in _ignoredGeometry)
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);
