@@ -250,7 +250,12 @@ namespace NeonStarLibrary
             {
                 if (attack._entity != null && CoreElement != Element.Neutral)
                     attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
+
+            if (tookDamage)
+                entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
+
             return tookDamage;
         }
 
@@ -266,7 +271,11 @@ namespace NeonStarLibrary
             {
                 if (bullet.launcher != null && CoreElement != Element.Neutral)
                     bullet.launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
+
+            if (tookDamage)
+                entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
 
             return tookDamage;
         }

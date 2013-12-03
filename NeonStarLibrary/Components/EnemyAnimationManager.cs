@@ -38,6 +38,26 @@ namespace NeonStarLibrary
                 switch (EnemyComponent.State)
                 {
                     case EnemyState.Attacking:
+                        if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
+                        {
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneAnimation, true, 0, true, false, false);
+                        }
+                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchTwo)
+                        {
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoAnimation, true, 0, true, false, false);
+                        }
+                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchThree)
+                        {
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeAnimation, true, 0, true, false, false);
+                        }
+                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFour)
+                        {
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourAnimation, true, 0, true, false, false);
+                        }
+                        else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFive)
+                        {
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, false, false);
+                        }
                         break;
 
                     case EnemyState.Wait:

@@ -27,6 +27,14 @@ namespace NeonStarLibrary
             set { _attackToLaunchOne = value; }
         }
 
+        protected string _attackOneAnimation = "";
+
+        public string AttackOneAnimation
+        {
+            get { return _attackOneAnimation; }
+            set { _attackOneAnimation = value; }
+        }
+
         protected float _rangeForAttackTwo = 0.0f;
 
         public float RangeForAttackTwo
@@ -41,6 +49,14 @@ namespace NeonStarLibrary
         {
             get { return _attackToLaunchTwo; }
             set { _attackToLaunchTwo = value; }
+        }
+
+        protected string _attackTwoAnimation = "";
+
+        public string AttackTwoAnimation
+        {
+            get { return _attackTwoAnimation; }
+            set { _attackTwoAnimation = value; }
         }
 
         protected float _rangeForAttackThree = 0.0f;
@@ -59,6 +75,14 @@ namespace NeonStarLibrary
             set { _attackToLaunchThree = value; }
         }
 
+        private string _attackThreeAnimation = "";
+
+        public string AttackThreeAnimation
+        {
+            get { return _attackThreeAnimation; }
+            set { _attackThreeAnimation = value; }
+        }
+
         protected float _rangeForAttackFour = 0.0f;
 
         public float RangeForAttackFour
@@ -75,6 +99,14 @@ namespace NeonStarLibrary
             set { _attackToLaunchFour = value; }
         }
 
+        protected string _attackFourAnimation = "";
+
+        public string AttackFourAnimation
+        {
+            get { return _attackFourAnimation; }
+            set { _attackFourAnimation = value; }
+        }
+
         protected float _rangeForAttackFive = 0.0f;
 
         public float RangeForAttackFive
@@ -89,6 +121,14 @@ namespace NeonStarLibrary
         {
             get { return _attackToLaunchFive; }
             set { _attackToLaunchFive = value; }
+        }
+
+        private string _attackFiveAnimation = "";
+
+        public string AttackFiveAnimation
+        {
+            get { return _attackFiveAnimation; }
+            set { _attackFiveAnimation = value; }
         }
 
         private string _entityToAttackName = "";

@@ -290,6 +290,7 @@ namespace NeonStarLibrary
                 if (CurrentAttack.CooldownFinished)
                 {
                     CurrentAttack = null;
+                    EnemyComponent.State = EnemyState.Wait;
                 }
             }
             else
