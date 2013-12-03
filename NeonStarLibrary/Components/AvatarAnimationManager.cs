@@ -26,7 +26,6 @@ namespace NeonStarLibrary
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             entity.spritesheets.ChangeSide(AvatarComponent.CurrentSide);
-            Console.WriteLine(AvatarComponent.State);
             switch (AvatarComponent.State)
             {
                 case AvatarState.Idle:
