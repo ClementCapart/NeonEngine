@@ -169,12 +169,13 @@ namespace NeonStarLibrary
             }
             else if (trigger.Name == _fourthTriggerName)
             {
-                _targetZoom = _fourthTriggerZoom;
+                Neon.world.camera.ChaseStrength = 0.0f;
 
-                foreach (CameraBound cb in _secondBoundsToActivate)
+                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    cb.Enabled = true;
-                    cb.BoundStrength = cb.SoftBoundStrength;
+                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    if (cb.entity.Name.StartsWith("04"))
+                        cb.Enabled = false;
                 }
             }
             base.OnTrigger(trigger, triggeringEntity);
