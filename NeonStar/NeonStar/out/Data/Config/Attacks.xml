@@ -163,7 +163,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.4</Delay>
-      <Cooldown>0</Cooldown>
+      <Cooldown>0.1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.4</Duration>
       <AirLock>0</AirLock>
@@ -173,7 +173,7 @@
       <MultiHitDelay>0</MultiHitDelay>
       <SpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:5500 Y:0}" />
+          <Parameter Value="{X:6500 Y:0}" />
           <SecondParameter Value="True" />
         </Effect>
       </SpecialEffects>
@@ -182,14 +182,14 @@
     </Attack>
     <Attack ID="0" Name="EnemyTigerPunch" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="40" OffsetY="0" Width="80" Height="100" />
+        <Hitbox OffsetX="60" OffsetY="0" Width="130" Height="60" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.3</Delay>
+      <Delay>0.2</Delay>
       <Cooldown>0.7</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.2</Duration>
