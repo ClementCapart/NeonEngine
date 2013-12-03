@@ -13,7 +13,7 @@ namespace NeonStarLibrary
         private float _dashDuration = 0.15f;
         private SpriteSheetInfo _thunderEffectSpritesheetInfo = null;
 
-        private string _attackToLaunch = "Empty";
+        private string _attackToLaunch = "LiOnElementThunder1";
         private Attack ThunderAttack;
         private AnimatedSpecialEffect effect;
 
@@ -128,7 +128,6 @@ namespace NeonStarLibrary
                     {
                         _dashDuration = 0.0f;
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-
                         if (ThunderAttack != null) ThunderAttack.CancelAttack();
                         ThunderAttack = null;
                         State = ElementState.End;
