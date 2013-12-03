@@ -20,9 +20,9 @@ namespace NeonStarLibrary
         public Thunder(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
         {
+            _thunderEffectSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFX");
             this.EffectElement = Element.Thunder;
             _cooldownDuration = 1.0f;
-            _thunderEffectSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFX");
         }
 
         public override void PreUpdate(GameTime gameTime)

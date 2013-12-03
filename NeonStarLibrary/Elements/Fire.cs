@@ -16,6 +16,8 @@ namespace NeonStarLibrary
         private float _airLockDuration = 3.0f;
         private float _maxChargeTimer = 3.0f;
 
+        private float _airlockLaunched = 0.3f;
+
         private bool _chargeGoingDown = false;
 
         private int _levelOneStageTwoChargeRequired = 30;
@@ -121,7 +123,7 @@ namespace NeonStarLibrary
                     break;
 
                 case ElementState.Effect:
-                    _elementSystem.AvatarComponent.AirLock(0.0f);
+                    _elementSystem.AvatarComponent.AirLock(_airlockLaunched);
                     _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     switch(_elementLevel)
                     {
