@@ -195,6 +195,7 @@ namespace NeonEngine
         {
             Texture2D[] frames = null;            
 
+
             int columns = texture.Width / frameWidth;
             int rows = texture.Height / frameHeight;
 
