@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:726,0213 Y:-106,5}" />
-          <InitialPosition Value="{X:726,0213 Y:-106,5}" />
+          <Position Value="{X:102,1435 Y:-37,49999}" />
+          <InitialPosition Value="{X:102,1435 Y:-37,49999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:726 Y:-106}" />
-          <X Value="676" />
-          <Y Value="-186" />
+          <Center Value="{X:102 Y:-37}" />
+          <X Value="52" />
+          <Y Value="-117" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -41,7 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <Offset Value="{X:0 Y:-3}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <RotationCenter Value="{X:0 Y:0}" />
@@ -67,7 +67,7 @@
           <CurrentHealthPoints Value="50" />
           <RunAnim Value="Run" />
           <IdleAnim Value="Idle" />
-          <StartAttackAnim Value="Attack" />
+          <StartAttackAnim Value="" />
           <AttackAnim Value="" />
           <Type Value="Ground" />
           <ImmuneToStunLock Value="False" />
@@ -75,11 +75,11 @@
           <StunlockAnim Value="TakeHit" />
           <DyingAnim Value="Death" />
           <InvincibilityDuration Value="0.5" />
-          <HitAnim Value="" />
+          <HitAnim Value="TakeHit" />
           <ImmuneToDeath Value="False" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
-          <WaitThreatDuration Value="1" />
+          <WaitThreatDuration Value="0" />
         </Properties>
       </Enemy>
       <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
@@ -87,10 +87,10 @@
           <CheckBothSide Value="True" />
           <RaycastOffset Value="{X:0 Y:0}" />
           <EntityToChaseName Value="LiOn" />
-          <DetectionDistance Value="400" />
+          <DetectionDistance Value="450" />
           <WaitStopDuration Value="1" />
-          <ChaseSpeed Value="3" />
-          <ChasePrecision Value="0" />
+          <ChaseSpeed Value="3.5" />
+          <ChasePrecision Value="10" />
         </Properties>
       </GroundChase>
       <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
@@ -108,8 +108,16 @@
           <RangeForAttackFive Value="0" />
           <AttackToLaunchFive Value="" />
           <EntityToAttackName Value="LiOn" />
+          <AttackOneAnimation Value="Attack" />
+          <AttackTwoAnimation Value="" />
+          <AttackThreeAnimation Value="" />
+          <AttackFourAnimation Value="" />
+          <AttackFiveAnimation Value="" />
         </Properties>
       </GroundAttack>
+      <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+        <Properties />
+      </EnemyAnimationManager>
     </Components>
   </Entity>
 </Prefab>
