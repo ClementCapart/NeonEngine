@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace NeonStarLibrary
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             entity.spritesheets.ChangeSide(AvatarComponent.CurrentSide);
-
+            Console.WriteLine(AvatarComponent.State);
             switch (AvatarComponent.State)
             {
                 case AvatarState.Idle:
@@ -33,12 +34,10 @@ namespace NeonStarLibrary
                     {
                         if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
-                        else if (entity.rigidbody.body.LinearVelocity.Y < 0.0f)
-                            break;
                         if (entity.rigidbody.wasGrounded)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                         else
-                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, 0, true, false, false);
                         
                     }
                     else

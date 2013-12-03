@@ -217,7 +217,7 @@ namespace NeonEngine.Private
                     return -1;
                 },
                 CoordinateConversion.screenToWorld(LeftBottomRaycast + new Vector2(-OffsetX, 0)),
-                CoordinateConversion.screenToWorld(LeftBottomRaycastTarget + new Vector2(-OffsetX, 0)));
+                CoordinateConversion.screenToWorld(LeftBottomRaycastTarget + new Vector2(-OffsetX, -5)));
 
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
@@ -295,7 +295,7 @@ namespace NeonEngine.Private
                     return -1;
                 },
                 CoordinateConversion.screenToWorld(RightBottomRaycast + new Vector2(OffsetX, 0)),
-                CoordinateConversion.screenToWorld(RightBottomRaycastTarget + new Vector2(OffsetX, 0)));
+                CoordinateConversion.screenToWorld(RightBottomRaycastTarget + new Vector2(OffsetX, -5)));
 
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {

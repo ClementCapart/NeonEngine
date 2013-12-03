@@ -18,6 +18,14 @@ namespace NeonEngine
             set { _oneShot = value; }
         }
 
+        private bool _triggerEveryFrame = false;
+
+        public bool TriggerEveryFrame
+        {
+            get { return _triggerEveryFrame; }
+            set { _triggerEveryFrame = value; }
+        }
+
         private string _triggeringEntityName = "";
 
         public string TriggeringEntityName
@@ -81,7 +89,7 @@ namespace NeonEngine
                     {
                         if (_triggeringEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                         {
-                            if (!_notOutYet)
+                            if (!_notOutYet || _triggerEveryFrame)
                             {
                                 _alreadyTouched = true;
                                 _notOutYet = true;
