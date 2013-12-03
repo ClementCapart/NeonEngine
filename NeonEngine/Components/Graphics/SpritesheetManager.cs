@@ -181,6 +181,7 @@ namespace NeonEngine
             CurrentSpritesheetName = spriteSheetName;
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;
+            CurrentSpritesheet.ReverseLoop = false;
             CurrentSpritesheet.isPlaying = IsPlaying;
             CurrentSpritesheet.SetFrame(0);
             CurrentSpritesheet.Layer = Layer;

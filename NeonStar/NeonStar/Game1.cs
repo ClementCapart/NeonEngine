@@ -36,6 +36,7 @@ namespace NeonStar
             Neon.Start(this, graphics, spriteBatch, 1280, 720);
             Neon.Input.AssignCustomControls(typeof(NeonStarInput));
             Neon.NeonScripting.AddAssembly("NeonStarLibrary.dll");
+            Neon.NeonScripting.AddAssembly("NeonStarEditor.dll");
             Neon.Scripts = Neon.NeonScripting.CompileScripts().ToList<Type>();
 
             Neon.clearColor = Color.Black;

@@ -132,8 +132,9 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            if (_avatarName != "")
-                _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
+			Entity avatar = Neon.world.GetEntityByName(_avatarName);
+            if (avatar != null)
+                _avatar = avatar.GetComponent<Avatar>();
 
             if (_firstButtonName != "")
             {
@@ -163,40 +164,43 @@ namespace NeonScripts
 
         public override void Update(GameTime gameTime)
         {
-            if (_timer > 0.0f)
-            {
-                _timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_timer < 0.0f)
-                {
-                    if (_secondButtonActivated == true && _thirdButtonActivated == true)
-                    {
-                        _timer = 0.0f;
-                    }
-                    else
-                    {
-                        if (_secondButtonActivated == true)
-                        {
-                            _secondButtonActivated = false;
-                            _secondButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
-                        }
-                        if (_thirdButtonActivated == true)
-                        {
-                            _thirdButtonActivated = false;
-                            _thirdButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
-                        }
-                        _timer = 0.0f;
-                    }
-                }
-            }
+			if(_secondButton != null && _thirdButton != null)
+			{
+				if (_timer > 0.0f)
+				{
+					_timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+					if (_timer < 0.0f)
+					{
+						if (_secondButtonActivated == true && _thirdButtonActivated == true)
+						{
+							_timer = 0.0f;
+						}
+						else
+						{
+							if (_secondButtonActivated == true)
+							{
+								_secondButtonActivated = false;
+								_secondButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
+							}
+							if (_thirdButtonActivated == true)
+							{
+								_thirdButtonActivated = false;
+								_thirdButton.spritesheets.ChangeAnimation("Unpush", 0, true, true, false);
+							}
+							_timer = 0.0f;
+						}
+					}
+				}
 
-            if (_secondButton.spritesheets.CurrentSpritesheetName == "Unpush" && _secondButton.spritesheets.CurrentSpritesheet.currentFrame == _secondButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
-            {
-                _secondButton.spritesheets.ChangeAnimation("Idle",0, true, false, true);
-            }
-            if (_thirdButton.spritesheets.CurrentSpritesheetName == "Unpush" && _thirdButton.spritesheets.CurrentSpritesheet.currentFrame == _thirdButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount -1)
-            {
-                _thirdButton.spritesheets.ChangeAnimation("Idle", 0, true, false, true);
-            }
+				if (_secondButton.spritesheets.CurrentSpritesheetName == "Unpush" && _secondButton.spritesheets.CurrentSpritesheet.currentFrame == _secondButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
+				{
+					_secondButton.spritesheets.ChangeAnimation("Idle",0, true, false, true);
+				}
+				if (_thirdButton.spritesheets.CurrentSpritesheetName == "Unpush" && _thirdButton.spritesheets.CurrentSpritesheet.currentFrame == _thirdButton.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount -1)
+				{
+					_thirdButton.spritesheets.ChangeAnimation("Idle", 0, true, false, true);
+				}
+			}	
         }
 		
 		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)

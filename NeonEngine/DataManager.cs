@@ -276,7 +276,7 @@ namespace NeonEngine
                     {
 
                         PropertyInfo pi = t.GetProperty(Property.Name.ToString());
-                        
+                        if (pi == null) continue;
                         if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                             continue;
                         else if (pi.PropertyType.Equals(typeof(PathNodeList)))

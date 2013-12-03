@@ -127,6 +127,7 @@ namespace NeonStarLibrary
                         _secondBoundsToActivate.Add(cb);
                 }
             }
+
             base.Init();
         }
 
@@ -142,6 +143,7 @@ namespace NeonStarLibrary
         {
             if(trigger.Name == _firstTriggerName)
             {
+
                 foreach (CameraBound cb in _firstBoundsToActivate)
                 {
                     cb.BoundStrength = cb.SoftBoundStrength;

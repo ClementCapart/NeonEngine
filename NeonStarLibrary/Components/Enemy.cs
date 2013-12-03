@@ -88,30 +88,6 @@ namespace NeonStarLibrary
             set { _idleAnim = value; }
         }
 
-        private string _startAttackAnim = "";
-
-        public string StartAttackAnim
-        {
-            get { return _startAttackAnim; }
-            set { _startAttackAnim = value; }
-        }
-
-        private string _attackAnim = "";
-
-        public string AttackAnim
-        {
-            get { return _attackAnim; }
-            set { _attackAnim = value; }
-        }
-
-        private string _stunlockAnim = "";
-
-        public string StunlockAnim
-        {
-            get { return _stunlockAnim; }
-            set { _stunlockAnim = value; }
-        }
-
         private string _dyingAnim = "";
 
         public string DyingAnim
