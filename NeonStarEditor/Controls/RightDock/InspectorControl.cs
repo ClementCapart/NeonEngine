@@ -103,7 +103,11 @@ namespace NeonStarEditor
             EntityName.GotFocus += EntityName_GotFocus;
             EntityName.LostFocus += EntityName_LostFocus;
             EntityName.AcceptsTab = true;
-            Inspector.Controls.Add(EntityName);
+            try
+            {
+                Inspector.Controls.Add(EntityName);
+            }
+            catch { }
             Y = 45;
 
             foreach (Component c in SelectedEntity.Components)

@@ -140,7 +140,10 @@ namespace NeonStarLibrary
                             if (_waitStopTimer >= _waitStopDuration)
                             {
                                 _waitStopTimer = 0.0f;
-                                EnemyComponent.State = EnemyState.Idle;
+                                if (EnemyComponent.FollowNodes != null)
+                                    EnemyComponent.State = EnemyState.Patrol;
+                                else
+                                    EnemyComponent.State = EnemyState.Idle;
                             }
                             else
                             {
@@ -280,10 +283,7 @@ namespace NeonStarLibrary
                         EntityToChase = Neon.world.GetEntityByName(_entityToChaseName);
                 }
             }
-            else
-            {
-                EnemyComponent.State = EnemyState.Idle;
-            }
+  
                 
         }
 

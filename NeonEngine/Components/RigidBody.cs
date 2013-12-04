@@ -277,9 +277,7 @@ namespace NeonEngine
                 if (entity.Name != "Entity")
                     body.OnCollision += body_OnCollision;
                 if (sensors)
-                    beacon = new Beacon(hitbox, physicWorld);
-
-                
+                    beacon = new Beacon(hitbox, physicWorld);       
             }            
         }
 

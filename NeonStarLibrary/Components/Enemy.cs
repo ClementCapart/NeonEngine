@@ -222,10 +222,13 @@ namespace NeonStarLibrary
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath)
+            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath && State != EnemyState.Dying && State != EnemyState.Dead)
             {
                 if (attack._entity != null && CoreElement != Element.Neutral)
                     attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+
+                entity.hitboxes[0].Type = HitboxType.Invincible;
+                State = EnemyState.Dying;
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
@@ -243,10 +246,13 @@ namespace NeonStarLibrary
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, bullet.launcher != null ? bullet.launcher : bullet.launcher, new object[] { bullet });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath)
+            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath && State != EnemyState.Dying && State != EnemyState.Dead)
             {
                 if (bullet.launcher != null && CoreElement != Element.Neutral)
                     bullet.launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+
+                entity.hitboxes[0].Type = HitboxType.Invincible;
+                State = EnemyState.Dying;
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
@@ -265,18 +271,6 @@ namespace NeonStarLibrary
                 return false;
 
             _currentHealthPoints += damageValue;
-
-            if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
-            {
-                this.State = EnemyState.Dying;
-
-                if (entity.rigidbody != null)
-                {
-                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                }
-
-                return false;
-            }
 
             if (Debug)
             {
@@ -300,6 +294,11 @@ namespace NeonStarLibrary
             if (!entity.rigidbody.isGrounded)
             {
                 AirLock(airLockDuration);
+            }
+            if (_currentHealthPoints <= 0.0f)
+            {
+                entity.hitboxes[0].Type = HitboxType.Invincible;
+                return false;
             }
             return true;
         }
