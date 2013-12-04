@@ -2,290 +2,6 @@
 <XnaContent>
   <Level>
     <Entities>
-      <Entity Name="PlatformFloor">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3001 Y:-30}" />
-              <InitialPosition Value="{X:3001 Y:-30}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:3001 Y:-29}" />
-              <X Value="501" />
-              <Y Value="-54" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="5000" />
-              <Height Value="50" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="0" />
-              <UseGravity Value="False" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="25" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="False" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="LiOn">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1129 Y:-124,5}" />
-              <InitialPosition Value="{X:1129 Y:-124,5}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:1129 Y:-124}" />
-              <X Value="1109" />
-              <Y Value="-192" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="40" />
-              <Height Value="136" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Dynamic" />
-              <GravityScale Value="2" />
-              <UseGravity Value="False" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="54" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="True" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="idle" SpritesheetTag="LiOnIdle" />
-                <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
-                <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
-                <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
-                <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="startFall" SpritesheetTag="LiOnJumpDOWN02" />
-                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWNLoop02" />
-                <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
-                <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
-                <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
-                <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
-                <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
-                <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
-                <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
-                <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
-                <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
-                <Animation Name="Hit" SpritesheetTag="LiOnHit" />
-                <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
-                <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
-                <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-          <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
-            <Properties>
-              <Debug Value="True" />
-              <LightAttackName Value="LiOnLightAttack" />
-              <RushAttackName Value="LiOnRushAttack" />
-              <UppercutName Value="LiOnUppercut" />
-              <DiveAttackName Value="LiOnDiveAttack" />
-              <ComboDelayMax Value="0.5" />
-              <LightAttackAnimation Value="lightattack" />
-              <UppercutAnimation Value="uppercut" />
-              <RushAttackAnimation Value="rushattack" />
-              <DiveAttackStartAnimation Value="DiveAttackStart" />
-              <DiveAttackLoopAnimation Value="DiveAttackLoop" />
-              <DiveAttackLandAnimation Value="DiveAttackLand" />
-              <RushAttackSideDelay Value="0.09" />
-              <ChainDelay Value="0.15" />
-              <RushAttackStickDelay Value="0.08" />
-            </Properties>
-          </MeleeFight>
-          <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
-            <Properties>
-              <JumpImpulseHeight Value="470" />
-              <GroundAccelerationSpeed Value="1" />
-              <AirAccelerationSpeed Value="1" />
-              <GroundMaxSpeed Value="4.5" />
-              <AirMaxSpeed Value="4.5" />
-              <IdleAnimation Value="idle" />
-              <WalkAnimation Value="run" />
-              <JumpAnimation Value="startJump" />
-              <StartFallAnimation Value="startFall" />
-              <FallLoopAnimation Value="fallLoop" />
-              <LandingAnimation Value="landing" />
-              <MaxJumpInputDelay Value="0.5" />
-              <MaxFallSpeed Value="20" />
-            </Properties>
-          </ThirdPersonController>
-          <Avatar Type="NeonStarLibrary.Avatar" ID="6">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="99" />
-              <CurrentHealthPoints Value="99" />
-              <InvincibilityDuration Value="1" />
-              <HitAnim Value="Hit" />
-              <HitGuardAnim Value="HitGuard" />
-              <HitGuardFX Value="LiOnGuardFX" />
-            </Properties>
-          </Avatar>
-          <Roll Type="NeonStarLibrary.Guard" ID="7">
-            <Properties>
-              <RollAnimation Value="Roll" />
-              <DashAnimation Value="AirDash" />
-              <GuardAnimation Value="Guard" />
-              <RollDuration Value="0.3" />
-              <DashDuration Value="0.17" />
-              <GuardDuration Value="0.3" />
-              <RollCooldown Value="0.3" />
-              <DashCooldown Value="0.3" />
-              <GuardCooldown Value="0.3" />
-              <RollImpulse Value="650" />
-              <DashImpulse Value="550" />
-              <GuardDamageReduce Value="116" />
-            </Properties>
-          </Roll>
-          <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
-            <Properties>
-              <FireLaunchAnimation Value="FireLaunch" />
-              <FireCooldown Value="3" />
-              <ThunderLaunchAnimation Value="ThunderLaunch" />
-              <ThunderCooldown Value="3" />
-              <LeftSlotElement Value="Neutral" />
-              <LeftSlotLevel Value="1" />
-              <RightSlotElement Value="Neutral" />
-              <RightSlotLevel Value="1" />
-              <MaxLevel Value="3" />
-              <ThunderGatheringFX Value="" />
-              <FireGatheringFX Value="" />
-              <GetElementColorDelay Value="0.15" />
-            </Properties>
-          </ElementSystem>
-          <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
-            <Properties />
-          </RestartGame>
-          <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
-            <Properties />
-          </AvatarAnimationManager>
-        </Components>
-      </Entity>
-      <Entity Name="Screen1Levels">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2394 Y:-435}" />
-              <InitialPosition Value="{X:2394 Y:-435}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="PlanningLevels" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Screen2Elements">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3503 Y:-435}" />
-              <InitialPosition Value="{X:3503 Y:-435}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="PlanningElements" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Screen3Enemies">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4563 Y:-435}" />
-              <InitialPosition Value="{X:4563 Y:-435}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="PlanningEnemies" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
       <Entity Name="BoundDown">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -418,47 +134,6 @@
           </CameraBound>
         </Components>
       </Entity>
-      <Entity Name="PlatformLeftWall">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:476 Y:-105}" />
-              <InitialPosition Value="{X:476 Y:-105}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:475 Y:-104}" />
-              <X Value="450" />
-              <Y Value="-1104" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="2000" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="0" />
-              <UseGravity Value="False" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="10" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="False" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
       <Entity Name="JukeBox">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -511,6 +186,421 @@
           <MusicScript Type="NeonStarLibrary.MusicScript" ID="4">
             <Properties />
           </MusicScript>
+        </Components>
+      </Entity>
+      <Entity Name="LiOn">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:739,9999 Y:-124,5}" />
+              <InitialPosition Value="{X:739,9999 Y:-124,5}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:739 Y:-124}" />
+              <X Value="719" />
+              <Y Value="-192" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="40" />
+              <Height Value="136" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="54" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="True" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="idle" SpritesheetTag="LiOnIdle" />
+                <Animation Name="run" SpritesheetTag="LiOnRun" />
+                <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
+                <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
+                <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
+                <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
+                <Animation Name="startFall" SpritesheetTag="LiOnJumpDOWN02" />
+                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWNLoop02" />
+                <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
+                <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
+                <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
+                <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
+                <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
+                <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
+                <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
+                <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
+                <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
+                <Animation Name="Hit" SpritesheetTag="LiOnHit" />
+                <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
+                <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
+                <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
+              </Spritesheets>
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
+            <Properties>
+              <Debug Value="True" />
+              <LightAttackName Value="LiOnLightAttack" />
+              <RushAttackName Value="LiOnRushAttack" />
+              <UppercutName Value="LiOnUppercut" />
+              <DiveAttackName Value="LiOnDiveAttack" />
+              <ComboDelayMax Value="0.5" />
+              <LightAttackAnimation Value="lightattack" />
+              <UppercutAnimation Value="uppercut" />
+              <RushAttackAnimation Value="rushattack" />
+              <DiveAttackStartAnimation Value="DiveAttackStart" />
+              <DiveAttackLoopAnimation Value="DiveAttackLoop" />
+              <DiveAttackLandAnimation Value="DiveAttackLand" />
+              <RushAttackSideDelay Value="0.09" />
+              <ChainDelay Value="0.15" />
+              <RushAttackStickDelay Value="0.08" />
+            </Properties>
+          </MeleeFight>
+          <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
+            <Properties>
+              <JumpImpulseHeight Value="470" />
+              <GroundAccelerationSpeed Value="1" />
+              <AirAccelerationSpeed Value="1" />
+              <GroundMaxSpeed Value="4.5" />
+              <AirMaxSpeed Value="4.5" />
+              <IdleAnimation Value="idle" />
+              <WalkAnimation Value="run" />
+              <JumpAnimation Value="startJump" />
+              <StartFallAnimation Value="startFall" />
+              <FallLoopAnimation Value="fallLoop" />
+              <LandingAnimation Value="landing" />
+              <MaxJumpInputDelay Value="0.5" />
+              <MaxFallSpeed Value="20" />
+            </Properties>
+          </ThirdPersonController>
+          <Avatar Type="NeonStarLibrary.Avatar" ID="6">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="99" />
+              <CurrentHealthPoints Value="99" />
+              <InvincibilityDuration Value="1" />
+              <HitAnim Value="Hit" />
+              <HitGuardAnim Value="HitGuard" />
+              <HitGuardFX Value="LiOnGuardFX" />
+            </Properties>
+          </Avatar>
+          <Roll Type="NeonStarLibrary.Guard" ID="7">
+            <Properties>
+              <RollAnimation Value="Roll" />
+              <DashAnimation Value="AirDash" />
+              <GuardAnimation Value="Guard" />
+              <RollDuration Value="0.3" />
+              <DashDuration Value="0.17" />
+              <GuardDuration Value="0.3" />
+              <RollCooldown Value="0.3" />
+              <DashCooldown Value="0.3" />
+              <GuardCooldown Value="0.3" />
+              <RollImpulse Value="650" />
+              <DashImpulse Value="550" />
+              <GuardDamageReduce Value="116" />
+            </Properties>
+          </Roll>
+          <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
+            <Properties>
+              <FireLaunchAnimation Value="FireLaunch" />
+              <FireCooldown Value="3" />
+              <ThunderLaunchAnimation Value="ThunderLaunch" />
+              <ThunderCooldown Value="3" />
+              <LeftSlotElement Value="Neutral" />
+              <LeftSlotLevel Value="1" />
+              <RightSlotElement Value="Neutral" />
+              <RightSlotLevel Value="1" />
+              <MaxLevel Value="3" />
+              <ThunderGatheringFX Value="" />
+              <FireGatheringFX Value="" />
+              <GetElementColorDelay Value="0.15" />
+            </Properties>
+          </ElementSystem>
+          <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
+            <Properties />
+          </RestartGame>
+          <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
+            <Properties />
+          </AvatarAnimationManager>
+        </Components>
+      </Entity>
+      <Entity Name="PlatformFloor">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3001 Y:-30}" />
+              <InitialPosition Value="{X:3001 Y:-30}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:3001 Y:-29}" />
+              <X Value="-499" />
+              <Y Value="-54" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="7000" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="35" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="PlatformLeftWall">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:476 Y:-105}" />
+              <InitialPosition Value="{X:476 Y:-105}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:475 Y:-104}" />
+              <X Value="450" />
+              <Y Value="-1104" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="2000" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="10" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="Screen1Levels">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2394 Y:-435}" />
+              <InitialPosition Value="{X:2394 Y:-435}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="PlanningLevels" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen2Elements">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3503 Y:-435}" />
+              <InitialPosition Value="{X:3503 Y:-435}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="PlanningElements" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen3Enemies">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4563 Y:-435}" />
+              <InitialPosition Value="{X:4563 Y:-435}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="PlanningEnemies" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen4Questions">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5726 Y:-435}" />
+              <InitialPosition Value="{X:5726 Y:-435}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="Questions" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="PlatformRightWall">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:6526 Y:-136}" />
+              <InitialPosition Value="{X:6526 Y:-136}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:6526 Y:-136}" />
+              <X Value="6501" />
+              <Y Value="-1136" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="2000" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="10" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="BoundDown">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:6500 Y:-4}" />
+              <InitialPosition Value="{X:6500 Y:-4}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
