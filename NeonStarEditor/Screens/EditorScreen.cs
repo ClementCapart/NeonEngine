@@ -148,6 +148,7 @@ namespace NeonStarEditor
                 Pause = !Pause;
                 UnpauseTillNextFrame = false;
             }
+
             this.IsActiveForm = System.Windows.Forms.Form.ActiveForm == this.GameAsForm;
 
             if (CurrentTool != null && MouseInGameWindow)
@@ -506,7 +507,8 @@ namespace NeonStarEditor
                          }
                          else if (Neon.Input.KeysPressed[i] == Keys.Enter)
                          {
-                             FocusedTextBox.Parent.Focus();
+                             if(FocusedTextBox.Parent != null)
+                                FocusedTextBox.Parent.Focus();
                              FocusedTextBox = null;
                          }
                          else if (Neon.Input.KeysPressed[i] == Keys.Delete && PressedDelay <= 0f)
@@ -681,7 +683,8 @@ namespace NeonStarEditor
                             break;
 
                             case Keys.Enter:
-                            FocusedNumericUpDown.Parent.Focus();
+                            if(FocusedNumericUpDown.Parent != null)
+                                FocusedNumericUpDown.Parent.Focus();
                             break;
 
                             case Keys.Delete:
