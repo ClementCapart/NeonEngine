@@ -91,17 +91,20 @@ namespace NeonStarLibrary
                 }
                 else if (triggeringEntity.Name == "ButtonUppercut")
                 {
-                    if (_buttonPushed == null)
+                    if (_avatar.MeleeFight.CurrentAttack != null && _avatar.MeleeFight.CurrentAttack.Name == "LiOnUppercut")
                     {
-                        _buttonPushed = triggeringEntity;
-                        _buttonPushed.spritesheets.ChangeAnimation("ButtonActivation", 0, true, false, false);
-                    }
-                    else if(_buttonPushed != _buttonUppercut)
-                    {
-                        _buttonPushed = null;
-                        triggeringEntity.spritesheets.ChangeAnimation("ButtonActivation", 0, true, false, false);
-                        _activated = true;
-                        _3rdDoor.OpenDoor();
+                        if (_buttonPushed == null)
+                        {
+                            _buttonPushed = triggeringEntity;
+                            _buttonPushed.spritesheets.ChangeAnimation("ButtonActivation", 0, true, false, false);
+                        }
+                        else if (_buttonPushed != _buttonUppercut)
+                        {
+                            _buttonPushed = null;
+                            triggeringEntity.spritesheets.ChangeAnimation("ButtonActivation", 0, true, false, false);
+                            _activated = true;
+                            _3rdDoor.OpenDoor();
+                        }
                     }
                 }
             }
