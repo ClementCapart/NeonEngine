@@ -180,6 +180,17 @@ namespace NeonStarLibrary
                         cb.Enabled = false;
                 }
             }
+            else if (trigger.Name == "06Trigger")
+            {
+                Neon.world.camera.ChaseStrength = 0.0f;
+
+                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                {
+                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    if (cb.entity.Name.StartsWith("06"))
+                        cb.Enabled = false;
+                }
+            }
             base.OnTrigger(trigger, triggeringEntity);
         }
 

@@ -361,6 +361,10 @@ namespace NeonEngine.Private
                             hitEntity = null;
                             return -1;
                         }
+
+                        if (hitEntity.rigidbody.IsGround && hitEntity.rigidbody.BodyType == BodyType.Static)
+                            return -1;
+                        
                         return 0;
                     }
                     return -1;
