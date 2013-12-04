@@ -224,8 +224,11 @@ namespace NeonStarLibrary
             }
             else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath && State != EnemyState.Dying && State != EnemyState.Dead)
             {
-                if (attack._entity != null && CoreElement != Element.Neutral)
+                if (attack.Launcher != null && CoreElement != Element.Neutral)
+                    attack.Launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                else if (attack._entity != null && CoreElement != Element.Neutral)
                     attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+
 
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;
@@ -272,6 +275,12 @@ namespace NeonStarLibrary
 
             _currentHealthPoints += damageValue;
 
+            if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
+            {
+                entity.hitboxes[0].Type = HitboxType.Invincible;
+                return false;
+            }
+
             if (Debug)
             {
                 Console.WriteLine(entity.Name + " have lost " + damageValue + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
@@ -295,11 +304,7 @@ namespace NeonStarLibrary
             {
                 AirLock(airLockDuration);
             }
-            if (_currentHealthPoints <= 0.0f)
-            {
-                entity.hitboxes[0].Type = HitboxType.Invincible;
-                return false;
-            }
+            
             return true;
         }
 

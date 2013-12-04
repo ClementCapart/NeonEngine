@@ -138,10 +138,7 @@ namespace NeonStarLibrary
                     }
                 }
             }
-            else
-            {
-                EnemyComponent.State = EnemyState.Idle;
-            }
+            
             
             base.PreUpdate(gameTime);
         }

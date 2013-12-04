@@ -13,6 +13,8 @@ namespace NeonStarLibrary
         private bool _inTrigger = false;
 
         SpriteSheetInfo fx;
+        SpriteSheetInfo tpFX;
+        AnimatedSpecialEffect tpEffect;
         Entity _screen;
 
         public PipelineScript(Entity entity)
@@ -23,6 +25,7 @@ namespace NeonStarLibrary
         public override void Init()
         {
             fx = AssetManager.GetSpriteSheet("AnimationJury");
+            tpFX = AssetManager.GetSpriteSheet("AnimationJuryTeleportDOWN");
             _screen = Neon.world.GetEntityByName("05PipelineScreen");
             _screen.spritesheets.ChangeAnimation("BlankScreen");
             base.Init();
@@ -66,9 +69,24 @@ namespace NeonStarLibrary
 
                         case 6:
                             _screen.spritesheets.ChangeAnimation("BlankScreen", 0, true, false, false);
+                            entity.spritesheets.ChangeAnimation("Teleport", 0, true, false, false);
                             break;
                     }
                 }
+            }
+            
+            if (entity.spritesheets.CurrentSpritesheetName == "Teleport" && entity.spritesheets.IsFinished())
+            {
+                tpEffect = EffectsManager.GetEffect(tpFX, Side.Left, new Vector2(6000f, -565.50f), 0.0f, Vector2.Zero, 0.3f);
+                entity.spritesheets.CurrentSpritesheetName = "";
+            }
+
+            if (tpEffect != null && tpEffect.spriteSheet.currentFrame == tpEffect.spriteSheet.spriteSheetInfo.FrameCount - 2)
+            {
+                DataManager.LoadPrefab(@"../Data/Prefabs/EnemyTiger.prefab", Neon.world);
+                Neon.world.entities[Neon.world.entities.Count - 1].transform.Position = new Vector2(6000f, -565.50f);
+                Neon.world.entities[Neon.world.entities.Count - 1].GetComponent<Enemy>().CurrentSide = Side.Left;
+                tpEffect = null;
             }
             base.Update(gameTime);
         }

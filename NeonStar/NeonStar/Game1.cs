@@ -42,7 +42,7 @@ namespace NeonStar
             Neon.clearColor = Color.Black;
             #if DEBUG
             Neon.world = new EditorScreen(this, Neon.GraphicsDeviceManager);
-            #else
+            #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             Neon.world = new IntroScreen(this);
@@ -60,8 +60,7 @@ namespace NeonStar
         }
 
         protected override void Update(GameTime gameTime)
-        {   
-
+        {
             Neon.world.UpdateWorld(gameTime);
             base.Update(gameTime);
 
@@ -69,9 +68,9 @@ namespace NeonStar
 
         protected override void Draw(GameTime gameTime)
         {
-                GraphicsDevice.Clear(Neon.clearColor);
-                Neon.world.Draw(spriteBatch);
-                base.Draw(gameTime);
+            GraphicsDevice.Clear(Neon.clearColor);
+            Neon.world.Draw(spriteBatch);
+            base.Draw(gameTime);
         }
     }
 }

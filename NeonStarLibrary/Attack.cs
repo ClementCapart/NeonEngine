@@ -437,7 +437,7 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.StartAttack:
                             string attackName = (string)(ae.Parameters[0]);
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:
@@ -574,7 +574,7 @@ namespace NeonStarLibrary
 
                             case SpecialEffect.StartAttack:
                                 string attackName = (string)ae.Parameters[0];
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                                 break;
 
                             case SpecialEffect.ShootBullet:
@@ -680,7 +680,7 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.StartAttack:
                             string attackName = (string)ae.Parameters[0];
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position);
+                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:

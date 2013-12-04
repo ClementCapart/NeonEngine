@@ -371,8 +371,8 @@
               <ClosedIdleAnimation Value="CloseIdle" />
               <OpenedIdleAnimation Value="OpenIdle" />
               <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="True" />
-              <DoorClosingAnimation Value="" />
+              <ClosingIsReverseOpening Value="False" />
+              <DoorClosingAnimation Value="ClosingDoor" />
               <StartOpened Value="True" />
             </Properties>
           </Door>
@@ -388,6 +388,7 @@
                 <Animation Name="OpenIdle" SpritesheetTag="DoorOpened" />
                 <Animation Name="CloseIdle" SpritesheetTag="DoorClosed" />
                 <Animation Name="Opening" SpritesheetTag="Door" />
+                <Animation Name="ClosingDoor" SpritesheetTag="DoorClosing" />
               </Spritesheets>
               <DrawLayer Value="0.9" />
               <IsHUD Value="False" />
@@ -3918,8 +3919,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1928 Y:-1127}" />
-              <InitialPosition Value="{X:1928 Y:-1127}" />
+              <Position Value="{X:1932 Y:-1127}" />
+              <InitialPosition Value="{X:1932 Y:-1127}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -3927,12 +3928,12 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1928 Y:-1127}" />
-              <X Value="1833" />
+              <Center Value="{X:1932 Y:-1127}" />
+              <X Value="1832" />
               <Y Value="-1152" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="190" />
+              <Width Value="200" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
@@ -4390,9 +4391,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="20" />
+              <StartingHealthPoints Value="12" />
               <CoreElement Value="Fire" />
-              <CurrentHealthPoints Value="20" />
+              <CurrentHealthPoints Value="12" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="Idle" />
@@ -4456,7 +4457,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3337,18 Y:-825,4998}" />
+              <Position Value="{X:3298,034 Y:-825,4998}" />
               <InitialPosition Value="{X:3314 Y:-825,4998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4465,8 +4466,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3337 Y:-825}" />
-              <X Value="3287" />
+              <Center Value="{X:3298 Y:-825}" />
+              <X Value="3248" />
               <Y Value="-905" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4756,9 +4757,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -4873,9 +4874,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -4933,7 +4934,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8349 Y:9,500005}" />
+              <Position Value="{X:8349 Y:9,499994}" />
               <InitialPosition Value="{X:8349 Y:9,500001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4990,9 +4991,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -5050,7 +5051,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8558 Y:9,500005}" />
+              <Position Value="{X:8558 Y:9,499994}" />
               <InitialPosition Value="{X:8558 Y:9,500005}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5107,9 +5108,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -5167,7 +5168,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8455 Y:9,500005}" />
+              <Position Value="{X:8455 Y:9,499994}" />
               <InitialPosition Value="{X:8455 Y:9,500003}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5224,9 +5225,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -5284,7 +5285,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:11505 Y:276}" />
+              <Position Value="{X:11505 Y:276,1836}" />
               <InitialPosition Value="{X:11505 Y:276,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5341,9 +5342,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -5401,7 +5402,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:11706 Y:276}" />
+              <Position Value="{X:11706 Y:276,1836}" />
               <InitialPosition Value="{X:11706 Y:276,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5458,9 +5459,9 @@
           <Enemy Type="NeonStarLibrary.Enemy" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="30" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="30" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -5518,7 +5519,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:9938,771 Y:9,500005}" />
+              <Position Value="{X:10082,03 Y:9,499994}" />
               <InitialPosition Value="{X:10105,88 Y:9,49999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5527,8 +5528,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:9938 Y:9}" />
-              <X Value="9898" />
+              <Center Value="{X:10082 Y:9}" />
+              <X Value="10042" />
               <Y Value="-71" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -5808,7 +5809,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-464 Y:-25,5}" />
+              <Position Value="{X:-464 Y:-25,49999}" />
               <InitialPosition Value="{X:-464 Y:-900}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -6286,6 +6287,7 @@
                 <Animation Name="ConstructedModel" SpritesheetTag="AnimationJuryStep03" />
                 <Animation Name="IdleModel" SpritesheetTag="EnemyTigerIdleGREEN" />
                 <Animation Name="WalkModel" SpritesheetTag="EnemyTigerWalkGREEN" />
+                <Animation Name="Teleport" SpritesheetTag="AnimationJuryTeleportUP" />
               </Spritesheets>
               <DrawLayer Value="0.3" />
               <IsHUD Value="False" />
@@ -6324,7 +6326,7 @@
                 <Animation Name="GlobalTweakScreen" SpritesheetTag="PipelineNOISE5GlobalTweak" />
                 <Animation Name="SituationalTweak" SpritesheetTag="PipelineNOISE6SituationalTweak" />
               </Spritesheets>
-              <DrawLayer Value="0.4" />
+              <DrawLayer Value="0.15" />
               <IsHUD Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -6356,6 +6358,47 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:10519,5 Y:240}" />
+              <InitialPosition Value="{X:10519,5 Y:240}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:10519 Y:239}" />
+              <X Value="10306" />
+              <Y Value="215" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="427" />
+              <Height Value="48" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="2.0496" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
         </Components>
       </Entity>
     </Entities>
