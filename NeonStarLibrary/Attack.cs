@@ -337,7 +337,8 @@ namespace NeonStarLibrary
             if (_type == AttackType.MeleeSpecial && _meleeFight != null)
             {
                 _meleeFight.CurrentComboHit = ComboSequence.None;
-                _meleeFight.AvatarComponent.AirLock(this.AirLock);
+                if (AirLock > 0.0f) 
+                    _meleeFight.AvatarComponent.AirLock(this.AirLock);
             }
         }
 

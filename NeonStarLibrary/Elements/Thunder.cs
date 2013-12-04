@@ -46,39 +46,13 @@ namespace NeonStarLibrary
             {
                 case ElementState.Initialization:
                     State = ElementState.Charge;
-                    if (_entity.rigidbody != null)
-                    {
-                        if (_entity.rigidbody.beacon != null)
-                        {
-                            switch (_elementSystem.AvatarComponent.CurrentSide)
-                            {
-                                case Side.Left:
-                                    if (_entity.rigidbody.beacon.CheckLeftSide(50) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        State = ElementState.End;
-                                    }
-                                    break;
-
-                                case Side.Right:
-                                    if (_entity.rigidbody.beacon.CheckRightSide(50) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        State = ElementState.End;
-                                    }
-                                    break;
-                            }
-
-                        }
-                    }
+                    
                     if(State == ElementState.Charge)
                         effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, new Vector2(_elementSystem.entity.transform.Position.X, _elementSystem.entity.transform.Position.Y), 0.0f, new Vector2(_thunderEffectSpritesheetInfo.FrameWidth / 2 - 120, -80), 0.9f);
+                    _entity.hitboxes[0].SwitchType(HitboxType.Invincible, 0.15f);
                     break;
 
-                case ElementState.Charge:
-                    
+                case ElementState.Charge:                    
                     Neon.world.camera.ChaseStrength = 0.0f;
                     _entity.rigidbody.GravityScale = 0.0f;
                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -86,34 +60,6 @@ namespace NeonStarLibrary
                     
                     State = ElementState.Effect;
                     ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);
-                    if (_entity.rigidbody != null)
-                    {
-                        if (_entity.rigidbody.beacon != null)
-                        {
-                            switch (_elementSystem.AvatarComponent.CurrentSide)
-                            {
-                                case Side.Left:
-                                    if (_entity.rigidbody.beacon.CheckLeftSide(50) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        effect.Destroy();
-                                        State = ElementState.End;
-                                    }
-                                    break;
-
-                                case Side.Right:
-                                    if (_entity.rigidbody.beacon.CheckRightSide(50) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        effect.Destroy();
-                                        State = ElementState.End;
-                                    }
-                                    break;
-                            }
-                        }
-                    }
                     break;
 
                 case ElementState.Effect:
@@ -133,35 +79,7 @@ namespace NeonStarLibrary
                         State = ElementState.End;
                     }
 
-                    if (_entity.rigidbody != null)
-                    {
-                        if (_entity.rigidbody.beacon != null)
-                        {
-                            switch (_elementSystem.AvatarComponent.CurrentSide)
-                            {
-                                case Side.Left:
-                                    if (_entity.rigidbody.beacon.CheckLeftSide(20) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        effect.Destroy();
-                                        State = ElementState.End;
-                                    }
-                                    break;
-
-                                case Side.Right:
-                                    if (_entity.rigidbody.beacon.CheckRightSide(20) != null)
-                                    {
-                                        _dashDuration = 0.0f;
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        effect.Destroy();
-                                        State = ElementState.End;
-                                    }
-                                    break;
-                            }
-
-                        }
-                    }
+                    
 
                     switch (_input)
                     {
@@ -177,6 +95,8 @@ namespace NeonStarLibrary
                     break;
 
                 case ElementState.End:
+                    ThunderAttack.CancelAttack();
+                    ThunderAttack = null;
                     break;
             }
             base.Update(gameTime);
