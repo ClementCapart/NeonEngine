@@ -745,6 +745,11 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="NodeList1" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="01PlatformSolid">
@@ -2212,6 +2217,11 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="NodeList2" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="03PlatformSolid">
@@ -4283,7 +4293,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3314 Y:-825,4998}" />
+              <Position Value="{X:3220,068 Y:-825,4998}" />
               <InitialPosition Value="{X:3314 Y:-825,4998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4292,8 +4302,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3314 Y:-825}" />
-              <X Value="3264" />
+              <Center Value="{X:3220 Y:-825}" />
+              <X Value="3170" />
               <Y Value="-905" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4393,6 +4403,15 @@
           <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
             <Properties />
           </EnemyAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
+            <Properties>
+              <CurrentNodeList Value="NodeList1" />
+              <Speed Value="2" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="50" />
+            </Properties>
+          </FollowPlatformNodes>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot">
@@ -4751,7 +4770,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8349 Y:9,500005}" />
+              <Position Value="{X:8349 Y:9,500003}" />
               <InitialPosition Value="{X:8349 Y:9,500001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4868,7 +4887,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8558 Y:9,500005}" />
+              <Position Value="{X:8558 Y:9,500003}" />
               <InitialPosition Value="{X:8558 Y:9,500005}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4985,7 +5004,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8455 Y:9,500005}" />
+              <Position Value="{X:8455 Y:9,500003}" />
               <InitialPosition Value="{X:8455 Y:9,500003}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5535,8 +5554,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:530 Y:-25,5}" />
-              <InitialPosition Value="{X:530 Y:-25,5}" />
+              <Position Value="{X:535 Y:-25,49999}" />
+              <InitialPosition Value="{X:535 Y:-25,49999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -5544,8 +5563,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:530 Y:-25}" />
-              <X Value="510" />
+              <Center Value="{X:535 Y:-25}" />
+              <X Value="515" />
               <Y Value="-93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -5734,8 +5753,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:9932,999 Y:9,500006}" />
-              <InitialPosition Value="{X:9932,999 Y:9,500006}" />
+              <Position Value="{X:9902,061 Y:9,500003}" />
+              <InitialPosition Value="{X:9902,061 Y:9,500003}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -5743,8 +5762,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:9932 Y:9}" />
-              <X Value="9892" />
+              <Center Value="{X:9902 Y:9}" />
+              <X Value="9862" />
               <Y Value="-71" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -5844,8 +5863,27 @@
           <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
             <Properties />
           </EnemyAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="2">
+            <Properties>
+              <CurrentNodeList Value="NodeList2" />
+              <Speed Value="2" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="50" />
+            </Properties>
+          </FollowPlatformNodes>
         </Components>
       </Entity>
     </Entities>
+    <PathNodeLists>
+      <PathNodeList Name="NodeList1" Type="Ground">
+        <Node Type="DelayedMove" Index="0" Position="{X:3113,667 Y:-789}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:3582 Y:-789}" Delay="1" />
+      </PathNodeList>
+      <PathNodeList Name="NodeList2" Type="Ground">
+        <Node Type="DelayedMove" Index="0" Position="{X:10231 Y:42,00001}" Delay="1" />
+        <Node Type="DelayedMove" Index="1" Position="{X:9717 Y:42,00001}" Delay="1" />
+      </PathNodeList>
+    </PathNodeLists>
   </Level>
 </XnaContent>
