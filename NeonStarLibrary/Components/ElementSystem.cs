@@ -196,7 +196,7 @@ namespace NeonStarLibrary
                     }
                 }
 
-                if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                /*if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -213,7 +213,7 @@ namespace NeonStarLibrary
                         _rightSlotElement = Element.Neutral;
                         _rightSlotLevel = 1;
                     }
-                }
+                }*/
             }
             else if (CurrentElementEffect != null)
             {
@@ -273,6 +273,29 @@ namespace NeonStarLibrary
                     CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
                     break;
             }
+        }
+
+        public void DropElement(Side side)
+        {
+            if (side == Side.Left)
+            {
+                if (_leftSlotElement != Element.Neutral)
+                {
+                    Console.WriteLine("Drop Element -> " + LeftSlotElement);
+                    _leftSlotElement = Element.Neutral;
+                    _leftSlotLevel = 1;
+                }
+            }
+            else
+            {
+                if (_rightSlotElement != Element.Neutral)
+                {
+                    Console.WriteLine("Drop Element -> " + RightSlotElement);
+                    _rightSlotElement = Element.Neutral;
+                    _rightSlotLevel = 1;
+                }
+            }
+            
         }
 
         public void GetElement(Element element)

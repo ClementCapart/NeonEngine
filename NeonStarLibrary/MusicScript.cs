@@ -17,7 +17,6 @@ namespace NeonStarLibrary
         public MusicScript(Entity entity)
             :base(entity, "MusicScript")
         {
-
         }
 
         public override void Init()
