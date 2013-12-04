@@ -2,13 +2,13 @@
 <XnaContent>
   <Level>
     <Entities>
-      <Entity Name="LevelGeometrySA">
+      <Entity Name="01PlatformSolid">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-390 Y:308}" />
-              <InitialPosition Value="{X:-390 Y:308}" />
+              <Position Value="{X:1000 Y:69}" />
+              <InitialPosition Value="{X:1000 Y:69}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -16,12 +16,12 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-390 Y:308}" />
-              <X Value="-530" />
-              <Y Value="283" />
+              <Center Value="{X:1000 Y:69}" />
+              <X Value="775" />
+              <Y Value="44" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="280" />
+              <Width Value="450" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
@@ -32,7 +32,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.4" />
+              <Mass Value="2.25" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -41,18 +41,97 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
-            <Properties />
-          </LinkedToPath>
+        </Components>
+      </Entity>
+      <Entity Name="HUD">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
+            <Properties>
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="99" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
+            <Properties>
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
+            </Properties>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
       <Entity Name="LiOn">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
-              <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:-355,0473 Y:213,5}" />
-              <InitialPosition Value="{X:-416,775 Y:213,5}" />
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1001 Y:-25,49999}" />
+              <InitialPosition Value="{X:1001 Y:-25,49999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -60,9 +139,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-355 Y:213}" />
-              <X Value="-375" />
-              <Y Value="145" />
+              <Center Value="{X:1001 Y:-25}" />
+              <X Value="981" />
+              <Y Value="-93" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -90,32 +169,34 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="True" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="startJump" SpritesheetTag="LiOnJumpUp" />
+                <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
                 <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
                 <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="startFall" SpritesheetTag="LiOnJumpDown" />
-                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDownLoop" />
-                <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
+                <Animation Name="startFall" SpritesheetTag="LiOnJumpDOWN02" />
+                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWNLoop02" />
+                <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
                 <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
                 <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
                 <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
                 <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
                 <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
                 <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
-                <Animation Name="Guard" SpritesheetTag="LiOnCounter" />
+                <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
                 <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
                 <Animation Name="Hit" SpritesheetTag="LiOnHit" />
                 <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
+                <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
+                <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
-              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -140,7 +221,7 @@
           </MeleeFight>
           <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
             <Properties>
-              <JumpImpulseHeight Value="450" />
+              <JumpImpulseHeight Value="470" />
               <GroundAccelerationSpeed Value="1" />
               <AirAccelerationSpeed Value="1" />
               <GroundMaxSpeed Value="4.5" />
@@ -161,6 +242,8 @@
               <CurrentHealthPoints Value="99" />
               <InvincibilityDuration Value="1" />
               <HitAnim Value="Hit" />
+              <HitGuardAnim Value="HitGuard" />
+              <HitGuardFX Value="LiOnGuardFX" />
             </Properties>
           </Avatar>
           <Roll Type="NeonStarLibrary.Guard" ID="7">
@@ -176,19 +259,23 @@
               <GuardCooldown Value="0.3" />
               <RollImpulse Value="650" />
               <DashImpulse Value="550" />
-              <GuardDamageReduce Value="0" />
+              <GuardDamageReduce Value="116" />
             </Properties>
           </Roll>
           <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
             <Properties>
               <FireLaunchAnimation Value="FireLaunch" />
-              <LeftSlotElement Value="Fire" />
+              <FireCooldown Value="3" />
+              <ThunderLaunchAnimation Value="ThunderLaunch" />
+              <ThunderCooldown Value="3" />
+              <LeftSlotElement Value="Thunder" />
               <LeftSlotLevel Value="1" />
-              <LeftSlotCooldownTimer Value="0" />
-              <RightSlotCooldownTimer Value="0" />
-              <RightSlotElement Value="Neutral" />
+              <RightSlotElement Value="Fire" />
               <RightSlotLevel Value="1" />
               <MaxLevel Value="3" />
+              <ThunderGatheringFX Value="" />
+              <FireGatheringFX Value="" />
+              <GetElementColorDelay Value="0.15" />
             </Properties>
           </ElementSystem>
           <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
