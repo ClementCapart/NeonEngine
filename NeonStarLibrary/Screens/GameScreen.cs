@@ -20,7 +20,6 @@ namespace NeonStarLibrary
 
         public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
-        Song chipzelSong = null;
 
         public Entity entityToChase;
 
@@ -38,8 +37,6 @@ namespace NeonStarLibrary
 
             entityToChase = entities.Where(e => e.Name == "LiOn").First();
             camera.Bounded = true;
-
-            chipzelSong = SoundManager.GetSong("NeonStar");
         }
 
         public override void PreUpdate(GameTime gameTime)

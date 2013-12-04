@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using System.IO;
+using Microsoft.Xna.Framework.Media;
 
 namespace NeonStarEditor
 {
