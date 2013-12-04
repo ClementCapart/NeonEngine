@@ -18,9 +18,7 @@ namespace NeonEngine
         public float opacity = 1f;
         private bool _reverseLoop = false;
         private bool _reverse = false;
-        public bool Active = true;
-
-        
+        public bool Active = true;     
 
         public bool ReverseLoop
         {

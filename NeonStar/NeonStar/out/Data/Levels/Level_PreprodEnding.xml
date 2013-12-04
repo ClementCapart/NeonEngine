@@ -48,8 +48,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:932,056 Y:-124,5}" />
-              <InitialPosition Value="{X:932,056 Y:-124,5}" />
+              <Position Value="{X:1129 Y:-124,5}" />
+              <InitialPosition Value="{X:1129 Y:-124,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -57,8 +57,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:932 Y:-124}" />
-              <X Value="912" />
+              <Center Value="{X:1129 Y:-124}" />
+              <X Value="1109" />
               <Y Value="-192" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -84,7 +84,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="True" />
@@ -156,9 +156,9 @@
           </ThirdPersonController>
           <Avatar Type="NeonStarLibrary.Avatar" ID="6">
             <Properties>
-              <CurrentHealthPoints Value="99" />
               <Debug Value="False" />
               <StartingHealthPoints Value="99" />
+              <CurrentHealthPoints Value="99" />
               <InvincibilityDuration Value="1" />
               <HitAnim Value="Hit" />
               <HitGuardAnim Value="HitGuard" />
@@ -448,7 +448,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1" />
+              <Mass Value="10" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -457,6 +457,60 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="JukeBox">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1201 Y:-121}" />
+              <InitialPosition Value="{X:1201 Y:-121}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1201 Y:-121}" />
+              <X Value="1171" />
+              <Y Value="-171" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="60" />
+              <Height Value="100" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="2">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="JukeboxOff" />
+                <Animation Name="Playing" SpritesheetTag="JukeboxOn" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="True" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="JukeBox" />
+              <TriggeredComponentName Value="MusicScript" />
+            </Properties>
+          </HitboxTrigger>
+          <MusicScript Type="NeonStarLibrary.MusicScript" ID="4">
+            <Properties />
+          </MusicScript>
         </Components>
       </Entity>
     </Entities>
