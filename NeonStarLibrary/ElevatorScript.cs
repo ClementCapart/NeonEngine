@@ -98,6 +98,11 @@ namespace NeonStarLibrary
             {
                 _isInDownTrigger = true;
             }
+
+            if (trigger.Name == "003ElevatorLevelTrigger")
+            {
+                Neon.world.ChangeScreen(new PlanningScreen(Neon.game));
+            }
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }
 
