@@ -84,8 +84,11 @@ namespace NeonEngine
       
                 if (ssiInfo.Length <= 1)
                     Assets.Add(ssiInfo[0], s);
-                else
+                else if (ssiInfo.Length <= 7)
                     Spritesheets.Add(ssiInfo[0], s);
+                else
+                    for (int i = 7; i < ssiInfo.Length; i++)
+                        Spritesheets.Add(ssiInfo[0]+ssiInfo[i].Split('-')[0], s);
             }
             
             _effectList = new Dictionary<string,Effect>();
@@ -163,24 +166,59 @@ namespace NeonEngine
             string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
             string[] ssiInfo = fileName.Split('_');
 
-            SpriteSheetInfo ssi = new SpriteSheetInfo();
-            ssi.FrameCount = int.Parse(ssiInfo[1].Remove(ssiInfo[1].Length - 1));
-            ssi.FrameWidth = int.Parse(ssiInfo[2].Remove(ssiInfo[2].Length - 3));
-            ssi.FrameHeight = int.Parse(ssiInfo[3].Remove(ssiInfo[3].Length - 3));
-            ssi.Frames = GenerateSpritesheetFrames(texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount);
-            string name = ssiInfo[0];
-            
-            if (ssiInfo.Length >= 5)
-                ssi.Fps = int.Parse(ssiInfo[4].Remove(ssiInfo[4].Length - 3));
-            else
-                ssi.Fps = 24;
-            if (ssiInfo.Length == 7)
+            if (tag == ssiInfo[0])
             {
-                ssi.Offset.X = int.Parse(ssiInfo[5].Remove(ssiInfo[5].Length - 3));
-                ssi.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
+                SpriteSheetInfo ssi = new SpriteSheetInfo();
+                ssi.FrameCount = int.Parse(ssiInfo[1].Remove(ssiInfo[1].Length - 1));
+                ssi.FrameWidth = int.Parse(ssiInfo[2].Remove(ssiInfo[2].Length - 3));
+                ssi.FrameHeight = int.Parse(ssiInfo[3].Remove(ssiInfo[3].Length - 3));
+
+                if (ssiInfo.Length >= 5)
+                    ssi.Fps = int.Parse(ssiInfo[4].Remove(ssiInfo[4].Length - 3));
+                else
+                    ssi.Fps = 24;
+                if (ssiInfo.Length >= 7)
+                {
+                    ssi.Offset.X = int.Parse(ssiInfo[5].Remove(ssiInfo[5].Length - 3));
+                    ssi.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
+                }
+
+                ssi.Frames = GenerateSpritesheetFrames(texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
+                _spritesheetList.Add(ssiInfo[0], ssi);
+
+                return ssi;
             }
-            _spritesheetList.Add(name, ssi);
-            return ssi;
+            else
+            {
+                for (int i = 7; i < ssiInfo.Length; i++)
+                {
+                    string[] sequenceInfo = ssiInfo[i].Split('-');
+                    if (tag == ssiInfo[0] + sequenceInfo[0])
+                    {
+                        SpriteSheetInfo ssiSequence = new SpriteSheetInfo();
+                        ssiSequence.FrameCount = int.Parse(sequenceInfo[2]);
+                        ssiSequence.FrameWidth = int.Parse(ssiInfo[2].Remove(ssiInfo[2].Length - 3));
+                        ssiSequence.FrameHeight = int.Parse(ssiInfo[3].Remove(ssiInfo[3].Length - 3));
+
+                        if (ssiInfo.Length >= 5)
+                            ssiSequence.Fps = int.Parse(ssiInfo[4].Remove(ssiInfo[4].Length - 3));
+                        else
+                            ssiSequence.Fps = 24;
+                        if (ssiInfo.Length >= 7)
+                        {
+                            ssiSequence.Offset.X = int.Parse(ssiInfo[5].Remove(ssiInfo[5].Length - 3));
+                            ssiSequence.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
+                        }
+
+                        ssiSequence.Frames = GenerateSpritesheetFrames(texture, ssiSequence.FrameWidth, ssiSequence.FrameHeight, ssiSequence.FrameCount, int.Parse(sequenceInfo[1]));
+                        _spritesheetList.Add(ssiInfo[0] + sequenceInfo[0], ssiSequence);
+
+                        return ssiSequence;
+                    }
+                }
+            }
+
+            return null;
         }
 
         static public string GetSpritesheetTag(SpriteSheetInfo ssi)
@@ -191,7 +229,7 @@ namespace NeonEngine
                 return null;
         }
 
-        static public Texture2D[] GenerateSpritesheetFrames(Texture2D texture, int frameWidth, int frameHeight, int frameCount)
+        static public Texture2D[] GenerateSpritesheetFrames(Texture2D texture, int frameWidth, int frameHeight, int frameCount, int startingFrame)
         {
             Texture2D[] frames = null;            
 
@@ -201,6 +239,19 @@ namespace NeonEngine
             frames = new Texture2D[frameCount];
 
             int currentColumn = 0, currentRow = 0;
+
+            while (startingFrame > 0)
+            {
+                if (currentColumn == columns - 1)
+                {
+                    currentColumn = 0;
+                    currentRow++;
+                }
+                else
+                    currentColumn++;
+                
+                startingFrame--;
+            }
 
             for (int i = 0; i < frameCount; i++)
             {

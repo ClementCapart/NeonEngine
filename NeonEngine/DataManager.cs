@@ -62,7 +62,6 @@ namespace NeonEngine
                                                                         new XAttribute("Name", kvp.Key),
                                                                         new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
                                                                         );
-
                                     Property.Add(Animation);
                                 }
 
