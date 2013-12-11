@@ -213,13 +213,15 @@ namespace NeonStarLibrary
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if(_elementSystem != null)
+            if (_elementSystem != null)
             {
-                for (int i = 0; i < _elementSystem.LeftSlotLevel; i ++)
-                    spriteBatch.Draw(CurrentLeftElement, entity.transform.Position + Offset + new Vector2(0, i * (CurrentLeftElement.Height * 2) + i * 4), null, CurrentLeftElement != emptySlotHUD ? Color.Lerp(Color.Black, Color.White, 0.3f) : Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-                for (int i = 0; i < _elementSystem.RightSlotLevel; i++)
-                    spriteBatch.Draw(CurrentRightElement, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + 10, i * (CurrentRightElement.Height * 2) + i * 4), null, CurrentRightElement != emptySlotHUD ? Color.Lerp(Color.Black, Color.White, 0.3f) : Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-                
+                if(CurrentLeftElement != null)
+                    for (int i = 0; i < _elementSystem.LeftSlotLevel; i++)
+                        spriteBatch.Draw(CurrentLeftElement, entity.transform.Position + Offset + new Vector2(0, i * (CurrentLeftElement.Height * 2) + i * 4), null, CurrentLeftElement != emptySlotHUD ? Color.Lerp(Color.Black, Color.White, 0.3f) : Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                if(CurrentRightElement != null)
+                    for (int i = 0; i < _elementSystem.RightSlotLevel; i++)
+                        spriteBatch.Draw(CurrentRightElement, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + 10, i * (CurrentRightElement.Height * 2) + i * 4), null, CurrentRightElement != emptySlotHUD ? Color.Lerp(Color.Black, Color.White, 0.3f) : Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
                 float ratio = 1.0f;
 
                 if (CurrentLeftElement != emptySlotHUD)
@@ -231,13 +233,14 @@ namespace NeonStarLibrary
                             break;
 
                         case Element.Thunder:
-                            ratio = Math.Abs(_elementSystem.LeftSlotCooldownTimer / _elementSystem.ThunderCooldown  - 1);
+                            ratio = Math.Abs(_elementSystem.LeftSlotCooldownTimer / _elementSystem.ThunderCooldown - 1);
                             break;
                     }
                 }
 
-                for (int i = 0; i < _elementSystem.LeftSlotLevel; i++)
-                    spriteBatch.Draw(CurrentLeftElement, entity.transform.Position + Offset + new Vector2(0, i * (CurrentLeftElement.Height * 2) + i * 4), new Rectangle(0, 0,(int)Math.Round(CurrentLeftElement.Width * ratio), CurrentLeftElement.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer + 0.001f);
+                if(CurrentLeftElement != null)
+                    for (int i = 0; i < _elementSystem.LeftSlotLevel; i++)
+                        spriteBatch.Draw(CurrentLeftElement, entity.transform.Position + Offset + new Vector2(0, i * (CurrentLeftElement.Height * 2) + i * 4), new Rectangle(0, 0, (int)Math.Round(CurrentLeftElement.Width * ratio), CurrentLeftElement.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer + 0.001f);
 
                 ratio = 1.0f;
                 if (CurrentRightElement != emptySlotHUD)
@@ -254,13 +257,16 @@ namespace NeonStarLibrary
                     }
                 }
 
-                for (int i = 0; i < _elementSystem.RightSlotLevel; i++)
-                    spriteBatch.Draw(CurrentRightElement, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + 10, i * (CurrentRightElement.Height * 2) + i * 4), new Rectangle(0, 0, (int)Math.Round(CurrentRightElement.Width * ratio), CurrentLeftElement.Height),Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer + 0.001f);
-                
-                
-                spriteBatch.Draw(leftCharacterHUD, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width / 2 * entity.transform.Scale - leftCharacterHUD.Width, _elementSystem.LeftSlotLevel * (CurrentLeftElement.Height * 2) + _elementSystem.LeftSlotLevel * 4), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);              
-                spriteBatch.Draw(rightCharacterHUD, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + CurrentRightElement.Width / 2 * entity.transform.Scale + 10 - rightCharacterHUD.Width, _elementSystem.RightSlotLevel * (CurrentRightElement.Height * 2) + _elementSystem.RightSlotLevel * 4), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                if(CurrentRightElement != null)
+                    for (int i = 0; i < _elementSystem.RightSlotLevel; i++)
+                        spriteBatch.Draw(CurrentRightElement, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + 10, i * (CurrentRightElement.Height * 2) + i * 4), new Rectangle(0, 0, (int)Math.Round(CurrentRightElement.Width * ratio), CurrentLeftElement.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer + 0.001f);
+
+                if(leftCharacterHUD != null)
+                    spriteBatch.Draw(leftCharacterHUD, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width / 2 * entity.transform.Scale - leftCharacterHUD.Width, _elementSystem.LeftSlotLevel * (CurrentLeftElement.Height * 2) + _elementSystem.LeftSlotLevel * 4), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                if(rightCharacterHUD != null)
+                    spriteBatch.Draw(rightCharacterHUD, entity.transform.Position + Offset + new Vector2(CurrentLeftElement.Width * entity.transform.Scale + CurrentRightElement.Width / 2 * entity.transform.Scale + 10 - rightCharacterHUD.Width, _elementSystem.RightSlotLevel * (CurrentRightElement.Height * 2) + _elementSystem.RightSlotLevel * 4), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
             }
+           
             
             base.Draw(spriteBatch);
         }

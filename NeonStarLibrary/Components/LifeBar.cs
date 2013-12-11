@@ -74,7 +74,8 @@ namespace NeonStarLibrary
 
                 SmoothInterpolate();
 
-                _currentWidth = _currentValue / _avatar.StartingHealthPoints * texture.Width; 
+                if(texture != null)
+                    _currentWidth = _currentValue / _avatar.StartingHealthPoints * texture.Width; 
             }
             
             base.Update(gameTime);
@@ -82,7 +83,8 @@ namespace NeonStarLibrary
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, entity.transform.Position + Offset, new Microsoft.Xna.Framework.Rectangle(0, 0, (int)_currentWidth, texture.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+            if(texture != null)
+                spriteBatch.Draw(texture, entity.transform.Position + Offset, new Microsoft.Xna.Framework.Rectangle(0, 0, (int)_currentWidth, texture.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
             base.Draw(spriteBatch);
         }
 

@@ -189,7 +189,12 @@ namespace NeonStarEditor
                         comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Spritesheets.Keys.OrderBy(k => k.ToString());
+                        List<string> spritesheets = new List<string>();
+                        spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
+                        spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
+                        spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
+
+                        bs.DataSource = spritesheets;
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
@@ -228,7 +233,11 @@ namespace NeonStarEditor
                         comboBox.Location = new Point(10, localY);
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Assets.Keys.OrderBy(k => k.ToString());
+                        List<string> assets = new List<string>();
+                        assets.AddRange(AssetManager.CommonAssets.Keys.OrderBy(k => k.ToString()));
+                        assets.AddRange(AssetManager.GroupAssets.Keys.OrderBy(k => k.ToString()));
+                        assets.AddRange(AssetManager.LevelAssets.Keys.OrderBy(k => k.ToString()));
+                        bs.DataSource = assets;
 
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);

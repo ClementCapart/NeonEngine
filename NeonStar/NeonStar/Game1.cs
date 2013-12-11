@@ -41,7 +41,7 @@ namespace NeonStar
 
             Neon.clearColor = Color.Black;
             #if DEBUG
-            Neon.world = new EditorScreen(@"../Data/Levels/Level_0-0.xml" , this, Neon.GraphicsDeviceManager);
+            Neon.world = new NeonStarEditor.LoadingScreen(this);
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();

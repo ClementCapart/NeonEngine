@@ -23,40 +23,73 @@ namespace NeonEngine
         #region fields
         static public ContentManager Content;
 
-        static Dictionary<string, Effect> _effectList;
-        static Dictionary<string, Texture2D> _assetsList;
-        static Dictionary<string, SpriteSheetInfo> _spritesheetList;
-        public static Dictionary<string, string> Effects;
-        public static Dictionary<string, string> Assets;
-        public static Dictionary<string, string> Spritesheets;
+        static Dictionary<string, Effect> _commonEffectList;
+        static Dictionary<string, Texture2D> _commonAssetsList;
+        static Dictionary<string, SpriteSheetInfo> _commonSpritesheetList;
+        public static Dictionary<string, string> CommonEffects;
+        public static Dictionary<string, string> CommonAssets;
+        public static Dictionary<string, string> CommonSpritesheets;
+
+        static Dictionary<string, Effect> _groupEffectList;
+        static Dictionary<string, Texture2D> _groupAssetsList;
+        static Dictionary<string, SpriteSheetInfo> _groupSpritesheetList;
+        public static Dictionary<string, string> GroupEffects;
+        public static Dictionary<string, string> GroupAssets;
+        public static Dictionary<string, string> GroupSpritesheets;
+
+        static Dictionary<string, Effect> _levelEffectList;
+        static Dictionary<string, Texture2D> _levelAssetsList;
+        static Dictionary<string, SpriteSheetInfo> _levelSpritesheetList;
+        public static Dictionary<string, string> LevelEffects;
+        public static Dictionary<string, string> LevelAssets;
+        public static Dictionary<string, string> LevelSpritesheets;
         #endregion
 
-        static public void LoadAssets(GraphicsDevice device)
+        static public void Initialize(GraphicsDevice device)
         {
             Content = new ContentManager(Neon.game.Services, "Content");
 
-            Assets = new Dictionary<string, string>();
-            Spritesheets = new Dictionary<string, string>();
-            Effects = new Dictionary<string, string>();
+            CommonAssets = new Dictionary<string, string>();
+            CommonSpritesheets = new Dictionary<string, string>();
+            CommonEffects = new Dictionary<string, string>();
 
-            /* use assets.add("tag", "filePath") to load your assets
-             * the tag will be use in your entities to call your assets
-             * 
-             * the filepath is the absolute path to your file from your projet content root w/o the extention
-             * 
-             * ex : assets.Add("menuPlayButton", @"menu\buttons\play");
-             */    
-            Effects.Add("ChromaticAberration", @"Shaders\ChromaticAberration");
-            Effects.Add("WhiteBlink", @"Shaders\WhiteBlink");
+            _commonAssetsList = new Dictionary<string, Texture2D>();
+            _commonSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+            _commonEffectList = new Dictionary<string, Effect>();
 
-            Load(device);
+            GroupAssets = new Dictionary<string, string>();
+            GroupSpritesheets = new Dictionary<string, string>();
+            GroupEffects = new Dictionary<string, string>();
+
+            _groupAssetsList = new Dictionary<string, Texture2D>();
+            _groupSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+            _groupEffectList = new Dictionary<string, Effect>();
+
+            LevelAssets = new Dictionary<string, string>();
+            LevelSpritesheets = new Dictionary<string, string>();
+            LevelEffects = new Dictionary<string, string>();
+
+            _levelAssetsList = new Dictionary<string, Texture2D>();
+            _levelSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+            _levelEffectList = new Dictionary<string, Effect>();
         }
 
-        static private void Load(GraphicsDevice device)
+        static public void LoadCommonData(GraphicsDevice device)
         {
-            _assetsList = new Dictionary<string, Texture2D>();
-            foreach (KeyValuePair<string, string> kvp in Assets)
-                _assetsList.Add(kvp.Key, Content.Load<Texture2D>(kvp.Value));
+            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in _commonSpritesheetList)
+                foreach (Texture2D tex in kvp.Value.Frames)
+                    tex.Dispose();
+
+            foreach (KeyValuePair<string, Texture2D> kvp in _commonAssetsList)
+                kvp.Value.Dispose();
+
+            CommonAssets = new Dictionary<string, string>();
+            CommonSpritesheets = new Dictionary<string, string>();
+            CommonEffects = new Dictionary<string, string>();
+
+            _commonAssetsList = new Dictionary<string, Texture2D>();
+            _commonSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+            _commonEffectList = new Dictionary<string, Effect>();
 
             Texture2D fade = new Texture2D(device, Neon.ScreenWidth, Neon.ScreenHeight);
             Color[] fill = new Color[fade.Width * fade.Height];
@@ -69,12 +102,13 @@ namespace NeonEngine
                 fill[i] = Color.Black;
             black.SetData(fill);
 
-            _assetsList.Add("neon_screen", fade);
-            _assetsList.Add("neon_black_tile", black);
+            _commonAssetsList.Add("neon_screen", fade);
+            _commonAssetsList.Add("neon_black_tile", black);
 
-            _spritesheetList = new Dictionary<string, SpriteSheetInfo>();
-
-            List<string> filesPath = DirectorySearch(@"../Data/ContentStream");
+            List<string> filesPath = DirectorySearch(@"../Data/ContentStream/Common");
+#if DEBUG
+            filesPath.AddRange(DirectorySearch(@"../Data/ContentStream/EditorContent"));
+#endif
             
             foreach (string s in filesPath)
             {
@@ -83,18 +117,106 @@ namespace NeonEngine
                 string[] ssiInfo = fileName.Split('_');
       
                 if (ssiInfo.Length <= 1)
-                    Assets.Add(ssiInfo[0], s);
+                    CommonAssets.Add(ssiInfo[0], s);
                 else if (ssiInfo.Length <= 7)
-                    Spritesheets.Add(ssiInfo[0], s);
+                    CommonSpritesheets.Add(ssiInfo[0], s);
                 else
                     for (int i = 7; i < ssiInfo.Length; i++)
-                        Spritesheets.Add(ssiInfo[0]+ssiInfo[i].Split('-')[0], s);
-            }
-            
-            _effectList = new Dictionary<string,Effect>();
+                        CommonSpritesheets.Add(ssiInfo[0]+ssiInfo[i].Split('-')[0], s);
+            }    
 
-            foreach(KeyValuePair<string, string> kvp in Effects)
-                _effectList.Add(kvp.Key, Content.Load<Effect>(kvp.Value));
+            foreach(KeyValuePair<string, string> kvp in CommonEffects)
+                _commonEffectList.Add(kvp.Key, Content.Load<Effect>(kvp.Value));
+
+            foreach(string s in CommonSpritesheets.Keys)
+                LoadSpritesheet(s, CommonSpritesheets, _commonSpritesheetList);
+
+            foreach (string s in CommonAssets.Keys)
+                LoadTexture(s, CommonAssets, _commonAssetsList);
+        }
+
+        static public void LoadGroupData(GraphicsDevice device, string groupName)
+        {
+            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in _groupSpritesheetList)
+                foreach (Texture2D tex in kvp.Value.Frames)
+                    tex.Dispose();
+
+            foreach (KeyValuePair<string, Texture2D> kvp in _groupAssetsList)
+                kvp.Value.Dispose();
+
+            GroupAssets = new Dictionary<string, string>();
+            GroupSpritesheets = new Dictionary<string, string>();
+
+            _groupAssetsList = new Dictionary<string, Texture2D>();
+            _groupSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+
+            List<string> filesPath = DirectorySearch(@"../Data/ContentStream/LevelsContent/" + groupName + "/Common");
+
+            foreach (string s in filesPath)
+            {
+                string[] fileNameProcessing = s.Split('\\');
+                string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
+                string[] ssiInfo = fileName.Split('_');
+
+                if (ssiInfo.Length <= 1)
+                    GroupAssets.Add(ssiInfo[0], s);
+                else if (ssiInfo.Length <= 7)
+                    GroupSpritesheets.Add(ssiInfo[0], s);
+                else
+                    for (int i = 7; i < ssiInfo.Length; i++)
+                        GroupSpritesheets.Add(ssiInfo[0] + ssiInfo[i].Split('-')[0], s);
+            }
+
+            foreach (KeyValuePair<string, string> kvp in GroupEffects)
+                _groupEffectList.Add(kvp.Key, Content.Load<Effect>(kvp.Value));
+
+            foreach (string s in GroupSpritesheets.Keys)
+                LoadSpritesheet(s, GroupSpritesheets, _groupSpritesheetList);
+
+            foreach (string s in GroupAssets.Keys)
+                LoadTexture(s, GroupAssets, _groupAssetsList);
+        }
+
+        static public void LoadLevelData(GraphicsDevice device, string groupName, string levelName)
+        {
+            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in _levelSpritesheetList)
+                foreach (Texture2D tex in kvp.Value.Frames)
+                    tex.Dispose();
+
+            foreach (KeyValuePair<string, Texture2D> kvp in _levelAssetsList)
+                kvp.Value.Dispose();
+
+            LevelAssets = new Dictionary<string, string>();
+            LevelSpritesheets = new Dictionary<string, string>();
+
+            _levelAssetsList = new Dictionary<string, Texture2D>();
+            _levelSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+
+            foreach (KeyValuePair<string, string> kvp in LevelAssets)
+                _levelAssetsList.Add(kvp.Key, Content.Load<Texture2D>(kvp.Value));
+
+            List<string> filesPath = DirectorySearch(@"../Data/ContentStream/LevelsContent/" + groupName + "/" + levelName);
+
+            foreach (string s in filesPath)
+            {
+                string[] fileNameProcessing = s.Split('\\');
+                string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
+                string[] ssiInfo = fileName.Split('_');
+
+                if (ssiInfo.Length <= 1)
+                    LevelAssets.Add(ssiInfo[0], s);
+                else if (ssiInfo.Length <= 7)
+                    LevelSpritesheets.Add(ssiInfo[0], s);
+                else
+                    for (int i = 7; i < ssiInfo.Length; i++)
+                        LevelSpritesheets.Add(ssiInfo[0] + ssiInfo[i].Split('-')[0], s);
+            }
+
+            foreach (string s in LevelSpritesheets.Keys)
+                LoadSpritesheet(s, LevelSpritesheets, _levelSpritesheetList);
+
+            foreach (string s in LevelAssets.Keys)
+                LoadTexture(s, LevelAssets, _levelAssetsList);
         }
 
         static List<string> DirectorySearch(string currentDirectory)
@@ -141,11 +263,25 @@ namespace NeonEngine
 
         static public Texture2D GetTexture(string tag)
         {
-            if (_assetsList.ContainsKey(tag))
-                return _assetsList[tag];
-                        
-            Texture2D texture = PremultiplyTexture(Assets[tag], Neon.graphicsDevice);
-            _assetsList.Add(tag, texture);
+            if (_commonAssetsList.ContainsKey(tag))
+                return _commonAssetsList[tag];
+            else if (_groupAssetsList.ContainsKey(tag))
+                return _groupAssetsList[tag];
+            else if (_levelAssetsList.ContainsKey(tag))
+                return _levelAssetsList[tag];
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("!! AssetManager !!");
+            Console.WriteLine("!! Missing Texture : " + tag + " !!");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
+            return null;
+        }
+
+        private static Texture2D LoadTexture(string tag, Dictionary<string, string> dataLibrary, Dictionary<string, Texture2D> assetsLibrary)
+        {
+            Texture2D texture = PremultiplyTexture(dataLibrary[tag], Neon.graphicsDevice);
+            assetsLibrary.Add(tag, texture);
             return texture;
         }
 
@@ -154,13 +290,24 @@ namespace NeonEngine
             if (tag == "" || tag == null)
                 return null;
 
-            if (_spritesheetList.ContainsKey(tag))
-                return _spritesheetList[tag];
+            if (_commonSpritesheetList.ContainsKey(tag))
+                return _commonSpritesheetList[tag];
+            else if (_groupSpritesheetList.ContainsKey(tag))
+                return _groupSpritesheetList[tag];
+            else if (_levelSpritesheetList.ContainsKey(tag))
+                return _levelSpritesheetList[tag];
 
-            if (!Spritesheets.ContainsKey(tag))
-                return null;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("!! AssetManager !!");
+            Console.WriteLine("!! Missing Spritesheet : "+ tag +" !!");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
+            return null;
+        }
 
-            string s = Spritesheets[tag];
+        private static void LoadSpritesheet(string tag, Dictionary<string, string> dataLibrary, Dictionary<string, SpriteSheetInfo> assetsLibrary)
+        {
+            string s = dataLibrary[tag];
             Texture2D texture = PremultiplyTexture(s, Neon.graphicsDevice);
             string[] fileNameProcessing = s.Split('\\');
             string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
@@ -184,9 +331,7 @@ namespace NeonEngine
                 }
 
                 ssi.Frames = GenerateSpritesheetFrames(texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
-                _spritesheetList.Add(ssiInfo[0], ssi);
-
-                return ssi;
+                assetsLibrary.Add(ssiInfo[0], ssi);
             }
             else
             {
@@ -211,22 +356,21 @@ namespace NeonEngine
                         }
 
                         ssiSequence.Frames = GenerateSpritesheetFrames(texture, ssiSequence.FrameWidth, ssiSequence.FrameHeight, ssiSequence.FrameCount, int.Parse(sequenceInfo[1]));
-                        _spritesheetList.Add(ssiInfo[0] + sequenceInfo[0], ssiSequence);
-
-                        return ssiSequence;
+                        assetsLibrary.Add(ssiInfo[0] + sequenceInfo[0], ssiSequence);
                     }
                 }
             }
-
-            return null;
         }
 
         static public string GetSpritesheetTag(SpriteSheetInfo ssi)
         {
-            if (_spritesheetList.Where(p => p.Value == ssi).Count() > 0)
-                return _spritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
-            else
-                return null;
+            if (_commonSpritesheetList.Where(p => p.Value == ssi).Count() > 0)
+                return _commonSpritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
+            else if (_groupSpritesheetList.Where(p => p.Value == ssi).Count() > 0)
+                return _groupSpritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
+            else if (_levelSpritesheetList.Where(p => p.Value == ssi).Count() > 0)
+                return _levelSpritesheetList.Where(p => p.Value == ssi).Select(p => p.Key).First();
+            return null;
         }
 
         static public Texture2D[] GenerateSpritesheetFrames(Texture2D texture, int frameWidth, int frameHeight, int frameCount, int startingFrame)
@@ -275,7 +419,7 @@ namespace NeonEngine
 
         static public Effect GetEffect(string tag)
         {
-            return _effectList[tag];
+            return _commonEffectList[tag];
         }
     }
 }

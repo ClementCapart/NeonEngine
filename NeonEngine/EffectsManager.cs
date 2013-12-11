@@ -9,7 +9,7 @@ namespace NeonEngine
 {
     static public class EffectsManager
     {
-        public static NeonPool<AnimatedSpecialEffect> EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
+        public static NeonPool<AnimatedSpecialEffect> EffectsPool;
 
         public static void Initialize()
         {

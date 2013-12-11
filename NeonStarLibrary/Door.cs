@@ -97,7 +97,8 @@ namespace NeonStarLibrary
                 {
                     if (_closingIsReverseOpening)
                     {
-                        entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, 0, true, false, false, entity.spritesheets.SpritesheetList[_doorOpeningAnimation].FrameCount - 1);
+                        if (entity.spritesheets.SpritesheetList[_doorOpeningAnimation]!= null)
+                            entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, 0, true, false, false, entity.spritesheets.SpritesheetList[_doorOpeningAnimation].FrameCount - 1);
                         entity.spritesheets.CurrentSpritesheet.ReverseLoop = true;
                     }
                     else

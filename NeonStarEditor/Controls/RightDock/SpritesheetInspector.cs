@@ -49,7 +49,12 @@ namespace NeonStarEditor
                 cb.Location = new Point(75, (int)NextItemHeight);
                 cb.BindingContext = new BindingContext();
                 BindingSource bs = new BindingSource();
-                bs.DataSource = AssetManager.Spritesheets.Keys.OrderBy(k => k.ToString());
+                List<string> spritesheets = new List<string>();
+                spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
+                spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
+                spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
+
+                bs.DataSource = spritesheets;
                 cb.DataSource = bs;
                 
                 cb.SelectedItem = AssetManager.GetSpritesheetTag(kvp.Value);

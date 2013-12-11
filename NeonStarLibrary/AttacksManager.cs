@@ -62,7 +62,7 @@ namespace NeonStarLibrary
 
         static public void LoadAttacks()
         {
-            _attacksInformation.Clear();
+            _attacksInformation = new List<AttackInfo>();
 
             XDocument document = XDocument.Load(@"../Data/Config/Attacks.xml");
             XElement attacks = document.Element("XnaContent").Element("Attacks");

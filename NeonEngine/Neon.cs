@@ -35,6 +35,8 @@ namespace NeonEngine
 
         static public void Start(Game game1, GraphicsDeviceManager graphics, SpriteBatch spriteBatch, int screenWidth, int screenheight)
         {
+            Console.Title = "Neon Engine Console";
+
             Console.WriteLine(@"");
             Console.WriteLine(@"");
             Console.WriteLine(@"--------------------------------------------------------------------------------");
@@ -72,7 +74,8 @@ namespace NeonEngine
 
             graphicsDevice = game.GraphicsDevice;
             Neon.spriteBatch = spriteBatch;
-            AssetManager.LoadAssets(game.GraphicsDevice);
+            AssetManager.Initialize(graphicsDevice);
+
             SoundManager.LoadSounds();
             SoundManager.Load(game.Content);
             TextManager.LoadFontList();

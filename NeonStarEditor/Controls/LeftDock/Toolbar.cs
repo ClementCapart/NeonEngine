@@ -99,7 +99,7 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void ReloadAssetsButton_Click(object sender, EventArgs e)
         {
-            AssetManager.LoadAssets(GameWorld.game.GraphicsDevice);
+            //AssetManager.LoadAssets(GameWorld.game.GraphicsDevice);
         }
 
         private void AttackManagerButton_Click(object sender, EventArgs e)

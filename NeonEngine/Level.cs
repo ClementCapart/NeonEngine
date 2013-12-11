@@ -35,7 +35,6 @@ namespace NeonEngine
 
             XElement PathNodeLists = Level.Element("PathNodeLists");
 
-           
             if (PathNodeLists != null)
             {
                 foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))

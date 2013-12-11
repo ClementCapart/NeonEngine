@@ -46,7 +46,7 @@ namespace NeonStarEditor.Controls.BottomDock
         {
             if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
             {
-                Neon.world.ChangeScreen(new EditorScreen(levelListTreeView.SelectedNode.Name, Neon.game, Neon.GraphicsDeviceManager));
+                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, levelListTreeView.SelectedNode.Name));
             }
         }
     }

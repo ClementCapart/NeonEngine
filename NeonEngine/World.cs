@@ -15,24 +15,15 @@ namespace NeonEngine
         bool change = false;
         public World nextScreen = null;
 
+        public string LevelGroupName = "";
+        public string LevelName = "";
+
         public FarseerPhysics.Dynamics.World physicWorld;
-        public LightingSystem lightingSystem;
         RenderTarget2D defferedDrawing;
-
-        public RenderTarget2D ShadowCasters;
-        ShadowmapResolver shadowmapResolver;
-        QuadRenderComponent quadRender;
-
 
         PolygonRenderer _polygonRenderer;
 
         public Effect ScreenEffect;
-
-        public RenderTarget2D screenShadows = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
-
-        Effect lightingEffect;
-
-        public Texture2D graphicDressing;
 
         Vector2 _screenCenter;
         DebugViewXNA debugView;
@@ -67,16 +58,14 @@ namespace NeonEngine
             Neon.world = this;
             this.game = game;
             physicWorld = new FarseerPhysics.Dynamics.World(new Vector2(0.0f, 9.8f));
-            lightingSystem = new LightingSystem();
+
+            defferedDrawing = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
+
             debugView = new DebugViewXNA(physicWorld);
             debugView.RemoveFlags(DebugViewFlags.Controllers);
             debugView.RemoveFlags(DebugViewFlags.Joint);
             debugView.AppendFlags(DebugViewFlags.DebugPanel);
             debugView.LoadContent(game.GraphicsDevice, game.Content);
-
-            defferedDrawing = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
-            ShadowCasters = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
-            lightingEffect = game.Content.Load<Effect>(@"Shaders\Lighting");
 
             _screenCenter = new Vector2(this.game.GraphicsDevice.Viewport.Width * 0.5f, this.game.GraphicsDevice.Viewport.Height * 0.5f);
 
@@ -93,11 +82,7 @@ namespace NeonEngine
             NodeLists = new List<PathNodeList>();
             SpecialEffects = new List<AnimatedSpecialEffect>();
 
-
             _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
-            quadRender = new QuadRenderComponent(this.game);
-            shadowmapResolver = new ShadowmapResolver(quadRender, ShadowmapSize.Size2048, ShadowmapSize.Size2048);
-            shadowmapResolver.LoadContent(this.game.Content);
         }
 
         public void LoadLevel(Level level)
@@ -281,24 +266,6 @@ namespace NeonEngine
 
             spriteBatch.End();
 
-
-
-            if (lightingSystem.LightingEnabled)
-            {
-                BlendState blendState = new BlendState();
-                blendState.ColorSourceBlend = Blend.DestinationColor;
-                blendState.ColorDestinationBlend = Blend.SourceColor;
-
-                spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-                spriteBatch.Draw(screenShadows, Vector2.Zero, Color.White);
-                spriteBatch.End();
-
-                spriteBatch.Begin();
-                spriteBatch.Draw(ShadowCasters, Vector2.Zero, Color.White);
-                spriteBatch.End();
-            }
-            
-
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
             
             foreach (DrawableComponent hudc in HUDComponents)
@@ -306,6 +273,7 @@ namespace NeonEngine
             
             ManualDrawHUD(spriteBatch);
             DrawDebugView(Neon.graphicsDevice);
+            
             spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Neon.fadeColor, alpha));
             spriteBatch.End();
         }
@@ -334,7 +302,7 @@ namespace NeonEngine
             Console.WriteLine("Remove : " + entity.Name);
         }
 
-        public void ChangeScreen(World nextScreen)
+        public virtual void ChangeScreen(World nextScreen)
         {
             change = true;
             this.nextScreen = nextScreen;

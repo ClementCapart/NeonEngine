@@ -52,7 +52,7 @@ namespace NeonEngine
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (entity != null)
+            if (entity != null && texture != null)
                 spriteBatch.Draw(texture, entity.transform.Position + this._parallaxPosition + Offset, null, Color.White, entity.transform.rotation, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
         }
     }

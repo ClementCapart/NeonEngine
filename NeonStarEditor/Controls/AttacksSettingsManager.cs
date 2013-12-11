@@ -455,7 +455,12 @@ namespace NeonStarEditor
                         comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
                         comboBox2.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
-                        bs.DataSource = AssetManager.Spritesheets.Keys;
+                        List<string> spritesheets = new List<string>();
+                        spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
+                        spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
+                        spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
+
+                        bs.DataSource = spritesheets;
                         comboBox2.DataSource = bs;
                         comboBox2.Name = "SpritesheetName";
                         comboBox2.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);

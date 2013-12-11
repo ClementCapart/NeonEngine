@@ -46,10 +46,10 @@ namespace NeonStarEditor
         public bool FocusEntity = false;
         public bool LockedCamera = true;
 
-        private Texture2D _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
-        private Texture2D _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
-        private Texture2D _boundTexture = AssetManager.GetTexture("BoundIcon");
-        private Texture2D _nodeTexture = AssetManager.GetTexture("NodeIcon");
+        private Texture2D _colorEmitterTexture;
+        private Texture2D _colorEmitterCircleTexture;
+        private Texture2D _boundTexture;
+        private Texture2D _nodeTexture;
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
@@ -72,6 +72,11 @@ namespace NeonStarEditor
             CurrentTool = new Selection(this);
 
             //GameAsForm.Controls.Add(new NeonStarToolstrip());       
+            
+            _colorEmitterTexture = AssetManager.GetTexture("LightBulb");
+            _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
+            _boundTexture = AssetManager.GetTexture("BoundIcon");
+            _nodeTexture = AssetManager.GetTexture("NodeIcon");
 
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
@@ -720,8 +725,7 @@ namespace NeonStarEditor
                 BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
                 BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
                 BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
-            }
-            
+            }      
         }
 
         public override void RemoveEntity(Entity entity)
@@ -731,14 +735,32 @@ namespace NeonStarEditor
 
         public override void ReloadLevel()
         {
+            LeftDockControl.Hide();
             LeftDockControl.Dispose();
+            BottomDockControl.Hide();
             BottomDockControl.Dispose();
+            RightDockControl.Hide();
             RightDockControl.Dispose();
             if (AttacksSettingsManager != null)
                 AttacksSettingsManager.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
             ChangeScreen(new EditorScreen(this.levelFilePath, game, graphics));
+        }
+
+        public override void ChangeScreen(World nextScreen)
+        {
+            LeftDockControl.Hide();
+            LeftDockControl.Dispose();
+            BottomDockControl.Hide();
+            BottomDockControl.Dispose();
+            RightDockControl.Hide();
+            RightDockControl.Dispose();
+            if (AttacksSettingsManager != null)
+                AttacksSettingsManager.Dispose();
+            if (PathNodePanel != null)
+                PathNodePanel.Dispose();
+            base.ChangeScreen(nextScreen);
         }
     }
 }
