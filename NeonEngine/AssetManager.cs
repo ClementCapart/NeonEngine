@@ -23,6 +23,11 @@ namespace NeonEngine
         #region fields
         static public ContentManager Content;
 
+        static Dictionary<string, Texture2D> _launchAssetsList;
+        static Dictionary<string, SpriteSheetInfo> _launchSpritesheetList;
+        public static Dictionary<string, string> LaunchAssets;
+        public static Dictionary<string, string> LaunchSpritesheets;
+
         static Dictionary<string, Effect> _commonEffectList;
         static Dictionary<string, Texture2D> _commonAssetsList;
         static Dictionary<string, SpriteSheetInfo> _commonSpritesheetList;
@@ -30,17 +35,13 @@ namespace NeonEngine
         public static Dictionary<string, string> CommonAssets;
         public static Dictionary<string, string> CommonSpritesheets;
 
-        static Dictionary<string, Effect> _groupEffectList;
         static Dictionary<string, Texture2D> _groupAssetsList;
         static Dictionary<string, SpriteSheetInfo> _groupSpritesheetList;
-        public static Dictionary<string, string> GroupEffects;
         public static Dictionary<string, string> GroupAssets;
         public static Dictionary<string, string> GroupSpritesheets;
 
-        static Dictionary<string, Effect> _levelEffectList;
         static Dictionary<string, Texture2D> _levelAssetsList;
         static Dictionary<string, SpriteSheetInfo> _levelSpritesheetList;
-        public static Dictionary<string, string> LevelEffects;
         public static Dictionary<string, string> LevelAssets;
         public static Dictionary<string, string> LevelSpritesheets;
         #endregion
@@ -48,6 +49,12 @@ namespace NeonEngine
         static public void Initialize(GraphicsDevice device)
         {
             Content = new ContentManager(Neon.game.Services, "Content");
+
+            LaunchAssets = new Dictionary<string, string>();
+            LaunchSpritesheets = new Dictionary<string, string>();
+
+            _launchAssetsList = new Dictionary<string, Texture2D>();
+            _launchSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
 
             CommonAssets = new Dictionary<string, string>();
             CommonSpritesheets = new Dictionary<string, string>();
@@ -59,19 +66,56 @@ namespace NeonEngine
 
             GroupAssets = new Dictionary<string, string>();
             GroupSpritesheets = new Dictionary<string, string>();
-            GroupEffects = new Dictionary<string, string>();
 
             _groupAssetsList = new Dictionary<string, Texture2D>();
             _groupSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
-            _groupEffectList = new Dictionary<string, Effect>();
 
             LevelAssets = new Dictionary<string, string>();
             LevelSpritesheets = new Dictionary<string, string>();
-            LevelEffects = new Dictionary<string, string>();
 
             _levelAssetsList = new Dictionary<string, Texture2D>();
             _levelSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
-            _levelEffectList = new Dictionary<string, Effect>();
+
+            LoadLaunchData(Neon.graphicsDevice);
+        }
+
+        static public void LoadLaunchData(GraphicsDevice device)
+        {
+            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in _launchSpritesheetList)
+                foreach (Texture2D tex in kvp.Value.Frames)
+                    tex.Dispose();
+
+            foreach (KeyValuePair<string, Texture2D> kvp in _launchAssetsList)
+                kvp.Value.Dispose();
+
+            LaunchAssets = new Dictionary<string, string>();
+            LaunchSpritesheets = new Dictionary<string, string>();
+
+            _launchAssetsList = new Dictionary<string, Texture2D>();
+            _launchSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
+
+            List<string> filesPath = DirectorySearch(@"../Data/ContentStream/LaunchContent/");
+
+            foreach (string s in filesPath)
+            {
+                string[] fileNameProcessing = s.Split('\\');
+                string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
+                string[] ssiInfo = fileName.Split('_');
+
+                if (ssiInfo.Length <= 1)
+                    LaunchAssets.Add(ssiInfo[0], s);
+                else if (ssiInfo.Length <= 7)
+                    LaunchSpritesheets.Add(ssiInfo[0], s);
+                else
+                    for (int i = 7; i < ssiInfo.Length; i++)
+                        LaunchSpritesheets.Add(ssiInfo[0] + ssiInfo[i].Split('-')[0], s);
+            }
+
+            foreach (string s in LaunchSpritesheets.Keys)
+                LoadSpritesheet(s, LaunchSpritesheets, _launchSpritesheetList);
+
+            foreach (string s in LaunchAssets.Keys)
+                LoadTexture(s, LaunchAssets, _launchAssetsList);
         }
 
         static public void LoadCommonData(GraphicsDevice device)
@@ -166,9 +210,6 @@ namespace NeonEngine
                     for (int i = 7; i < ssiInfo.Length; i++)
                         GroupSpritesheets.Add(ssiInfo[0] + ssiInfo[i].Split('-')[0], s);
             }
-
-            foreach (KeyValuePair<string, string> kvp in GroupEffects)
-                _groupEffectList.Add(kvp.Key, Content.Load<Effect>(kvp.Value));
 
             foreach (string s in GroupSpritesheets.Keys)
                 LoadSpritesheet(s, GroupSpritesheets, _groupSpritesheetList);
@@ -269,6 +310,8 @@ namespace NeonEngine
                 return _groupAssetsList[tag];
             else if (_levelAssetsList.ContainsKey(tag))
                 return _levelAssetsList[tag];
+            else if (_launchAssetsList.ContainsKey(tag))
+                return _launchAssetsList[tag];
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("!! AssetManager !!");
@@ -296,6 +339,8 @@ namespace NeonEngine
                 return _groupSpritesheetList[tag];
             else if (_levelSpritesheetList.ContainsKey(tag))
                 return _levelSpritesheetList[tag];
+            else if (_launchSpritesheetList.ContainsKey(tag))
+                return _launchSpritesheetList[tag];
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("!! AssetManager !!");

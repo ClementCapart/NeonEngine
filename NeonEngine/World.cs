@@ -163,6 +163,7 @@ namespace NeonEngine
                 alpha = Math.Min(alpha + 0.035f, 1.0f);
             }
             
+            
             InputEngine();
 
 

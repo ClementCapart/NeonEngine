@@ -185,8 +185,9 @@ namespace NeonEngine
             CurrentSpritesheet.isPlaying = IsPlaying;
             CurrentSpritesheet.SetFrame(0);
             CurrentSpritesheet.Layer = Layer;
-            if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
-                CurrentSpritesheet.SetFrame(StartingFrame);
+            if(CurrentSpritesheet.spriteSheetInfo != null)
+                if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
+                    CurrentSpritesheet.SetFrame(StartingFrame);
             CurrentSpritesheet.IsLooped = Loop;
             CurrentSpritesheet.Init();
             CurrentSpritesheet.isPlaying = IsPlaying;

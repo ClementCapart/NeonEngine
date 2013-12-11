@@ -31,7 +31,8 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, false, true, false, entity.spritesheets.SpritesheetList[_closingDoorAnimationName].FrameCount-1);
+			if(entity.spritesheets != null && entity.spritesheets.SpritesheetList.ContainsKey(_closingDoorAnimationName) && entity.spritesheets.SpritesheetList[_closingDoorAnimationName] != null)
+				entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, false, true, false, entity.spritesheets.SpritesheetList[_closingDoorAnimationName].FrameCount-1);
 		}
 
         public override void Update(GameTime gameTime)
@@ -44,10 +45,13 @@ namespace NeonScripts
 		{
             if (trigger.Name == _triggerName)
             {
-                entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, true, true, true, entity.spritesheets.SpritesheetList[_closingDoorAnimationName].FrameCount - 1);
-                entity.spritesheets.CurrentSpritesheet.ReverseLoop = true;
-                entity.rigidbody.IsGround = true;
-                entity.rigidbody.Init();
+				if(entity.spritesheets != null && entity.spritesheets.SpritesheetList.ContainsKey(_closingDoorAnimationName) && entity.spritesheets.SpritesheetList[_closingDoorAnimationName] != null)
+				{
+					entity.spritesheets.ChangeAnimation(_closingDoorAnimationName, 0, true, true, true, entity.spritesheets.SpritesheetList[_closingDoorAnimationName].FrameCount - 1);
+					entity.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+					entity.rigidbody.IsGround = true;
+					entity.rigidbody.Init();
+				}
             }
 		}
     }

@@ -20,23 +20,6 @@ namespace NeonStarLibrary
             : base(game)
         {
             LevelToLoad = levelToLoad;
-            if (levelToLoad != "")
-            {
-                Thread LoadingThread = new Thread(new ThreadStart(LoadNextLevelAssets));
-                LoadingThread.Start();
-            }
-            else
-            {
-                Thread LoadingThread = new Thread(new ThreadStart(LoadCommonAssets));
-                LoadingThread.Start();
-            }
-
-            LoadingAnim = new Entity(this);
-            SpriteSheet ss = new SpriteSheet(LoadingAnim);
-            ss.SpriteSheetTag = "LiOnRun";
-            ss.Init();
-            LoadingAnim.AddComponent(ss);
-            entities.Add(LoadingAnim);
         }
 
         public void LoadNextLevelAssets()
@@ -56,6 +39,28 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
+            if (FirstUpdate)
+            {
+                if (LevelToLoad != "")
+                {
+                    Thread LoadingThread = new Thread(new ThreadStart(LoadNextLevelAssets));
+                    LoadingThread.Start();
+                }
+                else
+                {
+                    Thread LoadingThread = new Thread(new ThreadStart(LoadCommonAssets));
+                    LoadingThread.Start();
+                }
+
+                LoadingAnim = new Entity(this);
+                SpriteSheet ss = new SpriteSheet(LoadingAnim);
+                ss.SpriteSheetTag = "LiOnRun";
+                ss.Init();
+                LoadingAnim.AddComponent(ss);
+                entities.Add(LoadingAnim);
+            }
+
+            
             if (ThreadFinished && LevelToLoad == "")
                 this.ChangeScreen(new GameScreen(@"../Data/Levels/Level_Empty.xml", Neon.game));
             else if (ThreadFinished)

@@ -58,11 +58,14 @@ namespace NeonEngine
                                 Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
                                 foreach (KeyValuePair<string, SpriteSheetInfo> kvp in propertyDictionary)
                                 {
-                                    XElement Animation = new XElement("Animation",
-                                                                        new XAttribute("Name", kvp.Key),
-                                                                        new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
-                                                                        );
-                                    Property.Add(Animation);
+                                    if (kvp.Value != null)
+                                    {
+                                        XElement Animation = new XElement("Animation",
+                                                                            new XAttribute("Name", kvp.Key),
+                                                                            new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
+                                                                            );
+                                        Property.Add(Animation);
+                                    }
                                 }
 
                                 Properties.Add(Property);
@@ -128,7 +131,7 @@ namespace NeonEngine
 
             content.Add(level);
             document.Add(content);
-            document.Save(FilePath+ ".xml");
+            document.Save(FilePath);
         }
 
         static public void LoadLevel(string FilePath, World GameWorld)
