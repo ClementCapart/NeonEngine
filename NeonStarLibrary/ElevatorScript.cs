@@ -101,7 +101,7 @@ namespace NeonStarLibrary
 
             if (trigger.Name == "003ElevatorLevelTrigger")
             {
-                Neon.world.ChangeScreen(new PlanningScreen(Neon.game));
+                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, @"../Data/Levels/PreprodPresentation/Ending.xml"));
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }
