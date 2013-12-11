@@ -360,7 +360,7 @@
               <Mass Value="1.5" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="False" />
@@ -4457,7 +4457,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:3310,039 Y:-825,4998}" />
+              <Position Value="{X:3192,086 Y:-825,4998}" />
               <InitialPosition Value="{X:3314 Y:-825,4998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -4466,8 +4466,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3310 Y:-825}" />
-              <X Value="3260" />
+              <Center Value="{X:3192 Y:-825}" />
+              <X Value="3142" />
               <Y Value="-905" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4934,7 +4934,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8349 Y:9,500001}" />
+              <Position Value="{X:8349 Y:9,499975}" />
               <InitialPosition Value="{X:8349 Y:9,500001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5051,7 +5051,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8558 Y:9,500001}" />
+              <Position Value="{X:8558 Y:9,499975}" />
               <InitialPosition Value="{X:8558 Y:9,500005}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5168,7 +5168,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:8455 Y:9,500001}" />
+              <Position Value="{X:8455 Y:9,499975}" />
               <InitialPosition Value="{X:8455 Y:9,500003}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5285,7 +5285,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:11505 Y:276}" />
+              <Position Value="{X:11505 Y:276,0001}" />
               <InitialPosition Value="{X:11505 Y:276,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5402,7 +5402,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:11706 Y:276}" />
+              <Position Value="{X:11706 Y:276,0001}" />
               <InitialPosition Value="{X:11706 Y:276,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5519,7 +5519,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:10067,39 Y:9,500001}" />
+              <Position Value="{X:9891,531 Y:9,499975}" />
               <InitialPosition Value="{X:10105,88 Y:9,49999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -5528,8 +5528,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:10067 Y:9}" />
-              <X Value="10027" />
+              <Center Value="{X:9891 Y:9}" />
+              <X Value="9851" />
               <Y Value="-71" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -5809,8 +5809,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4919,452 Y:-1264,5}" />
-              <InitialPosition Value="{X:4919,452 Y:-1264,5}" />
+              <Position Value="{X:4919 Y:-1264,5}" />
+              <InitialPosition Value="{X:4919 Y:-1264,5}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -5854,13 +5854,13 @@
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
+                <Animation Name="startJump" SpritesheetTag="LiOnJumpStart" />
                 <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
                 <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="startFall" SpritesheetTag="LiOnJumpDOWN02" />
-                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWNLoop02" />
-                <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
+                <Animation Name="startFall" SpritesheetTag="LiOnJumpStartFall" />
+                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpFall" />
+                <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
                 <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
                 <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
                 <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
