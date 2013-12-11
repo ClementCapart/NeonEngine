@@ -23,7 +23,7 @@ namespace NeonStarLibrary
 
         public Entity entityToChase;
 
-        public GameScreen(Game game)
+        public GameScreen(string levelFile, Game game)
             : base(game)
         {
             enemies = new List<Enemy>();
@@ -33,7 +33,7 @@ namespace NeonStarLibrary
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();          
 
-            LoadLevel(new Level(@"..\Data\Levels\Level_0-0", this, true));
+            LoadLevel(new Level(levelFile, this, true));
 
             entityToChase = entities.Where(e => e.Name == "LiOn").First();
             camera.Bounded = true;
@@ -75,7 +75,7 @@ namespace NeonStarLibrary
 
         public virtual void ReloadLevel()
         {
-            ChangeScreen(new GameScreen(game));
+            ChangeScreen(new GameScreen( this.levelFilePath, game));
         }
 
         public override void ManualDrawBackHUD(SpriteBatch sb)

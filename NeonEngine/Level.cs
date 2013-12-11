@@ -21,7 +21,7 @@ namespace NeonEngine
             Console.WriteLine("Level loading...");
             Console.WriteLine("");
 
-            Stream stream = File.OpenRead(levelFilePath + ".xml");
+            Stream stream = File.OpenRead(levelFilePath);
             
             XDocument document = XDocument.Load(stream);
 

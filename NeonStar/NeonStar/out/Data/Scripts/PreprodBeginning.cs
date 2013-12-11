@@ -116,7 +116,7 @@ namespace NeonScripts
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            Neon.world.ChangeScreen(new GameScreen(Neon.game));
+            //Neon.world.ChangeScreen(new GameScreen(thiNeon.game));
         }
     }
 }

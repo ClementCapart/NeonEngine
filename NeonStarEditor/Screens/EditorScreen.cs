@@ -63,8 +63,8 @@ namespace NeonStarEditor
 
         public bool UnpauseTillNextFrame = false;
 
-        public EditorScreen(Game game, GraphicsDeviceManager graphics)
-            : base(game)
+        public EditorScreen(string levelFile, Game game, GraphicsDeviceManager graphics)
+            : base(levelFile, game)
         {
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
@@ -738,7 +738,7 @@ namespace NeonStarEditor
                 AttacksSettingsManager.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
-            ChangeScreen(new EditorScreen(game, graphics));
+            ChangeScreen(new EditorScreen(this.levelFilePath, game, graphics));
         }
     }
 }
