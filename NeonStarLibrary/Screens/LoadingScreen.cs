@@ -45,6 +45,7 @@ namespace NeonStarLibrary
                 {
                     Thread LoadingThread = new Thread(new ThreadStart(LoadNextLevelAssets));
                     LoadingThread.Start();
+                    
                 }
                 else
                 {

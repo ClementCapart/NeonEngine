@@ -283,13 +283,13 @@ namespace NeonEngine
 
         public static Texture2D PremultiplyTexture(String filePath, GraphicsDevice device)
         {
-            Texture2D texture;
-
+            Texture2D texture = null;
+            
             using (FileStream titleStream = File.OpenRead(filePath))
             {
-                texture = Texture2D.FromStream(device, titleStream);
+               texture = Texture2D.FromStream(device, titleStream);
             }
-
+            
             Color[] buffer = new Color[texture.Width * texture.Height];
             texture.GetData(buffer);
             for (int i = 0; i < buffer.Length; i++)
@@ -357,6 +357,7 @@ namespace NeonEngine
             string[] fileNameProcessing = s.Split('\\');
             string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
             string[] ssiInfo = fileName.Split('_');
+            texture.Name = ssiInfo[0];
 
             if (tag == ssiInfo[0])
             {
@@ -458,7 +459,6 @@ namespace NeonEngine
                 else
                     currentColumn++;
             }
-            
             return frames;
         }
 

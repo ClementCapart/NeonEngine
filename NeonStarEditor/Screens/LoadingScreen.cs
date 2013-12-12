@@ -13,30 +13,15 @@ namespace NeonStarEditor
     {
         public bool ThreadFinished = false;
         public string LevelToLoad = "";
+        Thread LoadingThread;
 
         public Entity LoadingAnim;
 
         public LoadingScreen(Game game, string levelToLoad = "")
             :base(game)
         {
-            LevelToLoad = levelToLoad;
-            if (levelToLoad != "")
-            {
-                Thread LoadingThread = new Thread(new ThreadStart(LoadNextLevelAssets));
-                LoadingThread.Start();
-            }
-            else
-            {
-                Thread LoadingThread = new Thread(new ThreadStart(LoadCommonAssets));
-                LoadingThread.Start();
-            }
 
-            LoadingAnim = new Entity(this);
-            SpriteSheet ss = new SpriteSheet(LoadingAnim);
-            ss.SpriteSheetTag = "LiOnRun";
-            ss.Init();
-            LoadingAnim.AddComponent(ss);
-            entities.Add(LoadingAnim);
+            LevelToLoad = levelToLoad;
         }
 
         public void LoadNextLevelAssets()
@@ -56,10 +41,27 @@ namespace NeonStarEditor
 
         public override void Update(GameTime gameTime)
         {
-            if(ThreadFinished && LevelToLoad == "")
-                this.ChangeScreen(new EditorScreen(@"../Data/Levels/Level_Empty.xml" , Neon.game, Neon.GraphicsDeviceManager));
-            else if(ThreadFinished)
+            if (FirstUpdate)
+            {
+                if (LevelToLoad != "")
+                {
+                    LoadNextLevelAssets();
+                }
+                else
+                {
+                    LoadCommonAssets();
+                }
+            }
+
+
+            if (ThreadFinished && LevelToLoad != "")
+            {
                 this.ChangeScreen(new EditorScreen(LevelToLoad, Neon.game, Neon.GraphicsDeviceManager));
+            }
+            else if (ThreadFinished)
+            {
+                this.ChangeScreen(new EditorScreen(@"../Data/Levels/Level_Empty.xml", Neon.game, Neon.GraphicsDeviceManager));
+            }
             base.Update(gameTime);
         }
     }
