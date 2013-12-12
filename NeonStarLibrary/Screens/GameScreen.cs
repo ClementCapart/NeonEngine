@@ -48,7 +48,6 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-
                 if (MustFollowAvatar)
                     camera.Chase(entityToChase.transform.Position, gameTime);
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)

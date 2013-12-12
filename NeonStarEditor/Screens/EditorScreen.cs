@@ -83,7 +83,6 @@ namespace NeonStarEditor
             RightDockControl = new RightDock(this);
             AttacksSettingsManager = new AttacksSettingsManager();
             
-
             GameAsForm.Controls.Add(BottomDockControl);
             GameAsForm.Controls.Add(RightDockControl);
             GameAsForm.Controls.Add(LeftDockControl);
@@ -217,7 +216,7 @@ namespace NeonStarEditor
             else
                 PressedDelay = 0.0f;
 
-            base.Update(gameTime);
+            base.PostUpdate(gameTime);
             
         }
 
