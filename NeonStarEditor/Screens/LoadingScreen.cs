@@ -13,14 +13,11 @@ namespace NeonStarEditor
     {
         public bool ThreadFinished = false;
         public string LevelToLoad = "";
-        Thread LoadingThread;
-
         public Entity LoadingAnim;
 
         public LoadingScreen(Game game, string levelToLoad = "")
             :base(game)
         {
-
             LevelToLoad = levelToLoad;
         }
 
