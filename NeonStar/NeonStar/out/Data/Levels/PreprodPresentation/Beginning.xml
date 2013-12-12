@@ -45,6 +45,7 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
@@ -53,7 +54,6 @@
               </Spritesheets>
               <DrawLayer Value="0.1" />
               <IsHUD Value="False" />
-              <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -156,18 +156,15 @@
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="True" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="idle" SpritesheetTag="LiOnIdle" />
                 <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
                 <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
                 <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
                 <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="startFall" SpritesheetTag="LiOnJumpDOWN02" />
-                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWNLoop02" />
-                <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
                 <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
                 <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
                 <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
@@ -183,7 +180,6 @@
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
-              <Tint Value="True" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
@@ -220,6 +216,7 @@
               <FallLoopAnimation Value="fallLoop" />
               <LandingAnimation Value="landing" />
               <MaxJumpInputDelay Value="0.5" />
+              <MaxFallSpeed Value="20" />
             </Properties>
           </ThirdPersonController>
           <Avatar Type="NeonStarLibrary.Avatar" ID="6">
@@ -260,6 +257,9 @@
               <RightSlotElement Value="Neutral" />
               <RightSlotLevel Value="1" />
               <MaxLevel Value="3" />
+              <ThunderGatheringFX Value="" />
+              <FireGatheringFX Value="" />
+              <GetElementColorDelay Value="0.15" />
             </Properties>
           </ElementSystem>
           <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
@@ -296,8 +296,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-237 Y:4000}" />
-              <InitialPosition Value="{X:-237 Y:4000}" />
+              <Position Value="{X:-204 Y:431}" />
+              <InitialPosition Value="{X:-204 Y:431}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -305,9 +305,9 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-237 Y:1015}" />
-              <X Value="-737" />
-              <Y Value="990" />
+              <Center Value="{X:-204 Y:431}" />
+              <X Value="-704" />
+              <Y Value="406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="1000" />
@@ -317,11 +317,56 @@
           <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
             <Properties>
               <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
               <TriggeringEntityName Value="LiOn" />
               <TriggeredEntityName Value="Script" />
               <TriggeredComponentName Value="PreprodBeginning" />
             </Properties>
           </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="BoundLeft">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-570 Y:-230}" />
+              <InitialPosition Value="{X:-570 Y:-230}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Left" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundDown">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:100 Y:78}" />
+              <InitialPosition Value="{X:100 Y:78}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+            <Properties>
+              <BoundSide Value="Down" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
