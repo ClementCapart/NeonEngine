@@ -43,22 +43,12 @@ namespace NeonStarLibrary
             {
                 if (LevelToLoad != "")
                 {
-                    Thread LoadingThread = new Thread(new ThreadStart(LoadNextLevelAssets));
-                    LoadingThread.Start();
-                    
+                    LoadNextLevelAssets();
                 }
                 else
                 {
-                    Thread LoadingThread = new Thread(new ThreadStart(LoadCommonAssets));
-                    LoadingThread.Start();
+                    LoadCommonAssets();
                 }
-
-                LoadingAnim = new Entity(this);
-                SpriteSheet ss = new SpriteSheet(LoadingAnim);
-                ss.SpriteSheetTag = "LiOnRun";
-                ss.Init();
-                LoadingAnim.AddComponent(ss);
-                entities.Add(LoadingAnim);
             }
 
             
