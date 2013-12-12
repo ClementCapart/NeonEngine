@@ -76,8 +76,16 @@ namespace NeonStarEditor
             NoEntity.Text = "No entity selected !";
             NoEntity.Font = new Font("Agency FB", 24, FontStyle.Regular);
             NoEntity.Location = new Point(60, 250);
+
+            try
+            {
+                Inspector.Controls.Add(NoEntity);
+            }
+            catch 
+            {
+                Console.WriteLine("ClearInspector() failed ; Unhandled exception");
+            }
             
-            Inspector.Controls.Add(NoEntity);
         }
 
         public void InstantiateProperties(Entity SelectedEntity)
