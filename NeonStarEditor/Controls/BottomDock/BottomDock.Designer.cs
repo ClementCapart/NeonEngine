@@ -65,7 +65,7 @@
             this.levelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.levelList.Location = new System.Drawing.Point(729, -1);
             this.levelList.Name = "levelList";
-            this.levelList.Size = new System.Drawing.Size(433, 167);
+            this.levelList.Size = new System.Drawing.Size(469, 167);
             this.levelList.TabIndex = 3;
             // 
             // BottomDock

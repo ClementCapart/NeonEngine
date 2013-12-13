@@ -87,6 +87,7 @@
             this.AddEntityButton.TabIndex = 6;
             this.AddEntityButton.Text = "N";
             this.AddEntityButton.UseVisualStyleBackColor = true;
+            this.AddEntityButton.Click += new System.EventHandler(this.AddEntityButton_Click);
             // 
             // newFolder
             // 
@@ -165,7 +166,7 @@
             this.Controls.Add(this.levelListTreeView);
             this.Controls.Add(this.EntityList);
             this.Name = "LevelListControl";
-            this.Size = new System.Drawing.Size(426, 165);
+            this.Size = new System.Drawing.Size(463, 165);
             this.Load += new System.EventHandler(this.LevelListControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
