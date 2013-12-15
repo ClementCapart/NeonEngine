@@ -199,6 +199,10 @@ namespace NeonStarLibrary
                                 _isGuarding = false;
                                 _isAirDashing = false;
                                 _isRolling = true;
+                                AvatarComponent.CanMove = false;
+                                AvatarComponent.CanTurn = false;
+                                AvatarComponent.CanAttack = false;
+                                AvatarComponent.CanUseElement = false;
                             }
                             else if (Neon.Input.Check(NeonStarInput.MoveRight))
                             {
@@ -210,6 +214,10 @@ namespace NeonStarLibrary
                                 _isGuarding = false;
                                 _isAirDashing = false;
                                 _isRolling = true;
+                                AvatarComponent.CanMove = false;
+                                AvatarComponent.CanTurn = false;
+                                AvatarComponent.CanAttack = false;
+                                AvatarComponent.CanUseElement = false;
                             }
                         }
                     }
@@ -229,6 +237,10 @@ namespace NeonStarLibrary
                                 _isGuarding = false;
                                 _isAirDashing = true;
                                 _isRolling = false;
+                                AvatarComponent.CanMove = false;
+                                AvatarComponent.CanTurn = false;
+                                AvatarComponent.CanAttack = false;
+                                AvatarComponent.CanUseElement = false;
                             }
                             else if (Neon.Input.Check(NeonStarInput.MoveRight))
                             {
@@ -241,6 +253,10 @@ namespace NeonStarLibrary
                                 _isGuarding = false;
                                 _isAirDashing = true;
                                 _isRolling = false;
+                                AvatarComponent.CanMove = false;
+                                AvatarComponent.CanTurn = false;
+                                AvatarComponent.CanAttack = false;
+                                AvatarComponent.CanUseElement = false;
                             }
                         }
                     }                  
@@ -262,6 +278,10 @@ namespace NeonStarLibrary
                         _isGuarding = true;
                         _isAirDashing = false;
                         _isRolling = false;
+                        AvatarComponent.CanMove = false;
+                        AvatarComponent.CanTurn = false;
+                        AvatarComponent.CanAttack = false;
+                        AvatarComponent.CanUseElement = false;
                     }
                 }
                 else
