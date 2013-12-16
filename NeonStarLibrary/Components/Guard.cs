@@ -105,6 +105,14 @@ namespace NeonStarLibrary
             get { return _guardDamageReduce; }
             set { _guardDamageReduce = value; }
         }
+
+        private float _guardLockDuration = 1.0f;
+
+        public float GuardLockDuration
+        {
+            get { return _guardLockDuration; }
+            set { _guardLockDuration = value; }
+        }
         #endregion       
 
         public Avatar AvatarComponent;

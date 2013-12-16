@@ -78,6 +78,7 @@ namespace NeonStarLibrary
                         break;
 
                     case EnemyState.StunLocked:
+                        entity.spritesheets.ChangeAnimation(EnemyComponent.HitAnim, true, 0, true, false, false);
                         break;
                 }
             }

@@ -286,9 +286,21 @@ namespace NeonStarLibrary
                 Console.WriteLine(entity.Name + " have lost " + damageValue + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
             }
 
-            if (stunLockDuration > 0.0f && !_immuneToStunLock)
+            StunLock(stunLockDuration);
+
+            if (!entity.rigidbody.isGrounded)
             {
-                _stunLockDuration = stunLockDuration;
+                AirLock(airLockDuration);
+            }
+            
+            return true;
+        }
+
+        public void StunLock(float duration)
+        {
+            if (duration > 0.0f && !_immuneToStunLock)
+            {
+                _stunLockDuration = duration;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
                 if (State == EnemyState.Attacking && Attack != null && Attack.CurrentAttack != null)
@@ -299,13 +311,6 @@ namespace NeonStarLibrary
 
                 State = EnemyState.StunLocked;
             }
-
-            if (!entity.rigidbody.isGrounded)
-            {
-                AirLock(airLockDuration);
-            }
-            
-            return true;
         }
 
         public void AirLock(float duration)

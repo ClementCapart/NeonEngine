@@ -661,7 +661,6 @@ namespace NeonStarLibrary
                             {
                                 if (entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
                                 {
-
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0];
                                     if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                     entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));

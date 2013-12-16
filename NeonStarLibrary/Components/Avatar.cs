@@ -124,7 +124,32 @@ namespace NeonStarLibrary
 
         public bool TakeDamage(Attack attack)
         {
-            return TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
+            bool takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
+
+            if (!takeDamage)
+            {
+                if (attack.Launcher != null)
+                {
+                    Enemy e = attack.Launcher.GetComponent<Enemy>();
+                    if (e != null)
+                    {
+                        if (Guard != null)
+                            e.StunLock(Guard.GuardLockDuration);
+                    }
+                }
+                else if (attack._entity != null)
+                {
+                    Enemy e = attack._entity.GetComponent<Enemy>();
+                    if (e != null)
+                    {
+                        if (Guard != null)
+                            e.StunLock(Guard.GuardLockDuration);
+                    }
+                }
+            }
+
+            return takeDamage;
+            
         }
 
         public bool TakeDamage(Bullet bullet)
@@ -143,7 +168,7 @@ namespace NeonStarLibrary
             }
 
             if (damageValue >= 0.0f)
-            {
+            {                
                 entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
                 EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 0.9f);
                 return false;

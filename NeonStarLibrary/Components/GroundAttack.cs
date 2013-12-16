@@ -287,7 +287,7 @@ namespace NeonStarLibrary
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
-                if (CurrentAttack.CooldownFinished)
+                if (CurrentAttack != null && CurrentAttack.CooldownFinished)
                 {
                     CurrentAttack = null;
                     EnemyComponent.State = EnemyState.Wait;
