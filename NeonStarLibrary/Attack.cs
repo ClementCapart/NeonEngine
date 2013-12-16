@@ -409,17 +409,20 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             if (_entity != null)
                             {
-                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
-                                _mustStopAtTargetSight = (bool)ae.Parameters[1];
-                                if (Launcher != null)
+                                if (_entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
                                 {
-                                    Launcher.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                    Launcher.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                }
-                                else
-                                {
-                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                    Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                    _mustStopAtTargetSight = (bool)ae.Parameters[1];
+                                    if (Launcher != null)
+                                    {
+                                        Launcher.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                        Launcher.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                    }
+                                    else
+                                    {
+                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                        _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                    }
                                 }
                             }
                             break;
@@ -561,9 +564,12 @@ namespace NeonStarLibrary
                         switch (ae.specialEffect)
                         {
                             case SpecialEffect.Impulse:
-                                Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
-                                _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                if (_entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
+                                {
+                                    Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                }
                                 break;
 
                             case SpecialEffect.PercentageDamageBoost:
@@ -653,10 +659,14 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             if (avatar != null || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
                             {
-                                Vector2 impulseForce = (Vector2)ae.Parameters[0];
-                                if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
-                                velocityReset = true;
+                                if (entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
+                                {
+
+                                    Vector2 impulseForce = (Vector2)ae.Parameters[0];
+                                    if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
+                                    velocityReset = true;
+                                }
                             }                
                             break;
 

@@ -181,8 +181,10 @@ namespace NeonStarEditor
 
                     XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
                     XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[1]).ToString()));
+                    XElement inAirBool = new XElement("ThirdParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[2]).ToString()));
                     effect.Add(parameter);
                     effect.Add(boolPulse);
+                    effect.Add(inAirBool);
                     break;
 
                 case SpecialEffect.PercentageDamageBoost:
@@ -323,6 +325,14 @@ namespace NeonStarEditor
                         checkBox.Location = new System.Drawing.Point(label.Location.X, impulsePower.Location.Y + impulsePower.Height + 5);
                         checkBox.CheckedChanged += checkBox_CheckedChanged;
                         EffectsInfoPanel.Controls.Add(checkBox);
+
+                        CheckBox checkBox2 = new CheckBox();
+                        checkBox2.Text = "Not in air";
+                        checkBox2.Name = "NotInAirCheckbox";
+                        checkBox2.Checked = (bool)CurrentAttackEffectSelected.Parameters[2];
+                        checkBox2.Location = new System.Drawing.Point(label.Location.X, checkBox.Location.Y + checkBox.Height + 5);
+                        checkBox2.CheckedChanged += checkBox_CheckedChanged;
+                        EffectsInfoPanel.Controls.Add(checkBox2);
 
                         break;
 
@@ -643,7 +653,12 @@ namespace NeonStarEditor
 
         void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
+            if ((sender as CheckBox).Name == "NotInAirCheckbox")
+            {
+                CurrentAttackEffectSelected.Parameters[2] = (bool)(sender as CheckBox).Checked;
+            }
+            else
+                CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
         }
 
         void textBox_Leave(object sender, EventArgs e)
