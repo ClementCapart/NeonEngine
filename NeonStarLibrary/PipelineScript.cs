@@ -33,7 +33,7 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_inTrigger)
+            if (_inTrigger && ((entity.spritesheets.CurrentSpritesheet.IsFinished && !entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsLooped))
             {
                 if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Y))
                 {

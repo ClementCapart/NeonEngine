@@ -38,7 +38,7 @@ namespace NeonStarLibrary
             entityToChase = Neon.world.GetEntityByName("LiOn");
 
             camera.Bounded = true;
-        }
+        } 
 
         public override void PreUpdate(GameTime gameTime)
         {

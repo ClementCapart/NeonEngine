@@ -863,13 +863,18 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>0.1</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:150 Y:0}" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="FXImpact01" />
@@ -888,7 +893,7 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.1</Delay>
+      <Delay>0</Delay>
       <Cooldown>0.1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.2</Duration>
@@ -897,7 +902,12 @@
       <AirFactor>0.5</AirFactor>
       <StunLock>0.55</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:400 Y:0}" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3900 Y:0}" />
