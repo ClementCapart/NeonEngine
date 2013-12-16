@@ -4,18 +4,18 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:-483 Y:190}" />
-          <InitialPosition Value="{X:-483 Y:190}" />
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:-511 Y:190}" />
+          <InitialPosition Value="{X:-511 Y:190}" />
           <Rotation Value="0" />
           <Scale Value="2" />
-          <AutoChangeInitialPosition Value="True" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-483 Y:190}" />
-          <X Value="-503" />
+          <Center Value="{X:-510 Y:190}" />
+          <X Value="-530" />
           <Y Value="122" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -41,26 +41,37 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="True" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
           <Spritesheets>
             <Animation Name="idle" SpritesheetTag="LiOnIdle" />
             <Animation Name="run" SpritesheetTag="LiOnRun" />
-            <Animation Name="startJump" SpritesheetTag="LiOnJumpUP02" />
+            <Animation Name="startJump" SpritesheetTag="LiOnJumpStart" />
             <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
             <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
             <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-            <Animation Name="startFall" SpritesheetTag="LiOnJumpDown" />
-            <Animation Name="fallLoop" SpritesheetTag="LiOnJumpDOWN02" />
-            <Animation Name="landing" SpritesheetTag="LiOnJumpLand02" />
+            <Animation Name="startFall" SpritesheetTag="LiOnJumpStartFall" />
+            <Animation Name="fallLoop" SpritesheetTag="LiOnJumpFall" />
+            <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
             <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
             <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
             <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
             <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
             <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
             <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
+            <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
+            <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
+            <Animation Name="Hit" SpritesheetTag="LiOnHit" />
+            <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
+            <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
+            <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
-          <Tint Value="True" />
+          <IsHUD Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
@@ -81,13 +92,11 @@
           <RushAttackSideDelay Value="0.09" />
           <ChainDelay Value="0.15" />
           <RushAttackStickDelay Value="0.08" />
-          <ThirdPersonController Value="5" />
-          <CurrentComboHit Value="None" />
         </Properties>
       </MeleeFight>
       <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
         <Properties>
-          <JumpImpulseHeight Value="450" />
+          <JumpImpulseHeight Value="470" />
           <GroundAccelerationSpeed Value="1" />
           <AirAccelerationSpeed Value="1" />
           <GroundMaxSpeed Value="4.5" />
@@ -98,24 +107,26 @@
           <StartFallAnimation Value="startFall" />
           <FallLoopAnimation Value="fallLoop" />
           <LandingAnimation Value="landing" />
-          <CanMove Value="True" />
-          <CanTurn Value="True" />
           <MaxJumpInputDelay Value="0.5" />
+          <MaxFallSpeed Value="12" />
         </Properties>
       </ThirdPersonController>
       <Avatar Type="NeonStarLibrary.Avatar" ID="6">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="0" />
-          <CurrentHealthPoints Value="22251" />
-          <StunLockDuration Value="-4.04343E-05" />
+          <StartingHealthPoints Value="99" />
+          <CurrentHealthPoints Value="99" />
+          <InvincibilityDuration Value="1" />
+          <HitAnim Value="Hit" />
+          <HitGuardAnim Value="HitGuard" />
+          <HitGuardFX Value="LiOnGuardFX" />
         </Properties>
       </Avatar>
       <Roll Type="NeonStarLibrary.Guard" ID="7">
         <Properties>
           <RollAnimation Value="Roll" />
-          <DashAnimation Value="Roll" />
-          <GuardAnimation Value="Roll" />
+          <DashAnimation Value="AirDash" />
+          <GuardAnimation Value="Guard" />
           <RollDuration Value="0.3" />
           <DashDuration Value="0.17" />
           <GuardDuration Value="0.3" />
@@ -124,21 +135,31 @@
           <GuardCooldown Value="0.3" />
           <RollImpulse Value="650" />
           <DashImpulse Value="550" />
-          <GuardDamageReduce Value="0" />
-          <IsGuarding Value="False" />
+          <GuardDamageReduce Value="116" />
         </Properties>
       </Roll>
       <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
         <Properties>
-          <LeftSlotElement Value="Fire" />
+          <FireLaunchAnimation Value="FireLaunch" />
+          <FireCooldown Value="3" />
+          <ThunderLaunchAnimation Value="ThunderLaunch" />
+          <ThunderCooldown Value="3" />
+          <LeftSlotElement Value="Neutral" />
           <LeftSlotLevel Value="1" />
-          <LeftSlotCooldownTimer Value="0" />
-          <RightSlotCooldownTimer Value="0" />
           <RightSlotElement Value="Neutral" />
           <RightSlotLevel Value="1" />
           <MaxLevel Value="3" />
+          <ThunderGatheringFX Value="FeedbackThunderGathering" />
+          <FireGatheringFX Value="FeedbackFireGathering" />
+          <GetElementColorDelay Value="0.15" />
         </Properties>
       </ElementSystem>
+      <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
+        <Properties />
+      </RestartGame>
+      <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
+        <Properties />
+      </AvatarAnimationManager>
     </Components>
   </Entity>
 </Prefab>

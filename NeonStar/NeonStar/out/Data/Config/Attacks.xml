@@ -82,16 +82,21 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.5</Delay>
-      <Cooldown>0.27</Cooldown>
+      <Delay>0.4</Delay>
+      <Cooldown>0.32</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.25</Duration>
+      <Duration>0.16</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.45</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <SpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:3500 Y:0}" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </SpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:100 Y:-150}" />
