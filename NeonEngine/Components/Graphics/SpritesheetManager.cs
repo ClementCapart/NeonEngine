@@ -15,6 +15,12 @@ namespace NeonEngine
         public int CurrentPriority;
         public bool Active = true;
 
+        new public Effect CurrentEffect
+        {
+            get { return CurrentSpritesheet.CurrentEffect;  }
+            set { CurrentSpritesheet.CurrentEffect = value; }
+        }
+
         public override Side CurrentSide
         {
             get

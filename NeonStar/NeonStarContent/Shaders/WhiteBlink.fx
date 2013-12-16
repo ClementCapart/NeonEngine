@@ -1,11 +1,11 @@
 sampler s0;
 float WhiteIntensity = 0.5f;
 
-float4 PixelShaderFunction(float2 texCoord: TEXCOORD0) : COLOR
+float4 WhiteBlinkFunction(float2 texCoord: TEXCOORD0) : COLOR
 {
     float4 color = tex2D(s0, texCoord);
 
-	if(color.a > 0.5f)
+	if(color.a == 1)
 	{
 		color.r = (WhiteIntensity * 1 + color.r);
 	
@@ -19,9 +19,9 @@ float4 PixelShaderFunction(float2 texCoord: TEXCOORD0) : COLOR
 
 technique Technique1  
 {
-	pass Pass1
+	pass PassBlink
 	{
-		PixelShader = compile ps_2_0 PixelShaderFunction(); 
+		PixelShader = compile ps_2_0 WhiteBlinkFunction(); 
 	}
 }
 

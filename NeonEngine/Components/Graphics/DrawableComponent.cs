@@ -22,6 +22,8 @@ namespace NeonEngine
             set { isHUD = value; }
         }
 
+        public Effect CurrentEffect;
+
         protected Side _currentSide = Side.Right;
 
         public virtual Side CurrentSide
@@ -93,6 +95,7 @@ namespace NeonEngine
 
         public override void Init()
         {
+            CurrentEffect = AssetManager.GetEffect("BasicRender");
             InitialTintcolor = TintColor;
             base.Init();
         }

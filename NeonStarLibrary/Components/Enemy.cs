@@ -188,6 +188,10 @@ namespace NeonStarLibrary
         private float _damageOverTimeSpeed = 0.0f;
         private float _damageOverTimeTickTimer = 0.0f;
 
+        private bool _damageBlinking = false;
+        private float _blinkDuration = 0.2f;
+        private float _blinkTimer = 0.0f;
+
         private bool _opacityGoingDown = true;
         private Component _componentToTrigger = null;
         private Entity[] _raycastHits;
@@ -236,7 +240,10 @@ namespace NeonStarLibrary
             }
 
             if (tookDamage)
-                entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
+            {
+                _damageBlinking = true;
+                //entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
+            }
 
             return tookDamage;
         }
@@ -399,7 +406,22 @@ namespace NeonStarLibrary
                     _damageOverTimeValue = 0.0f;
                     _damageOverTimeSource = null;
                 }
-            }           
+            }
+
+            if (_damageBlinking)
+            {
+                if (_blinkTimer < _blinkDuration)
+                {
+                    entity.spritesheets.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
+                    _blinkTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    entity.spritesheets.CurrentEffect = AssetManager.GetEffect("BasicRender");
+                    _damageBlinking = false;
+                    _blinkTimer = 0.0f;
+                }
+            }
             base.Update(gameTime);
         }
 

@@ -76,6 +76,8 @@ namespace NeonEngine
             _levelAssetsList = new Dictionary<string, Texture2D>();
             _levelSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
 
+
+
             LoadLaunchData(Neon.graphicsDevice);
         }
 
@@ -135,6 +137,12 @@ namespace NeonEngine
             _commonSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
             _commonEffectList = new Dictionary<string, Effect>();
 
+            foreach (string fx in Directory.GetFiles(@"Content/Shaders"))
+            {
+                CommonEffects.Add(Path.GetFileNameWithoutExtension(fx), fx);
+                _commonEffectList.Add(Path.GetFileNameWithoutExtension(fx), Content.Load<Effect>(@"Shaders/" + Path.GetFileNameWithoutExtension(fx)));
+            }
+
             Texture2D fade = new Texture2D(device, Neon.ScreenWidth, Neon.ScreenHeight);
             Color[] fill = new Color[fade.Width * fade.Height];
             for (int i = 0; i < fill.Length; i++)
@@ -168,9 +176,6 @@ namespace NeonEngine
                     for (int i = 7; i < ssiInfo.Length; i++)
                         CommonSpritesheets.Add(ssiInfo[0]+ssiInfo[i].Split('-')[0], s);
             }    
-
-            foreach(KeyValuePair<string, string> kvp in CommonEffects)
-                _commonEffectList.Add(kvp.Key, Content.Load<Effect>(kvp.Value));
 
             foreach(string s in CommonSpritesheets.Keys)
                 LoadSpritesheet(s, CommonSpritesheets, _commonSpritesheetList);
