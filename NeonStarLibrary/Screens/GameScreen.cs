@@ -35,7 +35,8 @@ namespace NeonStarLibrary
 
             LoadLevel(new Level(levelFile, this, true));
 
-            entityToChase = entities.Where(e => e.Name == "LiOn").First();
+            entityToChase = Neon.world.GetEntityByName("LiOn");
+
             camera.Bounded = true;
         }
 
@@ -48,8 +49,12 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar)
+                if (MustFollowAvatar && entityToChase != null)
                     camera.Chase(entityToChase.transform.Position, gameTime);
+                else if (entityToChase == null)
+                {
+                    entityToChase = Neon.world.GetEntityByName("LiOn");
+                }
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
                     Attack attack = FreeAttacks[i];

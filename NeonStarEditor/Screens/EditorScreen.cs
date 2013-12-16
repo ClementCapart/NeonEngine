@@ -149,7 +149,6 @@ namespace NeonStarEditor
 
             if (Neon.Input.Pressed(Buttons.Start))
             {
-                Pause = !Pause;
                 UnpauseTillNextFrame = false;
             }
 
@@ -205,9 +204,9 @@ namespace NeonStarEditor
                 MustFollowAvatar = false;
             }
 
-            if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
+            /*if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
                 || (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))&& Neon.Input.Pressed(Keys.Z))
-                ActionManager.Undo();
+                ActionManager.Undo();*/
 
             if (PressedDelay > 0.0f)
             {

@@ -22,6 +22,7 @@ namespace NeonStarEditor
             this.GameWorld = GameWorld;
             entityListControl.GameWorld = this.GameWorld;
             prefabListControl.GameWorld = this.GameWorld;
+            levelList.GameWorld = this.GameWorld;
         }
     }
 }
