@@ -51,7 +51,8 @@ namespace NeonStarLibrary
         public bool AirOnly = false;
         public bool CancelOnGround = false;
         public bool OnlyOnceInAir = false;
-        public List<AttackEffect> SpecialEffects = new List<AttackEffect>();
+        public List<AttackEffect> OnDelaySpecialEffects = new List<AttackEffect>();
+        public List<AttackEffect> OnDurationSpecialEffects = new List<AttackEffect>();
         public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
         public List<AttackEffect> OnGroundCancelSpecialEffects = new List<AttackEffect>();
     }
@@ -95,63 +96,123 @@ namespace NeonStarLibrary
                 ai.AirFactor = float.Parse(attack.Element("AirFactor").Value, CultureInfo.InvariantCulture);
                 ai.StunLock = float.Parse(attack.Element("StunLock").Value, CultureInfo.InvariantCulture);
                 ai.MultiHitDelay = float.Parse(attack.Element("MultiHitDelay").Value, CultureInfo.InvariantCulture);
-                ai.SpecialEffects = new List<AttackEffect>();
-                ai.OnGroundCancelSpecialEffects = new List<AttackEffect>();
 
-                foreach (XElement specialEffect in attack.Element("SpecialEffects").Elements("Effect"))
+                ai.OnDelaySpecialEffects = new List<AttackEffect>();
+
+                foreach (XElement onDelaySpecialEffect in attack.Element("OnDelaySpecialEffects").Elements("Effect"))
                 {
-                    SpecialEffect se = (SpecialEffect)Enum.Parse(typeof(SpecialEffect), specialEffect.Attribute("Type").Value);
+                    SpecialEffect se = (SpecialEffect)Enum.Parse(typeof(SpecialEffect), onDelaySpecialEffect.Attribute("Type").Value);
+
+                    switch (se)
+                    {
+                        case SpecialEffect.Impulse:
+                            Vector2 impulseForce = Neon.utils.ParseVector2(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            bool impulseBool = bool.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value);
+                            bool notInAir = bool.Parse(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool, notInAir }));
+                            break;
+
+                        case SpecialEffect.StartAttack:
+                            string attackToLaunch = onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value;
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
+                            break;
+
+                        case SpecialEffect.PositionalPulse:
+                            Vector2 pulseForce = Neon.utils.ParseVector2(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
+                            break;
+
+                        case SpecialEffect.ShootBullet:
+                            BulletInfo bi = BulletsManager.GetBulletInfo(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            break;
+
+                        case SpecialEffect.ShootBulletAtTarget:
+                            BulletInfo bi2 = BulletsManager.GetBulletInfo(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            break;
+
+                        case SpecialEffect.Invincible:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.EffectAnimation:
+                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            float rotation = float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                            Vector2 offset = Neon.utils.ParseVector2(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            break;
+
+                        case SpecialEffect.MoveWhileAttacking:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.PercentageDamageBoost:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.DamageOverTime:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+                    }
+                }
+
+                ai.OnDurationSpecialEffects = new List<AttackEffect>();
+
+                foreach (XElement onDurationSpecialEffect in attack.Element("OnDurationSpecialEffects").Elements("Effect"))
+                {
+                    SpecialEffect se = (SpecialEffect)Enum.Parse(typeof(SpecialEffect), onDurationSpecialEffect.Attribute("Type").Value);
 
                     switch(se)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            bool impulseBool = bool.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value);
-                            bool notInAir = bool.Parse(specialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool, notInAir }));
+                            Vector2 impulseForce = Neon.utils.ParseVector2(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            bool impulseBool = bool.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value);
+                            bool notInAir = bool.Parse(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce, impulseBool, notInAir }));
                             break;
 
                         case SpecialEffect.StartAttack:
-                            string attackToLaunch = specialEffect.Element("Parameter").Attribute("Value").Value;
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
+                            string attackToLaunch = onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value;
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { attackToLaunch }));
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            Vector2 pulseForce = Neon.utils.ParseVector2(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
+                            Vector2 pulseForce = Neon.utils.ParseVector2(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
 
                         case SpecialEffect.ShootBullet:
-                            BulletInfo bi = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(specialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            BulletInfo bi = BulletsManager.GetBulletInfo(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { bi, Neon.utils.ParseVector2(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
-                            BulletInfo bi2 = BulletsManager.GetBulletInfo(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(specialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            BulletInfo bi2 = BulletsManager.GetBulletInfo(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { bi2, Neon.utils.ParseVector2(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
                             
                         case SpecialEffect.Invincible:
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.EffectAnimation:
-                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(specialEffect.Element("Parameter").Attribute("Value").Value);
-                            float rotation = float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
-                            Vector2 offset = Neon.utils.ParseVector2(specialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            float rotation = float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                            Vector2 offset = Neon.utils.ParseVector2(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.PercentageDamageBoost:
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.DamageOverTime:
-                            ai.SpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(specialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(specialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
                     }         
                 }

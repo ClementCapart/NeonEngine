@@ -17,7 +17,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -39,7 +40,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.2</StunLock>
       <MultiHitDelay>0.3</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:50 Y:100}" />
@@ -65,12 +67,13 @@
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="ShootBulletAtTarget">
           <Parameter Value="SimpleBullet" />
           <SecondParameter Value="{X:10 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -92,13 +95,14 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.45</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:100 Y:-150}" />
@@ -131,11 +135,12 @@
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="MoveWhileAttacking">
           <Parameter Value="3" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -157,7 +162,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.5</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -179,13 +185,14 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.45</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:6500 Y:0}" />
           <SecondParameter Value="True" />
           <ThirdParameter Value="False" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -207,7 +214,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.4</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:400 Y:0}" />
@@ -235,13 +243,14 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.5</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:800}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:7000}" />
@@ -273,13 +282,14 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.6</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:800}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:7000}" />
@@ -312,7 +322,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.7</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-1700}" />
@@ -344,7 +355,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.8</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-2000}" />
@@ -375,7 +387,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -386,7 +399,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -408,7 +421,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -419,7 +433,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -441,7 +455,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -452,7 +467,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -474,7 +489,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -495,7 +511,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -517,7 +533,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -538,7 +555,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -560,7 +577,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -581,7 +599,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -603,7 +621,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -624,7 +643,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -646,7 +665,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -677,7 +697,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -699,7 +719,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -730,7 +751,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -752,7 +773,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -783,7 +805,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -805,7 +827,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
       <MultiHitDelay>0.6</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
@@ -836,7 +859,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -858,7 +881,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -880,13 +904,20 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="Door" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:150 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="EffectAnimation">
           <Parameter Value="FXImpact01" />
@@ -914,13 +945,14 @@
       <AirFactor>0.5</AirFactor>
       <StunLock>0.55</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:400 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3900 Y:0}" />
@@ -951,7 +983,8 @@
       <AirFactor>0</AirFactor>
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:600 Y:0}" />
           <SecondParameter Value="False" />
@@ -960,7 +993,7 @@
         <Effect Type="Invincible">
           <Parameter Value="0.4" />
         </Effect>
-      </SpecialEffects>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
@@ -982,7 +1015,8 @@
       <AirFactor>0.5</AirFactor>
       <StunLock>0.5</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />
@@ -1010,7 +1044,8 @@
       <AirFactor>0.5</AirFactor>
       <StunLock>0.6</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:4500 Y:0}" />
@@ -1038,7 +1073,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.8</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-3800}" />
@@ -1066,7 +1102,8 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.9</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <SpecialEffects />
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:600 Y:-4000}" />
