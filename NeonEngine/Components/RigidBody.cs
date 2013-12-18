@@ -223,7 +223,9 @@ namespace NeonEngine
                 fixedRotation = value; 
             }
         }
-        
+
+        private Contact _currentContact = null;
+
 
         public Rigidbody(Entity entity)
             :base(entity, "Rigidbody")
@@ -288,7 +290,6 @@ namespace NeonEngine
                 float offset = 0;
                 Entity EntityA = Neon.utils.GetEntityByBody(fixtureA.Body);
                 Entity EntityB = Neon.utils.GetEntityByBody(fixtureB.Body);
-
                 if (EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitboxes[0];
@@ -311,7 +312,9 @@ namespace NeonEngine
                     Hitbox hitboxB = EntityB.hitboxes[0];
                     if (!EntityB.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
+                        Console.WriteLine("Reduced Friction");
                         contact.Friction = 0.0f;
+                        _currentContact = contact;
                         return true;
                     }
                 }
@@ -342,12 +345,29 @@ namespace NeonEngine
 
                 Position = Position;
             }
-            
+
+            if (_currentContact != null)
+            {
+                if (!_currentContact.IsTouching())
+                {
+                    _currentContact = null;
+                }
+                else
+                {
+                    Entity EntityA = Neon.utils.GetEntityByBody(_currentContact.FixtureA.Body);
+                    Entity EntityB = Neon.utils.GetEntityByBody(_currentContact.FixtureB.Body);
+                    if (EntityB.hitboxes[0] != null && (EntityB.transform.Position.Y + EntityB.hitboxes[0].Height / 2 <= EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2))
+                    {
+                        _currentContact.ResetFriction();
+                        _currentContact = null;
+                    }
+                }
+            }
             base.PreUpdate(gameTime);
         }
 
         public override void Update(GameTime gameTime)
-        {
+        {          
             base.Update(gameTime);
         }
 
