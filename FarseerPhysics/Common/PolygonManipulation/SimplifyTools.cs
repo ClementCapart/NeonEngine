@@ -14,7 +14,7 @@ namespace FarseerPhysics.Common.PolygonManipulation
         /// Removes all collinear points on the polygon.
         /// </summary>
         /// <param name="vertices">The polygon that needs simplification.</param>
-        /// <param name="collinearityTolerance">The collinearity tolerance.</param>
+        /// <param namenearityTolerance">The collinearity tolerance.</param>
         /// <returns>A simplified polygon.</returns>
         public static Vertices CollinearSimplify(Vertices vertices, float collinearityTolerance)
         {

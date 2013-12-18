@@ -289,19 +289,25 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            switch(EnemyComponent.State)
+            if(entity.rigidbody.isGrounded)
             {
-                case EnemyState.Chase:
-                case EnemyState.FinishChase:
-                    if (EnemyComponent.CurrentSide == Side.Right)
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_chaseSpeed, 0);
-                    }
-                    else if (EnemyComponent.CurrentSide == Side.Left)
-                    {
-                        this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_chaseSpeed, 0);
-                    }
-                    break;
+                switch(EnemyComponent.State)
+                {
+                
+
+                    case EnemyState.Chase:
+                    case EnemyState.FinishChase:
+                        if (EnemyComponent.CurrentSide == Side.Right)
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_chaseSpeed, 0);
+                        }
+                        else if (EnemyComponent.CurrentSide == Side.Left)
+                        {
+                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_chaseSpeed, 0);
+                        }
+                        break;
+                }
+
             }
             base.Update(gameTime);
         }

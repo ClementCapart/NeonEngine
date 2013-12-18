@@ -45,7 +45,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if(EntityToAttack != null)
+            if(EntityToAttack != null && entity.rigidbody.isGrounded)
             {
                 switch (EnemyComponent.State)
                 {

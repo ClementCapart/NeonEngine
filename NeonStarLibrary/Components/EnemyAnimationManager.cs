@@ -61,9 +61,9 @@ namespace NeonStarLibrary
                                 entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, true, false);
                             }
                         }
-                        
 
                         LastAttackHashCode = EnemyComponent.Attack.CurrentAttack.GetHashCode();
+
                         break;
 
                     case EnemyState.Wait:
@@ -87,8 +87,7 @@ namespace NeonStarLibrary
                         entity.spritesheets.ChangeAnimation(EnemyComponent.HitAnim, true, 0, true, false, false);
                         break;
                 }
-            }
-            
+            }                  
 
             base.PostUpdate(gameTime);
         }

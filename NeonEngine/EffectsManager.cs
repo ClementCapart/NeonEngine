@@ -44,12 +44,12 @@ namespace NeonEngine
                 spriteSheet.spriteEffects = side == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             spriteSheet.Active = true;
             //spriteSheet.Tint = true;
+            //priteSheet.Offset = new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
             spriteSheet.Init();
             spriteSheet.isPlaying = true;
 
-            animatedSpecialEffect.transform.Position = Position;
+            animatedSpecialEffect.transform.Position = Position + new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
             animatedSpecialEffect.transform.Rotation = Rotation;
-            animatedSpecialEffect.transform.Position += new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
 
             if (entity != null)
             {

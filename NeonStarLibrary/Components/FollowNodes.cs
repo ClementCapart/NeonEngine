@@ -145,24 +145,28 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (EnemyComponent.State == EnemyState.Patrol)
+            if (entity.rigidbody.isGrounded)
             {
-                if (_nextNode != null)
+                if (EnemyComponent.State == EnemyState.Patrol)
                 {
-                    if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                    if (_nextNode != null)
                     {
-                        EnemyComponent.CurrentSide = Side.Left;
-                        if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        if (this._nextNode.Position.X < this.entity.transform.Position.X)
+                        {
+                            EnemyComponent.CurrentSide = Side.Left;
+                            if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
+                                this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
+                        else
+                        {
+                            EnemyComponent.CurrentSide = Side.Right;
+                            if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
+                                this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                        }
                     }
-                    else
-                    {
-                        EnemyComponent.CurrentSide = Side.Right;
-                        if (EnemyComponent.Type == EnemyType.Ground && entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
-                            this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(_speed, this.entity.rigidbody.body.LinearVelocity.Y);
-                    }
-                }               
-            }        
+                }  
+            }
+                  
                                                          
             base.Update(gameTime);
         }

@@ -9,6 +9,8 @@ namespace NeonEngine
     public class FollowEntity : Component
     {
         private Entity _entityToFollow = null;
+        private SpritesheetManager _spritesheetManager = null;
+
 
         public Entity EntityToFollow
         {
@@ -23,6 +25,7 @@ namespace NeonEngine
 
         public override void Init()
         {
+            _spritesheetManager = entity.GetComponent <SpritesheetManager>();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)

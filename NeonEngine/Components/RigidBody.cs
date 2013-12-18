@@ -312,7 +312,6 @@ namespace NeonEngine
                     Hitbox hitboxB = EntityB.hitboxes[0];
                     if (!EntityB.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
                     {
-                        Console.WriteLine("Reduced Friction");
                         contact.Friction = 0.0f;
                         _currentContact = contact;
                         return true;
