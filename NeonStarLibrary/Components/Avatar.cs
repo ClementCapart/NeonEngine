@@ -170,7 +170,7 @@ namespace NeonStarLibrary
             if (damageValue >= 0.0f)
             {                
                 entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
-                EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 0.9f);
+                EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
                 return false;
             }
 

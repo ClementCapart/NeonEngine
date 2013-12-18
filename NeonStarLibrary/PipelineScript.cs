@@ -56,13 +56,13 @@ namespace NeonStarLibrary
                             break;
 
                         case 4:
-                            EffectsManager.GetEffect(fx, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 0.9f);
+                            EffectsManager.GetEffect(fx, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
                             entity.spritesheets.ChangeAnimation("IdleModel");
                             _screen.spritesheets.ChangeAnimation("GlobalTweakScreen", 0, true, false, false);
                             break;
 
                         case 5:
-                            EffectsManager.GetEffect(fx, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 0.9f);
+                            EffectsManager.GetEffect(fx, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f ,0.9f);
                             entity.spritesheets.ChangeAnimation("WalkModel");
                             _screen.spritesheets.ChangeAnimation("SituationalTweak", 0, true, false, false);
                             break;
@@ -77,7 +77,8 @@ namespace NeonStarLibrary
             
             if (entity.spritesheets.CurrentSpritesheetName == "Teleport" && entity.spritesheets.IsFinished())
             {
-                tpEffect = EffectsManager.GetEffect(tpFX, Side.Left, new Vector2(6000f, -565.50f), 0.0f, Vector2.Zero, 0.3f);
+                Vector2 fxPosition = new Vector2(6000f, -565.50f);
+                tpEffect = EffectsManager.GetEffect(tpFX, Side.Left, fxPosition, 0.0f, Vector2.Zero, 2.0f, 0.3f);
                 entity.spritesheets.CurrentSpritesheetName = "";
             }
 

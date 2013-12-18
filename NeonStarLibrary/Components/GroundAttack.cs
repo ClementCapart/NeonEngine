@@ -308,7 +308,7 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
+            if ((CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking) || !entity.rigidbody.isGrounded)
                  EnemyComponent.State = EnemyState.Wait;
 
             if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)

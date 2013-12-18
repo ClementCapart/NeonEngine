@@ -48,7 +48,7 @@ namespace NeonStarLibrary
                     State = ElementState.Charge;
                     
                     if(State == ElementState.Charge)
-                        effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, new Vector2(_elementSystem.entity.transform.Position.X, _elementSystem.entity.transform.Position.Y), 0.0f, new Vector2(_thunderEffectSpritesheetInfo.FrameWidth / 2 - 120, -80), 0.9f);
+                        effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _elementSystem.entity.transform.Position, 0.0f, new Vector2(_thunderEffectSpritesheetInfo.FrameWidth / 2 - 120, -80), 2.0f ,0.9f);
                     _entity.hitboxes[0].SwitchType(HitboxType.Invincible, 0.15f);
                     break;
 

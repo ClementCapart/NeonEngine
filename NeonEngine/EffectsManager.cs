@@ -16,11 +16,11 @@ namespace NeonEngine
             EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
         }
 
-        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float layer)
+        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
             animatedSpecialEffect.containerWorld = Neon.world;
-            animatedSpecialEffect.transform.Scale = 2.0f;
+            animatedSpecialEffect.transform.Scale = scale;
 
             SpriteSheet spriteSheet;
 
@@ -50,6 +50,27 @@ namespace NeonEngine
             animatedSpecialEffect.transform.Position = Position;
             animatedSpecialEffect.transform.Rotation = Rotation;
             animatedSpecialEffect.transform.Position += new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
+
+            if (entity != null)
+            {
+                FollowEntity followEntity = animatedSpecialEffect.GetComponent<FollowEntity>();
+                if (followEntity != null)
+                {
+                    followEntity.EntityToFollow = entity;
+                }
+                else
+                {
+                    followEntity = new FollowEntity(animatedSpecialEffect);
+                    followEntity.EntityToFollow = entity;
+                    animatedSpecialEffect.AddComponent(followEntity);
+                }
+            }
+            else
+            {
+                FollowEntity followEntity = animatedSpecialEffect.GetComponent<FollowEntity>();
+                if (followEntity != null)
+                    followEntity.Remove();
+            }
 
             Neon.world.SpecialEffects.Add(animatedSpecialEffect);
             return animatedSpecialEffect;

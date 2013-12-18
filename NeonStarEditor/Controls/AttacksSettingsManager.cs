@@ -239,9 +239,13 @@ namespace NeonStarEditor
                     XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
                     XElement parameterRotation = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", ((Vector2)effectKvp.Parameters[2]).ToString()));
+                    XElement parameterFollow = new XElement("FourthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[3]).ToString()));
+                    XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString()));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
+                    effect.Add(parameterFollow);
+                    effect.Add(parameterScale);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -531,6 +535,34 @@ namespace NeonStarEditor
                         offset.Leave += Numeric_Leave;
                         offset.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(offset);
+
+                        CheckBox checkBoxFollow = new CheckBox();
+                        checkBoxFollow.Text = "Must Follow";
+                        checkBoxFollow.Name = "MustFollowCheckbox";
+                        checkBoxFollow.Checked = (bool)CurrentAttackEffectSelected.Parameters[3];
+                        checkBoxFollow.Location = new System.Drawing.Point(label.Location.X, offset.Location.Y + offset.Height + 5);
+                        checkBoxFollow.CheckedChanged += checkBox_CheckedChanged;
+                        EffectsInfoPanel.Controls.Add(checkBoxFollow);
+
+                        label = new Label();
+                        label.Text = "Scale";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(checkBoxFollow.Location.X, checkBoxFollow.Location.Y + checkBoxFollow.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown scale = new NumericUpDown();
+                        scale.Name = "EffectScale";
+                        scale.Maximum = 50000;
+                        scale.Minimum = -50000;
+                        scale.Width = 80;
+                        scale.DecimalPlaces = 2;
+                        scale.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[4]);
+                        scale.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        scale.Enter += Numeric_Enter;
+                        scale.Leave += Numeric_Leave;
+                        scale.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(scale);
+                        
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -662,6 +694,10 @@ namespace NeonStarEditor
             {
                 CurrentAttackEffectSelected.Parameters[2] = (bool)(sender as CheckBox).Checked;
             }
+            else if ((sender as CheckBox).Name == "MustFollowCheckbox")
+            {
+                CurrentAttackEffectSelected.Parameters[3] = (bool)(sender as CheckBox).Checked;
+            }
             else
                 CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
         }
@@ -719,7 +755,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2() };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f };
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -1038,6 +1074,11 @@ namespace NeonStarEditor
                 case "MultiHitDelayNU":
                     _attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay = (float)(sender as NumericUpDown).Value;
                     break;
+
+                case "EffectScale":
+                    CurrentAttackEffectSelected.Parameters[4] = (float)(sender as NumericUpDown).Value;
+                    break;
+
             }
         }
 

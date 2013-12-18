@@ -140,7 +140,7 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value);
                             float rotation = float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
                             Vector2 offset = Neon.utils.ParseVector2(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(onDelaySpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(onDelaySpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -200,7 +200,7 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             float rotation = float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
                             Vector2 offset = Neon.utils.ParseVector2(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(onDurationSpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(onDurationSpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -260,7 +260,7 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             float rotation = float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
                             Vector2 offset = Neon.utils.ParseVector2(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(onHitSpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(onHitSpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
@@ -320,7 +320,7 @@ namespace NeonStarLibrary
                             SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             float rotation = float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
                             Vector2 offset = Neon.utils.ParseVector2(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset }));
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(onGroundCancelSpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(onGroundCancelSpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
