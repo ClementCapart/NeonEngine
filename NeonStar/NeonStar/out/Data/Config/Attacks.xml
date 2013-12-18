@@ -87,7 +87,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.4</Delay>
-      <Cooldown>0.32</Cooldown>
+      <Cooldown>0.8</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.16</Duration>
       <AirLock>0</AirLock>
@@ -95,7 +95,15 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.45</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FxEnnemyAttackFeedback" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:20 Y:-80}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />
@@ -114,7 +122,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:0 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -396,14 +404,14 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -434,14 +442,14 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -472,14 +480,14 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -510,28 +518,28 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -562,28 +570,28 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -614,28 +622,28 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -666,28 +674,28 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -718,42 +726,42 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:250 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -784,42 +792,42 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:250 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -850,42 +858,42 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:250 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -916,42 +924,42 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:50 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:100 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:150 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:200 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:250 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="LiOnFlameV2" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:300 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -998,15 +1006,7 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.35</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <OnDelaySpecialEffects>
-        <Effect Type="EffectAnimation">
-          <Parameter Value="Door" />
-          <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:0 Y:0}" />
-          <FourthParameter Value="True" />
-          <FifthParameter Value="2" />
-        </Effect>
-      </OnDelaySpecialEffects>
+      <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:150 Y:0}" />
@@ -1020,7 +1020,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:20 Y:0}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1062,7 +1062,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:20 Y:-15}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="2" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1171,7 +1171,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0.8</StunLock>
+      <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
