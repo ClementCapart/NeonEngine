@@ -21,7 +21,6 @@ namespace NeonStarLibrary
             set { _avatarName = value; }
         }
 
-
         public float DrawLayer
         {
             get { return Layer; }

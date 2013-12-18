@@ -25,7 +25,7 @@ namespace NeonStarLibrary
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if(entity.spritesheets != null)
-            entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
+                entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
             base.PreUpdate(gameTime);
         }
 
@@ -38,26 +38,32 @@ namespace NeonStarLibrary
                 switch (EnemyComponent.State)
                 {
                     case EnemyState.Attacking:
-                        if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
+                        if (LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode())
                         {
-                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneAnimation, true, 0, true, false, false);
+                            if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
+                            {
+                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneAnimation, true, 0, true, false, true);
+                            }
+                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchTwo)
+                            {
+                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoAnimation, true, 0, true, false, true);
+                            }
+                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchThree)
+                            {
+                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeAnimation, true, 0, true, false, true);
+                            }
+                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFour)
+                            {
+                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourAnimation, true, 0, true, false, true);
+                            }
+                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFive)
+                            {
+                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, false, true);
+                            }
                         }
-                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchTwo)
-                        {
-                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoAnimation, true, 0, true, false, false);
-                        }
-                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchThree)
-                        {
-                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeAnimation, true, 0, true, false, false);
-                        }
-                        else if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFour)
-                        {
-                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourAnimation, true, 0, true, false, false);
-                        }
-                        else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFive)
-                        {
-                            entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, false, false);
-                        }
+                        
+
+                        LastAttackHashCode = EnemyComponent.Attack.CurrentAttack.GetHashCode();
                         break;
 
                     case EnemyState.Wait:
