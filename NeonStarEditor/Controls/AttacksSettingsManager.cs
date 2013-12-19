@@ -735,7 +735,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.Impulse:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new Vector2(), false };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new Vector2(), false, false };
                         break;
 
                     case SpecialEffect.Invincible:
@@ -1110,19 +1110,19 @@ namespace NeonStarEditor
 
         private void AddSpecial_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void AddOnHit_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void AddOnGround_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false }));
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
