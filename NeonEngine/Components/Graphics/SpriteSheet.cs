@@ -96,7 +96,7 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime = null)
         {
-            if (spriteSheetInfo != null)
+            if (spriteSheetInfo != null && spriteSheetInfo.Frames != null)
             {
                     frameTimer += gameTime != null ? gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
 
@@ -106,7 +106,6 @@ namespace NeonEngine
                         {
                             if (!_reverseLoop)
                             {
-
                                 if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                 {
                                     if (IsLooped)
@@ -158,7 +157,7 @@ namespace NeonEngine
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            if (spriteSheetInfo != null && Active)
+            if (spriteSheetInfo != null && spriteSheetInfo.Frames != null && Active)
             {
                 if (particle == null)
                 {
