@@ -365,16 +365,6 @@ namespace NeonStarLibrary
             if(_entity.Name != "AttackHolder" && (_meleeFight != null && _meleeFight.Debug))
                 Console.WriteLine(AttackInfo.Name + " launched ! Current Combo -> " + _meleeFight.CurrentComboHit.ToString());
 
-            foreach (AttackEffect ae in AttackInfo.OnDurationSpecialEffects)
-            {
-                this._onDurationSpecialEffects.Add(ae);
-            }
-
-            foreach (AttackEffect ae in AttackInfo.OnGroundCancelSpecialEffects)
-            {
-                this._onGroundCancelSpecialEffects.Add(ae);
-            }
-
             this.DelayFinished = true;
             this.DurationStarted = true;
         }
@@ -637,9 +627,7 @@ namespace NeonStarLibrary
             if (_isMoving)
             {
                 _entity.rigidbody.body.LinearVelocity = CurrentSide == Side.Right ? new Vector2(_movingSpeed, 0) : new Vector2(-_movingSpeed, 0);
-            }
-
-            
+            }         
 
             if (_mustStopAtTargetSight)
             {
