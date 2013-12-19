@@ -41,7 +41,7 @@ namespace NeonStarEditor
         public NumericUpDown FocusedNumericUpDown = null;
         float PressedDelay = 0.0f;
 
-        public bool MouseInGameWindow = false;
+        public bool MouseInGameWindow = true;
 
         public bool FocusEntity = false;
         public bool LockedCamera = true;
@@ -214,6 +214,9 @@ namespace NeonStarEditor
             }
             else
                 PressedDelay = 0.0f;
+
+            if(CurrentTool == null)
+                CurrentTool = new Selection(this);
 
             base.PostUpdate(gameTime);
             
