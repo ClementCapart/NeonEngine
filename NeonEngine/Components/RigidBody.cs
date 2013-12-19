@@ -299,7 +299,14 @@ namespace NeonEngine
                         contact.Enabled = false;
                         return false;
                     }
+                    else if (isGround)
+                    {
+                        contact.Friction = 0.0f;
+                        _currentContact = contact;
+                        return true;
+                    }
                 }
+                
             }
             else if (isGround)
             {
@@ -316,7 +323,14 @@ namespace NeonEngine
                         _currentContact = contact;
                         return true;
                     }
+                    else if (isGround)
+                    {
+                        contact.Friction = 0.0f;
+                        _currentContact = contact;
+                        return true;
+                    }
                 }
+                
             }
 
             return true;

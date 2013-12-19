@@ -202,7 +202,6 @@ namespace NeonStarLibrary
 
                     if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
                     {
-                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                         AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                         StartJumping = true;
