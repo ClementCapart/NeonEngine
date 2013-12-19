@@ -169,14 +169,14 @@ namespace NeonStarLibrary
                 {
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
-                        if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(0) == null)
+                        if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(1) == null)
                             entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
 
                         AvatarComponent.State = AvatarState.Moving;
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
-                        if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && entity.rigidbody.beacon.CheckRightSide(0) == null)
+                        if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && entity.rigidbody.beacon.CheckRightSide(1) == null)
                             entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
 
                         AvatarComponent.State = AvatarState.Moving;
