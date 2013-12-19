@@ -195,7 +195,15 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.45</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FxEnnemyAttackFeedback" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:20 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:6500 Y:0}" />
@@ -224,7 +232,15 @@
       <AirFactor>1</AirFactor>
       <StunLock>0.4</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FxEnnemyAttackFeedback" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:20 Y:-30}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
@@ -1004,7 +1020,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0.35</StunLock>
+      <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
@@ -1041,7 +1057,7 @@
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0.55</StunLock>
+      <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
@@ -1113,7 +1129,7 @@
       <AirLock>0.5</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0.5</StunLock>
+      <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
@@ -1142,7 +1158,7 @@
       <AirLock>0.6</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0.6</StunLock>
+      <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
@@ -1200,7 +1216,7 @@
       <AirLock>0.4</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0.9</StunLock>
+      <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
