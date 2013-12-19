@@ -81,7 +81,7 @@ namespace NeonEngine
                                 }
 
                             }
-                            else
+                            else if(pi.Name != "CurrentEffect")
                             {
                                 XElement Property = null;
                                 if (pi.PropertyType == typeof(Single))
