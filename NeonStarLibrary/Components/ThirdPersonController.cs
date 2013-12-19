@@ -182,7 +182,10 @@ namespace NeonStarLibrary
                         AvatarComponent.State = AvatarState.Moving;
                     }
                     else
+                    {
                         AvatarComponent.State = AvatarState.Idle;
+                        entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.5f, entity.rigidbody.body.LinearVelocity.Y);
+                    }
 
                     if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
                     {    
@@ -215,6 +218,8 @@ namespace NeonStarLibrary
                         _jumpInputDelay = 0.0f;
                         MustJumpAsSoonAsPossible = false;
                     }
+
+                    
                 }
                 else
                 {

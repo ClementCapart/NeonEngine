@@ -543,171 +543,179 @@ namespace NeonStarEditor
                 {
                     if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && !(Neon.Input.Check(Keys.LeftShift) || Neon.Input.Check(Keys.RightShift)))
                     {
-                        int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
-
-                        switch(Neon.Input.KeysPressed[i])
+                        if (FocusedNumericUpDown != null)
                         {
-                            case Keys.D0:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "0");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D1:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "1");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D2:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "2");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D3:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "3");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D4:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "4");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D5:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "5");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.D6:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "6");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D7:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "7");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.D8:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "8");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.D9:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "9");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.NumPad0:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "0");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad1:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "1");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad2:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "2");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.NumPad3:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "3");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.NumPad4:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "4");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad5:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "5");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad6:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "6");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad7:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "7");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.NumPad8:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "8");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.NumPad9:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "9");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.OemPeriod:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                ",");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart; 
-                            break;
-
-                            case Keys.OemComma:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                ",");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.Subtract:
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "-");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
-                            break;
-
-                            case Keys.Enter:
-                            if(FocusedNumericUpDown.Parent != null)
-                                FocusedNumericUpDown.Parent.Focus();
-                            break;
-
-                            case Keys.Delete:
-                            if(PressedDelay <= 0F)
+                            int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
+                            switch (Neon.Input.KeysPressed[i])
                             {
-                                  
-                            }
-                            break;
-                             
-                        }                       
+                                case Keys.D0:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "0");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D1:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "1");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D2:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "2");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D3:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "3");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D4:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "4");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D5:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "5");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D6:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "6");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D7:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "7");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D8:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "8");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.D9:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "9");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad0:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "0");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad1:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "1");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad2:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "2");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad3:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "3");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad4:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "4");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad5:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "5");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad6:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "6");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad7:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "7");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad8:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "8");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.NumPad9:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "9");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.OemPeriod:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        ",");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.OemComma:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        ",");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.Subtract:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        "-");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.Enter:
+                                    if (FocusedNumericUpDown.Parent != null)
+                                        FocusedNumericUpDown.Parent.Focus();
+                                    break;
+
+                                case Keys.Delete:
+                                    if (PressedDelay <= 0F)
+                                    {
+
+                                    }
+                                    break;
+                            }  
+                        }
+                       
+
+                                             
                     }
                     else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]))
                     {
-                        int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
-                        if (Neon.Input.KeysPressed[i] == Keys.D6)
+                        if (FocusedNumericUpDown != null)
                         {
-                            FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                "-");
-                            (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                            int LastSelectionStart = (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart;
+                            if (Neon.Input.KeysPressed[i] == Keys.D6)
+                            {
+                                FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                    "-");
+                                (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                            }
                         }
+                        
                     }
                 }
             }
