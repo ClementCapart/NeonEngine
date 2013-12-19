@@ -363,7 +363,7 @@ namespace NeonStarLibrary
                     CanAttack = false;
                 }
                 else if (State == EnemyState.StunLocked)
-                    State = EnemyState.Idle;
+                    State = EnemyState.Wait;
             }
 
             
