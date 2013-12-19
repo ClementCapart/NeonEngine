@@ -33,7 +33,8 @@ namespace NeonStarLibrary
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();          
 
-            LoadLevel(new Level(levelFile, this, true));
+            if(levelFile != "")
+                LoadLevel(new Level(levelFile, this, true));
 
             entityToChase = Neon.world.GetEntityByName("LiOn");
 

@@ -46,6 +46,9 @@ namespace NeonEngine
         public static Dictionary<string, string> LevelSpritesheets;
         #endregion
 
+        static public bool CommonLoaded = false;
+        static public bool GroupCommonLoaded = false;
+
         static public void Initialize(GraphicsDevice device)
         {
             Content = new ContentManager(Neon.game.Services, "Content");
@@ -182,6 +185,8 @@ namespace NeonEngine
 
             foreach (string s in CommonAssets.Keys)
                 LoadTexture(s, CommonAssets, _commonAssetsList);
+
+            CommonLoaded = true;
         }
 
         static public void LoadGroupData(GraphicsDevice device, string groupName)
@@ -221,6 +226,8 @@ namespace NeonEngine
 
             foreach (string s in GroupAssets.Keys)
                 LoadTexture(s, GroupAssets, _groupAssetsList);
+
+            GroupCommonLoaded = true;
         }
 
         static public void LoadLevelData(GraphicsDevice device, string groupName, string levelName)

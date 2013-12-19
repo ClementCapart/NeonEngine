@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Xml.Linq;
 
 namespace NeonStarEditor
 {
@@ -15,10 +16,21 @@ namespace NeonStarEditor
         public string LevelToLoad = "";
         public Entity LoadingAnim;
 
-        public LoadingScreen(Game game, string levelToLoad = "")
+        private bool _loadPreferences;
+
+        public LoadingScreen(Game game, string levelToLoad = "", bool loadPreferences = false)
             :base(game)
         {
-            LevelToLoad = levelToLoad;
+            _loadPreferences = loadPreferences;
+            if (loadPreferences)
+            {
+                LevelToLoad = XDocument.Load(@"../Data/Config/EditorPreferences.xml").Element("XnaContent").Element("Preferences").Element("LevelToLoad").Value;
+            }
+            else
+                LevelToLoad = levelToLoad;
+
+            if(LevelToLoad == "")
+                LevelToLoad = @"../Data/Levels/Level_Empty.xml";
         }
 
         public void LoadNextLevelAssets()
@@ -40,24 +52,15 @@ namespace NeonStarEditor
         {
             if (FirstUpdate)
             {
-                if (LevelToLoad != "")
-                {
-                    LoadNextLevelAssets();
-                }
-                else
-                {
+                if (!AssetManager.CommonLoaded)
                     LoadCommonAssets();
-                }
+                LoadNextLevelAssets();
             }
 
 
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(LevelToLoad, Neon.game, Neon.GraphicsDeviceManager));
-            }
-            else if (ThreadFinished)
-            {
-                this.ChangeScreen(new EditorScreen(@"../Data/Levels/Level_Empty.xml", Neon.game, Neon.GraphicsDeviceManager));
+                this.ChangeScreen(new EditorScreen(LevelToLoad, Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
             }
             base.Update(gameTime);
         }

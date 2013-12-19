@@ -14,6 +14,7 @@ using NeonEngine;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using System.IO;
 using Microsoft.Xna.Framework.Media;
+using System.Xml.Linq;
 
 namespace NeonStarEditor
 {
@@ -65,9 +66,10 @@ namespace NeonStarEditor
 
         public bool UnpauseTillNextFrame = false;
 
-        public EditorScreen(string levelFile, Game game, GraphicsDeviceManager graphics)
+        public EditorScreen(string levelFile, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
             : base(levelFile, game)
         {
+            
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
             game.IsMouseVisible = true;
@@ -79,6 +81,7 @@ namespace NeonStarEditor
             _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
             _boundTexture = AssetManager.GetTexture("BoundIcon");
             _nodeTexture = AssetManager.GetTexture("NodeIcon");
+
 
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
@@ -92,9 +95,41 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
-            foreach (Control c in GameAsForm.Controls)
-                c.Hide();
-            EditorVisible = false;
+            if (loadPreferences)
+            {
+                XDocument preferencesFile = XDocument.Load(@"../Data/Config/EditorPreferences.xml");
+                XElement preferences = preferencesFile.Element("XnaContent").Element("Preferences");
+
+                string levelFilePath = preferences.Element("LevelToLoad").Value;
+                bool showEditor = bool.Parse(preferences.Element("ShowEditor").Value);
+                bool showHitboxes = bool.Parse(preferences.Element("ShowHitboxes").Value);
+                bool showPhysics = bool.Parse(preferences.Element("ShowPhysics").Value);
+
+                if (showEditor)
+                {
+                    foreach (Control c in GameAsForm.Controls)
+                        c.Show();
+                    EditorVisible = true;
+                }
+                else
+                {
+                    foreach (Control c in GameAsForm.Controls)
+                        c.Hide();
+                    EditorVisible = false;
+                }
+
+                if (showHitboxes)
+                    Neon.DrawHitboxes = true;
+
+                if (showPhysics)
+                    Neon.DebugViewEnabled = true;
+            }
+            else
+            { 
+                foreach (Control c in GameAsForm.Controls)
+                    c.Show();
+                EditorVisible = true;
+            }
         }
 
         public void ToggleAttackManager()

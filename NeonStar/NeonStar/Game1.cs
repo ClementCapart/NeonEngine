@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using NeonStarEditor;
 using NeonStarLibrary;
 using System.IO;
+using System.Xml.Linq;
 
 namespace NeonStar
 {
@@ -29,6 +30,45 @@ namespace NeonStar
             Content.RootDirectory = "Content";
         }
 
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            if (Neon.world is EditorScreen)
+            {
+                EditorScreen editorScreen = Neon.world as EditorScreen;
+
+                XDocument preferenceFile = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+                XElement content = new XElement("XnaContent");
+                XElement preferences = new XElement("Preferences");
+
+                XElement levelToLoad = new XElement("LevelToLoad");
+                levelToLoad.Value = editorScreen.levelFilePath;
+
+                preferences.Add(levelToLoad);
+
+                XElement showEditor = new XElement("ShowEditor");
+                showEditor.Value = editorScreen.EditorVisible.ToString();
+
+                preferences.Add(showEditor);
+
+                XElement showHitboxes = new XElement("ShowHitboxes");
+                showHitboxes.Value = Neon.DrawHitboxes.ToString();
+
+                preferences.Add(showHitboxes);
+
+                XElement showPhysics = new XElement("ShowPhysics");
+                showPhysics.Value = Neon.DebugViewEnabled.ToString();
+
+                preferences.Add(showPhysics);
+                
+
+                content.Add(preferences);
+                preferenceFile.Add(content);
+
+                preferenceFile.Save(@"../Data/Config/EditorPreferences.xml");
+            }
+            base.OnExiting(sender, args);
+        }
+
         protected override void Initialize()
         {
             base.Initialize();       
@@ -41,7 +81,7 @@ namespace NeonStar
 
             Neon.clearColor = Color.Black;
             #if DEBUG
-            Neon.world = new NeonStarEditor.LoadingScreen(this);
+            Neon.world = new NeonStarEditor.LoadingScreen(this, "", true);
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
