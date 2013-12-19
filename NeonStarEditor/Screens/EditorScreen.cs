@@ -22,6 +22,8 @@ namespace NeonStarEditor
         public bool EntityChangedThisFrame = false;
         public bool DisplayAllPathNodeList = false;
 
+        public bool FlyingModeActivated = false;
+
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
@@ -146,6 +148,55 @@ namespace NeonStarEditor
                     Pause = true;
                     UnpauseTillNextFrame = false;
                 }
+
+            if (Neon.Input.Check(Buttons.LeftStick) && Neon.Input.Pressed(Buttons.RightStick))
+            {
+                if (!FlyingModeActivated)
+                {
+                    FlyingModeActivated = true;
+                    if (entityToChase != null)
+                    {
+                        entityToChase.rigidbody.body.Enabled = false;
+                        entityToChase.hitboxes[0].Type = HitboxType.Invincible;
+                        camera.Bounded = false;
+                    }
+                }
+                else
+                {
+                    FlyingModeActivated = false;
+                    if (entityToChase != null)
+                    {
+                        entityToChase.rigidbody.body.Enabled = true;
+                        entityToChase.hitboxes[0].Type = HitboxType.Main;
+                        camera.Bounded = true;
+                    }
+                }
+            }
+
+            if (FlyingModeActivated && entityToChase != null)
+            {
+                int speed = 5;
+                if (Neon.Input.Check(Buttons.RightStick))
+                    speed = 15;
+
+                if (Neon.Input.Check(Buttons.LeftThumbstickLeft))
+                {
+                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X - speed, entityToChase.transform.Position.Y);
+                }
+                else if (Neon.Input.Check(Buttons.LeftThumbstickRight))
+                {
+                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X + speed, entityToChase.transform.Position.Y);
+                }
+
+                if (Neon.Input.Check(Buttons.LeftThumbstickUp))
+                {
+                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X, entityToChase.transform.Position.Y - speed);
+                }
+                else if (Neon.Input.Check(Buttons.LeftThumbstickDown))
+                {
+                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X, entityToChase.transform.Position.Y + speed);
+                }
+            }
 
             if (Neon.Input.Pressed(Buttons.Start))
             {
