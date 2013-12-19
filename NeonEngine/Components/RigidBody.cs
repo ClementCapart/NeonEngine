@@ -379,8 +379,6 @@ namespace NeonEngine
                     }
                 }
             }
-                
-
             base.PreUpdate(gameTime);
         }
 
