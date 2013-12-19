@@ -101,7 +101,7 @@
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:20 Y:-80}" />
           <FourthParameter Value="False" />
-          <FifthParameter Value="1" />
+          <FifthParameter Value="0,8" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
@@ -1115,7 +1115,7 @@
     </Attack>
     <Attack ID="0" Name="LiOnRushAttack" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="45" OffsetY="0" Width="90" Height="50" />
+        <Hitbox OffsetX="60" OffsetY="-5" Width="100" Height="60" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-15</DamageOnHit>
@@ -1123,16 +1123,22 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>True</OnlyOnceInAir>
       <Delay>0.3</Delay>
-      <Cooldown>0.1</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>0.24</Duration>
       <AirLock>0.5</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
-      <StunLock>0.32</StunLock>
+      <StunLock>0.24</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:-320 Y:0}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />

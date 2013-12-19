@@ -240,7 +240,7 @@ namespace NeonStarEditor
                     XElement parameterRotation = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", ((Vector2)effectKvp.Parameters[2]).ToString()));
                     XElement parameterFollow = new XElement("FourthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[3]).ToString()));
-                    XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString()));
+                    XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
