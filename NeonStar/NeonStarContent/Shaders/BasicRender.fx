@@ -1,8 +1,10 @@
 sampler s0;
 
-float4 BaseTextureFunction(float2 texCoord: TEXCOORD0) : COLOR
+
+
+float4 BaseTextureFunction(float4 color : COLOR0, float2 texCoord: TEXCOORD0) : COLOR
 {
-	return tex2D(s0, texCoord);
+	return tex2D(s0, texCoord) * color;
 }
 
 technique Technique1

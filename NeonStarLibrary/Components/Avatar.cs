@@ -54,6 +54,14 @@ namespace NeonStarLibrary
             set { _invincibilityDuration = value; }
         }
 
+        private float _invincibilityBlinkSpeed = 15.0f;
+
+        public float InvincibilityBlinkSpeed
+        {
+            get { return _invincibilityBlinkSpeed; }
+            set { _invincibilityBlinkSpeed = value; }
+        }
+
         private string _hitAnim = "";
 
         public string HitAnim
@@ -101,7 +109,7 @@ namespace NeonStarLibrary
         private float _invincibilityTimer = 0.0f;
         private float _airLockDuration = 0.0f;
         
-        private bool _opacityGoingDown = false;
+        private bool _opacityGoingDown = true;
         private SpriteSheetInfo _hitGuardSpritesheet = null;
 
 
@@ -126,7 +134,7 @@ namespace NeonStarLibrary
         {
             bool takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
 
-            if (!takeDamage)
+            if (!takeDamage && State == AvatarState.Guarding)
             {
                 if (attack.Launcher != null)
                 {
@@ -166,7 +174,7 @@ namespace NeonStarLibrary
             {
                 damageValue = Math.Min(damageValue + Guard.GuardDamageReduce, 0);              
             }
-
+            
             if (damageValue >= 0.0f)
             {                
                 entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
@@ -206,6 +214,10 @@ namespace NeonStarLibrary
             {
                 AirLock(airLockDuration);
             }
+
+            IsInvincible = true;
+            _invincibilityTimer = _invincibilityDuration;
+
             return true;
         }
 
@@ -255,13 +267,16 @@ namespace NeonStarLibrary
         {
             if (_invincibilityTimer > 0.0f)
             {
+                IsInvincible = true;
                 _invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                OpacityBlink(15 * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                OpacityBlink(_invincibilityBlinkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
             }
             else
             {
+                _opacityGoingDown = true;
+                IsInvincible = false;
                 _invincibilityTimer = 0.0f;
-                entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                entity.spritesheets.CurrentSpritesheet.opacity = 1f;
             }
             base.Update(gameTime);
         }

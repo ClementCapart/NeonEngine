@@ -190,7 +190,7 @@ namespace NeonEngine
 
 
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(Neon.graphicsDevice));
 
             foreach (DrawableComponent dc in DrawableComponents.OrderBy(dc => dc.Layer))
                 dc.Draw(spriteBatch);
