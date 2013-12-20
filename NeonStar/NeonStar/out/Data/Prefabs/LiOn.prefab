@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-511 Y:190}" />
-          <InitialPosition Value="{X:-511 Y:190}" />
+          <Position Value="{X:-511 Y:-25,49999}" />
+          <InitialPosition Value="{X:-511 Y:-25,49999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-510 Y:190}" />
+          <Center Value="{X:-510 Y:-25}" />
           <X Value="-530" />
-          <Y Value="122" />
+          <Y Value="-93" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -41,6 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
+          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -99,8 +100,8 @@
           <JumpImpulseHeight Value="470" />
           <GroundAccelerationSpeed Value="1" />
           <AirAccelerationSpeed Value="1" />
-          <GroundMaxSpeed Value="4.5" />
-          <AirMaxSpeed Value="4.5" />
+          <GroundMaxSpeed Value="6" />
+          <AirMaxSpeed Value="6" />
           <IdleAnimation Value="idle" />
           <WalkAnimation Value="run" />
           <JumpAnimation Value="startJump" />
@@ -128,14 +129,15 @@
           <DashAnimation Value="AirDash" />
           <GuardAnimation Value="Guard" />
           <RollDuration Value="0.3" />
-          <DashDuration Value="0.17" />
+          <DashDuration Value="0.2" />
           <GuardDuration Value="0.3" />
           <RollCooldown Value="0.3" />
           <DashCooldown Value="0.3" />
           <GuardCooldown Value="0.3" />
-          <RollImpulse Value="650" />
-          <DashImpulse Value="550" />
+          <RollImpulse Value="750" />
+          <DashImpulse Value="650" />
           <GuardDamageReduce Value="116" />
+          <GuardLockDuration Value="1" />
         </Properties>
       </Roll>
       <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">

@@ -4,9 +4,9 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:263,0407 Y:-37,6964}" />
-          <InitialPosition Value="{X:263,0407 Y:-37,6964}" />
+          <AutoChangeInitialPosition Value="False" />
+          <Position Value="{X:9861,982 Y:9,500001}" />
+          <InitialPosition Value="{X:10105,88 Y:9,49999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:263 Y:-37}" />
-          <X Value="223" />
-          <Y Value="-117" />
+          <Center Value="{X:9861 Y:9}" />
+          <X Value="9821" />
+          <Y Value="-71" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
@@ -41,12 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Left" />
-          <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
-          <Tint Value="False" />
-          <RotationCenter Value="{X:0 Y:5}" />
-          <RotationOffset Value="0" />
           <Spritesheets>
             <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
             <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
@@ -56,8 +51,14 @@
             <Animation Name="Death" SpritesheetTag="Explosion" />
           </Spritesheets>
           <DrawLayer Value="0.2" />
-          <IsHUD Value="False" />
+          <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
+          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationCenter Value="{X:0 Y:5}" />
+          <RotationOffset Value="0" />
+          <IsHUD Value="False" />
         </Properties>
       </SpritesheetManager>
       <Enemy Type="NeonStarLibrary.Enemy" ID="4">
@@ -116,6 +117,15 @@
       <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
         <Properties />
       </EnemyAnimationManager>
+      <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="2">
+        <Properties>
+          <CurrentNodeList Value="NodeList2" />
+          <Speed Value="2" />
+          <Roundtrip Value="True" />
+          <ReverseStart Value="False" />
+          <PathPrecisionTreshold Value="50" />
+        </Properties>
+      </FollowPlatformNodes>
     </Components>
   </Entity>
 </Prefab>
