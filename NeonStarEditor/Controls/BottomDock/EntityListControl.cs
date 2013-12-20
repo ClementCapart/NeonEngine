@@ -51,6 +51,7 @@ namespace NeonStarEditor
         {
             Console.WriteLine("Add : Entity");
             GameWorld.AddEntity(new Entity(GameWorld));
+            ((Entity)(EntityListBox.SelectedItem)).transform.Position = Neon.world.camera.Position;
             ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entities.Last());
         }
 

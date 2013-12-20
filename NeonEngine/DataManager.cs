@@ -230,16 +230,17 @@ namespace NeonEngine
             return null;
         }
 
-        static public void LoadPrefab(string filePath, World gameWorld)
+        static public Entity LoadPrefab(string filePath, World gameWorld)
         {
             Stream stream = File.OpenRead(filePath);
             XDocument prefab = XDocument.Load(stream);
             XElement Prefab = prefab.Element("Prefab");
-            LoadPrefab(Prefab, gameWorld);
+            Entity entity = LoadPrefab(Prefab, gameWorld);
             stream.Close();
+            return entity;
         }
 
-        static public void LoadPrefab(XElement prefab, World gameWorld)
+        static public Entity LoadPrefab(XElement prefab, World gameWorld)
         {
             XElement ent = prefab.Element("Entity");
 
@@ -348,6 +349,7 @@ namespace NeonEngine
             }
 
             gameWorld.AddEntity(entity);
+            return entity;
         }
 
         static public XElement SaveComponentParameters(Component c)
