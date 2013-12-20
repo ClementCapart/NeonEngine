@@ -226,7 +226,7 @@ namespace NeonStarLibrary
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath && State != EnemyState.Dying && State != EnemyState.Dead)
+            else if (!tookDamage && _currentHealthPoints <= 0.0f)
             {
                 if (attack.Launcher != null && CoreElement != Element.Neutral)
                     attack.Launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
@@ -256,7 +256,7 @@ namespace NeonStarLibrary
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, bullet.launcher != null ? bullet.launcher : bullet.launcher, new object[] { bullet });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f && !_immuneToDeath && State != EnemyState.Dying && State != EnemyState.Dead)
+            else if (!tookDamage && _currentHealthPoints <= 0.0f)
             {
                 if (bullet.launcher != null && CoreElement != Element.Neutral)
                     bullet.launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
@@ -285,6 +285,8 @@ namespace NeonStarLibrary
             if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
             {
                 entity.hitboxes[0].Type = HitboxType.Invincible;
+                IsAirLocked = false;
+                _airLockDuration = 0.0f;
                 return false;
             }
 

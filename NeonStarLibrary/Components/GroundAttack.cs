@@ -308,14 +308,18 @@ namespace NeonStarLibrary
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if ((CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking) || !entity.rigidbody.isGrounded)
-                 EnemyComponent.State = EnemyState.Wait;
-
-            if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
+            if (EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
-                CurrentAttack.CancelAttack();
-                CurrentAttack = null;
+                if ((CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking) || !entity.rigidbody.isGrounded)
+                    EnemyComponent.State = EnemyState.Wait;
+
+                if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
+                {
+                    CurrentAttack.CancelAttack();
+                    CurrentAttack = null;
+                }
             }
+            
             base.PostUpdate(gameTime);
         }
 

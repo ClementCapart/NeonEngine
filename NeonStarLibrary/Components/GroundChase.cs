@@ -293,8 +293,6 @@ namespace NeonStarLibrary
             {
                 switch(EnemyComponent.State)
                 {
-                
-
                     case EnemyState.Chase:
                     case EnemyState.FinishChase:
                         if (EnemyComponent.CurrentSide == Side.Right)
@@ -307,7 +305,6 @@ namespace NeonStarLibrary
                         }
                         break;
                 }
-
             }
             base.Update(gameTime);
         }
