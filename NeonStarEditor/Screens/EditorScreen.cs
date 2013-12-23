@@ -97,32 +97,39 @@ namespace NeonStarEditor
 
             if (loadPreferences)
             {
-                XDocument preferencesFile = XDocument.Load(@"../Data/Config/EditorPreferences.xml");
-                XElement preferences = preferencesFile.Element("XnaContent").Element("Preferences");
-
-                string levelFilePath = preferences.Element("LevelToLoad").Value;
-                bool showEditor = bool.Parse(preferences.Element("ShowEditor").Value);
-                bool showHitboxes = bool.Parse(preferences.Element("ShowHitboxes").Value);
-                bool showPhysics = bool.Parse(preferences.Element("ShowPhysics").Value);
-
-                if (showEditor)
+                try
                 {
-                    foreach (Control c in GameAsForm.Controls)
-                        c.Show();
-                    EditorVisible = true;
+                    XDocument preferencesFile = XDocument.Load(@"../Data/Config/EditorPreferences.xml");
+                    XElement preferences = preferencesFile.Element("XnaContent").Element("Preferences");
+
+                    string levelFilePath = preferences.Element("LevelToLoad").Value;
+                    bool showEditor = bool.Parse(preferences.Element("ShowEditor").Value);
+                    bool showHitboxes = bool.Parse(preferences.Element("ShowHitboxes").Value);
+                    bool showPhysics = bool.Parse(preferences.Element("ShowPhysics").Value);
+
+                    if (showEditor)
+                    {
+                        foreach (Control c in GameAsForm.Controls)
+                            c.Show();
+                        EditorVisible = true;
+                    }
+                    else
+                    {
+                        foreach (Control c in GameAsForm.Controls)
+                            c.Hide();
+                        EditorVisible = false;
+                    }
+
+                    if (showHitboxes)
+                        Neon.DrawHitboxes = true;
+
+                    if (showPhysics)
+                        Neon.DebugViewEnabled = true;
                 }
-                else
+                catch
                 {
-                    foreach (Control c in GameAsForm.Controls)
-                        c.Hide();
-                    EditorVisible = false;
+                    Console.WriteLine("Can't load any preferences file");
                 }
-
-                if (showHitboxes)
-                    Neon.DrawHitboxes = true;
-
-                if (showPhysics)
-                    Neon.DebugViewEnabled = true;
             }
             else
             { 

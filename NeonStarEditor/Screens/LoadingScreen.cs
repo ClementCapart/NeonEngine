@@ -24,7 +24,14 @@ namespace NeonStarEditor
             _loadPreferences = loadPreferences;
             if (loadPreferences)
             {
-                LevelToLoad = XDocument.Load(@"../Data/Config/EditorPreferences.xml").Element("XnaContent").Element("Preferences").Element("LevelToLoad").Value;
+                try
+                {
+                    LevelToLoad = XDocument.Load(@"../Data/Config/EditorPreferences.xml").Element("XnaContent").Element("Preferences").Element("LevelToLoad").Value;
+                }
+                catch
+                {
+                    Console.WriteLine("Preferences file not found ! It will be created the next time you exit the program.");
+                }
             }
             else
                 LevelToLoad = levelToLoad;
