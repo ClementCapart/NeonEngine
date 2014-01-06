@@ -4,6 +4,7 @@ using System.Text;
 using NeonEngine.Private;
 using NeonEngine;
 using NeonStarLibrary;
+using Microsoft.Xna.Framework;
 
 namespace NeonStarScripts
 {
@@ -17,7 +18,7 @@ namespace NeonStarScripts
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Back))
-                Neon.world.ChangeScreen(new GameScreen(Neon.world.levelFilePath, Neon.game));
+                Neon.world.ChangeScreen(new GameScreen(Neon.world.levelFilePath, Vector2.Zero, Neon.game));
             base.Update(gameTime);
         }
     }

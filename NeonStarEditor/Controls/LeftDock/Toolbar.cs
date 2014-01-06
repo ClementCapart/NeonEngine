@@ -40,7 +40,7 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void SaveCurrentMap_Click(object sender, EventArgs e)
         {
-            DataManager.SaveLevel(GameWorld, GameWorld.levelFilePath);
+            DataManager.SaveLevel(GameWorld, GameWorld.levelFilePath, "LiOn");
         }
 
         private void ReloadButton_Click(object sender, EventArgs e)
@@ -274,6 +274,11 @@ namespace NeonStarEditor.Controls.LeftDock
                 GameWorld.UnpauseTillNextFrame = true;
                 Neon.world.Pause = false;
             }
+        }
+
+        private void respawnPanel_Click(object sender, EventArgs e)
+        {
+            GameWorld.ToggleSpawnPointManager();
         }
     }
 }

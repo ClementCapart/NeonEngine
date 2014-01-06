@@ -21,22 +21,36 @@ namespace NeonStarLibrary
         public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
 
-        public Entity entityToChase;
 
-        public GameScreen(string levelFile, Game game)
+        //Sounds obvious but still, I don't know...//
+        public static Entity avatar;
+        //----------------------------------------//
+
+        protected Vector2 lastCheckpointPosition;
+
+        public string AvatarName = "LiOn";
+
+        public GameScreen(string levelFile, Vector2 startingPosition, Game game)
             : base(game)
         {
+            lastCheckpointPosition = startingPosition;
+
             enemies = new List<Enemy>();
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
 
             BulletsManager.LoadBullets();
-            AttacksManager.LoadAttacks();          
+            AttacksManager.LoadAttacks();
+
+            if (avatar == null)
+                avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
+            else
+                AddEntity(avatar);
+
+            avatar.transform.Position = lastCheckpointPosition;
 
             if(levelFile != "")
                 LoadLevel(new Level(levelFile, this, true));
-
-            entityToChase = Neon.world.GetEntityByName("LiOn");
 
             camera.Bounded = true;
         } 
@@ -50,11 +64,11 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar && entityToChase != null)
-                    camera.Chase(entityToChase.transform.Position, gameTime);
-                else if (entityToChase == null)
+                if (MustFollowAvatar && avatar != null)
+                    camera.Chase(avatar.transform.Position, gameTime);
+                else if (avatar == null)
                 {
-                    entityToChase = Neon.world.GetEntityByName("LiOn");
+                    avatar = Neon.world.GetEntityByName("LiOn");
                 }
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
@@ -80,7 +94,7 @@ namespace NeonStarLibrary
 
         public virtual void ReloadLevel()
         {
-            ChangeScreen(new GameScreen( this.levelFilePath, game));
+            ChangeScreen(new GameScreen(this.levelFilePath, lastCheckpointPosition, game));
         }
 
         public override void ManualDrawBackHUD(SpriteBatch sb)

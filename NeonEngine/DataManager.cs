@@ -15,7 +15,7 @@ namespace NeonEngine
 {
     static public class DataManager
     {
-        static public void SaveLevel(World CurrentWorld, string FilePath)
+        static public void SaveLevel(World CurrentWorld, string FilePath, string avatarEntity)
         {
             Level currentLevel = CurrentWorld.levelMap;
 
@@ -29,6 +29,9 @@ namespace NeonEngine
 
                 foreach (Entity e in CurrentWorld.entities)
                 {
+                    if (e.Name == avatarEntity)
+                        continue;                 
+
                     XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name));
                     XElement Components = new XElement("Components");
                     foreach (Component c in e.Components)

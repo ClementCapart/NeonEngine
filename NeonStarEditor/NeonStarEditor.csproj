@@ -142,6 +142,12 @@
     <Compile Include="Controls\RightDock\SpritesheetInspector.Designer.cs">
       <DependentUpon>SpritesheetInspector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SpawnPointPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SpawnPointPanel.Designer.cs">
+      <DependentUpon>SpawnPointPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorAction.cs" />
     <Compile Include="Forms\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RightDock\SpritesheetInspector.resx">
       <DependentUpon>SpritesheetInspector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpawnPointPanel.resx">
+      <DependentUpon>SpawnPointPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StateCreation.resx">
       <DependentUpon>StateCreation.cs</DependentUpon>

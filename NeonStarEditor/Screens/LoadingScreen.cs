@@ -18,9 +18,12 @@ namespace NeonStarEditor
 
         private bool _loadPreferences;
 
-        public LoadingScreen(Game game, string levelToLoad = "", bool loadPreferences = false)
+        public Vector2 spawningPosition;
+
+        public LoadingScreen(Game game, Vector2 spawningPosition, string levelToLoad = "", bool loadPreferences = false)
             :base(game)
         {
+            this.spawningPosition = spawningPosition;
             _loadPreferences = loadPreferences;
             if (loadPreferences)
             {
@@ -64,10 +67,9 @@ namespace NeonStarEditor
                 LoadNextLevelAssets();
             }
 
-
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(LevelToLoad, Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
+                this.ChangeScreen(new EditorScreen(LevelToLoad, spawningPosition , Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
             }
             base.Update(gameTime);
         }

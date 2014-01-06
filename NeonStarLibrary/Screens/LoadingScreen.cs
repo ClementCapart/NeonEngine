@@ -53,9 +53,9 @@ namespace NeonStarLibrary
 
             
             if (ThreadFinished && LevelToLoad == "")
-                this.ChangeScreen(new GameScreen(@"../Data/Levels/Level_Empty.xml", Neon.game));
+                this.ChangeScreen(new GameScreen(@"../Data/Levels/Level_Empty.xml", Vector2.Zero, Neon.game));
             else if (ThreadFinished)
-                this.ChangeScreen(new GameScreen(LevelToLoad, Neon.game));
+                this.ChangeScreen(new GameScreen(LevelToLoad, Vector2.Zero, Neon.game));
             base.Update(gameTime);
         }
     }

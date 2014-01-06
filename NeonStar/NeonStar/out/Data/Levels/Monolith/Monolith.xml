@@ -31,168 +31,6 @@
           </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="LiOn">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-511 Y:-25,49999}" />
-              <InitialPosition Value="{X:-511 Y:-25,49999}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:-510 Y:-25}" />
-              <X Value="-530" />
-              <Y Value="-93" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="40" />
-              <Height Value="136" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Dynamic" />
-              <GravityScale Value="2" />
-              <UseGravity Value="False" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="54" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="True" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="idle" SpritesheetTag="LiOnIdle" />
-                <Animation Name="run" SpritesheetTag="LiOnRun" />
-                <Animation Name="startJump" SpritesheetTag="LiOnJumpStart" />
-                <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
-                <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
-                <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
-                <Animation Name="startFall" SpritesheetTag="LiOnJumpStartFall" />
-                <Animation Name="fallLoop" SpritesheetTag="LiOnJumpFall" />
-                <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
-                <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
-                <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
-                <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
-                <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
-                <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
-                <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
-                <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
-                <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
-                <Animation Name="Hit" SpritesheetTag="LiOnHit" />
-                <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
-                <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
-                <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-          <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
-            <Properties>
-              <Debug Value="True" />
-              <LightAttackName Value="LiOnLightAttack" />
-              <RushAttackName Value="LiOnRushAttack" />
-              <UppercutName Value="LiOnUppercut" />
-              <DiveAttackName Value="LiOnDiveAttack" />
-              <ComboDelayMax Value="0.5" />
-              <LightAttackAnimation Value="lightattack" />
-              <UppercutAnimation Value="uppercut" />
-              <RushAttackAnimation Value="rushattack" />
-              <DiveAttackStartAnimation Value="DiveAttackStart" />
-              <DiveAttackLoopAnimation Value="DiveAttackLoop" />
-              <DiveAttackLandAnimation Value="DiveAttackLand" />
-              <RushAttackSideDelay Value="0.09" />
-              <ChainDelay Value="0.15" />
-              <RushAttackStickDelay Value="0.08" />
-            </Properties>
-          </MeleeFight>
-          <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
-            <Properties>
-              <JumpImpulseHeight Value="470" />
-              <GroundAccelerationSpeed Value="1" />
-              <AirAccelerationSpeed Value="1" />
-              <GroundMaxSpeed Value="4.5" />
-              <AirMaxSpeed Value="4.5" />
-              <IdleAnimation Value="idle" />
-              <WalkAnimation Value="run" />
-              <JumpAnimation Value="startJump" />
-              <StartFallAnimation Value="startFall" />
-              <FallLoopAnimation Value="fallLoop" />
-              <LandingAnimation Value="landing" />
-              <MaxJumpInputDelay Value="0.5" />
-              <MaxFallSpeed Value="12" />
-            </Properties>
-          </ThirdPersonController>
-          <Avatar Type="NeonStarLibrary.Avatar" ID="6">
-            <Properties>
-              <CurrentHealthPoints Value="99" />
-              <Debug Value="False" />
-              <StartingHealthPoints Value="99" />
-              <InvincibilityDuration Value="1" />
-              <HitAnim Value="Hit" />
-              <HitGuardAnim Value="HitGuard" />
-              <HitGuardFX Value="LiOnGuardFX" />
-            </Properties>
-          </Avatar>
-          <Roll Type="NeonStarLibrary.Guard" ID="7">
-            <Properties>
-              <RollAnimation Value="Roll" />
-              <DashAnimation Value="AirDash" />
-              <GuardAnimation Value="Guard" />
-              <RollDuration Value="0.3" />
-              <DashDuration Value="0.17" />
-              <GuardDuration Value="0.3" />
-              <RollCooldown Value="0.3" />
-              <DashCooldown Value="0.3" />
-              <GuardCooldown Value="0.3" />
-              <RollImpulse Value="650" />
-              <DashImpulse Value="550" />
-              <GuardDamageReduce Value="116" />
-            </Properties>
-          </Roll>
-          <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
-            <Properties>
-              <FireLaunchAnimation Value="FireLaunch" />
-              <FireCooldown Value="3" />
-              <ThunderLaunchAnimation Value="ThunderLaunch" />
-              <ThunderCooldown Value="3" />
-              <LeftSlotElement Value="Neutral" />
-              <LeftSlotLevel Value="1" />
-              <RightSlotElement Value="Neutral" />
-              <RightSlotLevel Value="1" />
-              <MaxLevel Value="3" />
-              <ThunderGatheringFX Value="FeedbackThunderGathering" />
-              <FireGatheringFX Value="FeedbackFireGathering" />
-              <GetElementColorDelay Value="0.15" />
-            </Properties>
-          </ElementSystem>
-          <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
-            <Properties />
-          </RestartGame>
-          <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
-            <Properties />
-          </AvatarAnimationManager>
-        </Components>
-      </Entity>
       <Entity Name="RoomFences">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -360,7 +198,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="3.0098" />
+              <Mass Value="3.00855" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -406,7 +244,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="4.1602" />
+              <Mass Value="4.15895" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -452,7 +290,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="4.11" />
+              <Mass Value="4.10875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -498,7 +336,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="5.96" />
+              <Mass Value="5.95875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -544,7 +382,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.94" />
+              <Mass Value="2.93875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -590,7 +428,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.176" />
+              <Mass Value="2.17475" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -631,7 +469,7 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.4938" />
+              <Mass Value="1.49255" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -735,8 +573,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-442,4 Y:-500}" />
-              <InitialPosition Value="{X:-442,4 Y:-500}" />
+              <Position Value="{X:-443,2 Y:-500}" />
+              <InitialPosition Value="{X:-443,2 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>

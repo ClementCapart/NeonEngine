@@ -35,6 +35,7 @@ namespace NeonEngine
         public List<Water> waterzones;
         public List<LightArea> lightAreas;
         public List<PathNodeList> NodeLists;
+        public List<SpawnPoint> SpawnPoints;
 
         public NeonPool<Hitbox> HitboxPool;
         public NeonPool<Particle> ParticlePool;

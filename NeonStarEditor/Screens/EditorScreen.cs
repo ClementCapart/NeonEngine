@@ -22,6 +22,7 @@ namespace NeonStarEditor
     {
         public bool EntityChangedThisFrame = false;
         public bool DisplayAllPathNodeList = false;
+        public bool DisplayAllSpawnPoint = false;
 
         public bool FlyingModeActivated = false;
 
@@ -33,6 +34,7 @@ namespace NeonStarEditor
 
         public AttacksSettingsManager AttacksSettingsManager;
         public PathNodesPanel PathNodePanel;
+        public SpawnPointPanel SpawnPointsPanel;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -53,11 +55,13 @@ namespace NeonStarEditor
         private Texture2D _colorEmitterCircleTexture;
         private Texture2D _boundTexture;
         private Texture2D _nodeTexture;
+        private Texture2D _spawnTexture;
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
         private bool _isAttackManagerDisplayed = false;
         private bool _isPathNodeManagerDisplayed = false;
+        private bool _isSpawnPointsManagerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -66,8 +70,8 @@ namespace NeonStarEditor
 
         public bool UnpauseTillNextFrame = false;
 
-        public EditorScreen(string levelFile, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(levelFile, game)
+        public EditorScreen(string levelFile, Vector2 startingPosition, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
+            : base(levelFile, startingPosition, game)
         {
             
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
@@ -81,6 +85,7 @@ namespace NeonStarEditor
             _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
             _boundTexture = AssetManager.GetTexture("BoundIcon");
             _nodeTexture = AssetManager.GetTexture("NodeIcon");
+            _spawnTexture = AssetManager.GetTexture("NodeIcon");
 
 
             LeftDockControl = new LeftDock(this);
@@ -156,6 +161,9 @@ namespace NeonStarEditor
 
         public void TogglePathNodeManager()
         {
+            if (_isSpawnPointsManagerDisplayed)
+                return;
+
             if (_isPathNodeManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(PathNodePanel);
@@ -168,6 +176,26 @@ namespace NeonStarEditor
                 PathNodePanel = new PathNodesPanel(this);
                 GameAsForm.Controls.Add(PathNodePanel);
                 _isPathNodeManagerDisplayed = true;
+            }
+        }
+
+        public void ToggleSpawnPointManager()
+        {
+            if (_isPathNodeManagerDisplayed)
+                return;
+
+            if (_isSpawnPointsManagerDisplayed)
+            {
+                GameAsForm.Controls.Remove(SpawnPointsPanel);
+                this.CurrentTool = new Selection(this);
+                SpawnPointsPanel = null;
+                _isSpawnPointsManagerDisplayed = false;
+            }
+            else
+            {
+                SpawnPointsPanel = new SpawnPointPanel(this);
+                GameAsForm.Controls.Add(SpawnPointsPanel);
+                _isSpawnPointsManagerDisplayed = true;
             }
         }
 
@@ -196,26 +224,26 @@ namespace NeonStarEditor
                 if (!FlyingModeActivated)
                 {
                     FlyingModeActivated = true;
-                    if (entityToChase != null)
+                    if (avatar != null)
                     {
-                        entityToChase.rigidbody.body.Enabled = false;
-                        entityToChase.hitboxes[0].Type = HitboxType.Invincible;
+                        avatar.rigidbody.body.Enabled = false;
+                        avatar.hitboxes[0].Type = HitboxType.Invincible;
                         camera.Bounded = false;
                     }
                 }
                 else
                 {
                     FlyingModeActivated = false;
-                    if (entityToChase != null)
+                    if (avatar != null)
                     {
-                        entityToChase.rigidbody.body.Enabled = true;
-                        entityToChase.hitboxes[0].Type = HitboxType.Main;
+                        avatar.rigidbody.body.Enabled = true;
+                        avatar.hitboxes[0].Type = HitboxType.Main;
                         camera.Bounded = true;
                     }
                 }
             }
 
-            if (FlyingModeActivated && entityToChase != null)
+            if (FlyingModeActivated && avatar != null)
             {
                 int speed = 5;
                 if (Neon.Input.Check(Buttons.RightStick))
@@ -223,20 +251,20 @@ namespace NeonStarEditor
 
                 if (Neon.Input.Check(Buttons.LeftThumbstickLeft))
                 {
-                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X - speed, entityToChase.transform.Position.Y);
+                    avatar.transform.Position = new Vector2(avatar.transform.Position.X - speed, avatar.transform.Position.Y);
                 }
                 else if (Neon.Input.Check(Buttons.LeftThumbstickRight))
                 {
-                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X + speed, entityToChase.transform.Position.Y);
+                    avatar.transform.Position = new Vector2(avatar.transform.Position.X + speed, avatar.transform.Position.Y);
                 }
 
                 if (Neon.Input.Check(Buttons.LeftThumbstickUp))
                 {
-                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X, entityToChase.transform.Position.Y - speed);
+                    avatar.transform.Position = new Vector2(avatar.transform.Position.X, avatar.transform.Position.Y - speed);
                 }
                 else if (Neon.Input.Check(Buttons.LeftThumbstickDown))
                 {
-                    entityToChase.transform.Position = new Vector2(entityToChase.transform.Position.X, entityToChase.transform.Position.Y + speed);
+                    avatar.transform.Position = new Vector2(avatar.transform.Position.X, avatar.transform.Position.Y + speed);
                 }
             }
 
@@ -847,7 +875,7 @@ namespace NeonStarEditor
                 AttacksSettingsManager.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
-            ChangeScreen(new EditorScreen(this.levelFilePath, game, graphics));
+            ChangeScreen(new EditorScreen(this.levelFilePath, lastCheckpointPosition, game, graphics));
         }
 
         public override void ChangeScreen(World nextScreen)

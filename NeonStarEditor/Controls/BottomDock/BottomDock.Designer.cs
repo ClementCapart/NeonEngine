@@ -67,6 +67,7 @@
             this.levelList.Name = "levelList";
             this.levelList.Size = new System.Drawing.Size(469, 167);
             this.levelList.TabIndex = 3;
+            this.levelList.Load += new System.EventHandler(this.levelList_Load);
             // 
             // BottomDock
             // 

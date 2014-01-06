@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using NeonEngine;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework;
 
 namespace NeonStarEditor.Controls.BottomDock
 {
@@ -59,7 +60,7 @@ namespace NeonStarEditor.Controls.BottomDock
         {
             if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
             {
-                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, levelListTreeView.SelectedNode.Name));
+                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, Vector2.Zero, levelListTreeView.SelectedNode.Name));
             }
         }
 

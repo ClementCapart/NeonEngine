@@ -24,5 +24,10 @@ namespace NeonStarEditor
             prefabListControl.GameWorld = this.GameWorld;
             levelList.GameWorld = this.GameWorld;
         }
+
+        private void levelList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

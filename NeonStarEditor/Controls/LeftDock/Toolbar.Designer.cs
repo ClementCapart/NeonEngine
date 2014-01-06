@@ -45,6 +45,7 @@
             this.SaveHitboxes = new System.Windows.Forms.Button();
             this.frameByFrame = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.respawnPanel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,6 +239,18 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // respawnPanel
+            // 
+            this.respawnPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.respawnPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.respawnPanel.Location = new System.Drawing.Point(3, 431);
+            this.respawnPanel.Name = "respawnPanel";
+            this.respawnPanel.Size = new System.Drawing.Size(30, 30);
+            this.respawnPanel.TabIndex = 4;
+            this.respawnPanel.Text = "R";
+            this.respawnPanel.UseVisualStyleBackColor = true;
+            this.respawnPanel.Click += new System.EventHandler(this.respawnPanel_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +261,7 @@
             this.Controls.Add(this.Selection);
             this.Controls.Add(this.PathNodeTool);
             this.Controls.Add(this.ToggleBoundsButton);
+            this.Controls.Add(this.respawnPanel);
             this.Controls.Add(this.ToggleLightButton);
             this.Controls.Add(this.CameraPanel);
             this.Controls.Add(this.AttackManagerButton);
@@ -286,5 +300,6 @@
         private System.Windows.Forms.Button SaveHitboxes;
         private System.Windows.Forms.Button frameByFrame;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button respawnPanel;
     }
 }

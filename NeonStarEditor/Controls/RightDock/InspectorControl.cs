@@ -536,15 +536,27 @@ namespace NeonStarEditor
         void EntityName_LostFocus(object sender, EventArgs e)
         {
             if (GameWorld.EntityChangedThisFrame)
+            {
+                GameWorld.FocusedTextBox = null;
                 return;
+            }
 
-            if (GameWorld.FocusedTextBox == (sender as TextBox))
+            if (GameWorld.FocusedTextBox == (sender as TextBox) && (sender as TextBox).Text != GameWorld.AvatarName)
             {
                 GameWorld.FocusedTextBox = null;
                 GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.entities;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+            }
+            else if ((sender as TextBox).Text == GameWorld.AvatarName)
+            {
+                GameWorld.FocusedTextBox = null;
+                (sender as TextBox).Text = GameWorld.SelectedEntity.Name;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.entities;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                Console.WriteLine("Warning : Can't name an entity '" + GameWorld.AvatarName + "', this name is reserved");
             }
         }
 
