@@ -81,6 +81,7 @@ namespace NeonEngine
             EffectsManager.Initialize();
             Hitboxes = new List<Hitbox>();
             NodeLists = new List<PathNodeList>();
+            SpawnPoints = new List<SpawnPoint>();
             SpecialEffects = new List<AnimatedSpecialEffect>();
 
             _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);

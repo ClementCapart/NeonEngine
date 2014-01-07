@@ -31,16 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpawnPointPanel));
             this.InfoBox = new System.Windows.Forms.GroupBox();
             this.ToggleDisplayAll = new System.Windows.Forms.Button();
-            this.NodeLists = new System.Windows.Forms.ListBox();
+            this.SpawnPointList = new System.Windows.Forms.ListBox();
             this.RemoveSpawnButton = new System.Windows.Forms.Button();
             this.AddSpawnButton = new System.Windows.Forms.Button();
+            this.sideComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.EntityList = new System.Windows.Forms.Label();
+            this.InfoBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // InfoBox
             // 
-            this.InfoBox.Location = new System.Drawing.Point(148, 4);
+            this.InfoBox.Controls.Add(this.label2);
+            this.InfoBox.Controls.Add(this.sideComboBox);
+            this.InfoBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.InfoBox.Location = new System.Drawing.Point(148, 33);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(289, 184);
+            this.InfoBox.Size = new System.Drawing.Size(289, 155);
             this.InfoBox.TabIndex = 11;
             this.InfoBox.TabStop = false;
             this.InfoBox.Text = "Info";
@@ -58,13 +65,14 @@
             this.ToggleDisplayAll.UseVisualStyleBackColor = true;
             this.ToggleDisplayAll.Click += new System.EventHandler(this.ToggleDisplayAll_Click);
             // 
-            // NodeLists
+            // SpawnPointList
             // 
-            this.NodeLists.FormattingEnabled = true;
-            this.NodeLists.Location = new System.Drawing.Point(6, 5);
-            this.NodeLists.Name = "NodeLists";
-            this.NodeLists.Size = new System.Drawing.Size(136, 147);
-            this.NodeLists.TabIndex = 7;
+            this.SpawnPointList.FormattingEnabled = true;
+            this.SpawnPointList.Location = new System.Drawing.Point(6, 5);
+            this.SpawnPointList.Name = "SpawnPointList";
+            this.SpawnPointList.Size = new System.Drawing.Size(136, 147);
+            this.SpawnPointList.TabIndex = 7;
+            this.SpawnPointList.SelectedIndexChanged += new System.EventHandler(this.SpawnPointList_SelectedIndexChanged);
             // 
             // RemoveSpawnButton
             // 
@@ -77,6 +85,7 @@
             this.RemoveSpawnButton.Size = new System.Drawing.Size(30, 30);
             this.RemoveSpawnButton.TabIndex = 10;
             this.RemoveSpawnButton.UseVisualStyleBackColor = true;
+            this.RemoveSpawnButton.Click += new System.EventHandler(this.RemoveSpawnButton_Click);
             // 
             // AddSpawnButton
             // 
@@ -89,20 +98,56 @@
             this.AddSpawnButton.Size = new System.Drawing.Size(30, 30);
             this.AddSpawnButton.TabIndex = 8;
             this.AddSpawnButton.UseVisualStyleBackColor = true;
+            this.AddSpawnButton.Click += new System.EventHandler(this.AddSpawnButton_Click);
+            // 
+            // sideComboBox
+            // 
+            this.sideComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sideComboBox.FormattingEnabled = true;
+            this.sideComboBox.Location = new System.Drawing.Point(6, 48);
+            this.sideComboBox.Name = "sideComboBox";
+            this.sideComboBox.Size = new System.Drawing.Size(67, 21);
+            this.sideComboBox.TabIndex = 12;
+            this.sideComboBox.SelectedIndexChanged += new System.EventHandler(this.sideComboBox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label2.Location = new System.Drawing.Point(6, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Spawn Side";
+            // 
+            // EntityList
+            // 
+            this.EntityList.AutoSize = true;
+            this.EntityList.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EntityList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.EntityList.Location = new System.Drawing.Point(258, 5);
+            this.EntityList.Name = "EntityList";
+            this.EntityList.Size = new System.Drawing.Size(92, 25);
+            this.EntityList.TabIndex = 14;
+            this.EntityList.Text = "Spawn Points";
             // 
             // SpawnPointPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.EntityList);
             this.Controls.Add(this.InfoBox);
             this.Controls.Add(this.ToggleDisplayAll);
             this.Controls.Add(this.RemoveSpawnButton);
             this.Controls.Add(this.AddSpawnButton);
-            this.Controls.Add(this.NodeLists);
+            this.Controls.Add(this.SpawnPointList);
             this.Name = "SpawnPointPanel";
             this.Size = new System.Drawing.Size(448, 197);
+            this.InfoBox.ResumeLayout(false);
+            this.InfoBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -112,6 +157,9 @@
         private System.Windows.Forms.Button ToggleDisplayAll;
         private System.Windows.Forms.Button RemoveSpawnButton;
         private System.Windows.Forms.Button AddSpawnButton;
-        public System.Windows.Forms.ListBox NodeLists;
+        public System.Windows.Forms.ListBox SpawnPointList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox sideComboBox;
+        private System.Windows.Forms.Label EntityList;
     }
 }

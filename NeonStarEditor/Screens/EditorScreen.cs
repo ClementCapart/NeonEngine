@@ -85,8 +85,7 @@ namespace NeonStarEditor
             _colorEmitterCircleTexture = AssetManager.GetTexture("LightCircle");
             _boundTexture = AssetManager.GetTexture("BoundIcon");
             _nodeTexture = AssetManager.GetTexture("NodeIcon");
-            _spawnTexture = AssetManager.GetTexture("NodeIcon");
-
+            _spawnTexture = AssetManager.GetTexture("SpawnPointIcon");
 
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
@@ -184,6 +183,7 @@ namespace NeonStarEditor
             if (_isPathNodeManagerDisplayed)
                 return;
 
+
             if (_isSpawnPointsManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(SpawnPointsPanel);
@@ -194,6 +194,7 @@ namespace NeonStarEditor
             else
             {
                 SpawnPointsPanel = new SpawnPointPanel(this);
+                this.CurrentTool = new SelectSpawn(this);
                 GameAsForm.Controls.Add(SpawnPointsPanel);
                 _isSpawnPointsManagerDisplayed = true;
             }
@@ -443,6 +444,25 @@ namespace NeonStarEditor
                             }
                         }
                         
+                    }
+
+                    if (_isSpawnPointsManagerDisplayed)
+                    {
+                        if (DisplayAllSpawnPoint || !DisplayAllSpawnPoint)//May obviously change later if asked
+                        {
+                            foreach (SpawnPoint sp in SpawnPoints.Where(sp => sp != SpawnPointsPanel.CurrentSpawnPointSelected))
+                                spriteBatch.Draw(_spawnTexture, sp.Position, null, Color.White, 0f, new Vector2(_spawnTexture.Width / 2, _spawnTexture.Height / 2), 1f, (sp.Side == Side.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 1f);
+
+                            if(SpawnPointsPanel.CurrentSpawnPointSelected != null)
+                                spriteBatch.Draw(_spawnTexture, SpawnPointsPanel.CurrentSpawnPointSelected.Position, null, Color.Red, 0f, new Vector2(_spawnTexture.Width / 2, _spawnTexture.Height / 2), 1f, (SpawnPointsPanel.CurrentSpawnPointSelected.Side == Side.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 1f);
+                        }
+                        else
+                        {
+                            if (SpawnPointsPanel.CurrentSpawnPointSelected != null)
+                            {
+                                spriteBatch.Draw(_spawnTexture, SpawnPointsPanel.CurrentSpawnPointSelected.Position, null, Color.White, 0f, new Vector2(_spawnTexture.Width / 2, _spawnTexture.Height / 2), 1f, (SpawnPointsPanel.CurrentSpawnPointSelected.Side == Side.Left ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 1f);
+                            }
+                        }
                     }
 
                     foreach (Entity entity in entities)

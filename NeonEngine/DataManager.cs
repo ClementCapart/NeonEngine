@@ -16,8 +16,50 @@ namespace NeonEngine
     static public class DataManager
     {
         static public void SaveLevel(World CurrentWorld, string FilePath, string avatarEntity)
-        {
+        {   
             Level currentLevel = CurrentWorld.levelMap;
+
+            XDocument levelInfo = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement levelInfos = new XElement("LevelInfos");
+
+            if (CurrentWorld.NodeLists.Count > 0)
+            {
+                XElement pathNodeLists = new XElement("PathNodeLists");
+
+                foreach (PathNodeList pnl in CurrentWorld.NodeLists)
+                {
+                    XElement nodeList = new XElement("PathNodeList", new XAttribute("Name", pnl.Name), new XAttribute("Type", pnl.Type.ToString()));
+
+                    foreach (Node n in pnl.Nodes)
+                    {
+                        XElement node;
+                        if (n.Type == NodeType.DelayedMove)
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
+                        else
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
+                        nodeList.Add(node);
+                    }
+                    pathNodeLists.Add(nodeList);
+                }
+
+                levelInfos.Add(pathNodeLists);
+            }
+
+            if (CurrentWorld.SpawnPoints.Count > 0)
+            {
+                XElement spawnPointList = new XElement("SpawnPointList");
+
+                foreach (SpawnPoint sp in CurrentWorld.SpawnPoints)
+                {
+                    XElement spawnPoint = new XElement("SpawnPoint", new XAttribute("Index", sp.Index), new XAttribute("Position", sp.Position.ToString()), new XAttribute("Side", sp.Side.ToString()));
+                    spawnPointList.Add(spawnPoint);
+                }
+
+                levelInfos.Add(spawnPointList);
+            }
+
+            levelInfo.Add(levelInfos);
+            levelInfo.Save(FilePath.Substring(0, FilePath.Length - 4) + "_Info.xml");
 
             XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement content = new XElement("XnaContent");
@@ -107,29 +149,6 @@ namespace NeonEngine
                 }
 
                 level.Add(Entities);
-            }
-
-            if (CurrentWorld.NodeLists.Count > 0)
-            {
-                XElement pathNodeLists = new XElement("PathNodeLists");
-
-                foreach (PathNodeList pnl in CurrentWorld.NodeLists)
-                {
-                    XElement nodeList = new XElement("PathNodeList", new XAttribute("Name", pnl.Name), new XAttribute("Type", pnl.Type.ToString()));
-    
-                    foreach (Node n in pnl.Nodes)
-                    {
-                        XElement node;
-                        if(n.Type == NodeType.DelayedMove) 
-                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
-                        else
-                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
-                        nodeList.Add(node);
-                    }
-                    pathNodeLists.Add(nodeList);
-                }
-
-                level.Add(pathNodeLists);
             }
 
             content.Add(level);
