@@ -161,6 +161,59 @@ namespace NeonEngine
             Console.WriteLine("LoadLevel() to implement.");
         }
 
+        static public void LoadLevelInfo(string FilePath, World GameWorld)
+        {
+            Console.WriteLine("Level information loading...");
+            Console.WriteLine("");
+
+            Stream stream = File.OpenRead(FilePath.Substring(0, FilePath.Length - 4) + "_Info.xml");
+
+            XDocument document = XDocument.Load(stream);
+
+            XElement PathNodeLists = document.Element("LevelInfos").Element("PathNodeLists");
+
+            if (PathNodeLists != null)
+            {
+                foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))
+                {
+                    PathNodeList pnl = new PathNodeList();
+                    pnl.Name = pathNodeList.Attribute("Name").Value;
+                    pnl.Type = (PathType)Enum.Parse(typeof(PathType), pathNodeList.Attribute("Type").Value);
+
+                    foreach (XElement node in pathNodeList.Elements("Node"))
+                    {
+                        Node n = new Node();
+                        n.index = int.Parse(node.Attribute("Index").Value);
+                        n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
+                        n.Position = Neon.utils.ParseVector2(node.Attribute("Position").Value);
+
+                        if (n.Type == NodeType.DelayedMove)
+                            n.NodeDelay = float.Parse(node.Attribute("Delay").Value, CultureInfo.InvariantCulture);
+                        pnl.Nodes.Add(n);
+                    }
+
+                    GameWorld.NodeLists.Add(pnl);
+                }
+            }
+
+            XElement SpawnPointList = document.Element("LevelInfos").Element("SpawnPointList");
+
+            if (SpawnPointList != null)
+            {
+                foreach (XElement spawnPoint in SpawnPointList.Elements("SpawnPoint"))
+                {
+                    SpawnPoint sp = new SpawnPoint();
+                    sp.Index = int.Parse(spawnPoint.Attribute("Index").Value);
+                    sp.Position = Neon.utils.ParseVector2(spawnPoint.Attribute("Position").Value);
+                    sp.Side = (Side)Enum.Parse(typeof(Side), spawnPoint.Attribute("Side").Value);
+
+                    GameWorld.SpawnPoints.Add(sp);
+                }
+            }
+
+            stream.Close();
+        }
+
         static public void SavePrefab(Entity entity, string FilePath)
         {
             if (entity != null)

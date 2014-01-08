@@ -39,7 +39,10 @@
             this.levelNameText = new System.Windows.Forms.TextBox();
             this.groupNameText = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.loadSpawnPoint = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadSpawnPoint)).BeginInit();
             this.SuspendLayout();
             // 
             // EntityList
@@ -69,7 +72,7 @@
             this.LoadLevel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LoadLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.LoadLevel.Location = new System.Drawing.Point(393, 46);
+            this.LoadLevel.Location = new System.Drawing.Point(393, 47);
             this.LoadLevel.Name = "LoadLevel";
             this.LoadLevel.Size = new System.Drawing.Size(30, 30);
             this.LoadLevel.TabIndex = 5;
@@ -81,7 +84,7 @@
             this.AddEntityButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddEntityButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEntityButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddEntityButton.Location = new System.Drawing.Point(393, 118);
+            this.AddEntityButton.Location = new System.Drawing.Point(393, 117);
             this.AddEntityButton.Name = "AddEntityButton";
             this.AddEntityButton.Size = new System.Drawing.Size(30, 30);
             this.AddEntityButton.TabIndex = 6;
@@ -95,7 +98,7 @@
             this.newFolder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.newFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.newFolder.Location = new System.Drawing.Point(393, 82);
+            this.newFolder.Location = new System.Drawing.Point(393, 81);
             this.newFolder.Name = "newFolder";
             this.newFolder.Size = new System.Drawing.Size(30, 30);
             this.newFolder.TabIndex = 6;
@@ -154,11 +157,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Level Info";
             // 
+            // loadSpawnPoint
+            // 
+            this.loadSpawnPoint.Location = new System.Drawing.Point(432, 56);
+            this.loadSpawnPoint.Name = "loadSpawnPoint";
+            this.loadSpawnPoint.Size = new System.Drawing.Size(39, 20);
+            this.loadSpawnPoint.TabIndex = 12;
+            this.loadSpawnPoint.Enter += new System.EventHandler(this.loadSpawnPoint_Enter);
+            this.loadSpawnPoint.Leave += new System.EventHandler(this.loadSpawnPoint_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label3.Location = new System.Drawing.Point(429, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "SpawnPoint";
+            // 
             // LevelListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.loadSpawnPoint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.newFolder);
             this.Controls.Add(this.AddEntityButton);
@@ -166,10 +190,11 @@
             this.Controls.Add(this.levelListTreeView);
             this.Controls.Add(this.EntityList);
             this.Name = "LevelListControl";
-            this.Size = new System.Drawing.Size(463, 165);
+            this.Size = new System.Drawing.Size(505, 165);
             this.Load += new System.EventHandler(this.LevelListControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadSpawnPoint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +212,7 @@
         private System.Windows.Forms.TextBox levelNameText;
         private System.Windows.Forms.TextBox groupNameText;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown loadSpawnPoint;
+        private System.Windows.Forms.Label label3;
     }
 }

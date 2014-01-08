@@ -33,9 +33,8 @@ namespace NeonStarEditor
                 sp.Index = index;
 
                 currentWorld.SpawnPoints.Add(sp);
-                
-                currentWorld.SpawnPointsPanel.InitializeSpawnPointData();
                 currentWorld.SpawnPointsPanel.CurrentSpawnPointSelected = sp;
+                currentWorld.SpawnPointsPanel.InitializeSpawnPointData();          
                 currentWorld.SpawnPointsPanel.SpawnPointList.SelectedItem = sp;
                 currentWorld.CurrentTool = new SelectSpawn(currentWorld);
             }

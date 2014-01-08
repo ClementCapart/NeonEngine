@@ -160,7 +160,11 @@ namespace NeonStarLibrary
         public override void Init()
         {
             if(_avatarName != "")
-                _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
+			{
+				Entity avatar = Neon.world.GetEntityByName(_avatarName);
+				if(avatar != null)
+					_avatar = avatar.GetComponent<Avatar>();
+			}
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
 
             if (_enemyName != "")

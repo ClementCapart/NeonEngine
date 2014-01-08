@@ -70,8 +70,8 @@ namespace NeonStarEditor
 
         public bool UnpauseTillNextFrame = false;
 
-        public EditorScreen(string levelFile, Vector2 startingPosition, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(levelFile, startingPosition, game)
+        public EditorScreen(string levelFile, int startingSpawnPointIndex, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
+            : base(levelFile, startingSpawnPointIndex, game)
         {
             
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
@@ -895,7 +895,9 @@ namespace NeonStarEditor
                 AttacksSettingsManager.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
-            ChangeScreen(new EditorScreen(this.levelFilePath, lastCheckpointPosition, game, graphics));
+            if (SpawnPointsPanel != null)
+                SpawnPointsPanel.Dispose();
+            ChangeScreen(new EditorScreen(this.levelFilePath, lastSpawnPointIndex, game, graphics));
         }
 
         public override void ChangeScreen(World nextScreen)
@@ -910,6 +912,8 @@ namespace NeonStarEditor
                 AttacksSettingsManager.Dispose();
             if (PathNodePanel != null)
                 PathNodePanel.Dispose();
+            if (SpawnPointsPanel != null)
+                SpawnPointsPanel.Dispose();
             base.ChangeScreen(nextScreen);
         }
     }

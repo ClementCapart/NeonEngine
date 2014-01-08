@@ -15,10 +15,12 @@ namespace NeonStarLibrary
         public string LevelToLoad = "";
 
         public Entity LoadingAnim;
+        private int _startingSpawnPointIndex = 0;
 
-        public LoadingScreen(Game game, string levelToLoad = "")
+        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string levelToLoad = "")
             : base(game)
         {
+            this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
         }
 
@@ -53,9 +55,9 @@ namespace NeonStarLibrary
 
             
             if (ThreadFinished && LevelToLoad == "")
-                this.ChangeScreen(new GameScreen(@"../Data/Levels/Level_Empty.xml", Vector2.Zero, Neon.game));
+                this.ChangeScreen(new GameScreen(@"../Data/Levels/LevelEmpty.xml", _startingSpawnPointIndex, Neon.game));
             else if (ThreadFinished)
-                this.ChangeScreen(new GameScreen(LevelToLoad, Vector2.Zero, Neon.game));
+                this.ChangeScreen(new GameScreen(LevelToLoad, _startingSpawnPointIndex, Neon.game));
             base.Update(gameTime);
         }
     }

@@ -18,7 +18,7 @@ namespace NeonStarScripts
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Back))
-                Neon.world.ChangeScreen(new GameScreen(Neon.world.levelFilePath, Vector2.Zero, Neon.game));
+                Neon.world.ChangeScreen(new GameScreen(Neon.world.levelFilePath, 0, Neon.game));
             base.Update(gameTime);
         }
     }

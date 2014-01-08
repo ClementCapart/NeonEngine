@@ -47,9 +47,13 @@ namespace NeonStarEditor.Controls.BottomDock
                 TreeNode levelDirectory = new TreeNode(Path.GetFileName(s));
                 foreach (string fs in Directory.EnumerateFiles(s))
                 {
-                    TreeNode levelFile = new TreeNode(Path.GetFileNameWithoutExtension(fs));
-                    levelFile.Name = fs;
-                    levelDirectory.Nodes.Add(levelFile);
+                    string levelName = Path.GetFileNameWithoutExtension(fs);
+                    if (levelName.Split('_').Length == 1)
+                    {
+                        TreeNode levelFile = new TreeNode(levelName);
+                        levelFile.Name = fs;
+                        levelDirectory.Nodes.Add(levelFile);
+                    }
                 }
 
                 this.levelListTreeView.Nodes.Add(levelDirectory);
@@ -60,7 +64,7 @@ namespace NeonStarEditor.Controls.BottomDock
         {
             if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
             {
-                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, Vector2.Zero, levelListTreeView.SelectedNode.Name));
+                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Name));
             }
         }
 
@@ -181,6 +185,16 @@ namespace NeonStarEditor.Controls.BottomDock
                 Directory.CreateDirectory(@"../Data/ContentStream/LevelsContent/" + levelListTreeView.SelectedNode.Text + " /NewLevel" + i);
                 InitListTreeView();
             }
+        }
+
+        private void loadSpawnPoint_Leave(object sender, EventArgs e)
+        {
+            GameWorld.FocusedNumericUpDown = null;
+        }
+
+        private void loadSpawnPoint_Enter(object sender, EventArgs e)
+        {
+            GameWorld.FocusedNumericUpDown = (sender as NumericUpDown);
         }
     }
 }

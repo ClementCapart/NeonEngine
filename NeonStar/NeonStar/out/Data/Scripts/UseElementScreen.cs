@@ -27,8 +27,12 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            if (_avatarName != "")
-                _avatar = Neon.world.GetEntityByName(_avatarName).GetComponent<Avatar>();
+            if(_avatarName != "")
+			{
+				Entity avatar = Neon.world.GetEntityByName(_avatarName);
+				if(avatar != null)
+					_avatar = avatar.GetComponent<Avatar>();
+			}
 			entity.spritesheets.ChangeAnimation("Off");
 		}
 

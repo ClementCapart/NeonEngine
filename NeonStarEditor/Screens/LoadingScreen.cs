@@ -18,12 +18,12 @@ namespace NeonStarEditor
 
         private bool _loadPreferences;
 
-        public Vector2 spawningPosition;
+        public int _startingSpawnPointIndex;
 
-        public LoadingScreen(Game game, Vector2 spawningPosition, string levelToLoad = "", bool loadPreferences = false)
+        public LoadingScreen(Game game, int startingSpawnPointIndex, string levelToLoad = "", bool loadPreferences = false)
             :base(game)
         {
-            this.spawningPosition = spawningPosition;
+            this._startingSpawnPointIndex = startingSpawnPointIndex;
             _loadPreferences = loadPreferences;
             if (loadPreferences)
             {
@@ -40,7 +40,7 @@ namespace NeonStarEditor
                 LevelToLoad = levelToLoad;
 
             if(LevelToLoad == "")
-                LevelToLoad = @"../Data/Levels/Level_Empty.xml";
+                LevelToLoad = @"../Data/Levels/LevelEmpty.xml";
         }
 
         public void LoadNextLevelAssets()
@@ -69,7 +69,7 @@ namespace NeonStarEditor
 
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(LevelToLoad, spawningPosition , Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
+                this.ChangeScreen(new EditorScreen(LevelToLoad, _startingSpawnPointIndex, Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
             }
             base.Update(gameTime);
         }

@@ -26,14 +26,14 @@ namespace NeonStarLibrary
         public static Entity avatar;
         //----------------------------------------//
 
-        protected Vector2 lastCheckpointPosition;
+        protected int lastSpawnPointIndex;
 
         public string AvatarName = "LiOn";
 
-        public GameScreen(string levelFile, Vector2 startingPosition, Game game)
+        public GameScreen(string levelFile, int startingSpawnPointIndex, Game game)
             : base(game)
         {
-            lastCheckpointPosition = startingPosition;
+            lastSpawnPointIndex = startingSpawnPointIndex;
 
             enemies = new List<Enemy>();
             
@@ -42,12 +42,28 @@ namespace NeonStarLibrary
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
 
-            if (avatar == null)
-                avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
-            else
-                AddEntity(avatar);
+            DataManager.LoadLevelInfo(levelFile, this);
 
-            avatar.transform.Position = lastCheckpointPosition;
+            SpawnPoint currentSpawnPoint = null;
+
+            foreach (SpawnPoint sp in SpawnPoints)
+                if (sp.Index == startingSpawnPointIndex)
+                    currentSpawnPoint = sp;
+            if (SpawnPoints.Count == 0)
+            {
+                Console.WriteLine("Warning : No Spawn Point found, Avatar won't be created");
+            }
+            else if (currentSpawnPoint != null)
+            {
+                avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
+
+                avatar.transform.Position = currentSpawnPoint.Position;
+                Avatar avatarComponent = avatar.GetComponent<Avatar>();
+                if (avatarComponent != null)
+                    avatarComponent.CurrentSide = currentSpawnPoint.Side;
+            }
+            else
+                Console.WriteLine("Warning : SpawnPoint "+ startingSpawnPointIndex + " not found, Avatar won't be created, please select an existing SpawnPoint");
 
             if(levelFile != "")
                 LoadLevel(new Level(levelFile, this, true));
@@ -94,7 +110,7 @@ namespace NeonStarLibrary
 
         public virtual void ReloadLevel()
         {
-            ChangeScreen(new GameScreen(this.levelFilePath, lastCheckpointPosition, game));
+            ChangeScreen(new GameScreen(this.levelFilePath, lastSpawnPointIndex, game));
         }
 
         public override void ManualDrawBackHUD(SpriteBatch sb)

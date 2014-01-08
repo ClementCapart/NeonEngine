@@ -103,7 +103,7 @@ namespace NeonScripts
             }
             if (_blacksmithAttacked == true && _blacksmith.spritesheets.CurrentSpritesheetName == "Attack" && _blacksmith.spritesheets.CurrentSpritesheet.currentFrame == _blacksmith.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
 				_blacksmith.spritesheets.ChangeAnimation("Idle");
-            if (_avatarName != "" && _blacksmith.spritesheets.CurrentSpritesheetName == "Attack" && _blacksmith.spritesheets.CurrentSpritesheet.currentFrame == _impulseFrame)
+            if (_liOn != null && _avatarName != "" && _blacksmith.spritesheets.CurrentSpritesheetName == "Attack" && _blacksmith.spritesheets.CurrentSpritesheet.currentFrame == _impulseFrame)
             {
                 _liOn.rigidbody.body.ApplyLinearImpulse(new Vector2(_xImpulse, _yImpulse));
                 _liOn.spritesheets.ChangeAnimation("Hit", 0, true, false, false);
@@ -116,7 +116,7 @@ namespace NeonScripts
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            new LoadingScreen(Neon.game, @"../Data/Levels/PreprodPresentation/Main.xml");
+            new LoadingScreen(Neon.game, 0, @"../Data/Levels/PreprodPresentation/Main.xml");
         }
     }
 }

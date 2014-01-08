@@ -23,6 +23,7 @@ namespace NeonStarEditor
             this.Location = new Point(36, 0);
       
             InitializeComponent();
+            InitializeSpawnPointData();
         }
 
         public void InitializeSpawnPointData()
@@ -40,7 +41,7 @@ namespace NeonStarEditor
 
         public void InitializeSelectedData()
         {
-            this.sideComboBox.SelectedText = CurrentSpawnPointSelected.Side.ToString();
+            this.sideComboBox.SelectedItem = CurrentSpawnPointSelected.Side;
         }
 
         private void ToggleDisplayAll_Click(object sender, EventArgs e)
@@ -64,6 +65,7 @@ namespace NeonStarEditor
             if (CurrentSpawnPointSelected != null)
             {
                 GameWorld.SpawnPoints.Remove(CurrentSpawnPointSelected);
+                CurrentSpawnPointSelected = null;
                 InitializeSpawnPointData();
             }
         }
@@ -71,7 +73,10 @@ namespace NeonStarEditor
         private void SpawnPointList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SpawnPointList.SelectedIndex != -1)
+            {
                 CurrentSpawnPointSelected = SpawnPointList.SelectedItem as SpawnPoint;
+                InitializeSelectedData();
+            }
         }
     }
 }
