@@ -1362,7 +1362,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:1051 Y:201,5}" />
+              <Position Value="{X:1051 Y:201}" />
               <InitialPosition Value="{X:1051 Y:201}" />
               <Rotation Value="0" />
               <Scale Value="2" />
@@ -1606,7 +1606,7 @@
             <Properties>
               <DrawLayer Value="1" />
               <Font Value="HUDFont" />
-              <Text Value="-276" />
+              <Text Value="00" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
@@ -3620,7 +3620,7 @@
             <Properties>
               <DrawLayer Value="1" />
               <Font Value="TimerFont" />
-              <Text Value="00:05:39" />
+              <Text Value="00:11:49" />
               <TextColor Value="{R:255 G:255 B:255 A:255}" />
               <Outline Value="True" />
               <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
@@ -4098,8 +4098,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2106,351 Y:-326,4999}" />
-              <InitialPosition Value="{X:2106,351 Y:-326,4999}" />
+              <Position Value="{X:2083,165 Y:-326,4999}" />
+              <InitialPosition Value="{X:2083,165 Y:-326,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4107,8 +4107,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2106 Y:-326}" />
-              <X Value="2056" />
+              <Center Value="{X:2083 Y:-326}" />
+              <X Value="2033" />
               <Y Value="-406" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4224,8 +4224,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3221,291 Y:-327,4999}" />
-              <InitialPosition Value="{X:3221,291 Y:-327,4999}" />
+              <Position Value="{X:3220,095 Y:-327,4999}" />
+              <InitialPosition Value="{X:3220,095 Y:-327,4999}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4233,8 +4233,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3221 Y:-327}" />
-              <X Value="3171" />
+              <Center Value="{X:3220 Y:-327}" />
+              <X Value="3170" />
               <Y Value="-407" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4350,8 +4350,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3218,359 Y:-55,49998}" />
-              <InitialPosition Value="{X:3218,359 Y:-55,49998}" />
+              <Position Value="{X:3383,573 Y:-55,49998}" />
+              <InitialPosition Value="{X:3383,573 Y:-55,49998}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4359,8 +4359,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3218 Y:-55}" />
-              <X Value="3168" />
+              <Center Value="{X:3383 Y:-55}" />
+              <X Value="3333" />
               <Y Value="-135" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4386,7 +4386,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -4476,8 +4476,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5375,419 Y:201}" />
-              <InitialPosition Value="{X:5375,419 Y:201}" />
+              <Position Value="{X:5061,158 Y:201}" />
+              <InitialPosition Value="{X:5061,158 Y:201}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -4485,8 +4485,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5375 Y:201}" />
-              <X Value="5325" />
+              <Center Value="{X:5061 Y:201}" />
+              <X Value="5011" />
               <Y Value="121" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4512,7 +4512,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -5066,23 +5066,5 @@
         </Components>
       </Entity>
     </Entities>
-    <PathNodeLists>
-      <PathNodeList Name="NodeList1" Type="Ground">
-        <Node Type="DelayedMove" Index="0" Position="{X:1945,915 Y:-295,1308}" Delay="1" />
-        <Node Type="DelayedMove" Index="1" Position="{X:2642,001 Y:-295,1308}" Delay="1" />
-      </PathNodeList>
-      <PathNodeList Name="NodeList2" Type="Ground">
-        <Node Type="DelayedMove" Index="0" Position="{X:3176,326 Y:-302,5692}" Delay="2.2" />
-        <Node Type="DelayedMove" Index="1" Position="{X:3610,576 Y:-302,5692}" Delay="2.2" />
-      </PathNodeList>
-      <PathNodeList Name="NodeList3" Type="Ground">
-        <Node Type="DelayedMove" Index="0" Position="{X:3174,994 Y:-21,3192}" Delay="1" />
-        <Node Type="DelayedMove" Index="1" Position="{X:3727,326 Y:-21,3192}" Delay="1" />
-      </PathNodeList>
-      <PathNodeList Name="NodeList4" Type="Ground">
-        <Node Type="DelayedMove" Index="0" Position="{X:4940,326 Y:226,6808}" Delay="1" />
-        <Node Type="DelayedMove" Index="1" Position="{X:5420,326 Y:226,6808}" Delay="1" />
-      </PathNodeList>
-    </PathNodeLists>
   </Level>
 </XnaContent>
