@@ -9,7 +9,6 @@ namespace NeonStarEditor
 {
     class SelectSpawn : Tool
     {
-        PathNodeList pathNodeList;
 
         public SelectSpawn(EditorScreen GameWorld)
             :base(GameWorld)

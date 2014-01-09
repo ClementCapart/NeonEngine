@@ -15,8 +15,6 @@ namespace NeonStarEditor
         public EditorScreen GameWorld;
         public SpawnPoint CurrentSpawnPointSelected;
 
-        private int _lastIndex = 0;
-
         public SpawnPointPanel(EditorScreen GameWorld)
         {
             this.GameWorld = GameWorld;

@@ -62,9 +62,12 @@ namespace NeonStarEditor.Controls.BottomDock
 
         private void LoadLevel_Click(object sender, EventArgs e)
         {
-            if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
+            if (levelListTreeView.SelectedNode != null)
             {
-                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Name));
+                if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
+                {
+                    Neon.world.ChangeScreen(new LoadingScreen(Neon.game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Name));
+                }
             }
         }
 

@@ -23,7 +23,7 @@ namespace NeonStarLibrary
 
 
         //Sounds obvious but still, I don't know...//
-        public static Entity avatar;
+        public Entity avatar;
         //----------------------------------------//
 
         protected int lastSpawnPointIndex;
