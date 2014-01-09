@@ -157,7 +157,7 @@ namespace NeonStarLibrary
             LocalAttacksInCooldown = new List<Attack>();
             EnemyComponent = entity.GetComponent<Enemy>();
             if (_entityToAttackName != "")
-                EntityToAttack = Neon.world.GetEntityByName(_entityToAttackName);
+                EntityToAttack = Neon.World.GetEntityByName(_entityToAttackName);
 
             if (EnemyComponent != null)
                 EnemyComponent.Attack = this;

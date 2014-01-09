@@ -27,7 +27,7 @@ namespace NeonStarEditor
         {
             if (GameWorld != null)
             {
-                EntityListBox.DataSource = GameWorld.entities;
+                EntityListBox.DataSource = GameWorld.Entities;
                 EntityListBox.DisplayMember = "Name";
                 EntityListBox.SelectedItem = null;
             }
@@ -49,10 +49,11 @@ namespace NeonStarEditor
 
         private void AddEntityButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Add : Entity");
-            GameWorld.AddEntity(new Entity(GameWorld));
-            ((Entity)(EntityListBox.SelectedItem)).transform.Position = Neon.world.camera.Position;
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entities.Last());
+            Entity ent = new Entity(GameWorld);
+            ent.transform.Position = Neon.World.Camera.Position;
+            ent.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
+            GameWorld.AddEntity(ent);
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)
@@ -86,17 +87,19 @@ namespace NeonStarEditor
             if (GameWorld.SelectedEntity != null)
             {
                 DataManager.LoadPrefab(DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld);
-                Entity entity = GameWorld.entities.Last();
+                Entity entity = GameWorld.Entities.Last();
                 entity.transform.Position += new Microsoft.Xna.Framework.Vector2(100, -100);
                 entity.transform.InitialPosition = entity.transform.Position;
+                entity.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
+                EntityListBox.SelectedItem = entity;
             }
         }
 
         private void OrderList_Click(object sender, EventArgs e)
         {
-            GameWorld.entities = GameWorld.entities.OrderBy(en => en.Name).ToList();
+            GameWorld.Entities = GameWorld.Entities.OrderBy(en => en.Name).ToList();
             EntityListBox.DataSource = null;
-            EntityListBox.DataSource = GameWorld.entities;
+            EntityListBox.DataSource = GameWorld.Entities;
             EntityListBox.DisplayMember = "Name";
         }
     }

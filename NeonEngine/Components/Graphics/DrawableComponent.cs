@@ -103,7 +103,7 @@ namespace NeonEngine
         public override void Update(GameTime gameTime)
         {
             if(entity != null)
-                _parallaxPosition = entity.containerWorld.camera.Position * ParallaxForce;
+                _parallaxPosition = entity.containerWorld.Camera.Position * ParallaxForce;
             base.Update(gameTime);
         }
 

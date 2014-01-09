@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <XnaContent>
-  <Level>
+  <Level Layer="">
     <Entities>
-      <Entity Name="Background">
+      <Entity Name="Background" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -29,7 +29,7 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Blacksmith">
+      <Entity Name="Blacksmith" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -71,7 +71,7 @@
           </Hitbox>
         </Components>
       </Entity>
-      <Entity Name="FallingPlatform">
+      <Entity Name="FallingPlatform" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -112,7 +112,7 @@
           </Rigidbody>
         </Components>
       </Entity>
-      <Entity Name="Script">
+      <Entity Name="Script" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -136,7 +136,7 @@
           </PreprodBeginning>
         </Components>
       </Entity>
-      <Entity Name="TriggerChangeLevel">
+      <Entity Name="TriggerChangeLevel" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -170,7 +170,7 @@
           </HitboxTrigger>
         </Components>
       </Entity>
-      <Entity Name="BoundLeft">
+      <Entity Name="BoundLeft" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -192,7 +192,7 @@
           </CameraBound>
         </Components>
       </Entity>
-      <Entity Name="BoundDown">
+      <Entity Name="BoundDown" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>

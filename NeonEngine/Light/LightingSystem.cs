@@ -17,7 +17,7 @@ namespace NeonEngine
         public LightingSystem()
         {
             lights = new List<Light>();
-            lightMask = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
+            lightMask = new RenderTarget2D(Neon.GraphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
         }
 
         public void AddLight(Light light)
@@ -29,13 +29,13 @@ namespace NeonEngine
         {
             if (LightingEnabled)
             {
-                Neon.graphicsDevice.SetRenderTarget(lightMask);
-                Neon.graphicsDevice.Clear(new Color(ambientDarkness, ambientDarkness, ambientDarkness));
-                sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, container.camera.get_transformation(Neon.graphicsDevice));
+                Neon.GraphicsDevice.SetRenderTarget(lightMask);
+                Neon.GraphicsDevice.Clear(new Color(ambientDarkness, ambientDarkness, ambientDarkness));
+                sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, container.Camera.get_transformation(Neon.GraphicsDevice));
                 foreach (Light l in lights)
                     l.DrawLightMask(sb);
                 sb.End();
-                Neon.graphicsDevice.SetRenderTarget(null);
+                Neon.GraphicsDevice.SetRenderTarget(null);
             }
         }
     }

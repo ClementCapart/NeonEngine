@@ -82,13 +82,13 @@ namespace NeonStarEditor
         void nu_Leave(object sender, EventArgs e)
         {
             CurrentNodeSelected.NodeDelay = (float)(sender as NumericUpDown).Value;
-            (Neon.world as EditorScreen).FocusedNumericUpDown = null;
+            (Neon.World as EditorScreen).FocusedNumericUpDown = null;
             
         }
 
         void nu_Enter(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedNumericUpDown = (sender as NumericUpDown);
+            (Neon.World as EditorScreen).FocusedNumericUpDown = (sender as NumericUpDown);
         }
 
         void nu_ValueChanged(object sender, EventArgs e)
@@ -137,13 +137,13 @@ namespace NeonStarEditor
 
         private void PathName_Enter(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedTextBox = sender as TextBox;
+            (Neon.World as EditorScreen).FocusedTextBox = sender as TextBox;
         }
 
         private void PathName_Leave(object sender, EventArgs e)
         {
             GameWorld.NodeLists[NodeLists.SelectedIndex].Name = (sender as TextBox).Text;
-            (Neon.world as EditorScreen).FocusedTextBox = null;
+            (Neon.World as EditorScreen).FocusedTextBox = null;
             InitializeData();
         }
 

@@ -14,22 +14,27 @@ namespace NeonStarEditor
     {
         public bool ThreadFinished = false;
         public string LevelToLoad = "";
+        public string GroupToLoad = "";
         public Entity LoadingAnim;
 
         private bool _loadPreferences;
 
         public int _startingSpawnPointIndex;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex, string levelToLoad = "", bool loadPreferences = false)
+        public LoadingScreen(Game game, int startingSpawnPointIndex, string groupToLoad = "", string levelToLoad = "", bool loadPreferences = false)
             :base(game)
         {
             this._startingSpawnPointIndex = startingSpawnPointIndex;
+            LevelToLoad = levelToLoad;
+            GroupToLoad = groupToLoad;
             _loadPreferences = loadPreferences;
+            
             if (loadPreferences)
             {
                 try
                 {
                     LevelToLoad = XDocument.Load(@"../Data/Config/EditorPreferences.xml").Element("XnaContent").Element("Preferences").Element("LevelToLoad").Value;
+                    GroupToLoad = XDocument.Load(@"../Data/Config/EditorPreferences.xml").Element("XnaContent").Element("Preferences").Element("GroupToLoad").Value;
                 }
                 catch
                 {
@@ -39,22 +44,23 @@ namespace NeonStarEditor
             else
                 LevelToLoad = levelToLoad;
 
-            if(LevelToLoad == "")
-                LevelToLoad = @"../Data/Levels/LevelEmpty.xml";
+            if (LevelToLoad == "" || GroupToLoad == "")
+            {
+                GroupToLoad = "Tests";
+                LevelToLoad = "LevelEmpty";
+            }
         }
 
         public void LoadNextLevelAssets()
         {
-            string[] folderNameFull = Path.GetDirectoryName(LevelToLoad).Split('\\');
-            string folderName = folderNameFull[folderNameFull.Length - 1]; 
-            AssetManager.LoadGroupData(Neon.graphicsDevice, folderName);
-            AssetManager.LoadLevelData(Neon.graphicsDevice, folderName, Path.GetFileNameWithoutExtension(LevelToLoad));
+            AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
+            AssetManager.LoadLevelData(Neon.GraphicsDevice, GroupToLoad, LevelToLoad);
             ThreadFinished = true;
         }
 
         public void LoadCommonAssets()
         {
-            AssetManager.LoadCommonData(Neon.graphicsDevice);
+            AssetManager.LoadCommonData(Neon.GraphicsDevice);
             ThreadFinished = true;
         }
 
@@ -69,7 +75,7 @@ namespace NeonStarEditor
 
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(LevelToLoad, _startingSpawnPointIndex, Neon.game, Neon.GraphicsDeviceManager, _loadPreferences));
+                this.ChangeScreen(new EditorScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, Neon.Game, Neon.GraphicsDeviceManager, _loadPreferences));
             }
             base.Update(gameTime);
         }

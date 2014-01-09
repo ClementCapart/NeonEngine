@@ -22,7 +22,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            _doorToOpen = Neon.world.GetEntityByName("02Door").GetComponent<Door>();
+            _doorToOpen = Neon.World.GetEntityByName("02Door").GetComponent<Door>();
             entity.spritesheets.ChangeAnimation("Off");
             base.Init();
         }

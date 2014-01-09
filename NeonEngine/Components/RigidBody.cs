@@ -234,7 +234,7 @@ namespace NeonEngine
             HitboxRemoved = new ComponentRemoved(RemoveHitbox);
             entity.transform.PositionChanged += PositionChanged;
             entity.rigidbody = this;
-            physicWorld = entity.containerWorld.physicWorld;
+            physicWorld = entity.containerWorld.PhysicWorld;
         }
 
         public override void Init()
@@ -291,8 +291,8 @@ namespace NeonEngine
  	        if(OneWayPlatform)
             {
                 float offset = 0;
-                Entity EntityA = Neon.utils.GetEntityByBody(fixtureA.Body);
-                Entity EntityB = Neon.utils.GetEntityByBody(fixtureB.Body);
+                Entity EntityA = Neon.Utils.GetEntityByBody(fixtureA.Body);
+                Entity EntityB = Neon.Utils.GetEntityByBody(fixtureB.Body);
                 if (EntityB != entity && EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitboxes[0];
@@ -332,8 +332,8 @@ namespace NeonEngine
             else if (isGround)
             {
                 float offset = 0;
-                Entity EntityA = Neon.utils.GetEntityByBody(fixtureA.Body);
-                Entity EntityB = Neon.utils.GetEntityByBody(fixtureB.Body);
+                Entity EntityA = Neon.Utils.GetEntityByBody(fixtureA.Body);
+                Entity EntityB = Neon.Utils.GetEntityByBody(fixtureB.Body);
 
                 if (EntityB != entity && EntityB != null)
                 {
@@ -406,8 +406,8 @@ namespace NeonEngine
                     }
                     else
                     {
-                        Entity EntityA = Neon.utils.GetEntityByBody(_currentContact.FixtureA.Body);
-                        Entity EntityB = Neon.utils.GetEntityByBody(_currentContact.FixtureB.Body);
+                        Entity EntityA = Neon.Utils.GetEntityByBody(_currentContact.FixtureA.Body);
+                        Entity EntityB = Neon.Utils.GetEntityByBody(_currentContact.FixtureB.Body);
                         if (EntityB != entity && EntityB != null)
                         {
                             if (EntityB.hitboxes[0] != null && (EntityB.transform.Position.Y + EntityB.hitboxes[0].Height / 2 <= EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2))

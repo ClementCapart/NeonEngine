@@ -30,10 +30,10 @@
         {
             this.EntityList = new System.Windows.Forms.Label();
             this.Inspector = new System.Windows.Forms.Panel();
+            this.InspectorTab = new System.Windows.Forms.TabControl();
             this.AddComponent = new System.Windows.Forms.Button();
             this.ComponentList = new System.Windows.Forms.ComboBox();
             this.OpenScript = new System.Windows.Forms.OpenFileDialog();
-            this.InspectorTab = new System.Windows.Forms.TabControl();
             this.Inspector.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,20 @@
             this.Inspector.Name = "Inspector";
             this.Inspector.Size = new System.Drawing.Size(325, 595);
             this.Inspector.TabIndex = 4;
+            // 
+            // InspectorTab
+            // 
+            this.InspectorTab.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.InspectorTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.InspectorTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InspectorTab.ItemSize = new System.Drawing.Size(156, 20);
+            this.InspectorTab.Location = new System.Drawing.Point(3, 98);
+            this.InspectorTab.Multiline = true;
+            this.InspectorTab.Name = "InspectorTab";
+            this.InspectorTab.SelectedIndex = 0;
+            this.InspectorTab.Size = new System.Drawing.Size(320, 497);
+            this.InspectorTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.InspectorTab.TabIndex = 0;
             // 
             // AddComponent
             // 
@@ -83,20 +97,6 @@
             // OpenScript
             // 
             this.OpenScript.Filter = "\"Fichiers NeonStar C#|*.nscs";
-            // 
-            // InspectorTab
-            // 
-            this.InspectorTab.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.InspectorTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.InspectorTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InspectorTab.ItemSize = new System.Drawing.Size(156, 20);
-            this.InspectorTab.Location = new System.Drawing.Point(3, 45);
-            this.InspectorTab.Multiline = true;
-            this.InspectorTab.Name = "InspectorTab";
-            this.InspectorTab.SelectedIndex = 0;
-            this.InspectorTab.Size = new System.Drawing.Size(320, 550);
-            this.InspectorTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.InspectorTab.TabIndex = 0;
             // 
             // InspectorControl
             // 

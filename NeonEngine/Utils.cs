@@ -28,7 +28,7 @@ namespace NeonEngine
 
         public Vector2 InputToWorldPosition(Vector2 input)
         {
-            return (input - Neon.world.camera.Position - new Vector2(Neon.ScreenWidth / 2, Neon.ScreenHeight / 2));
+            return (input - Neon.World.Camera.Position - new Vector2(Neon.ScreenWidth / 2, Neon.ScreenHeight / 2));
         }
 
         public T[,] ArrayToArray2D<T>(T[] array, int dim1, int dim2)
@@ -55,7 +55,7 @@ namespace NeonEngine
 
         public Texture2D fillRectTexture(int width, int height, Color color)
         {
-            Texture2D texture = new Texture2D(Neon.graphicsDevice, width, height);
+            Texture2D texture = new Texture2D(Neon.GraphicsDevice, width, height);
             Color[] fill = new Color[width * height];
             for (int i = 0; i < fill.Length; i++)
                 fill[i] = color;
@@ -65,7 +65,7 @@ namespace NeonEngine
 
         public Texture2D generateRadialGradient(int radius)
         {
-            Texture2D t = new Texture2D(Neon.graphicsDevice, radius * 2, radius * 2);
+            Texture2D t = new Texture2D(Neon.GraphicsDevice, radius * 2, radius * 2);
             Vector2 center = new Vector2(radius);
             Color[,] data = new Color[t.Width, t.Height];
             for (int i = 0; i < radius * 2; i++)
@@ -76,14 +76,14 @@ namespace NeonEngine
                     data[i, j] = new Color(alpha, alpha, alpha, alpha);
                 }
             }
-            Color[] fill = Neon.utils.Array2DToArray<Color>(data);
+            Color[] fill = Neon.Utils.Array2DToArray<Color>(data);
             t.SetData(fill);
             return t;
         }
 
         public Entity GetEntityByBody(Body body)
         {
-            foreach (Entity e in Neon.world.entities.Where(e => e.GetComponent<Rigidbody>() != null))
+            foreach (Entity e in Neon.World.Entities.Where(e => e.GetComponent<Rigidbody>() != null))
                 if (e.GetComponent<Rigidbody>().body == body)
                     return e;
 

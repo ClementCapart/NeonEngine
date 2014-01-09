@@ -51,7 +51,7 @@ namespace NeonEngine
 
         static public void Initialize(GraphicsDevice device)
         {
-            Content = new ContentManager(Neon.game.Services, "Content");
+            Content = new ContentManager(Neon.Game.Services, "Content");
 
             LaunchAssets = new Dictionary<string, string>();
             LaunchSpritesheets = new Dictionary<string, string>();
@@ -81,7 +81,7 @@ namespace NeonEngine
 
 
 
-            LoadLaunchData(Neon.graphicsDevice);
+            LoadLaunchData(Neon.GraphicsDevice);
         }
 
         static public void LoadLaunchData(GraphicsDevice device)
@@ -149,7 +149,7 @@ namespace NeonEngine
             Texture2D fade = new Texture2D(device, Neon.ScreenWidth, Neon.ScreenHeight);
             Color[] fill = new Color[fade.Width * fade.Height];
             for (int i = 0; i < fill.Length; i++)
-                fill[i] = Neon.fadeColor;
+                fill[i] = Neon.FadeColor;
             fade.SetData(fill);
             Texture2D black = new Texture2D(device, 50, 50);
             fill = new Color[black.Width * black.Height];
@@ -335,7 +335,7 @@ namespace NeonEngine
 
         private static Texture2D LoadTexture(string tag, Dictionary<string, string> dataLibrary, Dictionary<string, Texture2D> assetsLibrary)
         {
-            Texture2D texture = PremultiplyTexture(dataLibrary[tag], Neon.graphicsDevice);
+            Texture2D texture = PremultiplyTexture(dataLibrary[tag], Neon.GraphicsDevice);
             assetsLibrary.Add(tag, texture);
             return texture;
         }
@@ -365,7 +365,7 @@ namespace NeonEngine
         private static void LoadSpritesheet(string tag, Dictionary<string, string> dataLibrary, Dictionary<string, SpriteSheetInfo> assetsLibrary)
         {
             string s = dataLibrary[tag];
-            Texture2D texture = PremultiplyTexture(s, Neon.graphicsDevice);
+            Texture2D texture = PremultiplyTexture(s, Neon.GraphicsDevice);
             string[] fileNameProcessing = s.Split('\\');
             string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
             string[] ssiInfo = fileName.Split('_');
@@ -460,7 +460,7 @@ namespace NeonEngine
                 Color[] currentColors = new Color[frameWidth * frameHeight];
                 texture.GetData<Color>(0, new Rectangle(currentColumn * frameWidth, currentRow * frameHeight, frameWidth, frameHeight), currentColors, 0, currentColors.Length);
 
-                frames[i] = new Texture2D(Neon.graphicsDevice, frameWidth, frameHeight, true, SurfaceFormat.Color);
+                frames[i] = new Texture2D(Neon.GraphicsDevice, frameWidth, frameHeight, true, SurfaceFormat.Color);
                 frames[i].SetData(currentColors);
 
                 if (currentColumn == columns - 1)

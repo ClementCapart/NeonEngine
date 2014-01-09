@@ -13,69 +13,96 @@ namespace NeonEngine
     public class Level
     {
         public Vector2 spawnPoint;
-        public string levelFilePath;
         public Rectangle bounds;
+        public string Name = "";
+        public string Group = "";
 
-        public Level(string levelFilePath, World container, bool collideWorld)
+        public Level(string groupName, string levelName, World container, bool collideWorld)
         {
+            if (!File.Exists(@"../Data/Levels/" + groupName + "/" + levelName + "/" + levelName + "_Info.xml"))
+            {
+                Console.WriteLine("Warning : Level " + levelName + " in group " + groupName + " doesn't exist !");
+                Console.WriteLine("");
+                return;
+            }
+
+            Name = levelName;
+            Group = groupName;
+            container.LevelGroupName = Group;
+            container.LevelName = Name;
+
             Console.WriteLine("Level loading...");
             Console.WriteLine("");
 
-            Stream stream = File.OpenRead(levelFilePath);
-            
-            XDocument document = XDocument.Load(stream);
-
-            XElement XnaContent = document.Element("XnaContent");
-            XElement Level = XnaContent.Element("Level");
-
-            XElement LevelData = Level.Element("LevelData");
-            XElement Geometry = Level.Element("Geometry");
-            XElement WaterZones = Level.Element("WaterZones");
-            XElement Entities = Level.Element("Entities");
-
-            XElement PathNodeLists = Level.Element("PathNodeLists");
-
-            if (PathNodeLists != null)
+            foreach (string filePath in Directory.GetFiles(@"../Data/Levels/" + groupName + "/" + levelName))
             {
-                foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))
+                if (Path.GetFileNameWithoutExtension(filePath).EndsWith("Info"))
+                    continue;
+
+                Stream stream = File.OpenRead(filePath);
+
+                XDocument document = XDocument.Load(stream);
+
+                XElement XnaContent = document.Element("XnaContent");
+                XElement Level = XnaContent.Element("Level");
+
+                XElement LevelData = Level.Element("LevelData");
+                XElement Geometry = Level.Element("Geometry");
+                XElement WaterZones = Level.Element("WaterZones");
+                XElement Entities = Level.Element("Entities");
+
+                XElement PathNodeLists = Level.Element("PathNodeLists");
+
+                if (PathNodeLists != null)
                 {
-                    PathNodeList pnl = new PathNodeList();
-                    pnl.Name = pathNodeList.Attribute("Name").Value;
-                    pnl.Type = (PathType)Enum.Parse(typeof(PathType), pathNodeList.Attribute("Type").Value);
-
-                    foreach (XElement node in pathNodeList.Elements("Node"))
+                    foreach (XElement pathNodeList in PathNodeLists.Elements("PathNodeList"))
                     {
-                        Node n = new Node();
-                        n.index = int.Parse(node.Attribute("Index").Value);
-                        n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
-                        n.Position = Neon.utils.ParseVector2(node.Attribute("Position").Value);
+                        PathNodeList pnl = new PathNodeList();
+                        pnl.Name = pathNodeList.Attribute("Name").Value;
+                        pnl.Type = (PathType)Enum.Parse(typeof(PathType), pathNodeList.Attribute("Type").Value);
 
-                        if (n.Type == NodeType.DelayedMove)
-                            n.NodeDelay = float.Parse(node.Attribute("Delay").Value, CultureInfo.InvariantCulture);
-                        pnl.Nodes.Add(n);
+                        foreach (XElement node in pathNodeList.Elements("Node"))
+                        {
+                            Node n = new Node();
+                            n.index = int.Parse(node.Attribute("Index").Value);
+                            n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
+                            n.Position = Neon.Utils.ParseVector2(node.Attribute("Position").Value);
+
+                            if (n.Type == NodeType.DelayedMove)
+                                n.NodeDelay = float.Parse(node.Attribute("Delay").Value, CultureInfo.InvariantCulture);
+                            pnl.Nodes.Add(n);
+                        }
+
+                        container.NodeLists.Add(pnl);
                     }
-
-                    container.NodeLists.Add(pnl);
                 }
+
+                if (Entities != null)
+                    EntityImport(Entities, container);
+
+                if (WaterZones != null)
+                    if (WaterZones != null)
+                        foreach (XElement w in WaterZones.Elements("Water"))
+                        {
+                            Rectangle area = new Rectangle();
+                            area.X = int.Parse(w.Attribute("X").Value);
+                            area.Y = int.Parse(w.Attribute("Y").Value);
+                            area.Width = int.Parse(w.Attribute("Width").Value);
+                            area.Height = int.Parse(w.Attribute("Height").Value);
+                            container.Waterzones.Add(new Water(container, area));
+                        }
+
+                stream.Close();
             }
 
-            if (Entities != null)
-                EntityImport(Entities, container);
-            
-            if(WaterZones != null)
-                if (WaterZones != null)
-                    foreach (XElement w in WaterZones.Elements("Water"))
-                    {
-                        Rectangle area = new Rectangle();
-                        area.X = int.Parse(w.Attribute("X").Value);
-                        area.Y = int.Parse(w.Attribute("Y").Value);
-                        area.Width = int.Parse(w.Attribute("Width").Value);
-                        area.Height = int.Parse(w.Attribute("Height").Value);
-                        container.waterzones.Add(new Water(container, area));
-                    }
-            
-            this.levelFilePath = levelFilePath;
-            stream.Close();
+
+            foreach (Entity e in container.Entities)
+            {
+                foreach (Component c in e.Components)
+                {
+                    c.Init();
+                }
+            }
 
             Console.WriteLine("");
 
@@ -89,13 +116,14 @@ namespace NeonEngine
             {
                 Entity entity = new Entity(containerWorld);
                 entity.Name = Ent.Attribute("Name").Value;
+                entity.Layer = Ent.Attribute("Layer").Value;
 
                 foreach (XElement Comp in Ent.Element("Components").Elements())
                 {
                     if (Comp.Name == "Transform")
                     {
                         entity.transform.AutoChangeInitialPosition = bool.Parse(Comp.Element("Properties").Element("AutoChangeInitialPosition").Attribute("Value").Value);
-                        entity.transform.InitialPosition = Neon.utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
+                        entity.transform.InitialPosition = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
                         entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
                         entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
                         entity.transform.Init();
@@ -132,11 +160,11 @@ namespace NeonEngine
                                     pi.SetValue(component, pnl.First(), null);
                             }
                             else if (pi.PropertyType.Equals(typeof(Vector2)))
-                                pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                                pi.SetValue(component, Neon.Utils.ParseVector2(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(SpriteFont)))
                                 pi.SetValue(component, TextManager.FontList[Property.Attribute("Value").Value], null);
                             else if (pi.PropertyType.Equals(typeof(Color)))
-                                pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
+                                pi.SetValue(component, Neon.Utils.ParseColor(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.IsEnum)
                                 pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Single)))
@@ -192,15 +220,6 @@ namespace NeonEngine
 
                 containerWorld.AddEntity(entity);
             }
-
-            foreach (Entity e in containerWorld.entities)
-            {
-                foreach(Component c in e.Components)
-                {
-                    c.Init();
-                }
-            }
-
         }
     }
 }

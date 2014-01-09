@@ -19,7 +19,7 @@ namespace NeonEngine
         static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
-            animatedSpecialEffect.containerWorld = Neon.world;
+            animatedSpecialEffect.containerWorld = Neon.World;
             animatedSpecialEffect.transform.Scale = scale;
 
             SpriteSheet spriteSheet;
@@ -72,7 +72,7 @@ namespace NeonEngine
                     followEntity.Remove();
             }
 
-            Neon.world.SpecialEffects.Add(animatedSpecialEffect);
+            Neon.World.SpecialEffects.Add(animatedSpecialEffect);
             return animatedSpecialEffect;
         }
     }

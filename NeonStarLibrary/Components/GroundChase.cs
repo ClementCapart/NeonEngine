@@ -37,7 +37,7 @@ namespace NeonStarLibrary
         {
             EnemyComponent = entity.GetComponent<Enemy>();
             if (EntityToChaseName != "")
-                EntityToChase = Neon.world.GetEntityByName(_entityToChaseName);
+                EntityToChase = Neon.World.GetEntityByName(_entityToChaseName);
             base.Init();
         }
 
@@ -280,7 +280,7 @@ namespace NeonStarLibrary
                 else
                 {
                     if (_entityToChaseName != "")
-                        EntityToChase = Neon.world.GetEntityByName(_entityToChaseName);
+                        EntityToChase = Neon.World.GetEntityByName(_entityToChaseName);
                 }
             }
   

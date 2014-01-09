@@ -32,17 +32,20 @@ namespace NeonStar
 
         protected override void OnExiting(object sender, EventArgs args)
         {
-            if (Neon.world is EditorScreen)
+            if (Neon.World is EditorScreen)
             {
-                EditorScreen editorScreen = Neon.world as EditorScreen;
+                EditorScreen editorScreen = Neon.World as EditorScreen;
 
                 XDocument preferenceFile = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
                 XElement content = new XElement("XnaContent");
                 XElement preferences = new XElement("Preferences");
 
-                XElement levelToLoad = new XElement("LevelToLoad");
-                levelToLoad.Value = editorScreen.levelFilePath;
+                XElement groupToLoad = new XElement("GroupToLoad");
+                groupToLoad.Value = editorScreen.LevelGroupName;
+                preferences.Add(groupToLoad);
 
+                XElement levelToLoad = new XElement("LevelToLoad");
+                levelToLoad.Value = editorScreen.LevelName;
                 preferences.Add(levelToLoad);
 
                 XElement showEditor = new XElement("ShowEditor");
@@ -59,7 +62,11 @@ namespace NeonStar
                 showPhysics.Value = Neon.DebugViewEnabled.ToString();
 
                 preferences.Add(showPhysics);
-                
+
+                XElement defaultLayer = new XElement("DefaultLayer");
+                defaultLayer.Value = (Neon.World as EditorScreen).DefaultLayer;
+
+                preferences.Add(defaultLayer);
 
                 content.Add(preferences);
                 preferenceFile.Add(content);
@@ -79,9 +86,9 @@ namespace NeonStar
             Neon.NeonScripting.AddAssembly("NeonStarEditor.dll");
             Neon.Scripts = Neon.NeonScripting.CompileScripts().ToList<Type>();
 
-            Neon.clearColor = Color.Black;
+            Neon.ClearColor = Color.Black;
             #if DEBUG
-            Neon.world = new NeonStarEditor.LoadingScreen(this, 0, "", true);
+            Neon.World = new NeonStarEditor.LoadingScreen(this, 0, "", "", true);
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
@@ -101,15 +108,15 @@ namespace NeonStar
 
         protected override void Update(GameTime gameTime)
         {
-            Neon.world.UpdateWorld(gameTime);
+            Neon.World.UpdateWorld(gameTime);
             base.Update(gameTime);
 
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Neon.clearColor);
-            Neon.world.Draw(spriteBatch);
+            GraphicsDevice.Clear(Neon.ClearColor);
+            Neon.World.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

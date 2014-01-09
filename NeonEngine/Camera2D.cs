@@ -129,19 +129,19 @@ namespace NeonEngine
                         switch (cb.BoundSide)
                         {
                             case Side.Up:
-                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Neon.world.camera.Zoom, cb.BoundStrength);
+                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Right:
-                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X - Neon.HalfScreen.X / Neon.world.camera.Zoom, cb.BoundStrength);
+                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X - Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Down:
-                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Neon.world.camera.Zoom, cb.BoundStrength);
+                                NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
                                 break;
 
                             case Side.Left:
-                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Neon.world.camera.Zoom, cb.BoundStrength);
+                                NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
                                 break;
                         }
                     }
@@ -175,7 +175,7 @@ namespace NeonEngine
 
         public Entity[] GetEntitiesInView(Vector2 cameraPosition)
         {
-            return Neon.world.entities.Where(en => en.ViewedByCamera(cameraPosition)).ToArray();
+            return Neon.World.Entities.Where(en => en.ViewedByCamera(cameraPosition)).ToArray();
         }
     }
 }

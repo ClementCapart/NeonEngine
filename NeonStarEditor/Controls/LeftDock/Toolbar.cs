@@ -40,7 +40,7 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void SaveCurrentMap_Click(object sender, EventArgs e)
         {
-            DataManager.SaveLevel(GameWorld, GameWorld.levelFilePath, "LiOn");
+            DataManager.SaveLevel(GameWorld, "LiOn");
         }
 
         private void ReloadButton_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             Neon.NeonScripting.CompileScripts();
             if (Neon.Scripts != null)
-                foreach (Entity ent in GameWorld.entities)
+                foreach (Entity ent in GameWorld.Entities)
                     for (int i = ent.Components.Count - 1; i >= 0; i--)
                     {
                         ScriptComponent sc = ent.Components[i] is ScriptComponent ? (ScriptComponent)ent.Components[i] : null;
@@ -84,7 +84,7 @@ namespace NeonStarEditor.Controls.LeftDock
                         }
                     }
 
-            List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
+            List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
             if (Neon.Scripts != null)
                 Components.AddRange(Neon.Scripts);
             Components.Add(typeof(ScriptComponent));
@@ -168,14 +168,14 @@ namespace NeonStarEditor.Controls.LeftDock
             {
                 while (Width > 4096)
                 {
-                    renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, 4096, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                    renderTargets.Add(new RenderTarget2D(Neon.GraphicsDevice, 4096, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
                     CurrentOffset += new Vector2(4096, 0);
                     Width -= 4096;
                 }
 
                 if(Width > 0)
                 {
-                    renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, Width, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                    renderTargets.Add(new RenderTarget2D(Neon.GraphicsDevice, Width, 4096), new Vector2(CurrentOffset.X, CurrentOffset.Y));
                     CurrentOffset += new Vector2(Width, 0);
                 }
 
@@ -185,30 +185,30 @@ namespace NeonStarEditor.Controls.LeftDock
 
             while (Width > 4096)
             {
-                renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, 4096, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                renderTargets.Add(new RenderTarget2D(Neon.GraphicsDevice, 4096, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
                 CurrentOffset += new Vector2(4096, 0);
                 Width -= 4096;
             }
 
             if (Width > 0)
             {
-                renderTargets.Add(new RenderTarget2D(Neon.graphicsDevice, Width, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
+                renderTargets.Add(new RenderTarget2D(Neon.GraphicsDevice, Width, Height), new Vector2(CurrentOffset.X, CurrentOffset.Y));
                 CurrentOffset += new Vector2(Width, 0);
             }
 
-            PolygonRenderer _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
-            float formerZoom = Neon.world.camera.Zoom;
-            Neon.world.camera.Zoom = 1.0f;
+            PolygonRenderer _polygonRenderer = new PolygonRenderer(Neon.GraphicsDevice, Vector2.Zero);
+            float formerZoom = Neon.World.Camera.Zoom;
+            Neon.World.Camera.Zoom = 1.0f;
             foreach (KeyValuePair<RenderTarget2D, Vector2> kvp in renderTargets)
             {
                 RenderTarget2D rt = kvp.Key;
-                Neon.graphicsDevice.SetRenderTarget(rt);
-                Neon.graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
-                Neon.world.camera.Position = kvp.Value + new Vector2(rt.Width / 2, rt.Height / 2);
+                Neon.GraphicsDevice.SetRenderTarget(rt);
+                Neon.GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
+                Neon.World.Camera.Position = kvp.Value + new Vector2(rt.Width / 2, rt.Height / 2);
                 Console.WriteLine(kvp.Value);
-                Neon.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Neon.world.camera.get_transformation(Neon.graphicsDevice));
+                Neon.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Neon.World.Camera.get_transformation(Neon.GraphicsDevice));
 
-                foreach (Hitbox hb in Neon.world.Hitboxes)
+                foreach (Hitbox hb in Neon.World.Hitboxes)
                 {
                     switch (hb.Type)
                     {
@@ -216,7 +216,7 @@ namespace NeonStarEditor.Controls.LeftDock
                             _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Green;
                             _polygonRenderer.vectors = hb.vectors;
                             _polygonRenderer.Position = hb.Center;
-                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            _polygonRenderer.Draw(Neon.SpriteBatch);
                             break;
 
                         case HitboxType.Hit:
@@ -239,14 +239,14 @@ namespace NeonStarEditor.Controls.LeftDock
                             _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Violet;
                             _polygonRenderer.vectors = hb.vectors;
                             _polygonRenderer.Position = hb.Center;
-                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            _polygonRenderer.Draw(Neon.SpriteBatch);
                             break;
 
                         case HitboxType.OneWay:
                             _polygonRenderer.Color = Microsoft.Xna.Framework.Color.Purple;
                             _polygonRenderer.vectors = hb.vectors;
                             _polygonRenderer.Position = hb.Center;
-                            _polygonRenderer.Draw(Neon.spriteBatch);
+                            _polygonRenderer.Draw(Neon.SpriteBatch);
                             break;
 
                         case HitboxType.Trigger:
@@ -255,24 +255,24 @@ namespace NeonStarEditor.Controls.LeftDock
                     }
                 }
 
-                Neon.spriteBatch.End();
-                Neon.graphicsDevice.SetRenderTarget(null);
+                Neon.SpriteBatch.End();
+                Neon.GraphicsDevice.SetRenderTarget(null);
                 Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Level0_" + kvp.Value.X + "_" + kvp.Value.Y + ".png");
                 Stream stream = File.OpenWrite(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Level0_" + kvp.Value.X + "_" + kvp.Value.Y + ".png");
                 rt.SaveAsPng(stream, rt.Width, rt.Height);
                 stream.Close();
-                Neon.world.camera.Zoom = formerZoom;
+                Neon.World.Camera.Zoom = formerZoom;
             }
         }
 
         private void frameByFrame_Click(object sender, EventArgs e)
         {
-            if (!Neon.world.Pause)
-                Neon.world.Pause = true;
+            if (!Neon.World.Pause)
+                Neon.World.Pause = true;
             else
             {
                 GameWorld.UnpauseTillNextFrame = true;
-                Neon.world.Pause = false;
+                Neon.World.Pause = false;
             }
         }
 

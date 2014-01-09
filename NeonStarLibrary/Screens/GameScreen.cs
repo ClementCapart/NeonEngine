@@ -30,7 +30,7 @@ namespace NeonStarLibrary
 
         public string AvatarName = "LiOn";
 
-        public GameScreen(string levelFile, int startingSpawnPointIndex, Game game)
+        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, Game game)
             : base(game)
         {
             lastSpawnPointIndex = startingSpawnPointIndex;
@@ -42,7 +42,7 @@ namespace NeonStarLibrary
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
 
-            DataManager.LoadLevelInfo(levelFile, this);
+            DataManager.LoadLevelInfo(groupName, levelName, this);
 
             SpawnPoint currentSpawnPoint = null;
 
@@ -65,10 +65,10 @@ namespace NeonStarLibrary
             else
                 Console.WriteLine("Warning : SpawnPoint "+ startingSpawnPointIndex + " not found, Avatar won't be created, please select an existing SpawnPoint");
 
-            if(levelFile != "")
-                LoadLevel(new Level(levelFile, this, true));
+            if(levelName != "")
+                LoadLevel(new Level(groupName, levelName, this, true));
 
-            camera.Bounded = true;
+            Camera.Bounded = true;
         } 
 
         public override void PreUpdate(GameTime gameTime)
@@ -81,10 +81,10 @@ namespace NeonStarLibrary
             if (!Pause)
             {
                 if (MustFollowAvatar && avatar != null)
-                    camera.Chase(avatar.transform.Position, gameTime);
+                    Camera.Chase(avatar.transform.Position, gameTime);
                 else if (avatar == null)
                 {
-                    avatar = Neon.world.GetEntityByName("LiOn");
+                    avatar = Neon.World.GetEntityByName("LiOn");
                 }
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
@@ -110,7 +110,7 @@ namespace NeonStarLibrary
 
         public virtual void ReloadLevel()
         {
-            ChangeScreen(new GameScreen(this.levelFilePath, lastSpawnPointIndex, game));
+            ChangeScreen(new GameScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, game));
         }
 
         public override void ManualDrawBackHUD(SpriteBatch sb)

@@ -132,31 +132,31 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-			Entity avatar = Neon.world.GetEntityByName(_avatarName);
+			Entity avatar = Neon.World.GetEntityByName(_avatarName);
             if (avatar != null)
                 _avatar = avatar.GetComponent<Avatar>();
 
             if (_firstButtonName != "")
             {
-                _firstButton = Neon.world.GetEntityByName(_firstButtonName);
+                _firstButton = Neon.World.GetEntityByName(_firstButtonName);
                 if (_firstButton != null)
                     _firstButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_secondButtonName != "")
             {
-                _secondButton = Neon.world.GetEntityByName(_secondButtonName);
+                _secondButton = Neon.World.GetEntityByName(_secondButtonName);
                 if (_secondButton != null)
                     _secondButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_thirdButtonName != "")
             {
-                _thirdButton = Neon.world.GetEntityByName(_thirdButtonName);
+                _thirdButton = Neon.World.GetEntityByName(_thirdButtonName);
                 if (_thirdButton != null)
                     _thirdButton.spritesheets.ChangeAnimation("Idle");
             }
             if (_doorToOpenName != "")
             {
-                _doorToOpen = Neon.world.GetEntityByName(_doorToOpenName);
+                _doorToOpen = Neon.World.GetEntityByName(_doorToOpenName);
                 if (_doorToOpen != null)
                     _doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, false, true, false, 0);
             }
@@ -205,59 +205,72 @@ namespace NeonScripts
 		
 		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
-            if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
-            {
-                _firstButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
-                _firstButtonActivated = true;
-                if (_firstButtonNeedsToSynchronise == true)
-                {
-                    if (_timer > 0.0f)
-                        Console.WriteLine("Two Synchronized Buttons Are Activated");
-                    else
-                        _timer = _delay;
-                }
-                if (_secondButtonActivated == true && _thirdButtonActivated == true)
-                {
-                    _doorToOpen.rigidbody.Remove();
-                    _doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
-                }
-            }
-            if (trigger.Name == _secondButtonName && _secondButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _secondButtonNeededAttack)
-            {
-                _secondButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
-                _secondButtonActivated = true;
-                if (_secondButtonNeedsToSynchronize == true)
-                {
-                    if (_timer > 0.0f && _doorToOpen != null)
-                    {
-                        if (_firstButtonActivated == true)
-                        {
-                            _doorToOpen.rigidbody.Remove();
-                            _doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
-                        }
-                    }
-                    else
-                        _timer = _delay;
-                }
-            }
-            if (trigger.Name == _thirdButtonName && _thirdButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _thirdButtonNeededAttack)
-            {
-                _thirdButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
-                _thirdButtonActivated = true;
-                if (_thirdButtonNeedsToSynchronize == true)
-                {
-                    if (_timer > 0.0f && _doorToOpen != null)
-                    {
-                        if (_firstButtonActivated == true)
-                        {
-                            _doorToOpen.rigidbody.Remove();
-                            _doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
-                        }
-                    }
-                    else
-                        _timer = _delay;
-                }
-            }
+			if(_avatar != null && _avatar.MeleeFight.CurrentAttack != null)
+			{
+				if (trigger.Name == _firstButtonName && _firstButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _firstButtonNeededAttack)
+				{
+					if(_firstButton != null)
+					{
+						_firstButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
+						_firstButtonActivated = true;
+						if (_firstButtonNeedsToSynchronise == true)
+						{
+							if (_timer > 0.0f)
+								Console.WriteLine("Two Synchronized Buttons Are Activated");
+							else
+								_timer = _delay;
+						}
+						if (_secondButtonActivated == true && _thirdButtonActivated == true)
+						{
+							_doorToOpen.rigidbody.Remove();
+							_doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
+						}
+					}            
+				}
+				if (trigger.Name == _secondButtonName && _secondButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _secondButtonNeededAttack)
+				{
+					if(_secondButton != null)
+					{
+						_secondButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
+						_secondButtonActivated = true;
+						if (_secondButtonNeedsToSynchronize == true)
+						{
+							if (_timer > 0.0f && _doorToOpen != null)
+							{
+								if (_firstButtonActivated == true)
+								{
+									_doorToOpen.rigidbody.Remove();
+									_doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
+								}
+							}
+							else
+								_timer = _delay;
+						}
+					}
+				}
+				if (trigger.Name == _thirdButtonName && _thirdButtonActivated == false && _avatar.MeleeFight.CurrentAttack.Name == _thirdButtonNeededAttack)
+				{
+					if(_thirdButton != null)
+					{
+						_thirdButton.spritesheets.ChangeAnimation("Push", 0, true, false, false, 0);
+						_thirdButtonActivated = true;
+						if (_thirdButtonNeedsToSynchronize == true)
+						{
+							if (_timer > 0.0f && _doorToOpen != null)
+							{
+								if (_firstButtonActivated == true)
+								{
+									_doorToOpen.rigidbody.Remove();
+									_doorToOpen.spritesheets.ChangeAnimation(_doorAnimation, 0, true, false, false, 0);
+								}
+							}
+							else
+								_timer = _delay;
+						}
+					}
+				}
+			}
+            
 		}
     }
 }

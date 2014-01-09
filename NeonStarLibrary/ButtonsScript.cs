@@ -28,12 +28,12 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            _buttonDive = Neon.world.GetEntityByName("ButtonDive");
+            _buttonDive = Neon.World.GetEntityByName("ButtonDive");
             _buttonDive.spritesheets.ChangeAnimation("ButtonIdle");
-            _buttonUppercut = Neon.world.GetEntityByName("ButtonUppercut");
+            _buttonUppercut = Neon.World.GetEntityByName("ButtonUppercut");
             _buttonUppercut.spritesheets.ChangeAnimation("ButtonIdle");
-            _avatar = Neon.world.GetEntityByName("LiOn").GetComponent<Avatar>();
-            _3rdDoor = Neon.world.GetEntityByName("03Door").GetComponent<Door>();
+            _avatar = Neon.World.GetEntityByName("LiOn").GetComponent<Avatar>();
+            _3rdDoor = Neon.World.GetEntityByName("03Door").GetComponent<Door>();
             base.Init();
         }
 

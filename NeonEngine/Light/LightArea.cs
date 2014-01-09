@@ -21,7 +21,7 @@ namespace NeonEngine
             LightPosition = Position;
             int baseSize = 2 << (int)size;
             LightAreaSize = new Vector2(baseSize);
-            RenderTarget = new RenderTarget2D(Neon.graphicsDevice, baseSize, baseSize);
+            RenderTarget = new RenderTarget2D(Neon.GraphicsDevice, baseSize, baseSize);
         }
 
         public Vector2 ToRelativePosition(Vector2 worldPosition)
@@ -31,13 +31,13 @@ namespace NeonEngine
 
         public void BeginDrawingShadowCasters()
         {
-            Neon.graphicsDevice.SetRenderTarget(RenderTarget);
-            Neon.graphicsDevice.Clear(Color.Transparent);
+            Neon.GraphicsDevice.SetRenderTarget(RenderTarget);
+            Neon.GraphicsDevice.Clear(Color.Transparent);
         }
 
         public void EndDrawingShadowCasters()
         {
-            Neon.graphicsDevice.SetRenderTarget(null);
+            Neon.GraphicsDevice.SetRenderTarget(null);
         }
     }
 }

@@ -70,8 +70,10 @@ namespace NeonStarEditor
 
         public bool UnpauseTillNextFrame = false;
 
-        public EditorScreen(string levelFile, int startingSpawnPointIndex, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(levelFile, startingSpawnPointIndex, game)
+        public string DefaultLayer = "";
+
+        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
+            : base(groupName, levelName, startingSpawnPointIndex, game)
         {
             
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
@@ -110,6 +112,7 @@ namespace NeonStarEditor
                     bool showEditor = bool.Parse(preferences.Element("ShowEditor").Value);
                     bool showHitboxes = bool.Parse(preferences.Element("ShowHitboxes").Value);
                     bool showPhysics = bool.Parse(preferences.Element("ShowPhysics").Value);
+                    string defaultLayer = preferences.Element("DefaultLayer").Value;
 
                     if (showEditor)
                     {
@@ -129,6 +132,8 @@ namespace NeonStarEditor
 
                     if (showPhysics)
                         Neon.DebugViewEnabled = true;
+
+                    BottomDockControl.levelList.DefaultLayerBox.Text = defaultLayer;
                 }
                 catch
                 {
@@ -229,7 +234,7 @@ namespace NeonStarEditor
                     {
                         avatar.rigidbody.body.Enabled = false;
                         avatar.hitboxes[0].Type = HitboxType.Invincible;
-                        camera.Bounded = false;
+                        Camera.Bounded = false;
                     }
                 }
                 else
@@ -239,7 +244,7 @@ namespace NeonStarEditor
                     {
                         avatar.rigidbody.body.Enabled = true;
                         avatar.hitboxes[0].Type = HitboxType.Main;
-                        camera.Bounded = true;
+                        Camera.Bounded = true;
                     }
                 }
             }
@@ -283,8 +288,8 @@ namespace NeonStarEditor
             {
                 FocusEntity = false;
                 MustFollowAvatar = false;
-                camera.Bounded = false;
-                camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
+                Camera.Bounded = false;
+                Camera.Position += new Vector2(-Neon.Input.DeltaMouse.X, -Neon.Input.DeltaMouse.Y);
             }
 
             if (Neon.Input.Pressed(Keys.F) && FocusedTextBox == null && FocusedNumericUpDown == null)
@@ -307,22 +312,22 @@ namespace NeonStarEditor
             }
 
             if (Neon.Input.MouseWheel() > 0)
-                camera.Zoom += 0.1f;
+                Camera.Zoom += 0.1f;
             else if (Neon.Input.MouseWheel() < 0)
-                camera.Zoom -= 0.1f;
+                Camera.Zoom -= 0.1f;
 
             if (Neon.Input.Check(Keys.R) && FocusedTextBox == null && FocusedNumericUpDown == null)
             {
                 FocusEntity = false;
-                camera.Bounded = true;
+                Camera.Bounded = true;
                 MustFollowAvatar = true;
-                camera.Zoom = 1f;
+                Camera.Zoom = 1f;
             }
 
             if (FocusEntity && SelectedEntity != null)
             {
-                camera.SmoothFollow(SelectedEntity);
-                camera.Bounded = false;
+                Camera.SmoothFollow(SelectedEntity);
+                Camera.Bounded = false;
                 MustFollowAvatar = false;
             }
 
@@ -366,7 +371,7 @@ namespace NeonStarEditor
                             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
                             spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Color.White, 0.7f));
                             spriteBatch.End();
-                            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(graphics.GraphicsDevice));
+                            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.get_transformation(graphics.GraphicsDevice));
                             dc.Draw(spriteBatch);
                         }
                     }
@@ -392,7 +397,7 @@ namespace NeonStarEditor
                                         else
                                             nextNode = pnl.Nodes[i - 1];
 
-                                        PrimitiveLine pl = new PrimitiveLine(Neon.graphicsDevice);
+                                        PrimitiveLine pl = new PrimitiveLine(Neon.GraphicsDevice);
                                         pl.vectors.Add(n.Position);
                                         pl.Colour = Color.Red;
                                         pl.Depth = 0.6f;
@@ -425,7 +430,7 @@ namespace NeonStarEditor
                                         else
                                             nextNode = NodeLists[PathNodePanel.NodeLists.SelectedIndex].Nodes[i - 1];
 
-                                        PrimitiveLine pl = new PrimitiveLine(Neon.graphicsDevice);
+                                        PrimitiveLine pl = new PrimitiveLine(Neon.GraphicsDevice);
                                         pl.vectors.Add(n.Position);
                                         pl.Colour = Color.Red;
                                         pl.Depth = 0.6f;
@@ -465,7 +470,7 @@ namespace NeonStarEditor
                         }
                     }
 
-                    foreach (Entity entity in entities)
+                    foreach (Entity entity in Entities)
                     {
                         if (_lightGizmoToggled)
                         {
@@ -518,7 +523,7 @@ namespace NeonStarEditor
         public override void ManualDrawHUD(SpriteBatch sb)
         {
             sb.End();
-            sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Camera.get_transformation(Neon.GraphicsDevice));
             if (CurrentTool != null)
                 CurrentTool.Draw(sb);
             sb.End();
@@ -872,7 +877,7 @@ namespace NeonStarEditor
             if (BottomDockControl != null)
             {
                 BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                BottomDockControl.entityListControl.EntityListBox.DataSource = entities;
+                BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
                 BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
                 BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
             }      
@@ -897,7 +902,7 @@ namespace NeonStarEditor
                 PathNodePanel.Dispose();
             if (SpawnPointsPanel != null)
                 SpawnPointsPanel.Dispose();
-            ChangeScreen(new EditorScreen(this.levelFilePath, lastSpawnPointIndex, game, graphics));
+            ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, game, graphics));
         }
 
         public override void ChangeScreen(World nextScreen)

@@ -112,7 +112,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            foreach (Entity e in Neon.world.entities)
+            foreach (Entity e in Neon.World.Entities)
             {
                 if (e.Name.StartsWith(_firstBoundsPrefix))
                 {
@@ -160,33 +160,33 @@ namespace NeonStarLibrary
             }
             else if (trigger.Name == _thirdTriggerName)
             {
-                Neon.world.camera.ChaseStrength = 0.0f;
+                Neon.World.Camera.ChaseStrength = 0.0f;
 
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
                     if (cb.entity.Name.StartsWith("03"))
                         cb.Enabled = false;
                 }
             }
             else if (trigger.Name == _fourthTriggerName)
             {
-                Neon.world.camera.ChaseStrength = 0.0f;
+                Neon.World.Camera.ChaseStrength = 0.0f;
 
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
                     if (cb.entity.Name.StartsWith("04"))
                         cb.Enabled = false;
                 }
             }
             else if (trigger.Name == "06Trigger")
             {
-                Neon.world.camera.ChaseStrength = 0.0f;
+                Neon.World.Camera.ChaseStrength = 0.0f;
 
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
                     if (cb.entity.Name.StartsWith("06"))
                         cb.Enabled = false;
                 }
@@ -196,11 +196,11 @@ namespace NeonStarLibrary
 
         public void SmoothZoom()
         {
-            if (_targetZoom != Neon.world.camera.Zoom)
+            if (_targetZoom != Neon.World.Camera.Zoom)
             {
-                Neon.world.camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.world.camera.Zoom, 0.98f);
-                if (Math.Sqrt(_targetZoom * _targetZoom + Neon.world.camera.Zoom * Neon.world.camera.Zoom) < 0.05f)
-                    Neon.world.camera.Zoom = _targetZoom;
+                Neon.World.Camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.World.Camera.Zoom, 0.98f);
+                if (Math.Sqrt(_targetZoom * _targetZoom + Neon.World.Camera.Zoom * Neon.World.Camera.Zoom) < 0.05f)
+                    Neon.World.Camera.Zoom = _targetZoom;
             }
         }
     }

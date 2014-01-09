@@ -53,7 +53,7 @@ namespace NeonStarLibrary
         public override void Init()
         {
             if (_avatar == null)
-                _avatar = Neon.world.GetEntityByName("LiOn");
+                _avatar = Neon.World.GetEntityByName("LiOn");
             base.Init();
         }
 
@@ -101,7 +101,7 @@ namespace NeonStarLibrary
 
             if (trigger.Name == "003ElevatorLevelTrigger")
             {
-                Neon.world.ChangeScreen(new LoadingScreen(Neon.game, 0, @"../Data/Levels/PreprodPresentation/Ending.xml"));
+                Neon.World.ChangeScreen(new LoadingScreen(Neon.Game, 0, @"../Data/Levels/PreprodPresentation/Ending.xml"));
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }

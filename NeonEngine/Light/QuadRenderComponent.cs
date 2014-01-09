@@ -49,7 +49,7 @@ namespace NeonEngine
             verts[3].Position.X = v2.X;
             verts[3].Position.Y = v2.Y;
 
-           Neon.graphicsDevice.DrawUserIndexedPrimitives<VertexPositionTexture>(PrimitiveType.TriangleList, verts, 0, 4, ib, 0, 2);
+           Neon.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionTexture>(PrimitiveType.TriangleList, verts, 0, 4, ib, 0, 2);
         }
         
     }

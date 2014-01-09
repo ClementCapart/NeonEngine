@@ -119,7 +119,7 @@ namespace NeonStarLibrary
             float distanceSquared = Vector2.DistanceSquared(EntityToAttack.transform.Position, entity.transform.Position);
             if (distanceSquared < _rangeForAttackOne * _rangeForAttackOne)
             {
-                float angle = (Neon.utils.AngleBetween(entity.transform.Position, EntityToAttack.transform.Position) - entity.transform.rotation);
+                float angle = (Neon.Utils.AngleBetween(entity.transform.Position, EntityToAttack.transform.Position) - entity.transform.rotation);
                 if (angle < 0)
                     angle = angle + (float)Math.PI * 2;
                 while (angle > Math.PI * 2)

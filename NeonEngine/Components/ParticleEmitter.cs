@@ -381,7 +381,7 @@ namespace NeonEngine
 
         private Particle InstantiateParticle()
         {
-            Particle p = Neon.world.ParticlePool.GetAvailableItem();
+            Particle p = Neon.World.ParticlePool.GetAvailableItem();
 
             if (UseSpriteSheet)
             {

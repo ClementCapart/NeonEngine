@@ -82,14 +82,14 @@ namespace NeonScripts
         {
 			_timer = _delay;
             if (_enemyName != "")
-                _blacksmith = Neon.world.GetEntityByName(_enemyName);
+                _blacksmith = Neon.World.GetEntityByName(_enemyName);
             if (_blacksmith != null)
                 _blacksmith.spritesheets.ChangeAnimation("Idle");
             if (_avatarName != "")
-                _liOn = Neon.world.GetEntityByName(_avatarName);
+                _liOn = Neon.World.GetEntityByName(_avatarName);
             if (_liOn != null)
                 _liOn.spritesheets.ChangeAnimation("idle");
-            Neon.world.camera.Position = new Vector2(60, -200);
+            Neon.World.Camera.Position = new Vector2(60, -200);
         }
 
         public override void Update(GameTime gameTime)
@@ -108,15 +108,15 @@ namespace NeonScripts
                 _liOn.rigidbody.body.ApplyLinearImpulse(new Vector2(_xImpulse, _yImpulse));
                 _liOn.spritesheets.ChangeAnimation("Hit", 0, true, false, false);
             }
-            if (_liOn.rigidbody.body.LinearVelocity.Y > 0.5f && _liOn.spritesheets.CurrentSpritesheetName == "Hit")
+            if (_liOn != null && _liOn.rigidbody.body.LinearVelocity.Y > 0.5f && _liOn.spritesheets.CurrentSpritesheetName == "Hit")
                 _liOn.spritesheets.ChangeAnimation("startFall",0,true,false,false);
-            if (_liOn.spritesheets.CurrentSpritesheetName == "startFall" && _liOn.spritesheets.IsFinished())
+            if (_liOn != null && _liOn.spritesheets.CurrentSpritesheetName == "startFall" && _liOn.spritesheets.IsFinished())
                 _liOn.spritesheets.ChangeAnimation("fallLoop");
         }
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            new LoadingScreen(Neon.game, 0, @"../Data/Levels/PreprodPresentation/Main.xml");
+            new LoadingScreen(Neon.Game, 0, "PreprodPresentation", "Main");
         }
     }
 }

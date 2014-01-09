@@ -13,29 +13,31 @@ namespace NeonStarLibrary
     {
         public bool ThreadFinished = false;
         public string LevelToLoad = "";
+        public string GroupToLoad = "";
 
         public Entity LoadingAnim;
         private int _startingSpawnPointIndex = 0;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string levelToLoad = "")
+        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "")
             : base(game)
         {
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
+            GroupToLoad = groupToLoad;
         }
 
         public void LoadNextLevelAssets()
         {
             string[] folderNameFull = Path.GetDirectoryName(LevelToLoad).Split('\\');
             string folderName = folderNameFull[folderNameFull.Length - 1];
-            AssetManager.LoadGroupData(Neon.graphicsDevice, folderName);
-            AssetManager.LoadLevelData(Neon.graphicsDevice, folderName, Path.GetFileNameWithoutExtension(LevelToLoad));
+            AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
+            AssetManager.LoadLevelData(Neon.GraphicsDevice, GroupToLoad, LevelToLoad);
             ThreadFinished = true;
         }
 
         public void LoadCommonAssets()
         {
-            AssetManager.LoadCommonData(Neon.graphicsDevice);
+            AssetManager.LoadCommonData(Neon.GraphicsDevice);
             ThreadFinished = true;
         }
 
@@ -55,9 +57,9 @@ namespace NeonStarLibrary
 
             
             if (ThreadFinished && LevelToLoad == "")
-                this.ChangeScreen(new GameScreen(@"../Data/Levels/LevelEmpty.xml", _startingSpawnPointIndex, Neon.game));
+                this.ChangeScreen(new GameScreen("Tests", "LevelEmpty", _startingSpawnPointIndex, Neon.Game));
             else if (ThreadFinished)
-                this.ChangeScreen(new GameScreen(LevelToLoad, _startingSpawnPointIndex, Neon.game));
+                this.ChangeScreen(new GameScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, Neon.Game));
             base.Update(gameTime);
         }
     }

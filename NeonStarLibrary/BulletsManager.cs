@@ -64,7 +64,7 @@ namespace NeonStarLibrary
                 bi.OnHitSpriteSheet = AssetManager.GetSpriteSheet(bullet.Element("OnHitSpriteSheet").Value != "" ? bullet.Element("OnHitSpriteSheet").Value : null);
 
                 bi.MovementStyle = (MovePattern)Enum.Parse(typeof(MovePattern), bullet.Element("MovePattern").Value);
-                bi.Direction = Neon.utils.ParseVector2(bullet.Element("Direction").Value);
+                bi.Direction = Neon.Utils.ParseVector2(bullet.Element("Direction").Value);
                 bi.StunLock = float.Parse(bullet.Element("StunLock").Value, CultureInfo.InvariantCulture);
                 bi.Speed = float.Parse(bullet.Element("Speed").Value, CultureInfo.InvariantCulture);
                 bi.LifeTime = float.Parse(bullet.Element("LifeTime").Value, CultureInfo.InvariantCulture);
@@ -79,7 +79,7 @@ namespace NeonStarLibrary
                     switch (se)
                     {
                         case SpecialEffect.Impulse:
-                            Vector2 impulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            Vector2 impulseForce = Neon.Utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             bi.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { impulseForce }));
                             break;
 
@@ -89,7 +89,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            Vector2 pulseForce = Neon.utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
+                            Vector2 pulseForce = Neon.Utils.ParseVector2(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value);
                             bi.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { pulseForce }));
                             break;
                     }

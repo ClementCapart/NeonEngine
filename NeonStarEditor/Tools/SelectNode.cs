@@ -35,7 +35,7 @@ namespace NeonStarEditor
             {
                 if (currentWorld.PathNodePanel.CurrentNodeSelected != null)
                 {
-                    currentWorld.PathNodePanel.CurrentNodeSelected.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom;
+                    currentWorld.PathNodePanel.CurrentNodeSelected.Position += Neon.Input.DeltaMouse / currentWorld.Camera.Zoom;
                 }
             }
             base.Update(gameTime);

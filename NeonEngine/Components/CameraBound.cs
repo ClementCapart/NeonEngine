@@ -47,13 +47,13 @@ namespace NeonEngine
             set 
             { 
                 _enabled = value;
-                if (!_enabled && Neon.world.camera.CameraBounds.Contains(this))
+                if (!_enabled && Neon.World.Camera.CameraBounds.Contains(this))
                 {
-                    Neon.world.camera.CameraBounds.Remove(this);
+                    Neon.World.Camera.CameraBounds.Remove(this);
                 }
-                else if (_enabled && !Neon.world.camera.CameraBounds.Contains(this))
+                else if (_enabled && !Neon.World.Camera.CameraBounds.Contains(this))
                 {
-                    Neon.world.camera.CameraBounds.Add(this);
+                    Neon.World.Camera.CameraBounds.Add(this);
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace NeonEngine
         public override void Remove()
         {
             if(_enabled)
-                entity.containerWorld.camera.CameraBounds.Remove(this);
+                entity.containerWorld.Camera.CameraBounds.Remove(this);
             base.Remove();
         }
 

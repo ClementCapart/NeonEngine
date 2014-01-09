@@ -23,7 +23,7 @@ namespace NeonStarEditor
         public AttacksSettingsManager()
         {
             InitializeComponent();
-            this.Location = new System.Drawing.Point(Neon.graphicsDevice.PresentationParameters.BackBufferWidth / 2 - this.Width / 2, Neon.graphicsDevice.PresentationParameters.BackBufferHeight / 2 - this.Height / 2);
+            this.Location = new System.Drawing.Point(Neon.GraphicsDevice.PresentationParameters.BackBufferWidth / 2 - this.Width / 2, Neon.GraphicsDevice.PresentationParameters.BackBufferHeight / 2 - this.Height / 2);
             foreach (Enum e in Enum.GetValues(typeof(AttackType)))
                 TypeComboBox.Items.Add(e);
 
@@ -268,7 +268,7 @@ namespace NeonStarEditor
 
         private void ClosePanel_Click(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).ToggleAttackManager();
+            (Neon.World as EditorScreen).ToggleAttackManager();
         }
 
         private void InitEffectData()
@@ -708,12 +708,12 @@ namespace NeonStarEditor
                 CurrentAttackEffectSelected.Parameters[0] = BulletsManager.GetBulletInfo((sender as TextBox).Text);
             else
                 CurrentAttackEffectSelected.Parameters[0] = (sender as TextBox).Text;
-            (Neon.world as EditorScreen).FocusedTextBox = null;
+            (Neon.World as EditorScreen).FocusedTextBox = null;
         }
 
         void textBox_Enter(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedTextBox = sender as TextBox;
+            (Neon.World as EditorScreen).FocusedTextBox = sender as TextBox;
         }
 
         private void comboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -1084,23 +1084,23 @@ namespace NeonStarEditor
 
         private void Numeric_Enter(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedNumericUpDown = sender as NumericUpDown;
+            (Neon.World as EditorScreen).FocusedNumericUpDown = sender as NumericUpDown;
         }
 
         private void Numeric_Leave(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedNumericUpDown = null;
+            (Neon.World as EditorScreen).FocusedNumericUpDown = null;
         }
 
         private void AttackName_Enter(object sender, EventArgs e)
         {
             InitialName = (sender as TextBox).Text;
-            (Neon.world as EditorScreen).FocusedTextBox = sender as TextBox;
+            (Neon.World as EditorScreen).FocusedTextBox = sender as TextBox;
         }
 
         private void AttackName_Leave(object sender, EventArgs e)
         {
-            (Neon.world as EditorScreen).FocusedTextBox = null;
+            (Neon.World as EditorScreen).FocusedTextBox = null;
             AttackInfo ai = _attackList[InitialName];
             ai.Name = (sender as TextBox).Text;
             _attackList.Remove(InitialName);

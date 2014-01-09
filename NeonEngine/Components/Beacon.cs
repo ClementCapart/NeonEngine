@@ -86,7 +86,7 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                 {
-                    Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                    Entity e = Neon.Utils.GetEntityByBody(fixture.Body);
                     CurrentGround = e != null ? e.rigidbody : null;
                     hasHit = true;
                     return 0;
@@ -102,7 +102,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                        Entity e = Neon.Utils.GetEntityByBody(fixture.Body);
                         CurrentGround = e != null ? e.rigidbody : null;
                         hasHit = true;
                         return 0;
@@ -116,7 +116,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && fixture.CollisionCategories == Category.Cat1)
                     {
-                        Entity e = Neon.utils.GetEntityByBody(fixture.Body);
+                        Entity e = Neon.Utils.GetEntityByBody(fixture.Body);
                         CurrentGround = e != null ? e.rigidbody : null;
                         hasHit = true;
                         return 0;
@@ -177,7 +177,7 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
-                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                    hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                     if (hitEntity != null)
                     {
                         if (hitEntity.rigidbody.OneWayPlatform)
@@ -201,7 +201,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
-                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                        hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                         if (hitEntity != null)
                         {
                             if (hitEntity.rigidbody.OneWayPlatform)
@@ -223,7 +223,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
-                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                        hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                         if (hitEntity != null)
                         {
                             if (hitEntity.rigidbody.OneWayPlatform)
@@ -255,7 +255,7 @@ namespace NeonEngine.Private
                 if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                 {
                     
-                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                    hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                     if (hitEntity != null)
                     {
                         if (hitEntity.rigidbody.OneWayPlatform)
@@ -279,7 +279,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
-                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                        hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                         if (hitEntity != null)
                         {
                             if (hitEntity.rigidbody.OneWayPlatform)
@@ -301,7 +301,7 @@ namespace NeonEngine.Private
                 {
                     if (fixture.Body != body && (searchForAll || (!searchForAll && fixture.CollisionCategories == Category.Cat1)))
                     {
-                        hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                        hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                         if (hitEntity != null)
                         {
                             if (hitEntity.rigidbody.OneWayPlatform)
@@ -353,7 +353,7 @@ namespace NeonEngine.Private
             {
                 if (fixture.Body != body)
                 {
-                    hitEntity = Neon.utils.GetEntityByBody(fixture.Body);
+                    hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                     if (hitEntity != null)
                     {
                         if (hitEntity.rigidbody.OneWayPlatform)

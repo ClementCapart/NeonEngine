@@ -31,7 +31,7 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            entity.transform.Position = _startingPosition + entity.containerWorld.camera.Position * _parallaxForce ;
+            entity.transform.Position = _startingPosition + entity.containerWorld.Camera.Position * _parallaxForce ;
             base.Update(gameTime);
         }
     }

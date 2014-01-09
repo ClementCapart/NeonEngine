@@ -47,7 +47,7 @@ namespace NeonStarEditor
             SelectedAI.DataSource = AIList;
             SelectedAI.DisplayMember = "TagName";
 
-            ConditionsActionsTypeList = Neon.utils.GetTypesInNamespace(typeof(Neon).Assembly, "NeonEngine.AI");
+            ConditionsActionsTypeList = Neon.Utils.GetTypesInNamespace(typeof(Neon).Assembly, "NeonEngine.AI");
             foreach (Type t in ConditionsActionsTypeList)
                 if (t.BaseType.Equals(typeof(AICondition)))
                     ConditionsAvailable.Items.Add(t);

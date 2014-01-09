@@ -41,6 +41,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.loadSpawnPoint = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.DefaultLayerBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadSpawnPoint)).BeginInit();
             this.SuspendLayout();
@@ -176,18 +178,44 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "SpawnPoint";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Location = new System.Drawing.Point(239, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Default Layer";
+            // 
+            // DefaultLayerBox
+            // 
+            this.DefaultLayerBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DefaultLayerBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DefaultLayerBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.DefaultLayerBox.Location = new System.Drawing.Point(325, 10);
+            this.DefaultLayerBox.Name = "DefaultLayerBox";
+            this.DefaultLayerBox.Size = new System.Drawing.Size(117, 20);
+            this.DefaultLayerBox.TabIndex = 8;
+            this.DefaultLayerBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DefaultLayerBox.Enter += new System.EventHandler(this.DefaultLayerBox_Enter);
+            this.DefaultLayerBox.Leave += new System.EventHandler(this.DefaultLayerBox_Leave);
+            // 
             // LevelListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.DefaultLayerBox);
             this.Controls.Add(this.loadSpawnPoint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.newFolder);
             this.Controls.Add(this.AddEntityButton);
             this.Controls.Add(this.LoadLevel);
             this.Controls.Add(this.levelListTreeView);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.EntityList);
             this.Name = "LevelListControl";
             this.Size = new System.Drawing.Size(505, 165);
@@ -214,5 +242,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown loadSpawnPoint;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox DefaultLayerBox;
     }
 }

@@ -53,7 +53,7 @@ namespace NeonStarLibrary
                     break;
 
                 case ElementState.Charge:                    
-                    Neon.world.camera.ChaseStrength = 0.0f;
+                    Neon.World.Camera.ChaseStrength = 0.0f;
                     _entity.rigidbody.GravityScale = 0.0f;
                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_impulseForce * (_entity.spritesheets.CurrentSide == Side.Right ? 1 : -1), 0));

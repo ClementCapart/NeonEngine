@@ -32,7 +32,7 @@ namespace NeonStarLibrary
                     {
                         if (EnemyComponent.Attack.EntityToAttack != null)
                         {
-                            entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.utils.AngleBetween(EnemyComponent.Attack.EntityToAttack.transform.Position, entity.transform.Position)) - 180) % 360);
+                            entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.Utils.AngleBetween(EnemyComponent.Attack.EntityToAttack.transform.Position, entity.transform.Position)) - 180) % 360);
                             if (entity.spritesheets.RotationOffset < -Math.PI / 2)
                                 entity.spritesheets.ChangeSide(Side.Left);
                             else

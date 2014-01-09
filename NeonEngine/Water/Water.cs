@@ -66,23 +66,23 @@ namespace NeonEngine
 			: base(containerWorld)
 		{
 			this.area = area;
-			collision = BodyFactory.CreateRectangle(containerWorld.physicWorld, CoordinateConversion.screenToWorld(area.Width), CoordinateConversion.screenToWorld(area.Height), 1);
+			collision = BodyFactory.CreateRectangle(containerWorld.PhysicWorld, CoordinateConversion.screenToWorld(area.Width), CoordinateConversion.screenToWorld(area.Height), 1);
 			collision.Position = new Vector2(CoordinateConversion.screenToWorld(area.X + area.Width / 2), CoordinateConversion.screenToWorld(area.Y + area.Height/2));
 			collision.BodyType = BodyType.Kinematic;
 			collision.IsSensor = true;
 			collision.OnCollision += onCollision;
 			collision.OnSeparation += onSeparation;
-			emitSplashParticles = Neon.waterSplash;
+			emitSplashParticles = Neon.WaterSplash;
 			columns = new WaterColumn[area.Width / 4];
 			pb = new PrimitiveWater(containerWorld.game.GraphicsDevice);
 			spriteBatch = new SpriteBatch(containerWorld.game.GraphicsDevice);
-			particleTexture = Neon.utils.generateRadialGradient(10);
-			metaballTarget = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
-			particlesTarget = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
-			alphaTest = new AlphaTestEffect(Neon.graphicsDevice);
+			particleTexture = Neon.Utils.generateRadialGradient(10);
+			metaballTarget = new RenderTarget2D(Neon.GraphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
+			particlesTarget = new RenderTarget2D(Neon.GraphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
+			alphaTest = new AlphaTestEffect(Neon.GraphicsDevice);
 			alphaTest.ReferenceAlpha = 175;
 
-			var view = Neon.graphicsDevice.Viewport;
+			var view = Neon.GraphicsDevice.Viewport;
 			alphaTest.Projection = Matrix.CreateTranslation(-0.5f, -0.5f, 0) *
 				Matrix.CreateOrthographicOffCenter(0, view.Width, view.Height, 0, 0, 1);
 
@@ -214,7 +214,7 @@ namespace NeonEngine
 				device.Clear(Color.Transparent);
 
 				// draw particles to the metaball render target
-				spriteBatch.Begin(0, BlendState.Additive, null, null, null, null, containerWorld.camera.get_transformation(Neon.graphicsDevice));
+				spriteBatch.Begin(0, BlendState.Additive, null, null, null, null, containerWorld.Camera.get_transformation(Neon.GraphicsDevice));
 				foreach (var particle in particles)
 				{
 					Vector2 origin = new Vector2(particleTexture.Width, particleTexture.Height) / 2f;
@@ -229,8 +229,8 @@ namespace NeonEngine
 				float scale = Scale;
 				for (int i = 1; i < columns.Length; i++)
 				{
-					Vector2 p1 = new Vector2((i - 1) * scale + area.X, columns[i - 1].Height + 2) - containerWorld.camera.Position + Neon.HalfScreen;
-					Vector2 p2 = new Vector2(i * scale + area.X, columns[i].Height + 2) - containerWorld.camera.Position + Neon.HalfScreen;
+					Vector2 p1 = new Vector2((i - 1) * scale + area.X, columns[i - 1].Height + 2) - containerWorld.Camera.Position + Neon.HalfScreen;
+					Vector2 p2 = new Vector2(i * scale + area.X, columns[i].Height + 2) - containerWorld.Camera.Position + Neon.HalfScreen;
 					Vector2 p3 = new Vector2(p1.X, p1.Y - thickness);
 					Vector2 p4 = new Vector2(p2.X, p2.Y - thickness);
 
@@ -280,13 +280,13 @@ namespace NeonEngine
 				Vector2 p3 = new Vector2(p2.X, bottom);
 				Vector2 p4 = new Vector2(p1.X, bottom);
 
-				pb.AddVertex(p1 - containerWorld.camera.Position + Neon.HalfScreen, light);
-				pb.AddVertex(p2 - containerWorld.camera.Position + Neon.HalfScreen, light);
-				pb.AddVertex(p3 - containerWorld.camera.Position + Neon.HalfScreen, dark);
+				pb.AddVertex(p1 - containerWorld.Camera.Position + Neon.HalfScreen, light);
+				pb.AddVertex(p2 - containerWorld.Camera.Position + Neon.HalfScreen, light);
+				pb.AddVertex(p3 - containerWorld.Camera.Position + Neon.HalfScreen, dark);
 
-				pb.AddVertex(p1 - containerWorld.camera.Position + Neon.HalfScreen, light);
-				pb.AddVertex(p3 - containerWorld.camera.Position + Neon.HalfScreen, dark);
-				pb.AddVertex(p4 - containerWorld.camera.Position + Neon.HalfScreen, dark);
+				pb.AddVertex(p1 - containerWorld.Camera.Position + Neon.HalfScreen, light);
+				pb.AddVertex(p3 - containerWorld.Camera.Position + Neon.HalfScreen, dark);
+				pb.AddVertex(p4 - containerWorld.Camera.Position + Neon.HalfScreen, dark);
 			}
 
 			pb.End();

@@ -44,7 +44,7 @@ namespace NeonStarLibrary
         {
             if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + ".xml"))
             {
-                entity.containerWorld.ChangeScreen(new LoadingScreen(Neon.game, (int)SpawnPointIndex, @"../Data/Levels/" + GroupName + "/" + LevelName + ".xml"));
+                entity.containerWorld.ChangeScreen(new LoadingScreen(Neon.Game, (int)SpawnPointIndex, @"../Data/Levels/" + GroupName + "/" + LevelName));
             } 
             else
             {

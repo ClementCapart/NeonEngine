@@ -26,7 +26,7 @@ namespace NeonStarLibrary
         {
             fx = AssetManager.GetSpriteSheet("AnimationJury");
             tpFX = AssetManager.GetSpriteSheet("AnimationJuryTeleportDOWN");
-            _screen = Neon.world.GetEntityByName("05PipelineScreen");
+            _screen = Neon.World.GetEntityByName("05PipelineScreen");
             _screen.spritesheets.ChangeAnimation("BlankScreen");
             base.Init();
         }
@@ -84,9 +84,9 @@ namespace NeonStarLibrary
 
             if (tpEffect != null && tpEffect.spriteSheet.currentFrame == tpEffect.spriteSheet.spriteSheetInfo.FrameCount - 2)
             {
-                DataManager.LoadPrefab(@"../Data/Prefabs/EnemyTiger.prefab", Neon.world);
-                Neon.world.entities[Neon.world.entities.Count - 1].transform.Position = new Vector2(6000f, -565.50f);
-                Neon.world.entities[Neon.world.entities.Count - 1].GetComponent<Enemy>().CurrentSide = Side.Left;
+                DataManager.LoadPrefab(@"../Data/Prefabs/EnemyTiger.prefab", Neon.World);
+                Neon.World.Entities[Neon.World.Entities.Count - 1].transform.Position = new Vector2(6000f, -565.50f);
+                Neon.World.Entities[Neon.World.Entities.Count - 1].GetComponent<Enemy>().CurrentSide = Side.Left;
                 tpEffect = null;
             }
             base.Update(gameTime);

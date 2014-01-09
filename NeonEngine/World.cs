@@ -11,29 +11,29 @@ namespace NeonEngine
 {
     public abstract class World
     {
-        public float alpha = 1.0f;
-        bool change = false;
-        public World nextScreen = null;
+        public float Alpha = 1.0f;
+        bool _change = false;
+        public World NextScreen = null;
 
         public string LevelGroupName = "";
         public string LevelName = "";
 
-        public FarseerPhysics.Dynamics.World physicWorld;
-        RenderTarget2D defferedDrawing;
+        public FarseerPhysics.Dynamics.World PhysicWorld;
+        RenderTarget2D _defferedDrawing;
 
         PolygonRenderer _polygonRenderer;
 
         public Effect ScreenEffect;
 
         Vector2 _screenCenter;
-        DebugViewXNA debugView;
+        DebugViewXNA _debugView;
 
-        public Camera2D camera;
-        public List<Entity> entities;
+        public Camera2D Camera;
+        public List<Entity> Entities;
         public List<DrawableComponent> DrawableComponents;
         public List<DrawableComponent> HUDComponents;
-        public List<Water> waterzones;
-        public List<LightArea> lightAreas;
+        public List<Water> Waterzones;
+        public List<LightArea> LightAreas;
         public List<PathNodeList> NodeLists;
         public List<SpawnPoint> SpawnPoints;
 
@@ -42,8 +42,8 @@ namespace NeonEngine
         public List<Hitbox> Hitboxes;
         public List<AnimatedSpecialEffect> SpecialEffects;
 
-        public Level levelMap;
-        public string levelFilePath;
+        public Level LevelMap;
+        public string LevelFilePath;
 
         public bool Pause = false;
 
@@ -56,26 +56,26 @@ namespace NeonEngine
         {
             Console.WriteLine(GetType().Name + " (World) loading...");
             Console.WriteLine("");
-            Neon.world = this;
+            Neon.World = this;
             this.game = game;
-            physicWorld = new FarseerPhysics.Dynamics.World(new Vector2(0.0f, 9.8f));
+            PhysicWorld = new FarseerPhysics.Dynamics.World(new Vector2(0.0f, 9.8f));
 
-            defferedDrawing = new RenderTarget2D(Neon.graphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
+            _defferedDrawing = new RenderTarget2D(Neon.GraphicsDevice, Neon.ScreenWidth, Neon.ScreenHeight);
 
-            debugView = new DebugViewXNA(physicWorld);
-            debugView.RemoveFlags(DebugViewFlags.Controllers);
-            debugView.RemoveFlags(DebugViewFlags.Joint);
-            debugView.AppendFlags(DebugViewFlags.DebugPanel);
-            debugView.LoadContent(game.GraphicsDevice, game.Content);
+            _debugView = new DebugViewXNA(PhysicWorld);
+            _debugView.RemoveFlags(DebugViewFlags.Controllers);
+            _debugView.RemoveFlags(DebugViewFlags.Joint);
+            _debugView.AppendFlags(DebugViewFlags.DebugPanel);
+            _debugView.LoadContent(game.GraphicsDevice, game.Content);
 
             _screenCenter = new Vector2(this.game.GraphicsDevice.Viewport.Width * 0.5f, this.game.GraphicsDevice.Viewport.Height * 0.5f);
 
-            camera = new Camera2D();
-            entities = new List<Entity>();
-            waterzones = new List<Water>();
+            Camera = new Camera2D();
+            Entities = new List<Entity>();
+            Waterzones = new List<Water>();
             DrawableComponents = new List<DrawableComponent>();
             HUDComponents = new List<DrawableComponent>();
-            lightAreas = new List<LightArea>();
+            LightAreas = new List<LightArea>();
             HitboxPool = new NeonPool<Hitbox>(() => new Hitbox());
             ParticlePool = new NeonPool<Particle>(() => new Particle());
             EffectsManager.Initialize();
@@ -84,13 +84,12 @@ namespace NeonEngine
             SpawnPoints = new List<SpawnPoint>();
             SpecialEffects = new List<AnimatedSpecialEffect>();
 
-            _polygonRenderer = new PolygonRenderer(Neon.graphicsDevice, Vector2.Zero);
+            _polygonRenderer = new PolygonRenderer(Neon.GraphicsDevice, Vector2.Zero);
         }
 
         public void LoadLevel(Level level)
         {
-            levelMap = level;
-            levelFilePath = level.levelFilePath;
+            LevelMap = level;
         }
 
         public virtual void PreUpdate(GameTime gameTime)
@@ -119,19 +118,19 @@ namespace NeonEngine
                 Console.WriteLine("");
                 Console.WriteLine("");
             }
-            Neon.Input.Update(camera);
+            Neon.Input.Update(Camera);
   
-            Neon.elapsedTime = gameTime.ElapsedGameTime.Milliseconds;
+            Neon.ElapsedTime = gameTime.ElapsedGameTime.Milliseconds;
 
             if(!Pause)
-                for (int i = entities.Count - 1; i >= 0; i--)
-                    entities[i].PreUpdate(gameTime);
+                for (int i = Entities.Count - 1; i >= 0; i--)
+                    Entities[i].PreUpdate(gameTime);
 
             PreUpdate(gameTime);
 
             if(!Pause)
-                for (int i = entities.Count - 1; i >= 0; i--)
-                    entities[i].Update(gameTime);
+                for (int i = Entities.Count - 1; i >= 0; i--)
+                    Entities[i].Update(gameTime);
 
             Update(gameTime);
 
@@ -140,35 +139,33 @@ namespace NeonEngine
                     SpecialEffects[i].Update(gameTime);
 
             if(!Pause)
-                physicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+                PhysicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
                     
             if(!Pause)
-                for (int i = entities.Count - 1; i >= 0; i--)
-                    entities[i].PostUpdate(gameTime);
+                for (int i = Entities.Count - 1; i >= 0; i--)
+                    Entities[i].PostUpdate(gameTime);
 
             PostUpdate(gameTime);
 
             if (!Pause)
-                for (int i = entities.Count - 1; i >= 0; i--)
-                    entities[i].FinalUpdate(gameTime);
+                for (int i = Entities.Count - 1; i >= 0; i--)
+                    Entities[i].FinalUpdate(gameTime);
 
             FinalUpdate(gameTime);
 
-            DeferredDrawGame(Neon.spriteBatch);
+            DeferredDrawGame(Neon.SpriteBatch);
 
-            if (!change)
-                alpha = Math.Max(alpha - 0.01f, 0.0f);
+            if (!_change)
+                Alpha = Math.Max(Alpha - 0.01f, 0.0f);
             else
             {
-                if (alpha >= 1.0f)
-                    Neon.world = nextScreen;
-                alpha = Math.Min(alpha + 0.035f, 1.0f);
+                if (Alpha >= 1.0f)
+                    Neon.World = NextScreen;
+                Alpha = Math.Min(Alpha + 0.035f, 1.0f);
             }
             
             
             InputEngine();
-
-
 
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
@@ -184,27 +181,25 @@ namespace NeonEngine
 
         public void DeferredDrawGame(SpriteBatch spriteBatch)
         {
-            Neon.graphicsDevice.SetRenderTarget(defferedDrawing);
-            Neon.graphicsDevice.Clear(Color.Transparent);
+            Neon.GraphicsDevice.SetRenderTarget(_defferedDrawing);
+            Neon.GraphicsDevice.Clear(Color.Transparent);
             spriteBatch.Begin();
             ManualDrawBackHUD(spriteBatch);
             spriteBatch.End();
 
-
-
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.get_transformation(Neon.GraphicsDevice));
 
             foreach (DrawableComponent dc in DrawableComponents.OrderBy(dc => dc.Layer))
                 dc.Draw(spriteBatch);
             
             spriteBatch.End();
-            foreach (Water w in waterzones)
+            foreach (Water w in Waterzones)
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
                 w.Draw(spriteBatch);
                 spriteBatch.End();
             }
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, camera.get_transformation(Neon.graphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, Camera.get_transformation(Neon.GraphicsDevice));
             if (Neon.DrawHitboxes)
             {
                 foreach (Hitbox hb in Hitboxes)
@@ -251,7 +246,7 @@ namespace NeonEngine
             
             ManualDrawGame(spriteBatch);
             spriteBatch.End();
-            Neon.graphicsDevice.SetRenderTarget(null);
+            Neon.GraphicsDevice.SetRenderTarget(null);
             
         }
 
@@ -263,11 +258,11 @@ namespace NeonEngine
                 foreach (EffectPass p in ScreenEffect.CurrentTechnique.Passes)
                 {
                     p.Apply();
-                    spriteBatch.Draw(defferedDrawing, Vector2.Zero, Color.White);
+                    spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
                 }
             }
             else
-                spriteBatch.Draw(defferedDrawing, Vector2.Zero, Color.White);
+                spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
 
 
             spriteBatch.End();
@@ -278,9 +273,9 @@ namespace NeonEngine
                 hudc.Draw(spriteBatch);
             
             ManualDrawHUD(spriteBatch);
-            DrawDebugView(Neon.graphicsDevice);
+            DrawDebugView(Neon.GraphicsDevice);
             
-            spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Neon.fadeColor, alpha));
+            spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Neon.FadeColor, Alpha));
             spriteBatch.End();
         }
 
@@ -297,21 +292,21 @@ namespace NeonEngine
 
         public virtual void AddEntity(Entity newEntity)
         {
-            entities.Add(newEntity);
+            Entities.Add(newEntity);
             Console.WriteLine("Add : " + newEntity.Name);
         }
 
         public virtual void RemoveEntity(Entity entity)
         {
-            if(entities.Contains(entity))
-                entities.Remove(entity);
+            if(Entities.Contains(entity))
+                Entities.Remove(entity);
             Console.WriteLine("Remove : " + entity.Name);
         }
 
         public virtual void ChangeScreen(World nextScreen)
         {
-            change = true;
-            this.nextScreen = nextScreen;
+            _change = true;
+            this.NextScreen = nextScreen;
         }
 
         private void DrawDebugView(GraphicsDevice device)
@@ -320,11 +315,11 @@ namespace NeonEngine
             {
                 Matrix projection = Matrix.CreateOrthographicOffCenter(
                0f,
-               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Width / camera.Zoom),
-               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Height / camera.Zoom), 0f, 0f,
+               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Width / Camera.Zoom),
+               CoordinateConversion.screenToWorld(game.GraphicsDevice.Viewport.Height / Camera.Zoom), 0f, 0f,
                1f);
-                Matrix view = Matrix.CreateTranslation(camera.Position.X / -100f, camera.Position.Y / -100f, 0f) * Matrix.CreateTranslation(_screenCenter.X / camera.Zoom / 100f, _screenCenter.Y / camera.Zoom / 100f, 0f);
-                debugView.RenderDebugData(ref projection, ref view);
+                Matrix view = Matrix.CreateTranslation(Camera.Position.X / -100f, Camera.Position.Y / -100f, 0f) * Matrix.CreateTranslation(_screenCenter.X / Camera.Zoom / 100f, _screenCenter.Y / Camera.Zoom / 100f, 0f);
+                _debugView.RenderDebugData(ref projection, ref view);
             }
         }
 
@@ -338,10 +333,10 @@ namespace NeonEngine
 
         public Entity GetEntityByName(string name)
         {
-            for (int i = entities.Count - 1; i >= 0; i--)
+            for (int i = Entities.Count - 1; i >= 0; i--)
             {
-                if (entities[i].Name == name)
-                    return entities[i];
+                if (Entities[i].Name == name)
+                    return Entities[i];
             }
 
             return null;

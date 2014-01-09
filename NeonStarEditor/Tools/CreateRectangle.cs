@@ -18,7 +18,7 @@ namespace NeonStarEditor
         public CreateRectangle(World currentWorld)
             :base((EditorScreen)currentWorld)
         {
-            pixel = new Texture2D(Neon.graphicsDevice, 1, 1);
+            pixel = new Texture2D(Neon.GraphicsDevice, 1, 1);
             Color[] pixels = new Color[1];
             pixels[0] = Color.White;
             pixel.SetData<Color>(pixels);
@@ -73,7 +73,8 @@ namespace NeonStarEditor
                     Entity e = new Entity(currentWorld);
                     e.Name = "LevelGeometry";
                     e.transform.Position = vectors[0] + new Vector2(vertices[2].X / 2, vertices[2].Y / 2);
-                    
+                    e.Layer = currentWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
+
                     Hitbox hb = new Hitbox(e);
                     hb.ID = 1;
                     hb.Width = (int)Math.Abs(vertices[1].X);

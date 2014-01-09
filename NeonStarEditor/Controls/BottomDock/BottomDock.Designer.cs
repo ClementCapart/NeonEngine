@@ -92,6 +92,6 @@
 
         public EntityListControl entityListControl;
         public PrefabListControl prefabListControl;
-        private Controls.BottomDock.LevelListControl levelList;
+        public Controls.BottomDock.LevelListControl levelList;
     }
 }

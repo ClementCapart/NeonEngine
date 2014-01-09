@@ -33,13 +33,13 @@ namespace NeonStarEditor
             Vector2 position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
             if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.IsActiveForm)
             {
-                fixture = currentWorld.physicWorld.TestPoint(position);
+                fixture = currentWorld.PhysicWorld.TestPoint(position);
                 if (fixture != null)
                 {   
-                    currentWorld.SelectedEntity = Neon.utils.GetEntityByBody(fixture.Body);
-                    if (Neon.utils.GetEntityByBody(fixture.Body) != null)
+                    currentWorld.SelectedEntity = Neon.Utils.GetEntityByBody(fixture.Body);
+                    if (Neon.Utils.GetEntityByBody(fixture.Body) != null)
                     {
-                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = Neon.utils.GetEntityByBody(fixture.Body);
+                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = Neon.Utils.GetEntityByBody(fixture.Body);
                     }
                     currentWorld.FocusedTextBox = null;
                     currentWorld.FocusedNumericUpDown = null;
@@ -49,7 +49,7 @@ namespace NeonStarEditor
                 {
                     bool NoSelection = true;
 
-                    foreach (Entity e in currentWorld.entities)
+                    foreach (Entity e in currentWorld.Entities)
                     {
                         if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
                             && Neon.Input.MousePosition.Y >= e.transform.Position.Y - 30 && Neon.Input.MousePosition.Y <= e.transform.Position.Y + 30)
@@ -86,7 +86,7 @@ namespace NeonStarEditor
             {
                 if (currentWorld.SelectedEntity != null)
                 {
-                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom;
+                    currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.Camera.Zoom;
                 }
                     
             }

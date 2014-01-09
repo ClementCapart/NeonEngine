@@ -52,11 +52,11 @@ namespace NeonStarEditor
         {
             if (GameWorld != null)
             {
-                List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
+                List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                 if (Neon.Scripts != null)
                     Components.AddRange(Neon.Scripts);
                 Components.Add(typeof(ScriptComponent));
-                Components.AddRange(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(NeonStarLibrary.GameScreen)), "NeonStarLibrary").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
+                Components.AddRange(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(NeonStarLibrary.GameScreen)), "NeonStarLibrary").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                 Components = Components.OrderBy(c => c.Name).ToList();
                 ComponentList.DataSource = Components;
                 ComponentList.DisplayMember = "Name";
@@ -99,24 +99,54 @@ namespace NeonStarEditor
             RemoveButtons.Clear();
             InitButtons.Clear();
 
-            TextBox EntityName = new TextBox();
-            EntityName.Text = SelectedEntity.Name;
-            EntityName.Font = new Font("Agency FB", 18, FontStyle.Italic);
-            EntityName.BorderStyle = BorderStyle.FixedSingle;
-            EntityName.TextAlign = HorizontalAlignment.Center;
-            EntityName.ForeColor = Color.FromArgb(240, 240, 240);
-            EntityName.Width = 150;
-            EntityName.Location = new Point(Inspector.Width / 2 - EntityName.Width / 2, Y);
-            EntityName.BackColor = Color.FromArgb(64, 64, 64);
-            EntityName.GotFocus += EntityName_GotFocus;
-            EntityName.LostFocus += EntityName_LostFocus;
-            EntityName.AcceptsTab = true;
+            TextBox entityName = new TextBox();
+            entityName.Text = SelectedEntity.Name;
+            entityName.Font = new Font("Agency FB", 18, FontStyle.Italic);
+            entityName.BorderStyle = BorderStyle.FixedSingle;
+            entityName.TextAlign = HorizontalAlignment.Center;
+            entityName.ForeColor = Color.FromArgb(240, 240, 240);
+            entityName.Width = 150;
+            entityName.Location = new Point(Inspector.Width / 2 - entityName.Width / 2, Y);
+            entityName.BackColor = Color.FromArgb(64, 64, 64);
+            entityName.GotFocus += EntityName_GotFocus;
+            entityName.LostFocus += EntityName_LostFocus;
+            entityName.AcceptsTab = true;
             try
             {
-                Inspector.Controls.Add(EntityName);
+                Inspector.Controls.Add(entityName);
             }
             catch { }
-            Y = 45;
+
+            Label layerLabel = new Label();
+            layerLabel.Width = 95;
+            layerLabel.Height = 15;
+            layerLabel.Text = "Save Layer Name";
+            layerLabel.Location = new Point(Inspector.Width / 2 - layerLabel.Width / 2, entityName.Location.Y + entityName.Height + 5);         
+            try
+            {
+                Inspector.Controls.Add(layerLabel);
+            }
+            catch { }
+
+            TextBox layerName = new TextBox();
+            layerName.Text = SelectedEntity.Layer;
+            layerName.Width = 150;
+            layerName.BackColor = Color.FromArgb(64, 64, 64);
+            layerName.ForeColor = Color.FromArgb(240, 240, 240);
+            layerName.BorderStyle = BorderStyle.FixedSingle;
+            layerName.TextAlign = HorizontalAlignment.Center;
+            layerName.GotFocus += layerName_GotFocus;
+            layerName.LostFocus += layerName_LostFocus;
+            layerName.Location = new Point(Inspector.Width / 2 - layerName.Width / 2, layerLabel.Location.Y + layerLabel.Height / 2 + 10);
+            layerName.AcceptsTab = true;
+            try
+            {
+                Inspector.Controls.Add(layerName);
+            }
+            catch { }
+
+
+            Y = 0;
 
             foreach (Component c in SelectedEntity.Components)
             {                
@@ -406,6 +436,27 @@ namespace NeonStarEditor
             Inspector.Controls.Add(InspectorTab);
         }
 
+        void layerName_LostFocus(object sender, EventArgs e)
+        {
+            if (GameWorld.EntityChangedThisFrame)
+            {
+                GameWorld.FocusedTextBox = null;
+                return;
+            }
+
+            if (GameWorld.SelectedEntity != null)
+            {
+                GameWorld.SelectedEntity.Layer = (sender as TextBox).Text;
+            }
+
+            GameWorld.FocusedTextBox = null;
+        }
+
+        void layerName_GotFocus(object sender, EventArgs e)
+        {
+            GameWorld.FocusedTextBox = (sender as TextBox);
+        }
+
         void InspectorTab_DrawItem(object sender, DrawItemEventArgs e)
         {
             TabPage CurrentTab = InspectorTab.TabPages[e.Index];
@@ -546,7 +597,7 @@ namespace NeonStarEditor
                 GameWorld.FocusedTextBox = null;
                 GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.entities;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.Entities;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
             }
             else if ((sender as TextBox).Text == GameWorld.AvatarName)
@@ -554,7 +605,7 @@ namespace NeonStarEditor
                 GameWorld.FocusedTextBox = null;
                 (sender as TextBox).Text = GameWorld.SelectedEntity.Name;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.entities;
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.Entities;
                 GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
                 Console.WriteLine("Warning : Can't name an entity '" + GameWorld.AvatarName + "', this name is reserved");
             }
@@ -718,7 +769,7 @@ namespace NeonStarEditor
                     if (OpenScript.ShowDialog() == DialogResult.OK)
                     {
                         Type resultType = Neon.NeonScripting.CompileScript(OpenScript.FileName);
-                        List<Type> Components = new List<Type>(Neon.utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
+                        List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
                         if (Neon.Scripts != null)
                             Components.AddRange(Neon.Scripts);
                         Components.Add(typeof(ScriptComponent));

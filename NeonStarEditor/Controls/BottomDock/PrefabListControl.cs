@@ -46,8 +46,10 @@ namespace NeonStarEditor
         {
             string path = @"../Data/Prefabs/" + PrefabListBox.Text + ".prefab";
             Entity entity = DataManager.LoadPrefab(path, GameWorld);
-            entity.transform.Position = Neon.world.camera.Position;
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.entities.Last());
+            entity.transform.Position = Neon.World.Camera.Position;
+            entity.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
+            GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = entity;
+            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

@@ -112,7 +112,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            foreach (Entity e in Neon.world.entities)
+            foreach (Entity e in Neon.World.Entities)
             {
                 if (e.Name.StartsWith(_firstBoundsPrefix))
                 {
@@ -143,9 +143,9 @@ namespace NeonStarLibrary
             if (trigger.Name == _firstTriggerName)
             {
                 _targetZoom = _firstTriggerZoom;
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -164,11 +164,11 @@ namespace NeonStarLibrary
             {
                 _targetZoom = _thirdTriggerZoom;
 
-                Neon.world.camera.ChaseStrength = 0.0f;
+                Neon.World.Camera.ChaseStrength = 0.0f;
 
-                for (int i = Neon.world.camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.world.camera.CameraBounds[i];
+                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -188,9 +188,9 @@ namespace NeonStarLibrary
 
         public void SmoothZoom()
         {
-            if (_targetZoom != Neon.world.camera.Zoom)
+            if (_targetZoom != Neon.World.Camera.Zoom)
             {
-                Neon.world.camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.world.camera.Zoom, 0.98f);
+                Neon.World.Camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.World.Camera.Zoom, 0.98f);
             }
         }
     }

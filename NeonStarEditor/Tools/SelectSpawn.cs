@@ -33,7 +33,7 @@ namespace NeonStarEditor
             {
                 if (currentWorld.SpawnPointsPanel.CurrentSpawnPointSelected != null)
                 {
-                    currentWorld.SpawnPointsPanel.CurrentSpawnPointSelected.Position += Neon.Input.DeltaMouse / currentWorld.camera.Zoom;
+                    currentWorld.SpawnPointsPanel.CurrentSpawnPointSelected.Position += Neon.Input.DeltaMouse / currentWorld.Camera.Zoom;
                 }
             }
             base.Update(gameTime);

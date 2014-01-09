@@ -37,8 +37,6 @@ namespace NeonStarLibrary
                         videoPlayer.Play(videoIntro);
                         Loop = 1;
                     }
-                    else
-                        ChangeScreen(new CinematicScreen(game));
 
                 }
                 if (Neon.Input.Pressed(Buttons.Start))

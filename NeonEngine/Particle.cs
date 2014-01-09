@@ -175,7 +175,7 @@ namespace NeonEngine
         public override void Remove()
         {
             Emitter.particles.Remove(this);
-            Neon.world.ParticlePool.FlagAvailableItem(this);
+            Neon.World.ParticlePool.FlagAvailableItem(this);
             base.Remove();
         }
     }

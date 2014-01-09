@@ -45,15 +45,11 @@ namespace NeonStarEditor.Controls.BottomDock
             foreach (string s in LevelDirectories)
             {
                 TreeNode levelDirectory = new TreeNode(Path.GetFileName(s));
-                foreach (string fs in Directory.EnumerateFiles(s))
+                foreach (string fs in Directory.EnumerateDirectories(s))
                 {
-                    string levelName = Path.GetFileNameWithoutExtension(fs);
-                    if (levelName.Split('_').Length == 1)
-                    {
-                        TreeNode levelFile = new TreeNode(levelName);
-                        levelFile.Name = fs;
-                        levelDirectory.Nodes.Add(levelFile);
-                    }
+                    string levelName = Path.GetFileName(fs);
+                    TreeNode levelFile = new TreeNode(levelName);
+                    levelDirectory.Nodes.Add(levelFile);
                 }
 
                 this.levelListTreeView.Nodes.Add(levelDirectory);
@@ -64,9 +60,9 @@ namespace NeonStarEditor.Controls.BottomDock
         {
             if (levelListTreeView.SelectedNode != null)
             {
-                if (levelListTreeView.SelectedNode.Name.EndsWith(".xml"))
+                if (levelListTreeView.SelectedNode.Parent != null)
                 {
-                    Neon.world.ChangeScreen(new LoadingScreen(Neon.game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Name));
+                    Neon.World.ChangeScreen(new LoadingScreen(Neon.Game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Parent.Text ,levelListTreeView.SelectedNode.Text));
                 }
             }
         }
@@ -144,11 +140,24 @@ namespace NeonStarEditor.Controls.BottomDock
             }
             else
             {
-                File.Move(@"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelListTreeView.SelectedNode.Text + ".xml", @"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelNameText.Text + ".xml");
+                Directory.Move(@"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelListTreeView.SelectedNode.Text, @"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelNameText.Text);
                 Directory.Move(@"../Data/ContentStream/LevelsContent/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelListTreeView.SelectedNode.Text, @"../Data/ContentStream/LevelsContent/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelNameText.Text);
+
+                foreach (string file in Directory.EnumerateFiles(@"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelNameText.Text))
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    if(fileName.Split('_').Length > 1)
+                    {
+                        File.Move(file, Path.GetDirectoryName(file) + "/" + levelNameText.Text + "_" + fileName.Split('_')[1] + ".xml");
+                    }
+                    else
+                    {
+                        File.Move(file, Path.GetDirectoryName(file) + "/" + levelNameText.Text + ".xml");
+                    }
+                }
+
                 levelListTreeView.SelectedNode.Text = groupNameText.Text;
                 levelListTreeView.SelectedNode.Text = levelNameText.Text;
-                levelListTreeView.SelectedNode.Name = @"../Data/Levels/" + levelListTreeView.SelectedNode.Parent.Text + "/" + levelListTreeView.SelectedNode.Text + ".xml";
             }
 
             this.GameWorld.FocusedTextBox = null;
@@ -178,12 +187,11 @@ namespace NeonStarEditor.Controls.BottomDock
                 while (!nameIsOk);
 
                 XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-                XElement content = new XElement("XnaContent");
-                XElement level = new XElement("Level");
+                XElement level = new XElement("LevelInfos");
 
-                content.Add(level);
-                document.Add(content);
-                document.Save(@"../Data/Levels/" + levelListTreeView.SelectedNode.Text + "/NewLevel" + i + ".xml");
+                document.Add(level);
+                Directory.CreateDirectory(@"../Data/Levels/" + levelListTreeView.SelectedNode.Text + "/NewLevel" + i + "/");
+                document.Save(@"../Data/Levels/" + levelListTreeView.SelectedNode.Text + "/NewLevel" + i + "/NewLevel" + i + "_Info.xml");
 
                 Directory.CreateDirectory(@"../Data/ContentStream/LevelsContent/" + levelListTreeView.SelectedNode.Text + " /NewLevel" + i);
                 InitListTreeView();
@@ -198,6 +206,16 @@ namespace NeonStarEditor.Controls.BottomDock
         private void loadSpawnPoint_Enter(object sender, EventArgs e)
         {
             GameWorld.FocusedNumericUpDown = (sender as NumericUpDown);
+        }
+
+        private void DefaultLayerBox_Enter(object sender, EventArgs e)
+        {
+            GameWorld.FocusedTextBox = sender as TextBox;
+        }
+
+        private void DefaultLayerBox_Leave(object sender, EventArgs e)
+        {
+            GameWorld.FocusedTextBox = null;
         }
     }
 }

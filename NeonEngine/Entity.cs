@@ -146,7 +146,7 @@ namespace NeonEngine
 
         public bool ViewedByCamera(Vector2 cameraPosition)
         {
-            if (new Rectangle((int)(cameraPosition.X - Neon.HalfScreen.X / containerWorld.camera.Zoom), (int)(cameraPosition.Y - Neon.HalfScreen.Y / containerWorld.camera.Zoom), (int)(Neon.ScreenWidth / containerWorld.camera.Zoom), (int)(Neon.ScreenHeight / containerWorld.camera.Zoom)).Intersects(new Rectangle((int)this.transform.Position.X, (int)this.transform.Position.Y, 1, 1)))
+            if (new Rectangle((int)(cameraPosition.X - Neon.HalfScreen.X / containerWorld.Camera.Zoom), (int)(cameraPosition.Y - Neon.HalfScreen.Y / containerWorld.Camera.Zoom), (int)(Neon.ScreenWidth / containerWorld.Camera.Zoom), (int)(Neon.ScreenHeight / containerWorld.Camera.Zoom)).Intersects(new Rectangle((int)this.transform.Position.X, (int)this.transform.Position.Y, 1, 1)))
             {
                 return true;
             }

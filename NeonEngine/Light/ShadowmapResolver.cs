@@ -39,20 +39,20 @@ namespace NeonEngine
             reductionEffect = content.Load<Effect>(@"Shaders\reductionEffect");
             resolveShadowsEffect = content.Load<Effect>(@"Shaders\resolveShadowsEffect");
 
-            distortRT = new RenderTarget2D(Neon.graphicsDevice, baseSize, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
-            distancesRT = new RenderTarget2D(Neon.graphicsDevice, baseSize, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
-            shadowMap = new RenderTarget2D(Neon.graphicsDevice, 2, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
+            distortRT = new RenderTarget2D(Neon.GraphicsDevice, baseSize, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
+            distancesRT = new RenderTarget2D(Neon.GraphicsDevice, baseSize, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
+            shadowMap = new RenderTarget2D(Neon.GraphicsDevice, 2, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
             reductionRT = new RenderTarget2D[reductionChainCount];
             for (int i = 0; i < reductionChainCount; i++)
-                reductionRT[i] = new RenderTarget2D(Neon.graphicsDevice, 2 << i, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
+                reductionRT[i] = new RenderTarget2D(Neon.GraphicsDevice, 2 << i, baseSize, false, SurfaceFormat.HalfVector2, DepthFormat.None);
 
-            shadowsRT = new RenderTarget2D(Neon.graphicsDevice, baseSize, baseSize);
-            processedShadowsRT = new RenderTarget2D(Neon.graphicsDevice, baseSize, baseSize);
+            shadowsRT = new RenderTarget2D(Neon.GraphicsDevice, baseSize, baseSize);
+            processedShadowsRT = new RenderTarget2D(Neon.GraphicsDevice, baseSize, baseSize);
         }
 
         public void ResolveShadows(Texture2D shadowCastersTexture, RenderTarget2D result, Vector2 lightPosition)
         {
-            Neon.graphicsDevice.BlendState = BlendState.Opaque;
+            Neon.GraphicsDevice.BlendState = BlendState.Opaque;
 
             ExecuteTechnique(shadowCastersTexture, distancesRT, "ComputeDistances");
             ExecuteTechnique(distancesRT, distortRT, "Distort");
@@ -71,8 +71,8 @@ namespace NeonEngine
         {
             Vector2 renderTargetSize;
             renderTargetSize = new Vector2((float)baseSize, (float)baseSize);
-            Neon.graphicsDevice.SetRenderTarget(destination);
-            Neon.graphicsDevice.Clear(Color.White);
+            Neon.GraphicsDevice.SetRenderTarget(destination);
+            Neon.GraphicsDevice.Clear(Color.White);
             resolveShadowsEffect.Parameters["renderTargetSize"].SetValue(renderTargetSize);
 
             if (source != null)
@@ -88,7 +88,7 @@ namespace NeonEngine
                 quadRender.Render(Vector2.One * -1, Vector2.One);
             }
 
-            Neon.graphicsDevice.SetRenderTarget(null);
+            Neon.GraphicsDevice.SetRenderTarget(null);
         }
 
         private void ApplyHorizontalReduction(RenderTarget2D source, RenderTarget2D destination)
@@ -103,8 +103,8 @@ namespace NeonEngine
             {
                 d = reductionRT[step];
 
-                Neon.graphicsDevice.SetRenderTarget(d);
-                Neon.graphicsDevice.Clear(Color.White);
+                Neon.GraphicsDevice.SetRenderTarget(d);
+                Neon.GraphicsDevice.Clear(Color.White);
 
                 reductionEffect.Parameters["SourceTexture"].SetValue(s);
 
@@ -117,12 +117,12 @@ namespace NeonEngine
                     quadRender.Render(Vector2.One * -1, new Vector2(1, 1));
                 }
 
-                Neon.graphicsDevice.SetRenderTarget(null);
+                Neon.GraphicsDevice.SetRenderTarget(null);
                 s = d;
                 step--;
             }
 
-            Neon.graphicsDevice.SetRenderTarget(destination);
+            Neon.GraphicsDevice.SetRenderTarget(destination);
             reductionEffect.CurrentTechnique = reductionEffect.Techniques["Copy"];
             reductionEffect.Parameters["SourceTexture"].SetValue(d);
 
@@ -133,7 +133,7 @@ namespace NeonEngine
             }
 
             reductionEffect.Parameters["SourceTexture"].SetValue(reductionRT[reductionChainCount - 1]);
-            Neon.graphicsDevice.SetRenderTarget(null);
+            Neon.GraphicsDevice.SetRenderTarget(null);
         }
 
     }

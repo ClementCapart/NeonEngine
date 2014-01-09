@@ -15,9 +15,15 @@ namespace NeonEngine
 {
     static public class DataManager
     {
-        static public void SaveLevel(World CurrentWorld, string FilePath, string avatarEntity)
-        {   
-            Level currentLevel = CurrentWorld.levelMap;
+        static public void SaveLevel(World CurrentWorld, string avatarEntity)
+        {
+            Console.WriteLine("Save : Deleting older files...");
+            foreach (string s in Directory.GetFiles(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/"))
+                File.Delete(s);
+            
+            Console.WriteLine("Save : Level save started...");
+
+            Level currentLevel = CurrentWorld.LevelMap;
 
             XDocument levelInfo = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement levelInfos = new XElement("LevelInfos");
@@ -59,101 +65,140 @@ namespace NeonEngine
             }
 
             levelInfo.Add(levelInfos);
-            levelInfo.Save(FilePath.Substring(0, FilePath.Length - 4) + "_Info.xml");
+            levelInfo.Save(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/" + CurrentWorld.LevelName + "_Info.xml");
 
-            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-            XElement content = new XElement("XnaContent");
-            XElement level = new XElement("Level");
+            Console.WriteLine("Save : Level infos saved succesfully !");
 
-            if (CurrentWorld.entities.Count > 0)
+            Dictionary<string, List<Entity>> layerList = new Dictionary<string, List<Entity>>();
+
+            if (CurrentWorld.Entities.Count > 0)
             {
-                XElement Entities = new XElement("Entities");
-
-                foreach (Entity e in CurrentWorld.entities)
+                foreach (Entity entity in CurrentWorld.Entities)
                 {
-                    if (e.Name == avatarEntity)
-                        continue;                 
-
-                    XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name));
-                    XElement Components = new XElement("Components");
-                    foreach (Component c in e.Components)
+                    if (layerList.ContainsKey(entity.Layer))
+                        layerList[entity.Layer].Add(entity);
+                    else
                     {
-                        if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
-                            return;
-
-                        XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
-                        XElement Properties = new XElement("Properties");
-                        foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
-                        {
-                            if (pi.PropertyType.IsSubclassOf(typeof(Component)))
-                            {
-                                Component comp = (Component)pi.GetValue(c, null);
-                                XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
-                                Properties.Add(Property);
-                            }
-                            else if (pi.Name == "Font")
-                            {
-                                XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp => kvp.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
-                                Properties.Add(Property);
-                                
-                            }
-                            else if (pi.Name == "Spritesheets")
-                            {
-                                XElement Property = new XElement(pi.Name);
-                                Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
-                                foreach (KeyValuePair<string, SpriteSheetInfo> kvp in propertyDictionary)
-                                {
-                                    if (kvp.Value != null)
-                                    {
-                                        XElement Animation = new XElement("Animation",
-                                                                            new XAttribute("Name", kvp.Key),
-                                                                            new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
-                                                                            );
-                                        Property.Add(Animation);
-                                    }
-                                }
-
-                                Properties.Add(Property);
-                            }
-                            else if (pi.PropertyType.Equals(typeof(PathNodeList)))
-                            {
-                                PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
-                                XElement Property;
-                                if (pnl != null)
-                                {
-                                    Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
-                                    Properties.Add(Property);
-                                }
-
-                            }
-                            else if(pi.Name != "CurrentEffect")
-                            {
-                                XElement Property = null;
-                                if (pi.PropertyType == typeof(Single))
-                                {
-                                    Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
-                                }
-                                else
-                                {
-                                    Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
-                                }
-                                Properties.Add(Property);
-                            }
-                        }
-
-                        Component.Add(Properties);
-                        Components.Add(Component);
+                        layerList.Add(entity.Layer, new List<Entity>());
+                        layerList[entity.Layer].Add(entity);
                     }
-                    Entity.Add(Components);
-                    Entities.Add(Entity);
                 }
-
-                level.Add(Entities);
             }
 
-            content.Add(level);
-            document.Add(content);
-            document.Save(FilePath);
+            Console.WriteLine("Save : " + layerList.Count + " layer(s) to save...");
+
+            if (layerList.Count > 0)
+            {
+                foreach (KeyValuePair<string, List<Entity>> kvp in layerList)
+                {
+                    Console.WriteLine("Save : Layer '" + kvp.Key + "' save started...");
+
+                    XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+                    XElement content = new XElement("XnaContent");
+                    XElement level = new XElement("Level", new XAttribute("Layer", kvp.Key));
+
+                    XElement Entities = new XElement("Entities");
+
+                    foreach (Entity e in kvp.Value)
+                    {
+                        if (e.Name == avatarEntity)
+                            continue;
+
+                        XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name), new XAttribute("Layer", e.Layer));
+                        XElement Components = new XElement("Components");
+                        foreach (Component c in e.Components)
+                        {
+                            if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
+                                return;
+
+                            XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
+                            XElement Properties = new XElement("Properties");
+                            foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+                            {
+                                if (pi.PropertyType.IsSubclassOf(typeof(Component)))
+                                {
+                                    Component comp = (Component)pi.GetValue(c, null);
+                                    XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
+                                    Properties.Add(Property);
+                                }
+                                else if (pi.Name == "Font")
+                                {
+                                    XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp2 => kvp2.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
+                                    Properties.Add(Property);
+
+                                }
+                                else if (pi.Name == "Spritesheets")
+                                {
+                                    XElement Property = new XElement(pi.Name);
+                                    Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
+                                    foreach (KeyValuePair<string, SpriteSheetInfo> kvp2 in propertyDictionary)
+                                    {
+                                        if (kvp2.Value != null)
+                                        {
+                                            XElement Animation = new XElement("Animation",
+                                                                                new XAttribute("Name", kvp2.Key),
+                                                                                new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp2.Value))
+                                                                                );
+                                            Property.Add(Animation);
+                                        }
+                                    }
+
+                                    Properties.Add(Property);
+                                }
+                                else if (pi.PropertyType.Equals(typeof(PathNodeList)))
+                                {
+                                    PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
+                                    XElement Property;
+                                    if (pnl != null)
+                                    {
+                                        Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
+                                        Properties.Add(Property);
+                                    }
+
+                                }
+                                else if (pi.Name != "CurrentEffect")
+                                {
+                                    XElement Property = null;
+                                    if (pi.PropertyType == typeof(Single))
+                                    {
+                                        Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
+                                    }
+                                    else
+                                    {
+                                        Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
+                                    }
+                                    Properties.Add(Property);
+                                }
+                            }
+
+                            Component.Add(Properties);
+                            Components.Add(Component);
+                        }
+                        Entity.Add(Components);
+                        Entities.Add(Entity);
+                    }
+
+                    level.Add(Entities);
+
+                    content.Add(level);
+                    document.Add(content);
+
+                    if (kvp.Key != "")
+                        document.Save(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/" + CurrentWorld.LevelName + "_" + kvp.Key + ".xml");
+                    else
+                        document.Save(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/" + CurrentWorld.LevelName + ".xml");                 
+
+                    Console.WriteLine("Save : Layer '" + kvp.Key + "' saved succesfully !");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Save : No entity to save !");
+                
+            }
+
+            Console.WriteLine("Save : Level saved succesfully !");
+            Console.WriteLine("");
         }
 
         static public void LoadLevel(string FilePath, World GameWorld)
@@ -161,12 +206,19 @@ namespace NeonEngine
             Console.WriteLine("LoadLevel() to implement.");
         }
 
-        static public void LoadLevelInfo(string FilePath, World GameWorld)
+        static public void LoadLevelInfo(string groupName, string levelName, World GameWorld)
         {
+            if (!File.Exists(@"../Data/Levels/" + groupName + "/" + levelName + "/" + levelName + "_Info.xml"))
+            {
+                Console.WriteLine("Warning : Level " + levelName + " in group " + groupName + " doesn't exist !");
+                Console.WriteLine("");
+                return;
+            }
+
             Console.WriteLine("Level information loading...");
             Console.WriteLine("");
 
-            Stream stream = File.OpenRead(FilePath.Substring(0, FilePath.Length - 4) + "_Info.xml");
+            Stream stream = File.OpenRead(@"../Data/Levels/" + groupName + "/" + levelName + "/"  + levelName + "_Info.xml");
 
             XDocument document = XDocument.Load(stream);
 
@@ -185,7 +237,7 @@ namespace NeonEngine
                         Node n = new Node();
                         n.index = int.Parse(node.Attribute("Index").Value);
                         n.Type = (NodeType)Enum.Parse(typeof(NodeType), node.Attribute("Type").Value);
-                        n.Position = Neon.utils.ParseVector2(node.Attribute("Position").Value);
+                        n.Position = Neon.Utils.ParseVector2(node.Attribute("Position").Value);
 
                         if (n.Type == NodeType.DelayedMove)
                             n.NodeDelay = float.Parse(node.Attribute("Delay").Value, CultureInfo.InvariantCulture);
@@ -204,7 +256,7 @@ namespace NeonEngine
                 {
                     SpawnPoint sp = new SpawnPoint();
                     sp.Index = int.Parse(spawnPoint.Attribute("Index").Value);
-                    sp.Position = Neon.utils.ParseVector2(spawnPoint.Attribute("Position").Value);
+                    sp.Position = Neon.Utils.ParseVector2(spawnPoint.Attribute("Position").Value);
                     sp.Side = (Side)Enum.Parse(typeof(Side), spawnPoint.Attribute("Side").Value);
 
                     GameWorld.SpawnPoints.Add(sp);
@@ -232,7 +284,7 @@ namespace NeonEngine
             {
                 XElement Prefab = new XElement("Prefab");
 
-                XElement Entity = new XElement("Entity", new XAttribute("Name", entity.Name));
+                XElement Entity = new XElement("Entity", new XAttribute("Name", entity.Name), new XAttribute("Layer", entity.Layer));
                 XElement Components = new XElement("Components");
                 foreach (Component c in entity.Components)
                 {
@@ -321,14 +373,17 @@ namespace NeonEngine
 
             Entity entity = new Entity(gameWorld);
             if (ent != null)
+            {
                 entity.Name = ent.Attribute("Name").Value;
+                //entity.Layer = ent.Attribute("Layer").Value;
+            }
 
             foreach (XElement Comp in ent.Element("Components").Elements())
             {
 
                 if (Comp.Name == "Transform")
                 {
-                    entity.transform.InitialPosition = Neon.utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
+                    entity.transform.InitialPosition = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
                     entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
                     entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
                     entity.transform.Init();
@@ -364,11 +419,11 @@ namespace NeonEngine
                                 pi.SetValue(component, pnl.First(), null);
                         }   
                         else if (pi.PropertyType.Equals(typeof(Vector2)))
-                            pi.SetValue(component, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                            pi.SetValue(component, Neon.Utils.ParseVector2(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(SpriteFont)))
                             pi.SetValue(component, TextManager.FontList[Property.Attribute("Value").Value], null);
                         else if (pi.PropertyType.Equals(typeof(Color)))
-                            pi.SetValue(component, Neon.utils.ParseColor(Property.Attribute("Value").Value), null);
+                            pi.SetValue(component, Neon.Utils.ParseColor(Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.IsEnum)
                             pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                         else if (pi.PropertyType.Equals(typeof(Single)))
@@ -423,6 +478,9 @@ namespace NeonEngine
                 }
             }
 
+            foreach (Component c in entity.Components)
+                c.Init();
+
             gameWorld.AddEntity(entity);
             return entity;
         }
@@ -463,7 +521,7 @@ namespace NeonEngine
         {
             if (Comp.Name == "Transform")
             {
-                (c as Transform).Position = Neon.utils.ParseVector2(Comp.Element("Properties").Element("Position").Attribute("Value").Value);
+                (c as Transform).Position = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("Position").Attribute("Value").Value);
                 (c as Transform).Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
                 (c as Transform).Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
             }
@@ -477,7 +535,7 @@ namespace NeonEngine
                     if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                         continue;
                     else if (pi.PropertyType.Equals(typeof(Vector2)))
-                        pi.SetValue(c, Neon.utils.ParseVector2(Property.Attribute("Value").Value), null);
+                        pi.SetValue(c, Neon.Utils.ParseVector2(Property.Attribute("Value").Value), null);
                     else if (pi.PropertyType.IsEnum)
                         pi.SetValue(c, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                     else if (pi.PropertyType.Equals(typeof(Single)))

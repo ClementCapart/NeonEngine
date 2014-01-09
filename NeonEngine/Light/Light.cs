@@ -12,7 +12,7 @@ namespace NeonEngine
         public Light(Vector2 position, int radius)
         {
             this.position = position;
-            gradient = Neon.utils.generateRadialGradient(radius);
+            gradient = Neon.Utils.generateRadialGradient(radius);
         }
 
         public void DrawLightMask(SpriteBatch sb)
