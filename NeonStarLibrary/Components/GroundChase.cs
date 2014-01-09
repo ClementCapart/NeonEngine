@@ -273,7 +273,7 @@ namespace NeonStarLibrary
 
                     }
 
-                    if(EnemyComponent.Attack == null)
+                    if(EnemyComponent.Attack == null && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
                         if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             EnemyComponent.State = EnemyState.Wait;
                 }

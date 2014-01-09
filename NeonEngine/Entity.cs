@@ -10,6 +10,14 @@ namespace NeonEngine
 {
     public class Entity
     {
+        private string _layer = "";
+
+        public string Layer
+        {
+            get { return _layer; }
+            set { _layer = value; }
+        }
+
         public List<Component> Components = new List<Component>();
 
         public Transform transform;
