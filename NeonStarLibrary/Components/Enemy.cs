@@ -233,9 +233,16 @@ namespace NeonStarLibrary
                 else if (attack._entity != null && CoreElement != Element.Neutral)
                     attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
 
-
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;
+                if (Attack != null)
+                {
+                    if (Attack.CurrentAttack != null)
+                    {
+                        Attack.CurrentAttack.CancelAttack();
+                        Attack.CurrentAttack = null;
+                    }
+                }
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
@@ -263,6 +270,11 @@ namespace NeonStarLibrary
 
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;
+                if (Attack != null)
+                {
+                    Attack.CurrentAttack.CancelAttack();
+                    Attack.CurrentAttack = null;
+                }
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
@@ -367,7 +379,6 @@ namespace NeonStarLibrary
                 else if (State == EnemyState.StunLocked)
                     State = EnemyState.Wait;
             }
-
             
             base.PreUpdate(gameTime);
         }
@@ -428,8 +439,7 @@ namespace NeonStarLibrary
         }
 
         public override void PostUpdate(GameTime gameTime)
-        {            
-            
+        {                   
             base.PostUpdate(gameTime);
         }
 
