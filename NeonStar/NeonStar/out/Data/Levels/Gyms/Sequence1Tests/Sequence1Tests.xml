@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="">
+    <Entities>
+      <Entity Name="EnemyFTurret" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:400 Y:-1000}" />
+              <InitialPosition Value="{X:400 Y:-1000}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:400 Y:-1000}" />
+              <X Value="350" />
+              <Y Value="-1050" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0.99875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:8}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="1.570796" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
+                <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
+              </Spritesheets>
+              <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="20" />
+              <CoreElement Value="Fire" />
+              <CurrentHealthPoints Value="20" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="Idle" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </Enemy>
+          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+            <Properties />
+          </RotateSpritesheet>
+          <Graphic Type="NeonEngine.Graphic" ID="9">
+            <Properties>
+              <GraphicTag Value="EnemyFireTurretBot" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-15}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+            <Properties />
+          </EnemyAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="4000" />
+              <AttackToLaunchOne Value="EnemyFTurretShot" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="Target02" />
+            </Properties>
+          </AreaAttack>
+        </Components>
+      </Entity>
+      <Entity Name="Target02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:400 Y:100}" />
+              <InitialPosition Value="{X:400 Y:100}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:400 Y:100}" />
+              <X Value="375" />
+              <Y Value="75" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="Target03" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:600 Y:100}" />
+              <InitialPosition Value="{X:600 Y:100}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:600 Y:100}" />
+              <X Value="575" />
+              <Y Value="75" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="Target04" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:800 Y:100}" />
+              <InitialPosition Value="{X:800 Y:100}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:800 Y:100}" />
+              <X Value="775" />
+              <Y Value="75" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="EnemyFTurret" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:600 Y:-900}" />
+              <InitialPosition Value="{X:600 Y:-900}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:600 Y:-900}" />
+              <X Value="550" />
+              <Y Value="-950" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0.99875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:8}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="1.570796" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
+                <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
+              </Spritesheets>
+              <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="20" />
+              <CoreElement Value="Fire" />
+              <CurrentHealthPoints Value="20" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="Idle" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </Enemy>
+          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+            <Properties />
+          </RotateSpritesheet>
+          <Graphic Type="NeonEngine.Graphic" ID="9">
+            <Properties>
+              <GraphicTag Value="EnemyFireTurretBot" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-15}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+            <Properties />
+          </EnemyAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="4000" />
+              <AttackToLaunchOne Value="EnemyFTurretShot" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="Target03" />
+            </Properties>
+          </AreaAttack>
+        </Components>
+      </Entity>
+      <Entity Name="EnemyFTurret" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:800 Y:-1200}" />
+              <InitialPosition Value="{X:800 Y:-1200}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:800 Y:-1200}" />
+              <X Value="750" />
+              <Y Value="-1250" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0.99875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:8}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="1.570796" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
+                <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
+              </Spritesheets>
+              <DrawLayer Value="0.39" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="20" />
+              <CoreElement Value="Fire" />
+              <CurrentHealthPoints Value="20" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="Idle" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </Enemy>
+          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+            <Properties />
+          </RotateSpritesheet>
+          <Graphic Type="NeonEngine.Graphic" ID="9">
+            <Properties>
+              <GraphicTag Value="EnemyFireTurretBot" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-15}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+            <Properties />
+          </EnemyAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="4000" />
+              <AttackToLaunchOne Value="EnemyFTurretShot" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="Target04" />
+            </Properties>
+          </AreaAttack>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:306 Y:-94}" />
+              <InitialPosition Value="{X:306 Y:-94}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:306 Y:-94}" />
+              <X Value="135" />
+              <Y Value="-166" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="342" />
+              <Height Value="145" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="4.957749" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:871 Y:-171}" />
+              <InitialPosition Value="{X:871 Y:-171}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:871 Y:-170}" />
+              <X Value="706" />
+              <Y Value="-315" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="331" />
+              <Height Value="291" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="9.63085" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-229 Y:-53,49998}" />
+              <InitialPosition Value="{X:-229 Y:-53,49998}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:-229 Y:-53}" />
+              <X Value="-352" />
+              <Y Value="-80" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="247" />
+              <Height Value="54" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.33255" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <FollowNodes Type="NeonStarLibrary.FollowNodes" ID="3">
+            <Properties>
+              <CurrentNodeList Value="MovingPlatform" />
+              <Speed Value="200" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="0" />
+            </Properties>
+          </FollowNodes>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
