@@ -77,6 +77,32 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemyFTurretShotSlow" Type="MeleeLight">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1.5</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="ShootBulletAtTarget">
+          <Parameter Value="SimpleBullet" />
+          <SecondParameter Value="{X:10 Y:0}" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyRobotPunch" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="75" OffsetY="-40" Width="150" Height="60" />
@@ -248,6 +274,35 @@
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:400 Y:0}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="Jumper" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="50" Height="20" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.01</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:0 Y:-800}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
