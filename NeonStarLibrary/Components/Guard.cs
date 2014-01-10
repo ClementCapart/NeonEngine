@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FarseerPhysics.Dynamics.Contacts;
+using Microsoft.Xna.Framework;
 using NeonEngine;
 using System;
 using System.Collections.Generic;
@@ -165,11 +166,25 @@ namespace NeonStarLibrary
                     AvatarComponent.State = AvatarState.Guarding;
                     if (!entity.rigidbody.isGrounded)
                         entity.rigidbody.body.GravityScale = 0.0f;
+
                 }
                 else if (_isRolling)
                 {
                     if(_durationTimer <= 0.0f)
                         _rollCooldownTimer = _rollCooldown;
+
+                    if (entity.rigidbody.body.ContactList != null)
+                    {
+                        entity.rigidbody.body.ContactList.Contact.Friction = 0.0f;
+
+                        ContactEdge ce = entity.rigidbody.body.ContactList;
+
+                        while(ce.Next != null)
+                        {
+                            ce = ce.Next;
+                            ce.Contact.Friction = 0.0f;
+                        }
+                    }
                     AvatarComponent.State = AvatarState.Rolling;
                 }
             }
@@ -181,7 +196,21 @@ namespace NeonStarLibrary
             else if (_isGuarding)
                 _isGuarding = false;
             else if (_isRolling)
+            {
+                if (entity.rigidbody.body.ContactList != null)
+                {
+                    entity.rigidbody.body.ContactList.Contact.ResetFriction();
+
+                    ContactEdge ce = entity.rigidbody.body.ContactList;
+
+                    while (ce.Next != null)
+                    {
+                        ce = ce.Next;
+                        ce.Contact.ResetFriction();
+                    }
+                }
                 _isRolling = false;
+            }
 
             base.PreUpdate(gameTime);
         }

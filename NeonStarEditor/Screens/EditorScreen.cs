@@ -75,7 +75,6 @@ namespace NeonStarEditor
         public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
             : base(groupName, levelName, startingSpawnPointIndex, game)
         {
-            
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
             game.IsMouseVisible = true;
@@ -305,6 +304,10 @@ namespace NeonStarEditor
                 }
                 else
                 {
+                    BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                    BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
+                    BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+
                     foreach (Control c in GameAsForm.Controls)
                         c.Show();
                     EditorVisible = true;
@@ -876,10 +879,13 @@ namespace NeonStarEditor
             
             if (BottomDockControl != null)
             {
-                BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
-                BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
-                BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
+                if (EditorVisible)
+                {
+                    BottomDockControl.entityListControl.EntityListBox.DataSource = null;
+                    BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
+                    BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                    BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
+                }
             }      
         }
 
