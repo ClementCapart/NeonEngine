@@ -116,20 +116,23 @@ namespace NeonStarLibrary
                     case MovingState.Move:
                         if (_currentNodeList.Type == PathType.Platform)
                         {
-                            if (Vector2.Distance(_nextNode.Position, entity.transform.Position) <= _pathPrecisionTreshold)
+                            if (_nextNode != null)
                             {
-                                switch (_nextNode.Type)
+                                if (Vector2.Distance(_nextNode.Position, entity.transform.Position) <= _pathPrecisionTreshold)
                                 {
-                                    case NodeType.Move:
-                                        SearchNextNode();
-                                        break;
+                                    switch (_nextNode.Type)
+                                    {
+                                        case NodeType.Move:
+                                            SearchNextNode();
+                                            break;
 
-                                    case NodeType.DelayedMove:
-                                        _currentNodeDelay = _nextNode.NodeDelay;
-                                        _movingState = MovingState.Wait;
-                                        break;
+                                        case NodeType.DelayedMove:
+                                            _currentNodeDelay = _nextNode.NodeDelay;
+                                            _movingState = MovingState.Wait;
+                                            break;
+                                    }
                                 }
-                            }
+                            }                           
                         }
                         break;
                 }
@@ -143,7 +146,7 @@ namespace NeonStarLibrary
             {
                 if (_nextNode != null)
                 {
-                    this.entity.rigidbody.body.LinearVelocity = new Microsoft.Xna.Framework.Vector2(-_speed, this.entity.rigidbody.body.LinearVelocity.Y);
+                    this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
                 }
             }
 
