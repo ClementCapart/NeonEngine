@@ -9,7 +9,8 @@ namespace NeonEngine
     public enum PathType
     {
         Ground,
-        Aerial
+        Aerial,
+        Platform
     }
 
     public class PathNodeList

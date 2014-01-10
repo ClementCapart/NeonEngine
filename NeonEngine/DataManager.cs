@@ -73,8 +73,12 @@ namespace NeonEngine
 
             if (CurrentWorld.Entities.Count > 0)
             {
+
                 foreach (Entity entity in CurrentWorld.Entities)
                 {
+                    if (entity.Name == avatarEntity)
+                        continue;
+
                     if (layerList.ContainsKey(entity.Layer))
                         layerList[entity.Layer].Add(entity);
                     else
@@ -101,15 +105,12 @@ namespace NeonEngine
 
                     foreach (Entity e in kvp.Value)
                     {
-                        if (e.Name == avatarEntity)
-                            continue;
-
                         XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name), new XAttribute("Layer", e.Layer));
                         XElement Components = new XElement("Components");
                         foreach (Component c in e.Components)
                         {
                             if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
-                                return;
+                                continue;
 
                             XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
                             XElement Properties = new XElement("Properties");

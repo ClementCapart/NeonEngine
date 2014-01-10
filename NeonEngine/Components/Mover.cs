@@ -72,9 +72,6 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            if (rigidbody != null)
-                Console.WriteLine("Hey I'm here !");
-
             if (active)
             {
                 if (MoveStyle == MoveStyle.RangePatrol)

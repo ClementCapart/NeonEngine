@@ -149,6 +149,12 @@
       <DependentUpon>SpawnPointPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="EditorAction.cs" />
+    <Compile Include="Controls\ElementEditor\ElementPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ElementEditor\ElementPanel.Designer.cs">
+      <DependentUpon>ElementPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="Screens\EditorScreen.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
+    <Compile Include="Controls\ElementEditor\ThunderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ElementEditor\ThunderPanel.Designer.cs">
+      <DependentUpon>ThunderPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Toolstrips\NeonStarToolstrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -208,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ElementEditor\ElementPanel.resx">
+      <DependentUpon>ElementPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LeftDock\LeftDock.resx">
       <DependentUpon>LeftDock.cs</DependentUpon>
