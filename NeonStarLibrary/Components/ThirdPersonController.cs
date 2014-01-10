@@ -103,6 +103,14 @@ namespace NeonStarLibrary
             get { return _maxFallSpeed; }
             set { _maxFallSpeed = value; }
         }
+
+        private bool _canDoubleJump = true;
+
+        public bool CanDoubleJump
+        {
+            get { return _canDoubleJump; }
+            set { _canDoubleJump = value; }
+        }
         #endregion
 
         public Avatar AvatarComponent = null;
@@ -113,6 +121,8 @@ namespace NeonStarLibrary
 
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();    
         private float _jumpInputDelay = 0.0f;
+
+        private bool _hasAlreadyAirJumped = false;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -167,6 +177,7 @@ namespace NeonStarLibrary
             {
                 if (entity.rigidbody.isGrounded && !StartJumping)
                 {
+                    _hasAlreadyAirJumped = false;
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(1) == null)
@@ -249,6 +260,18 @@ namespace NeonStarLibrary
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
                         MustJumpAsSoonAsPossible = true;
+                    }
+
+                    if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && Neon.Input.Check(NeonStarInput.Jump) && CanDoubleJump)
+                    {
+                        entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, 0);
+                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                        AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
+                        StartJumping = true;
+                        EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
+                        _jumpInputDelay = 0.0f;
+                        MustJumpAsSoonAsPossible = false;
+                        _hasAlreadyAirJumped = true;
                     }
 
                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
