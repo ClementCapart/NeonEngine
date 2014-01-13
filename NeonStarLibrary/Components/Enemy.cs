@@ -425,14 +425,20 @@ namespace NeonStarLibrary
             {
                 if (_blinkTimer < _blinkDuration)
                 {
-                    entity.spritesheets.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
-                    _blinkTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (entity.spritesheets != null)
+                    {
+                        entity.spritesheets.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
+                        _blinkTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
                 }
                 else
                 {
-                    entity.spritesheets.CurrentEffect = AssetManager.GetEffect("BasicRender");
-                    _damageBlinking = false;
-                    _blinkTimer = 0.0f;
+                    if (entity.spritesheets != null)
+                    {
+                        entity.spritesheets.CurrentEffect = AssetManager.GetEffect("BasicRender");
+                        _damageBlinking = false;
+                        _blinkTimer = 0.0f;
+                    }
                 }
             }
             base.Update(gameTime);

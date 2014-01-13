@@ -17,9 +17,18 @@ namespace NeonEngine
     {
         static public void SaveLevel(World CurrentWorld, string avatarEntity)
         {
-            Console.WriteLine("Save : Deleting older files...");
-            foreach (string s in Directory.GetFiles(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/"))
-                File.Delete(s);
+            Console.WriteLine("Save : Archiving older files...");
+
+            if (Directory.Exists(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old"))
+                Directory.Delete(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old", true);
+            Directory.CreateDirectory(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old");
+            try
+            {
+                foreach (string s in Directory.GetFiles(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/"))
+                    File.Move(s, @"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old/" + Path.GetFileName(s));
+            }
+            catch { }
+            
             
             Console.WriteLine("Save : Level save started...");
 
