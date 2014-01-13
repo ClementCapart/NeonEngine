@@ -66,7 +66,11 @@ namespace NeonStarEditor
 
         public void ClearInspector()
         {
+            foreach (Control c in Inspector.Controls)
+                c.Dispose();
             Inspector.Controls.Clear();
+            foreach (Control c in InspectorTab.TabPages)
+                c.Dispose();
             InspectorTab.TabPages.Clear();
             RemoveButtons.Clear();
             InitButtons.Clear();
@@ -83,7 +87,7 @@ namespace NeonStarEditor
             }
             catch 
             {
-                Console.WriteLine("ClearInspector() failed ; Unhandled exception");
+                Console.WriteLine("Warning : ClearInspector() failed ; Unhandled exception");
             }
             
         }
@@ -418,7 +422,7 @@ namespace NeonStarEditor
                 }
                 catch
                 {
-                    Console.WriteLine("Exception while creation window handle !");
+                    Console.WriteLine("Warning : Exception while creating  Inspector tab page !");
                 }
                 
                 tp.Height += 20;
