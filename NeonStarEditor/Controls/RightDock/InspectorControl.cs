@@ -426,12 +426,16 @@ namespace NeonStarEditor
 
             }
 
+            try
+            {
                 if (InspectorTab.TabPages.Count % 2 == 1)
                 {
                     TabPage tp2 = new TabPage("");
                     InspectorTab.TabPages.Add(tp2);
                     tp2.BackColor = Color.FromArgb(255, 64, 64, 64);
                 }
+            }
+            catch { }
 
             Inspector.Controls.Add(InspectorTab);
         }

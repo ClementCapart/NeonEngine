@@ -92,10 +92,17 @@ namespace NeonStarEditor
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
             AttacksSettingsManager = new AttacksSettingsManager();
-            
-            GameAsForm.Controls.Add(BottomDockControl);
-            GameAsForm.Controls.Add(RightDockControl);
-            GameAsForm.Controls.Add(LeftDockControl);
+            try
+            {
+                GameAsForm.Controls.Add(BottomDockControl);
+                GameAsForm.Controls.Add(RightDockControl);
+                GameAsForm.Controls.Add(LeftDockControl);
+            }
+            catch
+            {
+                Console.WriteLine("Warning : HandleError");
+                this.ReloadLevel();
+            }
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;

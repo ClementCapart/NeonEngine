@@ -77,6 +77,32 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemyFTurretShotRapid" Type="MeleeLight">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0.5</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="ShootBulletAtTarget">
+          <Parameter Value="SimpleBullet" />
+          <SecondParameter Value="{X:0 Y:0}" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyFTurretShotSlow" Type="MeleeLight">
       <Hitboxes />
       <AttackElement>Neutral</AttackElement>
@@ -85,7 +111,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>1.5</Cooldown>
+      <Cooldown>1.6</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0</Duration>
       <AirLock>1</AirLock>
@@ -290,7 +316,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>0</Cooldown>
+      <Cooldown>0.05</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.01</Duration>
       <AirLock>1</AirLock>
