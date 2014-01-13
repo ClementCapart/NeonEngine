@@ -33,6 +33,7 @@ namespace NeonStarEditor
         public LeftDock LeftDockControl;
 
         public AttacksSettingsManager AttacksSettingsManager;
+        public ElementPanel ElementSettingsManager;
         public PathNodesPanel PathNodePanel;
         public SpawnPointPanel SpawnPointsPanel;
 
@@ -62,6 +63,7 @@ namespace NeonStarEditor
         private bool _isAttackManagerDisplayed = false;
         private bool _isPathNodeManagerDisplayed = false;
         private bool _isSpawnPointsManagerDisplayed = false;
+        private bool _isElementManagerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -92,6 +94,8 @@ namespace NeonStarEditor
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
             AttacksSettingsManager = new AttacksSettingsManager();
+            ElementSettingsManager = new ElementPanel();
+
             try
             {
                 GameAsForm.Controls.Add(BottomDockControl);
@@ -103,6 +107,7 @@ namespace NeonStarEditor
                 Console.WriteLine("Warning : HandleError");
                 this.ReloadLevel();
             }
+
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
@@ -156,6 +161,7 @@ namespace NeonStarEditor
 
         public void ToggleAttackManager()
         {
+            
             if (_isAttackManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(AttacksSettingsManager);
@@ -163,9 +169,29 @@ namespace NeonStarEditor
             }
             else
             {
+                if (_isElementManagerDisplayed)
+                    ToggleElementPanel();
                 AttacksSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(AttacksSettingsManager);
                 _isAttackManagerDisplayed = true;
+            }
+        }
+
+
+        public void ToggleElementPanel()
+        {
+            if (_isElementManagerDisplayed)
+            {
+                GameAsForm.Controls.Remove(ElementSettingsManager);
+                _isElementManagerDisplayed = false;
+            }
+            else
+            {
+                if (_isAttackManagerDisplayed)
+                    ToggleAttackManager();
+                ElementSettingsManager.InitializeData();
+                GameAsForm.Controls.Add(ElementSettingsManager);
+                _isElementManagerDisplayed = true;
             }
         }
 
@@ -546,7 +572,12 @@ namespace NeonStarEditor
             if (SelectedEntity != null)
             {
                 this.SelectedEntity = SelectedEntity;
-                RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
+                try
+                {
+                    RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
+                }
+                catch
+                { }
             }
             else
             {
@@ -584,7 +615,7 @@ namespace NeonStarEditor
 
                 if (Neon.Input.Pressed(Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 {
-                    ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
+                    //ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
                     RightDockControl.InspectorControl.ClearInspector();                 

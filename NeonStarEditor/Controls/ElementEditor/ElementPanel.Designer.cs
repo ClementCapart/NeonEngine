@@ -31,18 +31,21 @@
             this.elementCombobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.settingPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // elementCombobox
             // 
             this.elementCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.elementCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.elementCombobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.elementCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.elementCombobox.FormattingEnabled = true;
-            this.elementCombobox.Location = new System.Drawing.Point(280, 51);
+            this.elementCombobox.Location = new System.Drawing.Point(280, 53);
             this.elementCombobox.Name = "elementCombobox";
             this.elementCombobox.Size = new System.Drawing.Size(152, 21);
             this.elementCombobox.TabIndex = 0;
+            this.elementCombobox.SelectedIndexChanged += new System.EventHandler(this.elementCombobox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -64,17 +67,26 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Elements";
             // 
+            // settingPanel
+            // 
+            this.settingPanel.Location = new System.Drawing.Point(3, 86);
+            this.settingPanel.Name = "settingPanel";
+            this.settingPanel.Size = new System.Drawing.Size(440, 430);
+            this.settingPanel.TabIndex = 2;
+            // 
             // ElementPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.settingPanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.elementCombobox);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "ElementPanel";
-            this.Size = new System.Drawing.Size(448, 527);
+            this.Size = new System.Drawing.Size(446, 525);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,5 +97,6 @@
         private System.Windows.Forms.ComboBox elementCombobox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel settingPanel;
     }
 }
