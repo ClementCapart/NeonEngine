@@ -28,7 +28,9 @@ namespace NeonStarEditor
 
         private void elementCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            settingPanel.Controls.Clear();
+            foreach (Control c in settingPanel.Controls)
+                c.Dispose();
+
             switch((Element)((sender as ComboBox).SelectedValue))
             {
                 case Element.Neutral:
