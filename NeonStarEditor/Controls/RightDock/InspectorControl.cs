@@ -66,14 +66,27 @@ namespace NeonStarEditor
 
         public void ClearInspector()
         {
-            foreach (Control c in Inspector.Controls)
-                c.Dispose();
             Inspector.Controls.Clear();
-            foreach (Control c in InspectorTab.TabPages)
-                c.Dispose();
-            InspectorTab.TabPages.Clear();
-            RemoveButtons.Clear();
-            InitButtons.Clear();
+            
+
+            for (int i = InspectorTab.TabPages.Count - 1; i >= 0; i--)
+            {
+                for (int j = InspectorTab.TabPages[i].Controls.Count - 1; j >= 0; j--)
+                {
+                    InspectorTab.TabPages[i].Controls[j].Dispose();
+                }
+                InspectorTab.TabPages[i].Dispose();
+            }
+
+            for (int i = RemoveButtons.Keys.Count - 1; i >= 0; i--)
+            {
+                RemoveButtons.Keys.ElementAt(i).Dispose();
+            }
+
+            for (int i = InitButtons.Keys.Count - 1; i >= 0; i--)
+            {
+                InitButtons.Keys.ElementAt(i).Dispose();
+            }
 
             Label NoEntity = new Label();
             NoEntity.AutoSize = true;
@@ -81,15 +94,7 @@ namespace NeonStarEditor
             NoEntity.Font = new Font("Agency FB", 24, FontStyle.Regular);
             NoEntity.Location = new Point(60, 250);
 
-            try
-            {
-                Inspector.Controls.Add(NoEntity);
-            }
-            catch 
-            {
-                Console.WriteLine("Warning : ClearInspector() failed ; Unhandled exception");
-            }
-            
+            Inspector.Controls.Add(NoEntity);          
         }
 
         public void InstantiateProperties(Entity SelectedEntity)
@@ -98,10 +103,31 @@ namespace NeonStarEditor
             propertiesInfo = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             PropertyControlList = new List<PropertyComponentControl>();
             int Y = 5;
-            InspectorTab.TabPages.Clear();
-            Inspector.Controls.Clear();
-            RemoveButtons.Clear();
-            InitButtons.Clear();
+
+            for (int i = Inspector.Controls.Count - 1; i >= 0; i--)
+            {
+                if(Inspector.Controls[i].Name != "InspectorTab")
+                    Inspector.Controls[i].Dispose();
+            }
+
+            for (int i = InspectorTab.TabPages.Count - 1; i >= 0; i--)
+            {
+                for (int j = InspectorTab.TabPages[i].Controls.Count - 1; j >= 0; j--)
+                {
+                    InspectorTab.TabPages[i].Controls[j].Dispose();
+                }
+                InspectorTab.TabPages[i].Dispose();
+            }
+
+            for (int i = RemoveButtons.Keys.Count - 1; i >= 0; i--)
+            {
+                RemoveButtons.Keys.ElementAt(i).Dispose();
+            }
+
+            for (int i = InitButtons.Keys.Count - 1; i >= 0; i--)
+            {
+                InitButtons.Keys.ElementAt(i).Dispose();
+            }
 
             TextBox entityName = new TextBox();
             entityName.Text = SelectedEntity.Name;
@@ -115,22 +141,15 @@ namespace NeonStarEditor
             entityName.GotFocus += EntityName_GotFocus;
             entityName.LostFocus += EntityName_LostFocus;
             entityName.AcceptsTab = true;
-            try
-            {
-                Inspector.Controls.Add(entityName);
-            }
-            catch { }
+            Inspector.Controls.Add(entityName);
 
             Label layerLabel = new Label();
             layerLabel.Width = 95;
             layerLabel.Height = 15;
             layerLabel.Text = "Save Layer Name";
             layerLabel.Location = new Point(Inspector.Width / 2 - layerLabel.Width / 2, entityName.Location.Y + entityName.Height + 5);         
-            try
-            {
-                Inspector.Controls.Add(layerLabel);
-            }
-            catch { }
+
+            Inspector.Controls.Add(layerLabel);
 
             TextBox layerName = new TextBox();
             layerName.Text = SelectedEntity.Layer;
@@ -143,11 +162,7 @@ namespace NeonStarEditor
             layerName.LostFocus += layerName_LostFocus;
             layerName.Location = new Point(Inspector.Width / 2 - layerName.Width / 2, layerLabel.Location.Y + layerLabel.Height / 2 + 10);
             layerName.AcceptsTab = true;
-            try
-            {
-                Inspector.Controls.Add(layerName);
-            }
-            catch { }
+            Inspector.Controls.Add(layerName);
 
 
             Y = 0;
@@ -164,6 +179,7 @@ namespace NeonStarEditor
                 tp.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
                 int localY = 20;
+                
                 foreach (PropertyInfo pi in c.GetType().GetProperties())
                 {
                     Label label = new Label();
@@ -415,31 +431,22 @@ namespace NeonStarEditor
                 tp.Controls.Add(RemoveButton);
 
                 tp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
                 this.InspectorTab.DrawItem += InspectorTab_DrawItem;
-                try
-                {
-                    this.InspectorTab.TabPages.Add(tp);
-                }
-                catch
-                {
-                    Console.WriteLine("Warning : Exception while creating  Inspector tab page !");
-                }
+
+                this.InspectorTab.TabPages.Add(tp);
                 
                 tp.Height += 20;
 
 
             }
 
-            try
+            if (InspectorTab.TabPages.Count % 2 == 1)
             {
-                if (InspectorTab.TabPages.Count % 2 == 1)
-                {
-                    TabPage tp2 = new TabPage("");
-                    InspectorTab.TabPages.Add(tp2);
-                    tp2.BackColor = Color.FromArgb(255, 64, 64, 64);
-                }
+                TabPage tp2 = new TabPage("");
+                InspectorTab.TabPages.Add(tp2);
+                tp2.BackColor = Color.FromArgb(255, 64, 64, 64);
             }
-            catch { }
 
             Inspector.Controls.Add(InspectorTab);
         }

@@ -128,6 +128,7 @@ namespace NeonStarLibrary
 
                                         case NodeType.DelayedMove:
                                             _currentNodeDelay = _nextNode.NodeDelay;
+                                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                             _movingState = MovingState.Wait;
                                             break;
                                     }

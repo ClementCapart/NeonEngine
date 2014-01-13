@@ -93,20 +93,10 @@ namespace NeonStarEditor
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
             RightDockControl = new RightDock(this);
-            AttacksSettingsManager = new AttacksSettingsManager();
-            ElementSettingsManager = new ElementPanel();
 
-            try
-            {
-                GameAsForm.Controls.Add(BottomDockControl);
-                GameAsForm.Controls.Add(RightDockControl);
-                GameAsForm.Controls.Add(LeftDockControl);
-            }
-            catch
-            {
-                Console.WriteLine("Warning : HandleError");
-                this.ReloadLevel();
-            }
+            GameAsForm.Controls.Add(BottomDockControl);
+            GameAsForm.Controls.Add(RightDockControl);
+            GameAsForm.Controls.Add(LeftDockControl);
 
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
@@ -166,11 +156,14 @@ namespace NeonStarEditor
             {
                 GameAsForm.Controls.Remove(AttacksSettingsManager);
                 _isAttackManagerDisplayed = false;
+                AttacksSettingsManager.Dispose();
+                AttacksSettingsManager = null;
             }
             else
             {
                 if (_isElementManagerDisplayed)
                     ToggleElementPanel();
+                AttacksSettingsManager = new AttacksSettingsManager();
                 AttacksSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(AttacksSettingsManager);
                 _isAttackManagerDisplayed = true;
@@ -184,11 +177,14 @@ namespace NeonStarEditor
             {
                 GameAsForm.Controls.Remove(ElementSettingsManager);
                 _isElementManagerDisplayed = false;
+                ElementSettingsManager.Dispose();
+                ElementSettingsManager = null;
             }
             else
             {
                 if (_isAttackManagerDisplayed)
                     ToggleAttackManager();
+                ElementSettingsManager = new ElementPanel();
                 ElementSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(ElementSettingsManager);
                 _isElementManagerDisplayed = true;
@@ -203,6 +199,7 @@ namespace NeonStarEditor
             if (_isPathNodeManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(PathNodePanel);
+                PathNodePanel.Dispose();
                 this.CurrentTool = new Selection(this);
                 PathNodePanel = null;
                 _isPathNodeManagerDisplayed = false;
@@ -224,6 +221,7 @@ namespace NeonStarEditor
             if (_isSpawnPointsManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(SpawnPointsPanel);
+                SpawnPointsPanel.Dispose();
                 this.CurrentTool = new Selection(this);
                 SpawnPointsPanel = null;
                 _isSpawnPointsManagerDisplayed = false;

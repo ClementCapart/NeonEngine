@@ -273,7 +273,8 @@ namespace NeonStarEditor
 
         private void InitEffectData()
         {
-            EffectsInfoPanel.Controls.Clear();
+            for (int i = EffectsInfoPanel.Controls.Count - 1; i >= 0; i--)
+                EffectsInfoPanel.Controls[i].Dispose();
 
             if (CurrentAttackEffectSelected != null)
             {
@@ -796,85 +797,87 @@ namespace NeonStarEditor
 
             int yPosition = 5;
             int rectangleIndex = 0;
-            this.HitboxesPanel.Controls.Clear();
+            
+            for (int i = HitboxesPanel.Controls.Count - 1; i >= 0; i--)
+                HitboxesPanel.Controls[i].Dispose();
 
-            foreach (Microsoft.Xna.Framework.Rectangle rectangle in _attackList[AttacksList.SelectedValue.ToString()].Hitboxes)
-            {
-                Label label = new Label();
-                label.Text = "X";
-                label.Location = new System.Drawing.Point(5, yPosition + 4);
-                label.Width = 10;
-                this.HitboxesPanel.Controls.Add(label);
+                foreach (Microsoft.Xna.Framework.Rectangle rectangle in _attackList[AttacksList.SelectedValue.ToString()].Hitboxes)
+                {
+                    Label label = new Label();
+                    label.Text = "X";
+                    label.Location = new System.Drawing.Point(5, yPosition + 4);
+                    label.Width = 10;
+                    this.HitboxesPanel.Controls.Add(label);
 
-                NumericUpDown numericUpDown = new NumericUpDown();
-                numericUpDown.Name = "X_" + rectangleIndex;
-                numericUpDown.Width = 50;
-                numericUpDown.Minimum = -1000;
-                numericUpDown.Maximum = 1000;
-                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
-                numericUpDown.Value = rectangle.X;
-                numericUpDown.Enter += Numeric_Enter;
-                numericUpDown.Leave += Numeric_Leave;
-                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
-                this.HitboxesPanel.Controls.Add(numericUpDown);
+                    NumericUpDown numericUpDown = new NumericUpDown();
+                    numericUpDown.Name = "X_" + rectangleIndex;
+                    numericUpDown.Width = 50;
+                    numericUpDown.Minimum = -1000;
+                    numericUpDown.Maximum = 1000;
+                    numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                    numericUpDown.Value = rectangle.X;
+                    numericUpDown.Enter += Numeric_Enter;
+                    numericUpDown.Leave += Numeric_Leave;
+                    numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                    this.HitboxesPanel.Controls.Add(numericUpDown);
 
-                label = new Label();
-                label.Text = "Y";
-                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
-                label.Width = 10;
-                this.HitboxesPanel.Controls.Add(label);
+                    label = new Label();
+                    label.Text = "Y";
+                    label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                    label.Width = 10;
+                    this.HitboxesPanel.Controls.Add(label);
 
-                numericUpDown = new NumericUpDown();
-                numericUpDown.Name = "Y_" + rectangleIndex;
-                numericUpDown.Width = 50;
-                numericUpDown.Minimum = -1000;
-                numericUpDown.Maximum = 1000;
-                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
-                numericUpDown.Value = rectangle.Y;
-                numericUpDown.Enter += Numeric_Enter;
-                numericUpDown.Leave += Numeric_Leave;
-                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
-                this.HitboxesPanel.Controls.Add(numericUpDown);
+                    numericUpDown = new NumericUpDown();
+                    numericUpDown.Name = "Y_" + rectangleIndex;
+                    numericUpDown.Width = 50;
+                    numericUpDown.Minimum = -1000;
+                    numericUpDown.Maximum = 1000;
+                    numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                    numericUpDown.Value = rectangle.Y;
+                    numericUpDown.Enter += Numeric_Enter;
+                    numericUpDown.Leave += Numeric_Leave;
+                    numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                    this.HitboxesPanel.Controls.Add(numericUpDown);
 
-                label = new Label();
-                label.Text = "Width";
-                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
-                label.Width = 35;
-                this.HitboxesPanel.Controls.Add(label);
+                    label = new Label();
+                    label.Text = "Width";
+                    label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                    label.Width = 35;
+                    this.HitboxesPanel.Controls.Add(label);
 
-                numericUpDown = new NumericUpDown();
-                numericUpDown.Name = "W_" + rectangleIndex;
-                numericUpDown.Width = 50;
-                numericUpDown.Minimum = -1000;
-                numericUpDown.Maximum = 1000;
-                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
-                numericUpDown.Value = rectangle.Width;
-                numericUpDown.Enter += Numeric_Enter;
-                numericUpDown.Leave += Numeric_Leave;
-                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
-                this.HitboxesPanel.Controls.Add(numericUpDown);
+                    numericUpDown = new NumericUpDown();
+                    numericUpDown.Name = "W_" + rectangleIndex;
+                    numericUpDown.Width = 50;
+                    numericUpDown.Minimum = -1000;
+                    numericUpDown.Maximum = 1000;
+                    numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                    numericUpDown.Value = rectangle.Width;
+                    numericUpDown.Enter += Numeric_Enter;
+                    numericUpDown.Leave += Numeric_Leave;
+                    numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                    this.HitboxesPanel.Controls.Add(numericUpDown);
 
-                label = new Label();
-                label.Text = "Height";
-                label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
-                label.Width = 37;
-                this.HitboxesPanel.Controls.Add(label);
+                    label = new Label();
+                    label.Text = "Height";
+                    label.Location = new System.Drawing.Point(numericUpDown.Location.X + numericUpDown.Width + 5, yPosition + 4);
+                    label.Width = 37;
+                    this.HitboxesPanel.Controls.Add(label);
 
-                numericUpDown = new NumericUpDown();
-                numericUpDown.Name = "H_" + rectangleIndex;
-                numericUpDown.Width = 50;
-                numericUpDown.Minimum = -1000;
-                numericUpDown.Maximum = 1000;
-                numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
-                numericUpDown.Value = rectangle.Height;
-                numericUpDown.Enter += Numeric_Enter;
-                numericUpDown.Leave += Numeric_Leave;
-                numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
-                this.HitboxesPanel.Controls.Add(numericUpDown);
+                    numericUpDown = new NumericUpDown();
+                    numericUpDown.Name = "H_" + rectangleIndex;
+                    numericUpDown.Width = 50;
+                    numericUpDown.Minimum = -1000;
+                    numericUpDown.Maximum = 1000;
+                    numericUpDown.Location = new System.Drawing.Point(label.Location.X + label.Width + 5, yPosition);
+                    numericUpDown.Value = rectangle.Height;
+                    numericUpDown.Enter += Numeric_Enter;
+                    numericUpDown.Leave += Numeric_Leave;
+                    numericUpDown.ValueChanged += hitboxesNumericUpDown_ValueChanged;
+                    this.HitboxesPanel.Controls.Add(numericUpDown);
 
-                yPosition += numericUpDown.Height + 5;
-                rectangleIndex++;
-            }
+                    yPosition += numericUpDown.Height + 5;
+                    rectangleIndex++;
+                }
 
             if (rectangleIndex > 0)
             {

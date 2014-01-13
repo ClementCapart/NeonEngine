@@ -20,20 +20,18 @@ namespace NeonStarEditor
             InitializeComponent();
             this.GameWorld = GameWorld;
             this.Location = new Point(36, 0);
+            this.TypeComboBox.DataSource = Enum.GetValues(typeof(PathType));
             InitializeData();
             InitializeNodeData();
         }
 
         public void InitializeData()
         {
-            this.TypeComboBox.DataSource = Enum.GetValues(typeof(PathType));
             this.NodeTypeCombobox.DataSource = Enum.GetValues(typeof(NodeType));
             
             this.NodeLists.DataSource = null;
             this.NodeLists.DataSource = GameWorld.NodeLists;
-            this.NodeLists.DisplayMember = "Name";
-
-            
+            this.NodeLists.DisplayMember = "Name";          
         }
 
         public void InitializeNodeData()
@@ -46,7 +44,7 @@ namespace NeonStarEditor
                 for (int i = NodeInfo.Controls.Count - 1; i >= 0; i--)
                 {
                     if (NodeInfo.Controls[i].Name != "NodeTypeCombobox" && NodeInfo.Controls[i].Name != "TypeLabel" && NodeInfo.Controls[i].Name != "Align" && NodeInfo.Controls[i].Name != "DeleteNode")
-                        NodeInfo.Controls.RemoveAt(i);
+                        NodeInfo.Controls[i].Dispose();
                 }
 
                 if (CurrentNodeSelected.Type == NodeType.DelayedMove)
