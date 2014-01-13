@@ -570,12 +570,8 @@ namespace NeonStarEditor
             if (SelectedEntity != null)
             {
                 this.SelectedEntity = SelectedEntity;
-                try
-                {
-                    RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
-                }
-                catch
-                { }
+
+                RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
             }
             else
             {
