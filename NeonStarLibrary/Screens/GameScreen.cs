@@ -39,8 +39,10 @@ namespace NeonStarLibrary
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
 
+
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
+            ElementManager.LoadElementParameters();
 
             DataManager.LoadLevelInfo(groupName, levelName, this);
 
