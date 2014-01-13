@@ -148,7 +148,7 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:2200 Y:-4000}" />
+          <Parameter Value="{X:1600 Y:-7000}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
@@ -1193,7 +1193,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.1</Duration>
+      <Duration>0.12</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0.3</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -1227,10 +1227,10 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.08</Delay>
       <Cooldown>0.1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>0.12</Duration>
       <AirLock>0.3</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>0.5</AirFactor>
@@ -1414,7 +1414,7 @@
     </Attack>
     <Attack ID="0" Name="TrainingAlarmDetection" Type="MeleeLight">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="240" Height="490" />
+        <Hitbox OffsetX="0" OffsetY="0" Width="240" Height="430" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -1434,7 +1434,210 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:-400 Y:-400}" />
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingAlarmDetection2" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="240" Height="350" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.8</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingAlarmDetection3" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="240" Height="340" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1.4</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1.9</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingAlarmDetection4" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="240" Height="490" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>2.2</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.5</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingAlarmDetection5" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="190" Height="240" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1.1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.7</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingConstantAttack" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="40" Height="240" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0.05</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.5</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingConstantAttack2" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="40" Height="120" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0.05</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.5</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="TrainingAlarmDetection6" Type="MeleeLight">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="60" Height="440" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1.5</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>1</AirLock>
+      <TargetAirLock>1</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:200 Y:-400}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
