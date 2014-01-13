@@ -173,7 +173,7 @@ namespace NeonStarLibrary
                 }
             }    
 
-            if (AvatarComponent.CanMove)
+            if (AvatarComponent.CanMove && AvatarComponent.State != AvatarState.Attacking)
             {
                 if (entity.rigidbody.isGrounded && !StartJumping)
                 {

@@ -83,7 +83,11 @@ namespace NeonStarLibrary
                     break;
 
                 case AvatarState.Attacking:
-                    if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.LightAttackName))
+                    if (AvatarComponent.MeleeFight.CurrentAttack == null)
+                    {
+                        entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
+                    }
+                    else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.LightAttackName))
                     {
                         switch(AvatarComponent.MeleeFight.CurrentComboHit)
                         {
@@ -123,7 +127,7 @@ namespace NeonStarLibrary
                         
                     }
 
-                    if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                    if (AvatarComponent.MeleeFight.CurrentAttack != null && AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
                     {
                         LastAttackHashCode = AvatarComponent.MeleeFight.CurrentAttack.GetHashCode();
                     }

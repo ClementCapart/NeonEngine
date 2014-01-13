@@ -171,12 +171,18 @@ namespace NeonStarLibrary
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
-                if(CurrentAttack.DurationFinished)
-                    AvatarComponent.State = AvatarState.Idle;    
                 if (CurrentAttack.CooldownFinished)
+                {
                     CurrentAttack = null;
-            
+                    AvatarComponent.State = AvatarState.Idle;
+                }
             }
+
+            if (_nextAttack != "")
+                if (AvatarComponent.CanAttack && CurrentAttack == null && AvatarComponent.State != AvatarState.Stunlocked)
+                    LaunchBufferedAttack();
+                else
+                    _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (!ReleasedAttackButton)
                 if (!Neon.Input.Check(NeonStarInput.Attack))
@@ -201,19 +207,11 @@ namespace NeonStarLibrary
                 AvatarComponent.CanMove = false;
                 AvatarComponent.CanTurn = false;
             }
-
             base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_nextAttack != "")
-                if (AvatarComponent.CanAttack && CurrentAttack == null && AvatarComponent.State != AvatarState.Stunlocked)
-                    LaunchBufferedAttack();
-                else
-                    _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            
-
             if (ReleasedAttackButton)
             {
                 if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
@@ -294,7 +292,6 @@ namespace NeonStarLibrary
             }       
 
             _triedAttacking = false;
-
             
             base.Update(gameTime);
         }
