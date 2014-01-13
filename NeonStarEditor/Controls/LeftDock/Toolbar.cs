@@ -280,5 +280,10 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.ToggleSpawnPointManager();
         }
+
+        private void elementPanelButton_Click(object sender, EventArgs e)
+        {
+            GameWorld.ToggleElementPanel();
+        }
     }
 }

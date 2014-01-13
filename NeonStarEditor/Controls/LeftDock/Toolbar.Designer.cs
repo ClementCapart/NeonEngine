@@ -46,6 +46,7 @@
             this.ReloadButton = new System.Windows.Forms.Button();
             this.SaveHitboxes = new System.Windows.Forms.Button();
             this.SaveCurrentMap = new System.Windows.Forms.Button();
+            this.elementPanelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,7 +115,7 @@
             this.respawnPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("respawnPanel.BackgroundImage")));
             this.respawnPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.respawnPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.respawnPanel.Location = new System.Drawing.Point(3, 431);
+            this.respawnPanel.Location = new System.Drawing.Point(3, 415);
             this.respawnPanel.Name = "respawnPanel";
             this.respawnPanel.Size = new System.Drawing.Size(30, 30);
             this.respawnPanel.TabIndex = 4;
@@ -160,7 +161,7 @@
             this.ToggleBoundsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleBoundsButton.BackgroundImage")));
             this.ToggleBoundsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ToggleBoundsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToggleBoundsButton.Location = new System.Drawing.Point(3, 359);
+            this.ToggleBoundsButton.Location = new System.Drawing.Point(3, 343);
             this.ToggleBoundsButton.Name = "ToggleBoundsButton";
             this.ToggleBoundsButton.Size = new System.Drawing.Size(30, 30);
             this.ToggleBoundsButton.TabIndex = 4;
@@ -172,7 +173,7 @@
             this.ToggleLightButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleLightButton.BackgroundImage")));
             this.ToggleLightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ToggleLightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToggleLightButton.Location = new System.Drawing.Point(3, 395);
+            this.ToggleLightButton.Location = new System.Drawing.Point(3, 379);
             this.ToggleLightButton.Name = "ToggleLightButton";
             this.ToggleLightButton.Size = new System.Drawing.Size(30, 30);
             this.ToggleLightButton.TabIndex = 4;
@@ -184,7 +185,7 @@
             this.CameraPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CameraPanel.BackgroundImage")));
             this.CameraPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CameraPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CameraPanel.Location = new System.Drawing.Point(3, 481);
+            this.CameraPanel.Location = new System.Drawing.Point(3, 451);
             this.CameraPanel.Name = "CameraPanel";
             this.CameraPanel.Size = new System.Drawing.Size(30, 30);
             this.CameraPanel.TabIndex = 4;
@@ -251,11 +252,24 @@
             this.SaveCurrentMap.UseVisualStyleBackColor = true;
             this.SaveCurrentMap.Click += new System.EventHandler(this.SaveCurrentMap_Click);
             // 
+            // elementPanelButton
+            // 
+            this.elementPanelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.elementPanelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.elementPanelButton.Location = new System.Drawing.Point(3, 483);
+            this.elementPanelButton.Name = "elementPanelButton";
+            this.elementPanelButton.Size = new System.Drawing.Size(30, 30);
+            this.elementPanelButton.TabIndex = 4;
+            this.elementPanelButton.Text = "E";
+            this.elementPanelButton.UseVisualStyleBackColor = true;
+            this.elementPanelButton.Click += new System.EventHandler(this.elementPanelButton_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.elementPanelButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.magnetCheckbox);
             this.Controls.Add(this.Selection);
@@ -301,5 +315,6 @@
         private System.Windows.Forms.Button frameByFrame;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button respawnPanel;
+        private System.Windows.Forms.Button elementPanelButton;
     }
 }
