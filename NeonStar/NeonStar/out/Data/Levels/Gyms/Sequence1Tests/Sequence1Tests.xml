@@ -911,7 +911,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:1684,641 Y:-1000}" />
+              <Position Value="{X:1968,641 Y:-1000}" />
               <InitialPosition Value="{X:1600 Y:-1000}" />
               <Rotation Value="180" />
               <Scale Value="2" />
@@ -920,8 +920,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1684 Y:-1000}" />
-              <X Value="1634" />
+              <Center Value="{X:1968 Y:-1000}" />
+              <X Value="1918" />
               <Y Value="-1050" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -952,7 +952,7 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="1.48353" />
+              <RotationOffset Value="1.745329" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
@@ -1039,7 +1039,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="False" />
-              <Position Value="{X:1810,985 Y:500}" />
+              <Position Value="{X:1686,838 Y:500}" />
               <InitialPosition Value="{X:1600 Y:500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
@@ -1048,8 +1048,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:1810 Y:500}" />
-              <X Value="1760" />
+              <Center Value="{X:1686 Y:500}" />
+              <X Value="1636" />
               <Y Value="450" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1427,11 +1427,11 @@
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:4990 Y:1049}" />
-              <X Value="3240" />
+              <X Value="1990" />
               <Y Value="1024" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="3500" />
+              <Width Value="6000" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
@@ -1442,7 +1442,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="17.49875" />
+              <Mass Value="29.99875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1453,13 +1453,13 @@
           </Rigidbody>
         </Components>
       </Entity>
-      <Entity Name="Jumper" Layer="">
+      <Entity Name="Jumper2" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4334 Y:1015}" />
-              <InitialPosition Value="{X:4334 Y:1015}" />
+              <Position Value="{X:4444 Y:1016}" />
+              <InitialPosition Value="{X:4444 Y:1016}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -1467,8 +1467,132 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4334 Y:1014}" />
-              <X Value="4304" />
+              <Center Value="{X:4444 Y:1016}" />
+              <X Value="4414" />
+              <Y Value="1006" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="60" />
+              <Height Value="20" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0.11875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="20" />
+              <CoreElement Value="Fire" />
+              <CurrentHealthPoints Value="20" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="Idle" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="True" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </Enemy>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="6">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="500" />
+              <AttackToLaunchOne Value="Jumper" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="EnemyRobot4" />
+            </Properties>
+          </AreaAttack>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="7">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="500" />
+              <AttackToLaunchOne Value="Jumper" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="EnemyRobot5" />
+            </Properties>
+          </AreaAttack>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="8">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="500" />
+              <AttackToLaunchOne Value="Jumper" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="EnemyRobot6" />
+            </Properties>
+          </AreaAttack>
+        </Components>
+      </Entity>
+      <Entity Name="Jumper3" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5355 Y:1015}" />
+              <InitialPosition Value="{X:5355 Y:1015}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:5355 Y:1014}" />
+              <X Value="5325" />
               <Y Value="1004" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1530,71 +1654,10 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="EnemyRobot1" />
             </Properties>
           </AreaAttack>
-        </Components>
-      </Entity>
-      <Entity Name="Jumper" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5534 Y:1010}" />
-              <InitialPosition Value="{X:5534 Y:1010}" />
-              <Rotation Value="180" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:5534 Y:1009}" />
-              <X Value="5504" />
-              <Y Value="999" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="60" />
-              <Height Value="20" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="0.11875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="20" />
-              <CoreElement Value="Fire" />
-              <CurrentHealthPoints Value="20" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Idle" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="True" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-            </Properties>
-          </Enemy>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="6">
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="1">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="500" />
@@ -1612,18 +1675,39 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="EnemyRobot2" />
+            </Properties>
+          </AreaAttack>
+          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="2">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="500" />
+              <AttackToLaunchOne Value="Jumper" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="EnemyRobot3" />
             </Properties>
           </AreaAttack>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot3" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4008 Y:942,5001}" />
-              <InitialPosition Value="{X:4008 Y:942,5001}" />
+              <Position Value="{X:3351 Y:942,5001}" />
+              <InitialPosition Value="{X:3351 Y:942,5001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1631,8 +1715,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4007 Y:942}" />
-              <X Value="3957" />
+              <Center Value="{X:3350 Y:942}" />
+              <X Value="3300" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1701,19 +1785,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -1726,21 +1813,18 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper2" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot2" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3723 Y:942,5001}" />
-              <InitialPosition Value="{X:3723 Y:942,5001}" />
+              <Position Value="{X:3944 Y:942,5001}" />
+              <InitialPosition Value="{X:3944 Y:942,5001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1748,8 +1832,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3723 Y:942}" />
-              <X Value="3673" />
+              <Center Value="{X:3943 Y:942}" />
+              <X Value="3893" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1818,19 +1902,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -1843,21 +1930,18 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper2" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot1" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3416 Y:942,5001}" />
-              <InitialPosition Value="{X:3416 Y:942,5001}" />
+              <Position Value="{X:4063 Y:942,5001}" />
+              <InitialPosition Value="{X:4063 Y:942,5001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1865,8 +1949,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3416 Y:942}" />
-              <X Value="3366" />
+              <Center Value="{X:4062 Y:942}" />
+              <X Value="4012" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1935,19 +2019,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -1960,21 +2047,18 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper2" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot4" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5825 Y:942,5001}" />
-              <InitialPosition Value="{X:5825 Y:942,5001}" />
+              <Position Value="{X:6036 Y:942,5001}" />
+              <InitialPosition Value="{X:6036 Y:942,5001}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1982,8 +2066,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:5825 Y:942}" />
-              <X Value="5775" />
+              <Center Value="{X:6035 Y:942}" />
+              <X Value="5985" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2052,19 +2136,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -2077,21 +2164,18 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper3" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot5" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6120 Y:942,5001}" />
-              <InitialPosition Value="{X:6120 Y:942,5001}" />
+              <Position Value="{X:7682 Y:942}" />
+              <InitialPosition Value="{X:7682 Y:942}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2099,8 +2183,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6119 Y:942}" />
-              <X Value="6069" />
+              <Center Value="{X:7682 Y:942}" />
+              <X Value="7632" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2169,19 +2253,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -2194,21 +2281,18 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper3" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="">
+      <Entity Name="EnemyRobot6" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6463 Y:942,1085}" />
-              <InitialPosition Value="{X:6463 Y:942,1085}" />
+              <Position Value="{X:7805 Y:942}" />
+              <InitialPosition Value="{X:7805 Y:942}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2216,8 +2300,8 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6462 Y:942}" />
-              <X Value="6412" />
+              <Center Value="{X:7804 Y:942}" />
+              <X Value="7754" />
               <Y Value="862" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2286,19 +2370,22 @@
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="450" />
+              <DetectionDistance Value="4500" />
               <WaitStopDuration Value="1" />
               <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+            <Properties />
+          </EnemyAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
-              <RangeForAttackOne Value="110" />
-              <AttackToLaunchOne Value="EnemyRobotPunch" />
-              <AttackOneAnimation Value="Attack" />
+              <RangeForAttackOne Value="20" />
+              <AttackToLaunchOne Value="EnemyRobotJump" />
+              <AttackOneAnimation Value="" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -2311,12 +2398,9 @@
               <RangeForAttackFive Value="0" />
               <AttackToLaunchFive Value="" />
               <AttackFiveAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
+              <EntityToAttackName Value="Jumper3" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
-            <Properties />
-          </EnemyAnimationManager>
         </Components>
       </Entity>
     </Entities>
