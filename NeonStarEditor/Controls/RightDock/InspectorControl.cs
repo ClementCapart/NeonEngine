@@ -646,7 +646,12 @@ namespace NeonStarEditor
         
             RemoveButtons[(Button)sender].Remove();
             Entity CurrentEntity = GameWorld.SelectedEntity;
-            InstantiateProperties(CurrentEntity);
+            try
+            {
+                InstantiateProperties(CurrentEntity);
+            }
+            catch
+            { }
         }    
 
         private void Spritesheet_SelectedValueChanged(object sender, EventArgs e)
@@ -766,7 +771,12 @@ namespace NeonStarEditor
                     c.ID = CurrentEntity.GetLastID() + 1;
                     CurrentEntity.AddComponent(c);
                     ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
-                    InstantiateProperties(CurrentEntity);
+                    try
+                    {
+                        InstantiateProperties(CurrentEntity);
+                    }
+                    catch
+                    { }
                 }
                 else
                 {

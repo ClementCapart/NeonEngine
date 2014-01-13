@@ -36,7 +36,12 @@ namespace NeonStarEditor
                 {
                     case ActionType.AddComponent:
                         (LastAction.GetParameters[0] as Component).Remove();
-                        (LastAction.GetParameters[1] as InspectorControl).InstantiateProperties((LastAction.GetParameters[0] as Component).entity);
+                        try
+                        {
+                            (LastAction.GetParameters[1] as InspectorControl).InstantiateProperties((LastAction.GetParameters[0] as Component).entity);
+                        }
+                        catch
+                        { }
                         Console.WriteLine("Undo 'Add Component'.");
                         break;
 
@@ -54,7 +59,11 @@ namespace NeonStarEditor
                         Component c = (Component)Activator.CreateInstance(LastAction.GetParameters[0] as Type, LastAction.GetParameters[2] as Entity);
                         DataManager.LoadComponentParameters(LastAction.GetParameters[1] as XElement, c);
                         (LastAction.GetParameters[2] as Entity).AddComponent(c);
-                        (LastAction.GetParameters[3] as InspectorControl).InstantiateProperties(LastAction.GetParameters[2] as Entity);
+                        try
+                        {
+                            (LastAction.GetParameters[3] as InspectorControl).InstantiateProperties(LastAction.GetParameters[2] as Entity);
+                        }
+                        catch { }
                         Console.WriteLine("Undo 'Delete Component'.");
                         break;
 
