@@ -106,7 +106,7 @@ namespace NeonStarEditor
                         }
                     }
 
-                    ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
+                    //ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
                     TransformState = null;
                 }
                 

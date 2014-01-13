@@ -38,7 +38,7 @@ namespace NeonStarEditor
         {
             if (GameWorld.SelectedEntity != null)
             {
-                ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld });
+                //ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld });
                 GameWorld.SelectedEntity.Destroy();
                 GameWorld.SelectedEntity = null;
             }
@@ -53,7 +53,7 @@ namespace NeonStarEditor
             ent.transform.Position = Neon.World.Camera.Position;
             ent.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
             GameWorld.AddEntity(ent);
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
+            //ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

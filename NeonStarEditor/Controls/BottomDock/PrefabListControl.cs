@@ -49,7 +49,7 @@ namespace NeonStarEditor
             entity.transform.Position = Neon.World.Camera.Position;
             entity.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
             GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = entity;
-            ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
+            //ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
         }
 
         private void SaveAsPrefabButton_Click(object sender, EventArgs e)

@@ -642,7 +642,7 @@ namespace NeonStarEditor
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            ActionManager.SaveAction(ActionType.DeleteComponent, new object[4] { RemoveButtons[(Button)sender].GetType(), DataManager.SaveComponentParameters(RemoveButtons[(Button)sender] as Component), GameWorld.SelectedEntity, this });
+            //ActionManager.SaveAction(ActionType.DeleteComponent, new object[4] { RemoveButtons[(Button)sender].GetType(), DataManager.SaveComponentParameters(RemoveButtons[(Button)sender] as Component), GameWorld.SelectedEntity, this });
         
             RemoveButtons[(Button)sender].Remove();
             Entity CurrentEntity = GameWorld.SelectedEntity;
@@ -770,7 +770,7 @@ namespace NeonStarEditor
                     c.Init();
                     c.ID = CurrentEntity.GetLastID() + 1;
                     CurrentEntity.AddComponent(c);
-                    ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
+                    //ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
                     try
                     {
                         InstantiateProperties(CurrentEntity);
