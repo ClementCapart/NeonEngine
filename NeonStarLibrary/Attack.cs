@@ -639,12 +639,6 @@ namespace NeonStarLibrary
                     if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
-
-            if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _hit && _meleeFight != null)
-            {
-                _meleeFight.AvatarComponent.AirLock(AirLock);
-                _alreadyLocked = true;
-            }
                 
         }
 
@@ -739,6 +733,12 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     _hit = validTarget = enemy.TakeDamage(this);
+                }
+
+                if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _meleeFight != null)
+                {
+                    _meleeFight.AvatarComponent.AirLock(AirLock);
+                    _alreadyLocked = true;
                 }
             }
             else
