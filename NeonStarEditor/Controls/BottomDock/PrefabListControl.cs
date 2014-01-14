@@ -48,7 +48,7 @@ namespace NeonStarEditor
             Entity entity = DataManager.LoadPrefab(path, GameWorld);
             entity.transform.Position = Neon.World.Camera.Position;
             entity.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
-            GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedItem = entity;
+            GameWorld.BottomDockControl.entityListControl.SelectEntityNode(entity);
             //ActionManager.SaveAction(ActionType.AddEntity, GameWorld.Entities.Last());
         }
 

@@ -150,6 +150,8 @@ namespace NeonStarEditor
                     c.Show();
                 EditorVisible = true;
             }
+
+            RefreshInspector(null);
         }
 
         public void ToggleAttackManager()
@@ -338,9 +340,7 @@ namespace NeonStarEditor
                 }
                 else
                 {
-                    BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                    BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
-                    BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                    BottomDockControl.entityListControl.InitializeEntityList();
 
                     foreach (Control c in GameAsForm.Controls)
                         c.Show();
@@ -696,8 +696,10 @@ namespace NeonStarEditor
                          }
                          else if (Neon.Input.KeysPressed[i] == Keys.Enter)
                          {
-                             if(FocusedTextBox.Parent != null)
-                                FocusedTextBox.Parent.Focus();
+                             if (FocusedTextBox.Parent != null)
+                                 FocusedTextBox.Parent.Focus();
+                             else
+                                 GameAsForm.Focus();
                              FocusedTextBox = null;
                          }
                          else if (Neon.Input.KeysPressed[i] == Keys.Delete && PressedDelay <= 0f)
@@ -915,10 +917,8 @@ namespace NeonStarEditor
             {
                 if (EditorVisible)
                 {
-                    BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                    BottomDockControl.entityListControl.EntityListBox.DataSource = Entities;
-                    BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
-                    BottomDockControl.entityListControl.EntityListBox.SelectedItem = newEntity;
+                    BottomDockControl.entityListControl.InitializeEntityList();
+                    BottomDockControl.entityListControl.SelectEntityNode(newEntity);
                 }
             }      
         }
@@ -926,6 +926,14 @@ namespace NeonStarEditor
         public override void RemoveEntity(Entity entity)
         {
             base.RemoveEntity(entity);
+            if (BottomDockControl != null)
+            {
+                if (EditorVisible)
+                {
+                    BottomDockControl.entityListControl.InitializeEntityList();
+                    BottomDockControl.entityListControl.EntityListBox.SelectedNode = null;
+                }
+            }     
         }
 
         public override void ReloadLevel()

@@ -199,8 +199,8 @@
             this.DefaultLayerBox.Size = new System.Drawing.Size(117, 20);
             this.DefaultLayerBox.TabIndex = 8;
             this.DefaultLayerBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DefaultLayerBox.TextChanged += new System.EventHandler(this.DefaultLayerBox_TextChanged);
             this.DefaultLayerBox.Enter += new System.EventHandler(this.DefaultLayerBox_Enter);
-            this.DefaultLayerBox.Leave += new System.EventHandler(this.DefaultLayerBox_Leave);
             // 
             // LevelListControl
             // 

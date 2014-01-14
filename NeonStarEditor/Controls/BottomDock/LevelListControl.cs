@@ -213,9 +213,10 @@ namespace NeonStarEditor.Controls.BottomDock
             GameWorld.FocusedTextBox = sender as TextBox;
         }
 
-        private void DefaultLayerBox_Leave(object sender, EventArgs e)
+
+        private void DefaultLayerBox_TextChanged(object sender, EventArgs e)
         {
-            GameWorld.FocusedTextBox = null;
+            GameWorld.DefaultLayer = (sender as TextBox).Text;
         }
     }
 }

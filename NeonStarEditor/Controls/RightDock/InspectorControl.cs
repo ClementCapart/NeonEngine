@@ -164,6 +164,7 @@ namespace NeonStarEditor
             layerName.AcceptsTab = true;
             Inspector.Controls.Add(layerName);
 
+            InspectorTab.Hide();
 
             Y = 0;
 
@@ -448,6 +449,7 @@ namespace NeonStarEditor
                 tp2.BackColor = Color.FromArgb(255, 64, 64, 64);
             }
 
+            InspectorTab.Show();
             Inspector.Controls.Add(InspectorTab);
         }
 
@@ -462,6 +464,7 @@ namespace NeonStarEditor
             if (GameWorld.SelectedEntity != null)
             {
                 GameWorld.SelectedEntity.Layer = (sender as TextBox).Text;
+                GameWorld.BottomDockControl.entityListControl.InitializeEntityList();
             }
 
             GameWorld.FocusedTextBox = null;
@@ -611,18 +614,16 @@ namespace NeonStarEditor
             {
                 GameWorld.FocusedTextBox = null;
                 GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.Entities;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
+                GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text = (sender as TextBox).Text;
             }
             else if ((sender as TextBox).Text == GameWorld.AvatarName)
             {
                 GameWorld.FocusedTextBox = null;
-                (sender as TextBox).Text = GameWorld.SelectedEntity.Name;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = null;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DataSource = GameWorld.Entities;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.DisplayMember = "Name";
-                Console.WriteLine("Warning : Can't name an entity '" + GameWorld.AvatarName + "', this name is reserved");
+                if (GameWorld.SelectedEntity != null)
+                {
+                    (sender as TextBox).Text = GameWorld.SelectedEntity.Name;
+                    Console.WriteLine("Warning : Can't name an entity '" + GameWorld.AvatarName + "', this name is reserved");
+                }
             }
         }
 
