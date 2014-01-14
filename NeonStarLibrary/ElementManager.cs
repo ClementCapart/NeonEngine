@@ -35,22 +35,22 @@ namespace NeonStarLibrary
 
             secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("GaugeCost").Value.ToString(), CultureInfo.InvariantCulture));
             secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashHorizontalImpulse").Value.ToString(), CultureInfo.InvariantCulture));
-            secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashVerticalUpImpulse").Value.ToString(), CultureInfo.InvariantCulture));
-            secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashVerticalDownImpulse").Value.ToString(), CultureInfo.InvariantCulture));
             secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashDuration").Value.ToString(), CultureInfo.InvariantCulture));
             secondLevelParameters.Add(thunderParameters.Element("SecondLevel").Element("AttackToLaunch").Value.ToString());
+            secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashVerticalUpImpulse").Value.ToString(), CultureInfo.InvariantCulture));
+            secondLevelParameters.Add(float.Parse(thunderParameters.Element("SecondLevel").Element("DashVerticalDownImpulse").Value.ToString(), CultureInfo.InvariantCulture));
 
             ThunderParameters.Add(secondLevelParameters);
 
             List<object> thirdLevelParameters = new List<object>();
 
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("GaugeCost").Value.ToString(), CultureInfo.InvariantCulture));
-            thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashHorizontalImpulse").Value.ToString(), CultureInfo.InvariantCulture));
+            thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashHorizontalImpulse").Value.ToString(), CultureInfo.InvariantCulture));            
+            thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashDuration").Value.ToString(), CultureInfo.InvariantCulture));
+            thirdLevelParameters.Add(thunderParameters.Element("ThirdLevel").Element("AttackToLaunch").Value.ToString());
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashVerticalUpImpulse").Value.ToString(), CultureInfo.InvariantCulture));
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashVerticalDownImpulse").Value.ToString(), CultureInfo.InvariantCulture));
-            thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashDuration").Value.ToString(), CultureInfo.InvariantCulture));
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("StunDuration").Value.ToString(), CultureInfo.InvariantCulture));
-            thirdLevelParameters.Add(thunderParameters.Element("ThirdLevel").Element("AttackToLaunch").Value.ToString());
 
             ThunderParameters.Add(thirdLevelParameters);
 
