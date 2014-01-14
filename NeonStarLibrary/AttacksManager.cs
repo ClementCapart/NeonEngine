@@ -264,7 +264,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.MoveWhileAttacking:
-                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value) }));
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
 
                         case SpecialEffect.PercentageDamageBoost:

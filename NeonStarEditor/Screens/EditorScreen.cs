@@ -15,6 +15,7 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 using System.IO;
 using Microsoft.Xna.Framework.Media;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace NeonStarEditor
 {
@@ -97,6 +98,8 @@ namespace NeonStarEditor
             GameAsForm.Controls.Add(BottomDockControl);
             GameAsForm.Controls.Add(RightDockControl);
             GameAsForm.Controls.Add(LeftDockControl);
+
+            
 
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
@@ -368,7 +371,6 @@ namespace NeonStarEditor
             /*if (((Neon.Input.Pressed(Keys.LeftControl) || Neon.Input.Pressed(Keys.RightControl))&& Neon.Input.Check(Keys.Z))
                 || (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))&& Neon.Input.Pressed(Keys.Z))
                 ActionManager.Undo();*/
-
             if (PressedDelay > 0.0f)
             {
                 PressedDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;

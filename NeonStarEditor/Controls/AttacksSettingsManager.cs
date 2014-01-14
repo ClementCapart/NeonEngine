@@ -186,7 +186,7 @@ namespace NeonStarEditor
                 case SpecialEffect.Impulse:
                     Vector2 impulseValue = (Vector2)effectKvp.Parameters[0];
 
-                    XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X + " Y:" + impulseValue.Y + "}"));
+                    XElement parameter = new XElement("Parameter", new XAttribute("Value", "{X:" + impulseValue.X.ToString("G", CultureInfo.InvariantCulture) + " Y:" + impulseValue.Y.ToString("G", CultureInfo.InvariantCulture) + "}"));
                     XElement boolPulse = new XElement("SecondParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[1]).ToString()));
                     XElement inAirBool = new XElement("ThirdParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[2]).ToString()));
                     effect.Add(parameter);
@@ -203,7 +203,7 @@ namespace NeonStarEditor
 
                 case SpecialEffect.PositionalPulse:
                     Vector2 pulseValue = (Vector2)effectKvp.Parameters[0];
-                    XElement parameterPulse = new XElement("Parameter", new XAttribute("Value", "{X:" + pulseValue.X + " Y:" + pulseValue.Y + "}"));
+                    XElement parameterPulse = new XElement("Parameter", new XAttribute("Value", "{X:" + pulseValue.X.ToString("G", CultureInfo.InvariantCulture) + " Y:" + pulseValue.Y.ToString("G", CultureInfo.InvariantCulture) + "}"));
 
                     effect.Add(parameterPulse);
                     break;
@@ -217,7 +217,7 @@ namespace NeonStarEditor
                 case SpecialEffect.ShootBullet:
                     string bulletName = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet = new XElement("Parameter", new XAttribute("Value", bulletName));
-                    XElement offsetBullet = new XElement("SecondParameter", new XAttribute("Value", (Vector2)(effectKvp.Parameters[1])));
+                    XElement offsetBullet = new XElement("SecondParameter", new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)(effectKvp.Parameters[1]))));
                     effect.Add(parameterBullet);
                     effect.Add(offsetBullet);
                     break;
@@ -225,7 +225,7 @@ namespace NeonStarEditor
                 case SpecialEffect.ShootBulletAtTarget:
                     string bulletName2 = (string)(effectKvp.Parameters[0] as BulletInfo).Name;
                     XElement parameterBullet2 = new XElement("Parameter", new XAttribute("Value", bulletName2));
-                    XElement offsetBullet2 = new XElement("SecondParameter", new XAttribute("Value", (Vector2)(effectKvp.Parameters[1])));
+                    XElement offsetBullet2 = new XElement("SecondParameter", new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)(effectKvp.Parameters[1]))));
                     effect.Add(parameterBullet2);
                     effect.Add(offsetBullet2);
                     break;
@@ -238,7 +238,7 @@ namespace NeonStarEditor
                 case SpecialEffect.EffectAnimation:
                     XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
                     XElement parameterRotation = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
-                    XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", ((Vector2)effectKvp.Parameters[2]).ToString()));
+                    XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", Neon.Utils.Vector2ToString(((Vector2)effectKvp.Parameters[2]))));
                     XElement parameterFollow = new XElement("FourthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[3]).ToString()));
                     XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterAnimation);

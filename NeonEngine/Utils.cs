@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using FarseerPhysics.Dynamics;
 using System.Reflection;
+using System.Globalization;
 
 namespace NeonEngine
 {
@@ -98,6 +99,21 @@ namespace NeonEngine
                 return new Type[0];
         }
 
+        public string Vector2ToString(Vector2 vector2)
+        {
+            string value = "{X:";
+
+            value += vector2.X.ToString("G", CultureInfo.InvariantCulture);
+
+            value += " Y:";
+
+            value += vector2.Y.ToString("G", CultureInfo.InvariantCulture);
+
+            value += "}";
+
+            return value;
+        }
+
         public Vector2 ParseVector2(string value)
         {
             Vector2 result = new Vector2();
@@ -105,8 +121,8 @@ namespace NeonEngine
             CleanString = CleanString.Replace("Y:", "");
             CleanString = CleanString.Replace("}", "");
             String[] Results = CleanString.Split(' ');
-            result.X = float.Parse(Results[0]);
-            result.Y = float.Parse(Results[1]);
+            result.X = float.Parse(Results[0], CultureInfo.InvariantCulture);
+            result.Y = float.Parse(Results[1], CultureInfo.InvariantCulture);
             return result;
         }
 

@@ -124,8 +124,8 @@ namespace NeonEngine
                     {
                         entity.transform.AutoChangeInitialPosition = bool.Parse(Comp.Element("Properties").Element("AutoChangeInitialPosition").Attribute("Value").Value);
                         entity.transform.InitialPosition = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
-                        entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
-                        entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
+                        entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                        entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value, CultureInfo.InvariantCulture);
                         entity.transform.Init();
                     }
                     else
@@ -168,7 +168,7 @@ namespace NeonEngine
                             else if (pi.PropertyType.IsEnum)
                                 pi.SetValue(component, Enum.Parse(pi.PropertyType, Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Single)))
-                                pi.SetValue(component, Single.Parse(Property.Attribute("Value").Value, NumberStyles.Any, CultureInfo.InvariantCulture), null);
+                                pi.SetValue(component, float.Parse(Property.Attribute("Value").Value, CultureInfo.InvariantCulture), null);
                             else if (pi.PropertyType.Equals(typeof(bool)))
                                 pi.SetValue(component, bool.Parse(Property.Attribute("Value").Value), null);
                             else if (pi.PropertyType.Equals(typeof(Int32)))

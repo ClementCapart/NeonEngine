@@ -49,7 +49,7 @@ namespace NeonEngine
                     {
                         XElement node;
                         if (n.Type == NodeType.DelayedMove)
-                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", Neon.Utils.Vector2ToString(n.Position)), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
                         else
                             node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
                         nodeList.Add(node);
@@ -66,7 +66,7 @@ namespace NeonEngine
 
                 foreach (SpawnPoint sp in CurrentWorld.SpawnPoints)
                 {
-                    XElement spawnPoint = new XElement("SpawnPoint", new XAttribute("Index", sp.Index), new XAttribute("Position", sp.Position.ToString()), new XAttribute("Side", sp.Side.ToString()));
+                    XElement spawnPoint = new XElement("SpawnPoint", new XAttribute("Index", sp.Index), new XAttribute("Position", Neon.Utils.Vector2ToString(sp.Position)), new XAttribute("Side", sp.Side.ToString()));
                     spawnPointList.Add(spawnPoint);
                 }
 
@@ -165,6 +165,12 @@ namespace NeonEngine
                                         Properties.Add(Property);
                                     }
 
+                                }
+                                else if (pi.PropertyType.Equals(typeof(Vector2)))
+                                {
+                                    XElement Property = null;
+                                    Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
+                                    Properties.Add(Property);
                                 }
                                 else if (pi.Name != "CurrentEffect")
                                 {
@@ -340,6 +346,12 @@ namespace NeonEngine
                                 Properties.Add(Property);
                             }
                         }
+                        else if (pi.PropertyType.Equals(typeof(Vector2)))
+                        {
+                            XElement Property = null;
+                            Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
+                            Properties.Add(Property);
+                        }
                         else
                         {
                             XElement Property = null;
@@ -394,8 +406,8 @@ namespace NeonEngine
                 if (Comp.Name == "Transform")
                 {
                     entity.transform.InitialPosition = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("InitialPosition").Attribute("Value").Value);
-                    entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
-                    entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
+                    entity.transform.Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                    entity.transform.Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value, CultureInfo.InvariantCulture);
                     entity.transform.Init();
                 }
                 else
@@ -507,6 +519,12 @@ namespace NeonEngine
                     XElement property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                     properties.Add(property);
                 }
+                else if (pi.PropertyType.Equals(typeof(Vector2)))
+                {
+                    XElement Property = null;
+                    Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
+                    properties.Add(Property);
+                }
                 else
                 {
 
@@ -532,8 +550,8 @@ namespace NeonEngine
             if (Comp.Name == "Transform")
             {
                 (c as Transform).Position = Neon.Utils.ParseVector2(Comp.Element("Properties").Element("Position").Attribute("Value").Value);
-                (c as Transform).Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value);
-                (c as Transform).Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value);
+                (c as Transform).Rotation = float.Parse(Comp.Element("Properties").Element("Rotation").Attribute("Value").Value, CultureInfo.InvariantCulture);
+                (c as Transform).Scale = float.Parse(Comp.Element("Properties").Element("Scale").Attribute("Value").Value, CultureInfo.InvariantCulture);
             }
             else
             {
