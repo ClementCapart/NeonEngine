@@ -48,7 +48,6 @@ namespace NeonStarLibrary
         public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
         {
-            _cooldownDuration = 4.0f;
             EffectElement = Element.Fire;
         }
 

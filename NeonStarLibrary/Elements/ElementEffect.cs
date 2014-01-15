@@ -25,7 +25,7 @@ namespace NeonStarLibrary
 
         public Element EffectElement;
 
-        protected float _cooldownDuration = 0.0f;
+        protected float _gaugeCost = 20.0f;
 
         public ElementState State;
 
@@ -36,6 +36,13 @@ namespace NeonStarLibrary
             _elementSystem = elementSystem;
             _input = input;
             _elementLevel = elementLevel;
+
+            InitializeLevelParameters();
+        }
+
+        public virtual void InitializeLevelParameters()
+        {
+        
         }
 
         public virtual void PreUpdate(GameTime gameTime)

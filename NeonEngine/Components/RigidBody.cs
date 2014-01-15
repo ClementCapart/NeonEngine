@@ -302,7 +302,7 @@ namespace NeonEngine
                         contact.Enabled = false;
                         return false;
                     }
-                    else if (isGround)
+                    else if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -318,7 +318,7 @@ namespace NeonEngine
                         contact.Enabled = false;
                         return false;
                     }
-                    else if (isGround)
+                    else if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -338,13 +338,7 @@ namespace NeonEngine
                 if (EntityB != entity && EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitboxes[0];
-                    if (!EntityB.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
-                    {
-                        contact.Friction = 0.0f;
-                        _currentContacts.Add(contact);
-                        return true;
-                    }
-                    else if (isGround)
+                    if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -354,13 +348,7 @@ namespace NeonEngine
                 else if (EntityA != entity && EntityA != null)
                 {
                     Hitbox hitboxA = EntityB.hitboxes[0];
-                    if (!EntityA.rigidbody.isGrounded && hitbox != null && (entity.transform.Position.X - hitbox.Width / 2 > EntityA.transform.Position.X + hitboxA.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityA.transform.Position.X - hitboxA.Width / 2 - offset))
-                    {
-                        contact.Friction = 0.0f;
-                        _currentContacts.Add(contact);
-                        return true;
-                    }
-                    else if (isGround)
+                    if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);

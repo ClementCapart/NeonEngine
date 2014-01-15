@@ -50,7 +50,6 @@ namespace NeonStarLibrary
             thirdLevelParameters.Add(thunderParameters.Element("ThirdLevel").Element("AttackToLaunch").Value.ToString());
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashVerticalUpImpulse").Value.ToString(), CultureInfo.InvariantCulture));
             thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("DashVerticalDownImpulse").Value.ToString(), CultureInfo.InvariantCulture));
-            thirdLevelParameters.Add(float.Parse(thunderParameters.Element("ThirdLevel").Element("StunDuration").Value.ToString(), CultureInfo.InvariantCulture));
 
             ThunderParameters.Add(thirdLevelParameters);
 

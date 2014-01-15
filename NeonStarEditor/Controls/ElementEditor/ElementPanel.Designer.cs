@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.settingPanel = new System.Windows.Forms.Panel();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.ClosePanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // elementCombobox
@@ -42,7 +43,7 @@
             this.elementCombobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.elementCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.elementCombobox.FormattingEnabled = true;
-            this.elementCombobox.Location = new System.Drawing.Point(6, 37);
+            this.elementCombobox.Location = new System.Drawing.Point(17, 37);
             this.elementCombobox.Name = "elementCombobox";
             this.elementCombobox.Size = new System.Drawing.Size(152, 21);
             this.elementCombobox.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Location = new System.Drawing.Point(14, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 15);
             this.label1.TabIndex = 1;
@@ -86,12 +87,25 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // ClosePanel
+            // 
+            this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClosePanel.Location = new System.Drawing.Point(416, 3);
+            this.ClosePanel.Name = "ClosePanel";
+            this.ClosePanel.Size = new System.Drawing.Size(27, 26);
+            this.ClosePanel.TabIndex = 4;
+            this.ClosePanel.Text = "X";
+            this.ClosePanel.UseVisualStyleBackColor = true;
+            this.ClosePanel.Click += new System.EventHandler(this.ClosePanel_Click);
+            // 
             // ElementPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.ClosePanel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.settingPanel);
             this.Controls.Add(this.label2);
@@ -112,5 +126,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel settingPanel;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button ClosePanel;
     }
 }

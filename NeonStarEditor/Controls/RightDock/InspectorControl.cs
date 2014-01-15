@@ -610,6 +610,12 @@ namespace NeonStarEditor
                 return;
             }
 
+            if (GameWorld.SelectedEntity == null)
+            {
+                GameWorld.FocusedTextBox = null;
+                return;
+            }
+
             if (GameWorld.FocusedTextBox == (sender as TextBox) && (sender as TextBox).Text != GameWorld.AvatarName)
             {
                 GameWorld.FocusedTextBox = null;

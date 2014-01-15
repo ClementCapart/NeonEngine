@@ -19,29 +19,33 @@ namespace NeonStarEditor
         {
             InitializeComponent();
             GameWorld = Neon.World as EditorScreen;
+            InitializeData();
         }
 
         public void InitializeData()
         {
-            this.GaugeCostLevelOne.Value = (decimal)ElementManager.ThunderParameters[0][0];
-            this.DashHorizontalImpulseLevelOne.Value = (decimal)ElementManager.ThunderParameters[0][1];
-            this.DashDurationLevelOne.Value = (decimal)ElementManager.ThunderParameters[0][2];
+            this.GaugeCostLevelOne.Value = (decimal)(float)(ElementManager.ThunderParameters[0][0]);
+            this.DashHorizontalImpulseLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[0][1];
+            this.DashDurationLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[0][2];
             this.AttackToLaunchLevelOne.Text = (string)ElementManager.ThunderParameters[0][3];
 
-            this.GaugeCostLevelTwo.Value = (decimal)ElementManager.ThunderParameters[1][0];
-            this.DashHorizontalImpulseLevelTwo.Value = (decimal)ElementManager.ThunderParameters[1][1];
-            this.DashDurationLevelTwo.Value = (decimal)ElementManager.ThunderParameters[1][2];
+            this.GaugeCostLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[1][0];
+            this.DashHorizontalImpulseLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[1][1];
+            this.DashDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[1][2];
             this.AttackToLaunchLevelTwo.Text = (string)ElementManager.ThunderParameters[1][3];
-            this.DashVerticalUpImpulseLevelTwo.Value = (decimal)ElementManager.ThunderParameters[1][4];
-            this.DashVerticalDownImpulseLevelTwo.Value = (decimal)ElementManager.ThunderParameters[1][5];
+            this.DashVerticalUpImpulseLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[1][4];
+            this.DashVerticalDownImpulseLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[1][5];
 
-            this.GaugeCostLevelThree.Value = (decimal)ElementManager.ThunderParameters[2][0];
-            this.DashHorizontalImpulseLevelThree.Value = (decimal)ElementManager.ThunderParameters[2][1];
-            this.DashDurationLevelThree.Value = (decimal)ElementManager.ThunderParameters[2][2];
+            this.GaugeCostLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][0];
+            this.DashHorizontalImpulseLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][1];
+            this.DashDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][2];
             this.AttackToLaunchLevelThree.Text = (string)ElementManager.ThunderParameters[2][3];
-            this.DashVerticalUpImpulseLevelThree.Value = (decimal)ElementManager.ThunderParameters[2][4];
-            this.DashVerticalDownImpulseLevelThree.Value = (decimal)ElementManager.ThunderParameters[1][5];
+            this.DashVerticalUpImpulseLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][4];
+            this.DashVerticalDownImpulseLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][5];
 
+            this.ModifierDuration.Value = (decimal)(float)ElementManager.ThunderParameters[3][0];
+            this.MovementSpeedModifier.Value = (decimal)(float)ElementManager.ThunderParameters[3][1];
+            this.AttackSpeedModifier.Value = (decimal)(float)ElementManager.ThunderParameters[3][2];
         }
 
         private void numericUpDown_Enter(object sender, EventArgs e)
@@ -105,10 +109,6 @@ namespace NeonStarEditor
 
                 case "DashVerticalDownImpulseLevelThree":
                     ElementManager.ThunderParameters[2][5] = (float)(sender as NumericUpDown).Value;
-                    break;
-
-                case "StunDurationLevelThree":
-                    ElementManager.ThunderParameters[2][6] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "ModifierDuration":
@@ -179,10 +179,6 @@ namespace NeonStarEditor
 
                 case "DashVerticalDownImpulseLevelThree":
                     ElementManager.ThunderParameters[2][5] = (float)(sender as NumericUpDown).Value;
-                    break;
-
-                case "StunDurationLevelThree":
-                    ElementManager.ThunderParameters[2][6] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "ModifierDuration":

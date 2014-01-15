@@ -109,7 +109,6 @@ namespace NeonStarEditor
             attackToLaunch = new XElement("AttackToLaunch", (string)ElementManager.ThunderParameters[2][3]);
             dashVerticalUpImpulse = new XElement("DashVerticalUpImpulse", ((float)(ElementManager.ThunderParameters[2][4])).ToString("G", CultureInfo.InvariantCulture));
             dashVerticalDownImpulse = new XElement("DashVerticalDownImpulse", ((float)(ElementManager.ThunderParameters[2][5])).ToString("G", CultureInfo.InvariantCulture));
-            XElement stunDuration = new XElement("StunDuration", ((float)(ElementManager.ThunderParameters[2][6])).ToString("G", CultureInfo.InvariantCulture));
 
             thirdLevel.Add(gaugeCost);
             thirdLevel.Add(dashHorizontalImpulse);
@@ -117,7 +116,6 @@ namespace NeonStarEditor
             thirdLevel.Add(attackToLaunch);
             thirdLevel.Add(dashVerticalUpImpulse);
             thirdLevel.Add(dashVerticalDownImpulse);
-            thirdLevel.Add(stunDuration);
 
             thunderParameters.Add(thirdLevel);
 
@@ -133,6 +131,11 @@ namespace NeonStarEditor
             thunderParameters.Add(assimilation);
 
             elements.Add(thunderParameters);
+        }
+
+        private void ClosePanel_Click(object sender, EventArgs e)
+        {
+            (Neon.World as EditorScreen).ToggleElementPanel();
         }
     }
 }
