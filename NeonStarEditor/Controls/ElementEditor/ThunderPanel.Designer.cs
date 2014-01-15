@@ -57,13 +57,11 @@
             this.GaugeCostLevelThree = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.DashHorizontalImpulseLevelThree = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.DashVerticalDownImpulseLevelThree = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.StunDurationLevelThree = new System.Windows.Forms.NumericUpDown();
             this.DashDurationLevelThree = new System.Windows.Forms.NumericUpDown();
             this.DashVerticalUpImpulseLevelThree = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -87,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GaugeCostLevelThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashHorizontalImpulseLevelThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashVerticalDownImpulseLevelThree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunDurationLevelThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashDurationLevelThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashVerticalUpImpulseLevelThree)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -135,6 +132,16 @@
             // GaugeCostLevelOne
             // 
             this.GaugeCostLevelOne.Location = new System.Drawing.Point(142, 16);
+            this.GaugeCostLevelOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.GaugeCostLevelOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.GaugeCostLevelOne.Name = "GaugeCostLevelOne";
             this.GaugeCostLevelOne.Size = new System.Drawing.Size(53, 20);
             this.GaugeCostLevelOne.TabIndex = 1;
@@ -146,6 +153,16 @@
             // 
             this.DashDurationLevelOne.DecimalPlaces = 2;
             this.DashDurationLevelOne.Location = new System.Drawing.Point(142, 67);
+            this.DashDurationLevelOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashDurationLevelOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashDurationLevelOne.Name = "DashDurationLevelOne";
             this.DashDurationLevelOne.Size = new System.Drawing.Size(53, 20);
             this.DashDurationLevelOne.TabIndex = 1;
@@ -156,6 +173,16 @@
             // DashHorizontalImpulseLevelOne
             // 
             this.DashHorizontalImpulseLevelOne.Location = new System.Drawing.Point(142, 41);
+            this.DashHorizontalImpulseLevelOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashHorizontalImpulseLevelOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashHorizontalImpulseLevelOne.Name = "DashHorizontalImpulseLevelOne";
             this.DashHorizontalImpulseLevelOne.Size = new System.Drawing.Size(53, 20);
             this.DashHorizontalImpulseLevelOne.TabIndex = 1;
@@ -259,6 +286,16 @@
             // GaugeCostLevelTwo
             // 
             this.GaugeCostLevelTwo.Location = new System.Drawing.Point(142, 17);
+            this.GaugeCostLevelTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.GaugeCostLevelTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.GaugeCostLevelTwo.Name = "GaugeCostLevelTwo";
             this.GaugeCostLevelTwo.Size = new System.Drawing.Size(53, 20);
             this.GaugeCostLevelTwo.TabIndex = 1;
@@ -279,6 +316,16 @@
             // 
             this.DashDurationLevelTwo.DecimalPlaces = 2;
             this.DashDurationLevelTwo.Location = new System.Drawing.Point(142, 68);
+            this.DashDurationLevelTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashDurationLevelTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashDurationLevelTwo.Name = "DashDurationLevelTwo";
             this.DashDurationLevelTwo.Size = new System.Drawing.Size(53, 20);
             this.DashDurationLevelTwo.TabIndex = 1;
@@ -289,6 +336,16 @@
             // DashVerticalDownImpulseLevelTwo
             // 
             this.DashVerticalDownImpulseLevelTwo.Location = new System.Drawing.Point(350, 68);
+            this.DashVerticalDownImpulseLevelTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashVerticalDownImpulseLevelTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashVerticalDownImpulseLevelTwo.Name = "DashVerticalDownImpulseLevelTwo";
             this.DashVerticalDownImpulseLevelTwo.Size = new System.Drawing.Size(53, 20);
             this.DashVerticalDownImpulseLevelTwo.TabIndex = 1;
@@ -308,6 +365,16 @@
             // DashVerticalUpImpulseLevelTwo
             // 
             this.DashVerticalUpImpulseLevelTwo.Location = new System.Drawing.Point(350, 42);
+            this.DashVerticalUpImpulseLevelTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashVerticalUpImpulseLevelTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashVerticalUpImpulseLevelTwo.Name = "DashVerticalUpImpulseLevelTwo";
             this.DashVerticalUpImpulseLevelTwo.Size = new System.Drawing.Size(53, 20);
             this.DashVerticalUpImpulseLevelTwo.TabIndex = 1;
@@ -318,6 +385,16 @@
             // DashHorizontalImpulseLevelTwo
             // 
             this.DashHorizontalImpulseLevelTwo.Location = new System.Drawing.Point(142, 42);
+            this.DashHorizontalImpulseLevelTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashHorizontalImpulseLevelTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashHorizontalImpulseLevelTwo.Name = "DashHorizontalImpulseLevelTwo";
             this.DashHorizontalImpulseLevelTwo.Size = new System.Drawing.Size(53, 20);
             this.DashHorizontalImpulseLevelTwo.TabIndex = 1;
@@ -341,18 +418,16 @@
             this.groupBox3.Controls.Add(this.GaugeCostLevelThree);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.DashHorizontalImpulseLevelThree);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.DashVerticalDownImpulseLevelThree);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.StunDurationLevelThree);
             this.groupBox3.Controls.Add(this.DashDurationLevelThree);
             this.groupBox3.Controls.Add(this.DashVerticalUpImpulseLevelThree);
             this.groupBox3.Location = new System.Drawing.Point(15, 246);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(410, 122);
+            this.groupBox3.Size = new System.Drawing.Size(410, 101);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Third Level";
@@ -378,6 +453,16 @@
             // GaugeCostLevelThree
             // 
             this.GaugeCostLevelThree.Location = new System.Drawing.Point(142, 17);
+            this.GaugeCostLevelThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.GaugeCostLevelThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.GaugeCostLevelThree.Name = "GaugeCostLevelThree";
             this.GaugeCostLevelThree.Size = new System.Drawing.Size(53, 20);
             this.GaugeCostLevelThree.TabIndex = 1;
@@ -403,15 +488,6 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Dash Horizontal Impulse";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 95);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Stun Duration";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -424,6 +500,16 @@
             // DashHorizontalImpulseLevelThree
             // 
             this.DashHorizontalImpulseLevelThree.Location = new System.Drawing.Point(142, 42);
+            this.DashHorizontalImpulseLevelThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashHorizontalImpulseLevelThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashHorizontalImpulseLevelThree.Name = "DashHorizontalImpulseLevelThree";
             this.DashHorizontalImpulseLevelThree.Size = new System.Drawing.Size(53, 20);
             this.DashHorizontalImpulseLevelThree.TabIndex = 1;
@@ -443,6 +529,16 @@
             // DashVerticalDownImpulseLevelThree
             // 
             this.DashVerticalDownImpulseLevelThree.Location = new System.Drawing.Point(350, 68);
+            this.DashVerticalDownImpulseLevelThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashVerticalDownImpulseLevelThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashVerticalDownImpulseLevelThree.Name = "DashVerticalDownImpulseLevelThree";
             this.DashVerticalDownImpulseLevelThree.Size = new System.Drawing.Size(53, 20);
             this.DashVerticalDownImpulseLevelThree.TabIndex = 1;
@@ -459,21 +555,20 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Attack To Launch";
             // 
-            // StunDurationLevelThree
-            // 
-            this.StunDurationLevelThree.DecimalPlaces = 2;
-            this.StunDurationLevelThree.Location = new System.Drawing.Point(142, 94);
-            this.StunDurationLevelThree.Name = "StunDurationLevelThree";
-            this.StunDurationLevelThree.Size = new System.Drawing.Size(53, 20);
-            this.StunDurationLevelThree.TabIndex = 1;
-            this.StunDurationLevelThree.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
-            this.StunDurationLevelThree.Enter += new System.EventHandler(this.numericUpDown_Enter);
-            this.StunDurationLevelThree.Leave += new System.EventHandler(this.numericUpDown_Leave);
-            // 
             // DashDurationLevelThree
             // 
             this.DashDurationLevelThree.DecimalPlaces = 2;
             this.DashDurationLevelThree.Location = new System.Drawing.Point(142, 68);
+            this.DashDurationLevelThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashDurationLevelThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashDurationLevelThree.Name = "DashDurationLevelThree";
             this.DashDurationLevelThree.Size = new System.Drawing.Size(53, 20);
             this.DashDurationLevelThree.TabIndex = 1;
@@ -484,6 +579,16 @@
             // DashVerticalUpImpulseLevelThree
             // 
             this.DashVerticalUpImpulseLevelThree.Location = new System.Drawing.Point(350, 42);
+            this.DashVerticalUpImpulseLevelThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DashVerticalUpImpulseLevelThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.DashVerticalUpImpulseLevelThree.Name = "DashVerticalUpImpulseLevelThree";
             this.DashVerticalUpImpulseLevelThree.Size = new System.Drawing.Size(53, 20);
             this.DashVerticalUpImpulseLevelThree.TabIndex = 1;
@@ -519,6 +624,16 @@
             // 
             this.MovementSpeedModifier.DecimalPlaces = 2;
             this.MovementSpeedModifier.Location = new System.Drawing.Point(142, 42);
+            this.MovementSpeedModifier.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.MovementSpeedModifier.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.MovementSpeedModifier.Name = "MovementSpeedModifier";
             this.MovementSpeedModifier.Size = new System.Drawing.Size(53, 20);
             this.MovementSpeedModifier.TabIndex = 1;
@@ -548,6 +663,16 @@
             // 
             this.AttackSpeedModifier.DecimalPlaces = 2;
             this.AttackSpeedModifier.Location = new System.Drawing.Point(351, 18);
+            this.AttackSpeedModifier.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AttackSpeedModifier.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.AttackSpeedModifier.Name = "AttackSpeedModifier";
             this.AttackSpeedModifier.Size = new System.Drawing.Size(53, 20);
             this.AttackSpeedModifier.TabIndex = 1;
@@ -559,6 +684,16 @@
             // 
             this.ModifierDuration.DecimalPlaces = 2;
             this.ModifierDuration.Location = new System.Drawing.Point(142, 17);
+            this.ModifierDuration.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.ModifierDuration.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.ModifierDuration.Name = "ModifierDuration";
             this.ModifierDuration.Size = new System.Drawing.Size(53, 20);
             this.ModifierDuration.TabIndex = 1;
@@ -596,7 +731,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GaugeCostLevelThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashHorizontalImpulseLevelThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashVerticalDownImpulseLevelThree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StunDurationLevelThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashDurationLevelThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DashVerticalUpImpulseLevelThree)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -641,13 +775,11 @@
         private System.Windows.Forms.NumericUpDown GaugeCostLevelThree;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown DashHorizontalImpulseLevelThree;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown DashVerticalDownImpulseLevelThree;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown StunDurationLevelThree;
         private System.Windows.Forms.NumericUpDown DashDurationLevelThree;
         private System.Windows.Forms.NumericUpDown DashVerticalUpImpulseLevelThree;
         private System.Windows.Forms.Label label20;

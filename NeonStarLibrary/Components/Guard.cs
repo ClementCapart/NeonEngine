@@ -197,16 +197,48 @@ namespace NeonStarLibrary
                 _isGuarding = false;
             else if (_isRolling)
             {
+                int offset = 0;
+
                 if (entity.rigidbody.body.ContactList != null)
                 {
-                    entity.rigidbody.body.ContactList.Contact.ResetFriction();
+                    if (entity.rigidbody.body.ContactList.Contact.FixtureA.Body != entity.rigidbody.body)
+                    {    
+                        Entity EntityB = (Entity)entity.rigidbody.body.ContactList.Contact.FixtureA.UserData;
+                        if (entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2)
+                        {
+                            entity.rigidbody.body.ContactList.Contact.ResetFriction();
+                        }                      
+                    }
+                    else
+                    {
+                        Entity EntityB = (Entity)entity.rigidbody.body.ContactList.Contact.FixtureB.UserData;
+                        if (entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2)
+                        {
+                            entity.rigidbody.body.ContactList.Contact.ResetFriction();
+                        }
+                    }
 
                     ContactEdge ce = entity.rigidbody.body.ContactList;
 
                     while (ce.Next != null)
                     {
                         ce = ce.Next;
-                        ce.Contact.ResetFriction();
+                        if (ce.Contact.FixtureA.Body != entity.rigidbody.body)
+                        {
+                            Entity EntityB = (Entity)ce.Contact.FixtureA.UserData;
+                            if (entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2)
+                            {
+                                ce.Contact.ResetFriction();
+                            }
+                        }
+                        else
+                        {
+                            Entity EntityB = (Entity)ce.Contact.FixtureB.UserData;
+                            if (entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2)
+                            {
+                                ce.Contact.ResetFriction();
+                            }
+                        }
                     }
                 }
                 _isRolling = false;

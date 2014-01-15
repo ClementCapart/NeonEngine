@@ -27,10 +27,12 @@ namespace NeonEngine
             if (animatedSpecialEffect.Components.Count > 1)
             {
                 spriteSheet = animatedSpecialEffect.spriteSheet;
+                spriteSheet.RotationOffset = Rotation;
             }
             else
             {
                 spriteSheet = new SpriteSheet(animatedSpecialEffect);
+                spriteSheet.RotationOffset = Rotation;
                 animatedSpecialEffect.AddComponent(spriteSheet);
                 animatedSpecialEffect.spriteSheet = spriteSheet;
             }
