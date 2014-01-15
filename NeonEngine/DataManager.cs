@@ -51,7 +51,7 @@ namespace NeonEngine
                         if (n.Type == NodeType.DelayedMove)
                             node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", Neon.Utils.Vector2ToString(n.Position)), new XAttribute("Delay", n.NodeDelay.ToString("G", CultureInfo.InvariantCulture)));
                         else
-                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", n.Position.ToString()));
+                            node = new XElement("Node", new XAttribute("Type", n.Type), new XAttribute("Index", n.index), new XAttribute("Position", Neon.Utils.Vector2ToString(n.Position)));
                         nodeList.Add(node);
                     }
                     pathNodeLists.Add(nodeList);
