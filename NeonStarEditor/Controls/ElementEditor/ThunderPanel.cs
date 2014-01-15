@@ -116,11 +116,11 @@ namespace NeonStarEditor
                     break;
 
                 case "MovementSpeedModifier":
-                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
+                    ElementManager.ThunderParameters[3][1] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "AttackSpeedModifier":
-                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
+                    ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }
@@ -186,11 +186,11 @@ namespace NeonStarEditor
                     break;
 
                 case "MovementSpeedModifier":
-                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
+                    ElementManager.ThunderParameters[3][1] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "AttackSpeedModifier":
-                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
+                    ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

@@ -229,11 +229,11 @@ namespace NeonStarLibrary
                     switch (_elementSystem.LeftSlotElement)
                     {
                         case Element.Fire:
-                            ratio = Math.Abs(_elementSystem.LeftSlotCooldownTimer / _elementSystem.FireCooldown - 1);
+                            ratio = Math.Abs(_elementSystem.LeftSlotEnergy / 100f);
                             break;
 
                         case Element.Thunder:
-                            ratio = Math.Abs(_elementSystem.LeftSlotCooldownTimer / _elementSystem.ThunderCooldown - 1);
+                            ratio = Math.Abs(_elementSystem.LeftSlotEnergy / 100f);
                             break;
                     }
                 }
@@ -248,11 +248,11 @@ namespace NeonStarLibrary
                     switch (_elementSystem.RightSlotElement)
                     {
                         case Element.Fire:
-                            ratio = Math.Abs(_elementSystem.RightSlotCooldownTimer / _elementSystem.FireCooldown - 1);
+                            ratio = Math.Abs(_elementSystem.RightSlotEnergy / 100f);
                             break;
 
                         case Element.Thunder:
-                            ratio = Math.Abs(_elementSystem.RightSlotCooldownTimer / _elementSystem.ThunderCooldown - 1);
+                            ratio = Math.Abs(_elementSystem.RightSlotEnergy / 100f);
                             break;
                     }
                 }

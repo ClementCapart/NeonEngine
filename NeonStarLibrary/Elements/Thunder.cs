@@ -38,7 +38,7 @@ namespace NeonStarLibrary
                     break;
 
                 case 2:
-                    _gaugeCost = (float)ElementManager.ThunderParameters[0][1];
+                    _gaugeCost = (float)ElementManager.ThunderParameters[1][0];
                     if (Neon.Input.Check(NeonStarInput.MoveUp))
                         _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[1][4]);
                     else if (Neon.Input.Check(NeonStarInput.MoveDown))
@@ -50,7 +50,7 @@ namespace NeonStarLibrary
                     break;
 
                 case 3:
-                    _gaugeCost = (float)ElementManager.ThunderParameters[0][2];
+                    _gaugeCost = (float)ElementManager.ThunderParameters[2][0];
                     if (Neon.Input.Check(NeonStarInput.MoveUp))
                         _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[2][4]);
                     else if (Neon.Input.Check(NeonStarInput.MoveDown))
@@ -114,18 +114,17 @@ namespace NeonStarLibrary
                         if (ThunderAttack != null) ThunderAttack.CancelAttack();
                         ThunderAttack = null;
                         State = ElementState.End;
-                    }
+                        switch (_input)
+                        {
+                            case NeonStarInput.UseLeftSlotElement:
+                                _elementSystem.LeftSlotEnergy -= _gaugeCost;
+                                break;
 
-                    switch (_input)
-                    {
-                        case NeonStarInput.UseLeftSlotElement:
-                            _elementSystem.LeftSlotCooldownTimer = _elementSystem.ThunderCooldown;
-                            break;
-
-                        case NeonStarInput.UseRightSlotElement:
-                            _elementSystem.RightSlotCooldownTimer = _elementSystem.ThunderCooldown;
-                            break;
-                    }
+                            case NeonStarInput.UseRightSlotElement:
+                                _elementSystem.RightSlotEnergy -= _gaugeCost;
+                                break;
+                        }
+                    }                  
 
                     break;
 

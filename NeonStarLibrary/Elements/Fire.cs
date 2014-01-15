@@ -86,11 +86,11 @@ namespace NeonStarLibrary
                             switch (_input)
                             {
                                 case NeonStarInput.UseLeftSlotElement:
-                                    _elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
+                                    //_elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
                                     break;
 
                                 case NeonStarInput.UseRightSlotElement:
-                                    _elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
+                                    //_elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
                                     break;
                             }
 
@@ -194,11 +194,11 @@ namespace NeonStarLibrary
                     switch(_input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            _elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
+                            //_elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            _elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
+                            //_elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
                             break;
                     }
                     State = ElementState.End;

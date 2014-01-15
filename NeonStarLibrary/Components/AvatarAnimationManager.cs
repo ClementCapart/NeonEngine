@@ -92,38 +92,66 @@ namespace NeonStarLibrary
                         switch(AvatarComponent.MeleeFight.CurrentComboHit)
                         {
                             case ComboSequence.Starter:
-                                if(AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                                if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                                {
                                     entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Starter", true, 0, true, true, false);
+                                    if (AvatarComponent.MeleeFight != null)
+                                        entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                                }
                                 break;
 
                             case ComboSequence.Link:
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                                {
                                     entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Link", true, 0, true, true, false);
+                                    if (AvatarComponent.MeleeFight != null)
+                                        entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                                }
                                 break;
 
                             case ComboSequence.Finish:
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                                {
                                     entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.LightAttackAnimation + "Finish", true, 0, true, true, false);
+                                    if (AvatarComponent.MeleeFight != null)
+                                        entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                                }
                                 break;
                         }                   
                     }
                     else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.UppercutName))
                     {
                         if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                        {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.UppercutAnimation, true, 0, true, true, false);
+                            if (AvatarComponent.MeleeFight != null)
+                                entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                        }
                     }
                     else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.RushAttackName))
                     {
                         if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                        {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.RushAttackAnimation, true, 0, true, true, false);
+                            if (AvatarComponent.MeleeFight != null)
+                                entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                        }
                     }
                     else if(AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.DiveAttackName))
                     {
                         if(entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLoopAnimation && entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLandAnimation)
                             if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
+                            {
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartAnimation, true, 0, true, true, false);
-                        if(entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation && entity.spritesheets.IsFinished())
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, true, 0, true, true, true);
+                                if (AvatarComponent.MeleeFight != null)
+                                    entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                            }
+                        if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation && entity.spritesheets.IsFinished())
+                        {
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, true, 0, true, true, true);
+                            if (AvatarComponent.MeleeFight != null)
+                                entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
+                        }
                         
                     }
 
@@ -131,7 +159,7 @@ namespace NeonStarLibrary
                     {
                         LastAttackHashCode = AvatarComponent.MeleeFight.CurrentAttack.GetHashCode();
                     }
-                        
+                    
                     break;
 
                 case AvatarState.UsingElement:

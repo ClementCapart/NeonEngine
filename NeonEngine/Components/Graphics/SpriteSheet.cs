@@ -9,7 +9,7 @@ namespace NeonEngine
         public bool isPlaying = true;
         public int currentFrame = 0;
         public SpriteSheetInfo spriteSheetInfo;
-        double timePerFrame;
+        public double TimePerFrame;
         double frameTimer = 0f;
         public SpriteEffects spriteEffects = SpriteEffects.None;
         public bool isHUD;
@@ -87,7 +87,7 @@ namespace NeonEngine
             if (spriteSheetInfo.Fps == 0)
                 isPlaying = false;
             else
-                timePerFrame = 1 / spriteSheetInfo.Fps;
+                TimePerFrame = 1 / spriteSheetInfo.Fps;
             
             frameTimer = 0;
             _isFinished = false;
@@ -100,7 +100,7 @@ namespace NeonEngine
             {
                     frameTimer += gameTime != null ? gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
 
-                    while (frameTimer > timePerFrame)
+                    while (frameTimer > TimePerFrame)
                     {
                         if (isPlaying)
                         {
@@ -144,7 +144,7 @@ namespace NeonEngine
                             }
                         }
 
-                        frameTimer -= timePerFrame;
+                        frameTimer -= TimePerFrame;
                     }                  
             }
             base.Update(gameTime);

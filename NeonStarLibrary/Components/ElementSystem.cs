@@ -25,28 +25,12 @@ namespace NeonStarLibrary
             set { _fireLaunchAnimation = value; }
         }
 
-        private float _fireCooldown = 0.0f;
-
-        public float FireCooldown
-        {
-            get { return _fireCooldown; }
-            set { _fireCooldown = value; }
-        }
-
         private string _thunderLaunchAnimation = "";
 
         public string ThunderLaunchAnimation
         {
             get { return _thunderLaunchAnimation; }
             set { _thunderLaunchAnimation = value; }
-        }
-
-        private float _thunderCooldown = 0.0f;
-
-        public float ThunderCooldown
-        {
-            get { return _thunderCooldown; }
-            set { _thunderCooldown = value; }
         }
 
         private Element _leftSlotElement = Element.Neutral;
@@ -65,7 +49,7 @@ namespace NeonStarLibrary
             set { _leftSlotLevel = value; }
         }
 
-        public float LeftSlotCooldownTimer = 0.0f;
+        public float LeftSlotEnergy = 100.0f;
 
         private Element _rightSlotElement = Element.Neutral;
 
@@ -83,7 +67,7 @@ namespace NeonStarLibrary
             set { _rightSlotLevel = value; }
         }
 
-        public float RightSlotCooldownTimer = 0.0f;      
+        public float RightSlotEnergy = 100.0f;      
 
         private float _maxLevel = 3;
 
@@ -117,7 +101,13 @@ namespace NeonStarLibrary
             set { _getElementColorDelay = value; }
         }
 
-        #endregion
+        private float _energyRegenerationRate = 20.0f;
+        public float EnergyRegenerationRate
+        {
+            get { return _energyRegenerationRate; }
+            set { _energyRegenerationRate = value; }
+        }
+        #endregion     
 
         public Avatar AvatarComponent = null;
 
@@ -152,18 +142,18 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (LeftSlotCooldownTimer > 0.0f)
+            if (LeftSlotEnergy < 100.0f)
             {
-                LeftSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (LeftSlotCooldownTimer < 0.0f)
-                    LeftSlotCooldownTimer = 0.0f;
+                LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                if (LeftSlotEnergy > 100.0f)
+                    LeftSlotEnergy = 100.0f;
             }
 
-            if (RightSlotCooldownTimer > 0.0f)
+            if (RightSlotEnergy > 100.0f)
             {
-                RightSlotCooldownTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (RightSlotCooldownTimer < 0.0f)
-                    RightSlotCooldownTimer = 0.0f;
+                RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                if (RightSlotEnergy > 100.0f)
+                    RightSlotEnergy = 100.0f;
             }
 
             if (CurrentElementEffect != null)
@@ -179,7 +169,7 @@ namespace NeonStarLibrary
         {
             if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
             {
-                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement) && LeftSlotCooldownTimer <= 0.0f)
+                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
                     {
@@ -187,7 +177,7 @@ namespace NeonStarLibrary
                         UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
                     }
                 }
-                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement) && RightSlotCooldownTimer <= 0.0f)
+                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
                 {
                     if (_rightSlotElement != Element.Neutral)
                     {
@@ -196,24 +186,16 @@ namespace NeonStarLibrary
                     }
                 }
 
-                /*if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
                 {
                     if (_leftSlotElement != Element.Neutral)
-                    {
-                        Console.WriteLine("Drop Element -> " + LeftSlotElement);
-                        _leftSlotElement = Element.Neutral;
-                        _leftSlotLevel = 1;
-                    }
+                        DropElement(Side.Left);
                 }
                 if (Neon.Input.Pressed(NeonStarInput.DropRightSlotElement))
                 {
                     if (_rightSlotElement != Element.Neutral)
-                    {
-                        Console.WriteLine("Drop Element -> " + RightSlotElement);
-                        _rightSlotElement = Element.Neutral;
-                        _rightSlotLevel = 1;
-                    }
-                }*/
+                        DropElement(Side.Right);
+                }
             }
             else if (CurrentElementEffect != null)
             {
@@ -263,14 +245,46 @@ namespace NeonStarLibrary
 
         public void UseElement(Element element, int level, NeonStarInput input)
         {
-            switch(element)
+            switch (element)
             {
                 case Element.Fire:
                     CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
                     break;
 
                 case Element.Thunder:
-                    CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
+                    float gaugeCost = 0.0f;
+                    switch (level)
+                    {
+                        case 1:
+                            gaugeCost = (float)ElementManager.ThunderParameters[0][0];
+                            break;
+
+                        case 2:
+                            gaugeCost = (float)ElementManager.ThunderParameters[1][0];
+                            break;
+
+                        case 3:
+                            gaugeCost = (float)ElementManager.ThunderParameters[2][0];
+                            break;
+                    }
+
+                    switch (input)
+                    {
+                        case NeonStarInput.UseLeftSlotElement:
+                            if (gaugeCost <= LeftSlotEnergy)
+                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+
+                        case NeonStarInput.UseRightSlotElement:
+                            if(gaugeCost <= RightSlotEnergy)
+                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+                    }
+
                     break;
             }
         }
@@ -282,6 +296,29 @@ namespace NeonStarLibrary
                 if (_leftSlotElement != Element.Neutral)
                 {
                     Console.WriteLine("Drop Element -> " + LeftSlotElement);
+                    switch (_leftSlotElement)
+                    {
+                        case Element.Thunder:
+                            switch (_leftSlotLevel.ToString())
+                            {
+                                case "1":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+
+                                case "2":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+
+                                case "3":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+                            }
+                            break;
+                    }
+
                     _leftSlotElement = Element.Neutral;
                     _leftSlotLevel = 1;
                 }
@@ -291,6 +328,28 @@ namespace NeonStarLibrary
                 if (_rightSlotElement != Element.Neutral)
                 {
                     Console.WriteLine("Drop Element -> " + RightSlotElement);
+                    switch (_leftSlotElement)
+                    {
+                        case Element.Thunder:
+                            switch (_leftSlotLevel.ToString())
+                            {
+                                case "1":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+
+                                case "2":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+
+                                case "3":
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    break;
+                            }
+                            break;
+                    }
                     _rightSlotElement = Element.Neutral;
                     _rightSlotLevel = 1;
                 }

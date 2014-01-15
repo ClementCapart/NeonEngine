@@ -150,6 +150,10 @@ namespace NeonStarLibrary
         private string _nextAttack = "";
         private bool _triedAttacking = false;
 
+        private float _attackSpeedModifierTimer = 0.0f;
+        private float _attackSpeedBoostModifier = 0.0f;
+        public float AttackSpeedModifier = 1.0f;
+
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")
         {
@@ -170,7 +174,8 @@ namespace NeonStarLibrary
 
             if (CurrentAttack != null)
             {
-                CurrentAttack.Update(gameTime);
+                GameTime gt = new GameTime(gameTime.TotalGameTime, new TimeSpan((long)(gameTime.ElapsedGameTime.Ticks * AttackSpeedModifier)));
+                CurrentAttack.Update(gt);
                 if (CurrentAttack.CooldownFinished)
                 {
                     CurrentAttack = null;
@@ -289,7 +294,18 @@ namespace NeonStarLibrary
             if (CurrentComboHit == ComboSequence.None)
             {
                 _lastHitDelay = 0.0f;
-            }       
+            }
+
+            if (_attackSpeedModifierTimer > 0.0f)
+            {
+                _attackSpeedModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_attackSpeedModifierTimer <= 0.0f)
+                {
+                    _attackSpeedModifierTimer = 0.0f;
+                    AttackSpeedModifier = AttackSpeedModifier / _attackSpeedBoostModifier;
+                }
+
+            }
 
             _triedAttacking = false;
             
@@ -557,6 +573,13 @@ namespace NeonStarLibrary
         public void ResetComboHit()
         {
             CurrentComboHit = ComboSequence.None;
+        }
+
+        public void BoostAttackSpeed(float newModifier, float duration)
+        {
+            _attackSpeedModifierTimer = duration;
+            AttackSpeedModifier *= newModifier;
+            _attackSpeedBoostModifier = newModifier;
         }
     }
 }

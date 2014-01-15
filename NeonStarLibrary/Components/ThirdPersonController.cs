@@ -124,6 +124,10 @@ namespace NeonStarLibrary
 
         private bool _hasAlreadyAirJumped = false;
 
+        private float _movementSpeedModifierTimer = 0.0f;
+        private float _movementSpeedBoostModifier = 0.0f;
+        private float _movementSpeedModifier = 1.0f;
+
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
         {
@@ -180,15 +184,15 @@ namespace NeonStarLibrary
                     _hasAlreadyAirJumped = false;
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
-                        if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(1) == null)
-                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed), 0);
+                        if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
+                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed) * _movementSpeedModifier, 0);
 
                         AvatarComponent.State = AvatarState.Moving;
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
-                        if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed && entity.rigidbody.beacon.CheckRightSide(1) == null)
-                            entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed, 0);
+                        if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(1) == null)
+                            entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed * _movementSpeedModifier, 0);
 
                         AvatarComponent.State = AvatarState.Moving;
                     }
@@ -238,16 +242,16 @@ namespace NeonStarLibrary
                         AvatarComponent.State = AvatarState.Moving;
                         AvatarComponent.CurrentSide = Side.Left;
 
-                        if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) && entity.rigidbody.beacon.CheckLeftSide(0) == null)
-                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed), 0);
+                        if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(0) == null)
+                            entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed) * _movementSpeedModifier, 0);
                     }
                     else if (Neon.Input.Check(NeonStarInput.MoveRight))
                     {
                         AvatarComponent.State = AvatarState.Moving;
                         AvatarComponent.CurrentSide = Side.Right;
 
-                        if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed && entity.rigidbody.beacon.CheckRightSide(0) == null)
-                            entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed, 0);
+                        if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(0) == null)
+                            entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed * _movementSpeedModifier, 0);
                     }
                     else if (AvatarComponent.CanMove)
                     {
@@ -292,7 +296,26 @@ namespace NeonStarLibrary
 
             foreach (Rigidbody rg in _ignoredGeometry)
                 entity.rigidbody.body.IgnoreCollisionWith(rg.body);
+
+            if (_movementSpeedModifierTimer > 0.0f)
+            {
+                _movementSpeedModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_movementSpeedModifierTimer <= 0.0f)
+                {
+                    _movementSpeedModifierTimer = 0.0f;
+                    _movementSpeedModifier = _movementSpeedModifier / _movementSpeedBoostModifier;
+                }
+
+            }
+
             base.Update(gameTime);
+        }
+
+        public void BoostMovementSpeed(float newModifier, float duration)
+        {
+            _movementSpeedModifierTimer = duration;
+            _movementSpeedModifier *= newModifier;
+            _movementSpeedBoostModifier = newModifier;
         }
     }
 }
