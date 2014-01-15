@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using NeonEngine;
+using System.Globalization;
 
 namespace NeonStar
 {
@@ -19,6 +20,7 @@ namespace NeonStar
 
         void Run()
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Console.SetOut(new LogWriter("log.txt", false, Console.Out.Encoding, Console.BufferWidth * Console.BufferHeight, Console.Out));
 

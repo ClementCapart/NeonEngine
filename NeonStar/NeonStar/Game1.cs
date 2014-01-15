@@ -28,6 +28,7 @@ namespace NeonStar
             IsFixedTimeStep = false;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
+            Window.Title = "NeonStar " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         protected override void OnExiting(object sender, EventArgs args)
