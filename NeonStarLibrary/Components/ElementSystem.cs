@@ -339,13 +339,13 @@ namespace NeonStarLibrary
                                     break;
 
                                 case "2":
-                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
-                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[4][1] / 100f, (float)ElementManager.ThunderParameters[4][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[4][2] / 100f, (float)ElementManager.ThunderParameters[4][0]);
                                     break;
 
                                 case "3":
-                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
-                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[3][2] / 100f, (float)ElementManager.ThunderParameters[3][0]);
+                                    AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[5][1] / 100f, (float)ElementManager.ThunderParameters[5][0]);
+                                    AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[5][2] / 100f, (float)ElementManager.ThunderParameters[5][0]);
                                     break;
                             }
                             break;

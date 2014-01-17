@@ -55,9 +55,25 @@ namespace NeonStarLibrary
 
             List<object> assimilationParameters = new List<object>();
 
-            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("ModifierDuration").Value.ToString()));
-            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("MovementSpeedModifier").Value.ToString()));
-            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("AttackSpeedModifier").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("FirstLevel").Element("ModifierDuration").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("FirstLevel").Element("MovementSpeedModifier").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("FirstLevel").Element("AttackSpeedModifier").Value.ToString()));
+
+            ThunderParameters.Add(assimilationParameters);
+
+            assimilationParameters = new List<object>();
+
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("SecondLevel").Element("ModifierDuration").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("SecondLevel").Element("MovementSpeedModifier").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("SecondLevel").Element("AttackSpeedModifier").Value.ToString()));
+
+            ThunderParameters.Add(assimilationParameters);
+
+            assimilationParameters = new List<object>();
+
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("ThirdLevel").Element("ModifierDuration").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("ThirdLevel").Element("MovementSpeedModifier").Value.ToString()));
+            assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("ThirdLevel").Element("AttackSpeedModifier").Value.ToString()));
 
             ThunderParameters.Add(assimilationParameters);
         }

@@ -120,13 +120,38 @@ namespace NeonStarEditor
             thunderParameters.Add(thirdLevel);
 
             XElement assimilation = new XElement("Assimilation");
+            XElement assimilationFirstLevel = new XElement("FirstLevel");
             XElement modifierDuration = new XElement("ModifierDuration", ((float)(ElementManager.ThunderParameters[3][0])).ToString("G", CultureInfo.InvariantCulture));
             XElement movementSpeedModifier = new XElement("MovementSpeedModifier", ((float)(ElementManager.ThunderParameters[3][1])).ToString("G", CultureInfo.InvariantCulture));
             XElement attackSpeedModifier = new XElement("AttackSpeedModifier", ((float)(ElementManager.ThunderParameters[3][2])).ToString("G", CultureInfo.InvariantCulture));
 
-            assimilation.Add(modifierDuration);
-            assimilation.Add(movementSpeedModifier);
-            assimilation.Add(attackSpeedModifier);
+            assimilationFirstLevel.Add(modifierDuration);
+            assimilationFirstLevel.Add(movementSpeedModifier);
+            assimilationFirstLevel.Add(attackSpeedModifier);
+
+            assimilation.Add(assimilationFirstLevel);
+
+            XElement assimilationSecondLevel = new XElement("SecondLevel");
+            modifierDuration = new XElement("ModifierDuration", ((float)(ElementManager.ThunderParameters[4][0])).ToString("G", CultureInfo.InvariantCulture));
+            movementSpeedModifier = new XElement("MovementSpeedModifier", ((float)(ElementManager.ThunderParameters[4][1])).ToString("G", CultureInfo.InvariantCulture));
+            attackSpeedModifier = new XElement("AttackSpeedModifier", ((float)(ElementManager.ThunderParameters[4][2])).ToString("G", CultureInfo.InvariantCulture));
+
+            assimilationSecondLevel.Add(modifierDuration);
+            assimilationSecondLevel.Add(movementSpeedModifier);
+            assimilationSecondLevel.Add(attackSpeedModifier);
+
+            assimilation.Add(assimilationSecondLevel);
+
+            XElement assimilationThirdLevel = new XElement("ThirdLevel");
+            modifierDuration = new XElement("ModifierDuration", ((float)(ElementManager.ThunderParameters[5][0])).ToString("G", CultureInfo.InvariantCulture));
+            movementSpeedModifier = new XElement("MovementSpeedModifier", ((float)(ElementManager.ThunderParameters[5][1])).ToString("G", CultureInfo.InvariantCulture));
+            attackSpeedModifier = new XElement("AttackSpeedModifier", ((float)(ElementManager.ThunderParameters[5][2])).ToString("G", CultureInfo.InvariantCulture));
+
+            assimilationThirdLevel.Add(modifierDuration);
+            assimilationThirdLevel.Add(movementSpeedModifier);
+            assimilationThirdLevel.Add(attackSpeedModifier);
+
+            assimilation.Add(assimilationThirdLevel);
 
             thunderParameters.Add(assimilation);
 

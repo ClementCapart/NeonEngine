@@ -43,9 +43,17 @@ namespace NeonStarEditor
             this.DashVerticalUpImpulseLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][4];
             this.DashVerticalDownImpulseLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[2][5];
 
-            this.ModifierDuration.Value = (decimal)(float)ElementManager.ThunderParameters[3][0];
-            this.MovementSpeedModifier.Value = (decimal)(float)ElementManager.ThunderParameters[3][1];
-            this.AttackSpeedModifier.Value = (decimal)(float)ElementManager.ThunderParameters[3][2];
+            this.ModifierDurationLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[3][0];
+            this.MovementSpeedModifierLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[3][1];
+            this.AttackSpeedModifierLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[3][2];
+
+            this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][0];
+            this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][1];
+            this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][2];
+
+            this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][0];
+            this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][1];
+            this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][2];
         }
 
         private void numericUpDown_Enter(object sender, EventArgs e)
@@ -111,16 +119,40 @@ namespace NeonStarEditor
                     ElementManager.ThunderParameters[2][5] = (float)(sender as NumericUpDown).Value;
                     break;
 
-                case "ModifierDuration":
+                case "ModifierDurationLevelOne":
                     ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
                     break;
 
-                case "MovementSpeedModifier":
+                case "MovementSpeedModifierLevelOne":
                     ElementManager.ThunderParameters[3][1] = (float)(sender as NumericUpDown).Value;
                     break;
 
-                case "AttackSpeedModifier":
+                case "AttackSpeedModifierLevelOne":
                     ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ModifierDurationLevelTwo":
+                    ElementManager.ThunderParameters[4][0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "MovementSpeedModifierLevelTwo":
+                    ElementManager.ThunderParameters[4][1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AttackSpeedModifierLevelTwo":
+                    ElementManager.ThunderParameters[4][2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ModifierDurationLevelThree":
+                    ElementManager.ThunderParameters[5][0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "MovementSpeedModifierLevelThree":
+                    ElementManager.ThunderParameters[5][1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AttackSpeedModifierLevelThree":
+                    ElementManager.ThunderParameters[5][2] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }
@@ -191,6 +223,42 @@ namespace NeonStarEditor
 
                 case "AttackSpeedModifier":
                     ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ModifierDurationLevelOne":
+                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "MovementSpeedModifierLevelOne":
+                    ElementManager.ThunderParameters[3][1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AttackSpeedModifierLevelOne":
+                    ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ModifierDurationLevelTwo":
+                    ElementManager.ThunderParameters[4][0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "MovementSpeedModifierLevelTwo":
+                    ElementManager.ThunderParameters[4][1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AttackSpeedModifierLevelTwo":
+                    ElementManager.ThunderParameters[4][2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "ModifierDurationLevelThree":
+                    ElementManager.ThunderParameters[5][0] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "MovementSpeedModifierLevelThree":
+                    ElementManager.ThunderParameters[5][1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AttackSpeedModifierLevelThree":
+                    ElementManager.ThunderParameters[5][2] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

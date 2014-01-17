@@ -63,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(182, 0);
+            this.label2.Location = new System.Drawing.Point(288, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 32);
             this.label2.TabIndex = 1;
@@ -73,13 +73,13 @@
             // 
             this.settingPanel.Location = new System.Drawing.Point(3, 62);
             this.settingPanel.Name = "settingPanel";
-            this.settingPanel.Size = new System.Drawing.Size(440, 460);
+            this.settingPanel.Size = new System.Drawing.Size(630, 540);
             this.settingPanel.TabIndex = 2;
             // 
             // SaveButton
             // 
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Location = new System.Drawing.Point(352, 35);
+            this.SaveButton.Location = new System.Drawing.Point(558, 35);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 3;
@@ -91,7 +91,7 @@
             // 
             this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClosePanel.Location = new System.Drawing.Point(416, 3);
+            this.ClosePanel.Location = new System.Drawing.Point(606, 3);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(27, 26);
             this.ClosePanel.TabIndex = 4;
@@ -113,7 +113,7 @@
             this.Controls.Add(this.elementCombobox);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "ElementPanel";
-            this.Size = new System.Drawing.Size(446, 525);
+            this.Size = new System.Drawing.Size(639, 607);
             this.ResumeLayout(false);
             this.PerformLayout();
 
