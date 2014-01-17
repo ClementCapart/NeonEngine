@@ -858,13 +858,19 @@ namespace NeonStarEditor
 
                                 case Keys.OemPeriod:
                                     FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                        ",");
+                                        ".");
                                     (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                                     break;
 
                                 case Keys.OemComma:
                                     FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
-                                        ",");
+                                        ".");
+                                    (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
+                                    break;
+
+                                case Keys.Decimal:
+                                    FocusedNumericUpDown.Controls[1].Text = FocusedNumericUpDown.Controls[1].Text.Insert((FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart,
+                                        ".");
                                     (FocusedNumericUpDown.Controls[1] as TextBox).SelectionStart = ++LastSelectionStart;
                                     break;
 
