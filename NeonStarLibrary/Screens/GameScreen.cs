@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Xml.Linq;
+using System.IO;
 
 namespace NeonStarLibrary
 {
@@ -118,6 +120,20 @@ namespace NeonStarLibrary
         public override void ManualDrawBackHUD(SpriteBatch sb)
         {
             base.ManualDrawBackHUD(sb);
+        }
+
+        public void SaveProgression()
+        {
+            XDocument saveProgression = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+
+            XElement playerProgression = new XElement("PlayerProgression");
+            
+            
+            saveProgression.Add(playerProgression);
+
+            if(!Directory.Exists(@"../Save/"))
+                Directory.CreateDirectory(@"../Save/");
+            saveProgression.Save(@"../Save/PlayerProgression.xml");
         }
     }
 }
