@@ -56,7 +56,6 @@ namespace NeonEngine
         {
             Console.WriteLine(GetType().Name + " (World) loading...");
             Console.WriteLine("");
-            Neon.World = this;
             this.game = game;
             PhysicWorld = new FarseerPhysics.Dynamics.World(new Vector2(0.0f, 9.8f));
 
@@ -156,14 +155,13 @@ namespace NeonEngine
             DeferredDrawGame(Neon.SpriteBatch);
 
             if (!_change)
-                Alpha = Math.Max(Alpha - 0.01f, 0.0f);
+                Alpha = Math.Max(Alpha - 4.0f * (float)gameTime.ElapsedGameTime.TotalSeconds, 0.0f);
             else
             {
                 if (Alpha >= 1.0f)
                     Neon.World = NextScreen;
-                Alpha = Math.Min(Alpha + 0.035f, 1.0f);
-            }
-            
+                Alpha = Math.Min(Alpha + 4.0f * (float)gameTime.ElapsedGameTime.TotalSeconds, 1.0f);
+            }         
             
             InputEngine();
 
@@ -267,16 +265,18 @@ namespace NeonEngine
 
             spriteBatch.End();
 
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointWrap, null, null);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null);
             
             foreach (DrawableComponent hudc in HUDComponents)
                 hudc.Draw(spriteBatch);
             
             ManualDrawHUD(spriteBatch);
-            DrawDebugView(Neon.GraphicsDevice);
+            
             
             spriteBatch.Draw(AssetManager.GetTexture("neon_screen"), Vector2.Zero, Color.Lerp(Color.Transparent, Neon.FadeColor, Alpha));
             spriteBatch.End();
+
+            DrawDebugView(Neon.GraphicsDevice);
         }
 
         public virtual void ManualDrawBackHUD(SpriteBatch sb)

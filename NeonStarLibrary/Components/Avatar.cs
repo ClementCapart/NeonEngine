@@ -94,6 +94,7 @@ namespace NeonStarLibrary
         public ThirdPersonController ThirdPersonController;
         public Guard Guard;
         public ElementSystem ElementSystem;
+        public EnergySystem EnergySystem;
 
         public Side CurrentSide = Side.Right;
 
@@ -125,6 +126,7 @@ namespace NeonStarLibrary
             ThirdPersonController = this.entity.GetComponent<ThirdPersonController>();
             Guard = this.entity.GetComponent<Guard>();
             ElementSystem = this.entity.GetComponent<ElementSystem>();
+            EnergySystem = this.entity.GetComponent<EnergySystem>();
             _hitGuardSpritesheet = AssetManager.GetSpriteSheet(_hitGuardFX);
 
             base.Init();

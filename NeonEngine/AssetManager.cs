@@ -79,8 +79,6 @@ namespace NeonEngine
             _levelAssetsList = new Dictionary<string, Texture2D>();
             _levelSpritesheetList = new Dictionary<string, SpriteSheetInfo>();
 
-
-
             LoadLaunchData(Neon.GraphicsDevice);
         }
 

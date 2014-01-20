@@ -116,7 +116,6 @@ namespace NeonScripts
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            new LoadingScreen(Neon.Game, 0, "PreprodPresentation", "Main");
         }
     }
 }

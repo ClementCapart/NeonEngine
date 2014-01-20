@@ -74,7 +74,7 @@ namespace NeonStar
 
                 preferenceFile.Save(@"../Data/Config/EditorPreferences.xml");
 
-                (Neon.World as GameScreen).SaveProgression();
+                (Neon.World as GameScreen).SaveProgressionToFile();
             }
             base.OnExiting(sender, args);
         }
@@ -91,11 +91,11 @@ namespace NeonStar
 
             Neon.ClearColor = Color.Black;
             #if DEBUG
-            Neon.World = new NeonStarEditor.LoadingScreen(this, 0, "", "", true);
+            Neon.World = new NeonStarEditor.LoadingScreen(this, 0, "", "", null, true);
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-            Neon.world = new IntroScreen(this);
+            Neon.World = new NeonStarLibrary.LoadingScreen(this, 0, "PreprodPresentation", "Main");
             
             #endif
         }

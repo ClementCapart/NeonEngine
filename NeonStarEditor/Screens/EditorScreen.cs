@@ -75,8 +75,8 @@ namespace NeonStarEditor
 
         public string DefaultLayer = "";
 
-        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(groupName, levelName, startingSpawnPointIndex, game)
+        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
+            : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game)
         {
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
@@ -152,6 +152,7 @@ namespace NeonStarEditor
             }
 
             RefreshInspector(null);
+            BottomDockControl.entityListControl.InitializeEntityList();
         }
 
         public void ToggleAttackManager()
@@ -956,7 +957,9 @@ namespace NeonStarEditor
                 PathNodePanel.Dispose();
             if (SpawnPointsPanel != null)
                 SpawnPointsPanel.Dispose();
-            ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, game, graphics));
+            if (ElementSettingsManager != null)
+                ElementSettingsManager.Dispose();
+            ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game, graphics));
         }
 
         public override void ChangeScreen(World nextScreen)
@@ -973,6 +976,8 @@ namespace NeonStarEditor
                 PathNodePanel.Dispose();
             if (SpawnPointsPanel != null)
                 SpawnPointsPanel.Dispose();
+            if (ElementSettingsManager != null)
+                ElementSettingsManager.Dispose();
             base.ChangeScreen(nextScreen);
         }
     }

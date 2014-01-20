@@ -47,13 +47,13 @@ namespace NeonEngine
             set 
             { 
                 _enabled = value;
-                if (!_enabled && Neon.World.Camera.CameraBounds.Contains(this))
+                if (!_enabled && entity.containerWorld.Camera.CameraBounds.Contains(this))
                 {
-                    Neon.World.Camera.CameraBounds.Remove(this);
+                    entity.containerWorld.Camera.CameraBounds.Remove(this);
                 }
-                else if (_enabled && !Neon.World.Camera.CameraBounds.Contains(this))
+                else if (_enabled && !entity.containerWorld.Camera.CameraBounds.Contains(this))
                 {
-                    Neon.World.Camera.CameraBounds.Add(this);
+                    entity.containerWorld.Camera.CameraBounds.Add(this);
                 }
             }
         }

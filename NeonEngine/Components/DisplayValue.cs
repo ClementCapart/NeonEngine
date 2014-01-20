@@ -58,7 +58,7 @@ namespace NeonEngine
         public override void Init()
         {
             if (_entityName != "")
-                _valueEntity = Neon.World.GetEntityByName(_entityName);
+                _valueEntity = entity.containerWorld.GetEntityByName(_entityName);
             if (_valueEntity != null)
                 _valueComponent = _valueEntity.GetComponentByName(_componentName);
             if (_valueComponent != null)

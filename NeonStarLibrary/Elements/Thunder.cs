@@ -90,8 +90,8 @@ namespace NeonStarLibrary
                     _entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
                     break;
 
-                case ElementState.Charge:                    
-                    Neon.World.Camera.ChaseStrength = 0.0f;
+                case ElementState.Charge:
+                    _entity.containerWorld.Camera.ChaseStrength = 0.0f;
                     _entity.rigidbody.GravityScale = 0.0f;
                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;                       
                     State = ElementState.Effect;

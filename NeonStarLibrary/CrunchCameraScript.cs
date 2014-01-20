@@ -112,7 +112,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            foreach (Entity e in Neon.World.Entities)
+            foreach (Entity e in entity.containerWorld.Entities)
             {
                 if (e.Name.StartsWith(_firstBoundsPrefix))
                 {
@@ -143,9 +143,9 @@ namespace NeonStarLibrary
             if (trigger.Name == _firstTriggerName)
             {
                 _targetZoom = _firstTriggerZoom;
-                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = entity.containerWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
+                    CameraBound cb = entity.containerWorld.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -164,11 +164,11 @@ namespace NeonStarLibrary
             {
                 _targetZoom = _thirdTriggerZoom;
 
-                Neon.World.Camera.ChaseStrength = 0.0f;
+                entity.containerWorld.Camera.ChaseStrength = 0.0f;
 
-                for (int i = Neon.World.Camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = entity.containerWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = Neon.World.Camera.CameraBounds[i];
+                    CameraBound cb = entity.containerWorld.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -188,9 +188,9 @@ namespace NeonStarLibrary
 
         public void SmoothZoom()
         {
-            if (_targetZoom != Neon.World.Camera.Zoom)
+            if (_targetZoom != entity.containerWorld.Camera.Zoom)
             {
-                Neon.World.Camera.Zoom = MathHelper.Lerp(_targetZoom, Neon.World.Camera.Zoom, 0.98f);
+                entity.containerWorld.Camera.Zoom = MathHelper.Lerp(_targetZoom, entity.containerWorld.Camera.Zoom, 0.98f);
             }
         }
     }

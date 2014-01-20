@@ -17,16 +17,19 @@ namespace NeonStarEditor
         public string GroupToLoad = "";
         public Entity LoadingAnim;
 
+        private XElement _statusToLoad;
+
         private bool _loadPreferences;
 
         public int _startingSpawnPointIndex;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex, string groupToLoad = "", string levelToLoad = "", bool loadPreferences = false)
+        public LoadingScreen(Game game, int startingSpawnPointIndex, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null, bool loadPreferences = false)
             :base(game)
         {
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
             GroupToLoad = groupToLoad;
+            _statusToLoad = statusToLoad;
             _loadPreferences = loadPreferences;
             
             if (loadPreferences)
@@ -75,7 +78,7 @@ namespace NeonStarEditor
 
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, Neon.Game, Neon.GraphicsDeviceManager, _loadPreferences));
+                this.ChangeScreen(new EditorScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game, Neon.GraphicsDeviceManager, _loadPreferences));
             }
             base.Update(gameTime);
         }

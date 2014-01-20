@@ -34,7 +34,9 @@ namespace NeonStarLibrary
                         if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
                             entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
                         if (entity.rigidbody.wasGrounded)
+                        {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
+                        }
                         else
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, 0, true, false, false);
                         

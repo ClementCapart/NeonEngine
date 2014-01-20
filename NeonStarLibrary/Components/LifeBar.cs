@@ -56,7 +56,7 @@ namespace NeonStarLibrary
         {
             if (_avatarName != "")
             {
-                Entity avatar = Neon.World.GetEntityByName(_avatarName);
+                Entity avatar = entity.containerWorld.GetEntityByName(_avatarName);
                 if(avatar != null)
                     _avatar = avatar.GetComponent<Avatar>();
             }

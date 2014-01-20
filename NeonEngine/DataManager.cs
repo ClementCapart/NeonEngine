@@ -397,7 +397,8 @@ namespace NeonEngine
             if (ent != null)
             {
                 entity.Name = ent.Attribute("Name").Value;
-                //entity.Layer = ent.Attribute("Layer").Value;
+                if(ent.Attribute("Layer") != null)
+                    entity.Layer = ent.Attribute("Layer").Value;
             }
 
             foreach (XElement Comp in ent.Element("Components").Elements())

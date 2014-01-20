@@ -42,9 +42,9 @@ namespace NeonStarLibrary
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + ".xml"))
+            if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + "/" + LevelName + "_Info.xml"))
             {
-                entity.containerWorld.ChangeScreen(new LoadingScreen(Neon.Game, (int)SpawnPointIndex, @"../Data/Levels/" + GroupName + "/" + LevelName));
+                (entity.containerWorld as GameScreen).ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
             } 
             else
             {

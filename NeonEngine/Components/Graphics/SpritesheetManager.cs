@@ -189,6 +189,7 @@ namespace NeonEngine
             CurrentPriority = priority;
             CurrentSpritesheet.ReverseLoop = false;
             CurrentSpritesheet.isPlaying = IsPlaying;
+            CurrentSpritesheet.IsFinished = false;
             CurrentSpritesheet.SetFrame(0);
             CurrentSpritesheet.Layer = Layer;
             if(CurrentSpritesheet.spriteSheetInfo != null)

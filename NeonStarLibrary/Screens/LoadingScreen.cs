@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Xml.Linq;
 
 namespace NeonStarLibrary
 {
@@ -17,19 +18,19 @@ namespace NeonStarLibrary
 
         public Entity LoadingAnim;
         private int _startingSpawnPointIndex = 0;
+        private XElement _statusToLoad;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "")
+        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null)
             : base(game)
         {
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
             GroupToLoad = groupToLoad;
+            _statusToLoad = statusToLoad;
         }
 
         public void LoadNextLevelAssets()
         {
-            string[] folderNameFull = Path.GetDirectoryName(LevelToLoad).Split('\\');
-            string folderName = folderNameFull[folderNameFull.Length - 1];
             AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
             AssetManager.LoadLevelData(Neon.GraphicsDevice, GroupToLoad, LevelToLoad);
             ThreadFinished = true;
@@ -45,21 +46,17 @@ namespace NeonStarLibrary
         {
             if (FirstUpdate)
             {
-                if (LevelToLoad != "")
-                {
-                    LoadNextLevelAssets();
-                }
-                else
-                {
+                if (!AssetManager.CommonLoaded)
                     LoadCommonAssets();
-                }
+                if(LevelToLoad != "")
+                    LoadNextLevelAssets();
             }
 
             
             if (ThreadFinished && LevelToLoad == "")
-                this.ChangeScreen(new GameScreen("Tests", "LevelEmpty", _startingSpawnPointIndex, Neon.Game));
+                this.ChangeScreen(new GameScreen("Tests", "LevelEmpty", _startingSpawnPointIndex, _statusToLoad, Neon.Game));
             else if (ThreadFinished)
-                this.ChangeScreen(new GameScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, Neon.Game));
+                this.ChangeScreen(new GameScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game));
             base.Update(gameTime);
         }
     }

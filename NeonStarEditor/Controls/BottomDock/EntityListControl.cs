@@ -124,7 +124,6 @@ namespace NeonStarEditor
                 Entity entity = GameWorld.Entities.Last();
                 entity.transform.Position += new Microsoft.Xna.Framework.Vector2(100, -100);
                 entity.transform.InitialPosition = entity.transform.Position;
-                entity.Layer = GameWorld.BottomDockControl.levelList.DefaultLayerBox.Text;
                 SelectEntityNode(entity);
             }
         }

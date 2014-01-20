@@ -28,13 +28,16 @@ namespace NeonStarLibrary
         public Entity avatar;
         //----------------------------------------//
 
+
+        protected XElement _statusToLoad;
         protected int lastSpawnPointIndex;
 
         public string AvatarName = "LiOn";
 
-        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, Game game)
+        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game)
             : base(game)
         {
+            this._statusToLoad = statusToLoad;
             lastSpawnPointIndex = startingSpawnPointIndex;
 
             enemies = new List<Enemy>();
@@ -64,7 +67,10 @@ namespace NeonStarLibrary
                 avatar.transform.Position = currentSpawnPoint.Position;
                 Avatar avatarComponent = avatar.GetComponent<Avatar>();
                 if (avatarComponent != null)
+                {
+                    LoadAvatarStatus(avatarComponent);
                     avatarComponent.CurrentSide = currentSpawnPoint.Side;
+                }
             }
             else
                 Console.WriteLine("Warning : SpawnPoint "+ startingSpawnPointIndex + " not found, Avatar won't be created, please select an existing SpawnPoint");
@@ -74,6 +80,27 @@ namespace NeonStarLibrary
 
             Camera.Bounded = true;
         } 
+
+        public void LoadAvatarStatus(Avatar avatarComponent)
+        {
+            if (_statusToLoad != null && avatarComponent != null)
+            {
+                XElement liOn = _statusToLoad.Element("LiOnParameters");
+                avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
+                if(avatarComponent.ElementSystem != null)
+                {
+                    avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
+                    avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
+
+                    avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
+                    avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
+                }
+                if (avatarComponent.EnergySystem != null)
+                {
+                    avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
+                }
+            }
+        }
 
         public override void PreUpdate(GameTime gameTime)
         {
@@ -88,7 +115,7 @@ namespace NeonStarLibrary
                     Camera.Chase(avatar.transform.Position, gameTime);
                 else if (avatar == null)
                 {
-                    avatar = Neon.World.GetEntityByName("LiOn");
+                    avatar = this.GetEntityByName("LiOn");
                 }
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
@@ -114,20 +141,69 @@ namespace NeonStarLibrary
 
         public virtual void ReloadLevel()
         {
-            ChangeScreen(new GameScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, game));
+            ChangeScreen(new GameScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game));
         }
 
-        public override void ManualDrawBackHUD(SpriteBatch sb)
+        public void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
         {
-            base.ManualDrawBackHUD(sb);
+            ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 
-        public void SaveProgression()
+        public XElement SaveStatus()
+        {
+            XElement playerStatus = new XElement("PlayerStatus");
+
+            Avatar avatarComponent = null;
+            if (avatar != null)
+                avatarComponent = avatar.GetComponent<Avatar>();
+
+            if (avatarComponent != null)
+            {
+                XElement liOn = new XElement("LiOnParameters");
+
+                XElement currentPosition = new XElement("Position", Neon.Utils.Vector2ToString(avatar.transform.Position));
+                liOn.Add(currentPosition);
+                XElement currentSide = new XElement("Side", avatarComponent.CurrentSide.ToString());
+                liOn.Add(currentSide);
+                XElement currentHealthPoints = new XElement("HealthPoints", avatarComponent.CurrentHealthPoints);
+                liOn.Add(currentHealthPoints);
+                if (avatarComponent.EnergySystem != null)
+                {
+                    XElement currentEnergyStock = new XElement("Energy", avatarComponent.EnergySystem.CurrentEnergyStock.ToString());
+                    liOn.Add(currentEnergyStock);
+                }
+
+                if (avatarComponent.ElementSystem != null)
+                {
+                    XElement currentLeftElement = new XElement("LeftElement", new XAttribute("Level", avatarComponent.ElementSystem.LeftSlotLevel), avatarComponent.ElementSystem.LeftSlotElement.ToString());
+                    XElement currentRightElement = new XElement("RightElement", new XAttribute("Level", avatarComponent.ElementSystem.RightSlotLevel), avatarComponent.ElementSystem.RightSlotElement.ToString());
+                    liOn.Add(currentLeftElement);
+                    liOn.Add(currentRightElement);
+                }
+
+                playerStatus.Add(liOn);
+            }
+            return playerStatus;
+        }
+
+        public void SaveProgressionToFile()
         {
             XDocument saveProgression = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
 
             XElement playerProgression = new XElement("PlayerProgression");
-            
+
+            XElement currentLevel = new XElement("CurrentLevel");
+
+            XElement currentGroupName = new XElement("GroupName", this.LevelGroupName);
+            XElement currentLevelName = new XElement("LevelName", this.LevelName);
+
+            currentLevel.Add(currentGroupName);
+            currentLevel.Add(currentLevelName);
+
+            playerProgression.Add(currentLevel);
+
+            XElement playerStatus = SaveStatus();
+            playerProgression.Add(playerStatus);
             
             saveProgression.Add(playerProgression);
 
@@ -135,5 +211,7 @@ namespace NeonStarLibrary
                 Directory.CreateDirectory(@"../Save/");
             saveProgression.Save(@"../Save/PlayerProgression.xml");
         }
+
+        
     }
 }

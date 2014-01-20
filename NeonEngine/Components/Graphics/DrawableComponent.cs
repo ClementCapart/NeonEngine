@@ -100,11 +100,11 @@ namespace NeonEngine
             base.Init();
         }
 
-        public override void Update(GameTime gameTime)
+        public override void FinalUpdate(GameTime gameTime)
         {
             if(entity != null)
                 _parallaxPosition = entity.containerWorld.Camera.Position * ParallaxForce;
-            base.Update(gameTime);
+            base.FinalUpdate(gameTime);
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

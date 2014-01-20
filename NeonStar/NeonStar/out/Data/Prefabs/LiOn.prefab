@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-659.0442 Y:-95.49998}" />
-          <InitialPosition Value="{X:-659.0442 Y:-95.49998}" />
+          <Position Value="{X:-2 Y:-25.49999}" />
+          <InitialPosition Value="{X:-2 Y:-25.49999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-659 Y:-95}" />
-          <X Value="-679" />
-          <Y Value="-163" />
+          <Center Value="{X:-2 Y:-25}" />
+          <X Value="-22" />
+          <Y Value="-93" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -41,7 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="True" />
@@ -115,9 +115,9 @@
       </ThirdPersonController>
       <Avatar Type="NeonStarLibrary.Avatar" ID="6">
         <Properties>
+          <CurrentHealthPoints Value="-16" />
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
-          <CurrentHealthPoints Value="-16" />
           <InvincibilityDuration Value="0.4" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />
@@ -145,9 +145,7 @@
       <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
-          <FireCooldown Value="3" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
-          <ThunderCooldown Value="3" />
           <LeftSlotElement Value="Thunder" />
           <LeftSlotLevel Value="2" />
           <RightSlotElement Value="Neutral" />
@@ -156,6 +154,7 @@
           <ThunderGatheringFX Value="FeedbackThunderGathering" />
           <FireGatheringFX Value="FeedbackFireGathering" />
           <GetElementColorDelay Value="0.15" />
+          <EnergyRegenerationRate Value="20" />
         </Properties>
       </ElementSystem>
       <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
@@ -164,6 +163,11 @@
       <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
         <Properties />
       </AvatarAnimationManager>
+      <EnergySystem Type="NeonStarLibrary.EnergySystem" ID="11">
+        <Properties>
+          <MaxEnergyStock Value="1000" />
+        </Properties>
+      </EnergySystem>
     </Components>
   </Entity>
 </Prefab>
