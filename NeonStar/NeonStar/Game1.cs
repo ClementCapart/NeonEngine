@@ -25,7 +25,7 @@ namespace NeonStar
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.SynchronizeWithVerticalRetrace = true;
-            IsFixedTimeStep = false;
+            IsFixedTimeStep = true;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             Window.Title = "NeonStar " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -73,6 +73,8 @@ namespace NeonStar
                 preferenceFile.Add(content);
 
                 preferenceFile.Save(@"../Data/Config/EditorPreferences.xml");
+
+                (Neon.World as GameScreen).SaveProgression();
             }
             base.OnExiting(sender, args);
         }
