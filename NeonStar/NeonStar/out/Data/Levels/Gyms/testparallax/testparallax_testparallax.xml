@@ -47,7 +47,7 @@
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
-              <ParallaxForce Value="{X:1 Y:0.5}" />
+              <ParallaxForce Value="{X:0.95 Y:1}" />
               <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -74,7 +74,7 @@
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
-              <ParallaxForce Value="{X:1 Y:0.5}" />
+              <ParallaxForce Value="{X:0.95 Y:1}" />
               <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -88,8 +88,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-32 Y:2}" />
-              <InitialPosition Value="{X:-32 Y:2}" />
+              <Position Value="{X:260 Y:0}" />
+              <InitialPosition Value="{X:260 Y:0}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -101,7 +101,142 @@
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
-              <ParallaxForce Value="{X:1 Y:1}" />
+              <ParallaxForce Value="{X:0.9 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="background4" Layer="testparallax">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:196 Y:0}" />
+              <InitialPosition Value="{X:196 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityBuilding3" />
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.85 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="background5" Layer="testparallax">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:282 Y:-22}" />
+              <InitialPosition Value="{X:282 Y:-22}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityBulding4" />
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.8 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="background6" Layer="testparallax">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:270 Y:-14}" />
+              <InitialPosition Value="{X:270 Y:-14}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityBulding5" />
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.75 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="background7" Layer="testparallax">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:475 Y:-74}" />
+              <InitialPosition Value="{X:475 Y:-74}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityBulding6" />
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.74 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="background8" Layer="testparallax">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-55 Y:284}" />
+              <InitialPosition Value="{X:-55 Y:284}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityBulding7" />
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
