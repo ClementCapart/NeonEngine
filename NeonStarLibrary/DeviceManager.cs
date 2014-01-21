@@ -10,17 +10,79 @@ namespace NeonStarLibrary
     static public class DeviceManager
     {
         static private List<Device> _devices;
+        static public bool AlreadyLoaded = false;
 
         static public void LoadDevicesInformation()
         {
             _devices = new List<Device>();
+
+            if (Directory.Exists(@"../Save/"))
+            {
+                if (File.Exists(@"../Save/DevicesSave.xml"))
+                {
+                    XDocument devicesDocument = XDocument.Load(@"../Save/DevicesSave.xml");
+
+                    foreach (XElement device in devicesDocument.Element("Devices").Elements("Device"))
+                    {
+                        Device d = new Device();
+                        d.GroupName = device.Element("GroupName").Value;
+                        d.LevelName = device.Element("LevelName").Value;
+                        d.DeviceName = device.Element("DeviceName").Value;
+                        d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
+                        _devices.Add(d);
+                    }
+                }
+                else
+                {
+                    if (File.Exists(@"../Data/Config/DevicesSaveTemplate.xml"))
+                    {
+                        XDocument devicesDocument = XDocument.Load(@"../Data/Config/DevicesSaveTemplate.xml");
+
+                        foreach (XElement device in devicesDocument.Element("Devices").Elements("Device"))
+                        {
+                            Device d = new Device();
+                            d.GroupName = device.Element("GroupName").Value;
+                            d.LevelName = device.Element("LevelName").Value;
+                            d.DeviceName = device.Element("DeviceName").Value;
+                            d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
+                            _devices.Add(d);
+                        }
+                    }
+                }
+            }
+            
+            AlreadyLoaded = true;
         }
 
         static public void SaveDevicesInformation()
         {
             if (_devices != null && _devices.Count > 0)
             {
+                if (Directory.Exists(@"../Save/"))
+                {
+                    XDocument deviceDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+                    XElement devices = new XElement("Devices");
 
+                    foreach (Device d in _devices)
+                    {
+                        XElement device = new XElement("Device");
+                        XElement group = new XElement("GroupName", d.GroupName);
+                        XElement level = new XElement("LevelName", d.LevelName);
+                        XElement name = new XElement("DeviceName", d.DeviceName);
+                        XElement state = new XElement("State", d.State.ToString());
+
+                        device.Add(group);
+                        device.Add(level);
+                        device.Add(name);
+                        device.Add(state);
+
+                        devices.Add(device);
+                    }
+
+                    deviceDocument.Add(devices);
+
+                    deviceDocument.Save(@"../Save/DevicesSave.xml");
+                }
             }
         }
 
@@ -31,6 +93,16 @@ namespace NeonStarLibrary
                     return d.State;
 
             return DeviceState.Disabled;
+        }
+
+        static public List<Device> GetLevelDevices(string groupName, string levelName)
+        {
+            List<Device> devices = new List<Device>();
+            foreach (Device d in _devices)
+                if (d.GroupName == groupName && d.LevelName == levelName)
+                    devices.Add(d);
+
+            return devices;
         }
 
         static public void SetDeviceState(string groupName, string levelName, string deviceName, DeviceState state)
@@ -57,6 +129,30 @@ namespace NeonStarLibrary
             }
 
             XDocument document = XDocument.Load(@"../Data/Config/DevicesSaveTemplate.xml");
+
+            foreach(XElement device in document.Element("Devices").Elements("Device"))
+            {
+                if (device.Element("GroupName").Value == groupName && device.Element("LevelName").Value == levelName)
+                    device.Remove();
+            }
+            
+            foreach(EnergyDevice ed in devices)
+            {
+                XElement device = new XElement("Device");
+                XElement group = new XElement("GroupName", groupName);
+                XElement level = new XElement("LevelName", levelName);
+                XElement name = new XElement("DeviceName", ed.entity.Name);
+                XElement state = new XElement("State", ed.State.ToString());
+
+                device.Add(group);
+                device.Add(level);
+                device.Add(name);
+                device.Add(state);
+
+                document.Element("Devices").Add(device);
+            }
+
+            document.Save(@"../Data/Config/DevicesSaveTemplate.xml");
         }
     }
 

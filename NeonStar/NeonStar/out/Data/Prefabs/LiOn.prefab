@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-2 Y:-25.49999}" />
-          <InitialPosition Value="{X:-2 Y:-25.49999}" />
+          <Position Value="{X:-347.8681 Y:-25.49999}" />
+          <InitialPosition Value="{X:-347.8681 Y:-25.49999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,8 +14,8 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-2 Y:-25}" />
-          <X Value="-22" />
+          <Center Value="{X:-347 Y:-25}" />
+          <X Value="-367" />
           <Y Value="-93" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -41,7 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Left" />
+          <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="True" />
@@ -115,7 +115,7 @@
       </ThirdPersonController>
       <Avatar Type="NeonStarLibrary.Avatar" ID="6">
         <Properties>
-          <CurrentHealthPoints Value="-16" />
+          <CurrentHealthPoints Value="99" />
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
           <InvincibilityDuration Value="0.4" />
@@ -146,8 +146,8 @@
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
-          <LeftSlotElement Value="Thunder" />
-          <LeftSlotLevel Value="2" />
+          <LeftSlotElement Value="Neutral" />
+          <LeftSlotLevel Value="1" />
           <RightSlotElement Value="Neutral" />
           <RightSlotLevel Value="1" />
           <MaxLevel Value="3" />
@@ -157,15 +157,13 @@
           <EnergyRegenerationRate Value="20" />
         </Properties>
       </ElementSystem>
-      <RestartGame Type="NeonStarScripts.RestartGame" ID="9">
-        <Properties />
-      </RestartGame>
       <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
         <Properties />
       </AvatarAnimationManager>
       <EnergySystem Type="NeonStarLibrary.EnergySystem" ID="11">
         <Properties>
           <MaxEnergyStock Value="1000" />
+          <CurrentEnergyStock Value="100" />
         </Properties>
       </EnergySystem>
     </Components>

@@ -7,8 +7,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-165 Y:-130}" />
-              <InitialPosition Value="{X:-165 Y:-130}" />
+              <Position Value="{X:-214 Y:-3}" />
+              <InitialPosition Value="{X:-214 Y:-3}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -16,13 +16,13 @@
           <Hitbox Type="NeonEngine.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-165 Y:-130}" />
-              <X Value="-190" />
-              <Y Value="-306" />
+              <Center Value="{X:-214 Y:-3}" />
+              <X Value="-264" />
+              <Y Value="-53" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="51" />
-              <Height Value="353" />
+              <Width Value="100" />
+              <Height Value="100" />
             </Properties>
           </Hitbox>
           <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
@@ -50,6 +50,14 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
+          <EnergyDevice Type="NeonStarLibrary.EnergyDevice" ID="4">
+            <Properties>
+              <EnergyCost Value="100" />
+              <AvatarName Value="LiOn" />
+              <FillingDuration Value="1" />
+              <State Value="Deactivated" />
+            </Properties>
+          </EnergyDevice>
         </Components>
       </Entity>
     </Entities>

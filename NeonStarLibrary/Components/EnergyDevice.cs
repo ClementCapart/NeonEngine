@@ -33,13 +33,19 @@ namespace NeonStarLibrary
             set { _fillingDuration = value; }
         }
 
+        private DeviceState _state = DeviceState.Deactivated;
+
+        public DeviceState State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
+
         #endregion
 
         public Avatar _avatar;
         private bool _isFilling = false;
         private float _fillingTimer = 0.0f;
-
-        private bool _filled = false;
 
         public EnergyDevice(Entity entity)
             :base(entity, "EnergyDevice")
@@ -71,9 +77,9 @@ namespace NeonStarLibrary
                             _fillingTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                             if (_fillingTimer >= _fillingDuration)
                             {
-                                if (_filled)
+                                if (State == DeviceState.Activated)
                                 {
-                                    _filled = !_filled;
+                                    State = DeviceState.Deactivated;
                                     _isFilling = false;
                                     if (_avatar.EnergySystem != null)
                                         _avatar.EnergySystem.CurrentEnergyStock += EnergyCost;
@@ -86,7 +92,7 @@ namespace NeonStarLibrary
                                         {
                                             _isFilling = false;
                                             _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
-                                            _filled = !_filled;
+                                            State = DeviceState.Activated;
                                         }
                                     }
                                 }

@@ -48,6 +48,8 @@ namespace NeonStarLibrary
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
             ElementManager.LoadElementParameters();
+            if (!DeviceManager.AlreadyLoaded)
+                DeviceManager.LoadDevicesInformation();
 
             DataManager.LoadLevelInfo(groupName, levelName, this);
 

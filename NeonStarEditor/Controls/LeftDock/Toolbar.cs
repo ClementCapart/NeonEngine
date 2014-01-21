@@ -41,6 +41,15 @@ namespace NeonStarEditor.Controls.LeftDock
         private void SaveCurrentMap_Click(object sender, EventArgs e)
         {
             DataManager.SaveLevel(GameWorld, "LiOn");
+
+            List<EnergyDevice> devices = new List<EnergyDevice>();
+            foreach(Entity ent in GameWorld.Entities)
+            {
+                EnergyDevice ed = ent.GetComponent<EnergyDevice>();
+                if (ed != null)
+                    devices.Add(ed);
+            }
+            DeviceManager.SaveDevicesTemplate(GameWorld.LevelGroupName, GameWorld.LevelName, devices);
         }
 
         private void ReloadButton_Click(object sender, EventArgs e)
