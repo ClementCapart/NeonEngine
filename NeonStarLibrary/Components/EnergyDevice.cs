@@ -80,6 +80,7 @@ namespace NeonStarLibrary
                                 if (State == DeviceState.Activated)
                                 {
                                     State = DeviceState.Deactivated;
+                                    DeviceManager.SetDeviceState(entity.containerWorld.LevelGroupName, entity.containerWorld.LevelName, entity.Name, State);
                                     _isFilling = false;
                                     if (_avatar.EnergySystem != null)
                                         _avatar.EnergySystem.CurrentEnergyStock += EnergyCost;
@@ -93,6 +94,7 @@ namespace NeonStarLibrary
                                             _isFilling = false;
                                             _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
                                             State = DeviceState.Activated;
+                                            DeviceManager.SetDeviceState(entity.containerWorld.LevelGroupName, entity.containerWorld.LevelName, entity.Name, State);
                                         }
                                     }
                                 }

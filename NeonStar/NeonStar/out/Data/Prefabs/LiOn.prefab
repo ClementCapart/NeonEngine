@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-347.8681 Y:-25.49999}" />
-          <InitialPosition Value="{X:-347.8681 Y:-25.49999}" />
+          <Position Value="{X:-576 Y:-93.49996}" />
+          <InitialPosition Value="{X:-576 Y:-93.49996}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-347 Y:-25}" />
-          <X Value="-367" />
-          <Y Value="-93" />
+          <Center Value="{X:-576 Y:-93}" />
+          <X Value="-596" />
+          <Y Value="-161" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -41,6 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
+          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -73,7 +74,6 @@
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
         </Properties>
       </SpritesheetManager>
       <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
@@ -115,9 +115,9 @@
       </ThirdPersonController>
       <Avatar Type="NeonStarLibrary.Avatar" ID="6">
         <Properties>
-          <CurrentHealthPoints Value="99" />
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
+          <CurrentHealthPoints Value="99" />
           <InvincibilityDuration Value="0.4" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />
@@ -163,7 +163,7 @@
       <EnergySystem Type="NeonStarLibrary.EnergySystem" ID="11">
         <Properties>
           <MaxEnergyStock Value="1000" />
-          <CurrentEnergyStock Value="100" />
+          <CurrentEnergyStock Value="0" />
         </Properties>
       </EnergySystem>
     </Components>

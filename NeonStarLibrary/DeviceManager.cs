@@ -95,6 +95,15 @@ namespace NeonStarLibrary
             return DeviceState.Disabled;
         }
 
+        static public Device GetDevice(string groupName, string levelName, string deviceName)
+        {
+            foreach (Device d in _devices)
+                if (d.GroupName == groupName && d.LevelName == levelName && d.DeviceName == deviceName)
+                    return d;
+
+            return null;
+        }
+
         static public List<Device> GetLevelDevices(string groupName, string levelName)
         {
             List<Device> devices = new List<Device>();
@@ -113,6 +122,8 @@ namespace NeonStarLibrary
                     d.State = state;
                     return;
                 }
+
+            Console.WriteLine("Warning : No Device found in Devices List, state change not effective !");
         }
 
         static public void SaveDevicesTemplate(string groupName, string levelName, List<EnergyDevice> devices)
