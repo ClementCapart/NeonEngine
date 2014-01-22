@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FarseerPhysics;
 using NeonEngine.Private;
+using System.Xml.Linq;
 
 namespace NeonEngine
 {
@@ -307,6 +308,16 @@ namespace NeonEngine
         {
             _change = true;
             this.NextScreen = nextScreen;
+        }
+
+        public virtual void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
+        {
+
+        }
+
+        public virtual void ChangeLevel(XElement savedStatus)
+        {
+
         }
 
         private void DrawDebugView(GraphicsDevice device)

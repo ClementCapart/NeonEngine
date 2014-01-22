@@ -153,12 +153,12 @@ namespace NeonStarLibrary
             ChangeScreen(new GameScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game));
         }
 
-        public void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
+        public override void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
         {
             ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 
-        public void ChangeLevel(XElement savedStatus)
+        public override void ChangeLevel(XElement savedStatus)
         {
             ChangeScreen(new LoadingScreen(Neon.Game, savedStatus));
         }

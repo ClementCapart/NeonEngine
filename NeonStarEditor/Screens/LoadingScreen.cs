@@ -54,6 +54,16 @@ namespace NeonStarEditor
             }
         }
 
+        public LoadingScreen(Game game, XElement statusCheckPoint)
+            : base(game)
+        {
+            string indexString = statusCheckPoint.Element("CurrentLevel").Element("SpawnPoint").Value;
+            _startingSpawnPointIndex = indexString != "None" ? int.Parse(indexString) : 0;
+            LevelToLoad = statusCheckPoint.Element("CurrentLevel").Element("LevelName").Value;
+            GroupToLoad = statusCheckPoint.Element("CurrentLevel").Element("GroupName").Value;
+            _statusToLoad = statusCheckPoint;
+        }
+
         public void LoadNextLevelAssets()
         {
             AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);

@@ -648,7 +648,6 @@ namespace NeonStarEditor
                      }
                      else if (Neon.Input.Pressed(Neon.Input.KeysPressed[i]) && Neon.Input.KeysPressed[i].ToString().Length == 1)
                      {
-
                          int SelectionStart = FocusedTextBox.SelectionStart;
                          if (FocusedTextBox.SelectedText.Length > 0)
                          {
@@ -979,6 +978,30 @@ namespace NeonStarEditor
             if (ElementSettingsManager != null)
                 ElementSettingsManager.Dispose();
             base.ChangeScreen(nextScreen);
+        }
+
+        public override void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
+        {
+            LeftDockControl.Hide();
+            LeftDockControl.Dispose();
+            BottomDockControl.Hide();
+            BottomDockControl.Dispose();
+            RightDockControl.Hide();
+            RightDockControl.Dispose();
+            if (AttacksSettingsManager != null)
+                AttacksSettingsManager.Dispose();
+            if (PathNodePanel != null)
+                PathNodePanel.Dispose();
+            if (SpawnPointsPanel != null)
+                SpawnPointsPanel.Dispose();
+            if (ElementSettingsManager != null)
+                ElementSettingsManager.Dispose();
+            ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
+        }
+
+        public override void ChangeLevel(XElement savedStatus)
+        {           
+            ChangeScreen(new LoadingScreen(Neon.Game, savedStatus));
         }
     }
 }

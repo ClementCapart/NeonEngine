@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-30.58668 Y:-95.49998}" />
-          <InitialPosition Value="{X:-30.58668 Y:-95.49998}" />
+          <Position Value="{X:-576 Y:-93.49996}" />
+          <InitialPosition Value="{X:-576 Y:-93.49996}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-30 Y:-95}" />
-          <X Value="-50" />
-          <Y Value="-163" />
+          <Center Value="{X:-576 Y:-93}" />
+          <X Value="-596" />
+          <Y Value="-161" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -69,7 +69,7 @@
             <Animation Name="Hit" SpritesheetTag="LiOnHit" />
             <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
             <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
-            <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDash" />
+            <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDashStart" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
@@ -118,7 +118,7 @@
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
-          <CurrentHealthPoints Value="99" />
+          <CurrentHealthPoints Value="97" />
           <InvincibilityDuration Value="0.4" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />
@@ -126,7 +126,7 @@
           <HitGuardFX Value="LiOnGuardFX" />
         </Properties>
       </Avatar>
-      <Roll Type="NeonStarLibrary.Guard" ID="7">
+      <Guard Type="NeonStarLibrary.Guard" ID="7">
         <Properties>
           <RollAnimation Value="Roll" />
           <DashAnimation Value="AirDash" />
@@ -142,13 +142,13 @@
           <GuardDamageReduce Value="116" />
           <GuardLockDuration Value="1" />
         </Properties>
-      </Roll>
+      </Guard>
       <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
-          <LeftSlotElement Value="Neutral" />
-          <LeftSlotLevel Value="1" />
+          <LeftSlotElement Value="Thunder" />
+          <LeftSlotLevel Value="2" />
           <RightSlotElement Value="Neutral" />
           <RightSlotLevel Value="1" />
           <MaxLevel Value="3" />

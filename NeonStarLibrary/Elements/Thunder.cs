@@ -10,8 +10,10 @@ namespace NeonStarLibrary
     public class Thunder : ElementEffect
     {
         private SpriteSheetInfo _thunderEffectSpritesheetInfo = null;
+        private SpriteSheetInfo _thunderFinishSpritesheetInfo = null;
     
         private AnimatedSpecialEffect effect;
+        private AnimatedSpecialEffect finishEffect;
         
         private Vector2 _dashImpulse = Vector2.Zero;
         private float _dashDuration = 0.15f;
@@ -25,7 +27,8 @@ namespace NeonStarLibrary
 
         public override void InitializeLevelParameters()
         {
-            _thunderEffectSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFX");
+            _thunderEffectSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashLink");
+            _thunderFinishSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFinish");
             
             this.EffectElement = Element.Thunder;
             switch (_elementLevel)
@@ -84,51 +87,83 @@ namespace NeonStarLibrary
             switch(State)
             {
                 case ElementState.Initialization:
-                    State = ElementState.Charge;             
-                    if(State == ElementState.Charge)
-                    effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _elementSystem.entity.transform.Position, (float)Math.PI / 2, new Vector2(_thunderEffectSpritesheetInfo.FrameWidth / 2 - 120, -80), 2.0f , 0.9f);
+                    _entity.spritesheets.ChangeAnimation(_elementSystem.ThunderLaunchAnimation, true, 0, true, false, false);
+                    _entity.containerWorld.Camera.ChaseStrength = 0.0f;
+                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;  
+                    _entity.rigidbody.GravityScale = 0.0f;
                     _entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
+                    if (_entity.spritesheets.IsFinished())
+                    {
+                        State = ElementState.Charge;
+                        if (effect == null)
+                        {
+                            float angle = _dashImpulse.X == 0 ? 0.0f : (float)Math.PI / 2;
+                            Vector2 offset;
+                            if (_dashImpulse.X == 0)
+                            {
+                                offset = Vector2.Zero;
+                            }
+                            else
+                            {
+                                offset = new Vector2(240, 0);
+                            }
+                            effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _dashImpulse.X != 0 ? _elementSystem.AvatarComponent.CurrentSide : Side.Right, _elementSystem.entity.transform.Position, angle, offset, 2.0f, 0.9f);
+                        }
+                    }
+                    
                     break;
 
-                case ElementState.Charge:
-                    _entity.containerWorld.Camera.ChaseStrength = 0.0f;
-                    _entity.rigidbody.GravityScale = 0.0f;
-                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;                       
+                case ElementState.Charge:                                                         
                     State = ElementState.Effect;
-                    ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);
-                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);  
+                    
+                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);
+                    _entity.spritesheets.Active = false;
                     break;
 
                 case ElementState.Effect:
-                    if (_dashDuration > 0.0f)
+                    if (finishEffect == null)
                     {
-                        _entity.rigidbody.GravityScale = 0.0f;
-                        _dashDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (ThunderAttack != null) ThunderAttack.Update(gameTime);
-                    }
-                    
-                    if(_dashDuration <= 0.0f)
-                    {
-                        _dashDuration = 0.0f;
-                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        if (ThunderAttack != null) ThunderAttack.CancelAttack();
-                        ThunderAttack = null;
-                        State = ElementState.End;
-                        switch (_input)
+                        if (_dashDuration > 0.0f)
                         {
-                            case NeonStarInput.UseLeftSlotElement:
-                                _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                                break;
 
-                            case NeonStarInput.UseRightSlotElement:
-                                _elementSystem.RightSlotEnergy -= _gaugeCost;
-                                break;
+                            _entity.rigidbody.GravityScale = 0.0f;
+                            _dashDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (ThunderAttack != null) ThunderAttack.Update(gameTime);
                         }
-                    }                  
+
+                        if (_dashDuration <= 0.0f)
+                        {
+                            _dashDuration = 0.0f;
+                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            if (ThunderAttack != null) ThunderAttack.CancelAttack();
+                            ThunderAttack = null;
+                            State = ElementState.End;
+                            finishEffect = EffectsManager.GetEffect(_thunderFinishSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.8f);
+                            switch (_input)
+                            {
+                                case NeonStarInput.UseLeftSlotElement:
+                                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
+                                    break;
+
+                                case NeonStarInput.UseRightSlotElement:
+                                    _elementSystem.RightSlotEnergy -= _gaugeCost;
+                                    break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (finishEffect.spriteSheet.currentFrame == finishEffect.spriteSheet.spriteSheetInfo.FrameCount - 1)
+                        {
+                            State = ElementState.End;
+                        }
+                    }
+                                   
+
 
                     break;
 
-                case ElementState.End:
+                case ElementState.End:                
                     ThunderAttack.CancelAttack();
                     ThunderAttack = null;
                     break;

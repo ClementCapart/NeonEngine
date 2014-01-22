@@ -29,6 +29,7 @@ namespace NeonStarLibrary
             switch (AvatarComponent.State)
             {
                 case AvatarState.Idle:
+                    entity.spritesheets.Active = true;
                     if (entity.rigidbody.isGrounded)
                     {
                         if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
@@ -53,6 +54,7 @@ namespace NeonStarLibrary
                     break;
 
                 case AvatarState.Moving:
+                    entity.spritesheets.Active = true;
                     if (entity.rigidbody.isGrounded && !AvatarComponent.ThirdPersonController.StartJumping)
                     {
                         if (!entity.rigidbody.wasGrounded)
@@ -72,19 +74,23 @@ namespace NeonStarLibrary
                     break;
 
                 case AvatarState.Guarding:
+                    entity.spritesheets.Active = true;
                     if(entity.spritesheets.CurrentSpritesheetName != AvatarComponent.HitGuardAnim)
                         entity.spritesheets.ChangeAnimation(AvatarComponent.Guard.GuardAnimation, true, 0, true, false, false);
                     break;
 
                 case AvatarState.Rolling:
+                    entity.spritesheets.Active = true;
                     entity.spritesheets.ChangeAnimation(AvatarComponent.Guard.RollAnimation, true, 0, true, false, false);
                     break;
 
                 case AvatarState.AirDashing:
+                    entity.spritesheets.Active = true;
                     entity.spritesheets.ChangeAnimation(AvatarComponent.Guard.DashAnimation, true, 0, true, false, false);
                     break;
 
                 case AvatarState.Attacking:
+                    entity.spritesheets.Active = true;
                     if (AvatarComponent.MeleeFight.CurrentAttack == null)
                     {
                         entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
