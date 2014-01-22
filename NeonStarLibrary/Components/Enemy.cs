@@ -308,11 +308,14 @@ namespace NeonStarLibrary
             }
 
             StunLock(stunLockDuration);
-
-            if (!entity.rigidbody.isGrounded)
+            if (entity.rigidbody != null)
             {
-                AirLock(airLockDuration);
+                if (!entity.rigidbody.isGrounded)
+                {
+                    AirLock(airLockDuration);
+                }
             }
+            
             
             return true;
         }

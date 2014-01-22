@@ -18,6 +18,15 @@ namespace NeonStarLibrary
             set { _jumpImpulseHeight = value; }
         }
 
+
+        private float _doubleJumpImpulseHeight = 0.0f;
+
+        public float DoubleJumpImpulseHeight
+        {
+            get { return _doubleJumpImpulseHeight; }
+            set { _doubleJumpImpulseHeight = value; }
+        }
+
         private float _groundAccelerationSpeed = 3f;
         public float GroundAccelerationSpeed
         {
@@ -111,6 +120,7 @@ namespace NeonStarLibrary
             get { return _canDoubleJump; }
             set { _canDoubleJump = value; }
         }
+
         #endregion
 
         public Avatar AvatarComponent = null;
@@ -127,6 +137,8 @@ namespace NeonStarLibrary
         private float _movementSpeedModifierTimer = 0.0f;
         private float _movementSpeedBoostModifier = 0.0f;
         private float _movementSpeedModifier = 1.0f;
+
+        public float NumberOfAirMove = 1.0f;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -182,6 +194,8 @@ namespace NeonStarLibrary
                 if (entity.rigidbody.isGrounded && !StartJumping)
                 {
                     _hasAlreadyAirJumped = false;
+                    NumberOfAirMove = 1.0f;
+
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
                         if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
@@ -233,7 +247,6 @@ namespace NeonStarLibrary
                         _jumpInputDelay = 0.0f;
                         MustJumpAsSoonAsPossible = false;
                     }
-
                 }
                 else
                 {
@@ -259,22 +272,22 @@ namespace NeonStarLibrary
                         AvatarComponent.State = AvatarState.Idle;
                     }
 
-
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
                         MustJumpAsSoonAsPossible = true;
                     }
 
-                    if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && Neon.Input.Check(NeonStarInput.Jump) && CanDoubleJump)
+                    if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && Neon.Input.Check(NeonStarInput.Jump) && CanDoubleJump && NumberOfAirMove > 0)
                     {
                         entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, 0);
-                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
+                        entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_doubleJumpImpulseHeight)));
                         AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                         StartJumping = true;
                         EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
                         _jumpInputDelay = 0.0f;
                         MustJumpAsSoonAsPossible = false;
                         _hasAlreadyAirJumped = true;
+                        NumberOfAirMove--;
                     }
 
                     if (entity.rigidbody.body.LinearVelocity.Y > 0)
@@ -305,7 +318,6 @@ namespace NeonStarLibrary
                     _movementSpeedModifierTimer = 0.0f;
                     _movementSpeedModifier = _movementSpeedModifier / _movementSpeedBoostModifier;
                 }
-
             }
 
             base.Update(gameTime);

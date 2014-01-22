@@ -293,7 +293,7 @@ namespace NeonStarLibrary
                     else
                     {
                         _rollCooldownTimer = 0.0f;
-                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked && !_alreadyDashed)
+                        if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked && !_alreadyDashed && AvatarComponent.ThirdPersonController != null && AvatarComponent.ThirdPersonController.NumberOfAirMove > 0)
                         {
                             if (Neon.Input.Check(NeonStarInput.MoveLeft))
                             {
@@ -310,6 +310,8 @@ namespace NeonStarLibrary
                                 AvatarComponent.CanTurn = false;
                                 AvatarComponent.CanAttack = false;
                                 AvatarComponent.CanUseElement = false;
+                                if (AvatarComponent.ThirdPersonController != null)
+                                    AvatarComponent.ThirdPersonController.NumberOfAirMove--;
                             }
                             else if (Neon.Input.Check(NeonStarInput.MoveRight))
                             {
@@ -326,6 +328,8 @@ namespace NeonStarLibrary
                                 AvatarComponent.CanTurn = false;
                                 AvatarComponent.CanAttack = false;
                                 AvatarComponent.CanUseElement = false;
+                                if (AvatarComponent.ThirdPersonController != null)
+                                    AvatarComponent.ThirdPersonController.NumberOfAirMove--;
                             }
                         }
                     }                  
