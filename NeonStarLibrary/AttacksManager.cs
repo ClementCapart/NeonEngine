@@ -35,7 +35,7 @@ namespace NeonStarLibrary
     public class AttackInfo
     {
         public string Name;
-        public AttackType Type = AttackType.MeleeLight;
+        public AttackType Type = AttackType.MeleeSpecial;
         public Element AttackElement = Element.Neutral;
         public List<Rectangle> Hitboxes = new List<Rectangle>();
         public float DamageOnHit = 1.0f;
@@ -43,8 +43,8 @@ namespace NeonStarLibrary
         public float Cooldown = 1.0f;
         public float LocalCooldown = 0.0f;
         public float Duration = 1.0f;
-        public float AirLock = 1.0f;
-        public float TargetAirLock = 1.0f;
+        public float AirLock = 0.0f;
+        public float TargetAirLock = 0.0f;
         public float AirFactor = 1.0f;
         public float StunLock = 0.0f;
         public float MultiHitDelay = 0.0f;
