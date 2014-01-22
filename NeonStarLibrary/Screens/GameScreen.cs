@@ -28,6 +28,8 @@ namespace NeonStarLibrary
         public Entity avatar;
         //----------------------------------------//
 
+        public List<XElement> CheckPointsData;
+
 
         protected XElement _statusToLoad;
         protected int lastSpawnPointIndex;
@@ -44,6 +46,7 @@ namespace NeonStarLibrary
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
 
+            CheckPointsData = new List<XElement>();
 
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
@@ -64,15 +67,19 @@ namespace NeonStarLibrary
             }
             else if (currentSpawnPoint != null)
             {
-                avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
-
-                avatar.transform.Position = currentSpawnPoint.Position;
-                Avatar avatarComponent = avatar.GetComponent<Avatar>();
-                if (avatarComponent != null)
+                if (File.Exists(@"../Data/Prefabs/" + AvatarName + ".prefab"))
                 {
-                    LoadAvatarStatus(avatarComponent);
-                    avatarComponent.CurrentSide = currentSpawnPoint.Side;
-                }
+                    avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
+                    if (File.Exists(@"../data/Prefabs/HUD.prefab"))
+                        DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
+                    avatar.transform.Position = currentSpawnPoint.Position;
+                    Avatar avatarComponent = avatar.GetComponent<Avatar>();
+                    if (avatarComponent != null)
+                    {
+                        LoadAvatarStatus(avatarComponent);
+                        avatarComponent.CurrentSide = currentSpawnPoint.Side;
+                    }
+                }         
             }
             else
                 Console.WriteLine("Warning : SpawnPoint "+ startingSpawnPointIndex + " not found, Avatar won't be created, please select an existing SpawnPoint");
@@ -87,7 +94,7 @@ namespace NeonStarLibrary
         {
             if (_statusToLoad != null && avatarComponent != null)
             {
-                XElement liOn = _statusToLoad.Element("LiOnParameters");
+                XElement liOn = _statusToLoad.Element("PlayerStatus").Element("LiOnParameters");
                 avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
                 if(avatarComponent.ElementSystem != null)
                 {
@@ -151,8 +158,38 @@ namespace NeonStarLibrary
             ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 
-        public XElement SaveStatus()
+        public void ChangeLevel(XElement savedStatus)
         {
+            ChangeScreen(new LoadingScreen(Neon.Game, savedStatus));
+        }
+
+        public void Respawn()
+        {
+            if (CheckPointsData.Count > 0)
+            {
+                ChangeLevel(CheckPointsData.Last());
+            }
+            else
+            {
+                
+            }
+        }
+
+        public XElement SaveStatus(CheckPoint cp = null)
+        {
+            XElement playerProgression = new XElement("PlayerProgression");
+
+            XElement currentLevel = new XElement("CurrentLevel");
+
+            XElement currentGroupName = new XElement("GroupName", this.LevelGroupName);
+            XElement currentLevelName = new XElement("LevelName", this.LevelName);
+            XElement currentSpawnPoint = new XElement("SpawnPoint", cp != null ? cp.SpawnPointIndex.ToString() : "None");
+            currentLevel.Add(currentGroupName);
+            currentLevel.Add(currentLevelName);
+            currentLevel.Add(currentSpawnPoint);
+
+            playerProgression.Add(currentLevel);
+
             XElement playerStatus = new XElement("PlayerStatus");
 
             Avatar avatarComponent = null;
@@ -163,8 +200,6 @@ namespace NeonStarLibrary
             {
                 XElement liOn = new XElement("LiOnParameters");
 
-                XElement currentPosition = new XElement("Position", Neon.Utils.Vector2ToString(avatar.transform.Position));
-                liOn.Add(currentPosition);
                 XElement currentSide = new XElement("Side", avatarComponent.CurrentSide.ToString());
                 liOn.Add(currentSide);
                 XElement currentHealthPoints = new XElement("HealthPoints", avatarComponent.CurrentHealthPoints);
@@ -185,29 +220,17 @@ namespace NeonStarLibrary
 
                 playerStatus.Add(liOn);
             }
-            return playerStatus;
+
+            playerProgression.Add(playerStatus);
+
+            return playerProgression;
         }
 
         public void SaveProgressionToFile()
         {
             XDocument saveProgression = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-
-            XElement playerProgression = new XElement("PlayerProgression");
-
-            XElement currentLevel = new XElement("CurrentLevel");
-
-            XElement currentGroupName = new XElement("GroupName", this.LevelGroupName);
-            XElement currentLevelName = new XElement("LevelName", this.LevelName);
-
-            currentLevel.Add(currentGroupName);
-            currentLevel.Add(currentLevelName);
-
-            playerProgression.Add(currentLevel);
-
-            XElement playerStatus = SaveStatus();
-            playerProgression.Add(playerStatus);
-            
-            saveProgression.Add(playerProgression);
+    
+            saveProgression.Add(SaveStatus());
 
             if(!Directory.Exists(@"../Save/"))
                 Directory.CreateDirectory(@"../Save/");

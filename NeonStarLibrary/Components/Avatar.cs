@@ -16,7 +16,8 @@ namespace NeonStarLibrary
         Rolling,
         AirDashing,
         Stunlocked,
-        UsingElement
+        UsingElement,
+        Dying,
     }
 
     public class Avatar : Component
@@ -236,6 +237,11 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (CurrentHealthPoints <= 0)
+            {
+                State = AvatarState.Dying;
+                (this.entity.containerWorld as GameScreen).Respawn();
+            }
             if (_airLockDuration > 0.0f && IsAirLocked)
             {
                 _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
