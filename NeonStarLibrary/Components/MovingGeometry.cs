@@ -143,13 +143,18 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_movingState == MovingState.Move)
+            if (entity.rigidbody != null)
             {
-                if (_nextNode != null)
+                if (_movingState == MovingState.Move)
                 {
-                    this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
+                    if (_nextNode != null)
+                    {
+                        if(entity.rigidbody.body != null)
+                            this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
+                    }
                 }
             }
+            
 
             base.Update(gameTime);
         }

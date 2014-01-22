@@ -110,7 +110,7 @@ namespace NeonStarEditor
                 GameWorld.FocusedNumericUpDown = null;
                 GameWorld.FocusedTextBox = null;
                 if (GameWorld.SelectedEntity != null)
-                    GameWorld.RefreshInspector(GameWorld.SelectedEntity);
+                   GameWorld.RefreshInspector(GameWorld.SelectedEntity);
                 else
                     GameWorld.RefreshInspector(null);
             }         

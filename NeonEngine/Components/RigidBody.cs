@@ -226,7 +226,6 @@ namespace NeonEngine
 
         private List<Contact> _currentContacts = null;
 
-
         public Rigidbody(Entity entity)
             :base(entity, "Rigidbody")
         {
@@ -239,8 +238,9 @@ namespace NeonEngine
 
         public override void Init()
         {
-            if (hitbox != null)
+            if (entity.hitboxes[0] != null)
             {
+                hitbox = entity.hitboxes[0];
                 if (body != null)
                     body.Dispose();
 
@@ -282,7 +282,12 @@ namespace NeonEngine
                     beacon = new Beacon(hitbox, physicWorld);
 
                 _currentContacts = new List<Contact>();
-            }            
+                if (entity.Name == "TrainingNoviceLeak01")
+                    Console.WriteLine("TrainingNociveLeak01");
+            }
+
+            if (entity.Name == "TrainingNoviceLeak01")
+                Console.WriteLine("TrainingNociveLeak01");
         }
 
         bool body_OnCollision(Fixture fixtureA, Fixture fixtureB, Contact contact)
