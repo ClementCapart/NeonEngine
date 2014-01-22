@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyFTurret">
+  <Entity Name="EnemyFTurret" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:513 Y:-26}" />
-          <InitialPosition Value="{X:513 Y:-26}" />
+          <Position Value="{X:209 Y:-25}" />
+          <InitialPosition Value="{X:209 Y:-25}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:513 Y:-26}" />
-          <X Value="463" />
-          <Y Value="-76" />
+          <Center Value="{X:208 Y:-25}" />
+          <X Value="158" />
+          <Y Value="-75" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -30,7 +30,7 @@
           <UseGravity Value="True" />
           <Restitution Value="0" />
           <Friction Value="10" />
-          <Mass Value="1" />
+          <Mass Value="0.99875" />
           <OneWayPlatform Value="False" />
           <SleepingAllowed Value="False" />
           <IsGround Value="False" />
@@ -42,18 +42,20 @@
       <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
         <Properties>
           <CurrentSide Value="Left" />
-          <Offset Value="{X:0 Y:8}" />
+          <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <RotationCenter Value="{X:0 Y:0}" />
-          <RotationOffset Value="3.124139" />
+          <RotationOffset Value="0.01745343" />
           <Spritesheets>
             <Animation Name="Idle" SpritesheetTag="EnemyFireTurretIdle" />
-            <Animation Name="Attack" SpritesheetTag="EnemyFireTurret" />
+            <Animation Name="Attack" SpritesheetTag="EnemyFireTurretAttack" />
+            <Animation Name="Death" SpritesheetTag="Explosion" />
           </Spritesheets>
           <DrawLayer Value="0.39" />
           <IsHUD Value="False" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
+          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
         </Properties>
       </SpritesheetManager>
       <Enemy Type="NeonStarLibrary.Enemy" ID="4">
@@ -62,18 +64,15 @@
           <StartingHealthPoints Value="20" />
           <CoreElement Value="Fire" />
           <CurrentHealthPoints Value="15" />
+          <InvincibilityDuration Value="0.5" />
           <RunAnim Value="" />
           <IdleAnim Value="Idle" />
-          <StartAttackAnim Value="Attack" />
-          <AttackAnim Value="" />
-          <Type Value="Ground" />
+          <DyingAnim Value="" />
+          <HitAnim Value="" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
-          <StunlockAnim Value="" />
-          <DyingAnim Value="" />
-          <InvincibilityDuration Value="0.5" />
-          <HitAnim Value="" />
           <ImmuneToDeath Value="False" />
+          <Type Value="Ground" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="1" />
@@ -90,7 +89,7 @@
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:0 Y:39}" />
+          <Offset Value="{X:0 Y:35}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -99,28 +98,27 @@
       <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
         <Properties />
       </EnemyAnimationManager>
-      <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="11">
+      <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="12">
         <Properties>
-          <CheckBothSide Value="True" />
-          <DetectionOffset Value="{X:0 Y:0}" />
+          <MaximumAngleDifference Value="360" />
           <RangeForAttackOne Value="400" />
           <AttackToLaunchOne Value="EnemyFTurretShot" />
+          <AttackOneAnimation Value="Attack" />
           <RangeForAttackTwo Value="0" />
           <AttackToLaunchTwo Value="" />
+          <AttackTwoAnimation Value="" />
           <RangeForAttackThree Value="0" />
           <AttackToLaunchThree Value="" />
+          <AttackThreeAnimation Value="" />
           <RangeForAttackFour Value="0" />
           <AttackToLaunchFour Value="" />
+          <AttackFourAnimation Value="" />
           <RangeForAttackFive Value="0" />
           <AttackToLaunchFive Value="" />
-          <EntityToAttackName Value="LiOn" />
-          <AttackOneAnimation Value="Attack" />
-          <AttackTwoAnimation Value="" />
-          <AttackThreeAnimation Value="" />
-          <AttackFourAnimation Value="" />
           <AttackFiveAnimation Value="" />
+          <EntityToAttackName Value="LiOn" />
         </Properties>
-      </GroundAttack>
+      </AreaAttack>
     </Components>
   </Entity>
 </Prefab>
