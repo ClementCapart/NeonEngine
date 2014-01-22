@@ -128,7 +128,7 @@ namespace NeonStarLibrary
         private bool _alreadyDashed = false;
 
         public Guard(Entity entity)
-            :base(entity, "Roll")
+            :base(entity, "Guard")
         {
         }
 
