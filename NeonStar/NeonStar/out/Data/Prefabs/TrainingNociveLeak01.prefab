@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="TrainingNociveLeak01" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:1581 Y:-424}" />
+          <InitialPosition Value="{X:1581 Y:-424}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Main" />
+          <Center Value="{X:1581 Y:-424}" />
+          <X Value="1556" />
+          <Y Value="-574" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="50" />
+          <Height Value="300" />
+        </Properties>
+      </Hitbox>
+      <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+        <Properties>
+          <Debug Value="False" />
+          <StartingHealthPoints Value="10" />
+          <CoreElement Value="Neutral" />
+          <CurrentHealthPoints Value="10" />
+          <InvincibilityDuration Value="0.5" />
+          <RunAnim Value="" />
+          <IdleAnim Value="" />
+          <DyingAnim Value="" />
+          <HitAnim Value="" />
+          <ImmuneToStunLock Value="True" />
+          <ImmuneToImpulse Value="True" />
+          <ImmuneToDeath Value="True" />
+          <Type Value="Ground" />
+          <TriggerOnDamage Value="False" />
+          <ComponentToTriggerName Value="" />
+          <WaitThreatDuration Value="1" />
+        </Properties>
+      </Enemy>
+      <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="5">
+        <Properties>
+          <MaximumAngleDifference Value="360" />
+          <RangeForAttackOne Value="10000" />
+          <AttackToLaunchOne Value="TrainingConstantAttack" />
+          <AttackOneAnimation Value="" />
+          <RangeForAttackTwo Value="0" />
+          <AttackToLaunchTwo Value="" />
+          <AttackTwoAnimation Value="" />
+          <RangeForAttackThree Value="0" />
+          <AttackToLaunchThree Value="" />
+          <AttackThreeAnimation Value="" />
+          <RangeForAttackFour Value="0" />
+          <AttackToLaunchFour Value="" />
+          <AttackFourAnimation Value="" />
+          <RangeForAttackFive Value="0" />
+          <AttackToLaunchFive Value="" />
+          <AttackFiveAnimation Value="" />
+          <EntityToAttackName Value="LiOn" />
+        </Properties>
+      </AreaAttack>
+      <Hitbox Type="NeonEngine.Hitbox" ID="0">
+        <Properties>
+          <Type Value="Hit" />
+          <Center Value="{X:1581 Y:-424}" />
+          <X Value="1561" />
+          <Y Value="-569" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="40" />
+          <Height Value="290" />
+        </Properties>
+      </Hitbox>
+    </Components>
+  </Entity>
+</Prefab>
