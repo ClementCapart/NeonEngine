@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="TrainingNociveLeak" Layer="">
+  <Entity Name="TrainingSecurityAlarm2" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:1540 Y:-432}" />
-          <InitialPosition Value="{X:1540 Y:-432}" />
+          <Position Value="{X:152 Y:385}" />
+          <InitialPosition Value="{X:152 Y:385}" />
           <Rotation Value="0" />
           <Scale Value="1" />
         </Properties>
@@ -14,12 +14,12 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:1540 Y:-432}" />
-          <X Value="1515" />
-          <Y Value="-582" />
+          <Center Value="{X:152 Y:385}" />
+          <X Value="-48" />
+          <Y Value="235" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
-          <Width Value="50" />
+          <Width Value="400" />
           <Height Value="300" />
         </Properties>
       </Hitbox>
@@ -37,17 +37,17 @@
           <ImmuneToStunLock Value="True" />
           <ImmuneToImpulse Value="True" />
           <ImmuneToDeath Value="True" />
-          <Type Value="Ground" />
+          <Type Value="Flying" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="1" />
         </Properties>
       </Enemy>
-      <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="5">
+      <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="9">
         <Properties>
           <MaximumAngleDifference Value="360" />
-          <RangeForAttackOne Value="10000" />
-          <AttackToLaunchOne Value="TrainingConstantAttack" />
+          <RangeForAttackOne Value="5000" />
+          <AttackToLaunchOne Value="TrainingAlarmDetection2" />
           <AttackOneAnimation Value="" />
           <RangeForAttackTwo Value="0" />
           <AttackToLaunchTwo Value="" />
@@ -67,12 +67,12 @@
       <Hitbox Type="NeonEngine.Hitbox" ID="0">
         <Properties>
           <Type Value="Hit" />
-          <Center Value="{X:1540 Y:-432}" />
-          <X Value="1520" />
-          <Y Value="-577" />
+          <Center Value="{X:152 Y:385}" />
+          <X Value="-43" />
+          <Y Value="240" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
-          <Width Value="40" />
+          <Width Value="390" />
           <Height Value="290" />
         </Properties>
       </Hitbox>
