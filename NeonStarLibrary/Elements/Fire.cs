@@ -9,46 +9,45 @@ namespace NeonStarLibrary
 {
     public class Fire : ElementEffect
     {
-        private double _charge = 0.0f;
-        private double _chargeSpeed = 200.0f;
+        public double CurrentCharge = 0.0f;
+        private double _chargeSpeed;
 
         private double _maxCharge = 100.0f;
-        private float _airLockDuration = 3.0f;
-        private float _maxChargeTimer = 3.0f;
+        private float _maxChargeTimer;
 
         private float _airlockLaunched = 0.3f;
 
         private bool _chargeGoingDown = false;
 
-        private int _levelOneStageTwoChargeRequired = 30;
-        private int _levelOneStageThreeChargeRequired = 70;
+        public float StageTwoThreshold;
+        public float StageThreeThreshold;
+        public float StageFourThreshold;
 
-        private int _levelTwoStageTwoChargeRequired = 30;
-        private int _levelTwoStageThreeChargeRequired = 70;
-        private int _levelTwoStageFourChargeRequired = 90;
-
-        private int _levelThreeStageTwoChargeRequired = 30;
-        private int _levelThreeStageThreeChargeRequired = 70;
-        private int _levelThreeStageFourChargeRequired = 90;
-
-        private string _levelOneFireAttackNameStage1 = "LiOnElementFire11";
-        private string _levelOneFireAttackNameStage2 = "LiOnElementFire12";
-        private string _levelOneFireAttackNameStage3 = "LiOnElementFire13";
-
-        private string _levelTwoFireAttackNameStage1 = "LiOnElementFire21";
-        private string _levelTwoFireAttackNameStage2 = "LiOnElementFire22";
-        private string _levelTwoFireAttackNameStage3 = "LiOnElementFire23";
-        private string _levelTwoFireAttackNameStage4 = "LiOnElementFire24";
-
-        private string _levelThreeFireAttackNameStage1 = "LiOnElementFire31";
-        private string _levelThreeFireAttackNameStage2 = "LiOnElementFire32";
-        private string _levelThreeFireAttackNameStage3 = "LiOnElementFire33";
-        private string _levelThreeFireAttackNameStage4 = "LiOnElementFire34";
+        public string StageOneAttack;
+        public string StageTwoAttack;
+        public string StageThreeAttack;
+        public string StageFourAttack; 
 
         public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
         {
             EffectElement = Element.Fire;
+        }
+
+        public override void InitializeLevelParameters()
+        {
+            switch(this._elementLevel)
+            {
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+            }
+            base.InitializeLevelParameters();
         }
 
         public override void PreUpdate(GameTime gameTime)
@@ -71,7 +70,6 @@ namespace NeonStarLibrary
             {
                 case ElementState.Initialization:
                     State = ElementState.Charge;
-                    if(!_elementSystem.entity.rigidbody.isGrounded) _elementSystem.AvatarComponent.AirLock(_airLockDuration);
                     break;
 
                 case ElementState.Charge:
@@ -80,37 +78,24 @@ namespace NeonStarLibrary
                         _maxChargeTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                         if (_maxChargeTimer <= 0.0f)
                         {
-                            _elementSystem.AvatarComponent.AirLock(0.0f);
-                            _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-
-                            switch (_input)
-                            {
-                                case NeonStarInput.UseLeftSlotElement:
-                                    //_elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
-                                    break;
-
-                                case NeonStarInput.UseRightSlotElement:
-                                    //_elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
-                                    break;
-                            }
-
-                            State = ElementState.End;
+                            CurrentCharge = 0.0f;
+                            State = ElementState.Effect;
                         }
-                        if (_charge < _maxCharge && !_chargeGoingDown)
+                        if (CurrentCharge < _maxCharge && !_chargeGoingDown)
                         {
-                            _charge += gameTime.ElapsedGameTime.TotalSeconds * _chargeSpeed;
-                            if (_charge >= _maxCharge)
+                            CurrentCharge += gameTime.ElapsedGameTime.TotalSeconds * _chargeSpeed;
+                            if (CurrentCharge >= _maxCharge)
                             {
-                                _charge = _maxCharge;
+                                CurrentCharge = _maxCharge;
                                 _chargeGoingDown = true;
                             }
                         }
-                        else if(_charge > 0.0f)
+                        else if(CurrentCharge > 0.0f)
                         {
-                            _charge -= gameTime.ElapsedGameTime.TotalSeconds * _chargeSpeed;
-                            if (_charge <= 0.0f)
+                            CurrentCharge -= gameTime.ElapsedGameTime.TotalSeconds * _chargeSpeed;
+                            if (CurrentCharge <= 0.0f)
                             {
-                                _charge = 0.0f;
+                                CurrentCharge = 0.0f;
                                 _chargeGoingDown = false;
                             }
                         }
@@ -124,81 +109,36 @@ namespace NeonStarLibrary
                 case ElementState.Effect:
                     _elementSystem.AvatarComponent.AirLock(_airlockLaunched);
                     _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    switch(_elementLevel)
+
+                    if (CurrentCharge > StageFourThreshold)
                     {
-                        case 1:
-                            if (_charge > _levelOneStageThreeChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else if (_charge > _levelOneStageTwoChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelOneFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            break;
-
-                        case 2:
-                            if (_charge > _levelTwoStageFourChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else if (_charge > _levelTwoStageThreeChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else if (_charge > _levelTwoStageTwoChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelTwoFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            break;
-
-                        case 3:
-                            if (_charge > _levelThreeStageFourChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage4, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else if (_charge > _levelThreeStageThreeChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage3, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else if (_charge > _levelThreeStageTwoChargeRequired)
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage2, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            else
-                            {
-                                Attack a = AttacksManager.StartFreeAttack(_levelThreeFireAttackNameStage1, _entity.spritesheets.CurrentSide, _entity.transform.Position);
-                                a.Launcher = _entity;
-                            }
-                            break;
+                        Attack a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a.Launcher = _entity;
                     }
-
+                    else if (CurrentCharge > StageThreeThreshold)
+                    {
+                        Attack a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a.Launcher = _entity;
+                    }
+                    else if (CurrentCharge > StageTwoThreshold)
+                    {
+                        Attack a = AttacksManager.StartFreeAttack(StageTwoAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a.Launcher = _entity;
+                    }
+                    else
+                    {
+                        Attack a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a.Launcher = _entity;
+                    }
+                    
                     switch(_input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            //_elementSystem.LeftSlotCooldownTimer = _elementSystem.FireCooldown;
+                            _elementSystem.LeftSlotEnergy -= this._gaugeCost;
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            //_elementSystem.RightSlotCooldownTimer = _elementSystem.FireCooldown;
+                            _elementSystem.RightSlotEnergy -= this._gaugeCost;
                             break;
                     }
                     State = ElementState.End;

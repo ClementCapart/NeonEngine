@@ -147,7 +147,7 @@
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
-          <LeftSlotElement Value="Thunder" />
+          <LeftSlotElement Value="Fire" />
           <LeftSlotLevel Value="2" />
           <RightSlotElement Value="Neutral" />
           <RightSlotLevel Value="1" />
@@ -167,6 +167,18 @@
           <CurrentEnergyStock Value="0" />
         </Properties>
       </EnergySystem>
+      <FireGauge Type="NeonStarLibrary.FireGauge" ID="12">
+        <Properties>
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:-80}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </FireGauge>
     </Components>
   </Entity>
 </Prefab>

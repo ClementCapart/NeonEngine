@@ -10,12 +10,66 @@ namespace NeonStarLibrary
     static public class ElementManager
     {
         static public List<List<object>> ThunderParameters = new List<List<object>>();
-        //static public List<List<object>> FireParameters = new List<List<object>>();
+        static public List<List<object>> FireParameters = new List<List<object>>();
 
         static public void LoadElementParameters()
         {
             XElement parameters = XDocument.Load(@"../Data/Config/Elements.xml").Element("Elements");
+            LoadFireParameters(parameters);
             LoadThunderParameters(parameters);
+        }
+
+        static private void LoadFireParameters(XElement parameters)
+        {
+            XElement fireParameters = parameters.Element("Fire");
+
+            List<object> generalParameters = new List<object>();
+            generalParameters.Add(float.Parse(fireParameters.Element("General").Element("GaugeSpeed").Value));
+            generalParameters.Add(float.Parse(fireParameters.Element("General").Element("MaxChargeDuration").Value));
+
+            FireParameters.Add(generalParameters);
+
+            List<object> firstLevelParameters = new List<object>();
+            firstLevelParameters.Add(float.Parse(fireParameters.Element("FirstLevel").Element("GaugeCost").Value));
+            firstLevelParameters.Add(fireParameters.Element("FirstLevel").Element("StageOneAttack").Value);
+            firstLevelParameters.Add(fireParameters.Element("FirstLevel").Element("StageTwoAttack").Value);
+            firstLevelParameters.Add(fireParameters.Element("FirstLevel").Element("StageThreeAttack").Value);
+            firstLevelParameters.Add(float.Parse(fireParameters.Element("FirstLevel").Element("StageTwoThreshold").Value));
+            firstLevelParameters.Add(float.Parse(fireParameters.Element("FirstLevel").Element("StageThreeThreshold").Value));
+
+            FireParameters.Add(firstLevelParameters);
+
+            List<object> secondLevelParameters = new List<object>();
+            secondLevelParameters.Add(float.Parse(fireParameters.Element("SecondLevel").Element("GaugeCost").Value));
+            secondLevelParameters.Add(fireParameters.Element("SecondLevel").Element("StageOneAttack").Value);
+            secondLevelParameters.Add(fireParameters.Element("SecondLevel").Element("StageTwoAttack").Value);
+            secondLevelParameters.Add(fireParameters.Element("SecondLevel").Element("StageThreeAttack").Value);
+            secondLevelParameters.Add(float.Parse(fireParameters.Element("SecondLevel").Element("StageTwoThreshold").Value));
+            secondLevelParameters.Add(float.Parse(fireParameters.Element("SecondLevel").Element("StageThreeThreshold").Value));
+            secondLevelParameters.Add(fireParameters.Element("SecondLevel").Element("StageFourAttack").Value);
+            secondLevelParameters.Add(float.Parse(fireParameters.Element("SecondLevel").Element("StageFourThreshold").Value));
+
+            FireParameters.Add(secondLevelParameters);
+
+            List<object> thirdLevelParameters = new List<object>();
+            thirdLevelParameters.Add(float.Parse(fireParameters.Element("ThirdLevel").Element("GaugeCost").Value));
+            thirdLevelParameters.Add(fireParameters.Element("ThirdLevel").Element("StageOneAttack").Value);
+            thirdLevelParameters.Add(fireParameters.Element("ThirdLevel").Element("StageTwoAttack").Value);
+            thirdLevelParameters.Add(fireParameters.Element("ThirdLevel").Element("StageThreeAttack").Value);
+            thirdLevelParameters.Add(float.Parse(fireParameters.Element("ThirdLevel").Element("StageTwoThreshold").Value));
+            thirdLevelParameters.Add(float.Parse(fireParameters.Element("ThirdLevel").Element("StageThreeThreshold").Value));
+            thirdLevelParameters.Add(fireParameters.Element("ThirdLevel").Element("StageFourAttack").Value);
+            thirdLevelParameters.Add(float.Parse(fireParameters.Element("ThirdLevel").Element("StageFourThreshold").Value));
+
+            FireParameters.Add(thirdLevelParameters);
+
+            List<object> assimilationParameters = new List<object>();
+            assimilationParameters.Add(float.Parse(fireParameters.Element("Assimilation").Element("DamageModifier").Value));
+            assimilationParameters.Add(float.Parse(fireParameters.Element("Assimilation").Element("ModifierDurationLevelOne").Value));
+            assimilationParameters.Add(float.Parse(fireParameters.Element("Assimilation").Element("ModifierDurationLevelTwo").Value));
+            assimilationParameters.Add(float.Parse(fireParameters.Element("Assimilation").Element("ModifierDurationLevelThree").Value));
+
+            FireParameters.Add(assimilationParameters);
         }
 
         static private void LoadThunderParameters(XElement parameters)

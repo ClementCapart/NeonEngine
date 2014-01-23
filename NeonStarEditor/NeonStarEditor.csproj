@@ -107,6 +107,12 @@
     <Compile Include="Controls\BottomDock\EntityListControl.Designer.cs">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ElementEditor\FirePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ElementEditor\FirePanel.Designer.cs">
+      <DependentUpon>FirePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LeftDock\LeftDock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     <EmbeddedResource Include="Controls\ElementEditor\ThunderPanel.resx">
       <DependentUpon>ThunderPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ElementEditor\FirePanel.resx">
+      <DependentUpon>FirePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\LeftDock\LeftDock.resx">
       <DependentUpon>LeftDock.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,9 +299,7 @@
     <None Include="Resources\iconneon_0006_selection-tool.png" />
     <Content Include="Resources\ReloadButton.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FarseerPhysics\FarseerPhysics.csproj">
       <Project>{873320b4-f7c8-4cd0-bf30-2d288db5076f}</Project>

@@ -41,7 +41,7 @@ namespace NeonStarEditor
                     break;
 
                 case Element.Fire:
-                    Console.WriteLine("Fire");
+                    settingPanel.Controls.Add(new FirePanel());
                     break;
 
                 case Element.Thunder:
@@ -56,8 +56,8 @@ namespace NeonStarEditor
 
             XElement elements = new XElement("Elements");
 
-            SaveThunderParameters(elements);
             SaveFireParameters(elements);
+            SaveThunderParameters(elements);        
 
             document.Add(elements);
             document.Save(@"../Data/Config/Elements.xml");
@@ -65,7 +65,90 @@ namespace NeonStarEditor
 
         private void SaveFireParameters(XElement elements)
         {
-            //Not done yet
+            XElement fireParameters = new XElement("Fire");
+            
+            XElement general = new XElement("General");
+            XElement gaugeSpeed = new XElement("GaugeSpeed", ((float)(ElementManager.FireParameters[0][0])).ToString());
+            XElement maxChargeDuration = new XElement("MaxChargeDuration", ((float)(ElementManager.FireParameters[0][1])).ToString());
+           
+            general.Add(gaugeSpeed);
+            general.Add(maxChargeDuration);
+
+            fireParameters.Add(general);
+
+            XElement firstLevel = new XElement("FirstLevel");
+            XElement gaugeCost = new XElement("GaugeCost", ((float)(ElementManager.FireParameters[1][0])).ToString());
+            XElement stageOneAttack = new XElement("StageOneAttack", (string)(ElementManager.FireParameters[1][1]));
+            XElement stageTwoAttack = new XElement("StageTwoAttack", (string)(ElementManager.FireParameters[1][2]));
+            XElement stageThreeAttack = new XElement("StageThreeAttack", (string)(ElementManager.FireParameters[1][3]));
+            XElement stageTwoTreshold = new XElement("StageTwoThreshold", ((float)(ElementManager.FireParameters[1][4])).ToString());
+            XElement stageThreeTreshold = new XElement("StageThreeThreshold", ((float)(ElementManager.FireParameters[1][5])).ToString());
+
+            firstLevel.Add(gaugeCost);
+            firstLevel.Add(stageOneAttack);
+            firstLevel.Add(stageTwoAttack);
+            firstLevel.Add(stageThreeAttack);
+            firstLevel.Add(stageTwoTreshold);
+            firstLevel.Add(stageThreeTreshold);
+
+            fireParameters.Add(firstLevel);
+
+            XElement secondLevel = new XElement("SecondLevel");
+            gaugeCost = new XElement("GaugeCost", ((float)(ElementManager.FireParameters[2][0])).ToString());
+            stageOneAttack = new XElement("StageOneAttack", (string)(ElementManager.FireParameters[2][1]));
+            stageTwoAttack = new XElement("StageTwoAttack", (string)(ElementManager.FireParameters[2][2]));
+            stageThreeAttack = new XElement("StageThreeAttack", (string)(ElementManager.FireParameters[2][3]));
+            stageTwoTreshold = new XElement("StageTwoThreshold", ((float)(ElementManager.FireParameters[2][4])).ToString());
+            stageThreeTreshold = new XElement("StageThreeThreshold", ((float)(ElementManager.FireParameters[2][5])).ToString());
+            XElement stageFourAttack = new XElement("StageFourAttack", (string)(ElementManager.FireParameters[2][6]));
+            XElement stageFourThreshold = new XElement("StageFourThreshold", ((float)(ElementManager.FireParameters[2][7])).ToString());
+
+            secondLevel.Add(gaugeCost);
+            secondLevel.Add(stageOneAttack);
+            secondLevel.Add(stageTwoAttack);
+            secondLevel.Add(stageThreeAttack);
+            secondLevel.Add(stageTwoTreshold);
+            secondLevel.Add(stageThreeTreshold);
+            secondLevel.Add(stageFourAttack);
+            secondLevel.Add(stageFourThreshold);
+
+            fireParameters.Add(secondLevel);
+
+            XElement thirdLevel = new XElement("ThirdLevel");
+            gaugeCost = new XElement("GaugeCost", ((float)(ElementManager.FireParameters[3][0])).ToString());
+            stageOneAttack = new XElement("StageOneAttack", (string)(ElementManager.FireParameters[3][1]));
+            stageTwoAttack = new XElement("StageTwoAttack", (string)(ElementManager.FireParameters[3][2]));
+            stageThreeAttack = new XElement("StageThreeAttack", (string)(ElementManager.FireParameters[3][3]));
+            stageTwoTreshold = new XElement("StageTwoThreshold", ((float)(ElementManager.FireParameters[3][4])).ToString());
+            stageThreeTreshold = new XElement("StageThreeThreshold", ((float)(ElementManager.FireParameters[3][5])).ToString());
+            stageFourAttack = new XElement("StageFourAttack", (string)(ElementManager.FireParameters[3][6]));
+            stageFourThreshold = new XElement("StageFourThreshold", ((float)(ElementManager.FireParameters[3][7])).ToString());
+
+            thirdLevel.Add(gaugeCost);
+            thirdLevel.Add(stageOneAttack);
+            thirdLevel.Add(stageTwoAttack);
+            thirdLevel.Add(stageThreeAttack);
+            thirdLevel.Add(stageTwoTreshold);
+            thirdLevel.Add(stageThreeTreshold);
+            thirdLevel.Add(stageFourAttack);
+            thirdLevel.Add(stageFourThreshold);
+
+            fireParameters.Add(thirdLevel);
+
+            XElement assimilation = new XElement("Assimilation");
+            XElement modifierDurationLevelOne = new XElement("ModifierDurationLevelOne", ((float)(ElementManager.FireParameters[4][1])).ToString());
+            XElement modifierDurationLevelTwo = new XElement("ModifierDurationLevelTwo", ((float)(ElementManager.FireParameters[4][2])).ToString());
+            XElement modifierDurationLevelThree = new XElement("ModifierDurationLevelThree", ((float)(ElementManager.FireParameters[4][3])).ToString());
+            XElement damageModifier = new XElement("DamageModifier", ((float)(ElementManager.FireParameters[4][0])).ToString());
+
+            assimilation.Add(modifierDurationLevelOne);
+            assimilation.Add(modifierDurationLevelTwo);
+            assimilation.Add(modifierDurationLevelThree);
+            assimilation.Add(damageModifier);
+
+            fireParameters.Add(assimilation);
+
+            elements.Add(fireParameters);           
         }
 
         private void SaveThunderParameters(XElement elements)
