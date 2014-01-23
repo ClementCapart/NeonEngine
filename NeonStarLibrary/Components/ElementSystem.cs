@@ -247,37 +247,69 @@ namespace NeonStarLibrary
             switch (element)
             {
                 case Element.Fire:
-                    CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
-                    break;
-
-                case Element.Thunder:
-                    float gaugeCost = 0.0f;
+                    float fireGaugeCost = 0.0f;
                     switch (level)
                     {
                         case 1:
-                            gaugeCost = (float)ElementManager.ThunderParameters[0][0];
+                            fireGaugeCost = (float)ElementManager.FireParameters[1][0];
                             break;
 
                         case 2:
-                            gaugeCost = (float)ElementManager.ThunderParameters[1][0];
+                            fireGaugeCost = (float)ElementManager.FireParameters[2][0];
                             break;
 
                         case 3:
-                            gaugeCost = (float)ElementManager.ThunderParameters[2][0];
+                            fireGaugeCost = (float)ElementManager.FireParameters[3][0];
                             break;
                     }
 
                     switch (input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            if (gaugeCost <= LeftSlotEnergy)
+                            if (fireGaugeCost <= LeftSlotEnergy)
+                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+
+                        case NeonStarInput.UseRightSlotElement:
+                            if (fireGaugeCost <= RightSlotEnergy)
+                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+                    }
+
+                    break;
+
+                case Element.Thunder:
+                    float thunderGaugeCost = 0.0f;
+                    switch (level)
+                    {
+                        case 1:
+                            thunderGaugeCost = (float)ElementManager.ThunderParameters[0][0];
+                            break;
+
+                        case 2:
+                            thunderGaugeCost = (float)ElementManager.ThunderParameters[1][0];
+                            break;
+
+                        case 3:
+                            thunderGaugeCost = (float)ElementManager.ThunderParameters[2][0];
+                            break;
+                    }
+
+                    switch (input)
+                    {
+                        case NeonStarInput.UseLeftSlotElement:
+                            if (thunderGaugeCost <= LeftSlotEnergy)
                                 CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
                             else
                                 Console.WriteLine("Not enough energy");
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            if(gaugeCost <= RightSlotEnergy)
+                            if(thunderGaugeCost <= RightSlotEnergy)
                                 CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
                             else
                                 Console.WriteLine("Not enough energy");
@@ -316,6 +348,23 @@ namespace NeonStarLibrary
                                     break;
                             }
                             break;
+
+                        case Element.Fire:
+                            switch (_leftSlotLevel.ToString())
+                            {
+                                case "1":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][1]);
+                                    break;
+
+                                case "2":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][2]);
+                                    break;
+
+                                case "3":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][3]);
+                                    break;
+                            }
+                            break;
                     }
 
                     _leftSlotElement = Element.Neutral;
@@ -345,6 +394,23 @@ namespace NeonStarLibrary
                                 case "3":
                                     AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[5][1] / 100f, (float)ElementManager.ThunderParameters[5][0]);
                                     AvatarComponent.MeleeFight.BoostAttackSpeed((float)ElementManager.ThunderParameters[5][2] / 100f, (float)ElementManager.ThunderParameters[5][0]);
+                                    break;
+                            }
+                            break;
+
+                        case Element.Fire:
+                            switch (_leftSlotLevel.ToString())
+                            {
+                                case "1":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][1]);
+                                    break;
+
+                                case "2":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][2]);
+                                    break;
+
+                                case "3":
+                                    AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][3]);
                                     break;
                             }
                             break;

@@ -31,7 +31,7 @@ namespace NeonStarLibrary
             _thunderFinishSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFinish");
             
             this.EffectElement = Element.Thunder;
-            switch (_elementLevel)
+            switch (ElementLevel)
             {
                 case 1:
                     _gaugeCost = (float)ElementManager.ThunderParameters[0][0];

@@ -21,7 +21,7 @@ namespace NeonStarLibrary
         protected Entity _entity;
         protected ElementSystem _elementSystem;
         protected NeonStarInput _input;
-        protected int _elementLevel = 1;
+        public int ElementLevel = 1;
 
         public Element EffectElement;
 
@@ -35,7 +35,7 @@ namespace NeonStarLibrary
             _entity = entity;
             _elementSystem = elementSystem;
             _input = input;
-            _elementLevel = elementLevel;
+            ElementLevel = elementLevel;
 
             InitializeLevelParameters();
         }

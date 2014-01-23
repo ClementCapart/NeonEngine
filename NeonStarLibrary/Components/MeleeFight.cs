@@ -581,5 +581,11 @@ namespace NeonStarLibrary
             AttackSpeedModifier *= newModifier;
             _attackSpeedBoostModifier = newModifier;
         }
+
+        public void BoostDamage(float newModifier, float duration)
+        {
+            DamageModifier = newModifier;
+            DamageModifierTimer = duration;
+        }
     }
 }
