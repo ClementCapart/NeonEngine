@@ -88,36 +88,47 @@ namespace NeonStarLibrary
             {
                 case ElementState.Initialization:
                     _entity.spritesheets.ChangeAnimation(_elementSystem.ThunderLaunchAnimation, true, 0, true, false, false);
-                    _entity.containerWorld.Camera.ChaseStrength = 0.0f;
                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;  
                     _entity.rigidbody.GravityScale = 0.0f;
                     _entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
                     if (_entity.spritesheets.IsFinished())
                     {
+                        _entity.spritesheets.Active = false;
                         State = ElementState.Charge;
                         if (effect == null)
                         {
-                            float angle = _dashImpulse.X == 0 ? 0.0f : (float)Math.PI / 2;
+                            float angle = 0.0f;
+                            if (_dashImpulse.X == 0)
+                            {
+                                if (_dashImpulse.Y < 0)
+                                    angle = (float)-Math.PI / 2;
+                                else
+                                    angle = (float)Math.PI / 2;
+                                
+                            }
+
                             Vector2 offset;
                             if (_dashImpulse.X == 0)
                             {
-                                offset = Vector2.Zero;
+                                if (_dashImpulse.Y < 0)
+                                    offset = new Vector2(4, -177);
+                                else
+                                    offset = new Vector2(4, 200);
+                                
                             }
                             else
                             {
-                                offset = new Vector2(240, 0);
+                                offset = new Vector2(189, 12);
                             }
-                            effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _dashImpulse.X != 0 ? _elementSystem.AvatarComponent.CurrentSide : Side.Right, _elementSystem.entity.transform.Position, angle, offset, 2.0f, 0.9f);
+                            effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _dashImpulse.X != 0 ? _elementSystem.AvatarComponent.CurrentSide : Side.Right, _elementSystem.entity.transform.Position, angle, offset, 2.0f, 0.7f);
                         }
                     }
                     
                     break;
 
                 case ElementState.Charge:                                                         
-                    State = ElementState.Effect;
-                    
-                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);
-                    _entity.spritesheets.Active = false;
+                    State = ElementState.Effect;                 
+                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);                  
                     break;
 
                 case ElementState.Effect:
@@ -125,7 +136,6 @@ namespace NeonStarLibrary
                     {
                         if (_dashDuration > 0.0f)
                         {
-
                             _entity.rigidbody.GravityScale = 0.0f;
                             _dashDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                             if (ThunderAttack != null) ThunderAttack.Update(gameTime);
@@ -137,8 +147,7 @@ namespace NeonStarLibrary
                             _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             if (ThunderAttack != null) ThunderAttack.CancelAttack();
                             ThunderAttack = null;
-                            State = ElementState.End;
-                            finishEffect = EffectsManager.GetEffect(_thunderFinishSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.8f);
+                            finishEffect = EffectsManager.GetEffect(_thunderFinishSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
                             switch (_input)
                             {
                                 case NeonStarInput.UseLeftSlotElement:

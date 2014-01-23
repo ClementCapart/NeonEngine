@@ -34,6 +34,7 @@ namespace NeonEngine
 
         private Dictionary<Keys, long> KeyboardPressedDelays = new Dictionary<Keys,long>();
         private Dictionary<Buttons, long> ControllerPressedDelays = new Dictionary<Buttons, long>();
+        private Dictionary<Buttons, long> ControllerPressedDelays2 = new Dictionary<Buttons, long>();
         Type EnumType;
 
         private Vector2 mousePosition;
@@ -212,6 +213,19 @@ namespace NeonEngine
                         }
                         
                     }
+                    else if (kvp.Key == "XboxController2")
+                    {
+                        Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                        if (ControllerPressedDelays.ContainsKey(currentButton))
+                        {
+                            if (DateTime.Now.Ticks - ControllerPressedDelays[currentButton] <= TimeSpan.TicksPerSecond * Delay)
+                                return DelayStatus.Valid;
+                            else
+                                return DelayStatus.Passed;
+                        }
+
+                    }
                 }
             }
 
@@ -249,6 +263,16 @@ namespace NeonEngine
                                 return;
                             }
                         }
+                        else if (kvp.Key == "XboxController2")
+                        {
+                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                            if (this.Pressed(currentButton))
+                            {
+                                ControllerPressedDelays.Add(currentButton, DateTime.Now.Ticks);
+                                return;
+                            }
+                        }
                     }
         }
 
@@ -273,6 +297,15 @@ namespace NeonEngine
                             }
                         }
                         else if (kvp.Key == "XboxController")
+                        {
+                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+
+                            if (this.Pressed(currentButton))
+                            {
+                                return true;
+                            }
+                        }
+                        else if (kvp.Key == "XboxController2")
                         {
                             Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
 
@@ -351,6 +384,56 @@ namespace NeonEngine
                                     break;
                             }                                                     
                         }
+                        else if (kvp.Key == "XboxController2")
+                        {
+                            switch ((Buttons)Enum.Parse(typeof(Buttons), kvp.Value))
+                            {
+                                case Buttons.LeftThumbstickLeft:
+                                    if (gps.ThumbSticks.Left.X <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickRight:
+                                    if (gps.ThumbSticks.Left.X >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickUp:
+                                    if (gps.ThumbSticks.Left.Y >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.LeftThumbstickDown:
+                                    if (gps.ThumbSticks.Left.Y <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickLeft:
+                                    if (gps.ThumbSticks.Right.X <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickRight:
+                                    if (gps.ThumbSticks.Right.X >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickUp:
+                                    if (gps.ThumbSticks.Right.Y >= _ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                case Buttons.RightThumbstickDown:
+                                    if (gps.ThumbSticks.Right.Y <= -_ThumbstickThreshold)
+                                        return true;
+                                    break;
+
+                                default:
+                                    if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                        return true;
+                                    break;
+                            }
+                        }
                     }
                        
             return false;
@@ -373,6 +456,11 @@ namespace NeonEngine
                                 return true;
                         }
                         else if (kvp.Key == "XboxController")
+                        {
+                            if (this.Released((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                return true;
+                        }
+                        else if (kvp.Key == "XboxController2")
                         {
                             if (this.Released((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
                                 return true;

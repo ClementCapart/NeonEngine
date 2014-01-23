@@ -131,7 +131,6 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            AssetManager.GetSpriteSheet("LiOnThunderDashFX");
             FrontFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
             BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
             FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);

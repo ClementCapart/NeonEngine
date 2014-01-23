@@ -121,11 +121,8 @@ namespace NeonEngine
 
         public override void Update(GameTime gameTime)
         {
-            if (Active)
-            {
-                if (CurrentSpritesheet != null)
-                    CurrentSpritesheet.Update(gameTime);
-            }
+            if (CurrentSpritesheet != null)
+                 CurrentSpritesheet.Update(gameTime);
             
             base.Update(gameTime);
         }
