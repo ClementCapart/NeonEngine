@@ -102,9 +102,6 @@ namespace NeonStarLibrary
                     }
                 }
             }
-
-
-            Console.WriteLine(_startToCrumble);
             base.Update(gameTime);
         }
     }
