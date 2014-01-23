@@ -18,8 +18,6 @@ namespace NeonStarLibrary
         private Texture2D _gaugeTexture;
         private Texture2D _cursorTexture;
         private Texture2D _segmentTexture;
-        private Texture2D _orangePartTexture;
-        private Texture2D _yellowPartTexture;
 
         private float _cursorXPosition = 0.0f;
 
