@@ -33,6 +33,30 @@ namespace NeonStarLibrary
             get { return _detectionBoxOffset; }
             set { _detectionBoxOffset = value; }
         }
+
+        private float _attackRangeWidth;
+
+        public float AttackRangeWidth
+        {
+            get { return _attackRangeWidth; }
+            set { _attackRangeWidth = value; }
+        }
+
+        private float _attackRangeHeight;
+
+        public float AttackRangeHeight
+        {
+            get { return _attackRangeHeight; }
+            set { _attackRangeHeight = value; }
+        }
+
+        private Vector2 _attackRangeOffset;
+
+        public Vector2 AttackRangeOffset
+        {
+            get { return _attackRangeOffset; }
+            set { _attackRangeOffset = value; }
+        }
         #endregion
 
         private bool _onDuty = false;
@@ -64,25 +88,31 @@ namespace NeonStarLibrary
                     case EnemyState.Patrol:
                     case EnemyState.WaitNode:
                     case EnemyState.Wait:
-                        Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
-                        if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                        if (_onDuty)
                         {
-                            if (_onDuty)
+                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
+                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
                                 EnemyComponent.State = EnemyState.Chase;
                             }
-                            else
+                        }
+                        break;
+
+                    case EnemyState.Chase:
+                        if (_onDuty)
+                        {
+                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
+                            if (!detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
-                                foreach (Entity e in entity.containerWorld.Entities)
-                                {
-                                    if (e != _avatar.entity && e!= entity && e.hitboxes.Count > 0 && e.hitboxes[0].hitboxRectangle.Intersects(detectionHitbox) && e.hitboxes[0].Type == HitboxType.Main)
-                                    {
-                                        Enemy enemy = e.GetComponent<Enemy>();
-                                        if (enemy != null)
-                                            if (enemy.TookDamageLastFrame)
-                                                Console.WriteLine("Detected ! ");
-                                    }
-                                }
+                                EnemyComponent.State = EnemyState.MustFinishChase;
+                            }
+                            detectionHitbox.X = (int)(entity.transform.Position.X + _attackRangeOffset.X - _attackRangeWidth / 2);
+                            detectionHitbox.Y = (int)(entity.transform.Position.Y + _attackRangeOffset.Y - _attackRangeHeight / 2);
+                            detectionHitbox.Width = (int)_attackRangeWidth;
+                            detectionHitbox.Height = (int)_attackRangeHeight;
+                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.Attacking;
                             }
                         }
                         break;
@@ -94,6 +124,49 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (_avatar != null)
+            {
+                switch (EnemyComponent.State)
+                {
+                    case EnemyState.Idle:
+                    case EnemyState.Patrol:
+                    case EnemyState.WaitNode:
+                    case EnemyState.Wait:
+                        if (!_onDuty)
+                        {
+                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
+                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                            {
+                                foreach (Entity e in entity.containerWorld.Entities)
+                                {
+                                    if (e != _avatar.entity && e != entity && e.hitboxes.Count > 0 && e.hitboxes[0].hitboxRectangle.Intersects(detectionHitbox) && e.hitboxes[0].Type == HitboxType.Main)
+                                    {
+                                        Enemy enemy = e.GetComponent<Enemy>();
+                                        if (enemy != null)
+                                            if (enemy.TookDamageThisFrame)
+                                            {
+                                                _onDuty = true;
+                                                EnemyComponent.State = EnemyState.Chase;
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+
+                    case EnemyState.Chase:
+                        if (_avatar.entity.transform.Position.X + this._chasePrecision < entity.transform.Position.X)
+                        {
+                            Console.WriteLine("Shoud Move to Chase");
+                            //entity.rig
+                        }
+                        else if (_avatar.entity.transform.Position.X - this._chasePrecision > entity.transform.Position.X)
+                        {
+                            Console.WriteLine("Shoud Move to Chase");
+                        }
+                        break;
+                }  
+            }           
             base.Update(gameTime);
         }
 

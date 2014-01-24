@@ -196,7 +196,7 @@ namespace NeonStarLibrary
         private Component _componentToTrigger = null;
         private Entity[] _raycastHits;
 
-        public bool TookDamageLastFrame = false;
+        public bool TookDamageThisFrame = false;
 
         public Enemy(Entity entity)
             :base(entity, "Enemy")
@@ -251,7 +251,7 @@ namespace NeonStarLibrary
             if (tookDamage)
             {
                 _damageBlinking = true;
-                TookDamageLastFrame = true;
+                TookDamageThisFrame = true;
                 //entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
             }
 
@@ -285,7 +285,7 @@ namespace NeonStarLibrary
             {
                 _damageBlinking = true;
                 //entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
-                TookDamageLastFrame = true;
+                TookDamageThisFrame = true;
             }
 
             return tookDamage;
@@ -322,7 +322,7 @@ namespace NeonStarLibrary
                     AirLock(airLockDuration);
                 }
             }
-            TookDamageLastFrame = true;
+            TookDamageThisFrame = true;
             
             return true;
         }
@@ -460,7 +460,7 @@ namespace NeonStarLibrary
 
         public override void FinalUpdate(GameTime gameTime)
         {
-
+            TookDamageThisFrame = false;
             if (State == EnemyState.Dead)
             {
                 this.entity.Destroy();

@@ -186,7 +186,7 @@ namespace NeonEngine
             ManualDrawBackHUD(spriteBatch);
             spriteBatch.End();
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.get_transformation(Neon.GraphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, Camera.get_transformation(Neon.GraphicsDevice));
 
             foreach (DrawableComponent dc in DrawableComponents.OrderBy(dc => dc.Layer))
                 dc.Draw(spriteBatch);

@@ -64,7 +64,7 @@ namespace NeonEngine
         public override void Draw(SpriteBatch spriteBatch)
         {
             if (entity != null && _texture != null)
-                spriteBatch.Draw(_texture, entity.transform.Position + this._parallaxPosition + Offset, new Rectangle(0, 0, _useTextureWidth ? (int)_texture.Width : (int)_tilingWidth, _useTextureHeight ? (int)_texture.Height : (int)_tilingHeight), Color.White, entity.transform.rotation, new Vector2(_useTextureWidth ? _texture.Width / 2 : _tilingWidth / 2, _useTextureHeight ? _texture.Height / 2 : _tilingHeight / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_texture, entity.transform.Position + this._parallaxPosition + Offset, new Rectangle(0, 0, (int)((_useTextureWidth ? (int)_texture.Width : (int)_tilingWidth) * entity.transform.Scale), (int)((_useTextureHeight ? (int)_texture.Height : (int)_tilingHeight) * entity.transform.Scale)), Color.White, entity.transform.rotation, new Vector2((_useTextureWidth ? _texture.Width / 2 : _tilingWidth / 2) * entity.transform.Scale, (_useTextureHeight ? _texture.Height / 2 : _tilingHeight / 2) * entity.transform.Scale), entity.transform.Scale, SpriteEffects.None, Layer);
         }
     }
 }
