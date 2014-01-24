@@ -658,1685 +658,3284 @@
           </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-433 Y:35}" />
-              <InitialPosition Value="{X:-433 Y:35}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-433 Y:35}" />
-              <X Value="-1433" />
-              <Y Value="-5" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="2000" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="15.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:635 Y:138}" />
-              <InitialPosition Value="{X:635 Y:138}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:635 Y:138}" />
-              <X Value="560" />
-              <Y Value="-12" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="300" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="4.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:635 Y:610}" />
-              <InitialPosition Value="{X:635 Y:610}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:635 Y:610}" />
-              <X Value="560" />
-              <Y Value="585" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.7487501" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:605 Y:1192}" />
-              <InitialPosition Value="{X:605 Y:1192}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:605 Y:1192}" />
-              <X Value="-395" />
-              <Y Value="1152" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="2000" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="15.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-650 Y:1067}" />
-              <InitialPosition Value="{X:-650 Y:1067}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-650 Y:1067}" />
-              <X Value="-725" />
-              <Y Value="567" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="1000" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="14.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:619 Y:1530}" />
-              <InitialPosition Value="{X:619 Y:1530}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:619 Y:1529}" />
-              <X Value="-581" />
-              <Y Value="1489" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="2400" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="19.19875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-195 Y:2236}" />
-              <InitialPosition Value="{X:-195 Y:2236}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-195 Y:2235}" />
-              <X Value="-1395" />
-              <Y Value="2195" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="2400" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="19.19875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:979 Y:2373}" />
-              <InitialPosition Value="{X:979 Y:2373}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:979 Y:2373}" />
-              <X Value="954" />
-              <Y Value="2273" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="200" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1547 Y:2518}" />
-              <InitialPosition Value="{X:1547 Y:2518}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1546 Y:2518}" />
-              <X Value="946" />
-              <Y Value="2478" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1200" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="9.598749" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1370 Y:1149}" />
-              <InitialPosition Value="{X:-1370 Y:1149}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-1370 Y:1149}" />
-              <X Value="-1395" />
-              <Y Value="99" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="2100" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="10.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1817 Y:2229}" />
-              <InitialPosition Value="{X:1817 Y:2229}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1817 Y:2229}" />
-              <X Value="1517" />
-              <Y Value="2189" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="600" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="4.79875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1972 Y:841}" />
-              <InitialPosition Value="{X:1972 Y:841}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1971 Y:841}" />
-              <X Value="1821" />
-              <Y Value="-509" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="2700" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="80.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1260 Y:2226}" />
-              <InitialPosition Value="{X:1260 Y:2226}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:1260 Y:2226}" />
-              <X Value="1010" />
-              <Y Value="2201" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="500" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="2.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-486 Y:1193}" />
-              <InitialPosition Value="{X:-486 Y:1193}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:-485 Y:1192}" />
-              <X Value="-585" />
-              <Y Value="1167" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="200" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.9987501" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1717 Y:1186}" />
-              <InitialPosition Value="{X:1717 Y:1186}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:1717 Y:1186}" />
-              <X Value="1617" />
-              <Y Value="1161" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="200" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.9987501" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1267 Y:1634}" />
-              <InitialPosition Value="{X:-1267 Y:1634}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-1267 Y:1634}" />
-              <X Value="-1342" />
-              <Y Value="1584" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="100" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-804 Y:1234}" />
-              <InitialPosition Value="{X:-804 Y:1234}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-804 Y:1234}" />
-              <X Value="-879" />
-              <Y Value="1184" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="100" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1264 Y:974}" />
-              <InitialPosition Value="{X:-1264 Y:974}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-1264 Y:974}" />
-              <X Value="-1339" />
-              <Y Value="924" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="100" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1270 Y:501}" />
-              <InitialPosition Value="{X:-1270 Y:501}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-1270 Y:500}" />
-              <X Value="-1345" />
-              <Y Value="450" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="100" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-6 Y:603}" />
-              <InitialPosition Value="{X:-6 Y:603}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:-6 Y:603}" />
-              <X Value="-606" />
-              <Y Value="578" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1200" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="5.99875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1274 Y:610}" />
-              <InitialPosition Value="{X:1274 Y:610}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:1274 Y:610}" />
-              <X Value="674" />
-              <Y Value="585" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1200" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="5.99875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1287 Y:370}" />
-              <InitialPosition Value="{X:1287 Y:370}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:1287 Y:369}" />
-              <X Value="1137" />
-              <Y Value="344" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:857 Y:177}" />
-              <InitialPosition Value="{X:857 Y:177}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:857 Y:177}" />
-              <X Value="707" />
-              <Y Value="152" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1270 Y:20}" />
-              <InitialPosition Value="{X:1270 Y:20}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:1270 Y:19}" />
-              <X Value="720" />
-              <Y Value="-6" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1100" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="5.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-470 Y:-230}" />
-              <InitialPosition Value="{X:-470 Y:-230}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:-469 Y:-230}" />
-              <X Value="-619" />
-              <Y Value="-255" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:113 Y:-567}" />
-              <InitialPosition Value="{X:113 Y:-567}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:113 Y:-567}" />
-              <X Value="-37" />
-              <Y Value="-592" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:793 Y:-758}" />
-              <InitialPosition Value="{X:793 Y:-758}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:793 Y:-758}" />
-              <X Value="293" />
-              <Y Value="-798" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1000" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="7.998749" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:599 Y:-1281}" />
-              <InitialPosition Value="{X:599 Y:-1281}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:599 Y:-1281}" />
-              <X Value="299" />
-              <Y Value="-1321" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="600" />
-              <Height Value="80" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="4.79875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:100 Y:-1087}" />
-              <InitialPosition Value="{X:100 Y:-1087}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:100 Y:-1087}" />
-              <X Value="-50" />
-              <Y Value="-1112" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:594 Y:-1617}" />
-              <InitialPosition Value="{X:594 Y:-1617}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:594 Y:-1617}" />
-              <X Value="294" />
-              <Y Value="-1642" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="600" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="2.99875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1096 Y:-1442}" />
-              <InitialPosition Value="{X:1096 Y:-1442}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1096 Y:-1442}" />
-              <X Value="896" />
-              <Y Value="-1642" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="400" />
-              <Height Value="400" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="15.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1266 Y:-1022}" />
-              <InitialPosition Value="{X:1266 Y:-1022}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1266 Y:-1021}" />
-              <X Value="1241" />
-              <Y Value="-1246" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="450" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="2.24875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2022 Y:-882}" />
-              <InitialPosition Value="{X:2022 Y:-882}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:2021 Y:-882}" />
-              <X Value="1821" />
-              <Y Value="-1257" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="400" />
-              <Height Value="750" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="29.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1099 Y:-2196}" />
-              <InitialPosition Value="{X:1099 Y:-2196}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1099 Y:-2196}" />
-              <X Value="1024" />
-              <Y Value="-2446" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="150" />
-              <Height Value="500" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="7.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1923 Y:-2253}" />
-              <InitialPosition Value="{X:1923 Y:-2253}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1923 Y:-2253}" />
-              <X Value="1623" />
-              <Y Value="-2453" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="600" />
-              <Height Value="400" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="23.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2196 Y:-1656}" />
-              <InitialPosition Value="{X:2196 Y:-1656}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:2196 Y:-1656}" />
-              <X Value="2171" />
-              <Y Value="-2056" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="800" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="3.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2032 Y:-2863}" />
-              <InitialPosition Value="{X:2032 Y:-2863}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:2032 Y:-2863}" />
-              <X Value="2007" />
-              <Y Value="-3263" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="800" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="3.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1702 Y:-3706}" />
-              <InitialPosition Value="{X:1702 Y:-3706}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1702 Y:-3705}" />
-              <X Value="1677" />
-              <Y Value="-4105" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="800" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="3.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:805 Y:-3283}" />
-              <InitialPosition Value="{X:805 Y:-3283}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:805 Y:-3282}" />
-              <X Value="-445" />
-              <Y Value="-3307" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="2500" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="12.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
+      <Entity Name="HUD" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1445 Y:-1110}" />
-              <InitialPosition Value="{X:-1445 Y:-1110}" />
-              <Rotation Value="10" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:-1445 Y:-1110}" />
-              <X Value="-1470" />
-              <Y Value="-4110" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="6000" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="29.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-705 Y:-1605}" />
-              <InitialPosition Value="{X:-705 Y:-1605}" />
+              <Position Value="{X:283 Y:66}" />
+              <InitialPosition Value="{X:283 Y:66}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
             <Properties>
-              <Type Value="OneWay" />
-              <Center Value="{X:-705 Y:-1604}" />
-              <X Value="-855" />
-              <Y Value="-1629" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="50" />
+              <DrawLayer Value="1" />
+              <Font Value="HUDFont" />
+              <Text Value="97" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-232 Y:-44}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          </TextDisplay>
+          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
+              <Display Value="1" />
+              <EntityName Value="LiOn" />
+              <ComponentName Value="Avatar" />
+              <DisplayedVariable Value="CurrentHealthPoints" />
             </Properties>
-          </Rigidbody>
+          </DisplayValue>
+          <Graphic Type="NeonEngine.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="HUDLifeGaugeBase" />
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <DrawLayer Value="0.999" />
+              <GraphicTag Value="HUDLifeGauge" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-40}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </LifeBar>
+          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <IsHUD Value="True" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-184 Y:-5}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ElementHUD>
         </Components>
       </Entity>
     </Entities>
