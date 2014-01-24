@@ -15,7 +15,7 @@ namespace NeonEngine
 {
     static public class DataManager
     {
-        static public void SaveLevel(World CurrentWorld, string avatarEntity)
+        static public void SaveLevel(World CurrentWorld, string avatarEntity, string hudEntity)
         {
             Console.WriteLine("Save : Archiving older files...");
 
@@ -85,7 +85,7 @@ namespace NeonEngine
 
                 foreach (Entity entity in CurrentWorld.Entities)
                 {
-                    if (entity.Name == avatarEntity)
+                    if (entity.Name == avatarEntity || entity.Name == hudEntity)
                         continue;
 
                     if (layerList.ContainsKey(entity.Layer))

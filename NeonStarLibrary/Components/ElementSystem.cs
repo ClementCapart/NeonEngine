@@ -148,7 +148,7 @@ namespace NeonStarLibrary
                     LeftSlotEnergy = 100.0f;
             }
 
-            if (RightSlotEnergy > 100.0f)
+            if (RightSlotEnergy < 100.0f)
             {
                 RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
                 if (RightSlotEnergy > 100.0f)
