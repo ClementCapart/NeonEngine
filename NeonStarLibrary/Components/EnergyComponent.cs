@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NeonStarLibrary
 {
-    public class EnergyComponent : Component
+    public abstract class EnergyComponent : Component
     {
         #region Properties
 

@@ -59,6 +59,7 @@ namespace NeonStarLibrary
         public Enemy EnemyComponent;
 
         public bool Active = true;
+        public bool TookDamageLastFrame = false;
 
         private Node _nextNode;
         private Node _previousNode;
@@ -75,27 +76,26 @@ namespace NeonStarLibrary
             this.EnemyComponent = entity.GetComponent<Enemy>();
             if (_currentNodeList != null)
             {
-                if (_currentNodeList.Type == PathType.Ground)
-                {
-                    Node CloserNode = CurrentNodeList.Nodes[0];
 
-                    for (int i = 1; i < CurrentNodeList.Nodes.Count; i++)
+                Node CloserNode = CurrentNodeList.Nodes[0];
+
+                for (int i = 1; i < CurrentNodeList.Nodes.Count; i++)
+                {
+                    if (Math.Sqrt(Math.Pow(CurrentNodeList.Nodes[i].Position.X - entity.transform.Position.X, 2)) < Math.Sqrt(Math.Pow(CloserNode.Position.X - entity.transform.Position.X, 2)))
                     {
-                        if (Math.Sqrt(Math.Pow(CurrentNodeList.Nodes[i].Position.X - entity.transform.Position.X, 2)) < Math.Sqrt(Math.Pow(CloserNode.Position.X - entity.transform.Position.X, 2)))
-                        {
-                            CloserNode = CurrentNodeList.Nodes[i];
-                        }
+                        CloserNode = CurrentNodeList.Nodes[i];
                     }
-                    _nextNode = CloserNode;
                 }
+                _nextNode = CloserNode;
+ 
                 _reverseStart = _reverse;
             }  
             base.Init();
         }
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            if (entity.rigidbody.isGrounded)
+        {   
+            if (entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
             {
                 if (EnemyComponent.State == EnemyState.Idle)
                 {
@@ -117,8 +117,6 @@ namespace NeonStarLibrary
                             break;
 
                         case EnemyState.Patrol:
-                            if (_currentNodeList.Type == PathType.Ground)
-                            {
                                 if (this._nextNode.Position.X + _pathPrecisionTreshold > entity.transform.Position.X && this._nextNode.Position.X - _pathPrecisionTreshold < entity.transform.Position.X)
                                 {
                                     switch (_nextNode.Type)
@@ -133,7 +131,6 @@ namespace NeonStarLibrary
                                             break;
                                     }
                                 }
-                            }
                             break;
                     }
                 }
@@ -145,7 +142,7 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.rigidbody.isGrounded)
+            if (entity.rigidbody.isGrounded || EnemyComponent.Type == EnemyType.Flying)
             {
                 if (EnemyComponent.State == EnemyState.Patrol)
                 {

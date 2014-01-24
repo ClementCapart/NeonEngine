@@ -40,7 +40,7 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void SaveCurrentMap_Click(object sender, EventArgs e)
         {
-            DataManager.SaveLevel(GameWorld, "LiOn");
+            DataManager.SaveLevel(GameWorld, "LiOn", "HUD");
 
             List<EnergyDevice> devices = new List<EnergyDevice>();
             foreach(Entity ent in GameWorld.Entities)

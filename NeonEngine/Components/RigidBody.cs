@@ -301,13 +301,13 @@ namespace NeonEngine
                 if (EntityB != entity && EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitboxes[0];
-                    if (hitbox != null && EntityB.transform.Position.Y + hitboxB.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2 
-                        || (entity.transform.Position.X - hitbox.Width / 2 > EntityB.transform.Position.X + hitboxB.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset))
+                    if (hitbox != null && EntityB.transform.Position.Y + hitboxB.Height / 2 + offset +hitboxB.OffsetY > entity.transform.Position.Y - this.hitbox.Height / 2  + hitbox.OffsetY
+                        || (entity.transform.Position.X - hitbox.Width / 2 + hitbox.OffsetX > EntityB.transform.Position.X + hitboxB.Width / 2 + offset + hitbox.OffsetX || entity.transform.Position.X + this.hitbox.Width / 2 < EntityB.transform.Position.X - hitboxB.Width / 2 - offset + hitboxB.OffsetX))
                     {
                         contact.Enabled = false;
                         return false;
                     }
-                    else if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
+                    else if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset + hitboxB.OffsetY > entity.transform.Position.Y + entity.hitboxes[0].Height / 2 + entity.hitboxes[0].OffsetY))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -317,13 +317,13 @@ namespace NeonEngine
                 else if (EntityA != entity && EntityA != null)
                 {
                     Hitbox hitboxA = EntityA.hitboxes[0];
-                    if (hitbox != null && EntityA.transform.Position.Y + hitboxA.Height / 2 + offset > entity.transform.Position.Y - this.hitbox.Height / 2
-                        || (entity.transform.Position.X - hitbox.Width / 2 > EntityA.transform.Position.X + hitboxA.Width / 2 + offset || entity.transform.Position.X + this.hitbox.Width / 2 < EntityA.transform.Position.X - hitboxA.Width / 2 - offset))
+                    if (hitbox != null && EntityA.transform.Position.Y + hitboxA.Height / 2 + offset + hitboxA.OffsetY > entity.transform.Position.Y - this.hitbox.Height / 2 + hitbox.OffsetY
+                        || (entity.transform.Position.X - hitbox.Width / 2 + hitbox.OffsetX > EntityA.transform.Position.X + hitboxA.Width / 2 + offset + hitboxA.OffsetX || entity.transform.Position.X + this.hitbox.Width / 2 + hitbox.OffsetX < EntityA.transform.Position.X - hitboxA.Width / 2 + offset + hitboxA.OffsetX ))
                     {
                         contact.Enabled = false;
                         return false;
                     }
-                    else if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
+                    else if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset + EntityA.hitboxes[0].OffsetY > entity.transform.Position.Y + entity.hitboxes[0].Height / 2 + entity.hitboxes[0].OffsetY))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -343,7 +343,7 @@ namespace NeonEngine
                 if (EntityB != entity && EntityB != null)
                 {
                     Hitbox hitboxB = EntityB.hitboxes[0];
-                    if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
+                    if (isGround && !(entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset + EntityB.hitboxes[0].OffsetY > entity.transform.Position.Y + entity.hitboxes[0].Height / 2 + entity.hitboxes[0].OffsetY))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -353,7 +353,7 @@ namespace NeonEngine
                 else if (EntityA != entity && EntityA != null)
                 {
                     Hitbox hitboxA = EntityB.hitboxes[0];
-                    if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2))
+                    if (isGround && !(entity.hitboxes[0] != null && EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + offset + EntityA.hitboxes[0].OffsetY > entity.transform.Position.Y + entity.hitboxes[0].Height / 2 + entity.hitboxes[0].OffsetY))
                     {
                         contact.Friction = 0.0f;
                         _currentContacts.Add(contact);
@@ -403,7 +403,7 @@ namespace NeonEngine
                         Entity EntityB = Neon.Utils.GetEntityByBody(_currentContact.FixtureB.Body);
                         if (EntityB != entity && EntityB != null)
                         {
-                            if (EntityB.hitboxes[0] != null && (EntityB.transform.Position.Y + EntityB.hitboxes[0].Height / 2 <= EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2))
+                            if (EntityB.hitboxes[0] != null && (EntityB.transform.Position.Y + EntityB.hitboxes[0].Height / 2 + EntityB.hitboxes[0].OffsetY <= EntityA.transform.Position.Y - EntityA.hitboxes[0].Height / 2 + EntityA.hitboxes[0].OffsetY))
                             {
                                 _currentContact.ResetFriction();
                                 _currentContacts.Remove(_currentContact);
@@ -411,7 +411,7 @@ namespace NeonEngine
                         }
                         else if (EntityA != entity && EntityA != null)
                         {
-                            if (EntityA.hitboxes[0] != null && (EntityA.transform.Position.Y + EntityA.hitboxes[0].Height / 2 <= EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2))
+                            if (EntityA.hitboxes[0] != null && (EntityA.transform.Position.Y + EntityA.hitboxes[0].Height / 2 + EntityA.hitboxes[0].OffsetY <= EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + EntityB.hitboxes[0].OffsetY))
                             {
                                 _currentContact.ResetFriction();
                                 _currentContacts.Remove(_currentContact);
