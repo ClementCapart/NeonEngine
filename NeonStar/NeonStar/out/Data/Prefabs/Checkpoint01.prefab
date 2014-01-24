@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="Checkpoint01" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:3480 Y:110}" />
+          <InitialPosition Value="{X:3480 Y:110}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Trigger" />
+          <Center Value="{X:3480 Y:110}" />
+          <X Value="3445" />
+          <Y Value="-15" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="70" />
+          <Height Value="250" />
+        </Properties>
+      </Hitbox>
+      <CheckPoint Type="NeonStarLibrary.CheckPoint" ID="2">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <SpawnPointIndex Value="2" />
+        </Properties>
+      </CheckPoint>
+      <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="3">
+        <Properties>
+          <OneShot Value="False" />
+          <TriggerEveryFrame Value="False" />
+          <TriggeringEntityName Value="LiOn" />
+          <TriggeredEntityName Value="Checkpoint01" />
+          <TriggeredComponentName Value="CheckPoint" />
+        </Properties>
+      </HitboxTrigger>
+    </Components>
+  </Entity>
+</Prefab>

@@ -141,8 +141,9 @@ namespace NeonStarLibrary
 
             XDocument document = XDocument.Load(@"../Data/Config/DevicesSaveTemplate.xml");
 
-            foreach(XElement device in document.Element("Devices").Elements("Device"))
+            for (int i = document.Element("Devices").Elements("Device").Count() - 1; i >= 0; i--)
             {
+                XElement device = document.Element("Devices").Elements("Device").ElementAt(i);
                 if (device.Element("GroupName").Value == groupName && device.Element("LevelName").Value == levelName)
                     device.Remove();
             }

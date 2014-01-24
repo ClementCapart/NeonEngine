@@ -36,15 +36,51 @@ namespace NeonStarLibrary
 
         public override void InitializeLevelParameters()
         {
-            switch(this._elementLevel)
+            _chargeSpeed = (float)ElementManager.FireParameters[0][0];
+            _maxChargeTimer = (float)ElementManager.FireParameters[0][1];
+
+            switch(this.ElementLevel)
             {
                 case 1:
+                    _gaugeCost = (float)ElementManager.FireParameters[1][0];
+
+                    StageOneAttack = (string)ElementManager.FireParameters[1][1];
+                    StageTwoAttack = (string)ElementManager.FireParameters[1][2];
+                    StageThreeAttack = (string)ElementManager.FireParameters[1][3];
+
+                    StageTwoThreshold = (float)ElementManager.FireParameters[1][4];
+                    StageThreeThreshold = (float)ElementManager.FireParameters[1][5];
+
+                    StageFourAttack = "";
+                    StageFourThreshold = (float)_maxCharge + 1;
                     break;
 
                 case 2:
+                    _gaugeCost = (float)ElementManager.FireParameters[2][0];
+
+                    StageOneAttack = (string)ElementManager.FireParameters[2][1];
+                    StageTwoAttack = (string)ElementManager.FireParameters[2][2];
+                    StageThreeAttack = (string)ElementManager.FireParameters[2][3];
+
+                    StageTwoThreshold = (float)ElementManager.FireParameters[2][4];
+                    StageThreeThreshold = (float)ElementManager.FireParameters[2][5];
+
+                    StageFourAttack = (string)ElementManager.FireParameters[2][6];
+                    StageFourThreshold = (float)ElementManager.FireParameters[2][7];
                     break;
 
                 case 3:
+                    _gaugeCost = (float)ElementManager.FireParameters[3][0];
+
+                    StageOneAttack = (string)ElementManager.FireParameters[3][1];
+                    StageTwoAttack = (string)ElementManager.FireParameters[3][2];
+                    StageThreeAttack = (string)ElementManager.FireParameters[3][3];
+
+                    StageTwoThreshold = (float)ElementManager.FireParameters[3][4];
+                    StageThreeThreshold = (float)ElementManager.FireParameters[3][5];
+
+                    StageFourAttack = (string)ElementManager.FireParameters[3][6];
+                    StageFourThreshold = (float)ElementManager.FireParameters[3][7];
                     break;
             }
             base.InitializeLevelParameters();
@@ -69,10 +105,13 @@ namespace NeonStarLibrary
             switch (State)
             {
                 case ElementState.Initialization:
+                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    _entity.rigidbody.body.GravityScale = 0.0f;
                     State = ElementState.Charge;
                     break;
 
                 case ElementState.Charge:
+                    _entity.rigidbody.body.GravityScale = 0.0f;
                     if (Neon.Input.Check(_input))
                     {
                         _maxChargeTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;

@@ -421,7 +421,11 @@ namespace NeonEngine
                     }
                 }
             }
-            
+
+            if (this.fixedRotation)
+                if (body != null)
+                    body.Rotation = MathHelper.ToRadians(entity.transform.Rotation);
+
             base.PreUpdate(gameTime);
         }
 
