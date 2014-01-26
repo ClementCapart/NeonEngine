@@ -14,6 +14,8 @@ using NeonStarLibrary;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.IO;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.EnergyObjects;
 
 namespace NeonStarEditor.Controls.LeftDock
 {
@@ -92,13 +94,6 @@ namespace NeonStarEditor.Controls.LeftDock
                                     ent.AddComponent((Component)Activator.CreateInstance(t, ent));
                         }
                     }
-
-            List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
-            if (Neon.Scripts != null)
-                Components.AddRange(Neon.Scripts);
-            Components.Add(typeof(ScriptComponent));
-            GameWorld.RightDockControl.InspectorControl.ComponentList.DataSource = Components;
-            GameWorld.RightDockControl.InspectorControl.ComponentList.DisplayMember = "Name";
         }
 
         private void CreateRectangle_Click(object sender, EventArgs e)

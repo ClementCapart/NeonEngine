@@ -11,7 +11,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
           <Center Value="{X:1581 Y:-424}" />
@@ -23,7 +23,7 @@
           <Height Value="300" />
         </Properties>
       </Hitbox>
-      <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+      <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="10" />
@@ -42,8 +42,8 @@
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="1" />
         </Properties>
-      </Enemy>
-      <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="5">
+      </EnemyCore>
+      <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="5">
         <Properties>
           <MaximumAngleDifference Value="360" />
           <RangeForAttackOne Value="10000" />
@@ -64,7 +64,7 @@
           <EntityToAttackName Value="LiOn" />
         </Properties>
       </AreaAttack>
-      <Hitbox Type="NeonEngine.Hitbox" ID="0">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="0">
         <Properties>
           <Type Value="Hit" />
           <Center Value="{X:1581 Y:-424}" />

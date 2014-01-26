@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     public abstract class Chase : Component
     {
@@ -51,7 +51,7 @@ namespace NeonStarLibrary
         }
         #endregion
 
-        public Enemy EnemyComponent = null;
+        public EnemyCore EnemyComponent = null;
 
         public Entity EntityToChase = null;
 
@@ -60,6 +60,8 @@ namespace NeonStarLibrary
 
         public Chase(Entity entity)
             :base(entity, "Chase")
-        {}
+        {
+            RequiredComponents = new Type[] { typeof(EnemyCore) };
+        }
     }
 }

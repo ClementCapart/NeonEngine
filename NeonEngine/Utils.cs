@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Media;
 using FarseerPhysics.Dynamics;
 using System.Reflection;
 using System.Globalization;
+using NeonEngine.Components.CollisionDetection;
 
 namespace NeonEngine
 {
@@ -94,7 +95,7 @@ namespace NeonEngine
         public Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
         {
             if (assembly != null)
-                return assembly.GetTypes().Where(t => String.Equals(t.Namespace, nameSpace, StringComparison.Ordinal)).ToArray();
+                return assembly.GetTypes().Where(t => t.Namespace != null && t.Namespace.StartsWith(nameSpace)).ToArray();
             else
                 return new Type[0];
         }

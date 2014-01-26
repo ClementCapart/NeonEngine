@@ -76,5 +76,10 @@ namespace NeonStarEditor
                 InitializeSelectedData();
             }
         }
+
+        private void ClosePanel_Click(object sender, EventArgs e)
+        {
+            GameWorld.ToggleSpawnPointManager();
+        }
     }
 }

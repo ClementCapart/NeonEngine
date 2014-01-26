@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -13,7 +13,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:400 Y:-1000}" />
@@ -25,7 +25,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -41,7 +41,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:8}" />
@@ -58,7 +58,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -77,11 +77,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -95,10 +95,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+          </EnemyCoreAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="11">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="4000" />
@@ -132,7 +132,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:400 Y:100}" />
@@ -157,7 +157,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:600 Y:100}" />
@@ -182,7 +182,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:800 Y:100}" />
@@ -207,7 +207,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:600 Y:-900}" />
@@ -219,7 +219,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -235,7 +235,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:8}" />
@@ -252,7 +252,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -271,11 +271,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -289,10 +289,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+          </EnemyCoreAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="11">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="4000" />
@@ -326,7 +326,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:800 Y:-1200}" />
@@ -338,7 +338,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -354,7 +354,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:8}" />
@@ -371,7 +371,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -390,11 +390,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -408,10 +408,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+          </EnemyCoreAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="11">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="4000" />
@@ -445,7 +445,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:306 Y:-94}" />
@@ -457,7 +457,7 @@
               <Height Value="145" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -486,7 +486,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:871 Y:-170}" />
@@ -498,7 +498,7 @@
               <Height Value="291" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -527,7 +527,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:2995 Y:-186}" />
@@ -539,7 +539,7 @@
               <Height Value="20" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -555,7 +555,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -574,8 +574,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="6">
+          </EnemyCore>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="6">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="500" />
@@ -609,7 +609,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:2992 Y:-75}" />
@@ -621,7 +621,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -637,7 +637,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:8}" />
@@ -654,7 +654,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -673,11 +673,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -691,10 +691,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="11">
+          </EnemyCoreAnimationManager>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="11">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="4000" />
@@ -728,7 +728,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1137 Y:-75}" />
@@ -753,7 +753,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:3557 Y:-150}" />
@@ -765,7 +765,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -794,7 +794,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:3257 Y:-744}" />
@@ -806,7 +806,7 @@
               <Height Value="600" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -835,7 +835,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:2079 Y:-550}" />
@@ -847,7 +847,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -876,7 +876,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:1279 Y:-719}" />
@@ -888,7 +888,7 @@
               <Height Value="291" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -917,7 +917,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:2680 Y:-1000}" />
@@ -929,7 +929,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -945,7 +945,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:8}" />
@@ -962,7 +962,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -981,11 +981,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -999,10 +999,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="12">
+          </EnemyCoreAnimationManager>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="12">
             <Properties>
               <CurrentNodeList Value="MovingPlatform" />
               <Speed Value="5" />
@@ -1011,7 +1011,7 @@
               <PathPrecisionTreshold Value="20" />
             </Properties>
           </MovingGeometry>
-          <AreaAttack Type="NeonStarLibrary.AreaAttack" ID="13">
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="13">
             <Properties>
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="4000" />
@@ -1045,7 +1045,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:2680 Y:800}" />
@@ -1057,7 +1057,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="2">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="2">
             <Properties>
               <CurrentNodeList Value="MovingTarget" />
               <Speed Value="5" />
@@ -1066,7 +1066,7 @@
               <PathPrecisionTreshold Value="11.5" />
             </Properties>
           </MovingGeometry>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="3">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -1095,7 +1095,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:2782 Y:-1067}" />
@@ -1107,7 +1107,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1136,7 +1136,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:3755 Y:-1227}" />
@@ -1148,7 +1148,7 @@
               <Height Value="600" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1177,7 +1177,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:4477 Y:-955}" />
@@ -1189,7 +1189,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1218,7 +1218,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:4555 Y:-551}" />
@@ -1230,7 +1230,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1259,7 +1259,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:4332 Y:-351}" />
@@ -1271,7 +1271,7 @@
               <Height Value="450" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1300,7 +1300,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:3123 Y:-51}" />
@@ -1312,7 +1312,7 @@
               <Height Value="150" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1341,7 +1341,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:4730 Y:-303}" />
@@ -1353,7 +1353,7 @@
               <Height Value="450" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1382,7 +1382,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:5150 Y:-479}" />
@@ -1394,7 +1394,7 @@
               <Height Value="900" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1423,7 +1423,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:3300 Y:1.904944E+07}" />
@@ -1435,7 +1435,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -1451,7 +1451,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -1471,7 +1471,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -1490,8 +1490,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -1502,10 +1502,10 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
+          </EnemyCoreAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -1540,7 +1540,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:3943 Y:1.904944E+07}" />
@@ -1552,7 +1552,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -1568,7 +1568,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -1588,7 +1588,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -1607,8 +1607,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -1619,10 +1619,10 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
+          </EnemyCoreAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -1657,7 +1657,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:4059 Y:1.904944E+07}" />
@@ -1669,7 +1669,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -1685,7 +1685,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -1705,7 +1705,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -1724,8 +1724,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -1736,10 +1736,10 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="8">
+          </EnemyCoreAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="8">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -1774,7 +1774,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-996 Y:-1}" />
@@ -1786,7 +1786,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1815,7 +1815,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-1371 Y:-525}" />
@@ -1827,7 +1827,7 @@
               <Height Value="1000" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1856,7 +1856,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-826 Y:-809}" />
@@ -1868,7 +1868,7 @@
               <Height Value="1200" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1897,7 +1897,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:2359 Y:475}" />
@@ -1909,7 +1909,7 @@
               <Height Value="400" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -1938,7 +1938,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:-1143 Y:-859}" />
@@ -1950,7 +1950,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -1966,7 +1966,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList3" />
               <Speed Value="15" />
@@ -1988,7 +1988,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:-1121 Y:-240}" />
@@ -2000,7 +2000,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -2016,7 +2016,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList1" />
               <Speed Value="15" />
@@ -2038,7 +2038,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:-538 Y:-560}" />
@@ -2050,7 +2050,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -2066,7 +2066,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList2" />
               <Speed Value="15" />
@@ -2088,7 +2088,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-1819 Y:-1001}" />
@@ -2100,7 +2100,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2129,7 +2129,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2150 Y:-1775}" />
@@ -2141,7 +2141,7 @@
               <Height Value="1500" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2170,7 +2170,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-1370 Y:-2200}" />
@@ -2182,7 +2182,7 @@
               <Height Value="1600" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2211,7 +2211,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:-1346 Y:-348}" />
@@ -2223,7 +2223,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2239,7 +2239,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -2259,7 +2259,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -2278,10 +2278,10 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          </EnemyCore>
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -2295,7 +2295,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:-853 Y:-669}" />
@@ -2307,7 +2307,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2323,7 +2323,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -2343,7 +2343,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -2362,10 +2362,10 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          </EnemyCore>
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -2379,7 +2379,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:-1342 Y:-959}" />
@@ -2391,7 +2391,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2407,7 +2407,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -2427,7 +2427,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="1" />
@@ -2446,10 +2446,10 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          </EnemyCore>
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -2463,7 +2463,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-1475 Y:-1749}" />
@@ -2475,7 +2475,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -2491,7 +2491,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList5" />
               <Speed Value="1.2" />
@@ -2513,7 +2513,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2050 Y:-1347}" />
@@ -2525,7 +2525,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -2541,7 +2541,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList4" />
               <Speed Value="1.2" />
@@ -2563,7 +2563,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-1474 Y:-2352}" />
@@ -2575,7 +2575,7 @@
               <Height Value="80" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -2591,7 +2591,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="3">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
             <Properties>
               <CurrentNodeList Value="NodeList6" />
               <Speed Value="1.2" />
@@ -2613,7 +2613,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
@@ -2635,7 +2635,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
@@ -2657,7 +2657,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Right" />
               <BoundStrength Value="1" />
@@ -2679,7 +2679,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Right" />
               <BoundStrength Value="1" />
@@ -2701,7 +2701,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2672 Y:-2500}" />
@@ -2713,7 +2713,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2742,7 +2742,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2270 Y:-1386}" />
@@ -2754,7 +2754,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2783,7 +2783,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2270 Y:-1851}" />
@@ -2795,7 +2795,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2824,7 +2824,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-2270 Y:-2232}" />
@@ -2836,7 +2836,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2865,7 +2865,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-621 Y:372}" />
@@ -2877,7 +2877,7 @@
               <Height Value="700" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2906,7 +2906,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:1150 Y:697}" />
@@ -2918,7 +2918,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -2947,7 +2947,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -2969,7 +2969,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -2991,7 +2991,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -3013,7 +3013,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -3035,7 +3035,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:-121 Y:590}" />
@@ -3047,7 +3047,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3063,7 +3063,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
@@ -3083,7 +3083,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -3102,8 +3102,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3114,7 +3114,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3136,10 +3136,10 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
+          </EnemyCoreAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
             <Properties>
               <Speed Value="2" />
               <Roundtrip Value="True" />
@@ -3160,7 +3160,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:349 Y:590}" />
@@ -3172,7 +3172,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3188,7 +3188,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -3208,7 +3208,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -3227,8 +3227,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3239,7 +3239,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3261,9 +3261,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -3277,7 +3277,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:1107 Y:343}" />
@@ -3289,7 +3289,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3305,7 +3305,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -3325,7 +3325,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -3344,8 +3344,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3356,7 +3356,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3378,9 +3378,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -3394,7 +3394,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:776 Y:452}" />
@@ -3406,7 +3406,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -3435,7 +3435,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:1843 Y:590}" />
@@ -3447,7 +3447,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3463,7 +3463,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -3484,7 +3484,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="40" />
@@ -3503,8 +3503,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="9">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3515,7 +3515,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="10">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3537,9 +3537,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="BoundLeft" Layer="">
@@ -3553,7 +3553,7 @@
               <Scale Value="6" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
@@ -3562,7 +3562,7 @@
               <Enabled Value="True" />
             </Properties>
           </CameraBound>
-          <MovingGeometry Type="NeonStarLibrary.MovingGeometry" ID="2">
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="2">
             <Properties>
               <CurrentNodeList Value="BoundPath" />
               <Speed Value="1.3" />
@@ -3571,7 +3571,7 @@
               <PathPrecisionTreshold Value="20" />
             </Properties>
           </MovingGeometry>
-          <Hitbox Type="NeonEngine.Hitbox" ID="3">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="3">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:529 Y:400}" />
@@ -3583,7 +3583,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="4">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="4">
             <Properties>
               <BodyType Value="Kinematic" />
               <GravityScale Value="2" />
@@ -3599,7 +3599,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="5">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="5">
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="Portal" />
@@ -3628,7 +3628,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:932 Y:551}" />
@@ -3640,7 +3640,7 @@
               <Height Value="250" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -3669,7 +3669,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:1090 Y:450}" />
@@ -3681,7 +3681,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -3710,7 +3710,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:826 Y:590}" />
@@ -3722,7 +3722,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3738,7 +3738,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -3759,7 +3759,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="40" />
@@ -3778,8 +3778,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="9">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3790,7 +3790,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="10">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3812,9 +3812,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -3828,7 +3828,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:1283 Y:590}" />
@@ -3840,7 +3840,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3856,7 +3856,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -3876,7 +3876,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -3895,8 +3895,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -3907,7 +3907,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -3929,9 +3929,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -3945,7 +3945,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:2133 Y:590}" />
@@ -3957,7 +3957,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -3973,7 +3973,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -3993,7 +3993,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -4012,8 +4012,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -4024,7 +4024,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -4046,9 +4046,9 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
+          </EnemyCoreAnimationManager>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -4062,7 +4062,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-762 Y:2073}" />
@@ -4074,7 +4074,7 @@
               <Height Value="250" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4103,7 +4103,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:-392 Y:2214}" />
@@ -4115,7 +4115,7 @@
               <Height Value="40" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4144,7 +4144,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:-593 Y:2134}" />
@@ -4156,7 +4156,7 @@
               <Height Value="121" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4185,7 +4185,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:323 Y:2713}" />
@@ -4197,7 +4197,7 @@
               <Height Value="950" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4226,7 +4226,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:905 Y:3157}" />
@@ -4238,7 +4238,7 @@
               <Height Value="63" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4267,7 +4267,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1436 Y:2507}" />
@@ -4279,7 +4279,7 @@
               <Height Value="1250" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4308,7 +4308,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:872 Y:1636}" />
@@ -4320,7 +4320,7 @@
               <Height Value="500" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4349,7 +4349,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:913 Y:2378}" />
@@ -4361,7 +4361,7 @@
               <Height Value="350" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4390,7 +4390,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:1249 Y:2535}" />
@@ -4402,7 +4402,7 @@
               <Height Value="38" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4431,7 +4431,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
               <Center Value="{X:1245 Y:2224}" />
@@ -4443,7 +4443,7 @@
               <Height Value="38" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4472,7 +4472,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:-137 Y:1862}" />
@@ -4484,7 +4484,7 @@
               <Height Value="31" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4513,7 +4513,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:-141 Y:1563}" />
@@ -4525,7 +4525,7 @@
               <Height Value="31" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4554,7 +4554,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:-65 Y:2112}" />
@@ -4566,7 +4566,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -4582,7 +4582,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -4603,7 +4603,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="50" />
@@ -4622,8 +4622,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="9">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -4634,7 +4634,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="10">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -4656,10 +4656,10 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties />
-          </EnemyAnimationManager>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="2">
+          </EnemyCoreAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="2">
             <Properties>
               <Speed Value="2" />
               <Roundtrip Value="True" />
@@ -4680,7 +4680,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:879 Y:3043}" />
@@ -4692,7 +4692,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -4708,7 +4708,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -4729,7 +4729,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="50" />
@@ -4748,8 +4748,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="9">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -4760,7 +4760,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="10">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -4782,10 +4782,10 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="1">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties />
-          </EnemyAnimationManager>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="2">
+          </EnemyCoreAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="2">
             <Properties>
               <Speed Value="2" />
               <Roundtrip Value="True" />
@@ -4806,7 +4806,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:1235 Y:3043}" />
@@ -4818,7 +4818,7 @@
               <Height Value="160" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
               <GravityScale Value="2" />
@@ -4834,7 +4834,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
@@ -4854,7 +4854,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="50" />
@@ -4873,8 +4873,8 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
             </Properties>
-          </Enemy>
-          <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
             <Properties>
               <CheckBothSide Value="True" />
               <RaycastOffset Value="{X:0 Y:0}" />
@@ -4885,7 +4885,7 @@
               <ChasePrecision Value="10" />
             </Properties>
           </GroundChase>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -4907,10 +4907,10 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
             <Properties />
-          </EnemyAnimationManager>
-          <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
+          </EnemyCoreAnimationManager>
+          <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
             <Properties>
               <Speed Value="2" />
               <Roundtrip Value="True" />
@@ -4931,7 +4931,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:934 Y:2584}" />
@@ -4943,7 +4943,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -4959,7 +4959,7 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:8}" />
@@ -4976,7 +4976,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
@@ -4995,11 +4995,11 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
             </Properties>
-          </Enemy>
-          <RotateSpritesheet Type="NeonStarLibrary.RotateSpritesheet" ID="8">
+          </EnemyCore>
+          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
             <Properties />
           </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Graphic" ID="9">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
             <Properties>
               <GraphicTag Value="EnemyFireTurretBot" />
               <DrawLayer Value="0.4" />
@@ -5013,10 +5013,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="10">
+          <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
             <Properties />
-          </EnemyAnimationManager>
-          <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="11">
+          </EnemyCoreAnimationManager>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="11">
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
@@ -5051,7 +5051,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:309 Y:2040}" />
@@ -5063,7 +5063,7 @@
               <Height Value="310" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5092,7 +5092,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:757 Y:2043}" />
@@ -5104,7 +5104,7 @@
               <Height Value="310" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5133,7 +5133,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:907 Y:2152}" />
@@ -5145,7 +5145,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5174,7 +5174,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:452 Y:1934}" />
@@ -5186,7 +5186,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5215,7 +5215,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:141 Y:2150}" />
@@ -5227,7 +5227,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5256,7 +5256,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1793 Y:1327}" />
@@ -5268,7 +5268,7 @@
               <Height Value="500" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5297,7 +5297,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:2090 Y:1877}" />
@@ -5309,7 +5309,7 @@
               <Height Value="600" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5338,7 +5338,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1618 Y:1860}" />
@@ -5350,7 +5350,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5379,7 +5379,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1965 Y:1552}" />
@@ -5391,7 +5391,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />
@@ -5420,7 +5420,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:1917 Y:2152}" />
@@ -5432,7 +5432,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="2" />

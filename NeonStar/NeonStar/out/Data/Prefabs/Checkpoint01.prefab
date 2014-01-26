@@ -11,7 +11,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Trigger" />
           <Center Value="{X:3480 Y:110}" />
@@ -23,13 +23,13 @@
           <Height Value="250" />
         </Properties>
       </Hitbox>
-      <CheckPoint Type="NeonStarLibrary.CheckPoint" ID="2">
+      <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
         <Properties>
           <AvatarName Value="LiOn" />
           <SpawnPointIndex Value="2" />
         </Properties>
       </CheckPoint>
-      <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="3">
+      <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
         <Properties>
           <OneShot Value="False" />
           <TriggerEveryFrame Value="False" />

@@ -1,11 +1,12 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.Triggers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.GameplayElements
 {
     public class CheckPoint : Component
     {
@@ -35,6 +36,7 @@ namespace NeonStarLibrary
         public CheckPoint(Entity entity)
             :base(entity, "CheckPoint")
         {
+            RequiredComponents = new Type[] { typeof(HitboxTrigger) };
         }
 
         public override void Init()

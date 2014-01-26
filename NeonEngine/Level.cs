@@ -130,9 +130,11 @@ namespace NeonEngine
                     }
                     else
                     {
-                        string AssemblyName = Comp.Attribute("Type").Value.Split('.')[0];
-                        string TypeName = Comp.Attribute("Type").Value.Split('.')[1];
-                        Type t = Type.GetType(AssemblyName + "." + TypeName + ", " + AssemblyName);
+                        string[] splitTypeName = Comp.Attribute("Type").Value.Split('.');
+                        string AssemblyName = splitTypeName[0];
+                        string TypeName = splitTypeName.Last();
+
+                        Type t = Type.GetType(Comp.Attribute("Type").Value + ", " + AssemblyName);
                         if (t == null)
                             foreach (Type type in Neon.Scripts)
                                 if (type.Name == TypeName)

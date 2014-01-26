@@ -1,10 +1,11 @@
 ﻿using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.GameplayElements
 {
     public class NeutralizerGate : Component
     {
@@ -16,7 +17,7 @@ namespace NeonStarLibrary
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            Avatar _avatar = triggeringEntity.GetComponent<Avatar>();
+            AvatarCore _avatar = triggeringEntity.GetComponent<AvatarCore>();
             if(_avatar != null)
             {
                 _avatar.ElementSystem.LeftSlotLevel = 1;

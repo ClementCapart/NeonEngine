@@ -13,7 +13,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
               <Center Value="{X:-214 Y:-3}" />
@@ -25,7 +25,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
             <Properties>
               <OneShot Value="True" />
               <TriggerEveryFrame Value="False" />
@@ -34,7 +34,7 @@
               <TriggeredComponentName Value="ChangeLevel" />
             </Properties>
           </HitboxTrigger>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="3">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="Test" />
@@ -50,7 +50,7 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Spritesheet>
-          <EnergyDevice Type="NeonStarLibrary.EnergyDevice" ID="4">
+          <EnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.EnergyDevice" ID="4">
             <Properties>
               <EnergyCost Value="100" />
               <AvatarName Value="LiOn" />

@@ -1,12 +1,15 @@
 ﻿using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Private;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     public enum EnemyState
     {
@@ -31,7 +34,7 @@ namespace NeonStarLibrary
         Flying
     }
 
-    public class Enemy : Component
+    public class EnemyCore : Component
     {
 
         #region Properties
@@ -198,8 +201,8 @@ namespace NeonStarLibrary
 
         public bool TookDamageThisFrame = false;
 
-        public Enemy(Entity entity)
-            :base(entity, "Enemy")
+        public EnemyCore(Entity entity)
+            :base(entity, "EnemyCore")
         {
         }
 
@@ -231,9 +234,9 @@ namespace NeonStarLibrary
             else if (!tookDamage && _currentHealthPoints <= 0.0f)
             {
                 if (attack.Launcher != null && CoreElement != Element.Neutral)
-                    attack.Launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                    attack.Launcher.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
                 else if (attack._entity != null && CoreElement != Element.Neutral)
-                    attack._entity.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                    attack._entity.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
 
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;
@@ -269,7 +272,7 @@ namespace NeonStarLibrary
             else if (!tookDamage && _currentHealthPoints <= 0.0f)
             {
                 if (bullet.launcher != null && CoreElement != Element.Neutral)
-                    bullet.launcher.GetComponent<Avatar>().ElementSystem.GetElement(CoreElement);
+                    bullet.launcher.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
 
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;

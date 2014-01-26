@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;

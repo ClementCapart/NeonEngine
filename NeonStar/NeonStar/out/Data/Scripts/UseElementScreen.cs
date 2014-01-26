@@ -3,6 +3,7 @@ using NeonEngine;
 using NeonStarLibrary;
 using NeonEngine.Private;
 using Microsoft.Xna.Framework;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonScripts
 {
@@ -16,7 +17,7 @@ namespace NeonScripts
             set { _avatarName = value; }
         }
 
-        private Avatar _avatar = null;
+        private AvatarCore _avatar = null;
 		
 		private int _scriptStep = 0;
 
@@ -31,7 +32,7 @@ namespace NeonScripts
 			{
 				Entity avatar = Neon.World.GetEntityByName(_avatarName);
 				if(avatar != null)
-					_avatar = avatar.GetComponent<Avatar>();
+					_avatar = avatar.GetComponent<AvatarCore>();
 			}
 			entity.spritesheets.ChangeAnimation("Off");
 		}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public class EnergySystem : Component
     {
@@ -30,7 +30,7 @@ namespace NeonStarLibrary
 
         
 
-        public Avatar AvatarComponent;
+        public AvatarCore AvatarComponent;
 
         public EnergySystem(Entity entity)
             :base(entity, "EnergySystem")
@@ -39,7 +39,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            AvatarComponent = entity.GetComponent<Avatar>();
+            AvatarComponent = entity.GetComponent<AvatarCore>();
             base.Init();
         }
 

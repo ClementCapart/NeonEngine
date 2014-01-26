@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NeonStarLibrary.Components.Avatar;
+using NeonEngine.Components.CollisionDetection;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.GameplayElements
 {
     public class DeathOnTouch : Component
     {
@@ -16,18 +18,19 @@ namespace NeonStarLibrary
             set { _avatarName = value; }
         }
 
-        Avatar _avatar;
+        AvatarCore _avatar;
 
         public DeathOnTouch(Entity entity)
             :base(entity, "DeathOnTouch")
         {
+            RequiredComponents = new Type[] { typeof(Hitbox) };
         }
 
         public override void Init()
         {
             Entity e = entity.containerWorld.GetEntityByName(_avatarName);
             if (e != null)
-                _avatar = e.GetComponent<Avatar>();
+                _avatar = e.GetComponent<AvatarCore>();
             base.Init();
         }
 

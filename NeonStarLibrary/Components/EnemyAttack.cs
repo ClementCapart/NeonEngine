@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     public abstract class EnemyAttack : Component
     {
@@ -140,7 +140,7 @@ namespace NeonStarLibrary
         }
         #endregion
 
-        public Enemy EnemyComponent;
+        public EnemyCore EnemyComponent;
         public Attack CurrentAttack;
         
         public Entity EntityToAttack = null;
@@ -150,12 +150,13 @@ namespace NeonStarLibrary
         public EnemyAttack(Entity entity)
             :base(entity, "EnemyAttack")
         {
+            RequiredComponents = new Type[] { typeof(EnemyCore) };
         }
 
         public override void Init()
         {
             LocalAttacksInCooldown = new List<Attack>();
-            EnemyComponent = entity.GetComponent<Enemy>();
+            EnemyComponent = entity.GetComponent<EnemyCore>();
             if (_entityToAttackName != "")
                 EntityToAttack = entity.containerWorld.GetEntityByName(_entityToAttackName);
 

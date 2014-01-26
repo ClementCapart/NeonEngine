@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +87,7 @@ namespace NeonStarLibrary
             {
                 DataManager.LoadPrefab(@"../Data/Prefabs/EnemyTiger.prefab", entity.containerWorld);
                 entity.containerWorld.Entities[entity.containerWorld.Entities.Count - 1].transform.Position = new Vector2(6000f, -565.50f);
-                entity.containerWorld.Entities[entity.containerWorld.Entities.Count - 1].GetComponent<Enemy>().CurrentSide = Side.Left;
+                entity.containerWorld.Entities[entity.containerWorld.Entities.Count - 1].GetComponent<EnemyCore>().CurrentSide = Side.Left;
                 tpEffect = null;
             }
             base.Update(gameTime);

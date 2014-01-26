@@ -11,12 +11,16 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Xml.Linq;
 using System.IO;
+using NeonStarLibrary.Components.Enemies;
+using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.GameplayElements;
+using NeonStarLibrary.Components.EnergyObjects;
 
 namespace NeonStarLibrary
 {
     public class GameScreen : World
     {
-        public List<Enemy> enemies;
+        public List<EnemyCore> enemies;
         public List<Attack> FreeAttacks = new List<Attack>();
         public List<Entity> Bullets = new List<Entity>();
 
@@ -42,7 +46,7 @@ namespace NeonStarLibrary
             this._statusToLoad = statusToLoad;
             lastSpawnPointIndex = startingSpawnPointIndex;
 
-            enemies = new List<Enemy>();
+            enemies = new List<EnemyCore>();
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
 
@@ -83,7 +87,7 @@ namespace NeonStarLibrary
                     if (File.Exists(@"../data/Prefabs/HUD.prefab"))
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
                     avatar.transform.Position = currentSpawnPoint.Position;
-                    Avatar avatarComponent = avatar.GetComponent<Avatar>();
+                    AvatarCore avatarComponent = avatar.GetComponent<AvatarCore>();
                     if (avatarComponent != null)
                     {
                         LoadAvatarStatus(avatarComponent);
@@ -100,7 +104,7 @@ namespace NeonStarLibrary
             Camera.Bounded = true;
         } 
 
-        public void LoadAvatarStatus(Avatar avatarComponent)
+        public void LoadAvatarStatus(AvatarCore avatarComponent)
         {
             if (_statusToLoad != null && avatarComponent != null)
             {
@@ -202,9 +206,9 @@ namespace NeonStarLibrary
 
             XElement playerStatus = new XElement("PlayerStatus");
 
-            Avatar avatarComponent = null;
+            AvatarCore avatarComponent = null;
             if (avatar != null)
-                avatarComponent = avatar.GetComponent<Avatar>();
+                avatarComponent = avatar.GetComponent<AvatarCore>();
 
             if (avatarComponent != null)
             {

@@ -6,13 +6,14 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Contacts;
 using FarseerPhysics.Factories;
 using Microsoft.Xna.Framework;
+using NeonEngine.Components.Private;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine
+namespace NeonEngine.Components.CollisionDetection
 {
     public class Rigidbody : Component
     {       
@@ -226,9 +227,12 @@ namespace NeonEngine
 
         private List<Contact> _currentContacts = null;
 
+        
+
         public Rigidbody(Entity entity)
             :base(entity, "Rigidbody")
         {
+            RequiredComponents = new Type[] { typeof(Hitbox) };
             PositionChanged = new PositionChange(RefreshBodyPosition);
             HitboxRemoved = new ComponentRemoved(RemoveHitbox);
             entity.transform.PositionChanged += PositionChanged;

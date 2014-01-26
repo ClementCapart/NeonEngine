@@ -11,7 +11,7 @@
           <Scale Value="2" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
           <Center Value="{X:1726 Y:2651}" />
@@ -23,7 +23,7 @@
           <Height Value="136" />
         </Properties>
       </Hitbox>
-      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
           <BodyType Value="Dynamic" />
           <GravityScale Value="2" />
@@ -39,7 +39,7 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
-      <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Left" />
@@ -76,7 +76,7 @@
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
-      <MeleeFight Type="NeonStarLibrary.MeleeFight" ID="4">
+      <MeleeFight Type="NeonStarLibrary.Components.Avatar.MeleeFight" ID="4">
         <Properties>
           <Debug Value="True" />
           <LightAttackName Value="LiOnLightAttack" />
@@ -95,7 +95,7 @@
           <RushAttackStickDelay Value="0.08" />
         </Properties>
       </MeleeFight>
-      <ThirdPersonController Type="NeonStarLibrary.ThirdPersonController" ID="5">
+      <ThirdPersonController Type="NeonStarLibrary.Components.Avatar.ThirdPersonController" ID="5">
         <Properties>
           <JumpImpulseHeight Value="470" />
           <DoubleJumpImpulseHeight Value="370" />
@@ -114,7 +114,7 @@
           <CanDoubleJump Value="True" />
         </Properties>
       </ThirdPersonController>
-      <Avatar Type="NeonStarLibrary.Avatar" ID="6">
+      <Avatar Type="NeonStarLibrary.Components.Avatar.AvatarCore" ID="6">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
@@ -126,7 +126,7 @@
           <HitGuardFX Value="LiOnGuardFX" />
         </Properties>
       </Avatar>
-      <Guard Type="NeonStarLibrary.Guard" ID="7">
+      <Guard Type="NeonStarLibrary.Components.Avatar.Guard" ID="7">
         <Properties>
           <RollAnimation Value="Roll" />
           <DashAnimation Value="AirDash" />
@@ -143,7 +143,7 @@
           <GuardLockDuration Value="1" />
         </Properties>
       </Guard>
-      <ElementSystem Type="NeonStarLibrary.ElementSystem" ID="8">
+      <ElementSystem Type="NeonStarLibrary.Components.Avatar.ElementSystem" ID="8">
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
@@ -158,16 +158,16 @@
           <EnergyRegenerationRate Value="20" />
         </Properties>
       </ElementSystem>
-      <AvatarAnimationManager Type="NeonStarLibrary.AvatarAnimationManager" ID="10">
+      <AvatarAnimationManager Type="NeonStarLibrary.Components.Avatar.AvatarAnimationManager" ID="10">
         <Properties />
       </AvatarAnimationManager>
-      <EnergySystem Type="NeonStarLibrary.EnergySystem" ID="11">
+      <EnergySystem Type="NeonStarLibrary.Components.Avatar.EnergySystem" ID="11">
         <Properties>
           <MaxEnergyStock Value="1000" />
           <CurrentEnergyStock Value="0" />
         </Properties>
       </EnergySystem>
-      <FireGauge Type="NeonStarLibrary.FireGauge" ID="12">
+      <FireGauge Type="NeonStarLibrary.Components.HUD" ID="12">
         <Properties>
           <IsHUD Value="False" />
           <CurrentSide Value="Right" />

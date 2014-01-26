@@ -11,7 +11,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Solid" />
           <Center Value="{X:4675 Y:145}" />
@@ -23,7 +23,7 @@
           <Height Value="50" />
         </Properties>
       </Hitbox>
-      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
           <BodyType Value="Kinematic" />
           <GravityScale Value="2" />
@@ -39,7 +39,7 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
-      <FallingPlatform Type="NeonStarLibrary.FallingPlatform" ID="3">
+      <FallingPlatform Type="NeonStarLibrary.Components.GameplayElements.FallingPlatform" ID="3">
         <Properties>
           <FallingTimer Value="0.4" />
           <FallSpeed Value="50" />

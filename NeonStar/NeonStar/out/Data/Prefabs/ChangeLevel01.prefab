@@ -11,7 +11,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Trigger" />
           <Center Value="{X:2755 Y:281}" />
@@ -23,14 +23,14 @@
           <Height Value="300" />
         </Properties>
       </Hitbox>
-      <ChangeLevel Type="NeonStarLibrary.ChangeLevel" ID="3">
+      <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
         <Properties>
           <GroupName Value="SequenceOne" />
           <LevelName Value="TrainingTwo" />
           <SpawnPointIndex Value="0" />
         </Properties>
       </ChangeLevel>
-      <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="4">
+      <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
         <Properties>
           <OneShot Value="True" />
           <TriggerEveryFrame Value="False" />

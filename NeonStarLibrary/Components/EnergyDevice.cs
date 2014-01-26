@@ -1,10 +1,11 @@
 ﻿using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.EnergyObjects
 {
     public class EnergyDevice : Component
     {
@@ -43,7 +44,7 @@ namespace NeonStarLibrary
 
         #endregion
 
-        public Avatar _avatar;
+        public AvatarCore _avatar;
         private bool _isFilling = false;
         private float _fillingTimer = 0.0f;
 
@@ -56,7 +57,7 @@ namespace NeonStarLibrary
         {
             Entity avatarEntity = entity.containerWorld.GetEntityByName(_avatarName);
             if (avatarEntity != null)
-                _avatar = avatarEntity.GetComponent<Avatar>();
+                _avatar = avatarEntity.GetComponent<AvatarCore>();
             base.Init();
         }
 

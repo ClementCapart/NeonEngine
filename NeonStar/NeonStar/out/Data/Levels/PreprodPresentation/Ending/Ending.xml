@@ -13,7 +13,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -35,7 +35,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -57,7 +57,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -79,7 +79,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -101,7 +101,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -123,7 +123,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -145,7 +145,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -167,7 +167,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
               <Center Value="{X:1201 Y:-121}" />
@@ -179,7 +179,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="2">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="2">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -196,7 +196,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="3">
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
             <Properties>
               <OneShot Value="False" />
               <TriggerEveryFrame Value="True" />
@@ -221,7 +221,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:6001 Y:-29}" />
@@ -233,7 +233,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -262,7 +262,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:475 Y:-104}" />
@@ -274,7 +274,7 @@
               <Height Value="2000" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -303,7 +303,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:12027 Y:-161}" />
@@ -315,7 +315,7 @@
               <Height Value="2000" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -344,7 +344,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="JuryFond3BackgroundPart1" />
               <DrawLayer Value="0.1" />
@@ -371,7 +371,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="JuryFond3BackgroundPart2" />
               <DrawLayer Value="0.1" />
@@ -398,7 +398,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="JuryFond3BackgroundPart3" />
               <DrawLayer Value="0.1" />
@@ -425,7 +425,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="RyuSprite" />
@@ -454,7 +454,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="LiOnIdle" />
@@ -483,7 +483,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="chipzel" />
               <DrawLayer Value="0.4" />
@@ -510,7 +510,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -532,7 +532,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -554,7 +554,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -576,7 +576,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -598,7 +598,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />

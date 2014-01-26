@@ -16,6 +16,10 @@ using System.IO;
 using Microsoft.Xna.Framework.Media;
 using System.Xml.Linq;
 using System.Diagnostics;
+using NeonEngine.Components.Camera;
+using NeonEngine.Components.VisualFX;
+using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.CollisionDetection;
 
 namespace NeonStarEditor
 {
@@ -37,6 +41,7 @@ namespace NeonStarEditor
         public ElementPanel ElementSettingsManager;
         public PathNodesPanel PathNodePanel;
         public SpawnPointPanel SpawnPointsPanel;
+        public AddComponentControl AddComponentPanel;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -65,6 +70,7 @@ namespace NeonStarEditor
         private bool _isPathNodeManagerDisplayed = false;
         private bool _isSpawnPointsManagerDisplayed = false;
         private bool _isElementManagerDisplayed = false;
+        private bool _isAddComponentPanelDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -169,6 +175,10 @@ namespace NeonStarEditor
             {
                 if (_isElementManagerDisplayed)
                     ToggleElementPanel();
+
+                if (_isAddComponentPanelDisplayed)
+                    ToggleAddComponentPanel();
+
                 AttacksSettingsManager = new AttacksSettingsManager();
                 AttacksSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(AttacksSettingsManager);
@@ -190,6 +200,10 @@ namespace NeonStarEditor
             {
                 if (_isAttackManagerDisplayed)
                     ToggleAttackManager();
+
+                if (_isAddComponentPanelDisplayed)
+                    ToggleAddComponentPanel();
+
                 ElementSettingsManager = new ElementPanel();
                 ElementSettingsManager.InitializeData();
                 GameAsForm.Controls.Add(ElementSettingsManager);
@@ -199,8 +213,7 @@ namespace NeonStarEditor
 
         public void TogglePathNodeManager()
         {
-            if (_isSpawnPointsManagerDisplayed)
-                return;
+            
 
             if (_isPathNodeManagerDisplayed)
             {
@@ -212,6 +225,8 @@ namespace NeonStarEditor
             }
             else
             {
+                if (_isSpawnPointsManagerDisplayed)
+                    ToggleSpawnPointManager();
                 PathNodePanel = new PathNodesPanel(this);
                 GameAsForm.Controls.Add(PathNodePanel);
                 _isPathNodeManagerDisplayed = true;
@@ -220,10 +235,6 @@ namespace NeonStarEditor
 
         public void ToggleSpawnPointManager()
         {
-            if (_isPathNodeManagerDisplayed)
-                return;
-
-
             if (_isSpawnPointsManagerDisplayed)
             {
                 GameAsForm.Controls.Remove(SpawnPointsPanel);
@@ -234,10 +245,36 @@ namespace NeonStarEditor
             }
             else
             {
+                if (_isPathNodeManagerDisplayed)
+                    TogglePathNodeManager();
                 SpawnPointsPanel = new SpawnPointPanel(this);
                 this.CurrentTool = new SelectSpawn(this);
                 GameAsForm.Controls.Add(SpawnPointsPanel);
                 _isSpawnPointsManagerDisplayed = true;
+            }
+        }
+
+        public void ToggleAddComponentPanel()
+        {
+            if (_isAddComponentPanelDisplayed)
+            {
+                GameAsForm.Controls.Remove(AddComponentPanel);
+                AddComponentPanel.Dispose();
+                AddComponentPanel = null;
+                _isAddComponentPanelDisplayed = false;
+            }
+            else
+            {
+                if (_isElementManagerDisplayed)
+                    ToggleElementPanel();
+
+                if (_isAttackManagerDisplayed)
+                    ToggleAttackManager();
+
+                AddComponentPanel = new AddComponentControl(this);
+                CurrentTool = new Selection(this);
+                GameAsForm.Controls.Add(AddComponentPanel);
+                _isAddComponentPanelDisplayed = true;
             }
         }
 

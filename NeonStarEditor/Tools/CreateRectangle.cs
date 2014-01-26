@@ -3,6 +3,7 @@ using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
 using System;
 using System.Collections.Generic;
 using System.Linq;

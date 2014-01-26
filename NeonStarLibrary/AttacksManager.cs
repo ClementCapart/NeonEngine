@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

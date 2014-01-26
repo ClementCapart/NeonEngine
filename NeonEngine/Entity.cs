@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Graphics2D;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
@@ -128,6 +130,17 @@ namespace NeonEngine
                     component = comp as T;
 
             return component;
+        }
+
+        public Component GetComponentByTypeName(string typeName)
+        {
+            foreach (Component comp in Components)
+            {
+                if (comp.GetType().Name == typeName)
+                    return comp;
+            }
+
+            return null;
         }
 
         public Component GetComponentByName(string name)

@@ -50,17 +50,6 @@ namespace NeonStarEditor
 
         protected override void OnLoad(EventArgs e)
         {
-            if (GameWorld != null)
-            {
-                List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
-                if (Neon.Scripts != null)
-                    Components.AddRange(Neon.Scripts);
-                Components.Add(typeof(ScriptComponent));
-                Components.AddRange(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(NeonStarLibrary.GameScreen)), "NeonStarLibrary").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
-                Components = Components.OrderBy(c => c.Name).ToList();
-                ComponentList.DataSource = Components;
-                ComponentList.DisplayMember = "Name";
-            }
             base.OnLoad(e);
         }
 
@@ -773,35 +762,7 @@ namespace NeonStarEditor
 
         private void AddComponent_Click(object sender, EventArgs e)
         {
-            if (GameWorld.SelectedEntity != null)
-            {
-                if (ComponentList.Text != "ScriptComponent")
-                {
-                    Entity CurrentEntity = GameWorld.SelectedEntity;
-
-                    Component c = (Component)Activator.CreateInstance((Type)ComponentList.SelectedValue, CurrentEntity);
-                    c.Init();
-                    c.ID = CurrentEntity.GetLastID() + 1;
-                    CurrentEntity.AddComponent(c);
-                    //ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
-                     InstantiateProperties(CurrentEntity);
-                }
-                else
-                {
-                    if (OpenScript.ShowDialog() == DialogResult.OK)
-                    {
-                        Type resultType = Neon.NeonScripting.CompileScript(OpenScript.FileName);
-                        List<Type> Components = new List<Type>(Neon.Utils.GetTypesInNamespace(Assembly.GetAssembly(typeof(Neon)), "NeonEngine").Where(t => t.IsSubclassOf(typeof(Component)) && !(t.IsAbstract)));
-                        if (Neon.Scripts != null)
-                            Components.AddRange(Neon.Scripts);
-                        Components.Add(typeof(ScriptComponent));
-                        ComponentList.DataSource = Components;
-                        ComponentList.DisplayMember = "Name";
-                    }
-                }
-
-                
-            }
+            GameWorld.ToggleAddComponentPanel();
         }
 
     }

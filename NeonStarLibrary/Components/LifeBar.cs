@@ -1,17 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
+using NeonEngine.Components.Graphics2D;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Private
 {
     public class LifeBar : DrawableComponent
     {
         private Texture2D texture;
-        private Avatar _avatar;
+        private AvatarCore _avatar;
 
         private string _avatarName = "";
 
@@ -58,7 +60,7 @@ namespace NeonStarLibrary
             {
                 Entity avatar = entity.containerWorld.GetEntityByName(_avatarName);
                 if(avatar != null)
-                    _avatar = avatar.GetComponent<Avatar>();
+                    _avatar = avatar.GetComponent<AvatarCore>();
             }
             if (_avatar != null)
             {

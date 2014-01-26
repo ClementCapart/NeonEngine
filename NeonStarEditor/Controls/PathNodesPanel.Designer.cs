@@ -44,6 +44,8 @@
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.PathName = new System.Windows.Forms.TextBox();
             this.ToggleDisplayAll = new System.Windows.Forms.Button();
+            this.ClosePanel = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.InfoBox.SuspendLayout();
             this.NodeInfo.SuspendLayout();
             this.SuspendLayout();
@@ -91,9 +93,9 @@
             this.InfoBox.Controls.Add(this.AddPathNode);
             this.InfoBox.Controls.Add(this.TypeComboBox);
             this.InfoBox.Controls.Add(this.PathName);
-            this.InfoBox.Location = new System.Drawing.Point(145, 2);
+            this.InfoBox.Location = new System.Drawing.Point(145, 30);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(289, 184);
+            this.InfoBox.Size = new System.Drawing.Size(289, 183);
             this.InfoBox.TabIndex = 6;
             this.InfoBox.TabStop = false;
             this.InfoBox.Text = "Info";
@@ -228,12 +230,37 @@
             this.ToggleDisplayAll.UseVisualStyleBackColor = true;
             this.ToggleDisplayAll.Click += new System.EventHandler(this.ToggleDisplayAll_Click);
             // 
+            // ClosePanel
+            // 
+            this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClosePanel.Location = new System.Drawing.Point(407, 3);
+            this.ClosePanel.Name = "ClosePanel";
+            this.ClosePanel.Size = new System.Drawing.Size(27, 26);
+            this.ClosePanel.TabIndex = 11;
+            this.ClosePanel.Text = "X";
+            this.ClosePanel.UseVisualStyleBackColor = true;
+            this.ClosePanel.Click += new System.EventHandler(this.ClosePanel_Click);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label.Location = new System.Drawing.Point(244, 4);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(80, 25);
+            this.label.TabIndex = 16;
+            this.label.Text = "Path Nodes";
+            // 
             // PathNodesPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.ClosePanel);
             this.Controls.Add(this.InfoBox);
             this.Controls.Add(this.ToggleDisplayAll);
             this.Controls.Add(this.RemovePathButton);
@@ -241,12 +268,13 @@
             this.Controls.Add(this.NodeLists);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "PathNodesPanel";
-            this.Size = new System.Drawing.Size(442, 197);
+            this.Size = new System.Drawing.Size(442, 222);
             this.InfoBox.ResumeLayout(false);
             this.InfoBox.PerformLayout();
             this.NodeInfo.ResumeLayout(false);
             this.NodeInfo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,5 +295,7 @@
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Button DeleteNode;
         private System.Windows.Forms.Button Align;
+        private System.Windows.Forms.Button ClosePanel;
+        private System.Windows.Forms.Label label;
     }
 }

@@ -2,88 +2,6 @@
 <XnaContent>
   <Level Layer="">
     <Entities>
-      <Entity Name="HUD" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:283 Y:66}" />
-              <InitialPosition Value="{X:283 Y:66}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <TextDisplay Type="NeonEngine.TextDisplay" ID="1">
-            <Properties>
-              <DrawLayer Value="1" />
-              <Font Value="HUDFont" />
-              <Text Value="97" />
-              <TextColor Value="{R:255 G:255 B:255 A:255}" />
-              <Outline Value="True" />
-              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
-              <OutlineDisplacement Value="2" />
-              <IsHUD Value="True" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-232 Y:-44}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </TextDisplay>
-          <DisplayValue Type="NeonEngine.DisplayValue" ID="2">
-            <Properties>
-              <Display Value="1" />
-              <EntityName Value="LiOn" />
-              <ComponentName Value="Avatar" />
-              <DisplayedVariable Value="CurrentHealthPoints" />
-            </Properties>
-          </DisplayValue>
-          <Graphic Type="NeonEngine.Graphic" ID="3">
-            <Properties>
-              <GraphicTag Value="HUDLifeGaugeBase" />
-              <DrawLayer Value="0.99" />
-              <IsHUD Value="True" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-          <LifeBar Type="NeonStarLibrary.LifeBar" ID="4">
-            <Properties>
-              <AvatarName Value="LiOn" />
-              <DrawLayer Value="0.999" />
-              <GraphicTag Value="HUDLifeGauge" />
-              <IsHUD Value="True" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-184 Y:-40}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </LifeBar>
-          <ElementHUD Type="NeonStarLibrary.ElementHUD" ID="5">
-            <Properties>
-              <AvatarName Value="LiOn" />
-              <IsHUD Value="True" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-184 Y:-5}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </ElementHUD>
-        </Components>
-      </Entity>
       <Entity Name="RoomBackground" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -95,7 +13,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
               <ReverseLoop Value="True" />
               <SpriteSheetTag Value="AngelRoomBackground" />
@@ -124,7 +42,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="AngelRoomFences" />
               <DrawLayer Value="1" />
@@ -151,7 +69,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="AngelRoomGround" />
               <DrawLayer Value="1" />
@@ -178,7 +96,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Spritesheet Type="NeonEngine.SpriteSheet" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
               <ReverseLoop Value="True" />
               <SpriteSheetTag Value="AngelRoomBackground" />
@@ -207,7 +125,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="AngelRoomFences" />
               <DrawLayer Value="1" />
@@ -234,7 +152,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="AngelRoomGround" />
               <DrawLayer Value="1" />
@@ -261,7 +179,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-491 Y:310}" />
@@ -273,7 +191,7 @@
               <Height Value="101" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -289,7 +207,7 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
             <Properties>
               <LinkedPathNodeList Value="NodeList1" />
             </Properties>
@@ -307,7 +225,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:0 Y:330}" />
@@ -319,7 +237,7 @@
               <Height Value="61" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -335,7 +253,7 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
             <Properties>
               <LinkedPathNodeList Value="NodeList2" />
             </Properties>
@@ -353,7 +271,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:1279 Y:329}" />
@@ -365,7 +283,7 @@
               <Height Value="60" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -381,7 +299,7 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
             <Properties>
               <LinkedPathNodeList Value="NodeList4" />
             </Properties>
@@ -399,7 +317,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:637 Y:309}" />
@@ -411,7 +329,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -427,7 +345,7 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
             <Properties>
               <LinkedPathNodeList Value="NodeList3" />
             </Properties>
@@ -445,7 +363,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:1769 Y:309}" />
@@ -457,7 +375,7 @@
               <Height Value="100" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -473,7 +391,7 @@
               <FixedRotation Value="False" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.LinkedToPath" ID="3">
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
             <Properties>
               <LinkedPathNodeList Value="NodeList5" />
             </Properties>
@@ -491,7 +409,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:-656 Y:19}" />
@@ -503,7 +421,7 @@
               <Height Value="680" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -532,7 +450,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:1928 Y:19}" />
@@ -544,7 +462,7 @@
               <Height Value="679" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -573,7 +491,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
@@ -595,7 +513,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Right" />
               <BoundStrength Value="1" />
@@ -617,7 +535,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -639,7 +557,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
@@ -661,7 +579,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+          <ColorEmitter Type="NeonEngine.Components.VisualFX.ColorEmitter" ID="1">
             <Properties>
               <Debug Value="True" />
               <Color Value="{R:255 G:106 B:181 A:255}" />
@@ -671,7 +589,7 @@
               <PulseDuration Value="0.975" />
             </Properties>
           </ColorEmitter>
-          <ParallaxPosition Type="NeonEngine.ParallaxPosition" ID="2">
+          <ParallaxPosition Type="NeonEngine.Components.Utils.ParallaxPosition" ID="2">
             <Properties>
               <ParallaxForce Value="{X:8 Y:0}" />
             </Properties>
@@ -689,7 +607,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <ColorEmitter Type="NeonEngine.ColorEmitter" ID="1">
+          <ColorEmitter Type="NeonEngine.Components.VisualFX.ColorEmitter" ID="1">
             <Properties>
               <Debug Value="True" />
               <Color Value="{R:157 G:157 B:157 A:255}" />

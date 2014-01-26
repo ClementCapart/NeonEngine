@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeonStarLibrary.Components.EnergyObjects;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

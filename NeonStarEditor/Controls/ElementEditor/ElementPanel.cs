@@ -11,6 +11,7 @@ using NeonEngine;
 using System.IO;
 using System.Xml.Linq;
 using System.Globalization;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonStarEditor
 {

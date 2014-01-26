@@ -1,11 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Private
 {
     public class Bullet : Component
     {
@@ -131,7 +134,7 @@ namespace NeonStarLibrary
                             {
                                 if (hb.Type == HitboxType.Main)
                                 {
-                                    Avatar avatar = hb.entity.GetComponent<Avatar>();
+                                    AvatarCore avatar = hb.entity.GetComponent<AvatarCore>();
                                     if (avatar != null)
                                     {
                                        if(avatar.TakeDamage(this))
@@ -154,7 +157,7 @@ namespace NeonStarLibrary
                             {
                                 if (hb.Type == HitboxType.Main)
                                 {
-                                    Enemy enemy = hb.entity.GetComponent<Enemy>();
+                                    EnemyCore enemy = hb.entity.GetComponent<EnemyCore>();
                                     if (enemy != null)
                                     {
                                         enemy.TakeDamage(this);

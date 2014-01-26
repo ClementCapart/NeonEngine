@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.Graphics2D;
 using System.Collections.Generic;
 
 namespace NeonEngine.Private

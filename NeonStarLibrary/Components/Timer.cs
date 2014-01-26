@@ -1,11 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.Text2D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Utils
 {
     public class Timer : Component
     {

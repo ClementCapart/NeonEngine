@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     public class GroundChase : Chase
     {
@@ -35,7 +35,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            EnemyComponent = entity.GetComponent<Enemy>();
+            EnemyComponent = entity.GetComponent<EnemyCore>();
             if (EntityToChaseName != "")
                 EntityToChase = entity.containerWorld.GetEntityByName(_entityToChaseName);
             base.Init();

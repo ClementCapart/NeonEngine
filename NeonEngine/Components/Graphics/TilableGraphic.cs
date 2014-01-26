@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine
+namespace NeonEngine.Components.Graphics2D
 {
     public class TilableGraphic : DrawableComponent
     {

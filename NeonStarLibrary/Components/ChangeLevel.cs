@@ -1,11 +1,12 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.Triggers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Triggers
 {
     public class ChangeLevel : Component
     {
@@ -38,6 +39,7 @@ namespace NeonStarLibrary
         public ChangeLevel(Entity entity)
             :base(entity, "ChangeLevel")
         {
+            RequiredComponents = new Type[] { typeof(HitboxTrigger) };
         }
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)

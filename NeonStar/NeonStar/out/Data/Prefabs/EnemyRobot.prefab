@@ -11,7 +11,7 @@
           <Scale Value="2" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
           <Center Value="{X:3364 Y:-825}" />
@@ -23,7 +23,7 @@
           <Height Value="160" />
         </Properties>
       </Hitbox>
-      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
           <BodyType Value="Dynamic" />
           <GravityScale Value="2" />
@@ -39,7 +39,7 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
-      <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />
@@ -60,7 +60,7 @@
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
-      <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+      <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="50" />
@@ -79,8 +79,8 @@
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
         </Properties>
-      </Enemy>
-      <GroundChase Type="NeonStarLibrary.GroundChase" ID="5">
+      </EnemyCore>
+      <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
         <Properties>
           <CheckBothSide Value="True" />
           <RaycastOffset Value="{X:0 Y:0}" />
@@ -91,7 +91,7 @@
           <ChasePrecision Value="10" />
         </Properties>
       </GroundChase>
-      <GroundAttack Type="NeonStarLibrary.GroundAttack" ID="6">
+      <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
         <Properties>
           <CheckBothSide Value="True" />
           <DetectionOffset Value="{X:0 Y:0}" />
@@ -113,10 +113,10 @@
           <AttackFiveAnimation Value="" />
         </Properties>
       </GroundAttack>
-      <EnemyAnimationManager Type="NeonStarLibrary.EnemyAnimationManager" ID="7">
+      <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
         <Properties />
-      </EnemyAnimationManager>
-      <FollowPlatformNodes Type="NeonStarLibrary.FollowPlatformNodes" ID="8">
+      </EnemyCoreAnimationManager>
+      <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
         <Properties>
           <CurrentNodeList Value="NodeList1" />
           <Speed Value="2" />

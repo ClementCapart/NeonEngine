@@ -1,4 +1,6 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.Graphics2D;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +10,18 @@ namespace NeonStarLibrary
 {
     public class EnemyAnimationManager : Component
     {
-        public Enemy EnemyComponent = null;
+        public EnemyCore EnemyComponent = null;
         public int LastAttackHashCode = 0;
 
         public EnemyAnimationManager(Entity entity)
             : base(entity, "EnemyAnimationManager")
         {
+            RequiredComponents = new Type[] { typeof(EnemyCore), typeof(SpritesheetManager) };
         }
 
         public override void Init()
         {
-            EnemyComponent = entity.GetComponent<Enemy>();
+            EnemyComponent = entity.GetComponent<EnemyCore>();
             base.Init();
         }
 

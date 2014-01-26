@@ -11,7 +11,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="None" />
           <Center Value="{X:2451 Y:281}" />
@@ -23,7 +23,7 @@
           <Height Value="300" />
         </Properties>
       </Hitbox>
-      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
           <BodyType Value="Static" />
           <GravityScale Value="2" />
@@ -39,7 +39,7 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
-      <EnergyDoor Type="NeonStarLibrary.EnergyDoor" ID="3">
+      <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
         <Properties>
           <ClosedIdleAnimation Value="Closed" />
           <OpenedIdleAnimation Value="Opened" />
@@ -68,7 +68,7 @@
           <FifthActivatingDeviceLevelName Value="" />
         </Properties>
       </EnergyDoor>
-      <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="4">
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
         <Properties>
           <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />

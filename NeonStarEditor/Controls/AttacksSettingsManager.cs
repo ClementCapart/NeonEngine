@@ -11,6 +11,7 @@ using NeonStarLibrary;
 using System.Xml.Linq;
 using System.Globalization;
 using Microsoft.Xna.Framework;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonStarEditor
 {

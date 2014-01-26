@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.Graphics2D;
 using System;
 using System.Collections.Generic;
 
-namespace NeonEngine
+namespace NeonEngine.Components.VisualFX
 {
     public class ParticleEmitter : DrawableComponent
     {

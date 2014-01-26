@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Input;
 using FarseerPhysics;
 using NeonEngine.Private;
 using System.Xml.Linq;
+using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Graphics2D;
 
 namespace NeonEngine
 {

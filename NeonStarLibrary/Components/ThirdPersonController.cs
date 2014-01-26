@@ -1,11 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public class ThirdPersonController : Component
     {
@@ -123,7 +124,7 @@ namespace NeonStarLibrary
 
         #endregion
 
-        public Avatar AvatarComponent = null;
+        public AvatarCore AvatarComponent = null;
 
         public bool StartJumping = false;
         public float LastSideChangedDelay = 0.0f;
@@ -143,11 +144,12 @@ namespace NeonStarLibrary
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
         {
+            RequiredComponents = new Type[] { typeof(AvatarCore), typeof(Rigidbody) };
         }
 
         public override void Init()
         {
-            AvatarComponent = entity.GetComponent<Avatar>();
+            AvatarComponent = entity.GetComponent<AvatarCore>();
             base.Init();
         }
 
@@ -191,7 +193,7 @@ namespace NeonStarLibrary
 
             if (AvatarComponent.CanMove && AvatarComponent.State != AvatarState.Attacking)
             {
-                if (entity.rigidbody.isGrounded && !StartJumping)
+                if (entity.rigidbody != null && entity.rigidbody.isGrounded && !StartJumping)
                 {
                     _hasAlreadyAirJumped = false;
                     NumberOfAirMove = 1.0f;
@@ -248,7 +250,7 @@ namespace NeonStarLibrary
                         MustJumpAsSoonAsPossible = false;
                     }
                 }
-                else
+                else if(entity.rigidbody != null)
                 {
                     if (Neon.Input.Check(NeonStarInput.MoveLeft))
                     {
@@ -301,10 +303,10 @@ namespace NeonStarLibrary
                 }
             }
 
-            if(entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
+            if(entity.rigidbody != null && entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
                 EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
 
-            if (entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0)
+            if (entity.rigidbody != null && entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0)
                 entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, _maxFallSpeed);
 
             foreach (Rigidbody rg in _ignoredGeometry)

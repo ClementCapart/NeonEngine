@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace NeonEngine
+namespace NeonEngine.Components.Graphics2D
 {
     public class SpriteSheet : DrawableComponent
     {

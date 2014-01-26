@@ -23,6 +23,7 @@ namespace NeonEngine
 
         public Component(Entity entity, string Name)
         {
+            RequiredComponents = new Type[0];
             this.entity = entity;
             this.Name = Name;
         }

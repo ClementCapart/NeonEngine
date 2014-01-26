@@ -1,9 +1,10 @@
-﻿using System;
+﻿using NeonEngine.Components.CollisionDetection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine
+namespace NeonEngine.Components.Triggers
 {
     public class HitboxTrigger : Component
     {
@@ -57,6 +58,7 @@ namespace NeonEngine
         public HitboxTrigger(Entity entity)
             :base(entity, "HitboxTrigger")
         {
+            RequiredComponents = new Type[] { typeof(Hitbox) };
         }
 
         public override void Init()

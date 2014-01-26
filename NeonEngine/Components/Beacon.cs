@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
+using NeonEngine.Components.CollisionDetection;
 
-namespace NeonEngine.Private
+namespace NeonEngine.Components.Private
 {
     public class Beacon : Component
     {   

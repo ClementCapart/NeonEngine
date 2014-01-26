@@ -1,6 +1,8 @@
 ﻿using NeonEngine;
 using NeonEngine.Private;
 using NeonStarLibrary;
+using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -147,10 +149,10 @@ namespace NeonStarLibrary
 
         private Entity _doorToOpen = null;
         private Entity _enemy = null;
-        private Enemy _incomingEnemy = null;
+        private EnemyCore _incomingEnemy = null;
 
         private int _currentTutorialState = 1;
-        private Avatar _avatar;
+        private AvatarCore _avatar;
 
         public TutorialScreen(Entity entity)
             :base(entity, "TutorialScreen")
@@ -163,7 +165,7 @@ namespace NeonStarLibrary
 			{
 				Entity avatar = entity.containerWorld.GetEntityByName(_avatarName);
 				if(avatar != null)
-					_avatar = avatar.GetComponent<Avatar>();
+					_avatar = avatar.GetComponent<AvatarCore>();
 			}
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
 
@@ -171,7 +173,7 @@ namespace NeonStarLibrary
                 _enemy = entity.containerWorld.GetEntityByName(_enemyName);
 
             if (_incomingEnemyName != "")
-                _incomingEnemy = entity.containerWorld.GetEntityByName(_incomingEnemyName).GetComponent<Enemy>();
+                _incomingEnemy = entity.containerWorld.GetEntityByName(_incomingEnemyName).GetComponent<EnemyCore>();
 
             if (_doorToOpenName != "")
             {
@@ -255,7 +257,7 @@ namespace NeonStarLibrary
                     if (_enemy != null)
                     {
                         _enemy.spritesheets.ChangeAnimation("Death", 0, true, false, false, 0);
-                        _enemy.GetComponent<Enemy>().Remove();
+                        _enemy.GetComponent<EnemyCore>().Remove();
                     }
 
                     if (_doorToOpen != null)

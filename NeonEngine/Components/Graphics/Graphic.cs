@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace NeonEngine
+namespace NeonEngine.Components.Graphics2D
 {
     public class Graphic : DrawableComponent
     {

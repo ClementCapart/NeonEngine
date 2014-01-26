@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Graphics2D;
+using NeonStarLibrary.Private;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

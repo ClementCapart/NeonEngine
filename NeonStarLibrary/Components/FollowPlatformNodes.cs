@@ -1,10 +1,12 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     class FollowPlatformNodes : FollowNodes
     {

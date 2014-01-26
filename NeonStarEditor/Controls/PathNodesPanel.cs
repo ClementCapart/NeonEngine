@@ -198,5 +198,10 @@ namespace NeonStarEditor
                 }
             }
         }
+
+        private void ClosePanel_Click(object sender, EventArgs e)
+        {
+            GameWorld.TogglePathNodeManager();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace NeonStarLibrary
 
         private float _timer = 0.0f;
         private float _buttonDelay = 1f;
-        private Avatar _avatar;
+        private AvatarCore _avatar;
 
         private Entity _buttonPushed = null;
         private bool _activated = false;
@@ -32,7 +33,7 @@ namespace NeonStarLibrary
             _buttonDive.spritesheets.ChangeAnimation("ButtonIdle");
             _buttonUppercut = entity.containerWorld.GetEntityByName("ButtonUppercut");
             _buttonUppercut.spritesheets.ChangeAnimation("ButtonIdle");
-            _avatar = entity.containerWorld.GetEntityByName("LiOn").GetComponent<Avatar>();
+            _avatar = entity.containerWorld.GetEntityByName("LiOn").GetComponent<AvatarCore>();
             _3rdDoor = entity.containerWorld.GetEntityByName("03Door").GetComponent<Door>();
             base.Init();
         }

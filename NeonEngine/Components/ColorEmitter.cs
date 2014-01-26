@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using NeonEngine.Components.Graphics2D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine
+namespace NeonEngine.Components.VisualFX
 {
     public class ColorEmitter : Component
     {

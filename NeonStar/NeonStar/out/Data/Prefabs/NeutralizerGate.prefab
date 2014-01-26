@@ -11,7 +11,7 @@
           <Scale Value="2" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Trigger" />
           <Center Value="{X:9136 Y:-80}" />
@@ -23,7 +23,7 @@
           <Height Value="350" />
         </Properties>
       </Hitbox>
-      <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
+      <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
         <Properties>
           <OneShot Value="False" />
           <TriggerEveryFrame Value="False" />
@@ -32,10 +32,10 @@
           <TriggeredComponentName Value="NeutralizerGate" />
         </Properties>
       </HitboxTrigger>
-      <NeutralizerGate Type="NeonStarLibrary.NeutralizerGate" ID="3">
+      <NeutralizerGate Type="NeonStarLibrary.Components.GameplayElements.NeutralizerGate" ID="3">
         <Properties />
       </NeutralizerGate>
-      <Spritesheet Type="NeonEngine.SpriteSheet" ID="4">
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="4">
         <Properties>
           <ReverseLoop Value="False" />
           <SpriteSheetTag Value="BigPortal" />

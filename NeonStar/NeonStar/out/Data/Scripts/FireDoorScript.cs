@@ -3,12 +3,14 @@ using NeonEngine;
 using NeonStarLibrary;
 using NeonEngine.Private;
 using Microsoft.Xna.Framework;
+using NeonStarLibrary.Components.Enemies;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonScripts
 {
     public class FireDoorScript : ScriptComponent
     {
-        private Enemy _enemyComponent = null;
+        private EnemyCore _enemyComponent = null;
 
         public FireDoorScript(Entity entity)
             :base(entity, "FireDoorScript")
@@ -17,7 +19,7 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
-            _enemyComponent = entity.GetComponent<Enemy>();
+            _enemyComponent = entity.GetComponent<EnemyCore>();
 			entity.spritesheets.ChangeAnimation("FireDoorOpening", 0, false, true, false, 0);
 		}
 

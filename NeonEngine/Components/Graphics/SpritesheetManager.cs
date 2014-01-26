@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace NeonEngine
+namespace NeonEngine.Components.Graphics2D
 {
     public class SpritesheetManager : DrawableComponent
     {

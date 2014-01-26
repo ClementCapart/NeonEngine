@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public enum ComboSequence
     {
@@ -135,7 +135,7 @@ namespace NeonStarLibrary
         }
         #endregion
 
-        public Avatar AvatarComponent = null; 
+        public AvatarCore AvatarComponent = null; 
 
         public ComboSequence LastComboHit = ComboSequence.None;
         public ComboSequence CurrentComboHit = ComboSequence.None;
@@ -157,11 +157,12 @@ namespace NeonStarLibrary
         public MeleeFight(Entity entity)
             :base(entity, "MeleeFight")
         {
+            RequiredComponents = new Type[] { typeof(AvatarCore) };
         }
 
         public override void Init()
         {
-            AvatarComponent = entity.GetComponent<Avatar>();
+            AvatarComponent = entity.GetComponent<AvatarCore>();
             base.Init();
         }
 

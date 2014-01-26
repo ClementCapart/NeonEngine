@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     public class FollowNodes : Component
     {
@@ -56,7 +56,7 @@ namespace NeonStarLibrary
         }
         #endregion
 
-        public Enemy EnemyComponent;
+        public EnemyCore EnemyComponent;
 
         public bool Active = true;
         public bool TookDamageLastFrame = false;
@@ -69,11 +69,12 @@ namespace NeonStarLibrary
         public FollowNodes(Entity entity)
             :base(entity, "FollowNodes")
         {
+            RequiredComponents = new Type[] { typeof(EnemyCore) };
         }
 
         public override void Init()
         {
-            this.EnemyComponent = entity.GetComponent<Enemy>();
+            this.EnemyComponent = entity.GetComponent<EnemyCore>();
             if (_currentNodeList != null)
             {
 

@@ -32,7 +32,6 @@
             this.Inspector = new System.Windows.Forms.Panel();
             this.InspectorTab = new System.Windows.Forms.TabControl();
             this.AddComponent = new System.Windows.Forms.Button();
-            this.ComponentList = new System.Windows.Forms.ComboBox();
             this.OpenScript = new System.Windows.Forms.OpenFileDialog();
             this.Inspector.SuspendLayout();
             this.SuspendLayout();
@@ -77,22 +76,13 @@
             this.AddComponent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddComponent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddComponent.Location = new System.Drawing.Point(269, 599);
+            this.AddComponent.Location = new System.Drawing.Point(133, 605);
             this.AddComponent.Name = "AddComponent";
-            this.AddComponent.Size = new System.Drawing.Size(69, 23);
+            this.AddComponent.Size = new System.Drawing.Size(141, 23);
             this.AddComponent.TabIndex = 6;
-            this.AddComponent.Text = "Add";
+            this.AddComponent.Text = "Add Component...";
             this.AddComponent.UseVisualStyleBackColor = true;
             this.AddComponent.Click += new System.EventHandler(this.AddComponent_Click);
-            // 
-            // ComponentList
-            // 
-            this.ComponentList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComponentList.FormattingEnabled = true;
-            this.ComponentList.Location = new System.Drawing.Point(69, 601);
-            this.ComponentList.Name = "ComponentList";
-            this.ComponentList.Size = new System.Drawing.Size(194, 21);
-            this.ComponentList.TabIndex = 5;
             // 
             // OpenScript
             // 
@@ -104,7 +94,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.AddComponent);
-            this.Controls.Add(this.ComponentList);
             this.Controls.Add(this.Inspector);
             this.Controls.Add(this.EntityList);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -121,7 +110,6 @@
         private System.Windows.Forms.Label EntityList;
         private System.Windows.Forms.Panel Inspector;
         private System.Windows.Forms.Button AddComponent;
-        public System.Windows.Forms.ComboBox ComponentList;
         private System.Windows.Forms.OpenFileDialog OpenScript;
         private System.Windows.Forms.TabControl InspectorTab;
     }

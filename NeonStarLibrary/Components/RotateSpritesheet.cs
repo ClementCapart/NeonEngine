@@ -1,24 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Utils
 {
     public class RotateSpritesheet : Component
     {
-        public Enemy EnemyComponent = null;
+        public EnemyCore EnemyComponent = null;
 
         public RotateSpritesheet(Entity entity)
             :base(entity, "RotateSpritesheet")
         {
+
         }
 
         public override void Init()
         {
-            EnemyComponent = entity.GetComponent<Enemy>();
+            EnemyComponent = entity.GetComponent<EnemyCore>();
             base.Init();
         }
 

@@ -1,11 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonStarLibrary.Components.Enemies;
+using NeonStarLibrary.Private;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public enum AvatarState
     {
@@ -20,7 +22,7 @@ namespace NeonStarLibrary
         Dying,
     }
 
-    public class Avatar : Component
+    public class AvatarCore : Component
     {
         #region Properties
         private bool _debug;
@@ -115,8 +117,8 @@ namespace NeonStarLibrary
         private SpriteSheetInfo _hitGuardSpritesheet = null;
 
 
-        public Avatar(Entity entity)
-            :base(entity, "Avatar")
+        public AvatarCore(Entity entity)
+            :base(entity, "AvatarCore")
         {
         }
 
@@ -141,7 +143,7 @@ namespace NeonStarLibrary
             {
                 if (attack.Launcher != null)
                 {
-                    Enemy e = attack.Launcher.GetComponent<Enemy>();
+                    EnemyCore e = attack.Launcher.GetComponent<EnemyCore>();
                     if (e != null)
                     {
                         if (Guard != null)
@@ -150,7 +152,7 @@ namespace NeonStarLibrary
                 }
                 else if (attack._entity != null)
                 {
-                    Enemy e = attack._entity.GetComponent<Enemy>();
+                    EnemyCore e = attack._entity.GetComponent<EnemyCore>();
                     if (e != null)
                     {
                         if (Guard != null)
@@ -284,7 +286,8 @@ namespace NeonStarLibrary
                 _opacityGoingDown = true;
                 IsInvincible = false;
                 _invincibilityTimer = 0.0f;
-                entity.spritesheets.CurrentSpritesheet.opacity = 1f;
+                if(entity.spritesheets != null)
+                    entity.spritesheets.CurrentSpritesheet.opacity = 1f;
             }
             base.Update(gameTime);
         }

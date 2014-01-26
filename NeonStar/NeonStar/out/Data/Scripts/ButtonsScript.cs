@@ -3,6 +3,7 @@ using NeonEngine;
 using NeonStarLibrary;
 using NeonEngine.Private;
 using Microsoft.Xna.Framework;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonScripts
 {
@@ -112,7 +113,7 @@ namespace NeonScripts
             set { _delay = value; }
         }
 
-        private Avatar _avatar = null;
+        private AvatarCore _avatar = null;
 
         private Entity _firstButton = null;
         private Entity _secondButton = null;
@@ -134,7 +135,7 @@ namespace NeonScripts
 		{
 			Entity avatar = Neon.World.GetEntityByName(_avatarName);
             if (avatar != null)
-                _avatar = avatar.GetComponent<Avatar>();
+                _avatar = avatar.GetComponent<AvatarCore>();
 
             if (_firstButtonName != "")
             {

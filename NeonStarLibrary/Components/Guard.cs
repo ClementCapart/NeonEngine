@@ -1,12 +1,13 @@
 ﻿using FarseerPhysics.Dynamics.Contacts;
 using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public class Guard : Component
     {
@@ -116,7 +117,7 @@ namespace NeonStarLibrary
         }
         #endregion       
 
-        public Avatar AvatarComponent;
+        public AvatarCore AvatarComponent;
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
@@ -130,17 +131,18 @@ namespace NeonStarLibrary
         public Guard(Entity entity)
             :base(entity, "Guard")
         {
+            RequiredComponents = new Type[] { typeof(AvatarCore) };
         }
 
         public override void Init()
         {
-            AvatarComponent = entity.GetComponent<Avatar>();
+            AvatarComponent = entity.GetComponent<AvatarCore>();
             base.Init();
         }
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (entity.rigidbody.isGrounded)
+            if (entity.rigidbody != null && entity.rigidbody.isGrounded)
                 _alreadyDashed = false;
 
             if (_durationTimer > 0f)
@@ -253,7 +255,7 @@ namespace NeonStarLibrary
             {
                 if (_rollCooldownTimer <= 0.0f)
                 {
-                    if (entity.rigidbody.isGrounded)
+                    if (entity.rigidbody != null && entity.rigidbody.isGrounded)
                     {
                         _rollCooldownTimer = 0.0f;
                         if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked)

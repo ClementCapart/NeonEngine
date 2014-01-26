@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Avatar
 {
     public enum Element
     {
@@ -109,7 +109,7 @@ namespace NeonStarLibrary
         }
         #endregion     
 
-        public Avatar AvatarComponent = null;
+        public AvatarCore AvatarComponent = null;
 
         public ElementEffect CurrentElementEffect = null;
 
@@ -135,7 +135,7 @@ namespace NeonStarLibrary
             BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
             FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             BackThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
-            AvatarComponent = entity.GetComponent<Avatar>();
+            AvatarComponent = entity.GetComponent<AvatarCore>();
             base.Init();
         }
 

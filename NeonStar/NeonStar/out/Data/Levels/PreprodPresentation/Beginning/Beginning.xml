@@ -13,7 +13,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Graphic" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="TowerScreen1" />
               <DrawLayer Value="0" />
@@ -40,7 +40,7 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="1">
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
             <Properties>
               <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
@@ -57,7 +57,7 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-          <Hitbox Type="NeonEngine.Hitbox" ID="2">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="None" />
               <Center Value="{X:437 Y:-203}" />
@@ -82,7 +82,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
               <Center Value="{X:11 Y:-2}" />
@@ -94,7 +94,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Static" />
               <GravityScale Value="0" />
@@ -126,7 +126,7 @@
           <PreprodBeginning Type="NeonScripts.PreprodBeginning" ID="1">
             <Properties>
               <AvatarName Value="LiOn" />
-              <EnemyName Value="Blacksmith" />
+              <EnemyCoreName Value="Blacksmith" />
               <PlatformName Value="FallingPlatform" />
               <Delay Value="3.5" />
               <ImpulseFrame Value="10" />
@@ -147,7 +147,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Hitbox" ID="1">
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
               <Center Value="{X:-204 Y:431}" />
@@ -159,7 +159,7 @@
               <Height Value="50" />
             </Properties>
           </Hitbox>
-          <HitboxTrigger Type="NeonEngine.HitboxTrigger" ID="2">
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
             <Properties>
               <OneShot Value="True" />
               <TriggerEveryFrame Value="False" />
@@ -181,7 +181,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
@@ -203,7 +203,7 @@
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <CameraBound Type="NeonEngine.CameraBound" ID="1">
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />

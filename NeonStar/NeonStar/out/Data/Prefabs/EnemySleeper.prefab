@@ -10,7 +10,7 @@
           <Scale Value="1" />
         </Properties>
       </Transform>
-      <Hitbox Type="NeonEngine.Hitbox" ID="1">
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
           <Center Value="{X:-256 Y:173}" />
@@ -22,7 +22,7 @@
           <Height Value="250" />
         </Properties>
       </Hitbox>
-      <Rigidbody Type="NeonEngine.Rigidbody" ID="2">
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
           <BodyType Value="Dynamic" />
           <GravityScale Value="2" />
@@ -38,7 +38,7 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
-      <SpritesheetManager Type="NeonEngine.SpritesheetManager" ID="3">
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Spritesheets />
@@ -47,7 +47,7 @@
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
-      <Enemy Type="NeonStarLibrary.Enemy" ID="4">
+      <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="10" />
@@ -56,7 +56,7 @@
           <AttackAnim Value="" />
           <Type Value="Ground" />
         </Properties>
-      </Enemy>
+      </EnemyCore>
       <ThreatArea Type="NeonStarLibrary.ThreatArea" ID="5">
         <Properties>
           <ThreatRange Value="400" />
@@ -64,13 +64,13 @@
           <EntityToSearchFor Value="LiOn" />
         </Properties>
       </ThreatArea>
-      <Chase Type="NeonStarLibrary.Chase" ID="6">
+      <Chase Type="NeonStarLibrary.Components.Enemies.Chase" ID="6">
         <Properties>
           <Speed Value="2" />
           <WaitDelay Value="3" />
         </Properties>
       </Chase>
-      <EnemyAttack Type="NeonStarLibrary.EnemyAttack" ID="7">
+      <EnemyCoreAttack Type="NeonStarLibrary.Components.Enemies.EnemyAttack" ID="7">
         <Properties>
           <AttackToLaunchOne Value="EnemySleeperDash" />
           <RangeForAttackTwo Value="90" />
@@ -82,7 +82,7 @@
           <RangeForAttackFive Value="0" />
           <AttackToLaunchFive Value="" />
         </Properties>
-      </EnemyAttack>
+      </EnemyCoreAttack>
     </Components>
   </Entity>
 </Prefab>

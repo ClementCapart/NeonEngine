@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using NeonEngine.Components.Graphics2D;
 
 namespace NeonEngine
 {

@@ -1,10 +1,11 @@
 ﻿using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.EnergyObjects
 {
     public class EnergyCollectible : Component
     {
@@ -28,7 +29,7 @@ namespace NeonStarLibrary
 
         #endregion
 
-        private Avatar _avatar;
+        private AvatarCore _avatar;
         private bool _gathered = false;
 
         public EnergyCollectible(Entity entity)
@@ -42,7 +43,7 @@ namespace NeonStarLibrary
             {
                 Entity e = entity.containerWorld.GetEntityByName(_avatarName);
                 if (e != null)
-                    _avatar = e.GetComponent<Avatar>();
+                    _avatar = e.GetComponent<AvatarCore>();
             }
             base.Init();
         }

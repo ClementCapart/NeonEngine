@@ -1,11 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary
+namespace NeonStarLibrary.Components.Enemies
 {
     class SupervisorChase : Chase
     {
@@ -60,7 +62,7 @@ namespace NeonStarLibrary
         #endregion
 
         private bool _onDuty = false;
-        private Avatar _avatar;
+        private AvatarCore _avatar;
 
         public SupervisorChase(Entity entity)
             :base(entity)
@@ -71,10 +73,10 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            EnemyComponent = entity.GetComponent<Enemy>();
+            EnemyComponent = entity.GetComponent<EnemyCore>();
             this.EntityToChase = entity.containerWorld.GetEntityByName(_entityToChaseName);
             if (EntityToChase != null)
-                _avatar = EntityToChase.GetComponent<Avatar>();
+                _avatar = EntityToChase.GetComponent<AvatarCore>();
             base.Init();
         }
 
@@ -141,7 +143,7 @@ namespace NeonStarLibrary
                                 {
                                     if (e != _avatar.entity && e != entity && e.hitboxes.Count > 0 && e.hitboxes[0].hitboxRectangle.Intersects(detectionHitbox) && e.hitboxes[0].Type == HitboxType.Main)
                                     {
-                                        Enemy enemy = e.GetComponent<Enemy>();
+                                        EnemyCore enemy = e.GetComponent<EnemyCore>();
                                         if (enemy != null)
                                             if (enemy.TookDamageThisFrame)
                                             {

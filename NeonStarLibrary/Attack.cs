@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -599,7 +602,7 @@ namespace NeonStarLibrary
                     {
                         if (_fromEnemy)
                         {
-                            _entity.GetComponent<Enemy>().Attack.LocalAttacksInCooldown.Add(this);
+                            _entity.GetComponent<EnemyCore>().Attack.LocalAttacksInCooldown.Add(this);
                         }
                     }
 
@@ -723,12 +726,12 @@ namespace NeonStarLibrary
         private void Effect(Entity entity, Hitbox collidedHitbox)
         {
             bool validTarget = false;
-            Avatar avatar = null;
-            Enemy enemy = null;;
+            AvatarCore avatar = null;
+            EnemyCore enemy = null;;
 
             if (!_fromEnemy)
             {
-                enemy = entity.GetComponent<Enemy>();
+                enemy = entity.GetComponent<EnemyCore>();
                 if (enemy != null)
                 {
                     validTarget = true;
@@ -743,7 +746,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                avatar = entity.GetComponent<Avatar>();
+                avatar = entity.GetComponent<AvatarCore>();
                 if(avatar != null)
                 {
                     validTarget = true;
