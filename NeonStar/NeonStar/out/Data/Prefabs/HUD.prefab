@@ -15,7 +15,7 @@
         <Properties>
           <DrawLayer Value="1" />
           <Font Value="HUDFont" />
-          <Text Value="00" />
+          <Text Value="69" />
           <TextColor Value="{R:255 G:255 B:255 A:255}" />
           <Outline Value="True" />
           <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
@@ -52,6 +52,34 @@
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </Graphic>
+      <ElementHUD Type="NeonStarLibrary.Components.HUD.ElementHUD" ID="1">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <IsHUD Value="True" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-184 Y:-5}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </ElementHUD>
+      <LifeBar Type="NeonStarLibrary.Components.HUD.LifeBar" ID="1">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <DrawLayer Value="1" />
+          <GraphicTag Value="HUDLifeGauge" />
+          <IsHUD Value="True" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-184 Y:-40}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </LifeBar>
     </Components>
   </Entity>
 </Prefab>

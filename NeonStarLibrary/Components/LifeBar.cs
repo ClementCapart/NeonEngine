@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary.Private
+namespace NeonStarLibrary.Components.HUD
 {
     public class LifeBar : DrawableComponent
     {

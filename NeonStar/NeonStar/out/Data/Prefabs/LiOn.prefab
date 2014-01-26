@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:1726.866 Y:2651.5}" />
-          <InitialPosition Value="{X:1726.866 Y:2651.5}" />
+          <Position Value="{X:-349.8347 Y:-52.58842}" />
+          <InitialPosition Value="{X:-349.8347 Y:-52.58842}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:1726 Y:2651}" />
-          <X Value="1706" />
-          <Y Value="2583" />
+          <Center Value="{X:-349 Y:-52}" />
+          <X Value="-369" />
+          <Y Value="-120" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -42,7 +42,7 @@
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
-          <CurrentSide Value="Left" />
+          <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="True" />
@@ -114,18 +114,18 @@
           <CanDoubleJump Value="True" />
         </Properties>
       </ThirdPersonController>
-      <Avatar Type="NeonStarLibrary.Components.Avatar.AvatarCore" ID="6">
+      <AvatarCore Type="NeonStarLibrary.Components.Avatar.AvatarCore" ID="6">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
-          <CurrentHealthPoints Value="97" />
+          <CurrentHealthPoints Value="99" />
           <InvincibilityDuration Value="0.4" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />
           <HitGuardAnim Value="HitGuard" />
           <HitGuardFX Value="LiOnGuardFX" />
         </Properties>
-      </Avatar>
+      </AvatarCore>
       <Guard Type="NeonStarLibrary.Components.Avatar.Guard" ID="7">
         <Properties>
           <RollAnimation Value="Roll" />
@@ -167,13 +167,13 @@
           <CurrentEnergyStock Value="0" />
         </Properties>
       </EnergySystem>
-      <FireGauge Type="NeonStarLibrary.Components.HUD" ID="12">
+      <FireGauge Type="NeonStarLibrary.Components.HUD.FireGauge" ID="1">
         <Properties>
           <IsHUD Value="False" />
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:0 Y:-80}" />
+          <Offset Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
