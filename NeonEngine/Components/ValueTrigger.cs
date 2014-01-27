@@ -87,7 +87,7 @@ namespace NeonEngine.Components.Triggers
             if (_triggeringComponent == null)
             {
                 _triggeringComponent = entity.GetComponentByName(_triggeringComponentName);
-                if (_triggeredComponent != null)
+                if (_triggeredComponent != null && _triggeringComponent != null)
                 {
                     _triggeringProperty = _triggeringComponent.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(pi => pi.Name == _triggeringVariableName).First();
                     if(_triggeringProperty != null)

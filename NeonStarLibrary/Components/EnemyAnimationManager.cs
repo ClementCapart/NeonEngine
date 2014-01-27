@@ -41,7 +41,7 @@ namespace NeonStarLibrary.Components.Enemies
                 switch (EnemyComponent.State)
                 {
                     case EnemyState.Attacking:
-                        if (LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode())
+                        if (EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null && LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode())
                         {
                             if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
                             {
@@ -64,7 +64,7 @@ namespace NeonStarLibrary.Components.Enemies
                                 entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, true, false);
                             }
                         }
-
+                        if(EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null)
                         LastAttackHashCode = EnemyComponent.Attack.CurrentAttack.GetHashCode();
 
                         break;

@@ -275,7 +275,7 @@ namespace NeonStarEditor
 
                         localY += comboBox.Height + 5;
                     }
-                    else if (pi.Name == "GraphicTag")
+                    else if (pi.Name.EndsWith("GraphicTag"))
                     {
                         ComboBox comboBox = new ComboBox();
                         comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
