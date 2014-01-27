@@ -122,6 +122,14 @@ namespace NeonStarLibrary.Components.Avatar
             set { _canDoubleJump = value; }
         }
 
+        private float _airSlowRate = 0.95f;
+
+        public float AirSlowRate
+        {
+            get { return _airSlowRate; }
+            set { _airSlowRate = value; }
+        }
+
         #endregion
 
         public AvatarCore AvatarComponent = null;
@@ -270,9 +278,11 @@ namespace NeonStarLibrary.Components.Avatar
                     }
                     else if (AvatarComponent.CanMove)
                     {
-                        entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.95f, entity.rigidbody.body.LinearVelocity.Y);
+                        
                         AvatarComponent.State = AvatarState.Idle;
                     }
+
+                    entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * _airSlowRate, entity.rigidbody.body.LinearVelocity.Y);
 
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {

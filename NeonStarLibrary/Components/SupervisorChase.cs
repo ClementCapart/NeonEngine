@@ -36,30 +36,6 @@ namespace NeonStarLibrary.Components.Enemies
             set { _detectionBoxOffset = value; }
         }
 
-        private float _attackRangeWidth;
-
-        public float AttackRangeWidth
-        {
-            get { return _attackRangeWidth; }
-            set { _attackRangeWidth = value; }
-        }
-
-        private float _attackRangeHeight;
-
-        public float AttackRangeHeight
-        {
-            get { return _attackRangeHeight; }
-            set { _attackRangeHeight = value; }
-        }
-
-        private Vector2 _attackRangeOffset;
-
-        public Vector2 AttackRangeOffset
-        {
-            get { return _attackRangeOffset; }
-            set { _attackRangeOffset = value; }
-        }
-
         private PathNodeList _pathNodeBounds;
 
         public PathNodeList PathNodeBounds
@@ -136,18 +112,7 @@ namespace NeonStarLibrary.Components.Enemies
                             {
                                 this._lastChasePosition = EntityToChase.transform.Position;
                             }
-                            
-                            detectionHitbox.X = (int)(entity.transform.Position.X + _attackRangeOffset.X - _attackRangeWidth / 2);
-                            detectionHitbox.Y = (int)(entity.transform.Position.Y + _attackRangeOffset.Y - _attackRangeHeight / 2);
-                            detectionHitbox.Width = (int)_attackRangeWidth;
-                            detectionHitbox.Height = (int)_attackRangeHeight;
-                            
-                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
-                            {
-                                EnemyComponent.State = EnemyState.Attacking;
-                                if (entity.rigidbody != null)
-                                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                            }
+
                             if (entity.transform.Position.X > _rightBound || entity.transform.Position.X < _leftBound)
                             {
                                 EnemyComponent.State = EnemyState.Wait;
@@ -168,10 +133,6 @@ namespace NeonStarLibrary.Components.Enemies
                                 EnemyComponent.State = EnemyState.Wait;
                             }
                         }
-                        break;
-
-                    case EnemyState.Attacking:
-
                         break;
                 }
             }
