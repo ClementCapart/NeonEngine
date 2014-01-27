@@ -41,74 +41,29 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
-              <GraphicTag Value="TrainingPlatformsTile2" />
-              <DrawLayer Value="0.6" />
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1300" />
+              <DrawLayer Value="0.5" />
+              <CloserGraphicTag Value="TrainingPlatformsCloser" />
+              <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
+              <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
+              <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_2-{X:100 Y:0}_2-{X:200 Y:0}_2-{X:300 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_2-{X:500 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-650 Y:-1}" />
+              <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="400" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.6" />
-              <GraphicTag Value="TrainingPlatformsTile3" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:200 Y:23}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="300" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.6" />
-              <GraphicTag Value="TrainingPlatformsTile2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:400 Y:23}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="200" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.6" />
-              <GraphicTag Value="TrainingPlatformsTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:499 Y:23}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </TilableGraphic>
+          </RandomTilableGraphic>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -457,7 +412,7 @@
               <Position Value="{X:1408 Y:102}" />
               <InitialPosition Value="{X:1408 Y:102}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -505,6 +460,29 @@
               <Delay Value="0" />
             </Properties>
           </ButtonsScript>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.5" />
+              <CloserGraphicTag Value="TrainingPlatformsCloser" />
+              <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
+              <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
+              <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}_2-{X:125 Y:0}_0-{X:225 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
         </Components>
       </Entity>
       <Entity Name="TrainingSecurityAlarm01" Layer="">
@@ -512,18 +490,18 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:113 Y:-224}" />
-              <InitialPosition Value="{X:113 Y:-224}" />
+              <Position Value="{X:110 Y:-193}" />
+              <InitialPosition Value="{X:110 Y:-193}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:113 Y:-224}" />
-              <X Value="-37" />
-              <Y Value="-424" />
+              <Center Value="{X:110 Y:-193}" />
+              <X Value="-40" />
+              <Y Value="-393" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
@@ -538,7 +516,7 @@
               <CurrentHealthPoints Value="10" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
-              <IdleAnim Value="" />
+              <IdleAnim Value="Off" />
               <DyingAnim Value="" />
               <HitAnim Value="" />
               <ImmuneToStunLock Value="True" />
@@ -555,7 +533,7 @@
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="5000" />
               <AttackToLaunchOne Value="TrainingAlarmDetection" />
-              <AttackOneAnimation Value="Anim0" />
+              <AttackOneAnimation Value="Off" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -573,20 +551,24 @@
           </AreaAttack>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Anim0" SpritesheetTag="DoorOpened" />
+                <Animation Name="Off" SpritesheetTag="TrainingLazerOff" />
+                <Animation Name="On" SpritesheetTag="TrainingLazerOn" />
               </Spritesheets>
-              <DrawLayer Value="0" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
+            <Properties />
+          </EnemyAnimationManager>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -1298,17 +1280,17 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:852.3777 Y:124.3443}" />
-              <InitialPosition Value="{X:852.3777 Y:124.3443}" />
+              <Position Value="{X:842.0474 Y:124.0513}" />
+              <InitialPosition Value="{X:842.0474 Y:124.0513}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:852 Y:124}" />
-              <X Value="702" />
+              <Center Value="{X:842 Y:124}" />
+              <X Value="692" />
               <Y Value="-76" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1357,7 +1339,7 @@
               <MaximumAngleDifference Value="360" />
               <RangeForAttackOne Value="5000" />
               <AttackToLaunchOne Value="TrainingAlarmDetection" />
-              <AttackOneAnimation Value="" />
+              <AttackOneAnimation Value="Off" />
               <RangeForAttackTwo Value="0" />
               <AttackToLaunchTwo Value="" />
               <AttackTwoAnimation Value="" />
@@ -1382,6 +1364,25 @@
               <PathPrecisionTreshold Value="50" />
             </Properties>
           </MovingGeometry>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="2">
+            <Properties />
+          </EnemyAnimationManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="TrainingLazerOff" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="TrainingNociveLeak02" Layer="">
@@ -1637,8 +1638,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:982.9544 Y:973.5002}" />
-              <InitialPosition Value="{X:982.9544 Y:973.5002}" />
+              <Position Value="{X:691.4951 Y:973.5002}" />
+              <InitialPosition Value="{X:691.4951 Y:973.5002}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -1646,8 +1647,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:982 Y:973}" />
-              <X Value="957" />
+              <Center Value="{X:691 Y:973}" />
+              <X Value="666" />
               <Y Value="823" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1728,8 +1729,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1398.322 Y:973.3354}" />
-              <InitialPosition Value="{X:1398.322 Y:973.3354}" />
+              <Position Value="{X:1510.379 Y:973.4327}" />
+              <InitialPosition Value="{X:1510.379 Y:973.4327}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -1737,8 +1738,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1398 Y:973}" />
-              <X Value="1373" />
+              <Center Value="{X:1510 Y:973}" />
+              <X Value="1485" />
               <Y Value="823" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1819,8 +1820,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1502.465 Y:973.076}" />
-              <InitialPosition Value="{X:1502.465 Y:973.076}" />
+              <Position Value="{X:1559.445 Y:973.387}" />
+              <InitialPosition Value="{X:1559.445 Y:973.387}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -1828,8 +1829,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1502 Y:973}" />
-              <X Value="1477" />
+              <Center Value="{X:1559 Y:973}" />
+              <X Value="1534" />
               <Y Value="823" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />

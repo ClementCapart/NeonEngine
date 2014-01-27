@@ -1475,7 +1475,15 @@
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="TrainingLazerOn" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+          <FourthParameter Value="True" />
+          <FifthParameter Value="2" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:200 Y:-400}" />
@@ -1504,7 +1512,15 @@
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="TrainingLazerOn" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:200 Y:-400}" />
