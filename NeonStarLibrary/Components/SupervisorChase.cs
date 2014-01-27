@@ -164,6 +164,11 @@ namespace NeonStarLibrary.Components.Enemies
                                             {
                                                 _onDuty = true;
                                                 EnemyComponent.State = EnemyState.WaitThreat;
+                                                if (entity.transform.Position.X > EntityToChase.transform.Position.X)
+                                                    EnemyComponent.CurrentSide = Side.Left;
+                                                else
+                                                    EnemyComponent.CurrentSide = Side.Right;
+
                                                 if (entity.rigidbody != null)
                                                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                             }
@@ -178,12 +183,16 @@ namespace NeonStarLibrary.Components.Enemies
                         {
                             if (entity.rigidbody != null)
                                 entity.rigidbody.body.LinearVelocity = new Vector2(-this._chaseSpeed, 0);
+
+                            EnemyComponent.CurrentSide = Side.Left;
                         }
                         else if (_avatar.entity.transform.Position.X - this._chasePrecision > entity.transform.Position.X)
                         {
 
                             if (entity.rigidbody != null)
                                 entity.rigidbody.body.LinearVelocity = new Vector2(this._chaseSpeed, 0);
+
+                            EnemyComponent.CurrentSide = Side.Right;
                         }
                         else
                         {
@@ -199,12 +208,14 @@ namespace NeonStarLibrary.Components.Enemies
                         {
                             if (entity.rigidbody != null)
                                 entity.rigidbody.body.LinearVelocity = new Vector2(-this._chaseSpeed, 0);
+                            EnemyComponent.CurrentSide = Side.Left;
                         }
                         else if (this._lastChasePosition.X - this._chasePrecision > entity.transform.Position.X)
                         {
 
                             if (entity.rigidbody != null)
                                 entity.rigidbody.body.LinearVelocity = new Vector2(this._chaseSpeed, 0);
+                            EnemyComponent.CurrentSide = Side.Right;
                         }
                         break;
 

@@ -56,6 +56,31 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.Patrol:
                     case EnemyState.WaitNode:
                         Rectangle attackRange = new Rectangle((int)(entity.transform.Position.X - _attackRangeWidth / 2), (int)(entity.transform.Position.Y - _attackRangeHeight / 2), (int)_attackRangeWidth, (int)_attackRangeHeight);
+                        if (attackRange.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                        {
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            EnemyComponent.State = EnemyState.WaitThreat;
+                        }
+                        break;
+
+                    case EnemyState.WaitThreat:
+                        if (EnemyComponent.WaitThreatTimer >= EnemyComponent.WaitThreatDuration)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        Rectangle attackRange2 = new Rectangle((int)(entity.transform.Position.X - _attackRangeWidth / 2), (int)(entity.transform.Position.Y - _attackRangeHeight / 2), (int)_attackRangeWidth, (int)_attackRangeHeight);
+                        if (!attackRange2.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
+                        {
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            EnemyComponent.State = EnemyState.Idle;
+                            EnemyComponent.WaitThreatTimer = 0.0f;
+                        }
+                        break;
+
+                    case EnemyState.Wait:
+                        
                         break;
                 }
             }
