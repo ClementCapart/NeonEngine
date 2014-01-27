@@ -309,6 +309,8 @@ namespace NeonEngine
                     XElement Properties = new XElement("Properties");
                     foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                     {
+                        if (pi.PropertyType.Equals(typeof(Effect)))
+                            continue;
                         if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                         {
                             Component comp = (Component)pi.GetValue(c, null);

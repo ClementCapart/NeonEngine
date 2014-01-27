@@ -36,33 +36,21 @@ namespace NeonStarLibrary.Components.Enemies
             set { _detectionBoxOffset = value; }
         }
 
-        private float _attackRangeWidth;
+        private PathNodeList _pathNodeBounds;
 
-        public float AttackRangeWidth
+        public PathNodeList PathNodeBounds
         {
-            get { return _attackRangeWidth; }
-            set { _attackRangeWidth = value; }
-        }
-
-        private float _attackRangeHeight;
-
-        public float AttackRangeHeight
-        {
-            get { return _attackRangeHeight; }
-            set { _attackRangeHeight = value; }
-        }
-
-        private Vector2 _attackRangeOffset;
-
-        public Vector2 AttackRangeOffset
-        {
-            get { return _attackRangeOffset; }
-            set { _attackRangeOffset = value; }
+            get { return _pathNodeBounds; }
+            set { _pathNodeBounds = value; }
         }
         #endregion
 
         private bool _onDuty = false;
         private AvatarCore _avatar;
+
+        private Vector2 _lastChasePosition;
+        private float _leftBound = float.MaxValue;
+        private float _rightBound = float.MinValue;
 
         public SupervisorChase(Entity entity)
             :base(entity)
@@ -77,6 +65,18 @@ namespace NeonStarLibrary.Components.Enemies
             this.EntityToChase = entity.containerWorld.GetEntityByName(_entityToChaseName);
             if (EntityToChase != null)
                 _avatar = EntityToChase.GetComponent<AvatarCore>();
+            if (_pathNodeBounds != null)
+            {
+                foreach (Node n in _pathNodeBounds.Nodes)
+                {
+                    if (n.Position.X < _leftBound)
+                        _leftBound = n.Position.X;
+                    if (n.Position.X > _rightBound)
+                    {
+                        _rightBound = n.Position.X;
+                    }
+                }
+            }
             base.Init();
         }
 
@@ -95,7 +95,7 @@ namespace NeonStarLibrary.Components.Enemies
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
                             if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
-                                EnemyComponent.State = EnemyState.Chase;
+                                EnemyComponent.State = EnemyState.WaitThreat;
                             }
                         }
                         break;
@@ -106,15 +106,31 @@ namespace NeonStarLibrary.Components.Enemies
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
                             if (!detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
-                                EnemyComponent.State = EnemyState.MustFinishChase;
+                                EnemyComponent.State = EnemyState.FinishChase;
                             }
-                            detectionHitbox.X = (int)(entity.transform.Position.X + _attackRangeOffset.X - _attackRangeWidth / 2);
-                            detectionHitbox.Y = (int)(entity.transform.Position.Y + _attackRangeOffset.Y - _attackRangeHeight / 2);
-                            detectionHitbox.Width = (int)_attackRangeWidth;
-                            detectionHitbox.Height = (int)_attackRangeHeight;
-                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                            else
                             {
-                                EnemyComponent.State = EnemyState.Attacking;
+                                this._lastChasePosition = EntityToChase.transform.Position;
+                            }
+
+                            if (entity.transform.Position.X > _rightBound || entity.transform.Position.X < _leftBound)
+                            {
+                                EnemyComponent.State = EnemyState.Wait;
+                            }
+                        }
+                        break;
+
+                    case EnemyState.FinishChase:
+                        if (_onDuty)
+                        {
+                            if (this.entity.transform.Position.X > _lastChasePosition.X - _chasePrecision && this.EntityToChase.transform.Position.X < _lastChasePosition.X + _chasePrecision)
+                            {
+                                EnemyComponent.State = EnemyState.Wait;
+                            }
+
+                            if (entity.transform.Position.X > _rightBound || entity.transform.Position.X < _leftBound)
+                            {
+                                EnemyComponent.State = EnemyState.Wait;
                             }
                         }
                         break;
@@ -133,7 +149,6 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.Idle:
                     case EnemyState.Patrol:
                     case EnemyState.WaitNode:
-                    case EnemyState.Wait:
                         if (!_onDuty)
                         {
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
@@ -148,7 +163,14 @@ namespace NeonStarLibrary.Components.Enemies
                                             if (enemy.TookDamageThisFrame)
                                             {
                                                 _onDuty = true;
-                                                EnemyComponent.State = EnemyState.Chase;
+                                                EnemyComponent.State = EnemyState.WaitThreat;
+                                                if (entity.transform.Position.X > EntityToChase.transform.Position.X)
+                                                    EnemyComponent.CurrentSide = Side.Left;
+                                                else
+                                                    EnemyComponent.CurrentSide = Side.Right;
+
+                                                if (entity.rigidbody != null)
+                                                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                             }
                                     }
                                 }
@@ -159,12 +181,80 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.Chase:
                         if (_avatar.entity.transform.Position.X + this._chasePrecision < entity.transform.Position.X)
                         {
-                            Console.WriteLine("Shoud Move to Chase");
-                            //entity.rig
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(-this._chaseSpeed, 0);
+
+                            EnemyComponent.CurrentSide = Side.Left;
                         }
                         else if (_avatar.entity.transform.Position.X - this._chasePrecision > entity.transform.Position.X)
                         {
-                            Console.WriteLine("Shoud Move to Chase");
+
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(this._chaseSpeed, 0);
+
+                            EnemyComponent.CurrentSide = Side.Right;
+                        }
+                        else
+                        {
+                            if (entity.rigidbody != null)
+                            {
+                                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                            }
+                        }
+                        break;
+
+                    case EnemyState.FinishChase:
+                        if (this._lastChasePosition.X + this._chasePrecision < entity.transform.Position.X)
+                        {
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(-this._chaseSpeed, 0);
+                            EnemyComponent.CurrentSide = Side.Left;
+                        }
+                        else if (this._lastChasePosition.X - this._chasePrecision > entity.transform.Position.X)
+                        {
+
+                            if (entity.rigidbody != null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(this._chaseSpeed, 0);
+                            EnemyComponent.CurrentSide = Side.Right;
+                        }
+                        break;
+
+                    case EnemyState.Wait:
+                        if (entity.rigidbody != null)
+                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+
+                        _waitStopTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (_waitStopTimer >= _waitStopDuration)
+                        {
+                            _waitStopTimer = 0.0f;
+                            if (EnemyComponent.FollowNodes != null)
+                                EnemyComponent.State = EnemyState.Patrol;
+                            else
+                                EnemyComponent.State = EnemyState.Idle;
+                        }
+                        
+                        /*if (_onDuty)
+                        {
+                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
+                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle) && !(entity.transform.Position.X > _rightBound || entity.transform.Position.X < _leftBound))
+                            {
+                                EnemyComponent.State = EnemyState.Chase;
+                            }
+                        }*/
+                        break;
+
+                    case EnemyState.WaitThreat:
+                        if (EnemyComponent.WaitThreatTimer >= EnemyComponent.WaitThreatDuration)
+                        {
+                            EnemyComponent.State = EnemyState.Chase;
+                        }
+                        if (_onDuty)
+                        {
+                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
+                            if (!detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
+                            {
+                                EnemyComponent.State = EnemyState.Idle;
+                            }
                         }
                         break;
                 }  
