@@ -494,7 +494,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.Impulse:
                             if (_entity != null)
                             {
-                                if (_entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
+                                if (_entity.rigidbody != null && (_entity.rigidbody.isGrounded || !(bool)ae.Parameters[2]))
                                 {
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                     _mustStopAtTargetSight = (bool)ae.Parameters[1];

@@ -219,7 +219,6 @@ namespace NeonEngine
                     }
 
                 }
-
                 containerWorld.AddEntity(entity);
             }
         }

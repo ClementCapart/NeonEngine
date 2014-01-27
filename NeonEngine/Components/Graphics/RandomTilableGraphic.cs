@@ -116,25 +116,15 @@ namespace NeonEngine.Components.Graphics2D
         {
             this._closerTexture = AssetManager.GetTexture(_closerGraphicTag);
             this._firstTileTexture = AssetManager.GetTexture(_firstTileGraphicTag);
-            if (_firstTileTexture != null)
-                _numberOfDifferentTiles++;
             this._secondTileTexture = AssetManager.GetTexture(_secondTileGraphicTag);
-            if (_secondTileTexture != null)
-                _numberOfDifferentTiles++;
             this._thirdTileTexture = AssetManager.GetTexture(_thirdTileGraphicTag);
-            if (_thirdTileTexture != null)
-                _numberOfDifferentTiles++;
             this._fourthTileTexture = AssetManager.GetTexture(_fourthTileGraphicTag);
-            if (_fourthTileTexture != null)
-                _numberOfDifferentTiles++;
+   
             this._fifthTileTexture = AssetManager.GetTexture(_fifthTileGraphicTag);
-            if (_fifthTileTexture != null)
-                _numberOfDifferentTiles++;
 
             if (_tilingHash == "")
             {
                 RandomizeTile();
-               
             }
             else
             {
@@ -161,6 +151,7 @@ namespace NeonEngine.Components.Graphics2D
                     textures.Add(_fifthTileTexture);
 
                 float widthWithoutClosers = _tilingWidth - _closerTexture.Width * 2;
+                float currentPosition = 0.0f;
 
                 Texture2D _shorterTexture = null;
                 
@@ -172,7 +163,7 @@ namespace NeonEngine.Components.Graphics2D
                     else if(t.Width < _shorterTexture.Width)
                         _shorterTexture = t;
 
-                while (widthWithoutClosers > 0)
+                while (currentPosition < widthWithoutClosers)
                 {
                     Random r = new Random();
                     int tileIndex = r.Next(textures.Count);
@@ -180,7 +171,8 @@ namespace NeonEngine.Components.Graphics2D
                     if (!_randomResult.ContainsKey(textures[tileIndex]))
                         _randomResult.Add(textures[tileIndex], new List<Vector2>());
 
-
+                    _randomResult[textures[tileIndex]].Add(new Vector2(currentPosition, 0));
+                    currentPosition += textures[tileIndex].Width;
                 }
             }
         }
