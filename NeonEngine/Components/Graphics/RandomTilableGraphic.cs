@@ -39,6 +39,30 @@ namespace NeonEngine.Components.Graphics2D
             set { _closerGraphicTag = value; }
         }
 
+        private float _closerRotation = 0.0f;
+
+        public float CloserRotation
+        {
+            get { return _closerRotation; }
+            set { _closerRotation = value; }
+        }
+
+        private string _secondCloserGraphicTag = "";
+
+        public string SecondCloserGraphicTag
+        {
+            get { return _secondCloserGraphicTag; }
+            set { _secondCloserGraphicTag = value; }
+        }
+
+        private float _secondCloserRotation = 0.0f;
+
+        public float SecondCloserRotation
+        {
+            get { return _secondCloserRotation; }
+            set { _secondCloserRotation = value; }
+        }
+
         private string _firstTileGraphicTag = "";
 
         public string FirstTileGraphicTag
@@ -98,6 +122,7 @@ namespace NeonEngine.Components.Graphics2D
         #endregion
 
         private Texture2D _closerTexture;
+        private Texture2D _secondCloserTexture;
         private Texture2D _firstTileTexture;
         private Texture2D _secondTileTexture;
         private Texture2D _thirdTileTexture;
@@ -114,6 +139,7 @@ namespace NeonEngine.Components.Graphics2D
         public override void Init()
         {
             this._closerTexture = AssetManager.GetTexture(_closerGraphicTag);
+            this._secondCloserTexture = AssetManager.GetTexture(_secondCloserGraphicTag);
             this._firstTileTexture = AssetManager.GetTexture(_firstTileGraphicTag);
             this._secondTileTexture = AssetManager.GetTexture(_secondTileGraphicTag);
             this._thirdTileTexture = AssetManager.GetTexture(_thirdTileGraphicTag);
@@ -239,8 +265,8 @@ namespace NeonEngine.Components.Graphics2D
 
                 if (_closerTexture != null)
                 {
-                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
-                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY + _tilingSize - _closerTexture.Height / 2 * entity.transform.Scale - 2) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipVertically, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset, null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_secondCloserTexture != null ? _secondCloserTexture : _closerTexture, new Vector2(entity.transform.Position.X, basePositionY + _tilingSize - _closerTexture.Height / 2 * entity.transform.Scale - 2) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipVertically, Layer);
                 }
             }
             else
@@ -256,8 +282,8 @@ namespace NeonEngine.Components.Graphics2D
                 }
                 if (_closerTexture != null)
                 {
-                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset, null, Color.White, 0.0f, new Vector2(0, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset, null, Color.White, _closerRotation, new Vector2(0, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_secondCloserTexture != null ? _secondCloserTexture : _closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
                 }
             }
             
