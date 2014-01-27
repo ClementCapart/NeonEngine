@@ -71,7 +71,7 @@
             // 
             this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClosePanel.Location = new System.Drawing.Point(337, 3);
+            this.ClosePanel.Location = new System.Drawing.Point(334, 3);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(27, 26);
             this.ClosePanel.TabIndex = 17;
