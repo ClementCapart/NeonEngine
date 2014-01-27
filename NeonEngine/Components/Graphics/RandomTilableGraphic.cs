@@ -10,26 +10,19 @@ namespace NeonEngine.Components.Graphics2D
     public class RandomTilableGraphic : DrawableComponent
     {
         #region Properties
-        private float _tilingWidth = 100.0f;
-        public float TilingWidth
+        private bool _verticalTiling = false;
+
+        public bool VerticalTiling
         {
-            get { return _tilingWidth; }
-            set { _tilingWidth = value; }
+            get { return _verticalTiling; }
+            set { _verticalTiling = value; }
         }
 
-        private bool _useTextureHeight = true;
-
-        public bool UseTextureHeight
+        private float _tilingSize = 100.0f;
+        public float TilingSize
         {
-            get { return _useTextureHeight; }
-            set { _useTextureHeight = value; }
-        }
-
-        private float _tilingHeight = 100.0f;
-        public float TilingHeight
-        {
-            get { return _tilingHeight; }
-            set { _tilingHeight = value; }
+            get { return _tilingSize; }
+            set { _tilingSize = value; }
         }
 
         public float DrawLayer
@@ -86,6 +79,14 @@ namespace NeonEngine.Components.Graphics2D
             set { _fifthTileGraphicTag = value; }
         }
 
+        private bool _keepTilingHash = false;
+
+        public bool KeepTilingHash
+        {
+            get { return _keepTilingHash; }
+            set { _keepTilingHash = value; }
+        }
+
         private string _tilingHash = "";
 
         public string TilingHash
@@ -105,10 +106,8 @@ namespace NeonEngine.Components.Graphics2D
 
         Dictionary<Texture2D, List<Vector2>> _randomResult = new Dictionary<Texture2D, List<Vector2>>();
 
-        private int _numberOfDifferentTiles = 0;
-
         public RandomTilableGraphic(Entity entity)
-            :base(1.0f, entity, "RandomTilableGraphic")
+            :base(0.5f, entity, "RandomTilableGraphic")
         {
         }
 
@@ -122,59 +121,144 @@ namespace NeonEngine.Components.Graphics2D
    
             this._fifthTileTexture = AssetManager.GetTexture(_fifthTileGraphicTag);
 
-            if (_tilingHash == "")
+            if (_tilingHash == "" || !_keepTilingHash)
             {
                 RandomizeTile();
             }
             else
             {
-
+                LoadFromHash();
             }
             base.Init();
         }
 
         private void RandomizeTile()
         {
+            List<Texture2D> textures = new List<Texture2D>();
+
+            _tilingHash = "";
+
+            if (_firstTileTexture != null)
+                textures.Add(_firstTileTexture);
+            if (_secondTileTexture != null)
+                textures.Add(_secondTileTexture);
+            if (_thirdTileTexture != null)
+                textures.Add(_thirdTileTexture);
+            if (_fourthTileTexture != null)
+                textures.Add(_fourthTileTexture);
+            if (_fifthTileTexture != null)
+                textures.Add(_fifthTileTexture);
+
+            float sizeWithoutClosers;
             if (_closerTexture != null)
-            {
-                List<Texture2D> textures = new List<Texture2D>();
+                sizeWithoutClosers = _tilingSize / entity.transform.Scale - (_verticalTiling ? _closerTexture.Height * 2 : _closerTexture.Width * 2);
+            else
+                sizeWithoutClosers = _tilingSize / entity.transform.Scale;
+            float currentPosition = 0.0f;
 
-                if (_firstTileTexture != null)
-                    textures.Add(_firstTileTexture);
-                if (_secondTileTexture != null)
-                    textures.Add(_secondTileTexture);
-                if (_thirdTileTexture != null)
-                    textures.Add(_thirdTileTexture);
-                if (_fourthTileTexture != null)
-                    textures.Add(_fourthTileTexture);
-                if (_fifthTileTexture != null)
-                    textures.Add(_fifthTileTexture);
-
-                float widthWithoutClosers = _tilingWidth - _closerTexture.Width * 2;
-                float currentPosition = 0.0f;
-
-                Texture2D _shorterTexture = null;
+            Texture2D _shorterTexture = null;
                 
-                _randomResult = new Dictionary<Texture2D,List<Vector2>>();
+            _randomResult = new Dictionary<Texture2D,List<Vector2>>();
+            Random r = new Random();
+            foreach(Texture2D t in textures)
+                if(_shorterTexture == null)
+                    _shorterTexture = t;
+                else if((_verticalTiling ? t.Height : t.Width ) < (_verticalTiling ? _shorterTexture.Height : _shorterTexture.Width))
+                    _shorterTexture = t;
 
-                foreach(Texture2D t in textures)
-                    if(_shorterTexture == null)
-                        _shorterTexture = t;
-                    else if(t.Width < _shorterTexture.Width)
-                        _shorterTexture = t;
+            while (currentPosition < sizeWithoutClosers)
+            {
+                int tileIndex = r.Next(textures.Count);
+                Texture2D texture = textures[tileIndex];
 
-                while (currentPosition < widthWithoutClosers)
+                if (currentPosition + (_verticalTiling ? texture.Height : texture.Width) > sizeWithoutClosers)
                 {
-                    Random r = new Random();
-                    int tileIndex = r.Next(textures.Count);
+                    texture = _shorterTexture;
+                }
 
-                    if (!_randomResult.ContainsKey(textures[tileIndex]))
-                        _randomResult.Add(textures[tileIndex], new List<Vector2>());
+                if (!_randomResult.ContainsKey(texture))
+                    _randomResult.Add(texture, new List<Vector2>());
 
-                    _randomResult[textures[tileIndex]].Add(new Vector2(currentPosition, 0));
-                    currentPosition += textures[tileIndex].Width;
+                _randomResult[texture].Add(_verticalTiling ? new Vector2(0, currentPosition) : new Vector2(currentPosition, 0));
+                    
+                    
+
+                if(_tilingHash != "")
+                    _tilingHash += "_" + textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(_verticalTiling ? new Vector2(0, currentPosition) : new Vector2(currentPosition, 0));                    
+                else
+                    _tilingHash += textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(_verticalTiling ? new Vector2(0, currentPosition) : new Vector2(currentPosition, 0));
+
+                currentPosition += texture.Width;
+            }  
+        }
+
+        private void LoadFromHash()
+        {
+            string[] hashInfo = _tilingHash.Split('_');
+
+            List<Texture2D> textures = new List<Texture2D>();
+
+            if (_firstTileTexture != null)
+                textures.Add(_firstTileTexture);
+            if (_secondTileTexture != null)
+                textures.Add(_secondTileTexture);
+            if (_thirdTileTexture != null)
+                textures.Add(_thirdTileTexture);
+            if (_fourthTileTexture != null)
+                textures.Add(_fourthTileTexture);
+            if (_fifthTileTexture != null)
+                textures.Add(_fifthTileTexture);
+
+            foreach (string hash in hashInfo)
+            {
+                string[] values = hash.Split('-');
+
+                if (!_randomResult.ContainsKey(textures[int.Parse(values[0])]))
+                    _randomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
+
+                _randomResult[textures[int.Parse(values[0])]].Add(Neon.Utils.ParseVector2(values[1]));
+            }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            if (_verticalTiling)
+            {
+                float basePositionY = entity.transform.Position.Y - _tilingSize / 2;
+
+                foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _randomResult)
+                {
+                    foreach (Vector2 position in kvp.Value)
+                    {
+                        spriteBatch.Draw(kvp.Key, new Vector2(entity.transform.Position.X, basePositionY) + Offset + position * entity.transform.Scale + new Vector2(0, (_closerTexture != null ? _closerTexture.Height : 0) * entity.transform.Scale), null, Color.White, 0.0f, new Vector2(kvp.Key.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
+                    }
+                }
+
+                if (_closerTexture != null)
+                {
+                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY + _tilingSize - _closerTexture.Height / 2 * entity.transform.Scale - 2) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipVertically, Layer);
                 }
             }
+            else
+            {
+                float basePositionX = entity.transform.Position.X - _tilingSize / 2;
+
+                foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _randomResult)
+                {
+                    foreach (Vector2 position in kvp.Value)
+                    {
+                        spriteBatch.Draw(kvp.Key, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + position * entity.transform.Scale + new Vector2((_closerTexture != null ? _closerTexture.Width : 0) * entity.transform.Scale, 0), null, Color.White, 0.0f, new Vector2(0, kvp.Key.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                    }
+                }
+                if (_closerTexture != null)
+                {
+                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset, null, Color.White, 0.0f, new Vector2(0, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, 0.0f, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+                }
+            }
+            
+            base.Draw(spriteBatch);
         }
     }
 }
