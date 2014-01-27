@@ -239,6 +239,7 @@ namespace NeonStarEditor
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
                         List<string> spritesheets = new List<string>();
+                        spritesheets.Add("");
                         spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
                         spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
                         spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
@@ -283,6 +284,7 @@ namespace NeonStarEditor
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
                         List<string> assets = new List<string>();
+                        assets.Add("");
                         assets.AddRange(AssetManager.CommonAssets.Keys.OrderBy(k => k.ToString()));
                         assets.AddRange(AssetManager.GroupAssets.Keys.OrderBy(k => k.ToString()));
                         assets.AddRange(AssetManager.LevelAssets.Keys.OrderBy(k => k.ToString()));

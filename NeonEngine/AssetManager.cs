@@ -314,6 +314,8 @@ namespace NeonEngine
 
         static public Texture2D GetTexture(string tag)
         {
+            if (tag == "")
+                return null;
             if (_commonAssetsList.ContainsKey(tag))
                 return _commonAssetsList[tag];
             else if (_groupAssetsList.ContainsKey(tag))

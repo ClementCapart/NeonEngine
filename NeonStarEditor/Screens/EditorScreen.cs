@@ -995,6 +995,8 @@ namespace NeonStarEditor
                 SpawnPointsPanel.Dispose();
             if (ElementSettingsManager != null)
                 ElementSettingsManager.Dispose();
+            if (AddComponentPanel != null)
+                AddComponentPanel.Dispose();
             ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game, graphics));
         }
 
@@ -1014,6 +1016,8 @@ namespace NeonStarEditor
                 SpawnPointsPanel.Dispose();
             if (ElementSettingsManager != null)
                 ElementSettingsManager.Dispose();
+            if (AddComponentPanel != null)
+                AddComponentPanel.Dispose();
             base.ChangeScreen(nextScreen);
         }
 
@@ -1033,6 +1037,8 @@ namespace NeonStarEditor
                 SpawnPointsPanel.Dispose();
             if (ElementSettingsManager != null)
                 ElementSettingsManager.Dispose();
+            if (AddComponentPanel != null)
+                AddComponentPanel.Dispose();
             ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 

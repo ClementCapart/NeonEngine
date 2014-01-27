@@ -93,6 +93,7 @@ namespace NeonEngine.Components.Graphics2D
             get { return _tilingHash; }
             set { _tilingHash = value; }
         }
+
         #endregion
 
         private Texture2D _closerTexture;
@@ -144,25 +145,44 @@ namespace NeonEngine.Components.Graphics2D
 
         private void RandomizeTile()
         {
-            List<Texture2D> textures = new List<Texture2D>();
+            if (_closerTexture != null)
+            {
+                List<Texture2D> textures = new List<Texture2D>();
 
-            if (_firstTileTexture != null)
-                textures.Add(_firstTileTexture);
-            if (_secondTileTexture != null)
-                textures.Add(_secondTileTexture);
-            if (_thirdTileTexture != null)
-                textures.Add(_thirdTileTexture);
-            if (_fourthTileTexture != null)
-                textures.Add(_fourthTileTexture);
-            if (_fifthTileTexture != null)
-                textures.Add(_fifthTileTexture);
+                if (_firstTileTexture != null)
+                    textures.Add(_firstTileTexture);
+                if (_secondTileTexture != null)
+                    textures.Add(_secondTileTexture);
+                if (_thirdTileTexture != null)
+                    textures.Add(_thirdTileTexture);
+                if (_fourthTileTexture != null)
+                    textures.Add(_fourthTileTexture);
+                if (_fifthTileTexture != null)
+                    textures.Add(_fifthTileTexture);
 
-            float widthWithoutClosers = _tilingWidth - _closerTexture.Width * 2;
+                float widthWithoutClosers = _tilingWidth - _closerTexture.Width * 2;
 
-            Random r = new Random();
-            int firstTile = r.Next(textures.Count);
-            Console.WriteLine(firstTile.ToString());
-            
+                Texture2D _shorterTexture = null;
+                
+                _randomResult = new Dictionary<Texture2D,List<Vector2>>();
+
+                foreach(Texture2D t in textures)
+                    if(_shorterTexture == null)
+                        _shorterTexture = t;
+                    else if(t.Width < _shorterTexture.Width)
+                        _shorterTexture = t;
+
+                while (widthWithoutClosers > 0)
+                {
+                    Random r = new Random();
+                    int tileIndex = r.Next(textures.Count);
+
+                    if (!_randomResult.ContainsKey(textures[tileIndex]))
+                        _randomResult.Add(textures[tileIndex], new List<Vector2>());
+
+
+                }
+            }
         }
     }
 }
