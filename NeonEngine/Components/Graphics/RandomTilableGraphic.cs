@@ -149,6 +149,9 @@ namespace NeonEngine.Components.Graphics2D
             if (_fifthTileTexture != null)
                 textures.Add(_fifthTileTexture);
 
+            if (textures.Count == 0)
+                return;
+
             float sizeWithoutClosers;
             if (_closerTexture != null)
                 sizeWithoutClosers = _tilingSize / entity.transform.Scale - (_verticalTiling ? _closerTexture.Height * 2 : _closerTexture.Width * 2);
