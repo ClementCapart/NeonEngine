@@ -235,6 +235,7 @@ namespace NeonStarEditor
                         ComboBox comboBox = new ComboBox();
                         comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                         comboBox.Location = new Point(10, localY);
+                        comboBox.Width = 250;
                         comboBox.BindingContext = new BindingContext();
                         BindingSource bs = new BindingSource();
                         List<string> spritesheets = new List<string>();
@@ -286,7 +287,7 @@ namespace NeonStarEditor
                         assets.AddRange(AssetManager.GroupAssets.Keys.OrderBy(k => k.ToString()));
                         assets.AddRange(AssetManager.LevelAssets.Keys.OrderBy(k => k.ToString()));
                         bs.DataSource = assets;
-
+                        comboBox.Width = 250;
                         comboBox.DataSource = bs;
                         comboBox.SelectedItem = (string)pi.GetValue(c, null);
                         tp.Controls.Add(comboBox);

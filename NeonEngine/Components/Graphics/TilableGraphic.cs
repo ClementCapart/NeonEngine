@@ -39,6 +39,12 @@ namespace NeonEngine.Components.Graphics2D
             set { _tilingHeight = value; }
         }
 
+        public float DrawLayer
+        {
+            get { return Layer; }
+            set { Layer = value; }
+        }
+
         public string graphicTag;
         public string GraphicTag
         {
