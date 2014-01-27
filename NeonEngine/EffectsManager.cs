@@ -52,7 +52,7 @@ namespace NeonEngine
             spriteSheet.isPlaying = true;
 
             animatedSpecialEffect.transform.Position = Position + new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
-            animatedSpecialEffect.transform.Rotation = Rotation;
+            //animatedSpecialEffect.transform.Rotation = Rotation;
 
             if (entity != null)
             {

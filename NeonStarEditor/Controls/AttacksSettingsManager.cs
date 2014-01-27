@@ -530,6 +530,7 @@ namespace NeonStarEditor
                         offset.Name = "AnimationRotation";
                         offset.Maximum = 50000;
                         offset.Minimum = -50000;
+                        offset.DecimalPlaces = 3;
                         offset.Width = 80;
                         offset.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[1]);
                         offset.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
