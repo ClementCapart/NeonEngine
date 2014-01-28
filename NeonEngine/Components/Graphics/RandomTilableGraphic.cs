@@ -261,11 +261,11 @@ namespace NeonEngine.Components.Graphics2D
                 {
                     foreach (Vector2 position in kvp.Value)
                     {
-                        spriteBatch.Draw(kvp.Key, new Vector2(entity.transform.Position.X, basePositionY) + Offset + position * entity.transform.Scale + new Vector2(0, (_closerTexture != null ? _closerTexture.Height : 0) * entity.transform.Scale), null, Color.White, 0.0f, new Vector2(kvp.Key.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
+                        spriteBatch.Draw(kvp.Key, new Vector2(entity.transform.Position.X, basePositionY) + Offset + position * entity.transform.Scale + new Vector2(0, (_closerTexture != null ? _closerTexture.Height : (_secondCloserTexture != null ? _secondCloserTexture.Height : 0)) * entity.transform.Scale), null, Color.White, 0.0f, new Vector2(kvp.Key.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
                     }
                 }
 
-                if (_closerTexture != null)
+                if (_closerTexture != null || _secondCloserTexture != null)
                 {
                     if(_closerTexture != null)
                         spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset + new Vector2(0, _closerTexture.Height / 2 * entity.transform.Scale), null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
@@ -283,7 +283,7 @@ namespace NeonEngine.Components.Graphics2D
                 {
                     foreach (Vector2 position in kvp.Value)
                     {
-                        spriteBatch.Draw(kvp.Key, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + position * entity.transform.Scale + new Vector2((_closerTexture != null ? _closerTexture.Width : 0) * entity.transform.Scale, 0), null, Color.White, 0.0f, new Vector2(0, kvp.Key.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                        spriteBatch.Draw(kvp.Key, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + position * entity.transform.Scale + new Vector2((_closerTexture != null ? _closerTexture.Width : (_secondCloserTexture != null ? _secondCloserTexture.Width : 0)) * entity.transform.Scale, 0), null, Color.White, 0.0f, new Vector2(0, kvp.Key.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
                     }
                 }
                 if (_closerTexture != null || _secondCloserTexture != null)
