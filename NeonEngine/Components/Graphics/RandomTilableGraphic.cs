@@ -179,8 +179,10 @@ namespace NeonEngine.Components.Graphics2D
                 return;
 
             float sizeWithoutClosers;
-            if (_closerTexture != null)
+            if (_closerTexture != null) 
                 sizeWithoutClosers = _tilingSize / entity.transform.Scale - (_verticalTiling ? _closerTexture.Height * 2 : _closerTexture.Width * 2);
+            else if(_secondCloserTexture != null)
+                sizeWithoutClosers = _tilingSize / entity.transform.Scale - (_verticalTiling ? _secondCloserTexture.Height * 2 : _secondCloserTexture.Width * 2);           
             else
                 sizeWithoutClosers = _tilingSize / entity.transform.Scale;
             float currentPosition = 0.0f;
@@ -280,10 +282,14 @@ namespace NeonEngine.Components.Graphics2D
                         spriteBatch.Draw(kvp.Key, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + position * entity.transform.Scale + new Vector2((_closerTexture != null ? _closerTexture.Width : 0) * entity.transform.Scale, 0), null, Color.White, 0.0f, new Vector2(0, kvp.Key.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
                     }
                 }
-                if (_closerTexture != null)
+                if (_closerTexture != null || _secondCloserTexture != null)
                 {
-                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + new Vector2(_closerTexture.Width / 2 * entity.transform.Scale, 0), null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                    spriteBatch.Draw(_secondCloserTexture != null ? _secondCloserTexture : _closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+                    if(_closerTexture != null)
+                        spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + new Vector2(_closerTexture.Width / 2 * entity.transform.Scale, 0), null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                    if(_secondCloserTexture != null)
+                        spriteBatch.Draw(_secondCloserTexture, new Vector2(basePositionX + _tilingSize - _secondCloserTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_secondCloserTexture.Width / 2, _secondCloserTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+                    else if(_closerTexture != null)
+                        spriteBatch.Draw(_closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
                 }
             }
             
