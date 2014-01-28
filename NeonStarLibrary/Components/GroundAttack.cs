@@ -35,15 +35,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
-            {
-                for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)
-                {
-                    LocalAttacksInCooldown[i].LocalCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    if (LocalAttacksInCooldown[i].LocalCooldown <= 0.0f)
-                        LocalAttacksInCooldown.RemoveAt(i);
-                }
-            }
+            
 
             if(EntityToAttack != null && entity.rigidbody.isGrounded)
             {

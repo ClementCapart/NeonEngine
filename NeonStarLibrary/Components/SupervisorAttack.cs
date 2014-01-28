@@ -100,7 +100,16 @@ namespace NeonStarLibrary.Components.Enemies
                 {
                     if (_attackToLaunchOne != "")
                     {
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
+
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
+                        {
+                            if (a.Name == _attackToLaunchOne)
+                                inLocalCooldown = true;
+                        }
+
+                        if (!inLocalCooldown)                            
+                            CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
                     }
                 }
             }
