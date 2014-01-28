@@ -1,5 +1,6 @@
 ﻿using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,19 +27,51 @@ namespace NeonStarLibrary.Components.Enemies
             set { _initialTimerDuration = value; }
         }
 
+        private float _launchedTimerDuration = 1.0f;
+
+        public float LaunchedTimerDuration
+        {
+            get { return _launchedTimerDuration; }
+            set { _launchedTimerDuration = value; }
+        }
+
+        private string _effectiveAttackName = "LiOnUppercut";
+
+        public string EffectiveAttackName
+        {
+            get { return _effectiveAttackName; }
+            set { _effectiveAttackName = value; }
+        }
+
+        private string _explosionAttack = "";
+
+        public string ExplosionAttack
+        {
+            get { return _explosionAttack; }
+            set { _explosionAttack = value; }
+        }
         #endregion
+
+        public EnemyCore EnemyComponent;
 
         private float _currentTimer = 0.0f;
 
         private bool _touchedGround;
-        private bool _startedTimer = false;
+        private bool _hasBeenLaunched = false;
 
         public BombAttack(Entity entity)
             :base(entity, "BombAttack")
         {
-            RequiredComponents = new Type[] { typeof(Rigidbody) };
+            RequiredComponents = new Type[] { typeof(EnemyCore), typeof(Rigidbody) };
         }
 
+        public override void Init()
+        {
+            EnemyComponent = entity.GetComponent<EnemyCore>();
+
+            _currentTimer = _initialTimerDuration;
+            base.Init();
+        }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
@@ -53,18 +86,53 @@ namespace NeonStarLibrary.Components.Enemies
             }
             else if(!_startTimerOnGround || _touchedGround)
             {
-                if (_currentTimer < _initialTimerDuration)
+                if (_currentTimer > 0.0f)
                 {
-                    //if()
-                    _currentTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    if (_currentTimer >= _initialTimerDuration)
+                    if (!_hasBeenLaunched)
                     {
-                        Console.WriteLine("Boom ! ");
-                        entity.Destroy();
+                        if (EnemyComponent.LastAttackTook == EffectiveAttackName || EnemyComponent.LastAttackTook == EffectiveAttackName + "Finish")
+                        {
+                            _hasBeenLaunched = true;
+                            _currentTimer = _launchedTimerDuration;
+                        }
+                        
+                    }                 
+
+                    _currentTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_currentTimer <= 0.0f)
+                    {
+                        Explode();                       
                     }
                 }
             }
             base.Update(gameTime);
+        }
+
+        private void Explode()
+        {
+            if (_hasBeenLaunched)
+            {
+                Console.WriteLine("Good Boom ! ");
+
+                if (_explosionAttack != "")
+                {
+                    Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);
+                    a.FromEnemy = false;
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("Bad Boom ! ");
+                if (_explosionAttack != "")
+                {
+                    Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);
+                    a.FromEnemy = true;
+                }
+                
+            }
+
+            entity.Destroy();
         }
 
 

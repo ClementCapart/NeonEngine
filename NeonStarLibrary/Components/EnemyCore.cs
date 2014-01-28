@@ -131,6 +131,22 @@ namespace NeonStarLibrary.Components.Enemies
             set { _immuneToDeath = value; }
         }
 
+        private bool _immuneToDamage = false;
+
+        public bool ImmuneToDamage
+        {
+            get { return _immuneToDamage; }
+            set { _immuneToDamage = value; }
+        }
+
+        private bool _alwaysTakeUppercut = false;
+
+        public bool AlwaysTakeUppercut
+        {
+            get { return _alwaysTakeUppercut; }
+            set { _alwaysTakeUppercut = value; }
+        }
+
         private EnemyType _type = EnemyType.Ground;
 
         public EnemyType Type
@@ -200,6 +216,7 @@ namespace NeonStarLibrary.Components.Enemies
         private Entity[] _raycastHits;
 
         public bool TookDamageThisFrame = false;
+        public string LastAttackTook = "";
 
         public EnemyCore(Entity entity)
             :base(entity, "EnemyCore")
@@ -225,6 +242,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public bool TakeDamage(Attack attack)
         {
+            LastAttackTook = attack.Name;
             bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
             if (tookDamage && _triggerOnDamage)
             {
@@ -296,6 +314,9 @@ namespace NeonStarLibrary.Components.Enemies
 
         public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side)
         {
+            if (_immuneToDamage)
+                return false;
+
             if (IsInvincible)
                 return false;
 
@@ -360,6 +381,8 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(GameTime gameTime)
         {
+            LastAttackTook = "";
+
             if (State == EnemyState.Dying)
             {
                 if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _dyingAnim && entity.spritesheets.IsFinished())

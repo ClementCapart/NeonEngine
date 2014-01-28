@@ -242,7 +242,7 @@ namespace NeonEngine.Components.CollisionDetection
 
         public override void Init()
         {
-            if (entity.hitboxes[0] != null)
+            if (entity.hitboxes != null && entity.hitboxes.Count > 0)
             {
                 hitbox = entity.hitboxes[0];
                 if (body != null)

@@ -80,8 +80,6 @@ namespace NeonStarLibrary
             set { _damageOnHit = value; }
         }
 
-        List<Hitbox> _hitboxes;
-
         private float _delay = 1.0f;
         public float Delay
         {
@@ -227,12 +225,14 @@ namespace NeonStarLibrary
 
         private Dictionary<Hitbox, float> _alreadyTouched = new Dictionary<Hitbox, float>();
 
+
+        public List<Hitbox> Hitboxes;
         public bool Canceled = false;
         public Entity _entity;
         public Entity Launcher;
         public AttackInfo AttackInfo;
         private MeleeFight _meleeFight;
-        private bool _fromEnemy = false;
+        public bool FromEnemy = false;
         private Entity _target;
         private bool _isMoving = false;
         private float _movingSpeed = 0.0f;
@@ -259,7 +259,7 @@ namespace NeonStarLibrary
         public Attack(AttackInfo attackInfo, Side side, Entity launcher, bool FromEnemy = false)
         {           
             AttackInfo = attackInfo;
-            _hitboxes = new List<Hitbox>();
+            Hitboxes = new List<Hitbox>();
             this._side = side;
             if(launcher != null) this._entity = launcher;
             this.Name = attackInfo.Name;
@@ -276,7 +276,7 @@ namespace NeonStarLibrary
             this.CancelOnGround = attackInfo.CancelOnGround;
             this.OnlyOnceInAir = attackInfo.OnlyOnceInAir;
             this.AirFactor = attackInfo.AirFactor;
-            this._fromEnemy = FromEnemy;
+            this.FromEnemy = FromEnemy;
             this.AttackElement = attackInfo.AttackElement;
             this.MultiHitDelay = attackInfo.MultiHitDelay;
             if (MultiHitDelay <= 0.0f)
@@ -362,7 +362,7 @@ namespace NeonStarLibrary
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
                 _entity.AddComponent(hb);
-                _hitboxes.Add(hb);
+                Hitboxes.Add(hb);
             }
 
             if(_entity.Name != "AttackHolder" && (_meleeFight != null && _meleeFight.Debug))
@@ -432,13 +432,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if (_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
@@ -545,13 +545,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if(_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
@@ -604,9 +604,9 @@ namespace NeonStarLibrary
                     _onDurationSpecialEffects.Remove(ae);
                 }
 
-                for(int i = _hitboxes.Count - 1; i >= 0; i --)
+                for(int i = Hitboxes.Count - 1; i >= 0; i --)
                 {
-                    Hitbox hitbox = _hitboxes[i];
+                    Hitbox hitbox = Hitboxes[i];
                     for(int j = _entity.containerWorld.Hitboxes.Count - 1; j >= 0; j--)
                     {
                         Hitbox hb = _entity.containerWorld.Hitboxes[j];
@@ -630,17 +630,17 @@ namespace NeonStarLibrary
                     
                     if (LocalCooldown > 0.0f)
                     {
-                        if (_fromEnemy)
+                        if (FromEnemy)
                         {
                             _entity.GetComponent<EnemyCore>().Attack.LocalAttacksInCooldown.Add(this);
                         }
                     }
 
-                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                    for (int i = Hitboxes.Count - 1; i >= 0; i--)
                     {
-                        _hitboxes[i].Remove();
+                        Hitboxes[i].Remove();
                     }
-                    this._hitboxes.Clear();
+                    this.Hitboxes.Clear();
                 }
             }
             else if(CooldownStarted && !CooldownFinished)
@@ -708,13 +708,13 @@ namespace NeonStarLibrary
 
                             case SpecialEffect.ShootBullet:
                                 BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                                 break;
 
                             case SpecialEffect.ShootBulletAtTarget:
                                 BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                                 if (_target != null)
-                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                                 break;
 
                             case SpecialEffect.Invincible:
@@ -751,11 +751,11 @@ namespace NeonStarLibrary
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
 
-                    for (int i = _hitboxes.Count - 1; i >= 0; i--)
+                    for (int i = Hitboxes.Count - 1; i >= 0; i--)
                     {
-                        _hitboxes[i].Remove();
+                        Hitboxes[i].Remove();
                     }
-                    _hitboxes.Clear();
+                    Hitboxes.Clear();
                     this.DurationStarted = true;
                     this.DurationFinished = true;
                     this.DelayStarted = true;
@@ -774,7 +774,7 @@ namespace NeonStarLibrary
             AvatarCore avatar = null;
             EnemyCore enemy = null;;
 
-            if (!_fromEnemy)
+            if (!FromEnemy)
             {
                 enemy = entity.GetComponent<EnemyCore>();
                 if (enemy != null)
@@ -799,7 +799,7 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (validTarget)
+            if (validTarget || (enemy != null && enemy.AlwaysTakeUppercut && (this.Name == "LiOnUppercut" || this.Name == "LiOnUppercutFinish")))
             {
                 bool velocityReset = false;
 
@@ -845,13 +845,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if (_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, _fromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
@@ -883,8 +883,6 @@ namespace NeonStarLibrary
                                 e.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
                             }
-
-
                             break;
                     }
                 }
@@ -894,11 +892,11 @@ namespace NeonStarLibrary
 
         public void CancelAttack()
         {
-            for (int i = _hitboxes.Count - 1; i >= 0; i--)
+            for (int i = Hitboxes.Count - 1; i >= 0; i--)
             {
-                _hitboxes[i].Remove();
+                Hitboxes[i].Remove();
             }
-            this._hitboxes.Clear();
+            this.Hitboxes.Clear();
             this.CooldownFinished = true;
             this.CooldownStarted = true;
             this.DurationStarted = true;
