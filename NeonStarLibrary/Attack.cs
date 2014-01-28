@@ -472,6 +472,21 @@ namespace NeonStarLibrary
                             _movingSpeed = (float)(ae.Parameters[0]);
                             break;
 
+                        case SpecialEffect.InstantiatePrefab:
+                            Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/" + ae.Parameters[0] + ".prefab", Neon.World);
+                            Vector2 offsetPrefab = Neon.Utils.ParseVector2(ae.Parameters[2].ToString());
+                            e.transform.Position = (Launcher != null ? Launcher : _entity).transform.Position + (this.CurrentSide == Side.Right ? offsetPrefab : new Vector2(-offsetPrefab.X, offsetPrefab.Y));
+                            
+                            if (e.rigidbody != null)
+                            {
+                                Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
+                                e.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                            }
+                            
+
+                            break;
+
                     }
                     _onDelaySpecialEffects.Remove(ae);
                 }
@@ -568,6 +583,21 @@ namespace NeonStarLibrary
                         case SpecialEffect.MoveWhileAttacking:
                             _isMoving = true;
                             _movingSpeed = (float)(ae.Parameters[0]);
+                            break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/" + ae.Parameters[0] + ".prefab", Neon.World);
+                            Vector2 offsetPrefab = Neon.Utils.ParseVector2(ae.Parameters[2].ToString());
+                            e.transform.Position = (Launcher != null ? Launcher : _entity).transform.Position + (this.CurrentSide == Side.Right ? offsetPrefab : new Vector2(-offsetPrefab.X, offsetPrefab.Y));
+
+                            if (e.rigidbody != null)
+                            {
+                                Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
+                                e.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                            }
+
+
                             break;
 
                     }
@@ -702,6 +732,21 @@ namespace NeonStarLibrary
                                 }
                                 
                                 break;
+
+                            case SpecialEffect.InstantiatePrefab:
+                                Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/" + ae.Parameters[0] + ".prefab", Neon.World);
+                                Vector2 offsetPrefab = Neon.Utils.ParseVector2(ae.Parameters[2].ToString());
+                                e.transform.Position = (Launcher != null ? Launcher : _entity).transform.Position + (this.CurrentSide == Side.Right ? offsetPrefab : new Vector2(-offsetPrefab.X, offsetPrefab.Y));
+
+                                if (e.rigidbody != null)
+                                {
+                                    Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
+                                    e.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                                }
+
+
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -825,6 +870,21 @@ namespace NeonStarLibrary
                                 EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
                             }
                             
+                            break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/" + ae.Parameters[0] + ".prefab", Neon.World);
+                            Vector2 offsetPrefab = Neon.Utils.ParseVector2(ae.Parameters[2].ToString());
+                            e.transform.Position = (Launcher != null ? Launcher : _entity).transform.Position + (this.CurrentSide == Side.Right ? offsetPrefab : new Vector2(-offsetPrefab.X, offsetPrefab.Y));
+
+                            if (e.rigidbody != null)
+                            {
+                                Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
+                                e.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                            }
+
+
                             break;
                     }
                 }

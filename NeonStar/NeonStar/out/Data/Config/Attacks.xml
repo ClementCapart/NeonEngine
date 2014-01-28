@@ -300,6 +300,53 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemySupervisorBombs" Type="MeleeSpecial">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects>
+        <Effect Type="InstantiatePrefab">
+          <Parameter Value="EnemyRobot" />
+          <SecondParameter Value="{X:0 Y:-3800}" />
+          <ThirdParameter Value="{X:-200 Y:0}" />
+        </Effect>
+        <Effect Type="InstantiatePrefab">
+          <Parameter Value="EnemyRobot" />
+          <SecondParameter Value="{X:0 Y:0}" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+        </Effect>
+        <Effect Type="InstantiatePrefab">
+          <Parameter Value="EnemyRobot" />
+          <SecondParameter Value="{X:0 Y:0}" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+        </Effect>
+        <Effect Type="InstantiatePrefab">
+          <Parameter Value="EnemyRobot" />
+          <SecondParameter Value="{X:0 Y:0}" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+        </Effect>
+        <Effect Type="InstantiatePrefab">
+          <Parameter Value="EnemyRobot" />
+          <SecondParameter Value="{X:0 Y:0}" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyTigerDash" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="50" OffsetY="0" Width="50" Height="100" />
@@ -1475,15 +1522,7 @@
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="EffectAnimation">
-          <Parameter Value="TrainingLazerOn" />
-          <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:0 Y:0}" />
-          <FourthParameter Value="True" />
-          <FifthParameter Value="2" />
-        </Effect>
-      </OnDurationSpecialEffects>
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:200 Y:-400}" />
@@ -1512,15 +1551,7 @@
       <StunLock>0</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="EffectAnimation">
-          <Parameter Value="TrainingLazerOn" />
-          <SecondParameter Value="1.57" />
-          <ThirdParameter Value="{X:0 Y:0}" />
-          <FourthParameter Value="False" />
-          <FifthParameter Value="2" />
-        </Effect>
-      </OnDurationSpecialEffects>
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:200 Y:-400}" />

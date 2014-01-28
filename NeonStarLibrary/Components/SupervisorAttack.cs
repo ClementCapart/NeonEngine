@@ -81,5 +81,37 @@ namespace NeonStarLibrary.Components.Enemies
             }      
             base.PreUpdate(gameTime);
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (EnemyComponent.State == EnemyState.Attacking)
+            {
+                if (CurrentAttack != null)
+                {
+                    CurrentAttack.Update(gameTime);
+
+                    if (CurrentAttack.CooldownFinished)
+                    {
+                        CurrentAttack.CancelAttack();
+                        CurrentAttack = null;
+                    }
+                }
+                else
+                {
+                    if (_attackToLaunchOne != "")
+                    {
+                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
+                    }
+                }
+            }
+            else
+            {
+                if(CurrentAttack != null)
+                    CurrentAttack.CancelAttack();
+                CurrentAttack = null;
+            }
+                
+            base.Update(gameTime);
+        }
     }
 }

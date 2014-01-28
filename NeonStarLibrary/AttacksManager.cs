@@ -23,6 +23,7 @@ namespace NeonStarLibrary
         Invincible,
         EffectAnimation,
         MoveWhileAttacking,
+        InstantiatePrefab
     }
 
     public enum AttackType
@@ -155,6 +156,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.DamageOverTime:
                             ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
+                            break;
                     }
                 }
 
@@ -214,6 +219,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.DamageOverTime:
                             ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                             break;
                     }         
                 }
@@ -275,6 +284,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.DamageOverTime:
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
                             break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
+                            break;
                     }         
                 }
 
@@ -334,6 +347,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.DamageOverTime:
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { float.Parse(onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                            break;
+
+                        case SpecialEffect.InstantiatePrefab:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                             break;
                     }
                 }

@@ -237,6 +237,8 @@ namespace NeonStarEditor
                     break;
 
                 case SpecialEffect.EffectAnimation:
+                    if (effectKvp.Parameters[0] == null)
+                        return null;
                     XElement parameterAnimation = new XElement("Parameter", new XAttribute("Value", AssetManager.GetSpritesheetTag((effectKvp.Parameters[0] as SpriteSheetInfo))));
                     XElement parameterRotation = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", Neon.Utils.Vector2ToString(((Vector2)effectKvp.Parameters[2]))));
@@ -261,7 +263,16 @@ namespace NeonStarEditor
                     effect.Add(parameterDuration);
                     effect.Add(parameterDamage);
                     effect.Add(parameterTick);
-                    break;                                    
+                    break;                
+                    
+                case SpecialEffect.InstantiatePrefab:
+                    XElement parameterPrefabName = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters[0]));
+                    XElement parameterImpulsePrefab = new XElement("SecondParameter", new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)effectKvp.Parameters[1])));
+                    XElement parameterOffsetPrefab = new XElement("ThirdParameter", new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)effectKvp.Parameters[2])));
+                    effect.Add(parameterPrefabName);
+                    effect.Add(parameterImpulsePrefab);
+                    effect.Add(parameterOffsetPrefab);
+                    break;
             }
 
             return effect;
@@ -687,6 +698,83 @@ namespace NeonStarEditor
                         dotSpeed.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(dotSpeed);
                         break;
+
+                    case SpecialEffect.InstantiatePrefab:
+                        label = new Label();
+                        label.Text = "Prefab to create";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        TextBox textBox3 = new TextBox();
+                        textBox3.Name = "PrefabName";
+                        textBox3.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        textBox3.Width = 150;
+                        textBox3.Enter += textBox_Enter;
+                        textBox3.Leave += textBox_Leave;
+                        textBox3.Text = CurrentAttackEffectSelected.Parameters[0] as string;
+                        this.EffectsInfoPanel.Controls.Add(textBox3);
+
+                        label = new Label();
+                        label.Text = "Impulse At Spawn";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, textBox3.Location.Y + textBox3.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown impulsePrefab = new NumericUpDown();
+                        impulsePrefab.Name = "ImpulsePrefabX";
+                        impulsePrefab.Maximum = 50000;
+                        impulsePrefab.Minimum = -50000;
+                        impulsePrefab.Width = 80;
+                        impulsePrefab.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[1]).X;
+                        impulsePrefab.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        impulsePrefab.Enter += Numeric_Enter;
+                        impulsePrefab.Leave += Numeric_Leave;
+                        impulsePrefab.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(impulsePrefab);
+
+                        impulsePrefab = new NumericUpDown();
+                        impulsePrefab.Name = "ImpulsePrefabY";
+                        impulsePrefab.Maximum = 50000;
+                        impulsePrefab.Minimum = -50000;
+                        impulsePrefab.Width = 80;
+                        impulsePrefab.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[1]).Y;
+                        impulsePrefab.Location = new System.Drawing.Point(impulsePrefab.Width + 10, label.Location.Y + label.Height + 5);
+                        impulsePrefab.Enter += Numeric_Enter;
+                        impulsePrefab.Leave += Numeric_Leave;
+                        impulsePrefab.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(impulsePrefab);
+
+                        label = new Label();
+                        label.Text = "Spawn Offset";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, impulsePrefab.Location.Y + impulsePrefab.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown offsetPrefab = new NumericUpDown();
+                        offsetPrefab.Name = "OffsetPrefabX";
+                        offsetPrefab.Maximum = 50000;
+                        offsetPrefab.Minimum = -50000;
+                        offsetPrefab.Width = 80;
+                        offsetPrefab.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[2]).X;
+                        offsetPrefab.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        offsetPrefab.Enter += Numeric_Enter;
+                        offsetPrefab.Leave += Numeric_Leave;
+                        offsetPrefab.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offsetPrefab);
+
+                        offsetPrefab = new NumericUpDown();
+                        offsetPrefab.Name = "OffsetPrefabY";
+                        offsetPrefab.Maximum = 50000;
+                        offsetPrefab.Minimum = -50000;
+                        offsetPrefab.Width = 80;
+                        offsetPrefab.Value = (decimal)((Vector2)CurrentAttackEffectSelected.Parameters[2]).Y;
+                        offsetPrefab.Location = new System.Drawing.Point(offsetPrefab.Width + 10, label.Location.Y + label.Height + 5);
+                        offsetPrefab.Enter += Numeric_Enter;
+                        offsetPrefab.Leave += Numeric_Leave;
+                        offsetPrefab.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(offsetPrefab);
+                        break;
                 }
             }
         }
@@ -771,6 +859,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.DamageOverTime:
                         CurrentAttackEffectSelected.Parameters = new object[] { 0.0f, 0.0f, 0.0f };
+                        break;
+
+                    case SpecialEffect.InstantiatePrefab:
+                        CurrentAttackEffectSelected.Parameters = new object[] { "", new Vector2(), new Vector2() };
                         break;
                 }
                 this.InitEffectData();
@@ -1084,6 +1176,25 @@ namespace NeonStarEditor
                     CurrentAttackEffectSelected.Parameters[4] = (float)(sender as NumericUpDown).Value;
                     break;
 
+                case "ImpulsePrefabX":
+                    Vector2 offset5 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
+                    CurrentAttackEffectSelected.Parameters[1] = new Vector2((float)(sender as NumericUpDown).Value, offset5.Y);
+                    break;
+
+                case "ImpulsePrefabY":
+                    Vector2 offset6 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
+                    CurrentAttackEffectSelected.Parameters[1] = new Vector2(offset6.Y,(float)(sender as NumericUpDown).Value);
+                    break;
+
+                case "OffsetPrefabX":
+                    Vector2 offset7 = (Vector2)CurrentAttackEffectSelected.Parameters[2];
+                    CurrentAttackEffectSelected.Parameters[2] = new Vector2((float)(sender as NumericUpDown).Value, offset7.Y);
+                    break;
+
+                case "OffsetPrefabY":
+                    Vector2 offset8 = (Vector2)CurrentAttackEffectSelected.Parameters[2];
+                    CurrentAttackEffectSelected.Parameters[2] = new Vector2(offset8.Y, (float)(sender as NumericUpDown).Value);
+                    break;
             }
         }
 

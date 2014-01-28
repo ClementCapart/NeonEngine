@@ -123,7 +123,7 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.FinishChase:
                         if (_onDuty)
                         {
-                            if (this.entity.transform.Position.X > _lastChasePosition.X - _chasePrecision && this.EntityToChase.transform.Position.X < _lastChasePosition.X + _chasePrecision)
+                            if (this.entity.transform.Position.X > _lastChasePosition.X - _chasePrecision && this.entity.transform.Position.X < _lastChasePosition.X + _chasePrecision)
                             {
                                 EnemyComponent.State = EnemyState.Wait;
                             }
