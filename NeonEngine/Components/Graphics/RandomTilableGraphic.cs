@@ -265,7 +265,7 @@ namespace NeonEngine.Components.Graphics2D
 
                 if (_closerTexture != null)
                 {
-                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset, null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, 0), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(entity.transform.Position.X, basePositionY) + Offset + new Vector2(0, _closerTexture.Height / 2 * entity.transform.Scale), null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
                     spriteBatch.Draw(_secondCloserTexture != null ? _secondCloserTexture : _closerTexture, new Vector2(entity.transform.Position.X, basePositionY + _tilingSize - _closerTexture.Height / 2 * entity.transform.Scale - 2) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipVertically, Layer);
                 }
             }
@@ -282,7 +282,7 @@ namespace NeonEngine.Components.Graphics2D
                 }
                 if (_closerTexture != null)
                 {
-                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset, null, Color.White, _closerRotation, new Vector2(0, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_closerTexture, new Vector2(basePositionX, entity.transform.Position.Y) + Offset + new Vector2(_closerTexture.Width / 2 * entity.transform.Scale, 0), null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
                     spriteBatch.Draw(_secondCloserTexture != null ? _secondCloserTexture : _closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset, null, Color.White, _secondCloserRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
                 }
             }
