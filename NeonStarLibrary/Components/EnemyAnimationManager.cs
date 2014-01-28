@@ -41,31 +41,58 @@ namespace NeonStarLibrary.Components.Enemies
                 switch (EnemyComponent.State)
                 {
                     case EnemyState.Attacking:
-                        if (EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null && LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode())
+                        if (EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null /*&& LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode()*/)
                         {
+                            
                             if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
                             {
-                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneAnimation, true, 0, true, true, false);
+                                if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDelayAnimation, true, 0, true, false, false);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDurationAnimation, true, 0, true, false, true);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneCooldownAnimation, true, 0, true, false, false);
+                                }                             
                             }
                             else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchTwo)
                             {
-                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoAnimation, true, 0, true, true, false);
+                                if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDelayAnimation, true, 0, true, false, false);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDurationAnimation, true, 0, true, false, true);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoCooldownAnimation, true, 0, true, false, false);
+                                }                                           
                             }
                             else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchThree)
                             {
-                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeAnimation, true, 0, true, true, false);
-                            }
-                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFour)
-                            {
-                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourAnimation, true, 0, true, true, false);
-                            }
-                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFive)
-                            {
-                                entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFiveAnimation, true, 0, true, true, false);
+                                if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDelayAnimation, true, 0, true, false, false);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDurationAnimation, true, 0, true, false, true);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeCooldownAnimation, true, 0, true, false, false);
+                                }              
                             }
                         }
+
                         if(EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null)
-                        LastAttackHashCode = EnemyComponent.Attack.CurrentAttack.GetHashCode();
+                            LastAttackHashCode = EnemyComponent.Attack.CurrentAttack.GetHashCode();
 
                         break;
 

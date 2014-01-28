@@ -244,11 +244,13 @@ namespace NeonStarEditor
                     XElement parameterOffset = new XElement("ThirdParameter", new XAttribute("Value", Neon.Utils.Vector2ToString(((Vector2)effectKvp.Parameters[2]))));
                     XElement parameterFollow = new XElement("FourthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[3]).ToString()));
                     XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterDelay = new XElement("SixthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[5]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
                     effect.Add(parameterFollow);
                     effect.Add(parameterScale);
+                    effect.Add(parameterDelay);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -576,7 +578,25 @@ namespace NeonStarEditor
                         scale.Leave += Numeric_Leave;
                         scale.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(scale);
-                        
+
+                        label = new Label();
+                        label.Text = "Delay";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(scale.Location.X, scale.Location.Y + scale.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown delay = new NumericUpDown();
+                        delay.Name = "DelayAnimation";
+                        delay.Maximum = 50000;
+                        delay.Minimum = -50000;
+                        delay.Width = 80;
+                        delay.DecimalPlaces = 2;
+                        delay.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[5]);
+                        delay.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        delay.Enter += Numeric_Enter;
+                        delay.Leave += Numeric_Leave;
+                        delay.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(delay);
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -846,7 +866,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f };
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -1194,6 +1214,10 @@ namespace NeonStarEditor
                 case "OffsetPrefabY":
                     Vector2 offset8 = (Vector2)CurrentAttackEffectSelected.Parameters[2];
                     CurrentAttackEffectSelected.Parameters[2] = new Vector2(offset8.Y, (float)(sender as NumericUpDown).Value);
+                    break;
+
+                case  "DelayAnimation":
+                    CurrentAttackEffectSelected.Parameters[5] = (float)(sender as NumericUpDown).Value;
                     break;
             }
         }

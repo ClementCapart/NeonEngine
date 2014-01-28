@@ -27,7 +27,7 @@ namespace NeonStarLibrary
         public string StageOneAttack;
         public string StageTwoAttack;
         public string StageThreeAttack;
-        public string StageFourAttack; 
+        public string StageFourAttack;
 
         public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
@@ -84,6 +84,8 @@ namespace NeonStarLibrary
                     StageFourThreshold = (float)ElementManager.FireParameters[3][7];
                     break;
             }
+
+            
             base.InitializeLevelParameters();
         }
 
@@ -170,7 +172,8 @@ namespace NeonStarLibrary
                         Attack a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                         a.Launcher = _entity;
                     }
-                    
+                   
+
                     switch(_input)
                     {
                         case NeonStarInput.UseLeftSlotElement:

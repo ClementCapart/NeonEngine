@@ -26,6 +26,12 @@ namespace NeonStarLibrary
         }
     }
 
+    public class AnimationDelayed
+    {
+        public float Delay;
+        public object[] Parameters;
+    }
+
     public class Attack
     {
         private bool _hit = false;
@@ -225,6 +231,7 @@ namespace NeonStarLibrary
 
         private Dictionary<Hitbox, float> _alreadyTouched = new Dictionary<Hitbox, float>();
 
+        private List<AnimationDelayed> _delayedEffect = new List<AnimationDelayed>();
 
         public List<Hitbox> Hitboxes;
         public bool Canceled = false;
@@ -374,6 +381,24 @@ namespace NeonStarLibrary
 
         public void Update(GameTime gameTime)
         {
+            for(int i = _delayedEffect.Count - 1; i >= 0; i --)
+            {
+                _delayedEffect[i].Delay = _delayedEffect[i].Delay - (float)gameTime.ElapsedGameTime.TotalSeconds;
+                
+                if (_delayedEffect[i].Delay <= 0.0f)
+                {
+                    SpriteSheetInfo ssi = (SpriteSheetInfo)_delayedEffect[i].Parameters[0];
+                    Entity entityToFollow = null;
+                    if (ssi != null)
+                    {               
+                            if ((bool)_delayedEffect[i].Parameters[3])
+                                entityToFollow = _entity;
+                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(_delayedEffect[i].Parameters[1]), (Vector2)(_delayedEffect[i].Parameters[2]), (float)(_delayedEffect[i].Parameters[4]), 1.0f, entityToFollow);
+                    }
+                    _delayedEffect.RemoveAt(i);
+                }
+            }
+
             if (_shouldMultiHit && _alreadyTouched.Count > 0)
             {
                 Hitbox[] keys = _alreadyTouched.Keys.ToArray();
@@ -447,23 +472,25 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.EffectAnimation:
-                            SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            Entity entityToFollow = null;
-                            if (ssi != null)
+                            if ((float)ae.Parameters[5] != 0.0f)
                             {
-                                if (Launcher != null)
+                                AnimationDelayed ad = new AnimationDelayed();
+                                ad.Delay = (float)ae.Parameters[5];
+                                ad.Parameters = ae.Parameters;
+                                _delayedEffect.Add(ad);
+                            }
+                            else
+                            {
+                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                Entity entityToFollow = null;
+                                if (ssi != null)
                                 {
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = Launcher;
-                                    EffectsManager.GetEffect(ssi, CurrentSide, Launcher.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
-                                }
-                                else
-                                {
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = _entity;
-                                    EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
-                                }
-                            }                          
+                                   
+                                        if ((bool)ae.Parameters[3])
+                                            entityToFollow = _entity;
+                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                }   
+                            }                                                 
                             
                             break;
 
@@ -484,7 +511,6 @@ namespace NeonStarLibrary
                                 e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
                             }
                             
-
                             break;
 
                     }
@@ -513,16 +539,10 @@ namespace NeonStarLibrary
                                 {
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                     _mustStopAtTargetSight = (bool)ae.Parameters[1];
-                                    if (Launcher != null)
-                                    {
-                                        Launcher.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        Launcher.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                    }
-                                    else
-                                    {
+
                                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                         _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                    }
+                                    
                                 }
                             }
                             break;
@@ -560,21 +580,24 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.EffectAnimation:
-                            SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            Entity entityToFollow = null;
-                            if (ssi != null)
+                            if ((float)ae.Parameters[5] != 0.0f)
                             {
-                                if (Launcher != null)
+                                AnimationDelayed ad = new AnimationDelayed();
+                                ad.Delay = (float)ae.Parameters[5];
+                                ad.Parameters = ae.Parameters;
+                                _delayedEffect.Add(ad);
+                            }
+                            else
+                            {
+                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                Entity entityToFollow = null;
+                                if (ssi != null)
                                 {
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = Launcher;
-                                    EffectsManager.GetEffect(ssi, CurrentSide, Launcher.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
-                                }
-                                else
-                                {
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = _entity;
-                                    EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+
+                                        if ((bool)ae.Parameters[3])
+                                            entityToFollow = _entity;
+                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                            
                                 }
                             }
                            
@@ -722,13 +745,23 @@ namespace NeonStarLibrary
                                 break;
 
                             case SpecialEffect.EffectAnimation:
-                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                                Entity entityToFollow = null;
-                                if (ssi != null)
+                                if ((float)ae.Parameters[5] != 0.0f)
                                 {
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = _entity;
-                                    EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                    AnimationDelayed ad = new AnimationDelayed();
+                                    ad.Delay = (float)ae.Parameters[5];
+                                    ad.Parameters = ae.Parameters;
+                                    _delayedEffect.Add(ad);
+                                }
+                                else
+                                {
+                                    SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                    Entity entityToFollow = null;
+                                    if (ssi != null)
+                                    {
+                                        if ((bool)ae.Parameters[3])
+                                            entityToFollow = _entity;
+                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                    }
                                 }
                                 
                                 break;
@@ -859,15 +892,25 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.EffectAnimation:
-                            SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                            if (ssi != null)
+                            if ((float)ae.Parameters[5] != 0.0f)
                             {
-                                Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
-                                Entity entityToFollow = null;
-                                if ((bool)ae.Parameters[3])
-                                    entityToFollow = _entity;
-                                Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
-                                EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                AnimationDelayed ad = new AnimationDelayed();
+                                ad.Delay = (float)ae.Parameters[5];
+                                ad.Parameters = ae.Parameters;
+                                _delayedEffect.Add(ad);
+                            }
+                            else
+                            {
+                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                if (ssi != null)
+                                {
+                                    Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
+                                    Entity entityToFollow = null;
+                                    if ((bool)ae.Parameters[3])
+                                        entityToFollow = _entity;
+                                    Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
+                                    EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                }
                             }
                             
                             break;

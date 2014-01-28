@@ -136,45 +136,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public void ChooseAttack()
         {
-            if (_rangeForAttackFive != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackFive * _rangeForAttackFive)
-            {
-                if (_attackToLaunchFive == "Chase")
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
-                else
-                {
-                    bool inLocalCooldown = false;
-                    foreach (Attack a in LocalAttacksInCooldown)
-                    {
-                        if (a.Name == _attackToLaunchFive)
-                            inLocalCooldown = true;
-                    }
-
-                    if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFive, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-            }
-            else if (_rangeForAttackFour != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackFour * _rangeForAttackFour)
-            {
-                if (_attackToLaunchFour == "Chase")
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
-                else
-                {
-                    bool inLocalCooldown = false;
-                    foreach (Attack a in LocalAttacksInCooldown)
-                    {
-                        if (a.Name == _attackToLaunchFour)
-                            inLocalCooldown = true;
-                    }
-
-                    if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchFour, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-            }
-            else if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
+            if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
             {
                 if (_attackToLaunchThree == "Chase")
                 {

@@ -27,13 +27,30 @@ namespace NeonStarLibrary.Components.Enemies
             set { _attackToLaunchOne = value; }
         }
 
-        protected string _attackOneAnimation = "";
+        protected string _attackOneDelayAnimation = "";
 
-        public string AttackOneAnimation
+        public string AttackOneDelayAnimation
         {
-            get { return _attackOneAnimation; }
-            set { _attackOneAnimation = value; }
+            get { return _attackOneDelayAnimation; }
+            set { _attackOneDelayAnimation = value; }
         }
+
+        protected string _attackOneDurationAnimation = "";
+
+        public string AttackOneDurationAnimation
+        {
+            get { return _attackOneDurationAnimation; }
+            set { _attackOneDurationAnimation = value; }
+        }
+
+        protected string _attackOneCooldownAnimation = "";
+
+        public string AttackOneCooldownAnimation
+        {
+            get { return _attackOneCooldownAnimation; }
+            set { _attackOneCooldownAnimation = value; }
+        }
+
 
         protected float _rangeForAttackTwo = 0.0f;
 
@@ -51,12 +68,28 @@ namespace NeonStarLibrary.Components.Enemies
             set { _attackToLaunchTwo = value; }
         }
 
-        protected string _attackTwoAnimation = "";
+        protected string _attackTwoDelayAnimation = "";
 
-        public string AttackTwoAnimation
+        public string AttackTwoDelayAnimation
         {
-            get { return _attackTwoAnimation; }
-            set { _attackTwoAnimation = value; }
+            get { return _attackTwoDelayAnimation; }
+            set { _attackTwoDelayAnimation = value; }
+        }
+
+        protected string _attackTwoDurationAnimation = "";
+
+        public string AttackTwoDurationAnimation
+        {
+            get { return _attackTwoDurationAnimation; }
+            set { _attackTwoDurationAnimation = value; }
+        }
+
+        protected string _attackTwoCooldownAnimation = "";
+
+        public string AttackTwoCooldownAnimation
+        {
+            get { return _attackTwoCooldownAnimation; }
+            set { _attackTwoCooldownAnimation = value; }
         }
 
         protected float _rangeForAttackThree = 0.0f;
@@ -75,62 +108,30 @@ namespace NeonStarLibrary.Components.Enemies
             set { _attackToLaunchThree = value; }
         }
 
-        private string _attackThreeAnimation = "";
+        protected string _attackThreeDelayAnimation = "";
 
-        public string AttackThreeAnimation
+        public string AttackThreeDelayAnimation
         {
-            get { return _attackThreeAnimation; }
-            set { _attackThreeAnimation = value; }
+            get { return _attackThreeDelayAnimation; }
+            set { _attackThreeDelayAnimation = value; }
         }
 
-        protected float _rangeForAttackFour = 0.0f;
+        protected string _attackThreeDurationAnimation = "";
 
-        public float RangeForAttackFour
+        public string AttackThreeDurationAnimation
         {
-            get { return _rangeForAttackFour; }
-            set { _rangeForAttackFour = value; }
+            get { return _attackThreeDurationAnimation; }
+            set { _attackThreeDurationAnimation = value; }
         }
 
-        protected string _attackToLaunchFour = "";
+        protected string _attackThreeCooldownAnimation = "";
 
-        public string AttackToLaunchFour
+        public string AttackThreeCooldownAnimation
         {
-            get { return _attackToLaunchFour; }
-            set { _attackToLaunchFour = value; }
+            get { return _attackThreeCooldownAnimation; }
+            set { _attackThreeCooldownAnimation = value; }
         }
-
-        protected string _attackFourAnimation = "";
-
-        public string AttackFourAnimation
-        {
-            get { return _attackFourAnimation; }
-            set { _attackFourAnimation = value; }
-        }
-
-        protected float _rangeForAttackFive = 0.0f;
-
-        public float RangeForAttackFive
-        {
-            get { return _rangeForAttackFive; }
-            set { _rangeForAttackFive = value; }
-        }
-
-        protected string _attackToLaunchFive = "";
-
-        public string AttackToLaunchFive
-        {
-            get { return _attackToLaunchFive; }
-            set { _attackToLaunchFive = value; }
-        }
-
-        private string _attackFiveAnimation = "";
-
-        public string AttackFiveAnimation
-        {
-            get { return _attackFiveAnimation; }
-            set { _attackFiveAnimation = value; }
-        }
-
+   
         private string _entityToAttackName = "";
 
         public string EntityToAttackName
