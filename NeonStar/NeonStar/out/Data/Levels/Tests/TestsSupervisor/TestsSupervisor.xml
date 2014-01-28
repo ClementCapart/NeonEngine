@@ -212,8 +212,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:429.6102 Y:-199}" />
-              <InitialPosition Value="{X:429.6102 Y:-199}" />
+              <Position Value="{X:-105.0218 Y:-199}" />
+              <InitialPosition Value="{X:-105.0218 Y:-199}" />
               <Rotation Value="0" />
               <Scale Value="3" />
             </Properties>
@@ -221,8 +221,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:429 Y:-199}" />
-              <X Value="404" />
+              <Center Value="{X:-105 Y:-199}" />
+              <X Value="-130" />
               <Y Value="-224" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -248,7 +248,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -279,7 +279,7 @@
               <Type Value="Flying" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
+              <WaitThreatDuration Value="0" />
             </Properties>
           </EnemyCore>
           <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
@@ -307,6 +307,29 @@
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties />
           </EnemyAnimationManager>
+          <SupervisorAttack Type="NeonStarLibrary.Components.Enemies.SupervisorAttack" ID="1">
+            <Properties>
+              <AttackRangeWidth Value="100" />
+              <AttackRangeHeight Value="500" />
+              <AttackRangeOffset Value="{X:0 Y:0}" />
+              <RangeForAttackOne Value="0" />
+              <AttackToLaunchOne Value="" />
+              <AttackOneAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeAnimation Value="" />
+              <RangeForAttackFour Value="0" />
+              <AttackToLaunchFour Value="" />
+              <AttackFourAnimation Value="" />
+              <RangeForAttackFive Value="0" />
+              <AttackToLaunchFive Value="" />
+              <AttackFiveAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
+            </Properties>
+          </SupervisorAttack>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -314,8 +337,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:788.0396 Y:261}" />
-              <InitialPosition Value="{X:788.0396 Y:261}" />
+              <Position Value="{X:822 Y:261}" />
+              <InitialPosition Value="{X:822 Y:261}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -323,8 +346,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:788 Y:261}" />
-              <X Value="738" />
+              <Center Value="{X:822 Y:261}" />
+              <X Value="772" />
               <Y Value="181" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -350,7 +373,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -373,7 +396,7 @@
               <Debug Value="False" />
               <StartingHealthPoints Value="50" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="45" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -451,6 +474,7 @@
               <TilingWidth Value="640" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
+              <DrawLayer Value="1" />
               <GraphicTag Value="TileTest" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
