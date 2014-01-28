@@ -22,6 +22,29 @@
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemyBomb" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="100" Height="100" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-10</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyFirebatFlame" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="140" OffsetY="-35" Width="280" Height="80" />
@@ -308,8 +331,8 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>1</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>5</LocalCooldown>
       <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
@@ -318,27 +341,22 @@
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects>
         <Effect Type="InstantiatePrefab">
-          <Parameter Value="EnemyRobot" />
+          <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:0 Y:-3800}" />
           <ThirdParameter Value="{X:-200 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
-          <Parameter Value="EnemyRobot" />
+          <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:0 Y:0}" />
           <ThirdParameter Value="{X:0 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
-          <Parameter Value="EnemyRobot" />
+          <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:0 Y:0}" />
           <ThirdParameter Value="{X:0 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
-          <Parameter Value="EnemyRobot" />
-          <SecondParameter Value="{X:0 Y:0}" />
-          <ThirdParameter Value="{X:0 Y:0}" />
-        </Effect>
-        <Effect Type="InstantiatePrefab">
-          <Parameter Value="EnemyRobot" />
+          <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:0 Y:0}" />
           <ThirdParameter Value="{X:0 Y:0}" />
         </Effect>
@@ -1512,8 +1530,8 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>2</Cooldown>
+      <Delay>0.8</Delay>
+      <Cooldown>1.2</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>1</Duration>
       <AirLock>0</AirLock>
@@ -1541,8 +1559,8 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>2</Cooldown>
+      <Delay>0.8</Delay>
+      <Cooldown>1.2</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>1</Duration>
       <AirLock>0</AirLock>
