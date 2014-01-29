@@ -152,9 +152,29 @@ namespace NeonEngine
             return null;
         }
 
+        public List<T> GetComponentsByInheritance<T>()
+            where T : Component
+        {
+            List<T> list = new List<T>();
+
+            foreach (Component comp in Components)
+                if (comp.GetType().IsSubclassOf(typeof(T)))
+                    list.Add((T)comp);
+
+            return list;
+        }
+
         public int GetLastID()
         {
-            return Components[Components.Count - 1].ID;
+            int maxID = 0;
+            foreach (Component c in Components)
+            {
+                if (c.ID > maxID)
+                {
+                    maxID = c.ID;
+                }
+            }
+            return maxID + 1;
         }
 
         public bool ViewedByCamera(Vector2 cameraPosition)

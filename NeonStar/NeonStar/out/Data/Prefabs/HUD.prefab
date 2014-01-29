@@ -15,7 +15,7 @@
         <Properties>
           <DrawLayer Value="1" />
           <Font Value="HUDFont" />
-          <Text Value="69" />
+          <Text Value="99" />
           <TextColor Value="{R:255 G:255 B:255 A:255}" />
           <Outline Value="True" />
           <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
@@ -52,7 +52,7 @@
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </Graphic>
-      <ElementHUD Type="NeonStarLibrary.Components.HUD.ElementHUD" ID="1">
+      <ElementHUD Type="NeonStarLibrary.Components.HUD.ElementHUD" ID="4">
         <Properties>
           <AvatarName Value="LiOn" />
           <IsHUD Value="True" />
@@ -65,7 +65,7 @@
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </ElementHUD>
-      <LifeBar Type="NeonStarLibrary.Components.HUD.LifeBar" ID="1">
+      <LifeBar Type="NeonStarLibrary.Components.HUD.LifeBar" ID="5">
         <Properties>
           <AvatarName Value="LiOn" />
           <DrawLayer Value="1" />
@@ -80,6 +80,47 @@
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </LifeBar>
+      <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+        <Properties>
+          <GraphicTag Value="EnergyIcon" />
+          <DrawLayer Value="1" />
+          <IsHUD Value="True" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:110 Y:6}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </Graphic>
+      <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="8">
+        <Properties>
+          <Display Value="10" />
+          <EntityName Value="LiOn" />
+          <ComponentName Value="EnergySystem" />
+          <DisplayedVariable Value="CurrentEnergyStock" />
+        </Properties>
+      </DisplayValue>
+      <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="10">
+        <Properties>
+          <DrawLayer Value="1" />
+          <Font Value="EnergyFont" />
+          <Text Value="00" />
+          <TextColor Value="{R:255 G:255 B:255 A:255}" />
+          <Outline Value="False" />
+          <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
+          <OutlineDisplacement Value="0" />
+          <IsHUD Value="True" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:139 Y:-7}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </TextDisplay>
     </Components>
   </Entity>
 </Prefab>

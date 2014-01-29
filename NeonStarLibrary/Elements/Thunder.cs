@@ -130,7 +130,8 @@ namespace NeonStarLibrary
 
                 case ElementState.Charge:                                                         
                     State = ElementState.Effect;                 
-                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);                  
+                    _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);
+                    ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);
                     break;
 
                 case ElementState.Effect:
@@ -142,7 +143,6 @@ namespace NeonStarLibrary
                             _dashDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                             if (ThunderAttack != null) ThunderAttack.Update(gameTime);
                         }
-
                         if (_dashDuration <= 0.0f)
                         {
                             _dashDuration = 0.0f;
@@ -169,9 +169,6 @@ namespace NeonStarLibrary
                             State = ElementState.End;
                         }
                     }
-                                   
-
-
                     break;
 
                 case ElementState.End:                
@@ -179,6 +176,9 @@ namespace NeonStarLibrary
                     ThunderAttack = null;
                     break;
             }
+
+            if (ThunderAttack != null)
+                ThunderAttack.Update(gameTime);
             base.Update(gameTime);
         }
     }

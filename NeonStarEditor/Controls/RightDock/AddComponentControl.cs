@@ -94,7 +94,7 @@ namespace NeonStarEditor
                     AddRequiredComponents(CurrentEntity, c.RequiredComponents);
 
                 c.Init();
-                c.ID = CurrentEntity.GetLastID() + 1;
+                c.ID = CurrentEntity.GetLastID();
                 //ActionManager.SaveAction(ActionType.AddComponent, new object[2] { c, this });
                 GameWorld.RightDockControl.InspectorControl.InstantiateProperties(CurrentEntity);
                 
@@ -117,7 +117,7 @@ namespace NeonStarEditor
                     AddRequiredComponents(entity, c.RequiredComponents);
 
                 c.Init();
-                c.ID = entity.GetLastID() + 1;
+                c.ID = entity.GetLastID();
             }
         }
     }

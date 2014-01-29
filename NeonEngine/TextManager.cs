@@ -15,6 +15,7 @@ namespace NeonEngine
         {
             FontList.Add("TimerFont", AssetManager.Content.Load<SpriteFont>("Timer"));
             FontList.Add("HUDFont", AssetManager.Content.Load<SpriteFont>("HealthPoints"));
+            FontList.Add("EnergyFont", AssetManager.Content.Load<SpriteFont>("EnergyPoints"));
         }
     }
 }

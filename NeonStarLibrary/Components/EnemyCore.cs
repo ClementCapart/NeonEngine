@@ -244,7 +244,7 @@ namespace NeonStarLibrary.Components.Enemies
         {
             LastAttackTook = attack.Name;
             bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
-            if (tookDamage && _triggerOnDamage)
+            if (_triggerOnDamage)
             {
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
