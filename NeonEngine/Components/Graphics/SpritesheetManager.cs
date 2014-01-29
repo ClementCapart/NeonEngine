@@ -153,10 +153,10 @@ namespace NeonEngine.Components.Graphics2D
             if (_currentSide != side)
             {
                 _currentSide = side;
-                if( _currentSide == Side.Left)
-                    CurrentSpritesheet.spriteEffects = SpriteEffects.FlipHorizontally;
+                if (_currentSide == Side.Left)
+                    CurrentSpritesheet.CurrentSide = Side.Left;
                 else if (_currentSide == Side.Right)
-                    CurrentSpritesheet.spriteEffects = SpriteEffects.None;
+                    CurrentSpritesheet.CurrentSide = Side.Right;
             }
         }
 
