@@ -132,6 +132,13 @@ namespace NeonEngine
                                     XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
                                     Properties.Add(Property);
                                 }
+                                else if (pi.Name == "Position" || pi.Name == "InitialPosition")
+                                {
+                                    Vector2 value = (Vector2)pi.GetValue(c, null);
+                                    value = new Vector2((int)value.X, (int)value.Y);
+                                    XElement Property = new XElement(pi.Name, new XAttribute("Value", value));
+                                    Properties.Add(Property);
+                                }
                                 else if (pi.Name == "Font")
                                 {
                                     XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp2 => kvp2.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));

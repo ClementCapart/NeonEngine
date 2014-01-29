@@ -1390,7 +1390,7 @@
         <Hitbox OffsetX="0" OffsetY="0" Width="290" Height="390" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -1406,8 +1406,11 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:800 Y:0}" />
+        </Effect>
         <Effect Type="Impulse">
-          <Parameter Value="{X:200 Y:-400}" />
+          <Parameter Value="{X:0 Y:-300}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
@@ -1419,7 +1422,7 @@
         <Hitbox OffsetX="0" OffsetY="0" Width="390" Height="290" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -1436,7 +1439,12 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:200 Y:-400}" />
+          <Parameter Value="{X:600 Y:-300}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:0 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
@@ -1448,7 +1456,7 @@
         <Hitbox OffsetX="0" OffsetY="0" Width="40" Height="290" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -1465,9 +1473,12 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:200 Y:-400}" />
+          <Parameter Value="{X:200 Y:-300}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:500 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1477,7 +1488,7 @@
         <Hitbox OffsetX="0" OffsetY="0" Width="80" Height="80" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-1</DamageOnHit>
+      <DamageOnHit>-15</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>

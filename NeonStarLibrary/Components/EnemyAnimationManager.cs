@@ -10,6 +10,17 @@ namespace NeonStarLibrary.Components.Enemies
 {
     public class EnemyAnimationManager : Component
     {
+        #region Properties
+
+        private bool _canChangeSide = true;
+
+        public bool CanChangeSide
+        {
+            get { return _canChangeSide; }
+            set { _canChangeSide = value; }
+        }
+        #endregion
+
         public EnemyCore EnemyComponent = null;
         public int LastAttackHashCode = 0;
 
@@ -36,7 +47,10 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if(entity.spritesheets != null)
             {
-                entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
+                if (_canChangeSide)
+                    entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
+                else
+                    entity.spritesheets.ChangeSide(Side.Right);
 
                 switch (EnemyComponent.State)
                 {
