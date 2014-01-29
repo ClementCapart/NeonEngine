@@ -45,18 +45,18 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="500" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
-              <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
-              <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
+              <FirstTileGraphicTag Value="TrainingWallsTile1 HORIZONTAL" />
+              <SecondTileGraphicTag Value="TrainingWallsTile2 HORIZONTAL" />
+              <ThirdTileGraphicTag Value="TrainingWallsTile3 HORIZONTAL" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="True" />
-              <TilingHash Value="2-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:125 Y:0}_0-{X:225 Y:0}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -112,11 +112,11 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="1050" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="TrainingPlatformsQuarterDown" />
-              <SecondCloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="TrainingPlatformsQuarterJoint" />
+              <SecondCloserRotation Value="1.570796" />
               <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
               <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
               <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
@@ -128,7 +128,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-3}" />
+              <Offset Value="{X:3 Y:-3}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -179,7 +179,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="1200" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="TrainingPlatformsQuarterDown" />
@@ -246,7 +246,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="150" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -318,7 +318,7 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="1500" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="TrainingPlatformsQuarterUp" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="TrainingPlatformsQuarterUp" />
@@ -385,7 +385,7 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="200" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -452,7 +452,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="800" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -519,7 +519,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="1000" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -623,23 +623,6 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <ButtonsScript Type="NeonScripts.ButtonsScript" ID="3">
-            <Properties>
-              <AvatarName Value="" />
-              <FirstButtonName Value="" />
-              <FirstButtonNeededAttack Value="" />
-              <FirstButtonNeedsToSynchronise Value="False" />
-              <SecondButtonName Value="" />
-              <SecondButtonNeededAttack Value="" />
-              <SecondButtonNeedsToSynchronize Value="False" />
-              <ThirdButtonName Value="" />
-              <ThirdButtonNeededAttack Value="" />
-              <ThirdButtonNeedsToSynchronize Value="False" />
-              <DoorToOpenName Value="" />
-              <DoorAnimation Value="" />
-              <Delay Value="0" />
-            </Properties>
-          </ButtonsScript>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -685,7 +668,7 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="500" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="TrainingPlatformsCloser" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="TrainingPlatformsQuarterUp" />
@@ -714,8 +697,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6260 Y:-338}" />
-              <InitialPosition Value="{X:6260 Y:-338}" />
+              <Position Value="{X:6284 Y:-338}" />
+              <InitialPosition Value="{X:6284 Y:-338}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -723,8 +706,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:6260 Y:-338}" />
-              <X Value="6235" />
+              <Center Value="{X:6284 Y:-338}" />
+              <X Value="6259" />
               <Y Value="-1063" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -752,7 +735,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="1450" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -819,7 +802,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="1000" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -848,8 +831,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6560 Y:412}" />
-              <InitialPosition Value="{X:6560 Y:412}" />
+              <Position Value="{X:6584 Y:412}" />
+              <InitialPosition Value="{X:6584 Y:412}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -857,8 +840,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:6560 Y:412}" />
-              <X Value="6235" />
+              <Center Value="{X:6583 Y:412}" />
+              <X Value="6258" />
               <Y Value="387" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -886,18 +869,18 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="650" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="TrainingPlatformsQuarterDown" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="TrainingPlatformsQuarterUp" />
+              <SecondCloserGraphicTag Value="TrainingPlatformsQuarterJoint" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
-              <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
-              <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
+              <FirstTileGraphicTag Value="TrainingWallsTile1 HORIZONTAL" />
+              <SecondTileGraphicTag Value="TrainingWallsTile2 HORIZONTAL" />
+              <ThirdTileGraphicTag Value="TrainingWallsTile3 HORIZONTAL" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="True" />
-              <TilingHash Value="0-{X:0 Y:0}_2-{X:25 Y:0}_2-{X:125 Y:0}_1-{X:225 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_2-{X:150 Y:0}_0-{X:250 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -915,8 +898,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6860 Y:587}" />
-              <InitialPosition Value="{X:6860 Y:587}" />
+              <Position Value="{X:6884 Y:587}" />
+              <InitialPosition Value="{X:6884 Y:587}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -924,8 +907,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:6860 Y:587}" />
-              <X Value="6835" />
+              <Center Value="{X:6883 Y:587}" />
+              <X Value="6858" />
               <Y Value="437" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -953,7 +936,7 @@
             <Properties>
               <VerticalTiling Value="True" />
               <TilingSize Value="350" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="TrainingPlatformsQuarterJoint" />
@@ -1025,7 +1008,7 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="1400" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="TrainingPlatformsQuarterDown" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -1489,24 +1472,50 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="900" />
-              <DrawLayer Value="0.5" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="TrainingPlatformsCloser" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
+              <SecondCloserGraphicTag Value="TrainingPlatformsQuarterJoint" />
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="TrainingPlatformsTile1" />
               <SecondTileGraphicTag Value="TrainingPlatformsTile2" />
               <ThirdTileGraphicTag Value="TrainingPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="True" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_1-{X:75 Y:0}_0-{X:125 Y:0}_2-{X:150 Y:0}_1-{X:250 Y:0}_2-{X:300 Y:0}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-3}" />
+              <Offset Value="{X:-150 Y:-3}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="300" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="TrainingPlatformsQuarterJoint" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="TrainingWallsTile1 HORIZONTAL" />
+              <SecondTileGraphicTag Value="TrainingWallsTile2 HORIZONTAL" />
+              <ThirdTileGraphicTag Value="TrainingWallsTile3 HORIZONTAL" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:300 Y:-3}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1656,7 +1665,7 @@
             <Properties>
               <VerticalTiling Value="False" />
               <TilingSize Value="200" />
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
@@ -1672,7 +1681,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-9}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -2314,8 +2323,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6528 Y:1009}" />
-              <InitialPosition Value="{X:6528 Y:1009}" />
+              <Position Value="{X:6312 Y:1009}" />
+              <InitialPosition Value="{X:6312 Y:1009}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2323,8 +2332,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6527 Y:1009}" />
-              <X Value="6477" />
+              <Center Value="{X:6311 Y:1009}" />
+              <X Value="6261" />
               <Y Value="929" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
