@@ -44,7 +44,17 @@ namespace NeonEngine.Components.Graphics2D
         public float CloserRotation
         {
             get { return _closerRotation; }
-            set { _closerRotation = value; }
+            set 
+            {
+                if (value == 3.14f)
+                    _closerRotation = (float)Math.PI;
+                else if (value == 1.57f)
+                    _closerRotation = (float)Math.PI / 2;
+                else if (value == 4.71f)
+                    _closerRotation = (float)Math.PI + (float)Math.PI / 2;
+                else
+                    _closerRotation = value; 
+            }
         }
 
         private string _secondCloserGraphicTag = "";
@@ -60,7 +70,17 @@ namespace NeonEngine.Components.Graphics2D
         public float SecondCloserRotation
         {
             get { return _secondCloserRotation; }
-            set { _secondCloserRotation = value; }
+            set
+            {
+                if (value == 3.14f)
+                    _secondCloserRotation = (float)Math.PI;
+                else if (value == 1.57f)
+                    _secondCloserRotation = (float)Math.PI / 2;
+                else if (value == 4.71f)
+                    _secondCloserRotation = (float)Math.PI + (float)Math.PI / 2;
+                else
+                    _secondCloserRotation = value;
+            }
         }
 
         private string _firstTileGraphicTag = "";

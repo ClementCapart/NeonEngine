@@ -89,6 +89,16 @@ namespace NeonStarEditor
                 {
                     currentWorld.SelectedEntity.transform.Position += Neon.Input.DeltaMouse / currentWorld.Camera.Zoom;
                 }
+                else if (currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode != null && currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Parent == null)
+                {
+                    string layer = currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text;
+                    if(layer == "NoLayer")
+                        layer = "";
+                    foreach(Entity entity in currentWorld.Entities.Where(e => e.Layer == layer))
+                    {
+                        entity.transform.Position += Neon.Input.DeltaMouse / currentWorld.Camera.Zoom;
+                    }
+                }
                     
             }
             if (Neon.Input.MouseReleased(MouseButton.RightButton))
@@ -109,6 +119,30 @@ namespace NeonStarEditor
 
                     //ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
                     TransformState = null;
+                }
+                else if (currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode != null && currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Parent == null)
+                {
+
+                    string layer = currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text;
+                    if (layer == "NoLayer")
+                        layer = "";
+
+                    if(currentWorld.MagnetismActivated)
+                    {
+                        foreach (Entity entity in currentWorld.Entities.Where(e => e.Layer == layer))
+                        {
+                            entity.transform.Position = new Vector2((float)Math.Round((double)entity.transform.Position.X), (float)Math.Round((double)entity.transform.Position.Y));
+                            if (currentWorld.MagnetismValue != 1)
+                            {
+                                int restX = (int)entity.transform.Position.X % (int)currentWorld.MagnetismValue;
+                                int restY = (int)entity.transform.Position.Y % (int)currentWorld.MagnetismValue;
+
+                                entity.transform.Position += new Vector2((restX < currentWorld.MagnetismValue / 2 ? -restX : currentWorld.MagnetismValue - restX), (restY < currentWorld.MagnetismValue / 2 ? -restY : currentWorld.MagnetismValue - restY));
+                            }
+                        }
+                    }
+                    
+
                 }
                 
             }

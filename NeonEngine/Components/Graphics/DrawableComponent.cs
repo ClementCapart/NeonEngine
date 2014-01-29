@@ -67,7 +67,17 @@ namespace NeonEngine.Components.Graphics2D
         public virtual float RotationOffset
         {
             get { return _rotationOffset; }
-            set { _rotationOffset = value; }
+            set 
+            {
+                if (value == 3.14f)
+                    _rotationOffset = (float)Math.PI;
+                else if (value == 1.57f)
+                    _rotationOffset = (float)Math.PI / 2;
+                else if (value == 4.71f)
+                    _rotationOffset = (float)Math.PI + (float)Math.PI / 2;
+                else
+                    _rotationOffset = value;
+            }
         }
 
         private Vector2 _rotationCenter = new Vector2();
