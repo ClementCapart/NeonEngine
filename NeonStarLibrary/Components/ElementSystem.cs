@@ -141,104 +141,116 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (LeftSlotEnergy < 100.0f)
+            if (AvatarComponent.State != AvatarState.Dying)
             {
-                LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                if (LeftSlotEnergy > 100.0f)
-                    LeftSlotEnergy = 100.0f;
-            }
+                if (LeftSlotEnergy < 100.0f)
+                {
+                    LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                    if (LeftSlotEnergy > 100.0f)
+                        LeftSlotEnergy = 100.0f;
+                }
 
-            if (RightSlotEnergy < 100.0f)
-            {
-                RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                if (RightSlotEnergy > 100.0f)
-                    RightSlotEnergy = 100.0f;
-            }
+                if (RightSlotEnergy < 100.0f)
+                {
+                    RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                    if (RightSlotEnergy > 100.0f)
+                        RightSlotEnergy = 100.0f;
+                }
 
-            if (CurrentElementEffect != null)
-            {
-                AvatarComponent.State = AvatarState.UsingElement;
-                CurrentElementEffect.PreUpdate(gameTime);
-                AvatarComponent.CanUseElement = false;
+                if (CurrentElementEffect != null)
+                {
+                    AvatarComponent.State = AvatarState.UsingElement;
+                    CurrentElementEffect.PreUpdate(gameTime);
+                    AvatarComponent.CanUseElement = false;
+                }
             }
+            
             base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
+            if (AvatarComponent.State != AvatarState.Dying)
             {
-                if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
+                if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
                 {
-                    if (_leftSlotElement != Element.Neutral)
+                    if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
                     {
-                        Console.WriteLine("Use Element -> " + LeftSlotElement);
-                        UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
+                        if (_leftSlotElement != Element.Neutral)
+                        {
+                            Console.WriteLine("Use Element -> " + LeftSlotElement);
+                            UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
+                        }
                     }
-                }
-                else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
-                {
-                    if (_rightSlotElement != Element.Neutral)
+                    else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
                     {
-                        Console.WriteLine("Use Element -> " + RightSlotElement);
-                        UseElement(_rightSlotElement, (int)_rightSlotLevel, NeonStarInput.UseRightSlotElement);
+                        if (_rightSlotElement != Element.Neutral)
+                        {
+                            Console.WriteLine("Use Element -> " + RightSlotElement);
+                            UseElement(_rightSlotElement, (int)_rightSlotLevel, NeonStarInput.UseRightSlotElement);
+                        }
                     }
-                }
 
-                if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
-                {
-                    if (_leftSlotElement != Element.Neutral)
-                        DropElement(Side.Left);
+                    if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                    {
+                        if (_leftSlotElement != Element.Neutral)
+                            DropElement(Side.Left);
+                    }
+                    if (Neon.Input.Pressed(NeonStarInput.DropRightSlotElement))
+                    {
+                        if (_rightSlotElement != Element.Neutral)
+                            DropElement(Side.Right);
+                    }
                 }
-                if (Neon.Input.Pressed(NeonStarInput.DropRightSlotElement))
+                else if (CurrentElementEffect != null)
                 {
-                    if (_rightSlotElement != Element.Neutral)
-                        DropElement(Side.Right);
+                    CurrentElementEffect.Update(gameTime);
                 }
             }
-            else if (CurrentElementEffect != null)
-            {
-                CurrentElementEffect.Update(gameTime);
-            }
+            
         }
 
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (CurrentElementEffect != null)
+            if (AvatarComponent.State != AvatarState.Dying)
             {
-                CurrentElementEffect.PostUpdate(gameTime);
-                if (CurrentElementEffect.State == ElementState.End)
+                if (CurrentElementEffect != null)
                 {
-                    CurrentElementEffect = null;
-                    AvatarComponent.State = AvatarState.Idle;
+                    CurrentElementEffect.PostUpdate(gameTime);
+                    if (CurrentElementEffect.State == ElementState.End)
+                    {
+                        CurrentElementEffect = null;
+                        AvatarComponent.State = AvatarState.Idle;
+                    }
                 }
-            }
 
-            if (_currentAnimatedSpecialEffect != null)
-            {
-                _currentAnimatedSpecialEffect.transform.Position = entity.transform.Position + new Vector2((AvatarComponent.CurrentSide == Side.Right ? 10 : - 10), -15);
-                if (_currentAnimatedSpecialEffect.spriteSheet.IsFinished)
+                if (_currentAnimatedSpecialEffect != null)
                 {
-                    entity.spritesheets.CurrentSpritesheet.MainColor = _nextColorToTint;
-                    entity.spritesheets.CurrentSpritesheet.Tint = false;
-                    _getElementColored = true;
-                    _getElementColorTimer = _getElementColorDelay;
-                    _currentAnimatedSpecialEffect = null;
+                    _currentAnimatedSpecialEffect.transform.Position = entity.transform.Position + new Vector2((AvatarComponent.CurrentSide == Side.Right ? 10 : -10), -15);
+                    if (_currentAnimatedSpecialEffect.spriteSheet.IsFinished)
+                    {
+                        entity.spritesheets.CurrentSpritesheet.MainColor = _nextColorToTint;
+                        entity.spritesheets.CurrentSpritesheet.Tint = false;
+                        _getElementColored = true;
+                        _getElementColorTimer = _getElementColorDelay;
+                        _currentAnimatedSpecialEffect = null;
+                    }
                 }
-            }
 
-            if (_getElementColored)
-            {
-                if (_getElementColorTimer > 0.0f)
-                    _getElementColorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                else
+                if (_getElementColored)
                 {
-                    _getElementColorTimer = 0.0f;
-                    entity.spritesheets.CurrentSpritesheet.MainColor = Color.White;
-                    entity.spritesheets.Tint = true;
-                    _getElementColored = false;
+                    if (_getElementColorTimer > 0.0f)
+                        _getElementColorTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    else
+                    {
+                        _getElementColorTimer = 0.0f;
+                        entity.spritesheets.CurrentSpritesheet.MainColor = Color.White;
+                        entity.spritesheets.Tint = true;
+                        _getElementColored = false;
+                    }
                 }
             }
+            
             base.PostUpdate(gameTime);
         }
 
