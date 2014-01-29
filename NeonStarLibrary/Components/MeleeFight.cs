@@ -168,147 +168,155 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (DamageModifierTimer > 0.0f)
-                DamageModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            else
-                DamageModifier = 1.0f;
-
-            if (CurrentAttack != null)
+            if (AvatarComponent.State != AvatarState.Dying)
             {
-                GameTime gt = new GameTime(gameTime.TotalGameTime, new TimeSpan((long)(gameTime.ElapsedGameTime.Ticks * AttackSpeedModifier)));
-                CurrentAttack.Update(gt);
-                if (CurrentAttack.CooldownFinished)
-                {
-                    CurrentAttack = null;
-                    AvatarComponent.State = AvatarState.Idle;
-                }
-            }
-
-            if (_nextAttack != "")
-                if (AvatarComponent.CanAttack && CurrentAttack == null && AvatarComponent.State != AvatarState.Stunlocked)
-                    LaunchBufferedAttack();
+                if (DamageModifierTimer > 0.0f)
+                    DamageModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 else
-                    _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    DamageModifier = 1.0f;
 
-            if (!ReleasedAttackButton)
-                if (!Neon.Input.Check(NeonStarInput.Attack))
-                    ReleasedAttackButton = true;
-
-            if (entity.rigidbody != null && entity.rigidbody.isGrounded)
-                AttacksWhileInAir.Clear();
-
-            if ((CurrentAttack != null && CurrentAttack.DurationFinished) || (CurrentAttack == null))
-            {
-                _lastHitDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_lastHitDelay >= ComboDelayMax)
+                if (CurrentAttack != null)
                 {
-                    CurrentComboHit = ComboSequence.None;
-                    LastComboHit = ComboSequence.None;
-                    _lastHitDelay = 0.0f;
+                    GameTime gt = new GameTime(gameTime.TotalGameTime, new TimeSpan((long)(gameTime.ElapsedGameTime.Ticks * AttackSpeedModifier)));
+                    CurrentAttack.Update(gt);
+                    if (CurrentAttack.CooldownFinished)
+                    {
+                        CurrentAttack = null;
+                        AvatarComponent.State = AvatarState.Idle;
+                    }
+                }
+
+                if (_nextAttack != "")
+                    if (AvatarComponent.CanAttack && CurrentAttack == null && AvatarComponent.State != AvatarState.Stunlocked)
+                        LaunchBufferedAttack();
+                    else
+                        _chainDelayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (!ReleasedAttackButton)
+                    if (!Neon.Input.Check(NeonStarInput.Attack))
+                        ReleasedAttackButton = true;
+
+                if (entity.rigidbody != null && entity.rigidbody.isGrounded)
+                    AttacksWhileInAir.Clear();
+
+                if ((CurrentAttack != null && CurrentAttack.DurationFinished) || (CurrentAttack == null))
+                {
+                    _lastHitDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_lastHitDelay >= ComboDelayMax)
+                    {
+                        CurrentComboHit = ComboSequence.None;
+                        LastComboHit = ComboSequence.None;
+                        _lastHitDelay = 0.0f;
+                    }
+                }
+                else
+                {
+                    AvatarComponent.State = AvatarState.Attacking;
+                    AvatarComponent.CanMove = false;
+                    AvatarComponent.CanTurn = false;
                 }
             }
-            else
-            {
-                AvatarComponent.State = AvatarState.Attacking;
-                AvatarComponent.CanMove = false;
-                AvatarComponent.CanTurn = false;
-            }
+            
             base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (ReleasedAttackButton)
+            if (AvatarComponent.State != AvatarState.Dying)
             {
-                if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
+                if (ReleasedAttackButton)
                 {
-                    if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
-                        PerformUppercut();
-                    else if(_nextAttack == "")
-                    {
-                        _nextAttack = "Uppercut";
-                        _chainDelayTimer = 0;
-                    }
-                }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, _rushAttackStickDelay) == DelayStatus.Valid)
-                {
-                    if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
+                    if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
                     {
                         if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
-                            PerformLeftRushAttack();
-                        else if(_nextAttack == "")
-                        {
-                            _nextAttack = "LeftRushAttack";
-                            _chainDelayTimer = 0;
-                        }
-                    }
-                    else
-                        if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
-                            PerformLightAttack();                                      
-                }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, _rushAttackStickDelay) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
-                {
-                    if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
-                    {
-                        if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
-                            PerformRightRushAttack();
+                            PerformUppercut();
                         else if (_nextAttack == "")
                         {
-                            _nextAttack = "RightRushAttack";
+                            _nextAttack = "Uppercut";
                             _chainDelayTimer = 0;
                         }
                     }
-                    else
-                        if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
-                            PerformLightAttack();
-                }
-                else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))                  
-                {
-                    if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                    else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, _rushAttackStickDelay) == DelayStatus.Valid)
                     {
-                        PerformDiveAttack();
+                        if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
+                        {
+                            if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                                PerformLeftRushAttack();
+                            else if (_nextAttack == "")
+                            {
+                                _nextAttack = "LeftRushAttack";
+                                _chainDelayTimer = 0;
+                            }
+                        }
+                        else
+                            if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
+                                PerformLightAttack();
+                    }
+                    else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, _rushAttackStickDelay) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
+                    {
+                        if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
+                        {
+                            if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                                PerformRightRushAttack();
+                            else if (_nextAttack == "")
+                            {
+                                _nextAttack = "RightRushAttack";
+                                _chainDelayTimer = 0;
+                            }
+                        }
+                        else
+                            if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
+                                PerformLightAttack();
+                    }
+                    else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))
+                    {
+                        if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                        {
+                            PerformDiveAttack();
+                            if (CurrentAttack == null)
+                                PerformLightAttack();
+                        }
+                        else if (_nextAttack == "")
+                        {
+                            _nextAttack = "DiveAttack";
+                            _chainDelayTimer = 0;
+                        }
+                    }
+                    else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking && AvatarComponent.CanAttack)
+                    {
                         if (CurrentAttack == null)
                             PerformLightAttack();
+                        else if (_nextAttack == "")
+                        {
+                            _nextAttack = "LightAttack";
+                            _chainDelayTimer = 0;
+                        }
                     }
-                    else if (_nextAttack == "")
+                    else if (Neon.Input.Pressed(NeonStarInput.Jump) && !AvatarComponent.ThirdPersonController.StartJumping)
                     {
-                        _nextAttack = "DiveAttack";
-                        _chainDelayTimer = 0;
-                    }                
-                }
-                else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking && AvatarComponent.CanAttack)
-                {
-                    if (CurrentAttack == null)
-                        PerformLightAttack();
-                    else if (_nextAttack == "")
-                    {
-                        _nextAttack = "LightAttack";
-                        _chainDelayTimer = 0;
+                        AvatarComponent.ThirdPersonController.MustJumpAsSoonAsPossible = true;
                     }
                 }
-                else if(Neon.Input.Pressed(NeonStarInput.Jump) && !AvatarComponent.ThirdPersonController.StartJumping)
-                {
-                    AvatarComponent.ThirdPersonController.MustJumpAsSoonAsPossible = true;
-                }               
-            }
 
-            if (CurrentComboHit == ComboSequence.None)
-            {
-                _lastHitDelay = 0.0f;
-            }
-
-            if (_attackSpeedModifierTimer > 0.0f)
-            {
-                _attackSpeedModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_attackSpeedModifierTimer <= 0.0f)
+                if (CurrentComboHit == ComboSequence.None)
                 {
-                    _attackSpeedModifierTimer = 0.0f;
-                    AttackSpeedModifier = AttackSpeedModifier / _attackSpeedBoostModifier;
+                    _lastHitDelay = 0.0f;
                 }
 
-            }
+                if (_attackSpeedModifierTimer > 0.0f)
+                {
+                    _attackSpeedModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_attackSpeedModifierTimer <= 0.0f)
+                    {
+                        _attackSpeedModifierTimer = 0.0f;
+                        AttackSpeedModifier = AttackSpeedModifier / _attackSpeedBoostModifier;
+                    }
 
-            _triedAttacking = false;
+                }
+
+                _triedAttacking = false;
+            
+            }
             
             base.Update(gameTime);
         }

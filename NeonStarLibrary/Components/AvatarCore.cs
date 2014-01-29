@@ -239,56 +239,64 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (CurrentHealthPoints <= 0)
+            if (State != AvatarState.Dying)
             {
-                State = AvatarState.Dying;
-                (this.entity.containerWorld as GameScreen).Respawn();
-            }
-            if (_airLockDuration > 0.0f && IsAirLocked)
-            {
-                _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                entity.rigidbody.GravityScale = 0.0f;
-                CanMove = false;
-            }
-            else
-            {
-                _airLockDuration = 0.0f;
-                IsAirLocked = false;
-            }
+                if (CurrentHealthPoints <= 0 && State != AvatarState.Dying)
+                {
+                    State = AvatarState.Dying;
+                    (this.entity.containerWorld as GameScreen).Respawn();
+                }
+                if (_airLockDuration > 0.0f && IsAirLocked)
+                {
+                    _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    entity.rigidbody.GravityScale = 0.0f;
+                    CanMove = false;
+                }
+                else
+                {
+                    _airLockDuration = 0.0f;
+                    IsAirLocked = false;
+                }
 
-            if (_stunLockDuration > 0.0f)
-            {
-                _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                State = AvatarState.Stunlocked;
-                CanMove = false;
-                CanTurn = false;
-                CanAttack = false;
-                CanUseElement = false;
+                if (_stunLockDuration > 0.0f)
+                {
+                    _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    State = AvatarState.Stunlocked;
+                    CanMove = false;
+                    CanTurn = false;
+                    CanAttack = false;
+                    CanUseElement = false;
+                }
+                else
+                {
+                    _stunLockDuration = 0.0f;
+                }
             }
-            else
-            {
-                _stunLockDuration = 0.0f;
-            }
+            
 
             base.PreUpdate(gameTime);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (_invincibilityTimer > 0.0f)
+            if (State != AvatarState.Dying)
             {
-                IsInvincible = true;
-                _invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                OpacityBlink(_invincibilityBlinkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                if (_invincibilityTimer > 0.0f)
+                {
+                    IsInvincible = true;
+                    _invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    OpacityBlink(_invincibilityBlinkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                }
+                else
+                {
+                    _opacityGoingDown = true;
+                    IsInvincible = false;
+                    _invincibilityTimer = 0.0f;
+                    if (entity.spritesheets != null)
+                        entity.spritesheets.CurrentSpritesheet.opacity = 1f;
+                }
             }
-            else
-            {
-                _opacityGoingDown = true;
-                IsInvincible = false;
-                _invincibilityTimer = 0.0f;
-                if(entity.spritesheets != null)
-                    entity.spritesheets.CurrentSpritesheet.opacity = 1f;
-            }
+            
             base.Update(gameTime);
         }
 

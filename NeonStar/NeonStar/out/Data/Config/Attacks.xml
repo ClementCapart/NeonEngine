@@ -1402,7 +1402,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
+      <MultiHitDelay>0.5</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
@@ -1434,7 +1434,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
+      <MultiHitDelay>0.5</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
@@ -1468,7 +1468,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
+      <MultiHitDelay>0.5</MultiHitDelay>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
@@ -1481,35 +1481,6 @@
           <Parameter Value="{X:500 Y:0}" />
         </Effect>
       </OnHitSpecialEffects>
-      <OnGroundCancelSpecialEffects />
-    </Attack>
-    <Attack ID="0" Name="TrainingDamagedPlatform" Type="MeleeSpecial">
-      <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="80" Height="80" />
-      </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-15</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.4</Delay>
-      <Cooldown>0</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.1</Duration>
-      <AirLock>1</AirLock>
-      <TargetAirLock>1</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:0 Y:40000}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnDurationSpecialEffects>
-      <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
     </Attack>
   </Attacks>
