@@ -58,16 +58,6 @@ namespace NeonStarLibrary
             if (!DeviceManager.AlreadyLoaded)
                 DeviceManager.LoadDevicesInformation();
 
-            foreach (Device d in DeviceManager.GetLevelDevices(groupName, levelName))
-            {
-                Entity e = GetEntityByName(d.DeviceName);
-                if(e != null)
-                {
-                    EnergyDevice ed = e.GetComponent<EnergyDevice>();
-                    ed.State = d.State;
-                }
-            }
-
             DataManager.LoadLevelInfo(groupName, levelName, this);
 
             SpawnPoint currentSpawnPoint = null;
@@ -102,6 +92,17 @@ namespace NeonStarLibrary
                 LoadLevel(new Level(groupName, levelName, this, true));
 
             Camera.Bounded = true;
+
+            foreach (Device d in DeviceManager.GetLevelDevices(groupName, levelName))
+            {
+                Entity e = GetEntityByName(d.DeviceName);
+                if (e != null)
+                {
+                    EnergyDevice ed = e.GetComponent<EnergyDevice>();
+                    if(ed != null)
+                        ed.State = d.State;
+                }
+            }
         } 
 
         public void LoadAvatarStatus(AvatarCore avatarComponent)

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonStarLibrary.Components.GameplayElements
+namespace NeonStarLibrary.Components.EnergyObjects
 {
-    public class EnergySwitch : Component
+    public class TemporaryEnergyDevice : EnergyDevice
     {
         #region Properties
         private bool _triggerFromAllElementsExceptNeutral = true;
@@ -42,36 +42,19 @@ namespace NeonStarLibrary.Components.GameplayElements
             get { return _attackAddingTimeFromStunLock; }
             set { _attackAddingTimeFromStunLock = value; }
         }
-
-        private string _entityToEnergize = "";
-
-        public string EntityToEnergize
-        {
-            get { return _entityToEnergize; }
-            set { _entityToEnergize = value; }
-        }
-
         #endregion
 
         private float _activationTimer = 0.0f;
         private bool _activated = false;
-        Entity _entityEnergize;
-        List<EnergyComponent> _energyComponents;
 
-        public EnergySwitch(Entity entity)
-            :base(entity, "EnergySwitch")
+        public TemporaryEnergyDevice(Entity entity)
+            :base(entity)
         {
+            Name = "TemporaryEnergyDevice";
         }
 
         public override void Init()
-        {
-            _entityEnergize = entity.containerWorld.GetEntityByName(_entityToEnergize);
-            if (_entityEnergize != null)
-            {
-                _energyComponents = _entityEnergize.GetComponentsByInheritance<EnergyComponent>();
-            }
-
-            
+        {         
             base.Init();
         }
 
@@ -84,17 +67,14 @@ namespace NeonStarLibrary.Components.GameplayElements
                 {
                     _activationTimer = 0.0f;
                     _activated = false;
-                    foreach (EnergyComponent ec in _energyComponents)
-                        ec.UnpowerDevice();
+                    this.DeactivateDevice();
                 }
                 else
                 {
                     if (!_activated)
                     {
                         _activated = true;
-                        foreach (EnergyComponent ec in _energyComponents)
-                            ec.PowerDevice();
-                            
+                        this.ActivateDevice();                           
                     }
                 }
             }
