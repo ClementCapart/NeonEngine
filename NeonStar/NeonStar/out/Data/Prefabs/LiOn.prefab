@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-349.8347 Y:-52.58842}" />
-          <InitialPosition Value="{X:-349.8347 Y:-52.58842}" />
+          <Position Value="{X:-458.5843 Y:-93.49996}" />
+          <InitialPosition Value="{X:-458.5843 Y:-93.49996}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-349 Y:-52}" />
-          <X Value="-369" />
-          <Y Value="-120" />
+          <Center Value="{X:-458 Y:-93}" />
+          <X Value="-478" />
+          <Y Value="-161" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -41,7 +41,6 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -112,6 +111,7 @@
           <MaxJumpInputDelay Value="0.5" />
           <MaxFallSpeed Value="12" />
           <CanDoubleJump Value="True" />
+          <AirSlowRate Value="0.95" />
         </Properties>
       </ThirdPersonController>
       <AvatarCore Type="NeonStarLibrary.Components.Avatar.AvatarCore" ID="6">
@@ -173,7 +173,7 @@
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:-90}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
