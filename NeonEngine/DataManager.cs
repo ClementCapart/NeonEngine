@@ -135,7 +135,7 @@ namespace NeonEngine
                                 else if (pi.Name == "Position" || pi.Name == "InitialPosition")
                                 {
                                     Vector2 value = (Vector2)pi.GetValue(c, null);
-                                    value = new Vector2((int)value.X, (int)value.Y);
+                                    value = new Vector2((float)Math.Round(value.X), (float)Math.Round(value.Y));
                                     XElement Property = new XElement(pi.Name, new XAttribute("Value", value));
                                     Properties.Add(Property);
                                 }
