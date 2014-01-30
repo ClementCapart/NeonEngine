@@ -239,6 +239,7 @@ namespace NeonEngine
                             _polygonRenderer.Color = Color.SkyBlue;
                             break;
                     }
+                    _polygonRenderer.LineWidth = (int)Math.Ceiling(1 / Camera.Zoom);
                     _polygonRenderer.vectors = hb.vectors;
                     _polygonRenderer.Position = hb.Center;
                     _polygonRenderer.Draw(spriteBatch);

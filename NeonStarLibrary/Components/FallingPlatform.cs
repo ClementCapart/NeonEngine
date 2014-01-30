@@ -75,7 +75,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             _avatar = entity.containerWorld.GetEntityByName(_avatarName);         
 
             _currentFallingTimer = _fallingTimer;
-            if(entity.spritesheets != null)
+            if(entity.spritesheets != null )
                 entity.spritesheets.ChangeAnimation(_fallingAnim, false, 0, false, false, true);
             base.Init();
         }

@@ -13,6 +13,7 @@ namespace NeonEngine
         public List<Vector2> vectors;
         public Vector2 Position;
         public Color Color;
+        public int LineWidth = 3;
 
         public PolygonRenderer(GraphicsDevice graphicsDevice, Vector2 Position)
         {
@@ -44,7 +45,7 @@ namespace NeonEngine
                     Color,
                     angle,
                     Vector2.Zero,
-                    new Vector2(distance, 3),
+                    new Vector2(distance, LineWidth),
                     SpriteEffects.None,
                     1);
             }
