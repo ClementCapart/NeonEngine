@@ -113,7 +113,7 @@ namespace NeonStarLibrary
 
         public override void Init()
         {
-            foreach (Entity e in entity.containerWorld.Entities)
+            foreach (Entity e in entity.GameWorld.Entities)
             {
                 if (e.Name.StartsWith(_firstBoundsPrefix))
                 {
@@ -133,7 +133,7 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if ((entity.containerWorld as GameScreen).MustFollowAvatar)
+            if ((entity.GameWorld as GameScreen).MustFollowAvatar)
                 SmoothZoom();
 
             base.Update(gameTime);
@@ -144,9 +144,9 @@ namespace NeonStarLibrary
             if (trigger.Name == _firstTriggerName)
             {
                 _targetZoom = _firstTriggerZoom;
-                for (int i = entity.containerWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = entity.GameWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = entity.containerWorld.Camera.CameraBounds[i];
+                    CameraBound cb = entity.GameWorld.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -165,11 +165,11 @@ namespace NeonStarLibrary
             {
                 _targetZoom = _thirdTriggerZoom;
 
-                entity.containerWorld.Camera.ChaseStrength = 0.0f;
+                entity.GameWorld.Camera.ChaseStrength = 0.0f;
 
-                for (int i = entity.containerWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
+                for (int i = entity.GameWorld.Camera.CameraBounds.Count - 1; i >= 0; i--)
                 {
-                    CameraBound cb = entity.containerWorld.Camera.CameraBounds[i];
+                    CameraBound cb = entity.GameWorld.Camera.CameraBounds[i];
                     if (!cb.entity.Name.StartsWith(_permanentBoundsPrefix))
                         cb.Enabled = false;
                 }
@@ -189,9 +189,9 @@ namespace NeonStarLibrary
 
         public void SmoothZoom()
         {
-            if (_targetZoom != entity.containerWorld.Camera.Zoom)
+            if (_targetZoom != entity.GameWorld.Camera.Zoom)
             {
-                entity.containerWorld.Camera.Zoom = MathHelper.Lerp(_targetZoom, entity.containerWorld.Camera.Zoom, 0.98f);
+                entity.GameWorld.Camera.Zoom = MathHelper.Lerp(_targetZoom, entity.GameWorld.Camera.Zoom, 0.98f);
             }
         }
     }

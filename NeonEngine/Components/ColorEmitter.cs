@@ -86,7 +86,7 @@ namespace NeonEngine.Components.VisualFX
             }
             else
             {
-                foreach (DrawableComponent dc in entity.containerWorld.DrawableComponents.Where(dc => dc.Tint))
+                foreach (DrawableComponent dc in entity.GameWorld.DrawableComponents.Where(dc => dc.Tint))
                 {
                     float Distance = Vector2.Distance(this.entity.transform.Position, dc.entity.transform.Position);
                     if (Distance < Range)

@@ -38,11 +38,11 @@ namespace NeonEngine
 
         public bool toDestroy;
 
-        public World containerWorld;
+        public World GameWorld;
 
         public Entity(World containerWorld)
         {
-            this.containerWorld = containerWorld;
+            this.GameWorld = containerWorld;
             transform = AddComponent<Transform>(new Transform(this));
         }
 
@@ -106,9 +106,9 @@ namespace NeonEngine
 
             if (component is DrawableComponent)
                 if((component  as DrawableComponent).IsHUD)
-                    containerWorld.HUDComponents.Add(component as DrawableComponent);            
+                    GameWorld.HUDComponents.Add(component as DrawableComponent);            
                 else
-                    containerWorld.DrawableComponents.Add(component as DrawableComponent);
+                    GameWorld.DrawableComponents.Add(component as DrawableComponent);
             return component;
         }
 
@@ -116,7 +116,7 @@ namespace NeonEngine
         {         
             for(int i = Components.Count - 1; i >= 0; i--)
                 Components[i].Remove();
-            containerWorld.RemoveEntity(this);
+            GameWorld.RemoveEntity(this);
         }
 
         public T GetComponent<T>(bool CheckForSubClasses = true)
@@ -179,7 +179,7 @@ namespace NeonEngine
 
         public bool ViewedByCamera(Vector2 cameraPosition)
         {
-            if (new Rectangle((int)(cameraPosition.X - Neon.HalfScreen.X / containerWorld.Camera.Zoom), (int)(cameraPosition.Y - Neon.HalfScreen.Y / containerWorld.Camera.Zoom), (int)(Neon.ScreenWidth / containerWorld.Camera.Zoom), (int)(Neon.ScreenHeight / containerWorld.Camera.Zoom)).Intersects(new Rectangle((int)this.transform.Position.X, (int)this.transform.Position.Y, 1, 1)))
+            if (new Rectangle((int)(cameraPosition.X - Neon.HalfScreen.X / GameWorld.Camera.Zoom), (int)(cameraPosition.Y - Neon.HalfScreen.Y / GameWorld.Camera.Zoom), (int)(Neon.ScreenWidth / GameWorld.Camera.Zoom), (int)(Neon.ScreenHeight / GameWorld.Camera.Zoom)).Intersects(new Rectangle((int)this.transform.Position.X, (int)this.transform.Position.Y, 1, 1)))
             {
                 return true;
             }

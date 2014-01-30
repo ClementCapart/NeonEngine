@@ -114,7 +114,7 @@ namespace NeonEngine.Components.Graphics2D
         public override void FinalUpdate(GameTime gameTime)
         {
             if(entity != null)
-                _parallaxPosition = entity.containerWorld.Camera.Position * ParallaxForce;
+                _parallaxPosition = entity.GameWorld.Camera.Position * ParallaxForce;
             base.FinalUpdate(gameTime);
         }
 
@@ -126,9 +126,9 @@ namespace NeonEngine.Components.Graphics2D
         public override void Remove()
         {
             if (isHUD)
-                entity.containerWorld.HUDComponents.Remove(this);
+                entity.GameWorld.HUDComponents.Remove(this);
             else
-                entity.containerWorld.DrawableComponents.Remove(this);
+                entity.GameWorld.DrawableComponents.Remove(this);
             
             base.Remove();
         }

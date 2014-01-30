@@ -28,7 +28,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Init()
         {
-            Entity e = entity.containerWorld.GetEntityByName(_avatarName);
+            Entity e = entity.GameWorld.GetEntityByName(_avatarName);
             if (e != null)
                 _avatar = e.GetComponent<AvatarCore>();
             base.Init();

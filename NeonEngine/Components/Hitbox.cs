@@ -134,7 +134,7 @@ namespace NeonEngine.Components.CollisionDetection
             this.Width = 50;
             this.Height = 50;
             InUse = true;
-            entity.containerWorld.Hitboxes.Add(this);
+            entity.GameWorld.Hitboxes.Add(this);
             ShapeType = BodyShapeType.Rectangle;           
         }
 
@@ -169,7 +169,7 @@ namespace NeonEngine.Components.CollisionDetection
             ShapeType = BodyShapeType.Rectangle; 
             InUse = true;
             this.entity = entity;
-            entity.containerWorld.Hitboxes.Add(this);
+            entity.GameWorld.Hitboxes.Add(this);
             Center = entity.transform.Position;
             _initialType = _type;
         }
@@ -208,9 +208,9 @@ namespace NeonEngine.Components.CollisionDetection
         public override void Remove()
         {
             InUse = false;
-            entity.containerWorld.Hitboxes.Remove(this);
+            entity.GameWorld.Hitboxes.Remove(this);
             entity.hitboxes.Remove(this);
-            entity.containerWorld.HitboxPool.FlagAvailableItem(this);
+            entity.GameWorld.HitboxPool.FlagAvailableItem(this);
             base.Remove();
         }
 

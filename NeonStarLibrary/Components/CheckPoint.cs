@@ -41,7 +41,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Init()
         {
-            _avatar = entity.containerWorld.GetEntityByName(_avatarName);
+            _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             base.Init();
         }
 
@@ -58,9 +58,9 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private void SaveCheckPoint()
         {
-            if ((entity.containerWorld as GameScreen).CheckPointsData.Count > 0)
+            if ((entity.GameWorld as GameScreen).CheckPointsData.Count > 0)
             {
-                XElement progression = (entity.containerWorld as GameScreen).CheckPointsData.Last();
+                XElement progression = (entity.GameWorld as GameScreen).CheckPointsData.Last();
                 string levelName = progression.Element("CurrentLevel").Element("LevelName").Value;
                 string groupName = progression.Element("CurrentLevel").Element("GroupName").Value;
                 string indexString = progression.Element("CurrentLevel").Element("SpawnPoint").Value;
@@ -68,12 +68,12 @@ namespace NeonStarLibrary.Components.GameplayElements
                 if (indexString != "None")
                     index = int.Parse(indexString);
 
-                if (entity.containerWorld.LevelGroupName != groupName || entity.containerWorld.LevelName != levelName || index != SpawnPointIndex)
-                    (entity.containerWorld as GameScreen).CheckPointsData.Add((entity.containerWorld as GameScreen).SaveStatus(this));
+                if (entity.GameWorld.LevelGroupName != groupName || entity.GameWorld.LevelName != levelName || index != SpawnPointIndex)
+                    (entity.GameWorld as GameScreen).CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
             }
             else
             {
-                (entity.containerWorld as GameScreen).CheckPointsData.Add((entity.containerWorld as GameScreen).SaveStatus(this));
+                (entity.GameWorld as GameScreen).CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
             }          
         }
 

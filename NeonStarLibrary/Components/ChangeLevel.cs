@@ -46,7 +46,7 @@ namespace NeonStarLibrary.Components.Triggers
         {
             if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + "/" + LevelName + "_Info.xml"))
             {
-                entity.containerWorld.ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
+                entity.GameWorld.ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
             } 
             else
             {

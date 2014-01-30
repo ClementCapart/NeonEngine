@@ -115,9 +115,9 @@ namespace NeonStarLibrary.Private
 
             if (_lifeTime > 0f)
             {
-                for (int i = entity.containerWorld.Hitboxes.Count - 1; i >= 0; i --)
+                for (int i = entity.GameWorld.Hitboxes.Count - 1; i >= 0; i --)
                 {
-                    Hitbox hb = entity.containerWorld.Hitboxes[i];
+                    Hitbox hb = entity.GameWorld.Hitboxes[i];
 
                     if (((launcher.hitboxes.Count > 0 && hb != launcher.hitboxes[0]) || launcher.hitboxes.Count == 0) && hb != entity.hitboxes[0] && hb.Type != HitboxType.Hit && hb.Type != HitboxType.Bullet && hb.Type != HitboxType.Invincible && hb.Type != HitboxType.None)
                     {

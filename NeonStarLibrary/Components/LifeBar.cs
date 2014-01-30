@@ -58,7 +58,7 @@ namespace NeonStarLibrary.Components.HUD
         {
             if (_avatarName != "")
             {
-                Entity avatar = entity.containerWorld.GetEntityByName(_avatarName);
+                Entity avatar = entity.GameWorld.GetEntityByName(_avatarName);
                 if(avatar != null)
                     _avatar = avatar.GetComponent<AvatarCore>();
             }

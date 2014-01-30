@@ -360,7 +360,7 @@ namespace NeonStarLibrary
         {
             foreach (Rectangle hitbox in AttackInfo.Hitboxes)
             {
-                Hitbox hb = _entity.containerWorld.HitboxPool.GetAvailableItem();
+                Hitbox hb = _entity.GameWorld.HitboxPool.GetAvailableItem();
                 hb.Type = HitboxType.Hit;
                 hb.PoolInit(_entity);
                 hb.Width = hitbox.Width;
@@ -457,13 +457,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if (_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
@@ -565,13 +565,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, Launcher != null ? Launcher : _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if(_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:
@@ -630,9 +630,9 @@ namespace NeonStarLibrary
                 for(int i = Hitboxes.Count - 1; i >= 0; i --)
                 {
                     Hitbox hitbox = Hitboxes[i];
-                    for(int j = _entity.containerWorld.Hitboxes.Count - 1; j >= 0; j--)
+                    for(int j = _entity.GameWorld.Hitboxes.Count - 1; j >= 0; j--)
                     {
-                        Hitbox hb = _entity.containerWorld.Hitboxes[j];
+                        Hitbox hb = _entity.GameWorld.Hitboxes[j];
                         if (hb.Type == HitboxType.Main && hb.entity != this._entity)
                         {
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
@@ -731,13 +731,13 @@ namespace NeonStarLibrary
 
                             case SpecialEffect.ShootBullet:
                                 BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                                BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                                 break;
 
                             case SpecialEffect.ShootBulletAtTarget:
                                 BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                                 if (_target != null)
-                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                                    BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                                 break;
 
                             case SpecialEffect.Invincible:
@@ -878,13 +878,13 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.ShootBullet:
                             BulletInfo bi = (BulletInfo)ae.Parameters[0];
-                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                            BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.ShootBulletAtTarget:
                             BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
                             if (_target != null)
-                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.containerWorld, FromEnemy);
+                                BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.GameWorld, FromEnemy);
                             break;
 
                         case SpecialEffect.Invincible:

@@ -75,7 +75,7 @@ namespace NeonEngine.Components.Triggers
                     _lastValue = _triggeringProperty.GetValue(_triggeringComponent, null);
             }
 
-            _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
+            _triggeredEntity = entity.GameWorld.GetEntityByName(_triggeredEntityName);
             if(_triggeredEntity != null)
                 _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             
@@ -97,7 +97,7 @@ namespace NeonEngine.Components.Triggers
 
             if (_triggeredEntity == null)
             {
-                _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
+                _triggeredEntity = entity.GameWorld.GetEntityByName(_triggeredEntityName);
                 if (_triggeredEntity != null)
                     _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             }
