@@ -151,7 +151,7 @@ namespace NeonEngine
                                     Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
                                     foreach (KeyValuePair<string, SpriteSheetInfo> kvp2 in propertyDictionary)
                                     {
-                                        if (kvp2.Value != null)
+                                        if (kvp2.Value != null && kvp2.Value.Frames != null)
                                         {
                                             XElement Animation = new XElement("Animation",
                                                                                 new XAttribute("Name", kvp2.Key),

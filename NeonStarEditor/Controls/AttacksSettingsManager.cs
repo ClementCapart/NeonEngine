@@ -1203,7 +1203,7 @@ namespace NeonStarEditor
 
                 case "ImpulsePrefabY":
                     Vector2 offset6 = (Vector2)CurrentAttackEffectSelected.Parameters[1];
-                    CurrentAttackEffectSelected.Parameters[1] = new Vector2(offset6.Y,(float)(sender as NumericUpDown).Value);
+                    CurrentAttackEffectSelected.Parameters[1] = new Vector2(offset6.X,(float)(sender as NumericUpDown).Value);
                     break;
 
                 case "OffsetPrefabX":
@@ -1213,10 +1213,10 @@ namespace NeonStarEditor
 
                 case "OffsetPrefabY":
                     Vector2 offset8 = (Vector2)CurrentAttackEffectSelected.Parameters[2];
-                    CurrentAttackEffectSelected.Parameters[2] = new Vector2(offset8.Y, (float)(sender as NumericUpDown).Value);
+                    CurrentAttackEffectSelected.Parameters[2] = new Vector2(offset8.X, (float)(sender as NumericUpDown).Value);
                     break;
 
-                case  "DelayAnimation":
+                case "DelayAnimation":
                     CurrentAttackEffectSelected.Parameters[5] = (float)(sender as NumericUpDown).Value;
                     break;
             }
