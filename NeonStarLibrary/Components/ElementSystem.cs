@@ -17,20 +17,76 @@ namespace NeonStarLibrary.Components.Avatar
     public class ElementSystem : Component
     {
         #region Properties
-        private string _fireLaunchAnimation = "";
+        private string _fireLaunchAnimationLevelOne = "";
 
-        public string FireLaunchAnimation
+        public string FireLaunchAnimationLevelOne
         {
-            get { return _fireLaunchAnimation; }
-            set { _fireLaunchAnimation = value; }
+            get { return _fireLaunchAnimationLevelOne; }
+            set { _fireLaunchAnimationLevelOne = value; }
         }
 
-        private string _fireReleaseAnimation = "";
+        private string _fireLaunchLoopAnimationLevelOne = "";
 
-        public string FireReleaseAnimation
+        public string FireLaunchLoopAnimationLevelOne
         {
-            get { return _fireReleaseAnimation; }
-            set { _fireReleaseAnimation = value; }
+            get { return _fireLaunchLoopAnimationLevelOne; }
+            set { _fireLaunchLoopAnimationLevelOne = value; }
+        }
+
+        private string _fireReleaseAnimationLevelOne = "";
+
+        public string FireReleaseAnimationLevelOne
+        {
+            get { return _fireReleaseAnimationLevelOne; }
+            set { _fireReleaseAnimationLevelOne = value; }
+        }
+
+        private string _fireLaunchAnimationLevelTwo = "";
+
+        public string FireLaunchAnimationLevelTwo
+        {
+            get { return _fireLaunchAnimationLevelTwo; }
+            set { _fireLaunchAnimationLevelTwo = value; }
+        }
+
+        private string _fireLaunchLoopAnimationLevelTwo = "";
+
+        public string FireLaunchLoopAnimationLevelTwo
+        {
+            get { return _fireLaunchLoopAnimationLevelTwo; }
+            set { _fireLaunchLoopAnimationLevelTwo = value; }
+        }
+
+        private string _fireReleaseAnimationLevelTwo = "";
+
+        public string FireReleaseAnimationLevelTwo
+        {
+            get { return _fireReleaseAnimationLevelTwo; }
+            set { _fireReleaseAnimationLevelTwo = value; }
+        }
+
+        private string _fireLaunchAnimationLevelThree = "";
+
+        public string FireLaunchAnimationLevelThree
+        {
+            get { return _fireLaunchAnimationLevelThree; }
+            set { _fireLaunchAnimationLevelThree = value; }
+        }
+
+        private string _fireLaunchLoopAnimationLevelThree = "";
+
+        public string FireLaunchLoopAnimationLevelThree
+        {
+            get { return _fireLaunchLoopAnimationLevelThree; }
+            set { _fireLaunchLoopAnimationLevelThree = value; }
+        }
+
+        private string _fireReleaseAnimationLevelThree = "";
+
+        public string FireReleaseAnimationLevelThree
+        {
+            get { return _fireReleaseAnimationLevelThree; }
+            set { _fireReleaseAnimationLevelThree = value; }
         }
 
         private string _thunderLaunchAnimation = "";

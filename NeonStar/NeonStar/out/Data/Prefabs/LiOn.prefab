@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-373.575 Y:55.50002}" />
-          <InitialPosition Value="{X:-373.575 Y:55.50002}" />
+          <Position Value="{X:258.0811 Y:37812.51}" />
+          <InitialPosition Value="{X:258.0811 Y:37812.51}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-373 Y:55}" />
-          <X Value="-393" />
-          <Y Value="-13" />
+          <Center Value="{X:258 Y:37812}" />
+          <X Value="238" />
+          <Y Value="37744" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -66,9 +66,17 @@
             <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
             <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
             <Animation Name="Hit" SpritesheetTag="LiOnHit" />
-            <Animation Name="FireLaunch" SpritesheetTag="ElementCrystalLauncher" />
+            <Animation Name="FireLaunchOne" SpritesheetTag="ElementCrystalLauncherLvlOne" />
             <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
             <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDashStart" />
+            <Animation Name="FireLaunchLoopOne" SpritesheetTag="ElementCrystalLoopLvlOne" />
+            <Animation Name="FireReleaseOne" SpritesheetTag="ElementCrystalOutLvlOne" />
+            <Animation Name="FireLaunchTwo" SpritesheetTag="ElementCrystalLauncherLvlTwo" />
+            <Animation Name="FireLaunchLoopTwo" SpritesheetTag="ElementCrystalLoopLvlTwo" />
+            <Animation Name="FireReleaseTwo" SpritesheetTag="ElementCrystalOutLvlTwo" />
+            <Animation Name="FireLaunchThree" SpritesheetTag="ElementCrystalLauncherLvlThree" />
+            <Animation Name="FireLaunchLoopThree" SpritesheetTag="ElementCrystalLoopLvlThree" />
+            <Animation Name="FireReleaseThree" SpritesheetTag="ElementCrystalOutLvlThree" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
@@ -145,11 +153,18 @@
       </Guard>
       <ElementSystem Type="NeonStarLibrary.Components.Avatar.ElementSystem" ID="8">
         <Properties>
-          <FireLaunchAnimation Value="FireLaunch" />
-          <FireReleaseAnimation Value="" />
+          <FireLaunchAnimationLevelOne Value="FireLaunchOne" />
+          <FireLaunchLoopAnimationLevelOne Value="FireLaunchLoopOne" />
+          <FireReleaseAnimationLevelOne Value="FireReleaseOne" />
+          <FireLaunchAnimationLevelTwo Value="FireLaunchTwo" />
+          <FireLaunchLoopAnimationLevelTwo Value="FireLaunchLoopTwo" />
+          <FireReleaseAnimationLevelTwo Value="FireReleaseTwo" />
+          <FireLaunchAnimationLevelThree Value="FireLaunchThree" />
+          <FireLaunchLoopAnimationLevelThree Value="FireLaunchLoopThree" />
+          <FireReleaseAnimationLevelThree Value="FireReleaseThree" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
           <LeftSlotElement Value="Fire" />
-          <LeftSlotLevel Value="3" />
+          <LeftSlotLevel Value="1" />
           <RightSlotElement Value="Thunder" />
           <RightSlotLevel Value="3" />
           <MaxLevel Value="3" />

@@ -177,17 +177,48 @@ namespace NeonStarLibrary.Components.Avatar
                     case AvatarState.UsingElement:
                         if (AvatarComponent.ElementSystem.CurrentElementEffect.EffectElement == Element.Fire)
                         {
-                            switch (AvatarComponent.ElementSystem.CurrentElementEffect.State)
-                            {
+                            string fireLaunchAnim = "";
+                            string fireLaunchLoopAnim = "";
+                            string fireReleaseAnim = "";
 
-                                case ElementState.Charge:
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, true, 0, true, false, true);
+
+                            switch(AvatarComponent.ElementSystem.CurrentElementEffect.ElementLevel)
+                            {
+                                case 1:
+                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelOne;
+                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelOne;
+                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelOne;
                                     break;
-                                /*case ElementState.Effect:
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireReleaseAnimation, true, 0, true, false, false);
-                                    break;*/
+
+                                case 2:
+                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelTwo;
+                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelTwo;
+                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelTwo;
+                                    break;
+
+                                case 3:
+                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelThree;
+                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelThree;
+                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelThree;
+                                    break;
                             }
 
+                            switch (AvatarComponent.ElementSystem.CurrentElementEffect.State)
+                            {
+                                case ElementState.Charge:
+                                    if (entity.spritesheets.CurrentSpritesheetName == fireLaunchAnim && entity.spritesheets.IsFinished())
+                                    {
+                                        entity.spritesheets.ChangeAnimation(fireLaunchLoopAnim, true, 0, true, false, true);
+                                    }
+                                    else if (entity.spritesheets.CurrentSpritesheetName != fireLaunchLoopAnim)
+                                        entity.spritesheets.ChangeAnimation(fireLaunchAnim, true, 0, true, false, false);
+                                    break;
+
+                                case ElementState.Effect:
+                                    if (entity.spritesheets.CurrentSpritesheetName != fireReleaseAnim)
+                                        entity.spritesheets.ChangeAnimation(fireReleaseAnim, true, 0, true, false, false);
+                                    break;
+                            }
                         }
                         else if (AvatarComponent.ElementSystem.CurrentElementEffect.EffectElement == Element.Thunder)
                         {
