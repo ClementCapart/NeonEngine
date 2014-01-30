@@ -2,168 +2,6 @@
 <XnaContent>
   <Level Layer="Outside">
     <Entities>
-      <Entity Name="SideLeft" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2555 Y:-77}" />
-              <InitialPosition Value="{X:-2555 Y:-77}" />
-              <Rotation Value="90" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlay" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="SideRight" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2392 Y:-87}" />
-              <InitialPosition Value="{X:-2392 Y:-87}" />
-              <Rotation Value="-90" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlay" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="SideDown" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2058 Y:-70}" />
-              <InitialPosition Value="{X:-2058 Y:-70}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlay" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="SideUp" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2095 Y:-267}" />
-              <InitialPosition Value="{X:-2095 Y:-267}" />
-              <Rotation Value="180" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlay" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="QuarterOut" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2422 Y:-390}" />
-              <InitialPosition Value="{X:-2422 Y:-390}" />
-              <Rotation Value="180" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="QuarterIn" Layer="Outside">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-2148 Y:-414}" />
-              <InitialPosition Value="{X:-2148 Y:-414}" />
-              <Rotation Value="180" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
       <Entity Name="QuarterIn" Layer="Outside">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -331,8 +169,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:161 Y:-1677}" />
-              <InitialPosition Value="{X:161 Y:-1677}" />
+              <Position Value="{X:447 Y:-1676}" />
+              <InitialPosition Value="{X:447 Y:-1676}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -358,8 +196,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:561 Y:-1679}" />
-              <InitialPosition Value="{X:561 Y:-1679}" />
+              <Position Value="{X:579 Y:-1678}" />
+              <InitialPosition Value="{X:579 Y:-1678}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -385,8 +223,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:961 Y:-1679}" />
-              <InitialPosition Value="{X:961 Y:-1679}" />
+              <Position Value="{X:969 Y:-1678}" />
+              <InitialPosition Value="{X:969 Y:-1678}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -412,8 +250,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1361 Y:-1680}" />
-              <InitialPosition Value="{X:1361 Y:-1680}" />
+              <Position Value="{X:1368 Y:-1679}" />
+              <InitialPosition Value="{X:1368 Y:-1679}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -439,8 +277,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1761 Y:-1680}" />
-              <InitialPosition Value="{X:1761 Y:-1680}" />
+              <Position Value="{X:1768 Y:-1679}" />
+              <InitialPosition Value="{X:1768 Y:-1679}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -466,8 +304,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2160 Y:-1677}" />
-              <InitialPosition Value="{X:2160 Y:-1677}" />
+              <Position Value="{X:2168 Y:-1677}" />
+              <InitialPosition Value="{X:2168 Y:-1677}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -488,13 +326,958 @@
           </Graphic>
         </Components>
       </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1340 Y:735}" />
+              <InitialPosition Value="{X:-1340 Y:735}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1340 Y:477}" />
+              <InitialPosition Value="{X:-1340 Y:477}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1340 Y:1135}" />
+              <InitialPosition Value="{X:-1340 Y:1135}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1540 Y:336}" />
+              <InitialPosition Value="{X:-1540 Y:336}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1540 Y:78}" />
+              <InitialPosition Value="{X:-1540 Y:78}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterOut" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1542 Y:477}" />
+              <InitialPosition Value="{X:-1542 Y:477}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1598 Y:477}" />
+              <InitialPosition Value="{X:-1598 Y:477}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-2}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1798 Y:78}" />
+              <InitialPosition Value="{X:-1798 Y:78}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:425 Y:747}" />
+              <InitialPosition Value="{X:425 Y:747}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:58 Y:490}" />
+              <InitialPosition Value="{X:58 Y:490}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-163 Y:748}" />
+              <InitialPosition Value="{X:-163 Y:748}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:425 Y:490}" />
+              <InitialPosition Value="{X:425 Y:490}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-163 Y:490}" />
+              <InitialPosition Value="{X:-163 Y:490}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:169 Y:490}" />
+              <InitialPosition Value="{X:169 Y:490}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterOut" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:423 Y:1090}" />
+              <InitialPosition Value="{X:423 Y:1090}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:425 Y:1147}" />
+              <InitialPosition Value="{X:425 Y:1147}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:975 Y:1348}" />
+              <InitialPosition Value="{X:975 Y:1348}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:975 Y:1748}" />
+              <InitialPosition Value="{X:975 Y:1748}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:681 Y:1089}" />
+              <InitialPosition Value="{X:681 Y:1089}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-1}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:717 Y:1090}" />
+              <InitialPosition Value="{X:717 Y:1090}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:975 Y:1090}" />
+              <InitialPosition Value="{X:975 Y:1090}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2184 Y:1236}" />
+              <InitialPosition Value="{X:2184 Y:1236}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2184 Y:1636}" />
+              <InitialPosition Value="{X:2184 Y:1636}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2182 Y:978}" />
+              <InitialPosition Value="{X:2182 Y:978}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2981 Y:178}" />
+              <InitialPosition Value="{X:2981 Y:178}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2984 Y:322}" />
+              <InitialPosition Value="{X:2984 Y:322}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2982 Y:722}" />
+              <InitialPosition Value="{X:2982 Y:722}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2440 Y:978}" />
+              <InitialPosition Value="{X:2440 Y:978}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2840 Y:978}" />
+              <InitialPosition Value="{X:2840 Y:978}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3239 Y:177}" />
+              <InitialPosition Value="{X:3239 Y:177}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3639 Y:180}" />
+              <InitialPosition Value="{X:3639 Y:180}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideDown" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4039 Y:179}" />
+              <InitialPosition Value="{X:4039 Y:179}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterOut" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2982 Y:980}" />
+              <InitialPosition Value="{X:2982 Y:980}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4297 Y:437}" />
+              <InitialPosition Value="{X:4297 Y:437}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4297 Y:180}" />
+              <InitialPosition Value="{X:4297 Y:180}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
       <Entity Name="SideUp" Layer="Outside">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2559 Y:-1676}" />
-              <InitialPosition Value="{X:2559 Y:-1676}" />
+              <Position Value="{X:3322 Y:-379}" />
+              <InitialPosition Value="{X:3322 Y:-379}" />
               <Rotation Value="180" />
               <Scale Value="2" />
             </Properties>
@@ -503,6 +1286,303 @@
             <Properties>
               <GraphicTag Value="TrainingPlatformsTileOverlay" />
               <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2940 Y:-638}" />
+              <InitialPosition Value="{X:2940 Y:-638}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideLeft" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3580 Y:-636}" />
+              <InitialPosition Value="{X:3580 Y:-636}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3580 Y:-378}" />
+              <InitialPosition Value="{X:3580 Y:-378}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="QuarterIn" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2940 Y:-380}" />
+              <InitialPosition Value="{X:2940 Y:-380}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayQuarter2" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideUp" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3198 Y:-379}" />
+              <InitialPosition Value="{X:3198 Y:-379}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2940 Y:-1038}" />
+              <InitialPosition Value="{X:2940 Y:-1038}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2939 Y:-1438}" />
+              <InitialPosition Value="{X:2939 Y:-1438}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideRight" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2940 Y:-1838}" />
+              <InitialPosition Value="{X:2940 Y:-1838}" />
+              <Rotation Value="-90" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlay" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideBlack" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-2168 Y:707}" />
+              <InitialPosition Value="{X:-2168 Y:707}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayBLACK" />
+              <DrawLayer Value="0.902" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideBlack" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1993 Y:1105}" />
+              <InitialPosition Value="{X:-1993 Y:1105}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayBLACK" />
+              <DrawLayer Value="0.902" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SideBlack" Layer="Outside">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:310 Y:1714}" />
+              <InitialPosition Value="{X:310 Y:1714}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingPlatformsTileOverlayBLACK" />
+              <DrawLayer Value="0.902" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
