@@ -7,18 +7,18 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2215 Y:354}" />
-              <InitialPosition Value="{X:2215 Y:354}" />
+              <Position Value="{X:2289 Y:308}" />
+              <InitialPosition Value="{X:2289 Y:308}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2215 Y:354}" />
-              <X Value="2165" />
-              <Y Value="279" />
+              <Center Value="{X:2289 Y:308}" />
+              <X Value="2239" />
+              <Y Value="233" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -29,10 +29,31 @@
             <Properties>
               <EnergyCost Value="20" />
               <AvatarName Value="LiOn" />
-              <FillingDuration Value="1" />
-              <State Value="Activated" />
+              <FillingDuration Value="0.5" />
+              <IdleDeactivatedAnimation Value="IdleDeactivated" />
+              <ActivationAnimation Value="Activation" />
+              <IdleActivatedAnimation Value="IdleActivated" />
+              <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="IdleActivated" SpritesheetTag="EnergyDeviceActivated" />
+                <Animation Name="IdleDeactivated" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>

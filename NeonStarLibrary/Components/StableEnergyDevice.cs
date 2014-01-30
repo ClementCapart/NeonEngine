@@ -34,6 +34,30 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _fillingDuration; }
             set { _fillingDuration = value; }
         }
+
+        private string _idleDeactivatedAnimation = "";
+
+        public string IdleDeactivatedAnimation
+        {
+            get { return _idleDeactivatedAnimation; }
+            set { _idleDeactivatedAnimation = value; }
+        }
+
+        private string _activationAnimation = "";
+
+        public string ActivationAnimation
+        {
+            get { return _activationAnimation; }
+            set { _activationAnimation = value; }
+        }
+
+        private string _idleActivatedAnimation = "";
+
+        public string IdleActivatedAnimation
+        {
+            get { return _idleActivatedAnimation; }
+            set { _idleActivatedAnimation = value; }
+        }
         #endregion
 
         public AvatarCore _avatar;
@@ -51,6 +75,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             Entity avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
             if (avatarEntity != null)
                 _avatar = avatarEntity.GetComponent<AvatarCore>();
+            if (State == DeviceState.Deactivated)
+            {
+                this.entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
+            }
+            else if (State == DeviceState.Activated)
+            {
+                this.entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
+            }
             base.Init();
         }
 
@@ -106,7 +138,37 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _isFilling = false;
                 _fillingTimer = 0.0f;
             }
+
+            if (entity.spritesheets != null)
+            {
+                if (entity.spritesheets.CurrentSpritesheetName == _activationAnimation && entity.spritesheets.IsFinished())
+                {
+                    if (this.State == DeviceState.Activated)
+                    {
+                        entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
+                    }
+                    else if (this.State == DeviceState.Deactivated)
+                    {
+                        entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
+                    }
+                }
+            }
+            
             base.Update(gameTime);
+        }
+
+        public override void ActivateDevice()
+        {
+            if(entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+            base.ActivateDevice();
+        }
+
+        public override void DeactivateDevice()
+        {
+            if(entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+            base.DeactivateDevice();
         }
 
     }

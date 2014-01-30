@@ -101,6 +101,8 @@ namespace NeonStarLibrary
                     EnergyDevice ed = e.GetComponent<EnergyDevice>();
                     if(ed != null)
                         ed.State = d.State;
+
+                    ed.Init();
                 }
             }
         } 
