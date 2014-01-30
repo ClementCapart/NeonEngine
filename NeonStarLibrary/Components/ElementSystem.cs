@@ -287,14 +287,14 @@ namespace NeonStarLibrary.Components.Avatar
                     {
                         case NeonStarInput.UseLeftSlotElement:
                             if (fireGaugeCost <= LeftSlotEnergy)
-                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
+                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.GameWorld);
                             else
                                 Console.WriteLine("Not enough energy");
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
                             if (fireGaugeCost <= RightSlotEnergy)
-                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.containerWorld);
+                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.GameWorld);
                             else
                                 Console.WriteLine("Not enough energy");
                             break;
@@ -323,14 +323,14 @@ namespace NeonStarLibrary.Components.Avatar
                     {
                         case NeonStarInput.UseLeftSlotElement:
                             if (thunderGaugeCost <= LeftSlotEnergy)
-                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
+                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.GameWorld);
                             else
                                 Console.WriteLine("Not enough energy");
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
                             if(thunderGaugeCost <= RightSlotEnergy)
-                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.containerWorld);
+                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.GameWorld);
                             else
                                 Console.WriteLine("Not enough energy");
                             break;

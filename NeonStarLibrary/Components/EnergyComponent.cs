@@ -196,25 +196,21 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 AddDeviceToPower(_fourthActivatingDeviceName, _fourthDeviceInSameLevel, _fourthActivatingDeviceLevelGroup, _fourthActivatingDeviceLevelName);
             if (_fifthActivatingDeviceName != "")
                 AddDeviceToPower(_fifthActivatingDeviceName, _fifthDeviceInSameLevel, _fifthActivatingDeviceLevelGroup, _fifthActivatingDeviceLevelName);
+            
+            bool allPowered = true;
+            foreach (Device deviceToPower in _devicesToPower)
+                if (deviceToPower.State != DeviceState.Activated)
+                    allPowered = false;
 
-
-            if (_devicesToPower.Count > 0)
-            {
-                bool allPowered = true;
-                foreach (Device deviceToPower in _devicesToPower)
-                    if (deviceToPower.State != DeviceState.Activated)
-                        allPowered = false;
-
-                if (allPowered)
-                    _powered = true;
-            }
+            if (allPowered)
+                _powered = true;
 
             base.Init();
         }
 
         private void AddDeviceToPower(string deviceName, bool sameLevel, string deviceGroupName, string deviceLevelName)
         {
-            Device d = DeviceManager.GetDevice(sameLevel ? entity.containerWorld.LevelGroupName : deviceGroupName, sameLevel ? entity.containerWorld.LevelName : deviceLevelName, deviceName);
+            Device d = DeviceManager.GetDevice(sameLevel ? entity.GameWorld.LevelGroupName : deviceGroupName, sameLevel ? entity.GameWorld.LevelName : deviceLevelName, deviceName);
 
             if (d != null)
                 _devicesToPower.Add(d);

@@ -72,7 +72,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             }
 
             _startPosition = this.entity.transform.Position;
-            _avatar = entity.containerWorld.GetEntityByName(_avatarName);         
+            _avatar = entity.GameWorld.GetEntityByName(_avatarName);         
 
             _currentFallingTimer = _fallingTimer;
             if(entity.spritesheets != null )

@@ -41,7 +41,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (_avatarName != "")
             {
-                Entity e = entity.containerWorld.GetEntityByName(_avatarName);
+                Entity e = entity.GameWorld.GetEntityByName(_avatarName);
                 if (e != null)
                     _avatar = e.GetComponent<AvatarCore>();
             }

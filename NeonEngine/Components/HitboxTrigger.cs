@@ -63,8 +63,8 @@ namespace NeonEngine.Components.Triggers
 
         public override void Init()
         {
-            _triggeringEntity = entity.containerWorld.GetEntityByName(_triggeringEntityName);
-            _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
+            _triggeringEntity = entity.GameWorld.GetEntityByName(_triggeringEntityName);
+            _triggeredEntity = entity.GameWorld.GetEntityByName(_triggeredEntityName);
             if (_triggeredEntity != null)
                 _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             base.Init();
@@ -74,14 +74,14 @@ namespace NeonEngine.Components.Triggers
         {
             if (_triggeredEntity == null)
             {
-                _triggeredEntity = entity.containerWorld.GetEntityByName(_triggeredEntityName);
+                _triggeredEntity = entity.GameWorld.GetEntityByName(_triggeredEntityName);
                 if(_triggeredEntity != null)
                     _triggeredComponent = _triggeredEntity.GetComponentByName(_triggeredComponentName);
             }
 
             if (_triggeringEntity == null)
             {
-                _triggeringEntity = entity.containerWorld.GetEntityByName(_triggeringEntityName);
+                _triggeringEntity = entity.GameWorld.GetEntityByName(_triggeringEntityName);
             }
             else
             {

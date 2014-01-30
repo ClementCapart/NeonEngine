@@ -58,7 +58,7 @@ namespace NeonEngine.Components.Text2D
         public override void Init()
         {
             if (_entityName != "")
-                _valueEntity = entity.containerWorld.GetEntityByName(_entityName);
+                _valueEntity = entity.GameWorld.GetEntityByName(_entityName);
             if (_valueEntity != null)
                 _valueComponent = _valueEntity.GetComponentByName(_componentName);
             if (_valueComponent != null)

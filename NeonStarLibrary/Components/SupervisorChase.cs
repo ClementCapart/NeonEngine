@@ -62,7 +62,7 @@ namespace NeonStarLibrary.Components.Enemies
         public override void Init()
         {
             EnemyComponent = entity.GetComponent<EnemyCore>();
-            this.EntityToChase = entity.containerWorld.GetEntityByName(_entityToChaseName);
+            this.EntityToChase = entity.GameWorld.GetEntityByName(_entityToChaseName);
             if (EntityToChase != null)
                 _avatar = EntityToChase.GetComponent<AvatarCore>();
             if (_pathNodeBounds != null)
@@ -154,7 +154,7 @@ namespace NeonStarLibrary.Components.Enemies
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
                             if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
-                                foreach (Entity e in entity.containerWorld.Entities)
+                                foreach (Entity e in entity.GameWorld.Entities)
                                 {
                                     if (e != _avatar.entity && e != entity && e.hitboxes.Count > 0 && e.hitboxes[0].hitboxRectangle.Intersects(detectionHitbox) && e.hitboxes[0].Type == HitboxType.Main)
                                     {

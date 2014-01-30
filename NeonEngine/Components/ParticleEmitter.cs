@@ -382,7 +382,7 @@ namespace NeonEngine.Components.VisualFX
 
         private Particle InstantiateParticle()
         {
-            Particle p = entity.containerWorld.ParticlePool.GetAvailableItem();
+            Particle p = entity.GameWorld.ParticlePool.GetAvailableItem();
 
             if (UseSpriteSheet)
             {

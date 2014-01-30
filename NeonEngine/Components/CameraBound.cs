@@ -47,13 +47,13 @@ namespace NeonEngine.Components.Camera
             set 
             { 
                 _enabled = value;
-                if (!_enabled && entity.containerWorld.Camera.CameraBounds.Contains(this))
+                if (!_enabled && entity.GameWorld.Camera.CameraBounds.Contains(this))
                 {
-                    entity.containerWorld.Camera.CameraBounds.Remove(this);
+                    entity.GameWorld.Camera.CameraBounds.Remove(this);
                 }
-                else if (_enabled && !entity.containerWorld.Camera.CameraBounds.Contains(this))
+                else if (_enabled && !entity.GameWorld.Camera.CameraBounds.Contains(this))
                 {
-                    entity.containerWorld.Camera.CameraBounds.Add(this);
+                    entity.GameWorld.Camera.CameraBounds.Add(this);
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace NeonEngine.Components.Camera
         public override void Remove()
         {
             if(_enabled)
-                entity.containerWorld.Camera.CameraBounds.Remove(this);
+                entity.GameWorld.Camera.CameraBounds.Remove(this);
             base.Remove();
         }
 

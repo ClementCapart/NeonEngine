@@ -244,7 +244,7 @@ namespace NeonStarLibrary.Components.Avatar
                 if (CurrentHealthPoints <= 0 && State != AvatarState.Dying)
                 {
                     State = AvatarState.Dying;
-                    (this.entity.containerWorld as GameScreen).Respawn();
+                    (this.entity.GameWorld as GameScreen).Respawn();
                 }
                 if (_airLockDuration > 0.0f && IsAirLocked)
                 {

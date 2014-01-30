@@ -163,21 +163,21 @@ namespace NeonStarLibrary
         {
             if(_avatarName != "")
 			{
-				Entity avatar = entity.containerWorld.GetEntityByName(_avatarName);
+				Entity avatar = entity.GameWorld.GetEntityByName(_avatarName);
 				if(avatar != null)
 					_avatar = avatar.GetComponent<AvatarCore>();
 			}
             entity.spritesheets.ChangeAnimation(_walkTutorialAnimation);
 
             if (_enemyName != "")
-                _enemy = entity.containerWorld.GetEntityByName(_enemyName);
+                _enemy = entity.GameWorld.GetEntityByName(_enemyName);
 
             if (_incomingEnemyName != "")
-                _incomingEnemy = entity.containerWorld.GetEntityByName(_incomingEnemyName).GetComponent<EnemyCore>();
+                _incomingEnemy = entity.GameWorld.GetEntityByName(_incomingEnemyName).GetComponent<EnemyCore>();
 
             if (_doorToOpenName != "")
             {
-                _doorToOpen = entity.containerWorld.GetEntityByName(_doorToOpenName);
+                _doorToOpen = entity.GameWorld.GetEntityByName(_doorToOpenName);
                 if (_doorToOpen != null)
                 {
                     _doorToOpen.spritesheets.ChangeAnimation("DoorOpening", 0, false, true, false,0);
@@ -190,7 +190,7 @@ namespace NeonStarLibrary
         {
             if (_doorToOpenName != "")
                 if (_doorToOpen == null)
-                    _doorToOpen = entity.containerWorld.GetEntityByName(_doorToOpenName);
+                    _doorToOpen = entity.GameWorld.GetEntityByName(_doorToOpenName);
             if (entity.spritesheets.CurrentSpritesheetName == _transitionAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
             {
                 if (_currentTutorialState == 2)

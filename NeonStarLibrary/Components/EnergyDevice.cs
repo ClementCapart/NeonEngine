@@ -31,13 +31,13 @@ namespace NeonStarLibrary.Components.EnergyObjects
         public virtual void ActivateDevice()
         {
             State = DeviceState.Activated;
-            DeviceManager.SetDeviceState(entity.containerWorld.LevelGroupName, entity.containerWorld.LevelName, entity.Name, State);
+            DeviceManager.SetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name, State);
         }
 
         public virtual void DeactivateDevice()
         {
             State = DeviceState.Deactivated;
-            DeviceManager.SetDeviceState(entity.containerWorld.LevelGroupName, entity.containerWorld.LevelName, entity.Name, State);
+            DeviceManager.SetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name, State);
         }
     }
 }

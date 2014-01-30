@@ -48,7 +48,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
-            Entity avatarEntity = entity.containerWorld.GetEntityByName(_avatarName);
+            Entity avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
             if (avatarEntity != null)
                 _avatar = avatarEntity.GetComponent<AvatarCore>();
             base.Init();

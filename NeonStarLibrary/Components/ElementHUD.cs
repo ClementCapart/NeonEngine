@@ -59,7 +59,7 @@ namespace NeonStarLibrary.Components.HUD
             fireElementHUD = AssetManager.GetTexture("HUDElementFire");
             thunderElementHUD = AssetManager.GetTexture("HUDElementThunder");
 
-            _avatar = entity.containerWorld.GetEntityByName(_avatarName);
+            _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (_avatar != null)
             {
                 _elementSystem = _avatar.GetComponent<ElementSystem>();

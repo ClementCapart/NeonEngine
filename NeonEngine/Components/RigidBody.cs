@@ -237,7 +237,7 @@ namespace NeonEngine.Components.CollisionDetection
             HitboxRemoved = new ComponentRemoved(RemoveHitbox);
             entity.transform.PositionChanged += PositionChanged;
             entity.rigidbody = this;
-            physicWorld = entity.containerWorld.PhysicWorld;
+            physicWorld = entity.GameWorld.PhysicWorld;
         }
 
         public override void Init()
