@@ -77,11 +77,13 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _avatar = avatarEntity.GetComponent<AvatarCore>();
             if (State == DeviceState.Deactivated)
             {
-                this.entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
+                if(this.entity.spritesheets != null)
+                    this.entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
             }
             else if (State == DeviceState.Activated)
             {
-                this.entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
+                if(this.entity.spritesheets != null)
+                    this.entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
             }
             base.Init();
         }

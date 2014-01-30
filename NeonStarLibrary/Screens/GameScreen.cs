@@ -30,6 +30,7 @@ namespace NeonStarLibrary
 
         //Sounds obvious but still, I don't know...//
         public Entity avatar;
+        public AvatarCore _avatarComponent;
         //----------------------------------------//
 
         public List<XElement> CheckPointsData;
@@ -77,11 +78,11 @@ namespace NeonStarLibrary
                     if (File.Exists(@"../data/Prefabs/HUD.prefab"))
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
                     avatar.transform.Position = currentSpawnPoint.Position;
-                    AvatarCore avatarComponent = avatar.GetComponent<AvatarCore>();
-                    if (avatarComponent != null)
+                    _avatarComponent = avatar.GetComponent<AvatarCore>();
+                    if (_avatarComponent != null)
                     {
-                        LoadAvatarStatus(avatarComponent);
-                        avatarComponent.CurrentSide = currentSpawnPoint.Side;
+                        LoadAvatarStatus(_avatarComponent);
+                        _avatarComponent.CurrentSide = currentSpawnPoint.Side;
                     }
                 }         
             }
@@ -130,6 +131,14 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
+            Console.WriteLine(Alpha);
+            if (Alpha != 0.0f)
+            {
+                _avatarComponent.CanAttack = false;
+                _avatarComponent.CanMove = false;
+                _avatarComponent.CanTurn = false;
+                _avatarComponent.CanUseElement = false;
+            }
             base.PreUpdate(gameTime);
         }
 

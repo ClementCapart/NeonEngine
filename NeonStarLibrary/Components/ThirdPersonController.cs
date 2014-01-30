@@ -19,7 +19,6 @@ namespace NeonStarLibrary.Components.Avatar
             set { _jumpImpulseHeight = value; }
         }
 
-
         private float _doubleJumpImpulseHeight = 0.0f;
 
         public float DoubleJumpImpulseHeight
