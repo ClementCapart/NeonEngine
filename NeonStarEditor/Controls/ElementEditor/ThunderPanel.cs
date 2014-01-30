@@ -48,12 +48,12 @@ namespace NeonStarEditor
             this.AttackSpeedModifierLevelOne.Value = (decimal)(float)ElementManager.ThunderParameters[3][2];
 
             this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][0];
-            this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][1];
-            this.ModifierDurationLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][2];
+            this.MovementSpeedModifierLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][1];
+            this.AttackSpeedModifierLevelTwo.Value = (decimal)(float)ElementManager.ThunderParameters[4][2];
 
             this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][0];
-            this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][1];
-            this.ModifierDurationLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][2];
+            this.MovementSpeedModifierLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][1];
+            this.AttackSpeedModifierLevelThree.Value = (decimal)(float)ElementManager.ThunderParameters[5][2];
         }
 
         private void numericUpDown_Enter(object sender, EventArgs e)
@@ -211,18 +211,6 @@ namespace NeonStarEditor
 
                 case "DashVerticalDownImpulseLevelThree":
                     ElementManager.ThunderParameters[2][5] = (float)(sender as NumericUpDown).Value;
-                    break;
-
-                case "ModifierDuration":
-                    ElementManager.ThunderParameters[3][0] = (float)(sender as NumericUpDown).Value;
-                    break;
-
-                case "MovementSpeedModifier":
-                    ElementManager.ThunderParameters[3][1] = (float)(sender as NumericUpDown).Value;
-                    break;
-
-                case "AttackSpeedModifier":
-                    ElementManager.ThunderParameters[3][2] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "ModifierDurationLevelOne":

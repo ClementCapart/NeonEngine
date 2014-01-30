@@ -34,9 +34,7 @@ namespace NeonStarLibrary.Components.Enemies
         }
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            
-
+        { 
             if(EntityToAttack != null && entity.rigidbody.isGrounded)
             {
                 switch (EnemyComponent.State)

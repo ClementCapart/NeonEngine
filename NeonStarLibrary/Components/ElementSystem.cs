@@ -452,10 +452,10 @@ namespace NeonStarLibrary.Components.Avatar
                 if (_rightSlotElement != Element.Neutral)
                 {
                     Console.WriteLine("Drop Element -> " + RightSlotElement);
-                    switch (_leftSlotElement)
+                    switch (_rightSlotElement)
                     {
                         case Element.Thunder:
-                            switch (_leftSlotLevel.ToString())
+                            switch (_rightSlotLevel.ToString())
                             {
                                 case "1":
                                     AvatarComponent.ThirdPersonController.BoostMovementSpeed((float)ElementManager.ThunderParameters[3][1] / 100f, (float)ElementManager.ThunderParameters[3][0]);
@@ -475,7 +475,7 @@ namespace NeonStarLibrary.Components.Avatar
                             break;
 
                         case Element.Fire:
-                            switch (_leftSlotLevel.ToString())
+                            switch (_rightSlotLevel.ToString())
                             {
                                 case "1":
                                     AvatarComponent.MeleeFight.BoostDamage((float)ElementManager.FireParameters[4][0] / 100f, (float)ElementManager.FireParameters[4][1]);
