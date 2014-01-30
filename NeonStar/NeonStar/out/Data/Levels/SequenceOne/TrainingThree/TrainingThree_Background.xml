@@ -7,8 +7,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3502 Y:361}" />
-              <InitialPosition Value="{X:3502 Y:361}" />
+              <Position Value="{X:3652 Y:362}" />
+              <InitialPosition Value="{X:3652 Y:362}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -38,8 +38,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:121 Y:-3}" />
-              <InitialPosition Value="{X:121 Y:-3}" />
+              <Position Value="{X:-127 Y:4}" />
+              <InitialPosition Value="{X:-127 Y:4}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -47,7 +47,7 @@
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="TrainingBackgroundPillar1" />
-              <DrawLayer Value="0.002" />
+              <DrawLayer Value="0.02" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -65,8 +65,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1045 Y:7}" />
-              <InitialPosition Value="{X:1045 Y:7}" />
+              <Position Value="{X:783 Y:6}" />
+              <InitialPosition Value="{X:783 Y:6}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -74,7 +74,7 @@
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="TrainingBackgroundPillar2" />
-              <DrawLayer Value="0.002" />
+              <DrawLayer Value="0.02" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -104,7 +104,7 @@
               <TilingWidth Value="4000.4" />
               <UseTextureHeight Value="False" />
               <TilingHeight Value="3000" />
-              <DrawLayer Value="0.003" />
+              <DrawLayer Value="0.03" />
               <GraphicTag Value="TrainingBackgroundStructure" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -116,6 +116,60 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="BackgroundLight" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:460 Y:-8}" />
+              <InitialPosition Value="{X:460 Y:-8}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundLight" />
+              <DrawLayer Value="0.015" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.9 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="BackgroundLight2" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:657 Y:11}" />
+              <InitialPosition Value="{X:657 Y:11}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundLight" />
+              <DrawLayer Value="0.025" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.9 Y:1}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
     </Entities>
