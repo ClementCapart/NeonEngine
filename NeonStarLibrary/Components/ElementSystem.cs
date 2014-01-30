@@ -25,6 +25,14 @@ namespace NeonStarLibrary.Components.Avatar
             set { _fireLaunchAnimation = value; }
         }
 
+        private string _fireReleaseAnimation = "";
+
+        public string FireReleaseAnimation
+        {
+            get { return _fireReleaseAnimation; }
+            set { _fireReleaseAnimation = value; }
+        }
+
         private string _thunderLaunchAnimation = "";
 
         public string ThunderLaunchAnimation

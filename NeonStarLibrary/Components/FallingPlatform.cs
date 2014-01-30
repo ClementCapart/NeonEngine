@@ -42,6 +42,14 @@ namespace NeonStarLibrary.Components.GameplayElements
             get { return _avatarName; }
             set { _avatarName = value; }
         }
+
+        private string _fallingAnim = "";
+
+        public string FallingAnim
+        {
+            get { return _fallingAnim; }
+            set { _fallingAnim = value; }
+        }
         #endregion
 
         private float _currentFallingTimer = 1.0f;
@@ -67,6 +75,8 @@ namespace NeonStarLibrary.Components.GameplayElements
             _avatar = entity.containerWorld.GetEntityByName(_avatarName);         
 
             _currentFallingTimer = _fallingTimer;
+            if(entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation(_fallingAnim, false, 0, false, false, true);
             base.Init();
         }
 
@@ -83,6 +93,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                         if (this.entity.rigidbody != null)
                         {
                             this.entity.rigidbody.body.LinearVelocity = new Vector2(0, FallSpeed);
+                            entity.spritesheets.ChangeAnimation(_fallingAnim, true, 0, false, true, false);
                         }
                     }
                 }
@@ -100,6 +111,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                     if (_avatar != null && rb != null && rb.entity == this.entity)
                     {
                         _startToCrumble = true;
+                        entity.spritesheets.ChangeAnimation(_fallingAnim, true, 0, true, true, true);
                     }
                 }
             }

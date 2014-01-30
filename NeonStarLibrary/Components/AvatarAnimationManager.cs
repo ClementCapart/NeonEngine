@@ -179,9 +179,13 @@ namespace NeonStarLibrary.Components.Avatar
                         {
                             switch (AvatarComponent.ElementSystem.CurrentElementEffect.State)
                             {
-                                case ElementState.Effect:
-                                    entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, true, 0, true, false, false);
+
+                                case ElementState.Charge:
+                                    entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireLaunchAnimation, true, 0, true, false, true);
                                     break;
+                                /*case ElementState.Effect:
+                                    entity.spritesheets.ChangeAnimation(AvatarComponent.ElementSystem.FireReleaseAnimation, true, 0, true, false, false);
+                                    break;*/
                             }
 
                         }

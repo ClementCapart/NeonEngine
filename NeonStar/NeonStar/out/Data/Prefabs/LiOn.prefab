@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-32.97426 Y:55.50002}" />
-          <InitialPosition Value="{X:-32.97426 Y:55.50002}" />
+          <Position Value="{X:-373.575 Y:55.50002}" />
+          <InitialPosition Value="{X:-373.575 Y:55.50002}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,8 +14,8 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-32 Y:55}" />
-          <X Value="-52" />
+          <Center Value="{X:-373 Y:55}" />
+          <X Value="-393" />
           <Y Value="-13" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -66,7 +66,7 @@
             <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
             <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
             <Animation Name="Hit" SpritesheetTag="LiOnHit" />
-            <Animation Name="FireLaunch" SpritesheetTag="LiOnFlameStart" />
+            <Animation Name="FireLaunch" SpritesheetTag="ElementCrystalLauncher" />
             <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
             <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDashStart" />
           </Spritesheets>
@@ -146,6 +146,7 @@
       <ElementSystem Type="NeonStarLibrary.Components.Avatar.ElementSystem" ID="8">
         <Properties>
           <FireLaunchAnimation Value="FireLaunch" />
+          <FireReleaseAnimation Value="" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
           <LeftSlotElement Value="Fire" />
           <LeftSlotLevel Value="3" />
