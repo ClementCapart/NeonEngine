@@ -24,7 +24,7 @@
     </Attack>
     <Attack ID="0" Name="EnemyBomb" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="100" Height="100" />
+        <Hitbox OffsetX="0" OffsetY="0" Width="150" Height="150" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-10</DamageOnHit>
@@ -336,8 +336,8 @@
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
-      <LocalCooldown>5</LocalCooldown>
-      <Duration>1</Duration>
+      <LocalCooldown>3</LocalCooldown>
+      <Duration>0.1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -346,23 +346,23 @@
       <OnDelaySpecialEffects>
         <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
-          <SecondParameter Value="{X:0 Y:-3800}" />
-          <ThirdParameter Value="{X:-200 Y:0}" />
+          <SecondParameter Value="{X:-500 Y:-500}" />
+          <ThirdParameter Value="{X:-30 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
-          <SecondParameter Value="{X:0 Y:0}" />
-          <ThirdParameter Value="{X:0 Y:0}" />
+          <SecondParameter Value="{X:500 Y:-500}" />
+          <ThirdParameter Value="{X:30 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
-          <SecondParameter Value="{X:0 Y:0}" />
-          <ThirdParameter Value="{X:0 Y:0}" />
+          <SecondParameter Value="{X:-100 Y:-500}" />
+          <ThirdParameter Value="{X:-30 Y:0}" />
         </Effect>
         <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
-          <SecondParameter Value="{X:0 Y:0}" />
-          <ThirdParameter Value="{X:0 Y:0}" />
+          <SecondParameter Value="{X:100 Y:-500}" />
+          <ThirdParameter Value="{X:30 Y:0}" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
