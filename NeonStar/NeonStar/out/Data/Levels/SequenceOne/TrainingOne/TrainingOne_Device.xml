@@ -7,8 +7,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2289 Y:308}" />
-              <InitialPosition Value="{X:2289 Y:308}" />
+              <Position Value="{X:2289 Y:332}" />
+              <InitialPosition Value="{X:2289 Y:332}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2289 Y:308}" />
+              <Center Value="{X:2289 Y:332}" />
               <X Value="2239" />
-              <Y Value="233" />
+              <Y Value="257" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -31,8 +31,9 @@
               <AvatarName Value="LiOn" />
               <FillingDuration Value="0.5" />
               <IdleDeactivatedAnimation Value="IdleDeactivated" />
-              <ActivationAnimation Value="Activation" />
               <IdleActivatedAnimation Value="IdleActivated" />
+              <ActivationAnimation Value="Activation" />
+              <DeactivationAnimation Value="Deactivation" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -45,15 +46,43 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="IdleActivated" SpritesheetTag="EnergyDeviceActivated" />
-                <Animation Name="IdleDeactivated" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="IdleActivated" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="IdleDeactivated" SpritesheetTag="EnergyDeviceDeactivated" />
                 <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
               </Spritesheets>
-              <DrawLayer Value="0.4" />
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
+          <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
+            <Properties>
+              <Display Value="5" />
+              <EntityName Value="EnergyDevice01" />
+              <ComponentName Value="StableEnergyDevice" />
+              <DisplayedVariable Value="EnergyCost" />
+            </Properties>
+          </DisplayValue>
+          <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="5">
+            <Properties>
+              <DrawLayer Value="0.44" />
+              <Font Value="EnergyFont" />
+              <Text Value="20" />
+              <TextColor Value="{R:147 G:217 B:255 A:255}" />
+              <Outline Value="False" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
+              <OutlineDisplacement Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-21 Y:-28}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TextDisplay>
         </Components>
       </Entity>
     </Entities>

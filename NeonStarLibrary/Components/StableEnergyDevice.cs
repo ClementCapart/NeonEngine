@@ -43,6 +43,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _idleDeactivatedAnimation = value; }
         }
 
+        private string _idleActivatedAnimation = "";
+
+        public string IdleActivatedAnimation
+        {
+            get { return _idleActivatedAnimation; }
+            set { _idleActivatedAnimation = value; }
+        }
+
         private string _activationAnimation = "";
 
         public string ActivationAnimation
@@ -51,13 +59,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _activationAnimation = value; }
         }
 
-        private string _idleActivatedAnimation = "";
+        private string _deactivationAnimation = "";
 
-        public string IdleActivatedAnimation
+        public string DeactivationAnimation
         {
-            get { return _idleActivatedAnimation; }
-            set { _idleActivatedAnimation = value; }
+            get { return _deactivationAnimation; }
+            set { _deactivationAnimation = value; }
         }
+        
         #endregion
 
         public AvatarCore _avatar;
@@ -169,7 +178,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         public override void DeactivateDevice()
         {
             if(entity.spritesheets != null)
-                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+                entity.spritesheets.ChangeAnimation(_deactivationAnimation, true, 0, true, false, false);
             base.DeactivateDevice();
         }
 
