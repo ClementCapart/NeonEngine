@@ -9,6 +9,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
     public class EnergyDoor : EnergyComponent
     {
         #region Properties
+        private bool _multiLockDoor = false;
+
+        public bool MultiLockDoor
+        {
+            get { return _multiLockDoor; }
+            set { _multiLockDoor = value; }
+        }
+
         private string _closedIdleAnimation = "";
 
         public string ClosedIdleAnimation
@@ -121,6 +129,29 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            
+
+            if (_multiLockDoor && Closed && !_opening && !_closing)
+            {
+                switch (_numberOfDeviceActivated)
+                {
+                    case 0:
+                        if (entity.spritesheets != null && entity.spritesheets.IsFinished())
+                            entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, true, false);
+                        break;
+                    
+                    case 1:
+                        if (entity.spritesheets != null && entity.spritesheets.IsFinished())
+                            entity.spritesheets.ChangeAnimation(_closedIdleOnePoweredAnimation, true, 0, true, true, false);
+                        break;
+
+                    case 2:
+                        if (entity.spritesheets != null && entity.spritesheets.IsFinished())
+                            entity.spritesheets.ChangeAnimation(_closedIdleTwoPoweredAnimation, true, 0, true, true, false);
+                        break;
+                }
+            }
+            
             if (entity.spritesheets != null)
             {
                 if (_closing)
@@ -129,7 +160,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if (entity.spritesheets.CurrentSpritesheetName == _doorOpeningAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame == 0)
                         {
-                            entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true);
                             _closing = false;
                         }
                     }
@@ -137,7 +167,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if (entity.spritesheets.IsFinished())
                         {
-                            entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true);
                             _closing = false;
                         }
                     }
@@ -158,8 +187,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
             }
-            
-            Console.WriteLine(_numberOfDeviceActivated);
+
             base.Update(gameTime);
         }
 

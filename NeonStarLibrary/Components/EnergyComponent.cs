@@ -228,7 +228,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         if (deviceToPower.State != DeviceState.Activated)
                         {
                             allPowered = false;
-                            break;
                         }
                         else
                         {
@@ -240,12 +239,16 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 }
                 else
                 {
+                    _numberOfDeviceActivated = 0;
                     bool allPowered = true;
                     foreach (Device deviceToPower in _devicesToPower)
                         if (deviceToPower.State != DeviceState.Activated)
                         {
                             allPowered = false;
-                            break;
+                        }
+                        else
+                        {
+                            _numberOfDeviceActivated++;
                         }
 
                     if (!allPowered)
@@ -253,7 +256,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 }
             }
             
-
             base.Update(gameTime);
         }
 
