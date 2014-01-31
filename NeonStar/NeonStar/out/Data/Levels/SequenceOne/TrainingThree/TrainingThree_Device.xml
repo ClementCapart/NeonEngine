@@ -34,7 +34,7 @@
               <IdleActivatedAnimation Value="IdleActivated" />
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -117,7 +117,7 @@
               <IdleActivatedAnimation Value="IdleActivated" />
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -142,7 +142,7 @@
           <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
             <Properties>
               <Display Value="5" />
-              <EntityName Value="EnergyDevice01" />
+              <EntityName Value="EnergyDevice03" />
               <ComponentName Value="StableEnergyDevice" />
               <DisplayedVariable Value="EnergyCost" />
             </Properties>
@@ -200,7 +200,7 @@
               <IdleActivatedAnimation Value="IdleActivated" />
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -225,7 +225,7 @@
           <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
             <Properties>
               <Display Value="5" />
-              <EntityName Value="EnergyDevice01" />
+              <EntityName Value="EnergyDevice02" />
               <ComponentName Value="StableEnergyDevice" />
               <DisplayedVariable Value="EnergyCost" />
             </Properties>
@@ -256,8 +256,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1824 Y:-118}" />
-              <InitialPosition Value="{X:1824 Y:-118}" />
+              <Position Value="{X:1876 Y:-119}" />
+              <InitialPosition Value="{X:1876 Y:-119}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -265,9 +265,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1824 Y:-118}" />
-              <X Value="1774" />
-              <Y Value="-193" />
+              <Center Value="{X:1876 Y:-119}" />
+              <X Value="1826" />
+              <Y Value="-194" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -308,7 +308,7 @@
           <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
             <Properties>
               <Display Value="5" />
-              <EntityName Value="EnergyDevice01" />
+              <EntityName Value="EnergyDevice04" />
               <ComponentName Value="StableEnergyDevice" />
               <DisplayedVariable Value="EnergyCost" />
             </Properties>
@@ -391,7 +391,7 @@
           <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
             <Properties>
               <Display Value="5" />
-              <EntityName Value="EnergyDevice01" />
+              <EntityName Value="EnergyDevice05" />
               <ComponentName Value="StableEnergyDevice" />
               <DisplayedVariable Value="EnergyCost" />
             </Properties>
@@ -400,7 +400,7 @@
             <Properties>
               <DrawLayer Value="0.44" />
               <Font Value="EnergyFont" />
-              <Text Value="10" />
+              <Text Value="50" />
               <TextColor Value="{R:147 G:217 B:255 A:255}" />
               <Outline Value="False" />
               <OutlineColor Value="{R:0 G:0 B:0 A:0}" />

@@ -145,7 +145,7 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null)
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f)
                     Camera.Chase(avatar.transform.Position, gameTime);
                 else if (avatar == null)
                 {
