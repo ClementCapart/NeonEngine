@@ -75,11 +75,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     GatherEnergy();
                 }
             }
-
-            if (_gathered && entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _idleAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
-            {
-                entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
-            }
             base.Update(gameTime);
         }
 
@@ -87,6 +82,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             _gathered = true;
             _avatar.EnergySystem.CurrentEnergyStock += _energyValue;
+            entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
         }
     }
 }
