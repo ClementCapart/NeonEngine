@@ -81,7 +81,7 @@ namespace NeonEngine
 
                 foreach (CameraBound cb in CameraBounds)
                 {
-                    if (cb.entity.ViewedByCamera(new Vector2(NewPositionX, NewPositionY)))
+                    if (!cb.SoftBound && cb.entity.ViewedByCamera(new Vector2(NewPositionX, NewPositionY)) || cb.SoftBound && cb.BoundStrength > 0.0f)
                     {
                         switch (cb.BoundSide)
                         {
@@ -127,7 +127,7 @@ namespace NeonEngine
             {
                 foreach (CameraBound cb in CameraBounds)
                 {
-                    if (cb.entity.ViewedByCamera(NewPosition))
+                    if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)) || cb.SoftBound && cb.BoundStrength > 0.0f)
                     {
                         switch (cb.BoundSide)
                         {
