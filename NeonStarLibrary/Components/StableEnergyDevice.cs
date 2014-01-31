@@ -41,7 +41,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             get { return _idleDeactivatedAnimation; }
             set { _idleDeactivatedAnimation = value; }
-        }
+        }  
 
         private string _idleActivatedAnimation = "";
 
@@ -129,7 +129,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                         {
                                             _isFilling = false;
                                             _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
-                                            ActivateDevice();
+                                            if (entity.spritesheets != null)
+                                                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
                                         }
                                     }
                                 }
@@ -152,16 +153,21 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
             if (entity.spritesheets != null)
             {
-                if (entity.spritesheets.CurrentSpritesheetName == _activationAnimation && entity.spritesheets.IsFinished())
+                if (entity.spritesheets.CurrentSpritesheetName == _activationAnimation)
                 {
-                    if (this.State == DeviceState.Activated)
+                    if(entity.spritesheets.IsFinished())
                     {
                         entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
+                        
                     }
-                    else if (this.State == DeviceState.Deactivated)
+                    else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 32)
                     {
-                        entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
+                        ActivateDevice();
                     }
+                }    
+                else if (entity.spritesheets.CurrentSpritesheetName == _deactivationAnimation && entity.spritesheets.IsFinished())
+                {
+                    entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
                 }
             }
             
@@ -169,9 +175,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         }
 
         public override void ActivateDevice()
-        {
-            if(entity.spritesheets != null)
-                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+        {         
             base.ActivateDevice();
         }
 

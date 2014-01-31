@@ -9,7 +9,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
     public abstract class EnergyComponent : Component
     {
         #region Properties
-
         private string _firstActivatingDeviceName = "";
 
         public string FirstActivatingDeviceName
@@ -176,6 +175,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         protected List<Device> _devicesToPower;
         protected bool _powered = false;
+        protected int _numberOfDeviceActivated = 0;
 
         public EnergyComponent(Entity entity)
             :base(entity, "EnergyComponent")
@@ -222,12 +222,17 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 if (!_powered)
                 {
+                    _numberOfDeviceActivated = 0;
                     bool allPowered = true;
                     foreach (Device deviceToPower in _devicesToPower)
                         if (deviceToPower.State != DeviceState.Activated)
                         {
                             allPowered = false;
                             break;
+                        }
+                        else
+                        {
+                            _numberOfDeviceActivated++;
                         }
 
                     if (allPowered)

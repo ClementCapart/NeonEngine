@@ -82,6 +82,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             _gathered = true;
             _avatar.EnergySystem.CurrentEnergyStock += _energyValue;
+            if(entity.spritesheets != null)
             entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
         }
     }

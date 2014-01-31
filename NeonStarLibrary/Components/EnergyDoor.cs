@@ -17,6 +17,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _closedIdleAnimation = value; }
         }
 
+        private string _closedIdleOnePoweredAnimation = "";
+
+        public string ClosedIdleOnePoweredAnimation
+        {
+            get { return _closedIdleOnePoweredAnimation; }
+            set { _closedIdleOnePoweredAnimation = value; }
+        }
+
+        private string _closedIdleTwoPoweredAnimation = "";
+
+        public string ClosedIdleTwoPoweredAnimation
+        {
+            get { return _closedIdleTwoPoweredAnimation; }
+            set { _closedIdleTwoPoweredAnimation = value; }
+        }
+
         private string _openedIdleAnimation = "";
 
         public string OpenedIdleAnimation
@@ -67,12 +83,28 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
             if (_powered)
             {
-                OpenDoor();
+                entity.spritesheets.ChangeAnimation(_openedIdleAnimation, true);
+                Closed = false;
+                _opening = false;
+                if (entity.rigidbody != null)
+                {
+                    entity.rigidbody.IsGround = false;
+                    entity.rigidbody.Init();
+                }
             }
             else
             {
-                CloseDoor();
+                entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true);
+                _closing = false;
+                if (entity.rigidbody != null)
+                {
+                    entity.rigidbody.IsGround = true;
+                    entity.rigidbody.Init();
+                }
+                Closed = true;
             }
+
+            
         }
 
         public override void PowerDevice()
@@ -126,7 +158,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
             }
-
+            
+            Console.WriteLine(_numberOfDeviceActivated);
             base.Update(gameTime);
         }
 
