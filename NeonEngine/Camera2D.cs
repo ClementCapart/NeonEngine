@@ -16,6 +16,8 @@ namespace NeonEngine
         protected float _rotation; // Camera Rotation
         private bool _bounded = false;
 
+        public bool MovedLastFrame = false;
+
         public List<CameraBound> CameraBounds = new List<CameraBound>();
 
         public float ChaseStrength = 0.9f;
@@ -111,6 +113,7 @@ namespace NeonEngine
 
         public void Chase(Vector2 desiredPosition,GameTime gameTime)
         {
+            Vector2 OldPosition = _pos;
             if (ChaseStrength < 0.9f)
                 ChaseStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.05f;
             if (ChaseStrength > 0.9f)
@@ -118,8 +121,7 @@ namespace NeonEngine
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
 
             _pos = new Vector2(MathHelper.Lerp(NewPosition.X, desiredPosition.X, ChaseStrength), MathHelper.Lerp(NewPosition.Y, desiredPosition.Y, ChaseStrength));
-            NewPosition = _pos;
-              
+            NewPosition = _pos;             
 
             if (Bounded && CameraBounds.Count > 0)
             {
@@ -149,8 +151,20 @@ namespace NeonEngine
                 }          
             }
 
-            if (Math.Abs(NewPosition.X - _pos.X) >= 1) _pos.X = NewPosition.X;
-            if (Math.Abs(NewPosition.Y - _pos.Y) >= 1) _pos.Y = NewPosition.Y;
+
+            if (Math.Abs(NewPosition.X - _pos.X) >= 1)
+            {
+                _pos.X = NewPosition.X;
+            }
+            if (Math.Abs(NewPosition.Y - _pos.Y) >= 1)
+            {
+                _pos.Y = NewPosition.Y;
+            }
+
+            if (_pos != OldPosition)
+                MovedLastFrame = true;
+            else
+                MovedLastFrame = false;
             
         }
 

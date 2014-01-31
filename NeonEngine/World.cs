@@ -57,6 +57,7 @@ namespace NeonEngine
 
         public World(Game game)
         {
+            Alpha = 1.0f;
             Console.WriteLine(GetType().Name + " (World) loading...");
             Console.WriteLine("");
             this.game = game;
@@ -104,6 +105,7 @@ namespace NeonEngine
             if (FirstUpdate)
             {
                 FirstUpdate = false;
+                
                 Console.WriteLine("-----------------------------------------------------------------------------");
                 Console.WriteLine("");
                 Console.WriteLine("");
@@ -114,6 +116,7 @@ namespace NeonEngine
         {
             if (FirstUpdateWorld)
             {
+                Alpha = 1.0f;
                 FirstUpdateWorld = false;
                 Console.WriteLine("");
                 Console.WriteLine(GetType().Name + " (World) loaded !");
@@ -157,17 +160,20 @@ namespace NeonEngine
 
             DeferredDrawGame(Neon.SpriteBatch);
 
-            if (!_change)
-                Alpha = Math.Max(Alpha - 4.0f * (float)gameTime.ElapsedGameTime.TotalSeconds, 0.0f);
-            else
+            if (!_change && Alpha > 0.0f && !Camera.MovedLastFrame)
+            {
+                Alpha -= 2.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (Alpha <= 0.0f)
+                    Alpha = 0.0f;
+            }
+            else if(_change)
             {
                 if (Alpha >= 1.0f)
                     Neon.World = NextScreen;
-                Alpha = Math.Min(Alpha + 4.0f * (float)gameTime.ElapsedGameTime.TotalSeconds, 1.0f);
+                Alpha += 2.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }         
             
             InputEngine();
-
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
         }

@@ -26,7 +26,8 @@ namespace NeonStar
             graphics = new GraphicsDeviceManager(this);
             graphics.SynchronizeWithVerticalRetrace = true;
             InactiveSleepTime = TimeSpan.Zero;
-            IsFixedTimeStep = true;
+            this.TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0f / 60.0f);
+            IsFixedTimeStep = false;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             Window.Title = "NeonStar " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -96,7 +97,7 @@ namespace NeonStar
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-            Neon.World = new NeonStarLibrary.LoadingScreen(this, 0, "PreprodPresentation", "Main");
+            Neon.World = new NeonStarLibrary.LoadingScreen(this, 0, "SequenceOne", "TrainingOne");
             
             #endif
         }

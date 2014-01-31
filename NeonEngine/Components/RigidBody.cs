@@ -20,9 +20,9 @@ namespace NeonEngine.Components.CollisionDetection
         public Hitbox hitbox;
         
         public Body body;
-        public bool isGrounded;
+        public bool isGrounded = true;
         
-        public bool wasGrounded;
+        public bool wasGrounded = true;
 
         private PositionChange PositionChanged;
         private ComponentRemoved HitboxRemoved;

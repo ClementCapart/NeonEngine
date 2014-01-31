@@ -111,6 +111,8 @@ namespace NeonStarEditor
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
             GameAsForm.KeyPreview = true;
 
+            
+
             if (loadPreferences)
             {
                 try
@@ -151,10 +153,10 @@ namespace NeonStarEditor
                 }
             }
             else
-            { 
+            {
                 foreach (Control c in GameAsForm.Controls)
-                    c.Show();
-                EditorVisible = true;
+                    c.Hide();
+                EditorVisible = false;
             }
 
             RefreshInspector(null);

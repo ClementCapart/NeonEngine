@@ -131,13 +131,13 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
-            /*if (Alpha != 0.0f)
+            if (Alpha != 0.0f && _avatarComponent != null)
             {
                 _avatarComponent.CanAttack = false;
                 _avatarComponent.CanMove = false;
                 _avatarComponent.CanTurn = false;
                 _avatarComponent.CanUseElement = false;
-            }*/
+            }
             base.PreUpdate(gameTime);
         }
 

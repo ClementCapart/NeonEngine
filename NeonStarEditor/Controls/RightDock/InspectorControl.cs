@@ -607,11 +607,13 @@ namespace NeonStarEditor
                 GameWorld.FocusedTextBox = null;
                 return;
             }
-            if (GameWorld.FocusedTextBox == (sender as TextBox) && (sender as TextBox).Text != GameWorld.AvatarName)
+
+            if ((sender as TextBox) != null && GameWorld.FocusedTextBox == (sender as TextBox) && (sender as TextBox).Text != GameWorld.AvatarName)
             {
                 GameWorld.FocusedTextBox = null;
-                GameWorld.SelectedEntity.Name = (sender as TextBox).Text;
-                GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text = (sender as TextBox).Text;
+                if (GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text == GameWorld.SelectedEntity.Name)
+                    GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text = (sender as TextBox).Text;
+                GameWorld.SelectedEntity.Name = (sender as TextBox).Text;                           
             }
             else if ((sender as TextBox).Text == GameWorld.AvatarName)
             {
