@@ -19,6 +19,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _energyValue = value; }
         }
 
+        private string _idleAnimation = "";
+
+        public string IdleAnimation
+        {
+            get { return _idleAnimation; }
+            set { _idleAnimation = value; }
+        }
+
+        private string _outAnimation = "";
+
+        public string OutAnimation
+        {
+            get { return _outAnimation; }
+            set { _outAnimation = value; }
+        }
+
         private string _avatarName = "LiOn";
 
         public string AvatarName
@@ -45,6 +61,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (e != null)
                     _avatar = e.GetComponent<AvatarCore>();
             }
+            if (entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation(_idleAnimation, false, 0, true, false, true);
             base.Init();
         }
 
@@ -56,6 +74,11 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 {
                     GatherEnergy();
                 }
+            }
+
+            if (_gathered && entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _idleAnimation && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
+            {
+                entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
             }
             base.Update(gameTime);
         }
