@@ -548,8 +548,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4489 Y:100}" />
-              <InitialPosition Value="{X:4489 Y:100}" />
+              <Position Value="{X:4489 Y:150}" />
+              <InitialPosition Value="{X:4489 Y:150}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -557,9 +557,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:4489 Y:100}" />
+              <Center Value="{X:4489 Y:150}" />
               <X Value="4464" />
-              <Y Value="75" />
+              <Y Value="125" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -1252,9 +1252,28 @@
           <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
             <Properties>
               <EnergyValue Value="10" />
+              <IdleAnimation Value="Idle" />
+              <OutAnimation Value="Out" />
               <AvatarName Value="LiOn" />
             </Properties>
           </EnergyCollectible>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="TrainingNociveLeak01" Layer="">
@@ -1262,8 +1281,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4490 Y:-71}" />
-              <InitialPosition Value="{X:4490 Y:-71}" />
+              <Position Value="{X:4490 Y:-21}" />
+              <InitialPosition Value="{X:4490 Y:-21}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1271,9 +1290,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:4490 Y:-71}" />
+              <Center Value="{X:4490 Y:-21}" />
               <X Value="4465" />
-              <Y Value="-221" />
+              <Y Value="-171" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -1530,37 +1549,6 @@
           </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnergyCollectible02" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6779 Y:685}" />
-              <InitialPosition Value="{X:6779 Y:685}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:6779 Y:685}" />
-              <X Value="6749" />
-              <Y Value="655" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="60" />
-              <Height Value="60" />
-            </Properties>
-          </Hitbox>
-          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
-            <Properties>
-              <EnergyValue Value="10" />
-              <AvatarName Value="LiOn" />
-            </Properties>
-          </EnergyCollectible>
-        </Components>
-      </Entity>
       <Entity Name="LevelGeometry" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -1702,7 +1690,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -1979,8 +1967,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6208 Y:1009}" />
-              <InitialPosition Value="{X:6208 Y:1009}" />
+              <Position Value="{X:6169 Y:1009}" />
+              <InitialPosition Value="{X:6169 Y:1009}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1988,8 +1976,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6208 Y:1009}" />
-              <X Value="6158" />
+              <Center Value="{X:6169 Y:1009}" />
+              <X Value="6119" />
               <Y Value="929" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2754,6 +2742,156 @@
               <CanChangeSide Value="False" />
             </Properties>
           </EnemyAnimationManager>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyCollectible10" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2551 Y:-87}" />
+              <InitialPosition Value="{X:2551 Y:-87}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:2551 Y:-87}" />
+              <X Value="2521" />
+              <Y Value="-137" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="60" />
+              <Height Value="100" />
+            </Properties>
+          </Hitbox>
+          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
+            <Properties>
+              <EnergyValue Value="10" />
+              <IdleAnimation Value="" />
+              <OutAnimation Value="" />
+              <AvatarName Value="LiOn" />
+            </Properties>
+          </EnergyCollectible>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyCollectible10" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2480 Y:-91}" />
+              <InitialPosition Value="{X:2480 Y:-91}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:2480 Y:-61}" />
+              <X Value="2460" />
+              <Y Value="-91" />
+              <OffsetX Value="0" />
+              <OffsetY Value="30" />
+              <Width Value="40" />
+              <Height Value="60" />
+            </Properties>
+          </Hitbox>
+          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
+            <Properties>
+              <EnergyValue Value="10" />
+              <IdleAnimation Value="Idle" />
+              <OutAnimation Value="Out" />
+              <AvatarName Value="LiOn" />
+            </Properties>
+          </EnergyCollectible>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
+              </Spritesheets>
+              <DrawLayer Value="0.51" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyCollectible10" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:6741 Y:665}" />
+              <InitialPosition Value="{X:6741 Y:665}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:6741 Y:695}" />
+              <X Value="6721" />
+              <Y Value="665" />
+              <OffsetX Value="0" />
+              <OffsetY Value="30" />
+              <Width Value="40" />
+              <Height Value="60" />
+            </Properties>
+          </Hitbox>
+          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
+            <Properties>
+              <EnergyValue Value="10" />
+              <IdleAnimation Value="Idle" />
+              <OutAnimation Value="Out" />
+              <AvatarName Value="LiOn" />
+            </Properties>
+          </EnergyCollectible>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
+              </Spritesheets>
+              <DrawLayer Value="0.51" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>
