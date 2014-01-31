@@ -7,18 +7,18 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-127 Y:-451}" />
-              <InitialPosition Value="{X:-127 Y:-451}" />
+              <Position Value="{X:-127 Y:-470}" />
+              <InitialPosition Value="{X:-127 Y:-470}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-127 Y:-451}" />
+              <Center Value="{X:-127 Y:-470}" />
               <X Value="-177" />
-              <Y Value="-526" />
+              <Y Value="-545" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -30,9 +30,32 @@
               <EnergyCost Value="10" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
-              <State Value="Deactivated" />
+              <IdleDeactivatedAnimation Value="Deactivated" />
+              <IdleActivatedAnimation Value="Idle" />
+              <ActivationAnimation Value="Activation" />
+              <DeactivationAnimation Value="Deactivation" />
+              <State Value="Activated" />
             </Properties>
           </StableEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceDeactivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="EnergyDevice03" Layer="Device">
@@ -63,6 +86,10 @@
               <EnergyCost Value="10" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -96,6 +123,10 @@
               <EnergyCost Value="10" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -129,6 +160,10 @@
               <EnergyCost Value="10" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -162,6 +197,10 @@
               <EnergyCost Value="100" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -195,6 +234,10 @@
               <EnergyCost Value="100" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
