@@ -59,6 +59,9 @@ namespace NeonStarLibrary
             if (!DeviceManager.AlreadyLoaded)
                 DeviceManager.LoadDevicesInformation();
 
+            if (statusToLoad != null)
+                DeviceManager.LoadDeviceProgression(statusToLoad.Element("Devices"));
+
             DataManager.LoadLevelInfo(groupName, levelName, this);
 
             SpawnPoint currentSpawnPoint = null;
@@ -126,6 +129,8 @@ namespace NeonStarLibrary
                 {
                     avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
                 }
+
+                _avatarComponent.State = AvatarState.Respawning;
             }
         }
 
@@ -137,6 +142,11 @@ namespace NeonStarLibrary
                 _avatarComponent.CanMove = false;
                 _avatarComponent.CanTurn = false;
                 _avatarComponent.CanUseElement = false;
+            }
+            else
+            {
+                if(avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                    avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
             }
             base.PreUpdate(gameTime);
         }
@@ -247,6 +257,10 @@ namespace NeonStarLibrary
             }
 
             playerProgression.Add(playerStatus);
+
+            XElement deviceStatus = DeviceManager.SaveDeviceProgression();
+
+            playerProgression.Add(deviceStatus);
 
             return playerProgression;
         }

@@ -168,7 +168,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
                 if (DamageModifierTimer > 0.0f)
                     DamageModifierTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -222,7 +222,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
                 if (ReleasedAttackButton)
                 {

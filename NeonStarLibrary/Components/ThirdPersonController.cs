@@ -169,7 +169,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
                 for (int i = _ignoredGeometry.Count - 1; i >= 0; i--)
                 {
@@ -333,7 +333,7 @@ namespace NeonStarLibrary.Components.Avatar
                     }
                 }
             }
-            
+
 
             base.Update(gameTime);
         }

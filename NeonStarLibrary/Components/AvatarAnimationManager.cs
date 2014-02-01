@@ -32,6 +32,12 @@ namespace NeonStarLibrary.Components.Avatar
                 entity.spritesheets.ChangeSide(AvatarComponent.CurrentSide);
                 switch (AvatarComponent.State)
                 {
+                    case AvatarState.Respawning:
+                        if (entity.spritesheets != null)
+                        {
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.RespawnAnimation, true, 0, false, false, false);
+                        }
+                        break;
                     case AvatarState.Idle:
                         entity.spritesheets.Active = true;
                         if (entity.rigidbody.isGrounded)
