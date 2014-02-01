@@ -18,6 +18,12 @@ namespace NeonEngine.Components.Graphics2D
         public float opacity = 1f;
         private bool _reverseLoop = false;
         private bool _reverse = false;
+
+        public bool Reverse
+        {
+            get { return _reverse; }
+            set { _reverse = value; }
+        }
         public bool Active = true;   
   
 
@@ -65,7 +71,7 @@ namespace NeonEngine.Components.Graphics2D
         private Particle particle;
 
         public SpriteSheet(SpriteSheetInfo ssi, float Layer, Particle particle)
-            : base(0, null, "Spritesheet")
+            : base(0.5f, null, "Spritesheet")
         {
             DrawLayer = Layer;
             spriteSheetInfo = ssi;
@@ -106,18 +112,37 @@ namespace NeonEngine.Components.Graphics2D
                         {
                             if (!_reverseLoop)
                             {
-                                if (currentFrame == spriteSheetInfo.Frames.Length - 1)
+                                if (!_reverse)
                                 {
-                                    if (IsLooped)
-                                        currentFrame = 0;
-                                    else
+                                    if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                     {
-                                        isPlaying = false;
-                                        _isFinished = true;
+                                        if (IsLooped)
+                                            currentFrame = 0;
+                                        else
+                                        {
+                                            isPlaying = false;
+                                            _isFinished = true;
+                                        }
                                     }
+                                    else
+                                        currentFrame++;
                                 }
                                 else
-                                    currentFrame++;
+                                {
+                                    if (currentFrame == 0)
+                                    {
+                                        if (IsLooped)
+                                            currentFrame = spriteSheetInfo.Frames.Length - 1;
+                                        else
+                                        {
+                                            isPlaying = false;
+                                            _isFinished = true;
+                                        }
+                                    }
+                                    else
+                                        currentFrame--;
+                                }
+                                
                             }
                             else
                             {

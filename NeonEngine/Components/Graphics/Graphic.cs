@@ -40,7 +40,7 @@ namespace NeonEngine.Components.Graphics2D
 
 
         public Graphic(Entity entity)
-            : base(0, entity, "Graphic")
+            : base(0.5f, entity, "Graphic")
         {
         }
 

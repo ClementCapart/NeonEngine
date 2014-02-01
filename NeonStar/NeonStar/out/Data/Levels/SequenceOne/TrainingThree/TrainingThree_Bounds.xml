@@ -175,8 +175,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3914 Y:125}" />
-              <InitialPosition Value="{X:3914 Y:125}" />
+              <Position Value="{X:4182 Y:159}" />
+              <InitialPosition Value="{X:4182 Y:159}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -188,6 +188,30 @@
               <BoundSide Value="Down" />
               <BoundStrength Value="0" />
               <SoftBoundStrength Value="0" />
+              <StrengtheningRate Value="1" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundCamera01" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5337 Y:-202}" />
+              <InitialPosition Value="{X:5337 Y:-202}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Right" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="0.5" />
               <Enabled Value="True" />
             </Properties>

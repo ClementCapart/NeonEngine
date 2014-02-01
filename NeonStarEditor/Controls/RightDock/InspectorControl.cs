@@ -611,7 +611,7 @@ namespace NeonStarEditor
             if ((sender as TextBox) != null && GameWorld.FocusedTextBox == (sender as TextBox) && (sender as TextBox).Text != GameWorld.AvatarName)
             {
                 GameWorld.FocusedTextBox = null;
-                if (GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text == GameWorld.SelectedEntity.Name)
+                if (GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode != null && GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text == GameWorld.SelectedEntity.Name)
                     GameWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text = (sender as TextBox).Text;
                 GameWorld.SelectedEntity.Name = (sender as TextBox).Text;                           
             }
