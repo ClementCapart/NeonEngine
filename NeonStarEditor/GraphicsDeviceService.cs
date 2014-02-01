@@ -62,7 +62,7 @@ namespace WinFormsGraphicsDevice
             parameters.IsFullScreen = false;
 
             graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter,
-                                                GraphicsProfile.Reach,
+                                                GraphicsProfile.HiDef,
                                                 parameters);
         }
 
@@ -152,7 +152,8 @@ namespace WinFormsGraphicsDevice
 
         public void Dispose()
         {
-            graphicsDevice.Dispose();
+            if(graphicsDevice != null)
+                graphicsDevice.Dispose();
         }
     }
 }

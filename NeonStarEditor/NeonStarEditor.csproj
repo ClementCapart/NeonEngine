@@ -107,11 +107,23 @@
     <Compile Include="Controls\BottomDock\EntityListControl.Designer.cs">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SpritesheetPickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SpritesheetPickerControl.Designer.cs">
+      <DependentUpon>SpritesheetPickerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ElementEditor\FirePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ElementEditor\FirePanel.Designer.cs">
       <DependentUpon>FirePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GraphicPickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GraphicPickerControl.Designer.cs">
+      <DependentUpon>GraphicPickerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\LeftDock\LeftDock.cs">
       <SubType>UserControl</SubType>
@@ -167,7 +179,13 @@
     <Compile Include="Controls\ElementEditor\ElementPanel.Designer.cs">
       <DependentUpon>ElementPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SpritesheetView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\GraphicsDeviceControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\GraphicView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GraphicsDeviceService.cs" />
@@ -198,6 +216,7 @@
     <Compile Include="Controls\ElementEditor\ThunderPanel.Designer.cs">
       <DependentUpon>ThunderPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditorSpriteSheet.cs" />
     <Compile Include="Toolstrips\NeonStarToolstrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -227,6 +246,9 @@
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpritesheetPickerControl.resx">
+      <DependentUpon>SpritesheetPickerControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ElementEditor\ElementPanel.resx">
       <DependentUpon>ElementPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ElementEditor\FirePanel.resx">
       <DependentUpon>FirePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GraphicPickerControl.resx">
+      <DependentUpon>GraphicPickerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LeftDock\LeftDock.resx">
       <DependentUpon>LeftDock.cs</DependentUpon>

@@ -388,7 +388,7 @@ namespace NeonEngine
                     ssi.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
                 }
 
-                ssi.Frames = GenerateSpritesheetFrames(texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
+                ssi.Frames = GenerateSpritesheetFrames(Neon.GraphicsDevice, texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
                 assetsLibrary.Add(ssiInfo[0], ssi);
             }
             else
@@ -413,7 +413,7 @@ namespace NeonEngine
                             ssiSequence.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
                         }
 
-                        ssiSequence.Frames = GenerateSpritesheetFrames(texture, ssiSequence.FrameWidth, ssiSequence.FrameHeight, ssiSequence.FrameCount, int.Parse(sequenceInfo[1]));
+                        ssiSequence.Frames = GenerateSpritesheetFrames(Neon.GraphicsDevice, texture, ssiSequence.FrameWidth, ssiSequence.FrameHeight, ssiSequence.FrameCount, int.Parse(sequenceInfo[1]));
                         assetsLibrary.Add(ssiInfo[0] + sequenceInfo[0], ssiSequence);
                     }
                 }
@@ -431,7 +431,7 @@ namespace NeonEngine
             return null;
         }
 
-        static public Texture2D[] GenerateSpritesheetFrames(Texture2D texture, int frameWidth, int frameHeight, int frameCount, int startingFrame)
+        static public Texture2D[] GenerateSpritesheetFrames(GraphicsDevice graphicsDevice, Texture2D texture, int frameWidth, int frameHeight, int frameCount, int startingFrame)
         {
             Texture2D[] frames = null;            
 
@@ -460,7 +460,7 @@ namespace NeonEngine
                 Color[] currentColors = new Color[frameWidth * frameHeight];
                 texture.GetData<Color>(0, new Rectangle(currentColumn * frameWidth, currentRow * frameHeight, frameWidth, frameHeight), currentColors, 0, currentColors.Length);
 
-                frames[i] = new Texture2D(Neon.GraphicsDevice, frameWidth, frameHeight, true, SurfaceFormat.Color);
+                frames[i] = new Texture2D(graphicsDevice, frameWidth, frameHeight, true, SurfaceFormat.Color);
                 frames[i].SetData(currentColors);
 
                 if (currentColumn == columns - 1)

@@ -232,29 +232,29 @@ namespace NeonStarEditor
                     }
                     else if (pi.Name == "SpriteSheetTag")
                     {
-                        ComboBox comboBox = new ComboBox();
-                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new Point(10, localY);
-                        comboBox.Width = 250;
-                        comboBox.BindingContext = new BindingContext();
-                        BindingSource bs = new BindingSource();
-                        List<string> spritesheets = new List<string>();
-                        spritesheets.Add("");
-                        spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
-                        spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
-                        spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
+                        Button openGraphicPicker = new Button();
+                        openGraphicPicker.FlatStyle = FlatStyle.Flat;
+                        openGraphicPicker.Location = new Point(10, localY);
+                        openGraphicPicker.AutoSize = true;
+                        openGraphicPicker.Text = "Spritesheet Picker";
 
-                        bs.DataSource = spritesheets;
+                        tp.Controls.Add(openGraphicPicker);
 
-                        comboBox.DataSource = bs;
-                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
-                        tp.Controls.Add(comboBox);
-                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
-                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
-                        if (comboBox.SelectedIndex == -1)
-                            comboBox.SelectedIndex = 0;
+                        Label currentGraphic = new Label();
+                        currentGraphic.Location = new Point(openGraphicPicker.Width + 35, localY);
+                        currentGraphic.AutoSize = false;
+                        currentGraphic.Width = 300;
+                        currentGraphic.Height = 30;
+                        currentGraphic.Text = (string)pi.GetValue(c, null);
+                        currentGraphic.Font = new Font("Calibri", 8.0f);
+                        tp.Controls.Add(currentGraphic);
 
-                        localY += comboBox.Height + 5;
+                        openGraphicPicker.Click += delegate(object sender, EventArgs e)
+                        {
+                            GameWorld.ToggleSpritesheetPicker(pi, c, currentGraphic);
+                        };
+
+                        localY += openGraphicPicker.Height + 5;
                     }
                     else if (pi.Name == "Font")
                     {
@@ -278,27 +278,29 @@ namespace NeonStarEditor
                     }
                     else if (pi.Name.EndsWith("GraphicTag"))
                     {
-                        ComboBox comboBox = new ComboBox();
-                        comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                        comboBox.Location = new Point(10, localY);
-                        comboBox.BindingContext = new BindingContext();
-                        BindingSource bs = new BindingSource();
-                        List<string> assets = new List<string>();
-                        assets.Add("");
-                        assets.AddRange(AssetManager.CommonAssets.Keys.OrderBy(k => k.ToString()));
-                        assets.AddRange(AssetManager.GroupAssets.Keys.OrderBy(k => k.ToString()));
-                        assets.AddRange(AssetManager.LevelAssets.Keys.OrderBy(k => k.ToString()));
-                        bs.DataSource = assets;
-                        comboBox.Width = 250;
-                        comboBox.DataSource = bs;
-                        comboBox.SelectedItem = (string)pi.GetValue(c, null);
-                        tp.Controls.Add(comboBox);
-                        PropertyControlList.Add(new PropertyComponentControl(pi, c, comboBox));
-                        comboBox.SelectedValueChanged += Spritesheet_SelectedValueChanged;
-                        if (comboBox.SelectedIndex == -1)
-                            comboBox.SelectedIndex = 0;
+                        Button openGraphicPicker = new Button();
+                        openGraphicPicker.FlatStyle = FlatStyle.Flat;
+                        openGraphicPicker.Location = new Point(10, localY);
+                        openGraphicPicker.AutoSize = true;
+                        openGraphicPicker.Text = "Graphic Picker";
+                        
+                        tp.Controls.Add(openGraphicPicker);
 
-                        localY += comboBox.Height + 5;
+                        Label currentGraphic = new Label();
+                        currentGraphic.Location = new Point(openGraphicPicker.Width + 35, localY);
+                        currentGraphic.AutoSize = false;
+                        currentGraphic.Width = 300;
+                        currentGraphic.Height = 30;
+                        currentGraphic.Text = (string)pi.GetValue(c, null);
+                        currentGraphic.Font = new Font("Calibri", 8.0f);
+                        tp.Controls.Add(currentGraphic);
+
+                        openGraphicPicker.Click += delegate(object sender, EventArgs e)
+                        {
+                            GameWorld.ToggleGraphicPicker(pi, c, currentGraphic);
+                        };
+
+                        localY += openGraphicPicker.Height + 5;
                     }
                     else if (pi.PropertyType.Equals(typeof(Microsoft.Xna.Framework.Color)))
                     {

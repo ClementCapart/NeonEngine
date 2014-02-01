@@ -22,7 +22,9 @@ namespace NeonStarEditor
             this.spritesheetList = spritesheetList;
             InitializeComponent();
             this.GameWorld = GameWorld;
+            this.AutoSize = true;
             RefreshData();
+            
         }
 
         void RefreshData()
@@ -43,7 +45,7 @@ namespace NeonStarEditor
                 tb.LostFocus += tb_LostFocus;
                 this.Controls.Add(tb);
 
-                ComboBox cb = new ComboBox();
+                /*ComboBox cb = new ComboBox();
                 cb.Name = tb.Text;
                 cb.DropDownStyle = ComboBoxStyle.DropDownList;
                 cb.Location = new Point(75, (int)NextItemHeight);
@@ -65,7 +67,34 @@ namespace NeonStarEditor
                 this.lineRelationship.Add(cb, tb);
                 cb.SelectedValueChanged += cb_SelectedValueChanged;
 
-                NextItemHeight += 30;
+                NextItemHeight += 30;*/
+
+                Label currentGraphic = new Label();
+                currentGraphic.Location = new Point(75, (int)NextItemHeight);
+                currentGraphic.AutoSize = false;
+                currentGraphic.Width = 300;
+                currentGraphic.Height = 20;
+                currentGraphic.Text = AssetManager.GetSpritesheetTag(kvp.Value);
+                currentGraphic.Font = new Font("Calibri", 8.0f);
+                Controls.Add(currentGraphic);
+
+                Button openGraphicPicker = new Button();
+                openGraphicPicker.FlatStyle = FlatStyle.Flat;
+                openGraphicPicker.Location = new Point(10, (int)NextItemHeight + tb.Height + 2);
+                openGraphicPicker.Width = 200;
+                openGraphicPicker.Height = 20;
+                openGraphicPicker.AutoSize = false;
+                openGraphicPicker.Text = "Spritesheet Picker";
+
+                this.Controls.Add(openGraphicPicker);
+
+                
+
+                NextItemHeight += openGraphicPicker.Height + currentGraphic.Height + 5;
+                openGraphicPicker.Click += delegate(object sender, EventArgs e)
+                {
+                    GameWorld.ToggleSpritesheetPicker(this, tb, currentGraphic);
+                };
             }
 
             Button button = new Button();
@@ -96,13 +125,6 @@ namespace NeonStarEditor
             spritesheetList.Add("Anim" + spritesheetList.Count, new SpriteSheetInfo());
 
             RefreshData();
-        }
-
-        void cb_SelectedValueChanged(object sender, EventArgs e)
-        {
-            string CurrentKey = lineRelationship[(sender as ComboBox)].Text;
-            if (spritesheetList.ContainsKey(CurrentKey))
-                spritesheetList[CurrentKey] = AssetManager.GetSpriteSheet((sender as ComboBox).SelectedValue.ToString());
         }
 
         void tb_LostFocus(object sender, EventArgs e)
