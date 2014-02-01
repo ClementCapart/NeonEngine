@@ -243,7 +243,7 @@ namespace NeonStarEditor
                         Label currentGraphic = new Label();
                         currentGraphic.Location = new Point(openGraphicPicker.Width + 35, localY);
                         currentGraphic.AutoSize = false;
-                        currentGraphic.Width = 300;
+                        currentGraphic.Width = 190;
                         currentGraphic.Height = 30;
                         currentGraphic.Text = (string)pi.GetValue(c, null);
                         currentGraphic.Font = new Font("Calibri", 8.0f);
@@ -289,7 +289,7 @@ namespace NeonStarEditor
                         Label currentGraphic = new Label();
                         currentGraphic.Location = new Point(openGraphicPicker.Width + 35, localY);
                         currentGraphic.AutoSize = false;
-                        currentGraphic.Width = 300;
+                        currentGraphic.Width = 190;
                         currentGraphic.Height = 30;
                         currentGraphic.Text = (string)pi.GetValue(c, null);
                         currentGraphic.Font = new Font("Calibri", 8.0f);
@@ -386,7 +386,7 @@ namespace NeonStarEditor
                         SpritesheetInspector ssinspector = new SpritesheetInspector(SelectedEntity.spritesheets.Spritesheets, GameWorld);
                         ssinspector.Location = new Point(10, localY);
                         tp.Controls.Add(ssinspector);
-
+                        ssinspector.RefreshData();
                         localY += ssinspector.Height + 5;
                     }
                     else if (pi.PropertyType.Equals(typeof(PathNodeList)))

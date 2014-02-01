@@ -27,7 +27,7 @@ namespace NeonStarEditor
             
         }
 
-        void RefreshData()
+        public void RefreshData()
         {
             for (int i = this.Controls.Count - 1; i >= 0; i--)
                 this.Controls.RemoveAt(i);
@@ -45,34 +45,11 @@ namespace NeonStarEditor
                 tb.LostFocus += tb_LostFocus;
                 this.Controls.Add(tb);
 
-                /*ComboBox cb = new ComboBox();
-                cb.Name = tb.Text;
-                cb.DropDownStyle = ComboBoxStyle.DropDownList;
-                cb.Location = new Point(75, (int)NextItemHeight);
-                cb.BindingContext = new BindingContext();
-                BindingSource bs = new BindingSource();
-                List<string> spritesheets = new List<string>();
-                spritesheets.AddRange(AssetManager.CommonSpritesheets.Keys.OrderBy(k => k.ToString()));
-                spritesheets.AddRange(AssetManager.GroupSpritesheets.Keys.OrderBy(k => k.ToString()));
-                spritesheets.AddRange(AssetManager.LevelSpritesheets.Keys.OrderBy(k => k.ToString()));
-
-                bs.DataSource = spritesheets;
-                cb.DataSource = bs;
-                
-                cb.SelectedItem = AssetManager.GetSpritesheetTag(kvp.Value);
-
-                cb.Width = 120;
-                this.Controls.Add(cb);
-
-                this.lineRelationship.Add(cb, tb);
-                cb.SelectedValueChanged += cb_SelectedValueChanged;
-
-                NextItemHeight += 30;*/
 
                 Label currentGraphic = new Label();
                 currentGraphic.Location = new Point(75, (int)NextItemHeight);
                 currentGraphic.AutoSize = false;
-                currentGraphic.Width = 300;
+                currentGraphic.Width = 190;
                 currentGraphic.Height = 20;
                 currentGraphic.Text = AssetManager.GetSpritesheetTag(kvp.Value);
                 currentGraphic.Font = new Font("Calibri", 8.0f);
@@ -80,7 +57,7 @@ namespace NeonStarEditor
 
                 Button openGraphicPicker = new Button();
                 openGraphicPicker.FlatStyle = FlatStyle.Flat;
-                openGraphicPicker.Location = new Point(10, (int)NextItemHeight + tb.Height + 2);
+                openGraphicPicker.Location = new Point(10, (int)NextItemHeight + tb.Height + 5);
                 openGraphicPicker.Width = 200;
                 openGraphicPicker.Height = 20;
                 openGraphicPicker.AutoSize = false;
@@ -90,7 +67,7 @@ namespace NeonStarEditor
 
                 
 
-                NextItemHeight += openGraphicPicker.Height + currentGraphic.Height + 5;
+                NextItemHeight += openGraphicPicker.Height + currentGraphic.Height + 8;
                 openGraphicPicker.Click += delegate(object sender, EventArgs e)
                 {
                     GameWorld.ToggleSpritesheetPicker(this, tb, currentGraphic);
@@ -106,7 +83,7 @@ namespace NeonStarEditor
             if (spritesheetList.Count > 0)
             {
                 Button button2 = new Button();
-                button2.Text = "Remove last";
+                button2.Text = "Remove";
                 button2.Click += button2_Click;
                 button2.Location = new Point(10, (int)NextItemHeight);
                 this.Controls.Add(button2);

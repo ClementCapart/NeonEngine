@@ -347,7 +347,7 @@ namespace NeonStarEditor
                 }
             }
 
-            if (_isGraphicPickerDisplayed)
+            if (_isSpritesheetPickerDisplayed)
             {
                 GameAsForm.Controls.Remove(SpritesheetPicker);
                 SpritesheetPicker.Dispose();
@@ -390,7 +390,7 @@ namespace NeonStarEditor
                 }
             }
 
-            if (_isGraphicPickerDisplayed)
+            if (_isSpritesheetPickerDisplayed)
             {
                 GameAsForm.Controls.Remove(SpritesheetPicker);
                 SpritesheetPicker.Dispose();
