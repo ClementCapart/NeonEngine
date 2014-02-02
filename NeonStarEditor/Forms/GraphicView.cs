@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
+using NeonStarEditor.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,19 +20,29 @@ namespace NeonStarEditor
         public Vector2 Position = Vector2.Zero;
         public Color BackgroundColor = Color.Gray;
         public float Zoom = 2.0f;
+        public TreeNode NodeToSelect;
 
-        public GraphicView()
+        private GraphicPickerControl _gpc;
+
+        public GraphicView(GraphicPickerControl gpc)
         {
+            _gpc = gpc;
         }
 
         protected override void Initialize()
         {
             Application.Idle += delegate { Invalidate(); };
             SpriteBatch = new SpriteBatch(this.GraphicsDevice);
+            base.Initialize();
         }
 
         protected override void Draw()
         {
+            if (NodeToSelect != null)
+            {
+                _gpc.assetList.SelectedNode = NodeToSelect;
+                NodeToSelect = null;
+            }
             if (Neon.Input.MouseCheck(MouseButton.LeftButton))
             {
                 Position += Neon.Input.DeltaMouse;
@@ -53,7 +64,7 @@ namespace NeonStarEditor
                 SpriteBatch.Draw(TextureToDraw, Position + new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), null, Color.White, 0.0f, new Vector2(TextureToDraw.Width / 2, TextureToDraw.Height / 2), Zoom, SpriteEffects.None, 0.0f);
                 SpriteBatch.End();
             }
-
+            base.Draw();
         }
 
         internal void LoadTexture(string filePath)

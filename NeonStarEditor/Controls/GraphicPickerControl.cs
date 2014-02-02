@@ -44,6 +44,10 @@ namespace NeonStarEditor.Controls
         {
             Dictionary<string, string> allAssets = new Dictionary<string, string>();
 
+            TreeNode noAsset = new TreeNode("NoGraphic");
+            noAsset.Name = "NoGraphic";
+            assetList.Nodes.Add(noAsset);
+
             TreeNode commonAssets = new TreeNode("CommonAssets");
             commonAssets.Name = "CommonAssets";
             assetList.Nodes.Add(commonAssets);
@@ -62,6 +66,8 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label.Text == newNode.Name)
+                            graphicView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -99,6 +105,8 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label.Text == newNode.Name)
+                            graphicView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -136,6 +144,8 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label.Text == newNode.Name)
+                            graphicView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -166,6 +176,13 @@ namespace NeonStarEditor.Controls
             {
                 _label.Text = assetList.SelectedNode.Text;
                 _propertyInfo.SetValue(_component, assetList.SelectedNode.Text, null);
+                GameWorld.ToggleGraphicPicker();
+            }
+            else if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode.Name == "NoGraphic")
+            {
+                _label.Text = "";
+                _propertyInfo.SetValue(_component, "", null);
+                GameWorld.ToggleGraphicPicker();
             }
             else
             {
@@ -175,11 +192,11 @@ namespace NeonStarEditor.Controls
 
         private void assetList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (assetList.SelectedNode.Nodes.Count == 0)
+            if (assetList.SelectedNode.Nodes.Count == 0 && assetList.SelectedNode.Tag != null)
             {
-                graphicView1.LoadTexture((string)assetList.SelectedNode.Tag);
-                graphicView1.Position = Vector2.Zero;
-                graphicView1.Zoom = 2.0f;
+                    graphicView1.LoadTexture((string)assetList.SelectedNode.Tag);
+                    graphicView1.Position = Vector2.Zero;
+                    graphicView1.Zoom = 2.0f;               
             }
         }
 

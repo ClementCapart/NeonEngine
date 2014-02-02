@@ -176,6 +176,7 @@ namespace NeonEngine
             InputEngine();
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
+            Camera.MovedLastFrame = false;
         }
 
         public virtual void PostUpdate(GameTime gameTime)

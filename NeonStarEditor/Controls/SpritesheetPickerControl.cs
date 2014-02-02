@@ -64,6 +64,10 @@ namespace NeonStarEditor.Controls
 
         public void InitializeSpritesheetList()
         {
+            TreeNode noAsset = new TreeNode("NoSpritesheet");
+            noAsset.Name = "";
+            assetList.Nodes.Add(noAsset);
+
             TreeNode commonAssets = new TreeNode("CommonSpritesheets");
             commonAssets.Name = "CommonSpritesheets";
             assetList.Nodes.Add(commonAssets);
@@ -82,6 +86,10 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label != null && _label.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
+                        else if (_currentSpritesheet != null && _currentSpritesheet.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -119,6 +127,10 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label != null && _label.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
+                        else if (_currentSpritesheet != null && _currentSpritesheet.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -156,6 +168,10 @@ namespace NeonStarEditor.Controls
                         newNode.Tag = kvp.Value;
                         tn.Nodes.Add(newNode);
                         tn = newNode;
+                        if (_label != null && _label.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
+                        else if (_currentSpritesheet != null && _currentSpritesheet.Text == newNode.Name)
+                            spritesheetView1.NodeToSelect = newNode;
                         continue;
                     }
                     if (!tn.Nodes.ContainsKey(folders[i]))
@@ -173,6 +189,8 @@ namespace NeonStarEditor.Controls
             }
             if (levelAssets.Nodes.Count == 0)
                 levelAssets.Remove();
+
+
         }
 
         private void ClosePanel_Click(object sender, EventArgs e)
@@ -184,15 +202,17 @@ namespace NeonStarEditor.Controls
         {
             if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode.Nodes.Count == 0)
             {
-                _label.Text = assetList.SelectedNode.Text;
+                _label.Text = assetList.SelectedNode.Name;
                 _propertyInfo.SetValue(_component, assetList.SelectedNode.Text, null);
+                GameWorld.ToggleSpritesheetPicker();
             }
             else if (GameWorld.SelectedEntity != null && _spritesheetInspector != null && _currentAnimation != null && _currentSpritesheet != null && assetList.SelectedNode.Nodes.Count == 0)
             {
-                _currentSpritesheet.Text = assetList.SelectedNode.Text;
-                
-                if(_spritesheetInspector.spritesheetList.ContainsKey(_currentAnimation.Text))
+                _currentSpritesheet.Text = assetList.SelectedNode.Name;
+
+                if (_spritesheetInspector.spritesheetList.ContainsKey(_currentAnimation.Text))
                     _spritesheetInspector.spritesheetList[_currentAnimation.Text] = AssetManager.GetSpriteSheet(assetList.SelectedNode.Text);
+                GameWorld.ToggleSpritesheetPicker();
             }
             else
             {
@@ -202,7 +222,7 @@ namespace NeonStarEditor.Controls
 
         private void assetList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (assetList.SelectedNode.Nodes.Count == 0)
+            if (assetList.SelectedNode.Nodes.Count == 0 && assetList.SelectedNode.Tag != null)
             {
                 this.spritesheetView1.LoadSpritesheet((string)assetList.SelectedNode.Tag, assetList.SelectedNode.Text);
                 this.spritesheetView1.Position = new Vector2(spritesheetView1.Width / 2, spritesheetView1.Height / 2);

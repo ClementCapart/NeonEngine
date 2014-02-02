@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
+using NeonStarEditor.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,11 +24,14 @@ namespace NeonStarEditor
 
         public Entity entity = new Entity(null);
         public EditorSpriteSheet Spritesheet;
+        SpritesheetPickerControl _ssp;
+        public TreeNode NodeToSelect;
 
         public DateTime lastTime;
 
-        public SpritesheetView()
+        public SpritesheetView(SpritesheetPickerControl ssp)
         {
+            _ssp = ssp;
         }
 
         protected override void Initialize()
@@ -38,6 +42,7 @@ namespace NeonStarEditor
 
         protected override void Draw()
         {
+           
             if (Neon.Input.MouseCheck(MouseButton.LeftButton))
             {
                 Position += Neon.Input.DeltaMouse;
@@ -63,7 +68,11 @@ namespace NeonStarEditor
                 SpriteBatch.End();
             }
             lastTime = DateTime.Now;
-
+            if (NodeToSelect != null)
+            {
+                _ssp.assetList.SelectedNode = NodeToSelect;
+                NodeToSelect = null;
+            }
         }
 
         public void LoadSpritesheet(string filePath, string tag)

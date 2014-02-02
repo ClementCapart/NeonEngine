@@ -305,28 +305,24 @@ namespace NeonStarEditor
             }
 
             if (_isGraphicPickerDisplayed)
-            {
-                GameAsForm.Controls.Remove(GraphicPicker);
-                GraphicPicker.Dispose();
-                GraphicPicker = null;
-                _isGraphicPickerDisplayed = false;
-            }
-            else
-            {
-                if (_isElementManagerDisplayed)
-                    ToggleElementPanel();
+                ToggleGraphicPicker();
 
-                if (_isAttackManagerDisplayed)
-                    ToggleAttackManager();
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
 
-                if (_isAddComponentPanelDisplayed)
-                    ToggleAddComponentPanel();
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
 
-                GraphicPicker = new GraphicPickerControl(this, pi, c, l);
-                CurrentTool = new Selection(this);
-                GameAsForm.Controls.Add(GraphicPicker);
-                _isGraphicPickerDisplayed = true;
-            }
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            GraphicPicker = new GraphicPickerControl(this, pi, c, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(GraphicPicker);
+            _isGraphicPickerDisplayed = true;
         }
 
         public void ToggleSpritesheetPicker(PropertyInfo pi = null, NeonEngine.Component c = null, Label l = null)
@@ -347,29 +343,25 @@ namespace NeonStarEditor
                 }
             }
 
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
             if (_isSpritesheetPickerDisplayed)
-            {
-                GameAsForm.Controls.Remove(SpritesheetPicker);
-                SpritesheetPicker.Dispose();
-                SpritesheetPicker = null;
-                _isSpritesheetPickerDisplayed = false;
-            }
-            else
-            {
-                if (_isElementManagerDisplayed)
-                    ToggleElementPanel();
+                ToggleSpritesheetPicker();
 
-                if (_isAttackManagerDisplayed)
-                    ToggleAttackManager();
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
 
-                if (_isAddComponentPanelDisplayed)
-                    ToggleAddComponentPanel();
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
 
-                SpritesheetPicker = new SpritesheetPickerControl(this, pi, c, l);
-                CurrentTool = new Selection(this);
-                GameAsForm.Controls.Add(SpritesheetPicker);
-                _isSpritesheetPickerDisplayed = true;
-            }
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SpritesheetPicker = new SpritesheetPickerControl(this, pi, c, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SpritesheetPicker);
+            _isSpritesheetPickerDisplayed = true;
         }
 
         public void ToggleSpritesheetPicker(SpritesheetInspector ssi, TextBox tb, Label l)
@@ -390,29 +382,25 @@ namespace NeonStarEditor
                 }
             }
 
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
             if (_isSpritesheetPickerDisplayed)
-            {
-                GameAsForm.Controls.Remove(SpritesheetPicker);
-                SpritesheetPicker.Dispose();
-                SpritesheetPicker = null;
-                _isSpritesheetPickerDisplayed = false;
-            }
-            else
-            {
-                if (_isElementManagerDisplayed)
-                    ToggleElementPanel();
+                ToggleSpritesheetPicker();
 
-                if (_isAttackManagerDisplayed)
-                    ToggleAttackManager();
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
 
-                if (_isAddComponentPanelDisplayed)
-                    ToggleAddComponentPanel();
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
 
-                SpritesheetPicker = new SpritesheetPickerControl(this, ssi, tb, l);
-                CurrentTool = new Selection(this);
-                GameAsForm.Controls.Add(SpritesheetPicker);
-                _isSpritesheetPickerDisplayed = true;
-            }
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SpritesheetPicker = new SpritesheetPickerControl(this, ssi, tb, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SpritesheetPicker);
+            _isSpritesheetPickerDisplayed = true;
         }
 
 

@@ -35,7 +35,7 @@
             this.entityName = new System.Windows.Forms.Label();
             this.entityInfo = new System.Windows.Forms.Label();
             this.BackgroundColorDialog = new System.Windows.Forms.ColorDialog();
-            this.graphicView1 = new NeonStarEditor.GraphicView();
+            this.graphicView1 = new NeonStarEditor.GraphicView(this);
             this.ChangeBackgroundColorButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -151,8 +151,6 @@
 
         #endregion
 
-        private GraphicView graphicView1;
-        private System.Windows.Forms.TreeView assetList;
         private System.Windows.Forms.Button SelectButton;
         private System.Windows.Forms.Button ClosePanel;
         private System.Windows.Forms.Label Title;
@@ -160,5 +158,7 @@
         private System.Windows.Forms.Label entityInfo;
         private System.Windows.Forms.ColorDialog BackgroundColorDialog;
         private System.Windows.Forms.Button ChangeBackgroundColorButton;
+        public GraphicView graphicView1;
+        public System.Windows.Forms.TreeView assetList;
     }
 }
