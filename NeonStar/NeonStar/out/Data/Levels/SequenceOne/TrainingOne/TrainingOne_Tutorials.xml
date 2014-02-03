@@ -7,8 +7,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-490 Y:-49}" />
-              <InitialPosition Value="{X:-490 Y:-49}" />
+              <Position Value="{X:-485 Y:-49}" />
+              <InitialPosition Value="{X:-485 Y:-49}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -17,13 +17,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialMove" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:134 Y:-184}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -32,12 +32,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-490 Y:-49}" />
-              <X Value="-690" />
+              <Center Value="{X:-485 Y:-49}" />
+              <X Value="-635" />
               <Y Value="-74" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="400" />
+              <Width Value="300" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
@@ -48,8 +48,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1409 Y:50}" />
-              <InitialPosition Value="{X:1409 Y:50}" />
+              <Position Value="{X:1277 Y:50}" />
+              <InitialPosition Value="{X:1277 Y:50}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -58,13 +58,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialRoll" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:35 Y:-159}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -73,12 +73,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1409 Y:50}" />
-              <X Value="1109" />
+              <Center Value="{X:1277 Y:50}" />
+              <X Value="1127" />
               <Y Value="25" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="600" />
+              <Width Value="300" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
@@ -99,13 +99,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialCollectibles" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:50 Y:-172}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -125,13 +125,13 @@
           </Hitbox>
         </Components>
       </Entity>
-      <Entity Name="Tutorial05" Layer="Tutorials">
+      <Entity Name="Tutorial06" Layer="Tutorials">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1428 Y:698}" />
-              <InitialPosition Value="{X:1428 Y:698}" />
+              <Position Value="{X:2269 Y:400}" />
+              <InitialPosition Value="{X:2269 Y:400}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -140,13 +140,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialDevice" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:-40 Y:-240}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -155,15 +155,72 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1428 Y:698}" />
-              <X Value="1228" />
-              <Y Value="673" />
+              <Center Value="{X:2269 Y:400}" />
+              <X Value="2169" />
+              <Y Value="375" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="Tutorial02" Layer="Tutorials">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:908 Y:299}" />
+              <InitialPosition Value="{X:908 Y:299}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <FadingGraphic Type="NeonStarLibrary.Components.Graphics2D.FadingGraphic" ID="2">
+            <Properties>
+              <FadingSpeed Value="1" />
+              <AvatarName Value="LiOn" />
+              <GraphicTag Value="TutorialJump" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-59 Y:-138}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </FadingGraphic>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:908 Y:299}" />
+              <X Value="708" />
+              <Y Value="274" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="400" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
+          <FadingGraphic Type="NeonStarLibrary.Components.Graphics2D.FadingGraphic" ID="3">
+            <Properties>
+              <FadingSpeed Value="1" />
+              <AvatarName Value="LiOn" />
+              <GraphicTag Value="TutorialDoubleJump" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:180 Y:-312}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </FadingGraphic>
         </Components>
       </Entity>
       <Entity Name="Tutorial03" Layer="Tutorials">
@@ -171,8 +228,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:654 Y:1097}" />
-              <InitialPosition Value="{X:654 Y:1097}" />
+              <Position Value="{X:797 Y:1097}" />
+              <InitialPosition Value="{X:797 Y:1097}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -181,13 +238,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialRoll" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:132 Y:-159}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -196,8 +253,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:654 Y:1097}" />
-              <X Value="254" />
+              <Center Value="{X:797 Y:1097}" />
+              <X Value="397" />
               <Y Value="1072" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -207,13 +264,13 @@
           </Hitbox>
         </Components>
       </Entity>
-      <Entity Name="Tutorial03" Layer="Tutorials">
+      <Entity Name="Tutorial04" Layer="Tutorials">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2277 Y:400}" />
-              <InitialPosition Value="{X:2277 Y:400}" />
+              <Position Value="{X:1607 Y:51}" />
+              <InitialPosition Value="{X:1607 Y:51}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -222,13 +279,13 @@
             <Properties>
               <FadingSpeed Value="1" />
               <AvatarName Value="LiOn" />
-              <GraphicTag Value="TutorialScreen" />
-              <DrawLayer Value="0.5" />
+              <GraphicTag Value="TutorialDash" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:49 Y:-138}" />
+              <Offset Value="{X:132 Y:-167}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -237,12 +294,69 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:2277 Y:400}" />
-              <X Value="2177" />
-              <Y Value="375" />
+              <Center Value="{X:1607 Y:51}" />
+              <X Value="1507" />
+              <Y Value="26" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <FadingGraphic Type="NeonStarLibrary.Components.Graphics2D.FadingGraphic" ID="3">
+            <Properties>
+              <FadingSpeed Value="1" />
+              <AvatarName Value="LiOn" />
+              <GraphicTag Value="WarningDashJump" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:357 Y:-8}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </FadingGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Tutorial05" Layer="Tutorials">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1432 Y:700}" />
+              <InitialPosition Value="{X:1432 Y:700}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <FadingGraphic Type="NeonStarLibrary.Components.Graphics2D.FadingGraphic" ID="2">
+            <Properties>
+              <FadingSpeed Value="1" />
+              <AvatarName Value="LiOn" />
+              <GraphicTag Value="TutorialCollectibles" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:50 Y:-172}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </FadingGraphic>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1432 Y:700}" />
+              <X Value="1232" />
+              <Y Value="675" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="400" />
               <Height Value="50" />
             </Properties>
           </Hitbox>
