@@ -1,4 +1,5 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.Text2D;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
 using System;
@@ -72,6 +73,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         public AvatarCore _avatar;
         private bool _isFilling = false;
         private float _fillingTimer = 0.0f;
+        private TextDisplay _textDisplay;
 
         public StableEnergyDevice(Entity entity)
             :base(entity)
@@ -81,6 +83,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            _textDisplay = entity.GetComponent<TextDisplay>();
             Entity avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
             if (avatarEntity != null)
                 _avatar = avatarEntity.GetComponent<AvatarCore>();
@@ -131,6 +134,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                             _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
                                             if (entity.spritesheets != null)
                                                 entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+                                            if (_textDisplay != null)
+                                                _textDisplay.Active = false;
                                         }
                                     }
                                 }
@@ -170,12 +175,16 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
                 }
             }
+
+            if(entity.spritesheets.CurrentSpritesheetName == _idleDeactivatedAnimation)
+                if (_textDisplay != null)
+                    _textDisplay.Active = true;
             
             base.Update(gameTime);
         }
 
         public override void ActivateDevice()
-        {         
+        {
             base.ActivateDevice();
         }
 
