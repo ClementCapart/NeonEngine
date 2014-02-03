@@ -38,8 +38,12 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if(entity.spritesheets != null)
+            if(entity.spritesheets != null && _canChangeSide)
                 entity.spritesheets.ChangeSide(EnemyComponent.CurrentSide);
+            else if (entity.spritesheets != null)
+            {
+                entity.spritesheets.ChangeSide(Side.Right);
+            }
             base.PreUpdate(gameTime);
         }
 
