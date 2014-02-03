@@ -111,13 +111,9 @@ namespace NeonStarEditor
             GameAsForm.Controls.Add(RightDockControl);
             GameAsForm.Controls.Add(LeftDockControl);
 
-            
-
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
-            GameAsForm.KeyPreview = true;
-
-            
+            GameAsForm.KeyPreview = true;        
 
             if (loadPreferences)
             {
