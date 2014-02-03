@@ -268,7 +268,7 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     (this.entity.GameWorld as GameScreen).Respawn();
                 }
-                if (_airLockDuration > 0.0f && IsAirLocked)
+                else if (_airLockDuration > 0.0f && IsAirLocked)
                 {
                     _airLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                     entity.rigidbody.GravityScale = 0.0f;
@@ -280,7 +280,7 @@ namespace NeonStarLibrary.Components.Avatar
                     IsAirLocked = false;
                 }
 
-                if (_stunLockDuration > 0.0f)
+                if (_stunLockDuration > 0.0f && State != AvatarState.Dying)
                 {
                     _stunLockDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                     State = AvatarState.Stunlocked;

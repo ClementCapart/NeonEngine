@@ -42,43 +42,6 @@
           </HitboxTrigger>
         </Components>
       </Entity>
-      <Entity Name="EnergyDevice01" Layer="Energy">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1174 Y:-200}" />
-              <InitialPosition Value="{X:1174 Y:-200}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:1174 Y:-200}" />
-              <X Value="1124" />
-              <Y Value="-275" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="150" />
-            </Properties>
-          </Hitbox>
-          <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="2">
-            <Properties>
-              <EnergyCost Value="10" />
-              <AvatarName Value="LiOn" />
-              <FillingDuration Value="1" />
-              <IdleDeactivatedAnimation Value="" />
-              <IdleActivatedAnimation Value="" />
-              <ActivationAnimation Value="" />
-              <DeactivationAnimation Value="" />
-              <State Value="Deactivated" />
-            </Properties>
-          </StableEnergyDevice>
-        </Components>
-      </Entity>
       <Entity Name="EnergyDoor01" Layer="Energy">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -112,7 +75,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
