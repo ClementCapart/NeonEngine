@@ -79,6 +79,7 @@ namespace NeonStarLibrary
                     _elementSystem.AvatarComponent.CanMove = false;
                     _elementSystem.AvatarComponent.CanTurn = false;
                     _elementSystem.AvatarComponent.CanAttack = false;
+                    _entity.rigidbody.GravityScale = 0.0f;
                     break;
             }
             base.PreUpdate(gameTime);
@@ -128,7 +129,8 @@ namespace NeonStarLibrary
                     
                     break;
 
-                case ElementState.Charge:                                                         
+                case ElementState.Charge:
+                    _entity.rigidbody.GravityScale = 0.0f;                                   
                     State = ElementState.Effect;                 
                     _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);
                     ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);

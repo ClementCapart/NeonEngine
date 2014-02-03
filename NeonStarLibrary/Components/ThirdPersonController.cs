@@ -317,7 +317,7 @@ namespace NeonStarLibrary.Components.Avatar
                 if (entity.rigidbody != null && entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
                     EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
 
-                if (entity.rigidbody != null && entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0)
+                if (entity.rigidbody != null && entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0.0 && AvatarComponent.State != AvatarState.UsingElement)
                     entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, _maxFallSpeed);
 
                 foreach (Rigidbody rg in _ignoredGeometry)
