@@ -1096,95 +1096,6 @@
           </EnemyAnimationManager>
         </Components>
       </Entity>
-      <Entity Name="EnergyDoor01" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:3823 Y:85}" />
-              <InitialPosition Value="{X:3823 Y:85}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:3823 Y:85}" />
-              <X Value="3798" />
-              <Y Value="-65" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="300" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
-            <Properties>
-              <ClosedIdleAnimation Value="Closed" />
-              <OpenedIdleAnimation Value="Opened" />
-              <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="False" />
-              <DoorClosingAnimation Value="Closing" />
-              <FirstActivatingDeviceName Value="EnergyDevice01" />
-              <FirstDeviceInSameLevel Value="True" />
-              <FirstActivatingDeviceLevelGroup Value="" />
-              <FirstActivatingDeviceLevelName Value="" />
-              <SecondActivatingDeviceName Value="" />
-              <SecondDeviceInSameLevel Value="False" />
-              <SecondActivatingDeviceLevelGroup Value="" />
-              <SecondActivatingDeviceLevelName Value="" />
-              <ThirdActivatingDeviceName Value="" />
-              <ThirdDeviceInSameLevel Value="False" />
-              <ThirdActivatingDeviceLevelGroup Value="" />
-              <ThirdActivatingDeviceLevelName Value="" />
-              <FourthActivatingDeviceName Value="" />
-              <FourthDeviceInSameLevel Value="False" />
-              <FourthActivatingDeviceLevelGroup Value="" />
-              <FourthActivatingDeviceLevelName Value="" />
-              <FifthActivatingDeviceName Value="" />
-              <FifthDeviceInSameLevel Value="False" />
-              <FifthActivatingDeviceLevelGroup Value="" />
-              <FifthActivatingDeviceLevelName Value="" />
-            </Properties>
-          </EnergyDoor>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Closing" SpritesheetTag="DoorClosing" />
-                <Animation Name="Closed" SpritesheetTag="DoorClosed" />
-                <Animation Name="Opened" SpritesheetTag="DoorOpened" />
-                <Animation Name="Opening" SpritesheetTag="Door" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
       <Entity Name="ChangeLevel01" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -1224,56 +1135,6 @@
               <TriggeredComponentName Value="ChangeLevel" />
             </Properties>
           </HitboxTrigger>
-        </Components>
-      </Entity>
-      <Entity Name="EnergyCollectible01" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2475 Y:-72}" />
-              <InitialPosition Value="{X:2475 Y:-72}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:2475 Y:-72}" />
-              <X Value="2445" />
-              <Y Value="-102" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="60" />
-              <Height Value="60" />
-            </Properties>
-          </Hitbox>
-          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
-            <Properties>
-              <EnergyValue Value="10" />
-              <IdleAnimation Value="Idle" />
-              <OutAnimation Value="Out" />
-              <AvatarName Value="LiOn" />
-            </Properties>
-          </EnergyCollectible>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
-                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
-              </Spritesheets>
-              <DrawLayer Value="0" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="TrainingNociveLeak01" Layer="">
@@ -1657,95 +1518,6 @@
           </HitboxTrigger>
         </Components>
       </Entity>
-      <Entity Name="EnergyDoor02" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6861 Y:938}" />
-              <InitialPosition Value="{X:6861 Y:938}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:6861 Y:938}" />
-              <X Value="6836" />
-              <Y Value="788" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="300" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
-            <Properties>
-              <ClosedIdleAnimation Value="Closed" />
-              <OpenedIdleAnimation Value="Opened" />
-              <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="False" />
-              <DoorClosingAnimation Value="Closing" />
-              <FirstActivatingDeviceName Value="EnergyDevice02" />
-              <FirstDeviceInSameLevel Value="True" />
-              <FirstActivatingDeviceLevelGroup Value="" />
-              <FirstActivatingDeviceLevelName Value="" />
-              <SecondActivatingDeviceName Value="" />
-              <SecondDeviceInSameLevel Value="True" />
-              <SecondActivatingDeviceLevelGroup Value="" />
-              <SecondActivatingDeviceLevelName Value="" />
-              <ThirdActivatingDeviceName Value="" />
-              <ThirdDeviceInSameLevel Value="True" />
-              <ThirdActivatingDeviceLevelGroup Value="" />
-              <ThirdActivatingDeviceLevelName Value="" />
-              <FourthActivatingDeviceName Value="" />
-              <FourthDeviceInSameLevel Value="True" />
-              <FourthActivatingDeviceLevelGroup Value="" />
-              <FourthActivatingDeviceLevelName Value="" />
-              <FifthActivatingDeviceName Value="" />
-              <FifthDeviceInSameLevel Value="True" />
-              <FifthActivatingDeviceLevelGroup Value="" />
-              <FifthActivatingDeviceLevelName Value="" />
-            </Properties>
-          </EnergyDoor>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Closing" SpritesheetTag="DoorClosing" />
-                <Animation Name="Closed" SpritesheetTag="DoorClosed" />
-                <Animation Name="Opened" SpritesheetTag="DoorOpened" />
-                <Animation Name="Opening" SpritesheetTag="Door" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
       <Entity Name="TemporarCheckpoint01" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -1799,6 +1571,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -1821,6 +1595,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Left" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -1843,6 +1619,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -1931,6 +1709,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -1953,6 +1733,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -1967,8 +1749,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6169 Y:1009}" />
-              <InitialPosition Value="{X:6169 Y:1009}" />
+              <Position Value="{X:6438 Y:1009}" />
+              <InitialPosition Value="{X:6438 Y:1009}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1976,8 +1758,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6169 Y:1009}" />
-              <X Value="6119" />
+              <Center Value="{X:6438 Y:1009}" />
+              <X Value="6388" />
               <Y Value="929" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2003,7 +1785,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2105,6 +1887,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Right" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -2421,6 +2205,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -2443,6 +2229,8 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
@@ -2653,147 +2441,6 @@
           </RandomTilableGraphic>
         </Components>
       </Entity>
-      <Entity Name="TrainingSecurityAlarm02" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:5541 Y:-160}" />
-              <InitialPosition Value="{X:5541 Y:-160}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:5541 Y:-160}" />
-              <X Value="5391" />
-              <Y Value="-360" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="400" />
-            </Properties>
-          </Hitbox>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="True" />
-              <ImmuneToDamage Value="True" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Flying" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="0" />
-            </Properties>
-          </EnemyCore>
-          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="9">
-            <Properties>
-              <MaximumAngleDifference Value="360" />
-              <RangeForAttackOne Value="5000" />
-              <AttackToLaunchOne Value="TrainingAlarmDetection" />
-              <AttackOneDelayAnimation Value="Delay" />
-              <AttackOneDurationAnimation Value="Duration" />
-              <AttackOneCooldownAnimation Value="Cooldown" />
-              <RangeForAttackTwo Value="0" />
-              <AttackToLaunchTwo Value="" />
-              <AttackTwoDelayAnimation Value="" />
-              <AttackTwoDurationAnimation Value="" />
-              <AttackTwoCooldownAnimation Value="" />
-              <RangeForAttackThree Value="0" />
-              <AttackToLaunchThree Value="" />
-              <AttackThreeDelayAnimation Value="" />
-              <AttackThreeDurationAnimation Value="" />
-              <AttackThreeCooldownAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
-            </Properties>
-          </AreaAttack>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="10">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Delay" SpritesheetTag="TrainingLazerDelay" />
-                <Animation Name="Duration" SpritesheetTag="TrainingLazerDuration" />
-                <Animation Name="Cooldown" SpritesheetTag="TrainingLazerCooldown" />
-              </Spritesheets>
-              <DrawLayer Value="0.99" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="11">
-            <Properties>
-              <CanChangeSide Value="False" />
-            </Properties>
-          </EnemyAnimationManager>
-        </Components>
-      </Entity>
-      <Entity Name="EnergyCollectible10" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2551 Y:-87}" />
-              <InitialPosition Value="{X:2551 Y:-87}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:2551 Y:-87}" />
-              <X Value="2521" />
-              <Y Value="-137" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="60" />
-              <Height Value="100" />
-            </Properties>
-          </Hitbox>
-          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
-            <Properties>
-              <EnergyValue Value="10" />
-              <IdleAnimation Value="" />
-              <OutAnimation Value="" />
-              <AvatarName Value="LiOn" />
-            </Properties>
-          </EnergyCollectible>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
-                <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
-              </Spritesheets>
-              <DrawLayer Value="0.4" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
       <Entity Name="EnergyCollectible10" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -2892,6 +2539,279 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyDoor01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:3770 Y:83}" />
+              <InitialPosition Value="{X:3770 Y:83}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:3770 Y:83}" />
+              <X Value="3745" />
+              <Y Value="-67" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="300" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.49875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
+            <Properties>
+              <MultiLockDoor Value="False" />
+              <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="False" />
+              <DoorClosingAnimation Value="Closing" />
+              <FirstActivatingDeviceName Value="EnergyDevice01" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+            </Properties>
+          </EnergyDoor>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closing" SpritesheetTag="EnergyDoor1LockClosing" />
+                <Animation Name="Closed" SpritesheetTag="EnergyDoor1LockClosed" />
+                <Animation Name="Opened" SpritesheetTag="EnergyDoor1LockOpened" />
+                <Animation Name="Opening" SpritesheetTag="EnergyDoor1LockOpening" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyDoor01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:6811 Y:936}" />
+              <InitialPosition Value="{X:6811 Y:936}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:6811 Y:935}" />
+              <X Value="6786" />
+              <Y Value="785" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="300" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.49875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
+            <Properties>
+              <MultiLockDoor Value="False" />
+              <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="False" />
+              <DoorClosingAnimation Value="Closing" />
+              <FirstActivatingDeviceName Value="EnergyDevice02" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+            </Properties>
+          </EnergyDoor>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closing" SpritesheetTag="EnergyDoor1LockClosing" />
+                <Animation Name="Closed" SpritesheetTag="EnergyDoor1LockClosed" />
+                <Animation Name="Opened" SpritesheetTag="EnergyDoor1LockOpened" />
+                <Animation Name="Opening" SpritesheetTag="EnergyDoor1LockOpening" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="TrainingNociveLeak01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5357 Y:-110}" />
+              <InitialPosition Value="{X:5357 Y:-110}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:5357 Y:-110}" />
+              <X Value="5332" />
+              <Y Value="-260" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="300" />
+            </Properties>
+          </Hitbox>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="10" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="10" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <ImmuneToStunLock Value="True" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="True" />
+              <ImmuneToDamage Value="True" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+            </Properties>
+          </EnemyCore>
+          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="5">
+            <Properties>
+              <MaximumAngleDifference Value="360" />
+              <RangeForAttackOne Value="10000" />
+              <AttackToLaunchOne Value="TrainingConstantAttack" />
+              <AttackOneDelayAnimation Value="" />
+              <AttackOneDurationAnimation Value="Duration" />
+              <AttackOneCooldownAnimation Value="" />
+              <RangeForAttackTwo Value="0" />
+              <AttackToLaunchTwo Value="" />
+              <AttackTwoDelayAnimation Value="" />
+              <AttackTwoDurationAnimation Value="" />
+              <AttackTwoCooldownAnimation Value="" />
+              <RangeForAttackThree Value="0" />
+              <AttackToLaunchThree Value="" />
+              <AttackThreeDelayAnimation Value="" />
+              <AttackThreeDurationAnimation Value="" />
+              <AttackThreeCooldownAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
+            </Properties>
+          </AreaAttack>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="6">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Duration" SpritesheetTag="TrainingSmallLazerDuration" />
+              </Spritesheets>
+              <DrawLayer Value="0.99" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
+            <Properties>
+              <CanChangeSide Value="False" />
+            </Properties>
+          </EnemyAnimationManager>
         </Components>
       </Entity>
     </Entities>

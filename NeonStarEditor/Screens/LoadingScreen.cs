@@ -22,6 +22,7 @@ namespace NeonStarEditor
         private bool _loadPreferences;
 
         public int _startingSpawnPointIndex;
+        private bool _respawning = false;
 
         public LoadingScreen(Game game, int startingSpawnPointIndex, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null, bool loadPreferences = false)
             :base(game)
@@ -62,6 +63,7 @@ namespace NeonStarEditor
             LevelToLoad = statusCheckPoint.Element("CurrentLevel").Element("LevelName").Value;
             GroupToLoad = statusCheckPoint.Element("CurrentLevel").Element("GroupName").Value;
             _statusToLoad = statusCheckPoint;
+            _respawning = true;
         }
 
         public void LoadNextLevelAssets()
@@ -88,7 +90,7 @@ namespace NeonStarEditor
 
             if (ThreadFinished && LevelToLoad != "")
             {
-                this.ChangeScreen(new EditorScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game, Neon.GraphicsDeviceManager, _loadPreferences));
+                this.ChangeScreen(new EditorScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game, Neon.GraphicsDeviceManager, _loadPreferences, _respawning));
             }
             base.Update(gameTime);
         }

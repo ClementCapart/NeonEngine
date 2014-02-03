@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="Train">
+    <Entities>
+      <Entity Name="OpenDoorTrigger" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4715 Y:-234}" />
+              <InitialPosition Value="{X:4715 Y:-234}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4715 Y:-234}" />
+              <X Value="4660" />
+              <Y Value="-463" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="110" />
+              <Height Value="459" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="TrainDoor" />
+              <TriggeredComponentName Value="TriggeredAnimation" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Trainbase" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4908 Y:57}" />
+              <InitialPosition Value="{X:4908 Y:57}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingTrainBase" />
+              <DrawLayer Value="0.95" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="TrainBack" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5123 Y:-129}" />
+              <InitialPosition Value="{X:5123 Y:-129}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingTrainWagonUp" />
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="TrainFront" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4779 Y:-129}" />
+              <InitialPosition Value="{X:4779 Y:-129}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingTrainWagonDown" />
+              <DrawLayer Value="0.457" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="TrainDoor" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:4855 Y:-107}" />
+              <InitialPosition Value="{X:4855 Y:-107}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <TriggeredAnimation Type="NeonEngine.Components.Graphics2D.TriggeredAnimation" ID="3">
+            <Properties>
+              <StartPlaying Value="False" />
+              <PlayReverseOnSecondTrigger Value="True" />
+              <Loop Value="False" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <SpriteSheetTag Value="TrainingTrainDoorAnimation" />
+              <DrawLayer Value="0.457" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TriggeredAnimation>
+        </Components>
+      </Entity>
+      <Entity Name="OpenDoorTrigger" Layer="Train">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5026 Y:-109}" />
+              <InitialPosition Value="{X:5026 Y:-109}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:5026 Y:-109}" />
+              <X Value="5001" />
+              <Y Value="-209" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="200" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="TrainDoor" />
+              <TriggeredComponentName Value="TriggeredAnimation" />
+            </Properties>
+          </HitboxTrigger>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="OpenDoorTrigger" />
+              <TriggeredComponentName Value="ChangeLevel" />
+            </Properties>
+          </HitboxTrigger>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="4">
+            <Properties>
+              <GroupName Value="SequenceOne" />
+              <LevelName Value="TrainingOne" />
+              <SpawnPointIndex Value="0" />
+            </Properties>
+          </ChangeLevel>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>

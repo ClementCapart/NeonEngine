@@ -43,6 +43,8 @@ namespace NeonStarEditor
                     }
                     currentWorld.FocusedTextBox = null;
                     currentWorld.FocusedNumericUpDown = null;
+                    currentWorld.ToggleGraphicPicker();
+                    currentWorld.ToggleSpritesheetPicker();
 
                 }
                 else
@@ -59,6 +61,8 @@ namespace NeonStarEditor
                             currentWorld.FocusedTextBox = null;
                             currentWorld.FocusedNumericUpDown = null;
                             NoSelection = false;
+                            currentWorld.ToggleGraphicPicker();
+                            currentWorld.ToggleSpritesheetPicker();
                             break;
                         }
 
@@ -71,6 +75,8 @@ namespace NeonStarEditor
                         currentWorld.RefreshInspector(null);
                         currentWorld.FocusedTextBox = null;
                         currentWorld.FocusedNumericUpDown = null;
+                        currentWorld.ToggleGraphicPicker();
+                        currentWorld.ToggleSpritesheetPicker();
                     }
                 }
             } 

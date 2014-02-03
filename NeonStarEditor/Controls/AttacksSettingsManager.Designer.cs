@@ -100,7 +100,7 @@
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Agency FB", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Title.Location = new System.Drawing.Point(248, 3);
+            this.Title.Location = new System.Drawing.Point(297, 12);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(155, 34);
             this.Title.TabIndex = 0;

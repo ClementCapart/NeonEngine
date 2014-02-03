@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,22 @@ namespace NeonEngine.Components.Camera
     public class CameraBound : Component
     {
         Side _boundSide;
+
+        private bool _reverseBound = false;
+
+        public bool ReverseBound
+        {
+            get { return _reverseBound; }
+            set { _reverseBound = value; }
+        }
+
+        private bool _softBound = false;
+
+        public bool SoftBound
+        {
+            get { return _softBound; }
+            set { _softBound = value; }
+        }
 
         public Side BoundSide
         {
@@ -65,6 +82,8 @@ namespace NeonEngine.Components.Camera
 
         public override void Init()
         {
+            if (_softBound)
+                _boundStrength = 0.0f;
             base.Init();
         }
 
@@ -77,12 +96,71 @@ namespace NeonEngine.Components.Camera
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_boundStrength < 1.0f)
-                _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+            if (_softBound)
+            {
+                Vector2 positionCamera = entity.GameWorld.Camera.Position;
 
-            if (_boundStrength > 1.0f)
-                _boundStrength = 1.0f;
+                switch (BoundSide)
+                {
+                    case Side.Left:
+                        positionCamera.X -= 100f;
+                        break;
 
+                    case Side.Right:
+                        positionCamera.X += 100f;
+                        break;
+
+                    case Side.Up:
+                        positionCamera.Y -= 100f;
+                        break;
+
+                    case Side.Down:
+                        positionCamera.Y += 100f;
+                        break;
+                }
+
+                if (entity.GameWorld.Camera.GetEntitiesInView(positionCamera).Contains(entity))
+                {
+                    if (!_reverseBound)
+                    {
+                        if (_boundStrength < 1.0f)
+                            _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                        if (_boundStrength > 1.0f)
+                            _boundStrength = 1.0f;
+                    }
+                    else
+                    {
+                        if (_boundStrength > 0.0f)
+                            _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                        if (_boundStrength < 0.0f)
+                            _boundStrength = 0.0f;
+                    }
+                }
+                else
+                {
+                    if (!_reverseBound)
+                    {
+                        if (_boundStrength > 0.0f)
+                            _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                        if (_boundStrength < 0.0f)
+                            _boundStrength = 0.0f;
+
+                    }
+                    else
+                    {
+                        if (_boundStrength < 1.0f)
+                            _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                        if (_boundStrength > 1.0f)
+                            _boundStrength = 1.0f;
+                    }
+                }
+            }
+            
+            
             base.Update(gameTime);
         }
     }

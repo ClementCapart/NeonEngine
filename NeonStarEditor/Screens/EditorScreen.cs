@@ -20,6 +20,7 @@ using NeonEngine.Components.Camera;
 using NeonEngine.Components.VisualFX;
 using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.CollisionDetection;
+using NeonStarEditor.Controls;
 
 namespace NeonStarEditor
 {
@@ -42,6 +43,9 @@ namespace NeonStarEditor
         public PathNodesPanel PathNodePanel;
         public SpawnPointPanel SpawnPointsPanel;
         public AddComponentControl AddComponentPanel;
+
+        public GraphicPickerControl GraphicPicker;
+        public SpritesheetPickerControl SpritesheetPicker;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -71,6 +75,8 @@ namespace NeonStarEditor
         private bool _isSpawnPointsManagerDisplayed = false;
         private bool _isElementManagerDisplayed = false;
         private bool _isAddComponentPanelDisplayed = false;
+        private bool _isGraphicPickerDisplayed = false;
+        private bool _isSpritesheetPickerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -81,8 +87,8 @@ namespace NeonStarEditor
 
         public string DefaultLayer = "";
 
-        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game)
+        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false, bool respawning = false)
+            : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game, respawning)
         {
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;
@@ -105,13 +111,9 @@ namespace NeonStarEditor
             GameAsForm.Controls.Add(RightDockControl);
             GameAsForm.Controls.Add(LeftDockControl);
 
-            
-
             GameAsForm.MouseEnter += GameAsForm_MouseEnter;
             GameAsForm.MouseLeave += GameAsForm_MouseLeave;
-            GameAsForm.KeyPreview = true;
-
-            
+            GameAsForm.KeyPreview = true;        
 
             if (loadPreferences)
             {
@@ -278,6 +280,123 @@ namespace NeonStarEditor
                 GameAsForm.Controls.Add(AddComponentPanel);
                 _isAddComponentPanelDisplayed = true;
             }
+        }
+
+        public void ToggleGraphicPicker(PropertyInfo pi = null, NeonEngine.Component c = null, Label l = null)
+        {
+            if (pi == null || c == null || l == null)
+            {
+                if (_isGraphicPickerDisplayed)
+                {
+                    GameAsForm.Controls.Remove(GraphicPicker);
+                    GraphicPicker.Dispose();
+                    GraphicPicker = null;
+                    _isGraphicPickerDisplayed = false;
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
+
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
+
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            GraphicPicker = new GraphicPickerControl(this, pi, c, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(GraphicPicker);
+            _isGraphicPickerDisplayed = true;
+        }
+
+        public void ToggleSpritesheetPicker(PropertyInfo pi = null, NeonEngine.Component c = null, Label l = null)
+        {
+            if (pi == null || c == null || l == null)
+            {
+                if (_isSpritesheetPickerDisplayed)
+                {
+                    GameAsForm.Controls.Remove(SpritesheetPicker);
+                    SpritesheetPicker.Dispose();
+                    SpritesheetPicker = null;
+                    _isSpritesheetPickerDisplayed = false;
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
+
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
+
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SpritesheetPicker = new SpritesheetPickerControl(this, pi, c, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SpritesheetPicker);
+            _isSpritesheetPickerDisplayed = true;
+        }
+
+        public void ToggleSpritesheetPicker(SpritesheetInspector ssi, TextBox tb, Label l)
+        {
+            if (ssi == null || tb == null || l == null)
+            {
+                if (_isSpritesheetPickerDisplayed)
+                {
+                    GameAsForm.Controls.Remove(SpritesheetPicker);
+                    SpritesheetPicker.Dispose();
+                    SpritesheetPicker = null;
+                    _isSpritesheetPickerDisplayed = false;
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
+
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
+
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SpritesheetPicker = new SpritesheetPickerControl(this, ssi, tb, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SpritesheetPicker);
+            _isSpritesheetPickerDisplayed = true;
         }
 
 
@@ -999,6 +1118,10 @@ namespace NeonStarEditor
                 ElementSettingsManager.Dispose();
             if (AddComponentPanel != null)
                 AddComponentPanel.Dispose();
+            if (GraphicPicker != null)
+                GraphicPicker.Dispose();
+            if (SpritesheetPicker != null)
+                SpritesheetPicker.Dispose();
             ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game, graphics));
         }
 
@@ -1020,6 +1143,10 @@ namespace NeonStarEditor
                 ElementSettingsManager.Dispose();
             if (AddComponentPanel != null)
                 AddComponentPanel.Dispose();
+            if (GraphicPicker != null)
+                GraphicPicker.Dispose();
+            if (SpritesheetPicker != null)
+                SpritesheetPicker.Dispose();
             base.ChangeScreen(nextScreen);
         }
 
@@ -1041,6 +1168,10 @@ namespace NeonStarEditor
                 ElementSettingsManager.Dispose();
             if (AddComponentPanel != null)
                 AddComponentPanel.Dispose();
+            if (GraphicPicker != null)
+                GraphicPicker.Dispose();
+            if (SpritesheetPicker != null)
+                SpritesheetPicker.Dispose();
             ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 

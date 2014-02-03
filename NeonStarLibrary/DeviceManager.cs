@@ -55,6 +55,23 @@ namespace NeonStarLibrary
             AlreadyLoaded = true;
         }
 
+        static public void LoadDeviceProgression(XElement devicesStatus)
+        {
+            _devices = new List<Device>();
+
+            foreach (XElement device in devicesStatus.Elements("Device"))
+            {
+                Device d = new Device();
+                d.GroupName = device.Element("GroupName").Value;
+                d.LevelName = device.Element("LevelName").Value;
+                d.DeviceName = device.Element("DeviceName").Value;
+                d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
+                _devices.Add(d);
+            }
+             
+            AlreadyLoaded = true;
+        }
+
         static public void SaveDevicesInformation()
         {
             if (_devices != null && _devices.Count > 0)
@@ -62,29 +79,40 @@ namespace NeonStarLibrary
                 if (Directory.Exists(@"../Save/"))
                 {
                     XDocument deviceDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-                    XElement devices = new XElement("Devices");
 
-                    foreach (Device d in _devices)
-                    {
-                        XElement device = new XElement("Device");
-                        XElement group = new XElement("GroupName", d.GroupName);
-                        XElement level = new XElement("LevelName", d.LevelName);
-                        XElement name = new XElement("DeviceName", d.DeviceName);
-                        XElement state = new XElement("State", d.State.ToString());
-
-                        device.Add(group);
-                        device.Add(level);
-                        device.Add(name);
-                        device.Add(state);
-
-                        devices.Add(device);
-                    }
-
-                    deviceDocument.Add(devices);
+                    deviceDocument.Add(SaveDeviceProgression());          
 
                     deviceDocument.Save(@"../Save/DevicesSave.xml");
                 }
             }
+        }
+
+        static public XElement SaveDeviceProgression()
+        {
+            if (_devices != null && _devices.Count > 0)
+            {
+                
+                XElement devices = new XElement("Devices");
+
+                foreach (Device d in _devices)
+                {
+                    XElement device = new XElement("Device");
+                    XElement group = new XElement("GroupName", d.GroupName);
+                    XElement level = new XElement("LevelName", d.LevelName);
+                    XElement name = new XElement("DeviceName", d.DeviceName);
+                    XElement state = new XElement("State", d.State.ToString());
+
+                    device.Add(group);
+                    device.Add(level);
+                    device.Add(name);
+                    device.Add(state);
+
+                    devices.Add(device);
+                }
+
+                return devices;
+            }
+            return null;
         }
 
         static public DeviceState GetDeviceState(string groupName, string levelName, string deviceName)

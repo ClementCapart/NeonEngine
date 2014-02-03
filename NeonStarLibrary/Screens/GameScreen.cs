@@ -33,7 +33,7 @@ namespace NeonStarLibrary
         public AvatarCore _avatarComponent;
         //----------------------------------------//
 
-        public List<XElement> CheckPointsData;
+        public static List<XElement> CheckPointsData = new List<XElement>();
 
 
         protected XElement _statusToLoad;
@@ -41,7 +41,7 @@ namespace NeonStarLibrary
 
         public string AvatarName = "LiOn";
 
-        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game)
+        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, bool respawning = false)
             : base(game)
         {
             this._statusToLoad = statusToLoad;
@@ -51,13 +51,14 @@ namespace NeonStarLibrary
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
 
-            CheckPointsData = new List<XElement>();
-
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
             ElementManager.LoadElementParameters();
             if (!DeviceManager.AlreadyLoaded)
                 DeviceManager.LoadDevicesInformation();
+
+            if (statusToLoad != null)
+                DeviceManager.LoadDeviceProgression(statusToLoad.Element("Devices"));
 
             DataManager.LoadLevelInfo(groupName, levelName, this);
 
@@ -81,7 +82,7 @@ namespace NeonStarLibrary
                     _avatarComponent = avatar.GetComponent<AvatarCore>();
                     if (_avatarComponent != null)
                     {
-                        LoadAvatarStatus(_avatarComponent);
+                        LoadAvatarStatus(_avatarComponent, respawning);
                         _avatarComponent.CurrentSide = currentSpawnPoint.Side;
                     }
                 }         
@@ -108,7 +109,7 @@ namespace NeonStarLibrary
             }
         } 
 
-        public void LoadAvatarStatus(AvatarCore avatarComponent)
+        public void LoadAvatarStatus(AvatarCore avatarComponent, bool respawning = false)
         {
             if (_statusToLoad != null && avatarComponent != null)
             {
@@ -126,6 +127,9 @@ namespace NeonStarLibrary
                 {
                     avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
                 }
+
+                if(respawning)
+                    _avatarComponent.State = AvatarState.Respawning;
             }
         }
 
@@ -138,6 +142,11 @@ namespace NeonStarLibrary
                 _avatarComponent.CanTurn = false;
                 _avatarComponent.CanUseElement = false;
             }
+            else
+            {
+                if(avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                    avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+            }
             base.PreUpdate(gameTime);
         }
 
@@ -145,7 +154,7 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null)
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f)
                     Camera.Chase(avatar.transform.Position, gameTime);
                 else if (avatar == null)
                 {
@@ -247,6 +256,10 @@ namespace NeonStarLibrary
             }
 
             playerProgression.Add(playerStatus);
+
+            XElement deviceStatus = DeviceManager.SaveDeviceProgression();
+
+            playerProgression.Add(deviceStatus);
 
             return playerProgression;
         }

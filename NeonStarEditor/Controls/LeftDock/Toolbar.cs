@@ -103,7 +103,9 @@ namespace NeonStarEditor.Controls.LeftDock
 
         private void ReloadAssetsButton_Click(object sender, EventArgs e)
         {
-            //AssetManager.LoadAssets(GameWorld.game.GraphicsDevice);
+            AssetManager.GroupCommonLoaded = false;
+            AssetManager.CommonLoaded = false;
+            GameWorld.ChangeLevel(GameWorld.SaveStatus());
         }
 
         private void AttackManagerButton_Click(object sender, EventArgs e)

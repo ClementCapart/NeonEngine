@@ -20,6 +20,7 @@ namespace NeonStarLibrary.Components.Avatar
         Stunlocked,
         UsingElement,
         Dying,
+        Respawning,
     }
 
     public class AvatarCore : Component
@@ -87,6 +88,14 @@ namespace NeonStarLibrary.Components.Avatar
         {
             get { return _hitGuardFX; }
             set { _hitGuardFX = value; }
+        }
+
+        private string _respawnAnimation = "";
+
+        public string RespawnAnimation
+        {
+            get { return _respawnAnimation; }
+            set { _respawnAnimation = value; }
         }
         #endregion       
 
@@ -239,7 +248,16 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (State != AvatarState.Dying)
+            if (State == AvatarState.Respawning)
+            {
+                CanMove = false;
+                CanAttack = false;
+                CanTurn = false;
+                CanUseElement = false;
+                if (entity.spritesheets.CurrentSpritesheetName == RespawnAnimation && entity.spritesheets.IsFinished())
+                    State = AvatarState.Idle;
+            }
+            if (State != AvatarState.Dying && State != AvatarState.Respawning)
             {
                 if (CurrentHealthPoints <= 0 && State != AvatarState.Dying)
                 {
@@ -279,7 +297,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(GameTime gameTime)
         {
-            if (State != AvatarState.Dying)
+            if (State != AvatarState.Dying && State != AvatarState.Respawning)
             {
                 if (_invincibilityTimer > 0.0f)
                 {

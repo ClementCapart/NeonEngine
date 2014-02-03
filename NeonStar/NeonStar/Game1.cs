@@ -113,7 +113,8 @@ namespace NeonStar
 
         protected override void Update(GameTime gameTime)
         {
-            Neon.World.UpdateWorld(gameTime);
+            if(Neon.World != null)
+                Neon.World.UpdateWorld(gameTime);
             base.Update(gameTime);
 
         }
@@ -121,7 +122,8 @@ namespace NeonStar
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Neon.ClearColor);
-            Neon.World.Draw(spriteBatch);
+            if(Neon.World != null)
+                Neon.World.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

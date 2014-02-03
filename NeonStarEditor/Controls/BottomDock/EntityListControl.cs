@@ -113,6 +113,9 @@ namespace NeonStarEditor
                    GameWorld.RefreshInspector(GameWorld.SelectedEntity);
                 else
                     GameWorld.RefreshInspector(null);
+
+                GameWorld.ToggleGraphicPicker();
+                GameWorld.ToggleSpritesheetPicker();
             }         
         }
 
@@ -137,6 +140,9 @@ namespace NeonStarEditor
                     EntityListBox.Select();
                     break;
                 }
+
+            GameWorld.ToggleGraphicPicker();
+            GameWorld.ToggleSpritesheetPicker();
         }
 
         private void OrderList_Click(object sender, EventArgs e)

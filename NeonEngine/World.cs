@@ -162,7 +162,7 @@ namespace NeonEngine
 
             if (!_change && Alpha > 0.0f && !Camera.MovedLastFrame)
             {
-                Alpha -= 2.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Alpha -= 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (Alpha <= 0.0f)
                     Alpha = 0.0f;
             }
@@ -170,12 +170,13 @@ namespace NeonEngine
             {
                 if (Alpha >= 1.0f)
                     Neon.World = NextScreen;
-                Alpha += 2.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Alpha += 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }         
             
             InputEngine();
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
+            Camera.MovedLastFrame = false;
         }
 
         public virtual void PostUpdate(GameTime gameTime)
