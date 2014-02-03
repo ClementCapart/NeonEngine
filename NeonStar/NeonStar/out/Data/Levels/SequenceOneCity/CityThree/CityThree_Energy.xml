@@ -30,6 +30,10 @@
               <EnergyCost Value="10" />
               <AvatarName Value="LiOn" />
               <FillingDuration Value="1" />
+              <IdleDeactivatedAnimation Value="" />
+              <IdleActivatedAnimation Value="" />
+              <ActivationAnimation Value="" />
+              <DeactivationAnimation Value="" />
               <State Value="Deactivated" />
             </Properties>
           </StableEnergyDevice>
@@ -61,7 +65,7 @@
           <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
             <Properties>
               <AvatarName Value="LiOn" />
-              <SpawnPointIndex Value="1" />
+              <SpawnPointIndex Value="2" />
             </Properties>
           </CheckPoint>
           <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
@@ -108,7 +112,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -116,7 +120,10 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
               <ClosingIsReverseOpening Value="False" />
@@ -197,7 +204,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -205,7 +212,10 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
               <ClosingIsReverseOpening Value="False" />

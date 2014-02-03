@@ -48,8 +48,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-340 Y:123}" />
-              <InitialPosition Value="{X:-340 Y:123}" />
+              <Position Value="{X:-340 Y:223}" />
+              <InitialPosition Value="{X:-340 Y:223}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -57,13 +57,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-340 Y:123}" />
+              <Center Value="{X:-340 Y:223}" />
               <X Value="-365" />
               <Y Value="23" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
-              <Height Value="200" />
+              <Height Value="400" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -73,7 +73,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="0.99875" />
+              <Mass Value="1.99875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -89,8 +89,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1966 Y:-526}" />
-              <InitialPosition Value="{X:-1966 Y:-526}" />
+              <Position Value="{X:-1966 Y:-426}" />
+              <InitialPosition Value="{X:-1966 Y:-426}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -98,13 +98,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-1966 Y:-526}" />
+              <Center Value="{X:-1966 Y:-425}" />
               <X Value="-1991" />
-              <Y Value="-1276" />
+              <Y Value="-1275" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
-              <Height Value="1500" />
+              <Height Value="1700" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -114,7 +114,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="7.49875" />
+              <Mass Value="8.498751" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -946,6 +946,7 @@
           </NeutralizerGate>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="4">
             <Properties>
+              <Reverse Value="False" />
               <ReverseLoop Value="False" />
               <SpriteSheetTag Value="BigPortal" />
               <DrawLayer Value="0.6" />
@@ -1758,6 +1759,8 @@
           <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
             <Properties>
               <EnergyValue Value="10" />
+              <IdleAnimation Value="" />
+              <OutAnimation Value="" />
               <AvatarName Value="LiOn" />
             </Properties>
           </EnergyCollectible>
@@ -1789,6 +1792,8 @@
           <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
             <Properties>
               <EnergyValue Value="10" />
+              <IdleAnimation Value="" />
+              <OutAnimation Value="" />
               <AvatarName Value="LiOn" />
             </Properties>
           </EnergyCollectible>
@@ -1820,6 +1825,8 @@
           <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
             <Properties>
               <EnergyValue Value="10" />
+              <IdleAnimation Value="" />
+              <OutAnimation Value="" />
               <AvatarName Value="LiOn" />
             </Properties>
           </EnergyCollectible>
@@ -1851,6 +1858,8 @@
           <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
             <Properties>
               <EnergyValue Value="10" />
+              <IdleAnimation Value="" />
+              <OutAnimation Value="" />
               <AvatarName Value="LiOn" />
             </Properties>
           </EnergyCollectible>
@@ -1861,8 +1870,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:464 Y:-558}" />
-              <InitialPosition Value="{X:464 Y:-558}" />
+              <Position Value="{X:582 Y:-558}" />
+              <InitialPosition Value="{X:582 Y:-558}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1870,8 +1879,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:463 Y:-558}" />
-              <X Value="423" />
+              <Center Value="{X:581 Y:-558}" />
+              <X Value="541" />
               <Y Value="-638" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2116,8 +2125,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:659 Y:-808}" />
-              <InitialPosition Value="{X:659 Y:-808}" />
+              <Position Value="{X:646 Y:-808}" />
+              <InitialPosition Value="{X:646 Y:-808}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2125,8 +2134,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:658 Y:-808}" />
-              <X Value="608" />
+              <Center Value="{X:646 Y:-808}" />
+              <X Value="596" />
               <Y Value="-888" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2152,7 +2161,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2445,6 +2454,88 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="ChangeLevel01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-1153 Y:346}" />
+              <InitialPosition Value="{X:-1153 Y:346}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-1153 Y:346}" />
+              <X Value="-1940" />
+              <Y Value="321" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1575" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="SequenceOneCity" />
+              <LevelName Value="CityTwo" />
+              <SpawnPointIndex Value="1" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevel01" />
+              <TriggeredComponentName Value="ChangeLevel" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="ChangeLevel02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1885 Y:190}" />
+              <InitialPosition Value="{X:1885 Y:190}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1885 Y:190}" />
+              <X Value="1735" />
+              <Y Value="165" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="300" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="SequenceOneCity" />
+              <LevelName Value="CityFive" />
+              <SpawnPointIndex Value="0" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevel02" />
+              <TriggeredComponentName Value="ChangeLevel" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
     </Entities>
