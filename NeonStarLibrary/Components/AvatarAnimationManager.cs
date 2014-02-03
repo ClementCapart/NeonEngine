@@ -57,7 +57,7 @@ namespace NeonStarLibrary.Components.Avatar
                             if (AvatarComponent.ThirdPersonController.StartJumping)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, true, false);
                             else if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, false, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, true, false);
                             else
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation, false);
                         }
@@ -75,7 +75,7 @@ namespace NeonStarLibrary.Components.Avatar
                         else
                         {
                             if (AvatarComponent.ThirdPersonController.StartJumping)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, false, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, true, false);
                             else if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, false, false);
                             else
