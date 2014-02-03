@@ -35,7 +35,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -43,7 +43,10 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
               <ClosingIsReverseOpening Value="False" />

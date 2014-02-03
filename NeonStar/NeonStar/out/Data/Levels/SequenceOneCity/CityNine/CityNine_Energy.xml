@@ -43,7 +43,10 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
+              <ClosedIdleOnePoweredAnimation Value="" />
+              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
               <ClosingIsReverseOpening Value="False" />
@@ -68,9 +71,6 @@
               <FifthDeviceInSameLevel Value="True" />
               <FifthActivatingDeviceLevelGroup Value="" />
               <FifthActivatingDeviceLevelName Value="" />
-              <MultiLockDoor Value="False" />
-              <ClosedIdleOnePoweredAnimation Value="" />
-              <ClosedIdleTwoPoweredAnimation Value="" />
             </Properties>
           </EnergyDoor>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">

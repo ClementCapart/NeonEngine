@@ -273,6 +273,47 @@
           </Rigidbody>
         </Components>
       </Entity>
+      <Entity Name="ChangeLevel01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2249 Y:-225}" />
+              <InitialPosition Value="{X:2249 Y:-225}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2249 Y:-225}" />
+              <X Value="2224" />
+              <Y Value="-425" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="400" />
+            </Properties>
+          </Hitbox>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="SequenceOneCity" />
+              <LevelName Value="CityTwo" />
+              <SpawnPointIndex Value="0" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevel01" />
+              <TriggeredComponentName Value="ChangeLevel" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
