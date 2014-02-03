@@ -260,35 +260,38 @@ namespace NeonStarLibrary.Components.Avatar
                         _rollCooldownTimer = 0.0f;
                         if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked)
                         {
-                            if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                            if (AvatarComponent.CanRoll)
                             {
-                                AvatarComponent.CurrentSide = Side.Left;
-                                AvatarComponent.State = AvatarState.Rolling;
+                                if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                                {
+                                    AvatarComponent.CurrentSide = Side.Left;
+                                    AvatarComponent.State = AvatarState.Rolling;
 
-                                PerformRoll();
-                                _durationTimer = _rollDuration;
-                                _isGuarding = false;
-                                _isAirDashing = false;
-                                _isRolling = true;
-                                AvatarComponent.CanMove = false;
-                                AvatarComponent.CanTurn = false;
-                                AvatarComponent.CanAttack = false;
-                                AvatarComponent.CanUseElement = false;
-                            }
-                            else if (Neon.Input.Check(NeonStarInput.MoveRight))
-                            {
-                                AvatarComponent.CurrentSide = Side.Right;
-                                AvatarComponent.State = AvatarState.Rolling;
+                                    PerformRoll();
+                                    _durationTimer = _rollDuration;
+                                    _isGuarding = false;
+                                    _isAirDashing = false;
+                                    _isRolling = true;
+                                    AvatarComponent.CanMove = false;
+                                    AvatarComponent.CanTurn = false;
+                                    AvatarComponent.CanAttack = false;
+                                    AvatarComponent.CanUseElement = false;
+                                }
+                                else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                                {
+                                    AvatarComponent.CurrentSide = Side.Right;
+                                    AvatarComponent.State = AvatarState.Rolling;
 
-                                PerformRoll();
-                                _durationTimer = _rollDuration;
-                                _isGuarding = false;
-                                _isAirDashing = false;
-                                _isRolling = true;
-                                AvatarComponent.CanMove = false;
-                                AvatarComponent.CanTurn = false;
-                                AvatarComponent.CanAttack = false;
-                                AvatarComponent.CanUseElement = false;
+                                    PerformRoll();
+                                    _durationTimer = _rollDuration;
+                                    _isGuarding = false;
+                                    _isAirDashing = false;
+                                    _isRolling = true;
+                                    AvatarComponent.CanMove = false;
+                                    AvatarComponent.CanTurn = false;
+                                    AvatarComponent.CanAttack = false;
+                                    AvatarComponent.CanUseElement = false;
+                                }
                             }
                         }
                     }
@@ -297,41 +300,44 @@ namespace NeonStarLibrary.Components.Avatar
                         _rollCooldownTimer = 0.0f;
                         if (Neon.Input.Pressed(NeonStarInput.Guard) && AvatarComponent.State != AvatarState.Stunlocked && !_alreadyDashed && AvatarComponent.ThirdPersonController != null && AvatarComponent.ThirdPersonController.NumberOfAirMove > 0)
                         {
-                            if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                            if (AvatarComponent.CanRoll)
                             {
-                                AvatarComponent.CurrentSide = Side.Left;
-                                AvatarComponent.State = AvatarState.AirDashing;
+                                if (Neon.Input.Check(NeonStarInput.MoveLeft))
+                                {
+                                    AvatarComponent.CurrentSide = Side.Left;
+                                    AvatarComponent.State = AvatarState.AirDashing;
 
-                                PerformDash();
-                                _durationTimer = _dashDuration;
-                                _alreadyDashed = true;
-                                _isGuarding = false;
-                                _isAirDashing = true;
-                                _isRolling = false;
-                                AvatarComponent.CanMove = false;
-                                AvatarComponent.CanTurn = false;
-                                AvatarComponent.CanAttack = false;
-                                AvatarComponent.CanUseElement = false;
-                                if (AvatarComponent.ThirdPersonController != null)
-                                    AvatarComponent.ThirdPersonController.NumberOfAirMove--;
-                            }
-                            else if (Neon.Input.Check(NeonStarInput.MoveRight))
-                            {
-                                AvatarComponent.CurrentSide = Side.Right;
-                                AvatarComponent.State = AvatarState.AirDashing;
+                                    PerformDash();
+                                    _durationTimer = _dashDuration;
+                                    _alreadyDashed = true;
+                                    _isGuarding = false;
+                                    _isAirDashing = true;
+                                    _isRolling = false;
+                                    AvatarComponent.CanMove = false;
+                                    AvatarComponent.CanTurn = false;
+                                    AvatarComponent.CanAttack = false;
+                                    AvatarComponent.CanUseElement = false;
+                                    if (AvatarComponent.ThirdPersonController != null)
+                                        AvatarComponent.ThirdPersonController.NumberOfAirMove--;
+                                }
+                                else if (Neon.Input.Check(NeonStarInput.MoveRight))
+                                {
+                                    AvatarComponent.CurrentSide = Side.Right;
+                                    AvatarComponent.State = AvatarState.AirDashing;
 
-                                PerformDash();
-                                _durationTimer = _dashDuration;
-                                _alreadyDashed = true;
-                                _isGuarding = false;
-                                _isAirDashing = true;
-                                _isRolling = false;
-                                AvatarComponent.CanMove = false;
-                                AvatarComponent.CanTurn = false;
-                                AvatarComponent.CanAttack = false;
-                                AvatarComponent.CanUseElement = false;
-                                if (AvatarComponent.ThirdPersonController != null)
-                                    AvatarComponent.ThirdPersonController.NumberOfAirMove--;
+                                    PerformDash();
+                                    _durationTimer = _dashDuration;
+                                    _alreadyDashed = true;
+                                    _isGuarding = false;
+                                    _isAirDashing = true;
+                                    _isRolling = false;
+                                    AvatarComponent.CanMove = false;
+                                    AvatarComponent.CanTurn = false;
+                                    AvatarComponent.CanAttack = false;
+                                    AvatarComponent.CanUseElement = false;
+                                    if (AvatarComponent.ThirdPersonController != null)
+                                        AvatarComponent.ThirdPersonController.NumberOfAirMove--;
+                                }
                             }
                         }
                     }                  
@@ -376,7 +382,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         private void PerformRoll()
         {
-            if(AvatarComponent.MeleeFight.CurrentAttack != null)
+            if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
 
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -385,7 +391,7 @@ namespace NeonStarLibrary.Components.Avatar
             AvatarComponent.MeleeFight.ResetComboHit();
             if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
-            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration); 
+            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration);           
         }
 
         private void PerformGuard()
