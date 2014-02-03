@@ -1237,8 +1237,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:844 Y:124}" />
-              <InitialPosition Value="{X:844 Y:124}" />
+              <Position Value="{X:928 Y:124}" />
+              <InitialPosition Value="{X:928 Y:124}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1246,8 +1246,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:844 Y:124}" />
-              <X Value="694" />
+              <Center Value="{X:928 Y:124}" />
+              <X Value="778" />
               <Y Value="-76" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1757,8 +1757,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1543 Y:973}" />
-              <InitialPosition Value="{X:1543 Y:973}" />
+              <Position Value="{X:1406 Y:972}" />
+              <InitialPosition Value="{X:1406 Y:972}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1766,8 +1766,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1542 Y:972}" />
-              <X Value="1517" />
+              <Center Value="{X:1406 Y:972}" />
+              <X Value="1381" />
               <Y Value="822" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1871,8 +1871,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1548 Y:972}" />
-              <InitialPosition Value="{X:1548 Y:972}" />
+              <Position Value="{X:1250 Y:972}" />
+              <InitialPosition Value="{X:1250 Y:972}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1880,8 +1880,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1548 Y:972}" />
-              <X Value="1523" />
+              <Center Value="{X:1250 Y:972}" />
+              <X Value="1225" />
               <Y Value="822" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2781,7 +2781,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -2838,6 +2838,30 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="BoundsCamera" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-410 Y:50}" />
+              <InitialPosition Value="{X:-410 Y:50}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="True" />
+              <BoundSide Value="Down" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.8" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
