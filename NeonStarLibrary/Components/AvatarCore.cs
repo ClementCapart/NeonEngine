@@ -114,6 +114,7 @@ namespace NeonStarLibrary.Components.Avatar
         public bool CanTurn = true;
         public bool CanAttack = true;
         public bool CanUseElement = true;
+        public bool CanRoll = true;
 
         public bool IsInvincible = false;
         public bool IsAirLocked = false;
@@ -254,6 +255,7 @@ namespace NeonStarLibrary.Components.Avatar
                 CanAttack = false;
                 CanTurn = false;
                 CanUseElement = false;
+                CanRoll = false;
                 if (entity.spritesheets.CurrentSpritesheetName == RespawnAnimation && entity.spritesheets.IsFinished())
                     State = AvatarState.Idle;
             }
@@ -262,6 +264,8 @@ namespace NeonStarLibrary.Components.Avatar
                 if (CurrentHealthPoints <= 0 && State != AvatarState.Dying)
                 {
                     State = AvatarState.Dying;
+                    if (entity.rigidbody != null)
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                     (this.entity.GameWorld as GameScreen).Respawn();
                 }
                 if (_airLockDuration > 0.0f && IsAirLocked)
@@ -284,6 +288,7 @@ namespace NeonStarLibrary.Components.Avatar
                     CanTurn = false;
                     CanAttack = false;
                     CanUseElement = false;
+                    CanRoll = false;
                 }
                 else
                 {
@@ -324,6 +329,7 @@ namespace NeonStarLibrary.Components.Avatar
             CanTurn = true;
             CanAttack = true;
             CanUseElement = true;
+            CanRoll = true;
             if (Debug) Console.WriteLine("LiOn State -> " + State);
             base.PostUpdate(gameTime);
         }

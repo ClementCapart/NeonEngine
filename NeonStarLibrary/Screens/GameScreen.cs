@@ -141,6 +141,7 @@ namespace NeonStarLibrary
                 _avatarComponent.CanMove = false;
                 _avatarComponent.CanTurn = false;
                 _avatarComponent.CanUseElement = false;
+                _avatarComponent.CanRoll = false;
             }
             else
             {
