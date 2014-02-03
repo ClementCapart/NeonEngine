@@ -175,10 +175,12 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     entity.spritesheets.ChangeAnimation(_idleDeactivatedAnimation, true, 0, true, false, true);
                 }
             }
-
-            if(entity.spritesheets.CurrentSpritesheetName == _idleDeactivatedAnimation)
-                if (_textDisplay != null)
-                    _textDisplay.Active = true;
+            if (entity.spritesheets != null)
+            {
+                if (entity.spritesheets.CurrentSpritesheetName == _idleDeactivatedAnimation)
+                    if (_textDisplay != null)
+                        _textDisplay.Active = true;
+            }
             
             base.Update(gameTime);
         }

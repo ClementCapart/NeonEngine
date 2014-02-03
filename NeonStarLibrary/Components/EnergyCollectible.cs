@@ -1,5 +1,6 @@
 ﻿using NeonEngine;
 using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Private;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace NeonStarLibrary.Components.EnergyObjects
 {
-    public class EnergyCollectible : Component
+    public class EnergyCollectible : Collectible
     {
         #region Properties
 
@@ -46,7 +47,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
         #endregion
 
         private AvatarCore _avatar;
-        private bool _gathered = false;
 
         public EnergyCollectible(Entity entity)
             :base(entity, "EnergyCollectible")
@@ -63,12 +63,17 @@ namespace NeonStarLibrary.Components.EnergyObjects
             }
             if (entity.spritesheets != null)
                 entity.spritesheets.ChangeAnimation(_idleAnimation, false, 0, true, false, true);
+            if (State == CollectibleState.Used)
+            {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
+            }
             base.Init();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.hitboxes[0] != null && _avatar != null && _avatar.entity.hitboxes[0] != null && !_gathered)
+            if (entity.hitboxes[0] != null && _avatar != null && _avatar.entity.hitboxes[0] != null && State == CollectibleState.Available)
             {
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {
@@ -80,7 +85,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         private void GatherEnergy()
         {
-            _gathered = true;
+            State = CollectibleState.Used;
             _avatar.EnergySystem.CurrentEnergyStock += _energyValue;
             if(entity.spritesheets != null)
             entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);

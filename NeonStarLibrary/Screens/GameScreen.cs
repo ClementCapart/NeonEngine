@@ -95,6 +95,14 @@ namespace NeonStarLibrary
 
             Camera.Bounded = true;
 
+            if (_statusToLoad != null)
+            {
+                XElement collectiblesData = _statusToLoad.Element("GatheredCollectibles");
+                if (collectiblesData != null)
+                    CollectibleManager.InitializeCollectiblesFromCheckpointData(collectiblesData);
+            }
+            CollectibleManager.InitializeCollectibles(this);
+
             foreach (Device d in DeviceManager.GetLevelDevices(groupName, levelName))
             {
                 Entity e = GetEntityByName(d.DeviceName);
@@ -114,15 +122,20 @@ namespace NeonStarLibrary
             if (_statusToLoad != null && avatarComponent != null)
             {
                 XElement liOn = _statusToLoad.Element("PlayerStatus").Element("LiOnParameters");
-                avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
-                if(avatarComponent.ElementSystem != null)
+                if (!respawning)
                 {
-                    avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
-                    avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
+                    avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
+                
+                    if (avatarComponent.ElementSystem != null)
+                    {
+                        avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
+                        avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
 
-                    avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
-                    avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
+                        avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
+                        avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
+                    }
                 }
+                
                 if (avatarComponent.EnergySystem != null)
                 {
                     avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
@@ -261,6 +274,10 @@ namespace NeonStarLibrary
             XElement deviceStatus = DeviceManager.SaveDeviceProgression();
 
             playerProgression.Add(deviceStatus);
+
+            XElement collectibleStatus = CollectibleManager.SaveCollectiblesState();
+
+            playerProgression.Add(collectibleStatus);
 
             return playerProgression;
         }
