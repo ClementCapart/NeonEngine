@@ -2,13 +2,13 @@
 <XnaContent>
   <Level Layer="Energy">
     <Entities>
-      <Entity Name="TemporarCheckpoint02" Layer="Energy">
+      <Entity Name="TemporarHealthBonus" Layer="Energy">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:853 Y:648}" />
-              <InitialPosition Value="{X:853 Y:648}" />
+              <Position Value="{X:853 Y:650}" />
+              <InitialPosition Value="{X:853 Y:650}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -16,30 +16,15 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:853 Y:648}" />
+              <Center Value="{X:853 Y:650}" />
               <X Value="818" />
-              <Y Value="523" />
+              <Y Value="525" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="70" />
               <Height Value="250" />
             </Properties>
           </Hitbox>
-          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
-            <Properties>
-              <AvatarName Value="LiOn" />
-              <SpawnPointIndex Value="6" />
-            </Properties>
-          </CheckPoint>
-          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
-            <Properties>
-              <OneShot Value="False" />
-              <TriggerEveryFrame Value="False" />
-              <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="TemporarCheckpoint02" />
-              <TriggeredComponentName Value="CheckPoint" />
-            </Properties>
-          </HitboxTrigger>
         </Components>
       </Entity>
       <Entity Name="EnergyDoor01" Layer="Energy">
@@ -132,43 +117,6 @@
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="EnergyDevice02" Layer="Energy">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:977 Y:698}" />
-              <InitialPosition Value="{X:977 Y:698}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:977 Y:698}" />
-              <X Value="927" />
-              <Y Value="623" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="150" />
-            </Properties>
-          </Hitbox>
-          <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="2">
-            <Properties>
-              <EnergyCost Value="10" />
-              <AvatarName Value="LiOn" />
-              <FillingDuration Value="1" />
-              <IdleDeactivatedAnimation Value="" />
-              <IdleActivatedAnimation Value="" />
-              <ActivationAnimation Value="" />
-              <DeactivationAnimation Value="" />
-              <State Value="Deactivated" />
-            </Properties>
-          </StableEnergyDevice>
         </Components>
       </Entity>
     </Entities>

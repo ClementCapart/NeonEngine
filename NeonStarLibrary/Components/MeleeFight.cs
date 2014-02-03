@@ -238,7 +238,7 @@ namespace NeonStarLibrary.Components.Avatar
                     }
                     else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveLeft) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveLeft, _rushAttackStickDelay) == DelayStatus.Valid)
                     {
-                        if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
+                       /* if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
                         {
                             if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                                 PerformLeftRushAttack();
@@ -250,11 +250,11 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else
                             if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
-                                PerformLightAttack();
+                                PerformLightAttack();*/
                     }
                     else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveRight) && Neon.Input.CheckPressedDelay(NeonStarInput.MoveRight, _rushAttackStickDelay) == DelayStatus.Valid && entity.spritesheets.CurrentSide == Side.Right)
                     {
-                        if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
+                        /*if (_rushAttackSideDelay <= AvatarComponent.ThirdPersonController.LastSideChangedDelay)
                         {
                             if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                                 PerformRightRushAttack();
@@ -266,11 +266,11 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else
                             if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
-                                PerformLightAttack();
+                                PerformLightAttack();*/
                     }
                     else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))
                     {
-                        if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                        /*if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                         {
                             PerformDiveAttack();
                             if (CurrentAttack == null)
@@ -280,7 +280,7 @@ namespace NeonStarLibrary.Components.Avatar
                         {
                             _nextAttack = "DiveAttack";
                             _chainDelayTimer = 0;
-                        }
+                        }*/
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking && AvatarComponent.CanAttack)
                     {
