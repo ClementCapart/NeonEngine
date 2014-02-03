@@ -87,8 +87,8 @@ namespace NeonStarEditor
 
         public string DefaultLayer = "";
 
-        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false)
-            : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game)
+        public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false, bool respawning = false)
+            : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game, respawning)
         {
             GameAsForm = Control.FromHandle(this.game.Window.Handle) as Form;
             this.graphics = graphics;

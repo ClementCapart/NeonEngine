@@ -19,6 +19,7 @@ namespace NeonStarLibrary
         public Entity LoadingAnim;
         private int _startingSpawnPointIndex = 0;
         private XElement _statusToLoad;
+        private bool _respawning = false;
 
         public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null)
             : base(game)
@@ -37,6 +38,7 @@ namespace NeonStarLibrary
             LevelToLoad = statusCheckPoint.Element("CurrentLevel").Element("LevelName").Value;
             GroupToLoad = statusCheckPoint.Element("CurrentLevel").Element("GroupName").Value;
             _statusToLoad = statusCheckPoint;
+            _respawning = true;
         }
 
         public void LoadNextLevelAssets()
@@ -66,7 +68,7 @@ namespace NeonStarLibrary
             if (ThreadFinished && LevelToLoad == "")
                 this.ChangeScreen(new GameScreen("Tests", "LevelEmpty", _startingSpawnPointIndex, _statusToLoad, Neon.Game));
             else if (ThreadFinished)
-                this.ChangeScreen(new GameScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game));
+                this.ChangeScreen(new GameScreen(GroupToLoad, LevelToLoad, _startingSpawnPointIndex, _statusToLoad, Neon.Game, _respawning));
             base.Update(gameTime);
         }
     }

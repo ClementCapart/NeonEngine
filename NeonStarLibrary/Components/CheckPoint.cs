@@ -58,9 +58,9 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private void SaveCheckPoint()
         {
-            if ((entity.GameWorld as GameScreen).CheckPointsData.Count > 0)
+            if (GameScreen.CheckPointsData.Count > 0)
             {
-                XElement progression = (entity.GameWorld as GameScreen).CheckPointsData.Last();
+                XElement progression = GameScreen.CheckPointsData.Last();
                 string levelName = progression.Element("CurrentLevel").Element("LevelName").Value;
                 string groupName = progression.Element("CurrentLevel").Element("GroupName").Value;
                 string indexString = progression.Element("CurrentLevel").Element("SpawnPoint").Value;
@@ -69,11 +69,11 @@ namespace NeonStarLibrary.Components.GameplayElements
                     index = int.Parse(indexString);
 
                 if (entity.GameWorld.LevelGroupName != groupName || entity.GameWorld.LevelName != levelName || index != SpawnPointIndex)
-                    (entity.GameWorld as GameScreen).CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
+                    GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
             }
             else
             {
-                (entity.GameWorld as GameScreen).CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
+                GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
             }          
         }
 

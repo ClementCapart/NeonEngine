@@ -33,7 +33,7 @@ namespace NeonStarLibrary
         public AvatarCore _avatarComponent;
         //----------------------------------------//
 
-        public List<XElement> CheckPointsData;
+        public static List<XElement> CheckPointsData = new List<XElement>();
 
 
         protected XElement _statusToLoad;
@@ -41,7 +41,7 @@ namespace NeonStarLibrary
 
         public string AvatarName = "LiOn";
 
-        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game)
+        public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, bool respawning = false)
             : base(game)
         {
             this._statusToLoad = statusToLoad;
@@ -50,8 +50,6 @@ namespace NeonStarLibrary
             enemies = new List<EnemyCore>();
             
             BulletsPool = new NeonPool<Entity>(() => new Entity(this));
-
-            CheckPointsData = new List<XElement>();
 
             BulletsManager.LoadBullets();
             AttacksManager.LoadAttacks();
@@ -84,7 +82,7 @@ namespace NeonStarLibrary
                     _avatarComponent = avatar.GetComponent<AvatarCore>();
                     if (_avatarComponent != null)
                     {
-                        LoadAvatarStatus(_avatarComponent);
+                        LoadAvatarStatus(_avatarComponent, respawning);
                         _avatarComponent.CurrentSide = currentSpawnPoint.Side;
                     }
                 }         
@@ -111,7 +109,7 @@ namespace NeonStarLibrary
             }
         } 
 
-        public void LoadAvatarStatus(AvatarCore avatarComponent)
+        public void LoadAvatarStatus(AvatarCore avatarComponent, bool respawning = false)
         {
             if (_statusToLoad != null && avatarComponent != null)
             {
@@ -130,7 +128,8 @@ namespace NeonStarLibrary
                     avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
                 }
 
-                _avatarComponent.State = AvatarState.Respawning;
+                if(respawning)
+                    _avatarComponent.State = AvatarState.Respawning;
             }
         }
 
