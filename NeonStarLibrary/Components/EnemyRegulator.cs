@@ -13,7 +13,7 @@ namespace NeonStarLibrary.Components.GameplayElements
     public class EnemyRegulator : Component
     {
         #region Properties
-        private string _avatarName = "";
+        private string _avatarName = "LiOn";
 
         public string AvatarName
         {
