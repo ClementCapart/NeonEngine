@@ -1489,8 +1489,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:288 Y:-1406}" />
-              <InitialPosition Value="{X:288 Y:-1406}" />
+              <Position Value="{X:432 Y:-1406}" />
+              <InitialPosition Value="{X:432 Y:-1406}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1498,8 +1498,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:287 Y:-1406}" />
-              <X Value="237" />
+              <Center Value="{X:431 Y:-1406}" />
+              <X Value="381" />
               <Y Value="-1486" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1525,7 +1525,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2054,8 +2054,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1181 Y:-335}" />
-              <InitialPosition Value="{X:1181 Y:-335}" />
+              <Position Value="{X:1233 Y:-335}" />
+              <InitialPosition Value="{X:1233 Y:-335}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2063,8 +2063,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1180 Y:-335}" />
-              <X Value="1140" />
+              <Center Value="{X:1232 Y:-335}" />
+              <X Value="1192" />
               <Y Value="-415" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2090,7 +2090,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2241,7 +2241,7 @@
             <Properties>
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
-              <CoreElement Value="Fire" />
+              <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="20" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
@@ -2302,6 +2302,246 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </AreaAttack>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint00" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-39 Y:-150}" />
+              <InitialPosition Value="{X:-39 Y:-150}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-39 Y:-150}" />
+              <X Value="-74" />
+              <Y Value="-275" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="0" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint00" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint04" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:593 Y:879}" />
+              <InitialPosition Value="{X:593 Y:879}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:593 Y:879}" />
+              <X Value="558" />
+              <Y Value="754" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="4" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint04" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint03" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2150 Y:421}" />
+              <InitialPosition Value="{X:2150 Y:421}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2150 Y:421}" />
+              <X Value="2115" />
+              <Y Value="296" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="3" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint03" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2150 Y:-379}" />
+              <InitialPosition Value="{X:2150 Y:-379}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2150 Y:-379}" />
+              <X Value="2115" />
+              <Y Value="-504" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="2" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint02" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1969 Y:-1827}" />
+              <InitialPosition Value="{X:1969 Y:-1827}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1969 Y:-1827}" />
+              <X Value="1934" />
+              <Y Value="-1952" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="1" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint01" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="Checkpoint05" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:298 Y:879}" />
+              <InitialPosition Value="{X:298 Y:879}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:298 Y:879}" />
+              <X Value="263" />
+              <Y Value="754" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="70" />
+              <Height Value="250" />
+            </Properties>
+          </Hitbox>
+          <CheckPoint Type="NeonStarLibrary.Components.GameplayElements.CheckPoint" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="5" />
+            </Properties>
+          </CheckPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Checkpoint05" />
+              <TriggeredComponentName Value="CheckPoint" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
     </Entities>
