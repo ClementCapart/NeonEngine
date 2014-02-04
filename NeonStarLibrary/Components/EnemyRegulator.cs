@@ -2,6 +2,7 @@
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,6 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _enemyToSpawn = value; }
         }
 
-
         private Element _elementToCheck = Element.Neutral;
 
         public Element ElementToCheck
@@ -37,12 +37,12 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _elementToCheck = value; }
         }
 
-        private float _elementLevelToCheck = 1.0f;
+        private float _elementLevelNeeded = 1.0f;
 
-        public float ElementLevelToCheck
+        public float ElementLevelNeeded
         {
-            get { return _elementLevelToCheck; }
-            set { _elementLevelToCheck = value; }
+            get { return _elementLevelNeeded; }
+            set { _elementLevelNeeded = value; }
         }
 
         private Vector2 _spawnPoint;
@@ -53,12 +53,12 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _spawnPoint = value; }
         }
 
-        private float _minimumIntervalBetweenSpawns = 2.0f;
+        private float _timeBeforeSpawn = 1.0f;
 
-        public float MinimumIntervalBetweenSpawns
+        public float TimeBeforeSpawn
         {
-            get { return _minimumIntervalBetweenSpawns; }
-            set { _minimumIntervalBetweenSpawns = value; }
+            get { return _timeBeforeSpawn; }
+            set { _timeBeforeSpawn = value; }
         }
         #endregion
 
@@ -84,21 +84,57 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Update(GameTime gameTime)
         {
-            if (_avatarComponent != null && _avatarComponent.ElementSystem != null && (_avatarComponent.ElementSystem.RightSlotElement != _elementToCheck && _avatarComponent.ElementSystem.LeftSlotElement != _elementToCheck))
-                _haveToSpawnEnemy = true;
-            else
-                _haveToSpawnEnemy = false;
-            if (_haveToSpawnEnemy)
+            if (entity.hitboxes.Count > 0 && _avatarComponent != null && _avatarComponent.entity.hitboxes.Count > 0
+                && entity.hitboxes[0].hitboxRectangle.Intersects(_avatarComponent.entity.hitboxes[0].hitboxRectangle))
             {
-                if (_spawnTimer > 0.0f)
-                    _spawnTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_spawnTimer <= 0.0f)
+                int elementCount = 0;
+                foreach (Entity e in entity.GameWorld.Entities)
                 {
-                    SpawnEnemy();
-                    _haveToSpawnEnemy = false;
+                    if (e.hitboxes.Count > 0 && e.hitboxes[0].hitboxRectangle.Intersects(this.entity.hitboxes[0].hitboxRectangle))
+                    {
+                        EnemyCore ec;
+                        ec = e.GetComponent<EnemyCore>();
+                        if (ec != null)
+                        {
+                            if (ec.CoreElement == _elementToCheck)
+                                elementCount++;
+                        }
+                    }
                 }
-                
+
+                if (_avatarComponent.ElementSystem != null)
+                {
+                    if (_avatarComponent.ElementSystem.RightSlotElement == _elementToCheck)
+                        elementCount += (int)_avatarComponent.ElementSystem.RightSlotLevel;
+                    if (_avatarComponent.ElementSystem.LeftSlotElement == _elementToCheck)
+                        elementCount += (int)_avatarComponent.ElementSystem.LeftSlotLevel;
+                }
+
+                if (_elementLevelNeeded > elementCount)
+                {
+                    if (!_haveToSpawnEnemy)
+                    {
+                        _haveToSpawnEnemy = true;
+                        _spawnTimer = _timeBeforeSpawn;
+                    }
+                }
+                else
+                    _haveToSpawnEnemy = false;
+
+                if (_haveToSpawnEnemy)
+                {
+                    if (_spawnTimer > 0.0f)
+                        _spawnTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_spawnTimer <= 0.0f)
+                    {
+                        SpawnEnemy();
+                        _haveToSpawnEnemy = false;
+                    }
+
+                }
             }
+            else
+                _haveToSpawnEnemy = false;         
             
             base.Update(gameTime);
         }
@@ -107,7 +143,6 @@ namespace NeonStarLibrary.Components.GameplayElements
         {
             if (_enemyToSpawn != "")
                 DataManager.LoadPrefab(@"../Data/Prefabs/" + EnemyToSpawn + ".prefab", entity.GameWorld).transform.Position = _spawnPoint;
-            _spawnTimer = _minimumIntervalBetweenSpawns;
         }
 
 

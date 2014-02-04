@@ -55,8 +55,7 @@ namespace NeonStarLibrary.Components.Enemies
         public SupervisorChase(Entity entity)
             :base(entity)
         {
-            Name = "SupervisorChase";
-            
+            Name = "SupervisorChase";           
         }
 
         public override void Init()
