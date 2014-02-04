@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyTurret" Layer="">
+  <Entity Name="EnemyNeutralTurret" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:929 Y:257}" />
-          <InitialPosition Value="{X:929 Y:257}" />
+          <Position Value="{X:430 Y:2256}" />
+          <InitialPosition Value="{X:430 Y:2256}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:929 Y:257}" />
-          <X Value="879" />
-          <Y Value="207" />
+          <Center Value="{X:429 Y:2256}" />
+          <X Value="379" />
+          <Y Value="2206" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -44,6 +44,7 @@
           <CurrentSide Value="Right" />
           <Offset Value="{X:4 Y:2}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
           <RotationCenter Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
           <Spritesheets>
@@ -53,7 +54,6 @@
           </Spritesheets>
           <DrawLayer Value="0.39" />
           <IsHUD Value="False" />
-          <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
@@ -71,12 +71,12 @@
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
           <ImmuneToDeath Value="False" />
+          <ImmuneToDamage Value="False" />
+          <AlwaysTakeUppercut Value="False" />
           <Type Value="Ground" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
-          <WaitThreatDuration Value="1" />
-          <ImmuneToDamage Value="False" />
-          <AlwaysTakeUppercut Value="False" />
+          <WaitThreatDuration Value="0" />
         </Properties>
       </EnemyCore>
       <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
@@ -106,20 +106,20 @@
           <MaximumAngleDifference Value="360" />
           <RangeForAttackOne Value="400" />
           <AttackToLaunchOne Value="EnemyFTurretShot" />
-          <RangeForAttackTwo Value="0" />
-          <AttackToLaunchTwo Value="" />
-          <RangeForAttackThree Value="0" />
-          <AttackToLaunchThree Value="" />
-          <EntityToAttackName Value="LiOn" />
           <AttackOneDelayAnimation Value="Attack" />
           <AttackOneDurationAnimation Value="" />
           <AttackOneCooldownAnimation Value="" />
+          <RangeForAttackTwo Value="0" />
+          <AttackToLaunchTwo Value="" />
           <AttackTwoDelayAnimation Value="" />
           <AttackTwoDurationAnimation Value="" />
           <AttackTwoCooldownAnimation Value="" />
+          <RangeForAttackThree Value="0" />
+          <AttackToLaunchThree Value="" />
           <AttackThreeDelayAnimation Value="" />
           <AttackThreeDurationAnimation Value="" />
           <AttackThreeCooldownAnimation Value="" />
+          <EntityToAttackName Value="LiOn" />
         </Properties>
       </AreaAttack>
     </Components>

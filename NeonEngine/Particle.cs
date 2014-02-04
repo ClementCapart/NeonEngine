@@ -169,7 +169,7 @@ namespace NeonEngine
         {
             if (spriteSheet != null)
                 spriteSheet.Draw(spriteBatch);
-            else
+            else if(Texture != null)
                 spriteBatch.Draw(Texture, Position, null, Color.Lerp(TintColor, Color.Transparent, _opacity), Angle, new Vector2(Texture.Width / 2, Texture.Height / 2), Scale, SpriteEffects.None, Layer);
             base.Draw(spriteBatch);
         }
