@@ -17,5 +17,21 @@
 			</Effect>
 		</OnHitSpecialEffects>	
 	</Bullet>
+	<Bullet ID="1" Name="NeutralBullet">
+		<LivingSpriteSheet>EnemyNeutralTurretBullet</LivingSpriteSheet>
+		<OnHitSpriteSheet>EnemyNeutralTurretBulletImpact</OnHitSpriteSheet>
+		<Hitbox OffsetX="0" OffsetY="0" Width="30" Height="30"></Hitbox>
+		<MovePattern>Linear</MovePattern>
+		<Direction>{X:1 Y:0}</Direction>
+		<StunLock>0.2</StunLock>
+		<Speed>600</Speed>
+		<LifeTime>10</LifeTime>
+		<DamageOnHit>-5</DamageOnHit>
+		<OnHitSpecialEffects>
+			<Effect Type="Impulse">
+				<Parameter Value="{X:3900 Y:0}" />
+			</Effect>
+		</OnHitSpecialEffects>	
+	</Bullet>
   </Bullets>
 </XnaContent>
