@@ -39,7 +39,6 @@ namespace NeonStarLibrary
                     }
                 }
             }
-            Console.WriteLine(_collectibles.Count.ToString());
         }
 
         static public void InitializeCollectiblesFromCheckpointData(XElement checkpointData)
