@@ -15,6 +15,7 @@ using NeonStarLibrary.Components.Enemies;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.GameplayElements;
 using NeonStarLibrary.Components.EnergyObjects;
+using NeonStarLibrary.Components.Camera;
 
 namespace NeonStarLibrary
 {
@@ -31,6 +32,9 @@ namespace NeonStarLibrary
         //Sounds obvious but still, I don't know...//
         public Entity avatar;
         public AvatarCore _avatarComponent;
+
+        public CameraFocus _cameraFocus;
+
         //----------------------------------------//
 
         public static List<XElement> CheckPointsData = new List<XElement>();
@@ -80,6 +84,7 @@ namespace NeonStarLibrary
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
                     avatar.transform.Position = currentSpawnPoint.Position;
                     _avatarComponent = avatar.GetComponent<AvatarCore>();
+                    _cameraFocus = avatar.GetComponent<CameraFocus>();
                     if (_avatarComponent != null)
                     {
                         LoadAvatarStatus(_avatarComponent, respawning);
@@ -130,7 +135,6 @@ namespace NeonStarLibrary
                     {
                         avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
                         avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
-
                         avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
                         avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
                     }
@@ -168,8 +172,8 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f)
-                    Camera.Chase(avatar.transform.Position, gameTime);
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && _cameraFocus != null)
+                    Camera.Chase(_cameraFocus.FocusPosition, gameTime);
                 else if (avatar == null)
                 {
                     avatar = this.GetEntityByName("LiOn");

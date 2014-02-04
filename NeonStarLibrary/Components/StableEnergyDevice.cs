@@ -106,11 +106,11 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {
-                    if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Y))
+                    if (Neon.Input.Pressed(NeonStarInput.Interact))
                     {
                         _isFilling = true;
                     }
-                    else if (Neon.Input.Check(Microsoft.Xna.Framework.Input.Buttons.Y))
+                    else if (Neon.Input.Check(NeonStarInput.Interact))
                     {
                         if (_isFilling)
                         {
@@ -143,7 +143,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         }
                     }
 
-                    if (Neon.Input.Released(Microsoft.Xna.Framework.Input.Buttons.Y))
+                    if (Neon.Input.Released(NeonStarInput.Interact))
                     {
                         _isFilling = false;
                         _fillingTimer = 0.0f;

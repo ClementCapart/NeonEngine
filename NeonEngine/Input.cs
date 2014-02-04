@@ -211,7 +211,7 @@ namespace NeonEngine
                             else
                                 return DelayStatus.Passed;
                         }
-                        
+
                     }
                     else if (kvp.Key == "XboxController2")
                     {
@@ -228,7 +228,6 @@ namespace NeonEngine
                     }
                 }
             }
-
             return DelayStatus.NotStarted;
         }
 

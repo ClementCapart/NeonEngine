@@ -17,6 +17,11 @@ namespace NeonStarLibrary
         UseLeftSlotElement,
         UseRightSlotElement,
         DropLeftSlotElement,
-        DropRightSlotElement
+        DropRightSlotElement,
+        Interact,
+        CameraLeft,
+        CameraRight,
+        CameraUp,
+        CameraDown
     }
 }
