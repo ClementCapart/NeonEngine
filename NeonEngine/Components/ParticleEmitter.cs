@@ -12,7 +12,6 @@ namespace NeonEngine.Components.VisualFX
 
         public List<Particle> particles;
 
-
         private MovePattern _movementType = MovePattern.Linear;
 
         public MovePattern MovementType
@@ -265,7 +264,7 @@ namespace NeonEngine.Components.VisualFX
 
         Texture2D _particleTexture;
         
-        private string _graphicTag;
+        private string _graphicTag = "";
 
         public string GraphicTag
         {
@@ -279,7 +278,7 @@ namespace NeonEngine.Components.VisualFX
 
         SpriteSheetInfo _spriteSheetInfo;
 
-        private string _spriteSheetTag;
+        private string _spriteSheetTag = "";
 
         public string SpriteSheetTag
         {
