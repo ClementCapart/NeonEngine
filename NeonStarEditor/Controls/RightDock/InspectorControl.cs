@@ -230,7 +230,7 @@ namespace NeonStarEditor
 
                         localY += VectorX.Height + 5;
                     }
-                    else if (pi.Name == "SpriteSheetTag")
+                    else if (pi.Name.EndsWith("SpriteSheetTag"))
                     {
                         Button openGraphicPicker = new Button();
                         openGraphicPicker.FlatStyle = FlatStyle.Flat;

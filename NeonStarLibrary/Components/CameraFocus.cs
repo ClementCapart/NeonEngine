@@ -10,47 +10,47 @@ namespace NeonStarLibrary.Components.Camera
     public class CameraFocus : Component
     {
         #region Properties
-        private float _maxDistanceX = 500.0f;
+        private bool _eightDirectionsMove = false;
 
-        public float MaxDistanceX
+        public bool EightDirectionsMove
         {
-            get { return _maxDistanceX; }
-            set { _maxDistanceX = value; }
+            get { return _eightDirectionsMove; }
+            set { _eightDirectionsMove = value; }
         }
 
-        private float _maxDistanceY = 400.0f;
+        private float _distanceX = 350.0f;
 
-        public float MaxDistanceY
+        public float DistanceX
         {
-            get { return _maxDistanceY; }
-            set { _maxDistanceY = value; }
+            get { return _distanceX; }
+            set { _distanceX = value; }
         }
 
-        private float _movementRate = 500.0f;
+        private float _distanceY = 350.0f;
 
-        public float MovementRate
+        public float DistanceY
         {
-            get { return _movementRate; }
-            set { _movementRate = value; }
+            get { return _distanceY; }
+            set { _distanceY = value; }
         }
 
-        private float _forceFeedbackRate = 700.0f;
+        private float _smoothingRate = 0.05f;
 
-        public float ForceFeedbackRate
+        public float SmoothingRate
         {
-            get { return _forceFeedbackRate; }
-            set { _forceFeedbackRate = value; }
+            get { return _smoothingRate; }
+            set { _smoothingRate = value; }
         }
-
         #endregion
 
-        public Vector2 FocusPosition;
+        public Vector2 FocusDisplacement;
+        public bool IgnoreSoftBounds = false;
         private Vector2 _focusDisplacement = Vector2.Zero;
+        private Vector2 _targetFocusDisplacement;
 
         public CameraFocus(Entity entity)
             :base(entity, "CameraFocus")
-        {
-            
+        {     
         }
 
         public override void Init()
@@ -58,73 +58,77 @@ namespace NeonStarLibrary.Components.Camera
             base.Init();
         }
 
-        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            FocusPosition = entity.transform.Position;
-
             if (Neon.Input.Check(NeonStarInput.CameraRight))
             {
-                Vector2 newDisplacement = _focusDisplacement;
-                newDisplacement.X += (float)gameTime.ElapsedGameTime.TotalSeconds * _movementRate;
-                if (newDisplacement.LengthSquared() < _maxDistanceX * _maxDistanceX)
-                    _focusDisplacement = newDisplacement;
+                if (_eightDirectionsMove)
+                {
+                    if (Neon.Input.Check(NeonStarInput.CameraDown))
+                    {
+                        _targetFocusDisplacement = new Vector2(_distanceX, _distanceY);
+                    }
+                    else if (Neon.Input.Check(NeonStarInput.CameraUp))
+                    {
+                        _targetFocusDisplacement = new Vector2(_distanceX, -_distanceX);
+                    }
+                    else
+                    {
+                        _targetFocusDisplacement = new Vector2(_distanceX, 0);
+                    }
+                }
+                else
+                    _targetFocusDisplacement = new Vector2(_distanceX, 0);
+
+                IgnoreSoftBounds = true;
+                
             }
             else if (Neon.Input.Check(NeonStarInput.CameraLeft))
             {
-                Vector2 newDisplacement = _focusDisplacement;
-                newDisplacement.X -= (float)gameTime.ElapsedGameTime.TotalSeconds * _movementRate;
-                if (newDisplacement.LengthSquared() < _maxDistanceX * _maxDistanceX)
-                    _focusDisplacement = newDisplacement;
+                if (_eightDirectionsMove)
+                {
+                    if (Neon.Input.Check(NeonStarInput.CameraDown))
+                    {
+                        _targetFocusDisplacement = new Vector2(-_distanceX, _distanceY);
+                    }
+                    else if (Neon.Input.Check(NeonStarInput.CameraUp))
+                    {
+                        _targetFocusDisplacement = new Vector2(-_distanceX, -_distanceY);
+                    }
+                    else
+                    {
+                        _targetFocusDisplacement = new Vector2(-_distanceX, 0);
+                    }
+                }
+                else
+                    _targetFocusDisplacement = new Vector2(-_distanceX, 0);
+
+                IgnoreSoftBounds = true;
+                
+            }
+            else if (Neon.Input.Check(NeonStarInput.CameraDown))
+            {
+                _targetFocusDisplacement = new Vector2(0, _distanceY);
+                IgnoreSoftBounds = true;
+            }
+            else if(Neon.Input.Check(NeonStarInput.CameraUp))
+            {
+                _targetFocusDisplacement = new Vector2(0, -_distanceY);
+                IgnoreSoftBounds = true;
             }
             else
             {
-                if (_focusDisplacement.X > 0.0f)
-                {
-                    _focusDisplacement.X -= (float)gameTime.ElapsedGameTime.TotalSeconds * _forceFeedbackRate;
-                    if (_focusDisplacement.X < 0.0f)
-                        _focusDisplacement.X = 0.0f;
-                }
-                else if (_focusDisplacement.X < 0.0f)
-                {
-                    _focusDisplacement.X += (float)gameTime.ElapsedGameTime.TotalSeconds * _forceFeedbackRate;
-                    if (_focusDisplacement.X > 0.0f)
-                        _focusDisplacement.X = 0.0f;
-                }
+                _targetFocusDisplacement = Vector2.Zero;
+                IgnoreSoftBounds = false;
             }
 
-            if (Neon.Input.Check(NeonStarInput.CameraDown))
-            {
-                Vector2 newDisplacement = _focusDisplacement;
-                newDisplacement.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * _movementRate;
-                if (newDisplacement.LengthSquared() < _maxDistanceY * _maxDistanceY)
-                    _focusDisplacement = newDisplacement;
-            }
-            else if (Neon.Input.Check(NeonStarInput.CameraUp))
-            {
-                Vector2 newDisplacement = _focusDisplacement;
-                newDisplacement.Y -= (float)gameTime.ElapsedGameTime.TotalSeconds * _movementRate;
-                if (newDisplacement.LengthSquared() < _maxDistanceY * _maxDistanceY)
-                    _focusDisplacement = newDisplacement;
-            }
-            else
-            {
-                if (_focusDisplacement.Y > 0.0f)
-                {
-                    _focusDisplacement.Y -= (float)gameTime.ElapsedGameTime.TotalSeconds * _forceFeedbackRate;
-                    if (_focusDisplacement.Y < 0.0f)
-                        _focusDisplacement.Y = 0.0f;
-                }
-                else if (_focusDisplacement.Y < 0.0f)
-                {
-                    _focusDisplacement.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * _forceFeedbackRate;
-                    if (_focusDisplacement.Y > 0.0f)
-                        _focusDisplacement.Y = 0.0f;
-                }
-            }
+            _focusDisplacement = Vector2.Lerp(_focusDisplacement, _targetFocusDisplacement, _smoothingRate);
+            if (Vector2.Distance(_focusDisplacement, _targetFocusDisplacement) < 1.0f)
+                _focusDisplacement = _targetFocusDisplacement;
+            
+            FocusDisplacement = _focusDisplacement;
 
-            FocusPosition += _focusDisplacement;
-
-            base.PreUpdate(gameTime);
+            base.Update(gameTime);
         }
     }
 }

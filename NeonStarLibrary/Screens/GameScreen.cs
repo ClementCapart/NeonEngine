@@ -33,7 +33,7 @@ namespace NeonStarLibrary
         public Entity avatar;
         public AvatarCore _avatarComponent;
 
-        public CameraFocus _cameraFocus;
+        public CameraFocus CameraFocus;
 
         //----------------------------------------//
 
@@ -84,7 +84,7 @@ namespace NeonStarLibrary
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
                     avatar.transform.Position = currentSpawnPoint.Position;
                     _avatarComponent = avatar.GetComponent<AvatarCore>();
-                    _cameraFocus = avatar.GetComponent<CameraFocus>();
+                    CameraFocus = avatar.GetComponent<CameraFocus>();
                     if (_avatarComponent != null)
                     {
                         LoadAvatarStatus(_avatarComponent, respawning);
@@ -173,8 +173,10 @@ namespace NeonStarLibrary
         {
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && _cameraFocus != null)
-                    Camera.Chase(_cameraFocus.FocusPosition, gameTime);
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null)
+                {
+                    Camera.Chase(avatar.transform.Position, CameraFocus.FocusDisplacement, CameraFocus.IgnoreSoftBounds, gameTime);
+                }
                 else if (avatar == null)
                 {
                     avatar = this.GetEntityByName("LiOn");

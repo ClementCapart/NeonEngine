@@ -2,6 +2,7 @@
 using NeonEngine;
 using NeonEngine.Components.Camera;
 using NeonEngine.Private;
+using NeonStarLibrary.Components.Camera;
 using System;
 using System.Collections.Generic;
 using System.Linq;

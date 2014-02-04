@@ -28,6 +28,18 @@ namespace NeonStarLibrary.Components.Avatar
             set { _dashAnimation = value; }
         }
 
+        private string _dashEffectSpriteSheetTag = "";
+
+        public string DashEffectSpriteSheetTag
+        {
+            get { return _dashEffectSpriteSheetTag; }
+            set
+            { 
+                _dashEffectSpriteSheetTag = value;
+                _dashEffectSpritesheet = AssetManager.GetSpriteSheet(value);
+            }
+        }
+
         private string _guardAnimation = "";
 
         public string GuardAnimation
@@ -118,6 +130,8 @@ namespace NeonStarLibrary.Components.Avatar
         #endregion       
 
         public AvatarCore AvatarComponent;
+
+        private SpriteSheetInfo _dashEffectSpritesheet;
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
@@ -412,6 +426,7 @@ namespace NeonStarLibrary.Components.Avatar
             if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
 
+
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(AvatarComponent.CurrentSide == Side.Right ? _dashImpulse : -_dashImpulse, 0));
@@ -420,6 +435,7 @@ namespace NeonStarLibrary.Components.Avatar
             if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
+            EffectsManager.GetEffect(_dashEffectSpritesheet, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(50, 0), 2.0f, 0.90f);
         }
     }
 }

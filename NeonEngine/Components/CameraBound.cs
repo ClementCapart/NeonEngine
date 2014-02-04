@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,7 +95,7 @@ namespace NeonEngine.Components.Camera
             base.Remove();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (_softBound)
             {
@@ -119,49 +120,54 @@ namespace NeonEngine.Components.Camera
                         break;
                 }
 
-                if (entity.GameWorld.Camera.GetEntitiesInView(positionCamera).Contains(entity))
+                if (entity.GameWorld.MustSoftenBounds)
                 {
-                    if (!_reverseBound)
+                    if (entity.GameWorld.Camera.GetEntitiesInView(positionCamera).Contains(entity))
+                    // if (new Rectangle((int)(entity.GameWorld.Camera.BasePosition.X - Neon.HalfScreen.X / entity.GameWorld.Camera.Zoom), (int)(entity.GameWorld.Camera.BasePosition.Y - Neon.HalfScreen.Y / entity.GameWorld.Camera.Zoom), (int)(Neon.ScreenWidth / entity.GameWorld.Camera.Zoom), (int)(Neon.ScreenHeight / entity.GameWorld.Camera.Zoom)).Contains((int)entity.transform.Position.X, (int)entity.transform.Position.Y))
                     {
-                        if (_boundStrength < 1.0f)
-                            _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+                        if (!_reverseBound)
+                        {
+                            if (_boundStrength < 1.0f)
+                                _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
 
-                        if (_boundStrength > 1.0f)
-                            _boundStrength = 1.0f;
+                            if (_boundStrength > 1.0f)
+                                _boundStrength = 1.0f;
+                        }
+                        else
+                        {
+                            if (_boundStrength > 0.0f)
+                                _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                            if (_boundStrength < 0.0f)
+                                _boundStrength = 0.0f;
+                        }
                     }
                     else
                     {
-                        if (_boundStrength > 0.0f)
-                            _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+                        if (!_reverseBound)
+                        {
+                            if (_boundStrength > 0.0f)
+                                _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
 
-                        if (_boundStrength < 0.0f)
-                            _boundStrength = 0.0f;
+                            if (_boundStrength < 0.0f)
+                                _boundStrength = 0.0f;
+
+                        }
+                        else
+                        {
+                            if (_boundStrength < 1.0f)
+                                _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
+
+                            if (_boundStrength > 1.0f)
+                                _boundStrength = 1.0f;
+                        }
                     }
                 }
-                else
-                {
-                    if (!_reverseBound)
-                    {
-                        if (_boundStrength > 0.0f)
-                            _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
-
-                        if (_boundStrength < 0.0f)
-                            _boundStrength = 0.0f;
-
-                    }
-                    else
-                    {
-                        if (_boundStrength < 1.0f)
-                            _boundStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
-
-                        if (_boundStrength > 1.0f)
-                            _boundStrength = 1.0f;
-                    }
-                }
+               
             }
             
             
-            base.Update(gameTime);
+            base.PreUpdate(gameTime);
         }
     }
 }

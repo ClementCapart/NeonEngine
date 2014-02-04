@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:425.5435 Y:-93.49996}" />
-          <InitialPosition Value="{X:425.5435 Y:-93.49996}" />
+          <Position Value="{X:-577.7595 Y:171.5}" />
+          <InitialPosition Value="{X:-577.7595 Y:171.5}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:425 Y:-93}" />
-          <X Value="405" />
-          <Y Value="-161" />
+          <Center Value="{X:-577 Y:171}" />
+          <X Value="-597" />
+          <Y Value="103" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -140,6 +140,7 @@
         <Properties>
           <RollAnimation Value="Roll" />
           <DashAnimation Value="AirDash" />
+          <DashEffectSpriteSheetTag Value="FXAirDash" />
           <GuardAnimation Value="Guard" />
           <RollDuration Value="0.3" />
           <DashDuration Value="0.2" />
@@ -198,7 +199,12 @@
         </Properties>
       </FireGauge>
       <CameraFocus Type="NeonStarLibrary.Components.Camera.CameraFocus" ID="12">
-        <Properties />
+        <Properties>
+          <MaxDistanceX Value="500" />
+          <MaxDistanceY Value="400" />
+          <MovementRate Value="500" />
+          <ForceFeedbackRate Value="700" />
+        </Properties>
       </CameraFocus>
     </Components>
   </Entity>

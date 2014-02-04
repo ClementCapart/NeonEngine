@@ -38,6 +38,7 @@ namespace NeonStarLibrary.Components.Avatar
                             entity.spritesheets.ChangeAnimation(AvatarComponent.RespawnAnimation, true, 0, false, false, false);
                         }
                         break;
+
                     case AvatarState.Idle:
                         entity.spritesheets.Active = true;
                         if (entity.rigidbody.isGrounded)

@@ -15,8 +15,10 @@ namespace NeonEngine
         Vector2 _ppos; // camera Position since last frame
         protected float _rotation; // Camera Rotation
         private bool _bounded = false;
+        public Vector2 BasePosition;
 
         public bool MovedLastFrame = false;
+        public bool HasMetSoftBounds = false;
 
         public List<CameraBound> CameraBounds = new List<CameraBound>();
 
@@ -111,7 +113,7 @@ namespace NeonEngine
         }
 
 
-        public void Chase(Vector2 desiredPosition,GameTime gameTime)
+        public void Chase(Vector2 desiredPosition, Vector2 focusDisplacement, bool ignoreSoftBounds, GameTime gameTime)
         {
             Vector2 OldPosition = _pos;
             if (ChaseStrength < 0.9f)
@@ -121,36 +123,55 @@ namespace NeonEngine
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
 
             _pos = new Vector2(MathHelper.Lerp(NewPosition.X, desiredPosition.X, ChaseStrength), MathHelper.Lerp(NewPosition.Y, desiredPosition.Y, ChaseStrength));
-            NewPosition = _pos;             
+            //_pos = desiredPosition;
+            
+            NewPosition = _pos;
+
+            bool boundedUp = false;
+            bool boundedRight = false;
+            bool boundedDown = false;
+            bool boundedLeft = false;
+
+            bool hasMetSoftBounds = false;
 
             if (Bounded && CameraBounds.Count > 0)
             {
                 foreach (CameraBound cb in CameraBounds)
                 {
-                    if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)) || cb.SoftBound && cb.BoundStrength > 0.0f)
+                    if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)) || (cb.SoftBound && cb.BoundStrength > 0.0f))
                     {
+                        if (cb.SoftBound)
+                            hasMetSoftBounds = true;
                         switch (cb.BoundSide)
                         {
                             case Side.Up:
                                 NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                boundedUp = true;
                                 break;
 
                             case Side.Right:
                                 NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X - Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                boundedRight = true;
                                 break;
 
                             case Side.Down:
                                 NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                boundedDown = true;
                                 break;
 
                             case Side.Left:
                                 NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                boundedLeft = true;
                                 break;
                         }
                     }
                 }          
             }
 
+            if (hasMetSoftBounds)
+                HasMetSoftBounds = true;
+            else
+                HasMetSoftBounds = false;
 
             if (Math.Abs(NewPosition.X - _pos.X) >= 1)
             {
@@ -160,6 +181,67 @@ namespace NeonEngine
             {
                 _pos.Y = NewPosition.Y;
             }
+
+            BasePosition = _pos;
+
+            if (focusDisplacement != Vector2.Zero && !HasMetSoftBounds)
+            {
+                if(!(boundedLeft && focusDisplacement.X < 0) && !(boundedRight && focusDisplacement.X > 0))
+                    NewPosition.X += focusDisplacement.X;
+                if(!(boundedUp && focusDisplacement.Y < 0) && !(boundedDown && focusDisplacement.Y > 0))
+                    NewPosition.Y += focusDisplacement.Y;
+
+                if (Bounded && CameraBounds.Count > 0)
+                {
+                    foreach (CameraBound cb in CameraBounds)
+                    {
+                        if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)))
+                        {
+                            switch (cb.BoundSide)
+                            {
+                                case Side.Up:
+                                    if (focusDisplacement.Y > 0)
+                                        break;
+                                    NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y + Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                    boundedUp = true;
+                                    break;
+
+                                case Side.Right:
+                                    if (focusDisplacement.X < 0)
+                                        break;
+                                    NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X - Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                    boundedRight = true;
+                                    break;
+
+                                case Side.Down:
+                                    if (focusDisplacement.Y < 0)
+                                        break;
+                                    NewPosition.Y = (float)MathHelper.Lerp(NewPosition.Y, cb.entity.transform.Position.Y - Neon.HalfScreen.Y / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                    boundedDown = true;
+                                    break;
+
+                                case Side.Left:
+                                    if (focusDisplacement.X > 0)
+                                        break;
+                                    NewPosition.X = (float)MathHelper.Lerp(NewPosition.X, cb.entity.transform.Position.X + Neon.HalfScreen.X / Neon.World.Camera.Zoom, cb.BoundStrength);
+                                    boundedLeft = true;
+                                    break;
+                            }
+                        }
+                    }
+                }
+
+                if (Math.Abs(NewPosition.X - _pos.X) >= 1)
+                {
+                    _pos.X = NewPosition.X;
+                }
+                if (Math.Abs(NewPosition.Y - _pos.Y) >= 1)
+                {
+                    _pos.Y = NewPosition.Y;
+                }
+            }
+
+            
 
             if (_pos != OldPosition)
                 MovedLastFrame = true;

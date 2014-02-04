@@ -55,6 +55,8 @@ namespace NeonEngine
 
         public Game game;
 
+        public bool MustSoftenBounds = true;
+
         public World(Game game)
         {
             Alpha = 1.0f;
