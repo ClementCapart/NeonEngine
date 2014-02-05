@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="SwitchElement" Layer="">
+  <Entity Name="SwitchElement04" Layer="Energy">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:1140 Y:-789}" />
-          <InitialPosition Value="{X:1140 Y:-789}" />
+          <Position Value="{X:1302 Y:-787.9998}" />
+          <InitialPosition Value="{X:1302 Y:-787.9998}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:1140 Y:-789}" />
-          <X Value="1120" />
-          <Y Value="-864" />
+          <Center Value="{X:1302 Y:-787}" />
+          <X Value="1282" />
+          <Y Value="-862" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -39,6 +39,56 @@
           <FixedRotation Value="True" />
         </Properties>
       </Rigidbody>
+      <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="3">
+        <Properties>
+          <TriggerFromAllElementsExceptNeutral Value="True" />
+          <TriggeringElement Value="Neutral" />
+          <ActivationDuration Value="1" />
+          <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
+          <OffAnimation Value="Off" />
+          <OnAnimation Value="On" />
+          <State Value="Deactivated" />
+        </Properties>
+      </TemporaryEnergyDevice>
+      <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
+        <Properties>
+          <Debug Value="False" />
+          <StartingHealthPoints Value="10" />
+          <CoreElement Value="Neutral" />
+          <CurrentHealthPoints Value="10" />
+          <InvincibilityDuration Value="0.5" />
+          <RunAnim Value="" />
+          <IdleAnim Value="" />
+          <DyingAnim Value="" />
+          <HitAnim Value="" />
+          <ImmuneToStunLock Value="True" />
+          <ImmuneToImpulse Value="True" />
+          <ImmuneToDeath Value="True" />
+          <ImmuneToDamage Value="True" />
+          <AlwaysTakeUppercut Value="False" />
+          <Type Value="Ground" />
+          <TriggerOnDamage Value="True" />
+          <ComponentToTriggerName Value="TemporaryEnergyDevice" />
+          <WaitThreatDuration Value="1" />
+        </Properties>
+      </EnemyCore>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+            <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+          </Spritesheets>
+          <DrawLayer Value="0.45" />
+          <IsHUD Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+        </Properties>
+      </SpritesheetManager>
     </Components>
   </Entity>
 </Prefab>

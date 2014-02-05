@@ -50,6 +50,30 @@ namespace NeonStarLibrary.Components.Enemies
             get { return _explosionAttack; }
             set { _explosionAttack = value; }
         }
+
+        private string _idleAnimation = "";
+
+        public string IdleAnimation
+        {
+            get { return _idleAnimation; }
+            set { _idleAnimation = value; }
+        }
+
+        private string _firstExplosionAnimation = "";
+
+        public string FirstExplosionAnimation
+        {
+            get { return _firstExplosionAnimation; }
+            set { _firstExplosionAnimation = value; }
+        }
+
+        private string _nextExplosionAnimation = "";
+
+        public string NextExplosionAnimation
+        {
+            get { return _nextExplosionAnimation; }
+            set { _nextExplosionAnimation = value; }
+        }
         #endregion
 
         public EnemyCore EnemyComponent;
@@ -70,6 +94,8 @@ namespace NeonStarLibrary.Components.Enemies
             EnemyComponent = entity.GetComponent<EnemyCore>();
 
             _currentTimer = _initialTimerDuration;
+            if (entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation(_idleAnimation, true, 0, true, false, true);
             base.Init();
         }
 
@@ -86,6 +112,8 @@ namespace NeonStarLibrary.Components.Enemies
             }
             else if(!_startTimerOnGround || _touchedGround)
             {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_firstExplosionAnimation, false, 0, true, false, false);
                 if (_currentTimer > 0.0f)
                 {
                     if (!_hasBeenLaunched)
@@ -93,6 +121,8 @@ namespace NeonStarLibrary.Components.Enemies
                         if (EnemyComponent.LastAttackTook == EffectiveAttackName || EnemyComponent.LastAttackTook == EffectiveAttackName + "Finish")
                         {
                             _hasBeenLaunched = true;
+                            if (entity.spritesheets != null)
+                                entity.spritesheets.ChangeAnimation(_nextExplosionAnimation, true, 0, true, false, false);
                             _currentTimer = _launchedTimerDuration;
                         }
                         

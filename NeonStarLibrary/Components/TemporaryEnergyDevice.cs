@@ -42,6 +42,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _attackAddingTimeFromStunLock; }
             set { _attackAddingTimeFromStunLock = value; }
         }
+
+        private string _offAnimation = "";
+
+        public string OffAnimation
+        {
+            get { return _offAnimation; }
+            set { _offAnimation = value; }
+        }
+
+        private string _onAnimation = "";
+
+        public string OnAnimation
+        {
+            get { return _onAnimation; }
+            set { _onAnimation = value; }
+        }
         #endregion
 
         private float _activationTimer = 0.0f;
@@ -78,6 +94,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
             }
+            if (entity.spritesheets != null)
+            {
+                if (_activated)
+                    entity.spritesheets.ChangeAnimation(_onAnimation, true, 0, true, false, true);
+                else
+                    entity.spritesheets.ChangeAnimation(_offAnimation, true, 0, true, false, true);
+            }
+            
             base.Update(gameTime);
         }
 

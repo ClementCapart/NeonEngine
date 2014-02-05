@@ -5,10 +5,10 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:367 Y:101}" />
-          <InitialPosition Value="{X:367 Y:101}" />
+          <Position Value="{X:14.91275 Y:82.50002}" />
+          <InitialPosition Value="{X:14.91275 Y:82.50002}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
         </Properties>
       </Transform>
       <BombAttack Type="NeonStarLibrary.Components.Enemies.BombAttack" ID="2">
@@ -18,6 +18,9 @@
           <LaunchedTimerDuration Value="1" />
           <EffectiveAttackName Value="LiOnUppercut" />
           <ExplosionAttack Value="EnemyBomb" />
+          <IdleAnimation Value="IdleExplosion" />
+          <FirstExplosionAnimation Value="FirstExplosion" />
+          <NextExplosionAnimation Value="SecondExplosion" />
         </Properties>
       </BombAttack>
       <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -39,9 +42,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:366 Y:101}" />
-          <X Value="341" />
-          <Y Value="76" />
+          <Center Value="{X:360 Y:398}" />
+          <X Value="335" />
+          <Y Value="373" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="50" />
@@ -70,6 +73,24 @@
           <WaitThreatDuration Value="1" />
         </Properties>
       </EnemyCore>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="IdleExplosion" SpritesheetTag="EnemySupervisorBombshellAttackIdle" />
+            <Animation Name="FirstExplosion" SpritesheetTag="EnemySupervisorBombshellAttackFirstExplosion" />
+            <Animation Name="SecondExplosion" SpritesheetTag="EnemySupervisorBombshellAttackSecond" />
+          </Spritesheets>
+          <DrawLayer Value="0" />
+          <IsHUD Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+        </Properties>
+      </SpritesheetManager>
     </Components>
   </Entity>
 </Prefab>
