@@ -9,6 +9,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
     public class EnergyDoor : EnergyComponent
     {
         #region Properties
+        private bool _openWhenAnimationEnd = false;
+
+        public bool OpenWhenAnimationEnd
+        {
+            get { return _openWhenAnimationEnd; }
+            set { _openWhenAnimationEnd = value; }
+        }
+
         private bool _multiLockDoor = false;
 
         public bool MultiLockDoor
@@ -101,8 +109,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         entity.rigidbody.IsGround = false;
                         entity.rigidbody.Init();
                     }
-                }
-                
+                }           
             }
             else
             {
@@ -136,8 +143,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            
+        {           
             if (Closed && !_opening && !_closing)
             {
                 if (_multiLockDoor)
@@ -191,13 +197,16 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (entity.spritesheets.IsFinished())
                     {
                         entity.spritesheets.ChangeAnimation(_openedIdleAnimation, true);
-                        Closed = false;
-                        _opening = false;
-                        if (entity.rigidbody != null)
+                        if (_openWhenAnimationEnd)
                         {
-                            entity.rigidbody.IsGround = false;
-                            entity.rigidbody.Init();
-                        }
+                            Closed = false;
+                            _opening = false;
+                            if (entity.rigidbody != null)
+                            {
+                                entity.rigidbody.IsGround = false;
+                                entity.rigidbody.Init();
+                            }
+                        }                        
                     }
                 }
             }
@@ -240,6 +249,17 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (entity.spritesheets != null)
                 {
                     entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, 0, true, false, false);
+                    if (!_openWhenAnimationEnd)
+                    {
+                        Closed = false;
+                        _opening = false;
+                        if (entity.rigidbody != null)
+                        {
+                            entity.rigidbody.IsGround = false;
+                            entity.rigidbody.Init();
+                        }
+                    }
+
                 }
             }
         }
