@@ -264,6 +264,8 @@ namespace NeonEngine.Components.Graphics2D
             {
                 string[] values = hash.Split('-');
 
+                if (int.Parse(values[0]) >= textures.Count)
+                    continue;
                 if (!_randomResult.ContainsKey(textures[int.Parse(values[0])]))
                     _randomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
 

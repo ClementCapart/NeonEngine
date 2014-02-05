@@ -172,13 +172,13 @@ namespace NeonStarEditor.Controls
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
-            if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode.Nodes.Count == 0)
+            if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode != null && assetList.SelectedNode.Nodes.Count == 0)
             {
                 _label.Text = assetList.SelectedNode.Text;
                 _propertyInfo.SetValue(_component, assetList.SelectedNode.Text, null);
                 GameWorld.ToggleGraphicPicker();
             }
-            else if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode.Name == "NoGraphic")
+            else if (GameWorld.SelectedEntity != null && _propertyInfo != null && _component != null && _label != null && assetList.SelectedNode != null && assetList.SelectedNode.Name == "NoGraphic")
             {
                 _label.Text = "";
                 _propertyInfo.SetValue(_component, "", null);
