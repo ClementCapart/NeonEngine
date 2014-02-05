@@ -45,12 +45,28 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _elementLevelNeeded = value; }
         }
 
-        private Vector2 _spawnPoint;
+        private Vector2 _firstSpawnPoint;
 
-        public Vector2 SpawnPoint
+        public Vector2 FirstSpawnPoint
         {
-            get { return _spawnPoint; }
-            set { _spawnPoint = value; }
+            get { return _firstSpawnPoint; }
+            set { _firstSpawnPoint = value; }
+        }
+
+        private Vector2 _secondSpawnPoint;
+
+        public Vector2 SecondSpawnPoint
+        {
+            get { return _secondSpawnPoint; }
+            set { _secondSpawnPoint = value; }
+        }
+
+        private Vector2 _thirdSpawnPoint;
+
+        public Vector2 ThirdSpawnPoint
+        {
+            get { return _thirdSpawnPoint; }
+            set { _thirdSpawnPoint = value; }
         }
 
         private float _timeBeforeSpawn = 1.0f;
@@ -66,6 +82,10 @@ namespace NeonStarLibrary.Components.GameplayElements
         private float _spawnTimer = 0.0f;
         private bool _haveToSpawnEnemy = false;
 
+        private Vector2 _nextSpawnPosition;
+
+        private int _currentSpawnPositionIndex;
+
         public EnemyRegulator(Entity entity)
             :base(entity, "EnemyRegulator")
         {
@@ -77,8 +97,23 @@ namespace NeonStarLibrary.Components.GameplayElements
             Entity avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (avatar != null) 
                 _avatarComponent = avatar.GetComponent<AvatarCore>();
-            if(_spawnPoint == Vector2.Zero)
-                _spawnPoint = entity.transform.Position;
+
+            _currentSpawnPositionIndex = new Random().Next(3);
+            switch(_currentSpawnPositionIndex)
+            {
+                case 0:
+                    _nextSpawnPosition = _firstSpawnPoint;
+                    break;
+
+                case 1:
+                    _nextSpawnPosition = _secondSpawnPoint;
+                    break;
+
+                case 2:
+                    _nextSpawnPosition = _thirdSpawnPoint;
+                    break;
+            }
+
             base.Init();
         }
 
@@ -142,7 +177,24 @@ namespace NeonStarLibrary.Components.GameplayElements
         public void SpawnEnemy()
         {
             if (_enemyToSpawn != "")
-                DataManager.LoadPrefab(@"../Data/Prefabs/" + EnemyToSpawn + ".prefab", entity.GameWorld).transform.Position = _spawnPoint;
+                DataManager.LoadPrefab(@"../Data/Prefabs/" + EnemyToSpawn + ".prefab", entity.GameWorld).transform.Position = _nextSpawnPosition;
+
+            _currentSpawnPositionIndex = (_currentSpawnPositionIndex + 1) % 3;
+            
+            switch (_currentSpawnPositionIndex)
+            {
+                case 0:
+                    _nextSpawnPosition = _firstSpawnPoint;
+                    break;
+
+                case 1:
+                    _nextSpawnPosition = _secondSpawnPoint;
+                    break;
+
+                case 2:
+                    _nextSpawnPosition = _thirdSpawnPoint;
+                    break;
+            }
         }
 
 
