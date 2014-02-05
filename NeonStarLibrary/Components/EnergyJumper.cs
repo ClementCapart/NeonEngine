@@ -85,7 +85,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         {
                             _avatarEntity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _avatarEntity.rigidbody.body.ApplyLinearImpulse(_jumperImpulse);
-
                         }
                     }
                 }

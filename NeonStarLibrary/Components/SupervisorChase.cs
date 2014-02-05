@@ -43,6 +43,30 @@ namespace NeonStarLibrary.Components.Enemies
             get { return _pathNodeBounds; }
             set { _pathNodeBounds = value; }
         }
+
+        private string _alertAnimation = "";
+
+        public string AlertAnimation
+        {
+            get { return _alertAnimation; }
+            set { _alertAnimation = value; }
+        }
+
+        private string _alertPatrolAnimation = "";
+
+        public string AlertPatrolAnimation
+        {
+            get { return _alertPatrolAnimation; }
+            set { _alertPatrolAnimation = value; }
+        }
+
+        private string _normalPatrolAnimation = "";
+
+        public string NormalPatrolAnimation
+        {
+            get { return _normalPatrolAnimation; }
+            set { _normalPatrolAnimation = value; }
+        }
         #endregion
 
         private bool _onDuty = false;
@@ -150,6 +174,7 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.WaitNode:
                         if (!_onDuty)
                         {
+                            EnemyComponent.RunAnim = _normalPatrolAnimation;
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
                             if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle))
                             {
@@ -170,6 +195,10 @@ namespace NeonStarLibrary.Components.Enemies
 
                                                 if (entity.rigidbody != null)
                                                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+
+                                                if (entity.spritesheets != null)
+                                                    entity.spritesheets.ChangeAnimation(_alertAnimation, true, 0, true, false, false);
+                                                EnemyComponent.RunAnim = _alertPatrolAnimation;
                                             }
                                     }
                                 }
@@ -231,15 +260,6 @@ namespace NeonStarLibrary.Components.Enemies
                             else
                                 EnemyComponent.State = EnemyState.Idle;
                         }
-                        
-                        /*if (_onDuty)
-                        {
-                            Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);
-                            if (detectionHitbox.Intersects(EntityToChase.hitboxes[0].hitboxRectangle) && !(entity.transform.Position.X > _rightBound || entity.transform.Position.X < _leftBound))
-                            {
-                                EnemyComponent.State = EnemyState.Chase;
-                            }
-                        }*/
                         break;
 
                     case EnemyState.WaitThreat:

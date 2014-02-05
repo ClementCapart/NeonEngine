@@ -66,45 +66,45 @@ namespace NeonStarLibrary.Components.Enemies
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDelayAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDelayAnimation, false, 0, true, false, false);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDurationAnimation, true, 0, true, false, true);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneDurationAnimation, false, 0, true, false, true);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneCooldownAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackOneCooldownAnimation, false, 0, true, false, false);
                                 }                             
                             }
                             else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchTwo)
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDelayAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDelayAnimation, false, 0, true, false, false);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDurationAnimation, true, 0, true, false, true);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoDurationAnimation, false, 0, true, false, true);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoCooldownAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackTwoCooldownAnimation, false, 0, true, false, false);
                                 }                                           
                             }
                             else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchThree)
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDelayAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDelayAnimation, false, 0, true, false, false);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDurationAnimation, true, 0, true, false, true);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeDurationAnimation, false, 0, true, false, true);
                                 }
                                 else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
                                 {
-                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeCooldownAnimation, true, 0, true, false, false);
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeCooldownAnimation, false, 0, true, false, false);
                                 }              
                             }
                         }
@@ -118,7 +118,10 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.WaitNode:
                     case EnemyState.WaitThreat:
                     case EnemyState.Idle:
-                        entity.spritesheets.ChangeAnimation(EnemyComponent.IdleAnim, false);
+                        if(EnemyComponent.IdleAnim != "")
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.IdleAnim, false);
+                        else
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.RunAnim, false);
                         break;
 
                     case EnemyState.Patrol:
