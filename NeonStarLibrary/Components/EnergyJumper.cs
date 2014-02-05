@@ -26,6 +26,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _avatarName; }
             set { _avatarName = value; }
         }
+
+        private string _jumperOffAnimation = "";
+
+        public string JumperOffAnimation
+        {
+            get { return _jumperOffAnimation; }
+            set { _jumperOffAnimation = value; }
+        }
+
+        private string _jumperOnAnimation = "";
+
+        public string JumperOnAnimation
+        {
+            get { return _jumperOnAnimation; }
+            set { _jumperOnAnimation = value; }
+        }
         #endregion
 
         private Entity _avatarEntity;
@@ -40,13 +56,27 @@ namespace NeonStarLibrary.Components.EnergyObjects
         public override void Init()
         {
             _avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
+            
             base.Init();
+
+            if (_powered)
+            {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_jumperOnAnimation, true, 0, true, false, true);
+            }
+            else
+            {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_jumperOffAnimation, true, 0, true, false, true);
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
-            if(_powered)
+            if (_powered)
             {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_jumperOnAnimation, true, 0, true, false, true);
                 if (_avatarEntity != null && _avatarEntity.hitboxes.Count > 0)
                 {
                     if (_avatarEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
@@ -55,10 +85,15 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         {
                             _avatarEntity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _avatarEntity.rigidbody.body.ApplyLinearImpulse(_jumperImpulse);
-                        
+
                         }
                     }
                 }
+            }
+            else
+            {
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(_jumperOffAnimation, true, 0, true, false, true);
             }
             base.Update(gameTime);
         }

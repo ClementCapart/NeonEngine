@@ -8,7 +8,7 @@
           <Position Value="{X:1006 Y:-743}" />
           <InitialPosition Value="{X:1006 Y:-743}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -27,6 +27,8 @@
         <Properties>
           <JumperImpulse Value="{X:0 Y:-900}" />
           <AvatarName Value="LiOn" />
+          <JumperOffAnimation Value="Off" />
+          <JumperOnAnimation Value="On" />
           <FirstActivatingDeviceName Value="SwitchElement04" />
           <FirstDeviceInSameLevel Value="True" />
           <FirstActivatingDeviceLevelGroup Value="" />
@@ -49,6 +51,23 @@
           <FifthActivatingDeviceLevelName Value="" />
         </Properties>
       </EnergyJumper>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <Offset Value="{X:0 Y:-17}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
+            <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
+          </Spritesheets>
+          <DrawLayer Value="0.6" />
+          <IsHUD Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+        </Properties>
+      </SpritesheetManager>
     </Components>
   </Entity>
 </Prefab>
