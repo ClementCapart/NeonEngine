@@ -314,7 +314,7 @@ namespace NeonEngine
 
         static public Texture2D GetTexture(string tag)
         {
-            if (tag == "")
+            if (tag == "" || tag == "NoGraphic")
                 return null;
             if (_commonAssetsList.ContainsKey(tag))
                 return _commonAssetsList[tag];
@@ -342,7 +342,7 @@ namespace NeonEngine
 
         static public SpriteSheetInfo GetSpriteSheet(string tag)
         {
-            if (tag == "" || tag == null)
+            if (tag == "" || tag == null || tag == "NoSpritesheet")
                 return null;
 
             if (_commonSpritesheetList.ContainsKey(tag))
