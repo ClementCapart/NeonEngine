@@ -97,7 +97,7 @@ namespace NeonStar
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-            Neon.World = new NeonStarLibrary.LoadingScreen(this, 0, "SequenceOne", "TrainingOne");
+            Neon.World = new NeonStarLibrary.LoadingScreen(this, 0, "Tests", "Menu");
             
             #endif
         }

@@ -197,8 +197,7 @@ namespace NeonStarLibrary
                     Bullets[i].Update(gameTime);             
             }
 
-            if (Neon.Input.Pressed(Buttons.Start))
-                Pause = !Pause;
+            
 
             base.Update(gameTime);
         }

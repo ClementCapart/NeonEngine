@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using NeonStarLibrary.Components.Enemies;
 using NeonStarLibrary.Private;
@@ -319,7 +320,8 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.spritesheets.CurrentSpritesheet.opacity = 1f;
                 }
             }
-            
+            if (Neon.Input.Pressed(Buttons.Start))
+                entity.GameWorld.Pause = !entity.GameWorld.Pause;
             base.Update(gameTime);
         }
 

@@ -12,7 +12,7 @@ namespace NeonEngine.Components.Graphics2D
         private Texture2D texture;
         public float opacity = 1f;
 
-        public string graphicTag;
+        public string graphicTag = "";
         public string GraphicTag
         {
             get

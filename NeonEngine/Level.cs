@@ -98,9 +98,9 @@ namespace NeonEngine
 
             foreach (Entity e in container.Entities)
             {
-                foreach (Component c in e.Components)
+                for (int i = e.Components.Count - 1; i >= 0; i-- )
                 {
-                    c.Init();
+                    e.Components[i].Init();
                 }
             }
 
