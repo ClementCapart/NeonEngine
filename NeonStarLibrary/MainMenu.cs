@@ -60,6 +60,10 @@ namespace NeonStarLibrary.Components.Menu
                 _firstChapterEntity.spritesheets.Active = false;
             if (_secondChapterEntity != null)
                 _secondChapterEntity.spritesheets.Active = false;
+
+            DeviceManager.AlreadyLoaded = false;
+            DeviceManager.LoadDevicesInformation();
+            GameScreen.CheckPointsData.Clear();
  	        base.Init();
         }
 

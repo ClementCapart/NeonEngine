@@ -111,8 +111,14 @@ namespace NeonStarLibrary
                 XElement collectiblesData = _statusToLoad.Element("GatheredCollectibles");
                 if (collectiblesData != null)
                     CollectibleManager.InitializeCollectiblesFromCheckpointData(collectiblesData);
+                CollectibleManager.InitializeCollectibles(this);
             }
-            CollectibleManager.InitializeCollectibles(this);
+            else
+            {
+                CollectibleManager.ResetCollectibles();
+                CollectibleManager.InitializeCollectibles(this);
+            }
+            
 
             foreach (Device d in DeviceManager.GetLevelDevices(groupName, levelName))
             {
