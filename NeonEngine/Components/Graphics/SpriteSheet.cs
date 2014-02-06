@@ -19,6 +19,8 @@ namespace NeonEngine.Components.Graphics2D
         private bool _reverseLoop = false;
         private bool _reverse = false;
 
+
+
         public bool Reverse
         {
             get { return _reverse; }
@@ -39,6 +41,14 @@ namespace NeonEngine.Components.Graphics2D
         {
           get { return _delayBeforeLoopAgain; }
           set { _delayBeforeLoopAgain = value; }
+        }
+
+        private bool _invisibleDuringDelay = false;
+
+        public bool InvisibleDuringDelay
+        {
+            get { return _invisibleDuringDelay; }
+            set { _invisibleDuringDelay = value; }
         }
 
         private bool _delayBeforeLoop = false;
@@ -123,7 +133,8 @@ namespace NeonEngine.Components.Graphics2D
         {
             if (_isInDelayBeforeLoop)
             {
-                Active = false;
+                if(_invisibleDuringDelay)
+                    Active = false;
                 this._delayBeforeLoopAgainTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (this._delayBeforeLoopAgainTimer <= 0.0f)
                 {
@@ -142,7 +153,8 @@ namespace NeonEngine.Components.Graphics2D
                         
                         this._delayBeforeLoopAgainTimer = 0.0f;                 
                         _isInDelayBeforeLoop = false;
-                        Active = true;
+                        if(_invisibleDuringDelay)
+                            Active = true;
                     }
                     else
                     {
@@ -153,7 +165,8 @@ namespace NeonEngine.Components.Graphics2D
 
                         this._delayBeforeLoopAgainTimer = 0.0f;
                         _isInDelayBeforeLoop = false;
-                        Active = true;
+                        if(_invisibleDuringDelay)
+                            Active = true;
                     }
                 }
 
