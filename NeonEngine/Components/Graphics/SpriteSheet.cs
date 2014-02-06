@@ -33,6 +33,22 @@ namespace NeonEngine.Components.Graphics2D
             set { _reverseLoop = value; }
         }
 
+        private float _delayBeforeLoopAgain = 0.0f;
+
+        public float DelayBeforeLoopAgain
+        {
+          get { return _delayBeforeLoopAgain; }
+          set { _delayBeforeLoopAgain = value; }
+        }
+
+        private bool _delayBeforeLoop = false;
+
+        public bool DelayBeforeLoop
+        {
+            get { return _delayBeforeLoop; }
+            set { _delayBeforeLoop = value; }
+        }
+
         private string spriteSheetTag;
         public string SpriteSheetTag
         {
@@ -53,6 +69,9 @@ namespace NeonEngine.Components.Graphics2D
             get { return Layer; }
             set { Layer = value; }
         }
+
+        private float _delayBeforeLoopAgainTimer = 0.0f;
+        private bool _isInDelayBeforeLoop = false;
 
         public SpriteSheet(SpriteSheetInfo ssi, float Layer, Entity entity)
             :this(entity)
@@ -102,6 +121,20 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Update(GameTime gameTime = null)
         {
+            if (_isInDelayBeforeLoop)
+            {
+                this._delayBeforeLoopAgainTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (this._delayBeforeLoopAgainTimer <= 0.0f)
+                {
+                    this._delayBeforeLoopAgainTimer = 0.0f;
+                    currentFrame = 0;
+                    _isInDelayBeforeLoop = false;
+                }
+
+                return;
+            }
+
+
             if (spriteSheetInfo != null && spriteSheetInfo.Frames != null)
             {
                     frameTimer += gameTime != null ? gameTime.ElapsedGameTime.TotalSeconds : 0.020f;
@@ -117,7 +150,15 @@ namespace NeonEngine.Components.Graphics2D
                                     if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                     {
                                         if (IsLooped)
-                                            currentFrame = 0;
+                                        {
+                                            if (DelayBeforeLoop)
+                                            {
+                                                _isInDelayBeforeLoop = true;
+                                                _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
+                                            }
+                                            else
+                                                currentFrame = 0;
+                                        }
                                         else
                                         {
                                             isPlaying = false;
