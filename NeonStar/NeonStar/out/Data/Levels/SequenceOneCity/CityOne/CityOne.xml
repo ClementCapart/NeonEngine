@@ -174,7 +174,7 @@
               <Position Value="{X:1953 Y:-875}" />
               <InitialPosition Value="{X:1953 Y:-875}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -205,6 +205,32 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="True" />
+              <TilingSize Value="900" />
+              <DrawLayer Value="0.5" />
+              <CloserGraphicTag Value="CityPlatformsTileQuarter1" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityPlatformsWallTile1" />
+              <SecondTileGraphicTag Value="CityPlatformsWallTile2" />
+              <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="2-{X:0 Y:0}_2-{X:0 Y:25}_2-{X:0 Y:50}_2-{X:0 Y:75}_2-{X:0 Y:100}_0-{X:0 Y:125}_1-{X:0 Y:150}_0-{X:0 Y:175}_0-{X:0 Y:200}_1-{X:0 Y:225}_2-{X:0 Y:250}_2-{X:0 Y:275}_2-{X:0 Y:300}_0-{X:0 Y:325}_0-{X:0 Y:350}_0-{X:0 Y:375}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -215,7 +241,7 @@
               <Position Value="{X:2178 Y:-450}" />
               <InitialPosition Value="{X:2178 Y:-450}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -246,6 +272,32 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="400" />
+              <DrawLayer Value="0.5" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityPlatformsCeillingTile1" />
+              <SecondTileGraphicTag Value="CityPlatformsCeillingTile2" />
+              <ThirdTileGraphicTag Value="CityPlatformsCeillingTile3" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="2-{X:0 Y:0}_2-{X:100 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
         </Components>
       </Entity>
       <Entity Name="ChangeLevel01" Layer="">

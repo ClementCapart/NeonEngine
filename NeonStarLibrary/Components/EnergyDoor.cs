@@ -197,6 +197,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (entity.spritesheets.IsFinished())
                     {
                         entity.spritesheets.ChangeAnimation(_openedIdleAnimation, true);
+
                         if (_openWhenAnimationEnd)
                         {
                             Closed = false;
@@ -206,7 +207,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                 entity.rigidbody.IsGround = false;
                                 entity.rigidbody.Init();
                             }
-                        }                        
+                        }    
+                        else
+                            _opening = false;
                     }
                 }
             }
@@ -252,7 +255,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (!_openWhenAnimationEnd)
                     {
                         Closed = false;
-                        _opening = false;
+
                         if (entity.rigidbody != null)
                         {
                             entity.rigidbody.IsGround = false;
