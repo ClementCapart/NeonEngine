@@ -48,7 +48,7 @@
               <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="CityPlatformsTileQuarter2" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="CityPlatformsTile1" />
+              <SecondCloserGraphicTag Value="CityPlatformsTileQuarter2" />
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityPlatformsTile1" />
               <SecondTileGraphicTag Value="CityPlatformsTile2" />
@@ -56,12 +56,12 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="True" />
-              <TilingHash Value="2-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_2-{X:75 Y:0}_0-{X:175 Y:0}_2-{X:200 Y:0}_1-{X:300 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:50 Y:-2}" />
+              <Offset Value="{X:100 Y:-2}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -122,8 +122,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}_2-{X:0 Y:150}_2-{X:0 Y:175}_0-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:250}_0-{X:0 Y:275}_1-{X:0 Y:300}_2-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_1-{X:0 Y:400}_2-{X:0 Y:425}_0-{X:0 Y:450}_2-{X:0 Y:475}_2-{X:0 Y:500}_1-{X:0 Y:525}_2-{X:0 Y:550}_1-{X:0 Y:575}_1-{X:0 Y:600}_0-{X:0 Y:625}_0-{X:0 Y:650}_0-{X:0 Y:675}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_2-{X:0 Y:125}_2-{X:0 Y:150}_0-{X:0 Y:175}_2-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_2-{X:0 Y:300}_1-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_0-{X:0 Y:400}_2-{X:0 Y:425}_1-{X:0 Y:450}_2-{X:0 Y:475}_0-{X:0 Y:500}_0-{X:0 Y:525}_0-{X:0 Y:550}_0-{X:0 Y:575}_0-{X:0 Y:600}_0-{X:0 Y:625}_1-{X:0 Y:650}_0-{X:0 Y:675}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -297,8 +297,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallSideTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -309,47 +309,6 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </RandomTilableGraphic>
-        </Components>
-      </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1044 Y:596}" />
-              <InitialPosition Value="{X:1044 Y:596}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1044 Y:596}" />
-              <X Value="1019" />
-              <Y Value="396" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="400" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -412,88 +371,6 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1752 Y:696}" />
-              <InitialPosition Value="{X:1752 Y:696}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1752 Y:696}" />
-              <X Value="1727" />
-              <Y Value="596" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="200" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.99875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1814 Y:-54}" />
-              <InitialPosition Value="{X:1814 Y:-54}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1814 Y:-53}" />
-              <X Value="1789" />
-              <Y Value="-203" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="300" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.49875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
               <Position Value="{X:903 Y:-1899}" />
               <InitialPosition Value="{X:903 Y:-1899}" />
               <Rotation Value="0" />
@@ -542,8 +419,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsCeillingTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:175 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_2-{X:325 Y:0}_2-{X:425 Y:0}_0-{X:525 Y:0}_0-{X:550 Y:0}_1-{X:575 Y:0}_0-{X:625 Y:0}_1-{X:650 Y:0}_2-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:825 Y:0}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_2-{X:325 Y:0}_2-{X:425 Y:0}_0-{X:525 Y:0}_2-{X:550 Y:0}_1-{X:650 Y:0}_1-{X:700 Y:0}_1-{X:750 Y:0}_0-{X:800 Y:0}_0-{X:825 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -670,8 +547,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:235 Y:-1406}" />
-              <InitialPosition Value="{X:235 Y:-1406}" />
+              <Position Value="{X:391 Y:-1406}" />
+              <InitialPosition Value="{X:391 Y:-1406}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -679,8 +556,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:235 Y:-1406}" />
-              <X Value="185" />
+              <Center Value="{X:391 Y:-1406}" />
+              <X Value="341" />
               <Y Value="-1486" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -706,7 +583,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -1046,8 +923,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1350 Y:-336}" />
-              <InitialPosition Value="{X:1350 Y:-336}" />
+              <Position Value="{X:1484 Y:-336}" />
+              <InitialPosition Value="{X:1484 Y:-336}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1055,8 +932,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1350 Y:-336}" />
-              <X Value="1310" />
+              <Center Value="{X:1484 Y:-336}" />
+              <X Value="1444" />
               <Y Value="-416" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1218,7 +1095,7 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="1.780236" />
+              <RotationOffset Value="1.692969" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -1234,7 +1111,7 @@
               <Debug Value="False" />
               <StartingHealthPoints Value="20" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
+              <CurrentHealthPoints Value="20" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="Idle" />
@@ -1661,13 +1538,13 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:175 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-25 Y:0}" />
+              <Offset Value="{X:-25 Y:-2}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:-6 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -2102,7 +1979,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-3}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -2271,7 +2148,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2338,7 +2215,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2405,8 +2282,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:175 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -2486,7 +2363,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2773,8 +2650,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -3016,7 +2893,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}_2-{X:0 Y:150}_2-{X:0 Y:175}_0-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:250}_0-{X:0 Y:275}_1-{X:0 Y:300}_2-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_1-{X:0 Y:400}_0-{X:0 Y:425}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_2-{X:0 Y:125}_2-{X:0 Y:150}_0-{X:0 Y:175}_2-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_2-{X:0 Y:300}_1-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_0-{X:0 Y:400}_0-{X:0 Y:425}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -3083,7 +2960,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -3150,7 +3027,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -3217,7 +3094,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}_2-{X:0 Y:150}_2-{X:0 Y:175}_0-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:250}_0-{X:0 Y:275}_1-{X:0 Y:300}_2-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_1-{X:0 Y:400}_0-{X:0 Y:425}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_2-{X:0 Y:125}_2-{X:0 Y:150}_0-{X:0 Y:175}_2-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_2-{X:0 Y:300}_1-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:375}_0-{X:0 Y:400}_0-{X:0 Y:425}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -3249,8 +3126,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1751 Y:699}" />
-              <InitialPosition Value="{X:1751 Y:699}" />
+              <Position Value="{X:1752 Y:699}" />
+              <InitialPosition Value="{X:1752 Y:699}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -3258,8 +3135,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1751 Y:699}" />
-              <X Value="1726" />
+              <Center Value="{X:1752 Y:699}" />
+              <X Value="1727" />
               <Y Value="599" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3297,13 +3174,13 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-2}" />
+              <Offset Value="{X:0 Y:-4}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -3364,8 +3241,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsCeillingTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:175 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -3445,8 +3322,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -3579,8 +3456,8 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallSideTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_0-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}_0-{X:0 Y:150}_0-{X:0 Y:175}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:0 Y:25}_1-{X:0 Y:50}_2-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}_0-{X:0 Y:150}_0-{X:0 Y:175}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -4057,97 +3934,6 @@
           </SpritesheetManager>
         </Components>
       </Entity>
-      <Entity Name="SwitchElement03" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1909 Y:-678}" />
-              <InitialPosition Value="{X:1909 Y:-678}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:1909 Y:-678}" />
-              <X Value="1889" />
-              <Y Value="-753" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="40" />
-              <Height Value="150" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.59875" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-            </Properties>
-          </Rigidbody>
-          <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="3">
-            <Properties>
-              <TriggerFromAllElementsExceptNeutral Value="True" />
-              <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="1" />
-              <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
-              <OffAnimation Value="Off" />
-              <OnAnimation Value="On" />
-              <State Value="Deactivated" />
-            </Properties>
-          </TemporaryEnergyDevice>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="True" />
-              <ImmuneToDamage Value="True" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="True" />
-              <ComponentToTriggerName Value="TemporaryEnergyDevice" />
-              <WaitThreatDuration Value="1" />
-            </Properties>
-          </EnemyCore>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
-                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
-              </Spritesheets>
-              <DrawLayer Value="0.45" />
-              <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
       <Entity Name="LevelGeometry" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -4201,7 +3987,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -4268,7 +4054,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:25}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
@@ -4335,7 +4121,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:25}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
@@ -4402,7 +4188,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -4469,7 +4255,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsWallTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:25}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
@@ -4536,7 +4322,7 @@
               <ThirdTileGraphicTag Value="CityPlatformsTile3" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
+              <KeepTilingHash Value="True" />
               <TilingHash Value="1-{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -4624,6 +4410,195 @@
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-155}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyDevice01" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1849 Y:-697}" />
+              <InitialPosition Value="{X:1849 Y:-697}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:1849 Y:-697}" />
+              <X Value="1799" />
+              <Y Value="-772" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="150" />
+            </Properties>
+          </Hitbox>
+          <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="2">
+            <Properties>
+              <EnergyCost Value="40" />
+              <AvatarName Value="LiOn" />
+              <FillingDuration Value="0.5" />
+              <IdleDeactivatedAnimation Value="IdleDeactivated" />
+              <IdleActivatedAnimation Value="IdleActivated" />
+              <ActivationAnimation Value="Activation" />
+              <DeactivationAnimation Value="Deactivation" />
+              <State Value="Deactivated" />
+            </Properties>
+          </StableEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="IdleActivated" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="IdleDeactivated" SpritesheetTag="EnergyDeviceDeactivated" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+          <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
+            <Properties>
+              <Display Value="5" />
+              <EntityName Value="EnergyDevice01" />
+              <ComponentName Value="StableEnergyDevice" />
+              <DisplayedVariable Value="EnergyCost" />
+            </Properties>
+          </DisplayValue>
+          <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="5">
+            <Properties>
+              <DrawLayer Value="0.44" />
+              <Font Value="EnergyFont" />
+              <Text Value="40" />
+              <TextColor Value="{R:147 G:217 B:255 A:255}" />
+              <Outline Value="False" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
+              <OutlineDisplacement Value="0" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-19 Y:-55}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Active Value="True" />
+            </Properties>
+          </TextDisplay>
+        </Components>
+      </Entity>
+      <Entity Name="EnergyCollectible03" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1640 Y:-1175}" />
+              <InitialPosition Value="{X:1640 Y:-1175}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:1640 Y:-1150}" />
+              <X Value="1615" />
+              <Y Value="-1185" />
+              <OffsetX Value="0" />
+              <OffsetY Value="25" />
+              <Width Value="50" />
+              <Height Value="70" />
+            </Properties>
+          </Hitbox>
+          <EnergyCollectible Type="NeonStarLibrary.Components.EnergyObjects.EnergyCollectible" ID="2">
+            <Properties>
+              <EnergyValue Value="20" />
+              <IdleAnimation Value="Idle" />
+              <OutAnimation Value="Out" />
+              <AvatarName Value="LiOn" />
+            </Properties>
+          </EnergyCollectible>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellOrange" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellOrangeOut" />
+              </Spritesheets>
+              <DrawLayer Value="0.51" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1974 Y:-1866}" />
+              <InitialPosition Value="{X:1974 Y:-1866}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:1974 Y:-1866}" />
+              <X Value="1874" />
+              <Y Value="-1891" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.9987501" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityPlatformsOneWay1" />
+              <DrawLayer Value="0.8" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-2}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
