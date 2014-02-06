@@ -1749,8 +1749,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:6266 Y:1009}" />
-              <InitialPosition Value="{X:6266 Y:1009}" />
+              <Position Value="{X:6263 Y:1009}" />
+              <InitialPosition Value="{X:6263 Y:1009}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1758,8 +1758,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:6265 Y:1009}" />
-              <X Value="6215" />
+              <Center Value="{X:6263 Y:1009}" />
+              <X Value="6213" />
               <Y Value="929" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1785,7 +1785,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2574,7 +2574,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -2582,6 +2582,7 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <OpenWhenAnimationEnd Value="False" />
               <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
               <ClosedIdleOnePoweredAnimation Value="" />
@@ -2666,7 +2667,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -2674,6 +2675,7 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <OpenWhenAnimationEnd Value="False" />
               <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
               <ClosedIdleOnePoweredAnimation Value="" />
@@ -2718,7 +2720,7 @@
                 <Animation Name="Opened" SpritesheetTag="EnergyDoor1LockOpened" />
                 <Animation Name="Opening" SpritesheetTag="EnergyDoor1LockOpening" />
               </Spritesheets>
-              <DrawLayer Value="0.45" />
+              <DrawLayer Value="0.55" />
               <IsHUD Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
@@ -2844,7 +2846,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="0.72355" />
+              <Mass Value="0.6487501" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -2935,6 +2937,78 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="BoundCamera02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2900 Y:-580}" />
+              <InitialPosition Value="{X:2900 Y:-580}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Up" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundCamera02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5700 Y:-800}" />
+              <InitialPosition Value="{X:5700 Y:-800}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Up" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="BoundCamera02" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:5200 Y:-800}" />
+              <InitialPosition Value="{X:5200 Y:-800}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Up" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
