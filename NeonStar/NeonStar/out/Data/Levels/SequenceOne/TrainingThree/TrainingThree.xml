@@ -1176,8 +1176,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1362 Y:394}" />
-              <InitialPosition Value="{X:1362 Y:394}" />
+              <Position Value="{X:1430 Y:394}" />
+              <InitialPosition Value="{X:1430 Y:394}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -1185,8 +1185,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1361 Y:393}" />
-              <X Value="1311" />
+              <Center Value="{X:1430 Y:393}" />
+              <X Value="1380" />
               <Y Value="313" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1212,7 +1212,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2426,8 +2426,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1671 Y:-1306}" />
-              <InitialPosition Value="{X:1671 Y:-1306}" />
+              <Position Value="{X:1397 Y:-1306}" />
+              <InitialPosition Value="{X:1397 Y:-1306}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2435,8 +2435,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1670 Y:-1306}" />
-              <X Value="1620" />
+              <Center Value="{X:1397 Y:-1306}" />
+              <X Value="1347" />
               <Y Value="-1386" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2462,7 +2462,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -4016,7 +4016,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:250 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -4070,6 +4070,7 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <OpenWhenAnimationEnd Value="False" />
               <MultiLockDoor Value="True" />
               <ClosedIdleAnimation Value="Closed" />
               <ClosedIdleOnePoweredAnimation Value="LockOne" />
@@ -4164,6 +4165,7 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <OpenWhenAnimationEnd Value="False" />
               <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
               <ClosedIdleOnePoweredAnimation Value="" />
@@ -4256,6 +4258,7 @@
           </Rigidbody>
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="3">
             <Properties>
+              <OpenWhenAnimationEnd Value="False" />
               <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
               <ClosedIdleOnePoweredAnimation Value="" />
@@ -4300,7 +4303,7 @@
                 <Animation Name="Opened" SpritesheetTag="EnergyDoor1LockOpened" />
                 <Animation Name="Opening" SpritesheetTag="EnergyDoor1LockOpening" />
               </Spritesheets>
-              <DrawLayer Value="0.45" />
+              <DrawLayer Value="0.55" />
               <IsHUD Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
