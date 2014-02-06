@@ -184,7 +184,7 @@ namespace NeonEngine
 
             BasePosition = _pos;
 
-            if (focusDisplacement != Vector2.Zero && !HasMetSoftBounds)
+            if (focusDisplacement != Vector2.Zero)
             {
                 if(!(boundedLeft && focusDisplacement.X < 0) && !(boundedRight && focusDisplacement.X > 0))
                     NewPosition.X += focusDisplacement.X;
@@ -195,7 +195,7 @@ namespace NeonEngine
                 {
                     foreach (CameraBound cb in CameraBounds)
                     {
-                        if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)))
+                        if ((cb.entity.ViewedByCamera(NewPosition)))
                         {
                             switch (cb.BoundSide)
                             {
