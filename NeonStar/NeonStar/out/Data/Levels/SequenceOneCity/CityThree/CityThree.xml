@@ -2763,8 +2763,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:759 Y:-808}" />
-              <InitialPosition Value="{X:759 Y:-808}" />
+              <Position Value="{X:651 Y:-808}" />
+              <InitialPosition Value="{X:651 Y:-808}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2772,8 +2772,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:758 Y:-808}" />
-              <X Value="708" />
+              <Center Value="{X:650 Y:-808}" />
+              <X Value="600" />
               <Y Value="-888" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2799,7 +2799,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -3830,8 +3830,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:592 Y:-558}" />
-              <InitialPosition Value="{X:592 Y:-558}" />
+              <Position Value="{X:603 Y:-558}" />
+              <InitialPosition Value="{X:603 Y:-558}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -3839,8 +3839,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:591 Y:-558}" />
-              <X Value="551" />
+              <Center Value="{X:603 Y:-558}" />
+              <X Value="563" />
               <Y Value="-638" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3866,7 +3866,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -4049,6 +4049,88 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-535 Y:630}" />
+              <InitialPosition Value="{X:-535 Y:630}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:-535 Y:630}" />
+              <X Value="-835" />
+              <Y Value="605" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="600" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="3.45025" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1888 Y:493}" />
+              <InitialPosition Value="{X:1888 Y:493}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:1887 Y:492}" />
+              <X Value="1587" />
+              <Y Value="467" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="600" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="2.99875" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
         </Components>
       </Entity>
     </Entities>
