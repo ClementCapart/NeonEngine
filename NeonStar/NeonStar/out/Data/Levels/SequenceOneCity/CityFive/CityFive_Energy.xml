@@ -7,8 +7,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-981 Y:1502}" />
-              <InitialPosition Value="{X:-981 Y:1502}" />
+              <Position Value="{X:-966 Y:1502}" />
+              <InitialPosition Value="{X:-966 Y:1502}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-980 Y:1502}" />
-              <X Value="-1030" />
+              <Center Value="{X:-966 Y:1502}" />
+              <X Value="-1016" />
               <Y Value="1477" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -93,8 +93,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-716 Y:1453}" />
-              <InitialPosition Value="{X:-716 Y:1453}" />
+              <Position Value="{X:-719 Y:1453}" />
+              <InitialPosition Value="{X:-719 Y:1453}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -102,8 +102,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-716 Y:1453}" />
-              <X Value="-736" />
+              <Center Value="{X:-719 Y:1453}" />
+              <X Value="-739" />
               <Y Value="1378" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -153,7 +153,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="1" />
+              <ActivationDuration Value="0.5" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -192,7 +192,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="None" />
+              <Type Value="Solid" />
               <Center Value="{X:29 Y:-74}" />
               <X Value="4" />
               <Y Value="-224" />
@@ -304,7 +304,7 @@
               <IdleActivatedAnimation Value="Activated" />
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
             </Properties>
           </StableEnergyDevice>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -369,7 +369,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="None" />
+              <Type Value="Solid" />
               <Center Value="{X:425 Y:-75}" />
               <X Value="400" />
               <Y Value="-225" />
@@ -389,7 +389,7 @@
               <Mass Value="1.49875" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -492,7 +492,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="1" />
+              <ActivationDuration Value="0.1" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />

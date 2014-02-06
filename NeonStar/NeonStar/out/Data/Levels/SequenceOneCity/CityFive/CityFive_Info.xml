@@ -2,12 +2,20 @@
 <LevelInfos>
   <PathNodeLists>
     <PathNodeList Name="RobotPath01" Type="Ground">
-      <Node Type="Move" Index="0" Position="{X:-389 Y:-361.5}" />
-      <Node Type="Move" Index="1" Position="{X:131 Y:-361.5}" />
+      <Node Type="DelayedMove" Index="0" Position="{X:-389 Y:-361.5}" Delay="0.5" />
+      <Node Type="DelayedMove" Index="1" Position="{X:131 Y:-361.5}" Delay="0.5" />
     </PathNodeList>
     <PathNodeList Name="RobotPath02" Type="Ground">
-      <Node Type="Move" Index="0" Position="{X:-430.5 Y:462.5}" />
-      <Node Type="Move" Index="1" Position="{X:-30.5 Y:462.5}" />
+      <Node Type="DelayedMove" Index="0" Position="{X:-430.5 Y:464.5}" Delay="0.5" />
+      <Node Type="DelayedMove" Index="1" Position="{X:-56.5 Y:464.5}" Delay="0.5" />
+    </PathNodeList>
+    <PathNodeList Name="TigerPath01" Type="Ground">
+      <Node Type="DelayedMove" Index="0" Position="{X:-534.7778 Y:1009.541}" Delay="0.5" />
+      <Node Type="DelayedMove" Index="1" Position="{X:-199.2223 Y:1009.541}" Delay="0.5" />
+    </PathNodeList>
+    <PathNodeList Name="TigerPath02" Type="Ground">
+      <Node Type="DelayedMove" Index="0" Position="{X:-491.5556 Y:1894.541}" Delay="0.5" />
+      <Node Type="DelayedMove" Index="1" Position="{X:-108.2223 Y:1894.541}" Delay="0.5" />
     </PathNodeList>
   </PathNodeLists>
   <SpawnPointList>
