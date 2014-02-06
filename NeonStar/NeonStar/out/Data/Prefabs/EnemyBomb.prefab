@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:14.91275 Y:82.50002}" />
-          <InitialPosition Value="{X:14.91275 Y:82.50002}" />
+          <Position Value="{X:-424 Y:-120.4499}" />
+          <InitialPosition Value="{X:-424 Y:-120.4499}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -42,9 +42,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:360 Y:398}" />
-          <X Value="335" />
-          <Y Value="373" />
+          <Center Value="{X:-423 Y:-120}" />
+          <X Value="-448" />
+          <Y Value="-145" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="50" />
@@ -82,11 +82,11 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
           <Spritesheets>
-            <Animation Name="IdleExplosion" SpritesheetTag="EnemySupervisorBombshellAttackIdle" />
-            <Animation Name="FirstExplosion" SpritesheetTag="EnemySupervisorBombshellAttackFirstExplosion" />
-            <Animation Name="SecondExplosion" SpritesheetTag="EnemySupervisorBombshellAttackSecond" />
+            <Animation Name="IdleExplosion" SpritesheetTag="BombshellAttackIdle" />
+            <Animation Name="FirstExplosion" SpritesheetTag="BombshellAttackExplosion" />
+            <Animation Name="SecondExplosion" SpritesheetTag="BombshellAttackUppercut" />
           </Spritesheets>
-          <DrawLayer Value="0" />
+          <DrawLayer Value="0.4" />
           <IsHUD Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
