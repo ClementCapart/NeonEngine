@@ -106,11 +106,19 @@ namespace NeonStarLibrary.Components.GameplayElements
                     break;
 
                 case 1:
-                    _nextSpawnPosition = _secondSpawnPoint;
+                    if (_secondSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _secondSpawnPoint;
+                    else
+                        _nextSpawnPosition = _firstSpawnPoint;
                     break;
 
                 case 2:
-                    _nextSpawnPosition = _thirdSpawnPoint;
+                    if (_thirdSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _thirdSpawnPoint;
+                    else if (_secondSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _secondSpawnPoint;
+                    else
+                        _nextSpawnPosition = _firstSpawnPoint;
                     break;
             }
 
@@ -188,11 +196,19 @@ namespace NeonStarLibrary.Components.GameplayElements
                     break;
 
                 case 1:
-                    _nextSpawnPosition = _secondSpawnPoint;
+                    if (_secondSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _secondSpawnPoint;
+                    else
+                        _nextSpawnPosition = _firstSpawnPoint;
                     break;
 
                 case 2:
-                    _nextSpawnPosition = _thirdSpawnPoint;
+                    if (_thirdSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _thirdSpawnPoint;
+                    else if(_secondSpawnPoint != Vector2.Zero)
+                        _nextSpawnPosition = _secondSpawnPoint;
+                    else
+                        _nextSpawnPosition = _firstSpawnPoint;
                     break;
             }
         }
