@@ -296,7 +296,8 @@ namespace NeonStarLibrary.Components.Enemies
                 State = EnemyState.Dying;
                 if (Attack != null)
                 {
-                    Attack.CurrentAttack.CancelAttack();
+                    if(Attack.CurrentAttack != null)
+                        Attack.CurrentAttack.CancelAttack();
                     Attack.CurrentAttack = null;
                 }
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
