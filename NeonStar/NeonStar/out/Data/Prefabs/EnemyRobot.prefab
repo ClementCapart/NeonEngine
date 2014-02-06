@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyRobot">
+  <Entity Name="EnemyRobot" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <AutoChangeInitialPosition Value="False" />
-          <Position Value="{X:3364,452 Y:-825,4998}" />
-          <InitialPosition Value="{X:3314 Y:-825,4998}" />
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:752.617 Y:-808.4998}" />
+          <InitialPosition Value="{X:752.617 Y:-808.4998}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:3364 Y:-825}" />
-          <X Value="3314" />
-          <Y Value="-905" />
+          <Center Value="{X:752 Y:-808}" />
+          <X Value="702" />
+          <Y Value="-888" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -41,7 +41,6 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentEffect Value="Microsoft.Xna.Framework.Graphics.Effect" />
           <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:-3}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -66,15 +65,17 @@
           <StartingHealthPoints Value="50" />
           <CoreElement Value="Neutral" />
           <CurrentHealthPoints Value="50" />
+          <InvincibilityDuration Value="0.5" />
           <RunAnim Value="Run" />
           <IdleAnim Value="Idle" />
-          <Type Value="Ground" />
+          <DyingAnim Value="Death" />
+          <HitAnim Value="TakeHit" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
-          <DyingAnim Value="Death" />
-          <InvincibilityDuration Value="0.5" />
-          <HitAnim Value="TakeHit" />
           <ImmuneToDeath Value="False" />
+          <ImmuneToDamage Value="False" />
+          <AlwaysTakeUppercut Value="False" />
+          <Type Value="Ground" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
@@ -97,28 +98,30 @@
           <DetectionOffset Value="{X:0 Y:0}" />
           <RangeForAttackOne Value="110" />
           <AttackToLaunchOne Value="EnemyRobotPunch" />
+          <AttackOneDelayAnimation Value="Attack" />
+          <AttackOneDurationAnimation Value="" />
+          <AttackOneCooldownAnimation Value="" />
           <RangeForAttackTwo Value="0" />
           <AttackToLaunchTwo Value="" />
+          <AttackTwoDelayAnimation Value="" />
+          <AttackTwoDurationAnimation Value="" />
+          <AttackTwoCooldownAnimation Value="" />
           <RangeForAttackThree Value="0" />
           <AttackToLaunchThree Value="" />
-          <RangeForAttackFour Value="0" />
-          <AttackToLaunchFour Value="" />
-          <RangeForAttackFive Value="0" />
-          <AttackToLaunchFive Value="" />
+          <AttackThreeDelayAnimation Value="" />
+          <AttackThreeDurationAnimation Value="" />
+          <AttackThreeCooldownAnimation Value="" />
           <EntityToAttackName Value="LiOn" />
-          <AttackOneAnimation Value="Attack" />
-          <AttackTwoAnimation Value="" />
-          <AttackThreeAnimation Value="" />
-          <AttackFourAnimation Value="" />
-          <AttackFiveAnimation Value="" />
         </Properties>
       </GroundAttack>
-      <EnemyCoreAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
-        <Properties />
-      </EnemyCoreAnimationManager>
+      <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
+        <Properties>
+          <CanChangeSide Value="True" />
+        </Properties>
+      </EnemyAnimationManager>
       <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
         <Properties>
-          <CurrentNodeList Value="NodeList1" />
+          <CurrentNodeList Value="RobotPath01" />
           <Speed Value="2" />
           <Roundtrip Value="True" />
           <ReverseStart Value="False" />

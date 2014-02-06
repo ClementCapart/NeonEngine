@@ -32,6 +32,8 @@ namespace NeonStarLibrary.Components.Utils
                 {
                     if (EnemyComponent.Attack != null)
                     {
+                       /* if(EnemyComponent.Attack.CurrentAttack != null && (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.CooldownStarted))
+                            return;*/
                         if (EnemyComponent.Attack.EntityToAttack != null)
                         {
                             entity.spritesheets.RotationOffset = MathHelper.ToRadians((int)(MathHelper.ToDegrees(Neon.Utils.AngleBetween(EnemyComponent.Attack.EntityToAttack.transform.Position, entity.transform.Position)) - 180) % 360);
