@@ -123,6 +123,7 @@ namespace NeonEngine.Components.Graphics2D
         {
             if (_isInDelayBeforeLoop)
             {
+                Active = false;
                 this._delayBeforeLoopAgainTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (this._delayBeforeLoopAgainTimer <= 0.0f)
                 {
@@ -141,6 +142,7 @@ namespace NeonEngine.Components.Graphics2D
                         
                         this._delayBeforeLoopAgainTimer = 0.0f;                 
                         _isInDelayBeforeLoop = false;
+                        Active = true;
                     }
                     else
                     {
@@ -150,7 +152,8 @@ namespace NeonEngine.Components.Graphics2D
                             currentFrame = 0;
 
                         this._delayBeforeLoopAgainTimer = 0.0f;
-                        _isInDelayBeforeLoop = false;                      
+                        _isInDelayBeforeLoop = false;
+                        Active = true;
                     }
                 }
 
