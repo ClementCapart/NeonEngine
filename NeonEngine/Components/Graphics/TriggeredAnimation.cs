@@ -26,7 +26,7 @@ namespace NeonEngine.Components.Graphics2D
         }
 
         private bool _loop;
-
+         
         public bool Loop
         {
             get { return _loop; }

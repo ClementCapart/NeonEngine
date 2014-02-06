@@ -126,9 +126,32 @@ namespace NeonEngine.Components.Graphics2D
                 this._delayBeforeLoopAgainTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (this._delayBeforeLoopAgainTimer <= 0.0f)
                 {
-                    this._delayBeforeLoopAgainTimer = 0.0f;
-                    currentFrame = 0;
-                    _isInDelayBeforeLoop = false;
+                    if (ReverseLoop)
+                    {
+                        if (_reverse)
+                        {
+                            _reverse = false;
+                            currentFrame++;
+                        }
+                        else
+                        {
+                            _reverse = true;
+                            currentFrame--;
+                        }
+                        
+                        this._delayBeforeLoopAgainTimer = 0.0f;                 
+                        _isInDelayBeforeLoop = false;
+                    }
+                    else
+                    {
+                        if (_reverse)
+                            currentFrame = spriteSheetInfo.Frames.Length - 1;
+                        else
+                            currentFrame = 0;
+
+                        this._delayBeforeLoopAgainTimer = 0.0f;
+                        _isInDelayBeforeLoop = false;                      
+                    }
                 }
 
                 return;
@@ -173,7 +196,15 @@ namespace NeonEngine.Components.Graphics2D
                                     if (currentFrame == 0)
                                     {
                                         if (IsLooped)
-                                            currentFrame = spriteSheetInfo.Frames.Length - 1;
+                                        {
+                                            if (DelayBeforeLoop)
+                                            {
+                                                _isInDelayBeforeLoop = true;
+                                                _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
+                                            }
+                                            else
+                                                currentFrame = spriteSheetInfo.Frames.Length - 1;
+                                        }
                                         else
                                         {
                                             isPlaying = false;
@@ -191,8 +222,16 @@ namespace NeonEngine.Components.Graphics2D
                                 {
                                     if (currentFrame == spriteSheetInfo.Frames.Length - 1)
                                     {
-                                        _reverse = true;
-                                        currentFrame--;
+                                        if (DelayBeforeLoop)
+                                        {
+                                            _isInDelayBeforeLoop = true;
+                                            _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
+                                        }
+                                        else
+                                        {
+                                            _reverse = true;
+                                            currentFrame--;
+                                        }
                                     }
                                     else
                                         currentFrame++;
@@ -201,8 +240,16 @@ namespace NeonEngine.Components.Graphics2D
                                 {
                                     if (currentFrame == 0)
                                     {
-                                        _reverse = false;
-                                        currentFrame++;
+                                        if (DelayBeforeLoop)
+                                        {
+                                            _isInDelayBeforeLoop = true;
+                                            _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
+                                        }
+                                        else
+                                        {
+                                            _reverse = false;
+                                            currentFrame++;
+                                        }
                                     }
                                     else
                                         currentFrame--;
