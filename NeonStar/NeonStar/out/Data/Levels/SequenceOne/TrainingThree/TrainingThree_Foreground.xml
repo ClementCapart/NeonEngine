@@ -266,16 +266,22 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1001 Y:-144}" />
-              <InitialPosition Value="{X:-1001 Y:-144}" />
+              <Position Value="{X:-1008 Y:-145}" />
+              <InitialPosition Value="{X:-1008 Y:-145}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="8" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXSmallLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -285,7 +291,27 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="5" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:9 Y:-39}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="Upfence8" Layer="Foreground">
@@ -657,21 +683,27 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Lamp3" Layer="Foreground">
+      <Entity Name="Lamp2" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1219 Y:-381}" />
-              <InitialPosition Value="{X:1219 Y:-381}" />
+              <Position Value="{X:1225 Y:-380}" />
+              <InitialPosition Value="{X:1225 Y:-380}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp2" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="11" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXBigLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -681,7 +713,80 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-3 Y:-51}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="Lamp3" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-197 Y:-549}" />
+              <InitialPosition Value="{X:-197 Y:-549}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="8" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXBigLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:9 Y:-60}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="Lamp4" Layer="Foreground">
@@ -689,43 +794,22 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-188 Y:-551}" />
-              <InitialPosition Value="{X:-188 Y:-551}" />
+              <Position Value="{X:2222 Y:-1354}" />
+              <InitialPosition Value="{X:2222 Y:-1354}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp2" />
-              <DrawLayer Value="0.901" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Lamp6" Layer="Foreground">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2210 Y:-1355}" />
-              <InitialPosition Value="{X:2210 Y:-1355}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="12" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXSmallLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -735,24 +819,50 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="7" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-3 Y:-42}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="Lamp7" Layer="Foreground">
+      <Entity Name="Lamp5" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:1351 Y:-917}" />
-              <InitialPosition Value="{X:1351 Y:-917}" />
+              <Position Value="{X:1341 Y:-915}" />
+              <InitialPosition Value="{X:1341 Y:-915}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="6" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXSmallLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -762,24 +872,50 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="8" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:9 Y:-42}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="Lamp9" Layer="Foreground">
+      <Entity Name="Lamp6" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2429 Y:747}" />
-              <InitialPosition Value="{X:2429 Y:747}" />
+              <Position Value="{X:2420 Y:750}" />
+              <InitialPosition Value="{X:2420 Y:750}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp2" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="12" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXBigLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -789,10 +925,30 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="6" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:9 Y:-60}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="Lamp11" Layer="Foreground">
+      <Entity Name="Lamp8end" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -819,21 +975,27 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Lamp13" Layer="Foreground">
+      <Entity Name="lamp7" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:443 Y:260}" />
-              <InitialPosition Value="{X:443 Y:260}" />
+              <Position Value="{X:448 Y:262}" />
+              <InitialPosition Value="{X:448 Y:262}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
-              <DrawLayer Value="0.901" />
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="8" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXSmallLightFull" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -843,10 +1005,30 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="6.5" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.8" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-3 Y:-39}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="Lamp11" Layer="Foreground">
+      <Entity Name="Lamp9end" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -873,7 +1055,7 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Lamp11" Layer="Foreground">
+      <Entity Name="Lamp10end" Layer="Foreground">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -898,6 +1080,291 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="FrontParticle01" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-522 Y:-96}" />
+              <InitialPosition Value="{X:-522 Y:-96}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="3" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="3.6" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle01" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:249 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="2.6" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle02" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-51 Y:180}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="FrontParticle02" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:764 Y:345}" />
+              <InitialPosition Value="{X:764 Y:345}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="3" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0.2" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="2" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle01" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:297 Y:267}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="FrontParticle03" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:2530 Y:382}" />
+              <InitialPosition Value="{X:2530 Y:382}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="2.4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle02" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-138 Y:-237}" />
+              <RotationOffset Value="0.4" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="FrontParticle04" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:561 Y:-628}" />
+              <InitialPosition Value="{X:561 Y:-628}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="2.4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="2.7" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle02" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:477 Y:-348}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
+            <Properties>
+              <Reverse Value="True" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="6" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle01" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:759 Y:-123}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="FrontParticle05" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:1523 Y:-13}" />
+              <InitialPosition Value="{X:1523 Y:-13}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <Reverse Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="2.4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="1.5" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
     </Entities>
