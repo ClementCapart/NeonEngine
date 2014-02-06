@@ -35,6 +35,8 @@ namespace NeonStarLibrary
 
         public CameraFocus CameraFocus;
 
+        public Texture2D _pauseMenuTexture;
+
         public bool PauseAllowed = true;
 
         //----------------------------------------//
@@ -50,6 +52,7 @@ namespace NeonStarLibrary
         public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, bool respawning = false)
             : base(game)
         {
+            _pauseMenuTexture = AssetManager.GetTexture("PauseMenu");
             this._statusToLoad = statusToLoad;
             lastSpawnPointIndex = startingSpawnPointIndex;
 
@@ -99,8 +102,8 @@ namespace NeonStarLibrary
 
             if(levelName != "")
                 LoadLevel(new Level(groupName, levelName, this, true));
-
-            avatar.transform.Position = currentSpawnPoint.Position;
+            if(avatar != null)
+                avatar.transform.Position = currentSpawnPoint.Position;
             Camera.Bounded = true;
 
             if (_statusToLoad != null)
@@ -201,9 +204,16 @@ namespace NeonStarLibrary
                 for (int i = Bullets.Count - 1; i >= 0; i--)
                     Bullets[i].Update(gameTime);             
             }
+            
 
             if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
                 Pause = !Pause;
+            
+            if (Pause)
+            {
+                if (Neon.Input.Pressed(Buttons.Back))
+                    this.ChangeLevel("Tests", "Menu", 0);
+            }
 
             base.Update(gameTime);
         }
@@ -292,6 +302,16 @@ namespace NeonStarLibrary
             playerProgression.Add(collectibleStatus);
 
             return playerProgression;
+        }
+
+        public override void ManualDrawHUD(SpriteBatch sb)
+        {
+            if (Pause)
+            {
+                if(_pauseMenuTexture != null)
+                    sb.Draw(_pauseMenuTexture, Vector2.Zero, Color.White);
+            }
+            base.ManualDrawHUD(sb);
         }
 
         public void SaveProgressionToFile()

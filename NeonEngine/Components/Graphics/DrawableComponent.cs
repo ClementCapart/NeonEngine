@@ -44,11 +44,11 @@ namespace NeonEngine.Components.Graphics2D
             }
         }
 
-        protected Vector2 _parallaxPosition;
+        public  Vector2 _parallaxPosition;
 
         protected Vector2 _parallaxForce;
 
-        public Vector2 ParallaxForce
+        public virtual Vector2 ParallaxForce
         {
             get { return _parallaxForce; }
             set { _parallaxForce = value; }

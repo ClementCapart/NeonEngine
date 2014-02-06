@@ -33,6 +33,19 @@ namespace NeonEngine.Components.Graphics2D
             }
         }
 
+        public override Vector2 ParallaxForce
+        {
+            get
+            {
+                return base.ParallaxForce;
+            }
+            set
+            {
+                base.ParallaxForce = value;
+                if (CurrentSpritesheet != null)
+                    CurrentSpritesheet.ParallaxForce = value;
+            }
+        }
 
         public override Vector2 Offset
         {
@@ -122,10 +135,13 @@ namespace NeonEngine.Components.Graphics2D
         public override void Update(GameTime gameTime)
         {
             if (CurrentSpritesheet != null)
-                 CurrentSpritesheet.Update(gameTime);
+            {
+                CurrentSpritesheet.Update(gameTime);
+            }
             
             base.Update(gameTime);
         }
+
 
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -133,6 +149,8 @@ namespace NeonEngine.Components.Graphics2D
             {
                 if (CurrentSpritesheet != null)
                 {
+                    if (CurrentSpritesheet != null)
+                        CurrentSpritesheet._parallaxPosition = _parallaxPosition;
                     CurrentSpritesheet.Draw(spriteBatch);
                 }
             }
@@ -189,6 +207,7 @@ namespace NeonEngine.Components.Graphics2D
             CurrentSpritesheet.IsFinished = false;
             CurrentSpritesheet.SetFrame(0);
             CurrentSpritesheet.Layer = Layer;
+            CurrentSpritesheet.ParallaxForce = ParallaxForce;
             if(CurrentSpritesheet.spriteSheetInfo != null)
                 if (StartingFrame != -1 && StartingFrame < CurrentSpritesheet.spriteSheetInfo.FrameCount && StartingFrame >= 0)
                     CurrentSpritesheet.SetFrame(StartingFrame);

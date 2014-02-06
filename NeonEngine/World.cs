@@ -166,7 +166,10 @@ namespace NeonEngine
             {
                 Alpha -= 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (Alpha <= 0.0f)
+                {
                     Alpha = 0.0f;
+                    
+                }
             }
             else if(_change)
             {

@@ -255,7 +255,7 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                     }
 
-                    if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
+                   /* if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
                     {
                         if (_leftSlotElement != Element.Neutral)
                             DropElement(Side.Left);
@@ -264,7 +264,7 @@ namespace NeonStarLibrary.Components.Avatar
                     {
                         if (_rightSlotElement != Element.Neutral)
                             DropElement(Side.Right);
-                    }
+                    }*/
                 }
                 else if (CurrentElementEffect != null)
                 {

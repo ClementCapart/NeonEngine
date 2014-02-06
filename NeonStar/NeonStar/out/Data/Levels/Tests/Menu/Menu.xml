@@ -17,7 +17,7 @@
             <Properties>
               <LeftBound Value="0" />
               <RightBound Value="2560" />
-              <Speed Value="200" />
+              <Speed Value="250" />
             </Properties>
           </MenuScreen>
         </Components>
@@ -27,8 +27,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:0 Y:-111}" />
-              <InitialPosition Value="{X:0 Y:-111}" />
+              <Position Value="{X:0 Y:-140}" />
+              <InitialPosition Value="{X:0 Y:-140}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -54,13 +54,13 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:0 Y:100}" />
-              <InitialPosition Value="{X:0 Y:100}" />
+              <Position Value="{X:0 Y:70}" />
+              <InitialPosition Value="{X:0 Y:70}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
           </Transform>
-          <GraphicOpacity Type="NeonStarLibrary.Components.Menu.MainMenu" ID="1">
+          <MainMenu Type="NeonStarLibrary.Components.Menu.MainMenu" ID="1">
             <Properties>
               <OpacityChangeValue Value="0.5" />
               <GraphicTag Value="" />
@@ -74,7 +74,69 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </GraphicOpacity>
+          </MainMenu>
+        </Components>
+      </Entity>
+      <Entity Name="FirstChapter" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:397 Y:450}" />
+              <InitialPosition Value="{X:397 Y:450}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="TrainingClosed" />
+                <Animation Name="Opening" SpritesheetTag="TrainingOpening" />
+                <Animation Name="Opened" SpritesheetTag="TrainingOpened" />
+              </Spritesheets>
+              <DrawLayer Value="0.8" />
+              <IsHUD Value="True" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="SecondChapter" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:883 Y:450}" />
+              <InitialPosition Value="{X:883 Y:450}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="LowerCityClosed" />
+                <Animation Name="Opening" SpritesheetTag="LowerCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="LowerCityOpened" />
+              </Spritesheets>
+              <DrawLayer Value="0.8" />
+              <IsHUD Value="True" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>
