@@ -346,6 +346,47 @@
           </Hitbox>
         </Components>
       </Entity>
+      <Entity Name="Tutorial07" Layer="Tutorials">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:459 Y:-47}" />
+              <InitialPosition Value="{X:459 Y:-47}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <FadingGraphic Type="NeonStarLibrary.Components.Graphics2D.FadingGraphic" ID="2">
+            <Properties>
+              <FadingSpeed Value="1" />
+              <AvatarName Value="LiOn" />
+              <GraphicTag Value="TutorialMoveCamera" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:134 Y:-184}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </FadingGraphic>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:459 Y:-47}" />
+              <X Value="359" />
+              <Y Value="-72" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
