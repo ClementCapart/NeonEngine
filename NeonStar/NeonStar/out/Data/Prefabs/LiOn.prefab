@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-577.7595 Y:171.5}" />
-          <InitialPosition Value="{X:-577.7595 Y:171.5}" />
+          <Position Value="{X:-577 Y:7257.463}" />
+          <InitialPosition Value="{X:-577 Y:7257.463}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-577 Y:171}" />
+          <Center Value="{X:-577 Y:7257}" />
           <X Value="-597" />
-          <Y Value="103" />
+          <Y Value="7189" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -200,10 +200,10 @@
       </FireGauge>
       <CameraFocus Type="NeonStarLibrary.Components.Camera.CameraFocus" ID="12">
         <Properties>
-          <MaxDistanceX Value="500" />
-          <MaxDistanceY Value="400" />
-          <MovementRate Value="500" />
-          <ForceFeedbackRate Value="700" />
+          <EightDirectionsMove Value="False" />
+          <DistanceX Value="350" />
+          <DistanceY Value="350" />
+          <SmoothingRate Value="0.05" />
         </Properties>
       </CameraFocus>
     </Components>

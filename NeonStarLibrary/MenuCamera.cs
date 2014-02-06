@@ -45,6 +45,7 @@ namespace NeonStarLibrary.Components.Menu
         {
             entity.GameWorld.Camera.Position = Vector2.Zero;
             _goingRight = true;
+            (entity.GameWorld as GameScreen).PauseAllowed = false;
             base.Init();
         }
 

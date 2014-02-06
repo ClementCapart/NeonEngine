@@ -320,8 +320,6 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.spritesheets.CurrentSpritesheet.opacity = 1f;
                 }
             }
-            if (Neon.Input.Pressed(Buttons.Start))
-                entity.GameWorld.Pause = !entity.GameWorld.Pause;
             base.Update(gameTime);
         }
 

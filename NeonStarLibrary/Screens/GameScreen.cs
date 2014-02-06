@@ -35,6 +35,8 @@ namespace NeonStarLibrary
 
         public CameraFocus CameraFocus;
 
+        public bool PauseAllowed = true;
+
         //----------------------------------------//
 
         public static List<XElement> CheckPointsData = new List<XElement>();
@@ -98,6 +100,7 @@ namespace NeonStarLibrary
             if(levelName != "")
                 LoadLevel(new Level(groupName, levelName, this, true));
 
+            avatar.transform.Position = currentSpawnPoint.Position;
             Camera.Bounded = true;
 
             if (_statusToLoad != null)
@@ -127,6 +130,8 @@ namespace NeonStarLibrary
             if (_statusToLoad != null && avatarComponent != null)
             {
                 XElement liOn = _statusToLoad.Element("PlayerStatus").Element("LiOnParameters");
+                if (liOn == null)
+                    return;
                 if (!respawning)
                 {
                     avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
@@ -197,7 +202,8 @@ namespace NeonStarLibrary
                     Bullets[i].Update(gameTime);             
             }
 
-            
+            if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
+                Pause = !Pause;
 
             base.Update(gameTime);
         }
