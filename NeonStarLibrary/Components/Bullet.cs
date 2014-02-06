@@ -104,7 +104,7 @@ namespace NeonStarLibrary.Private
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             entity.spritesheets.RotationOffset = (float)Math.Atan2(Direction.Y, Direction.X);
-            if (entity.spritesheets.RotationOffset < -Math.PI / 2)
+            if (entity.spritesheets.RotationOffset > Math.PI / 2 ||( entity.spritesheets.RotationOffset < -Math.PI / 2 && entity.spritesheets.RotationOffset > -Math.PI))
                 entity.spritesheets.ChangeSide(Side.Left);
             else
                 entity.spritesheets.ChangeSide(Side.Right);

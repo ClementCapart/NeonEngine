@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if (_avatarEntity.rigidbody != null)
                         {
+                            ElementSystem es = _avatarEntity.GetComponent<ElementSystem>();
+                            if (es != null && es.CurrentElementEffect != null && es.CurrentElementEffect.EffectElement == Element.Thunder)
+                                es.CurrentElementEffect.State = ElementState.End;
                             _avatarEntity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _avatarEntity.rigidbody.body.ApplyLinearImpulse(_jumperImpulse);
                         }
