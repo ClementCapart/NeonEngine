@@ -233,18 +233,18 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:2050 Y:-751}" />
-              <InitialPosition Value="{X:2050 Y:-751}" />
+              <Position Value="{X:2050 Y:-754}" />
+              <InitialPosition Value="{X:2050 Y:-754}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2050 Y:-751}" />
+              <Center Value="{X:2050 Y:-754}" />
               <X Value="2030" />
-              <Y Value="-826" />
+              <Y Value="-829" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
@@ -295,9 +295,28 @@
               <TriggeringElement Value="Neutral" />
               <ActivationDuration Value="2" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
+              <OffAnimation Value="Off" />
+              <OnAnimation Value="On" />
               <State Value="Deactivated" />
             </Properties>
           </TemporaryEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="3.141593" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="SwitchElement01" Layer="Energy">
@@ -308,7 +327,7 @@
               <Position Value="{X:-1535 Y:-246}" />
               <InitialPosition Value="{X:-1535 Y:-246}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -345,6 +364,8 @@
               <TriggeringElement Value="Neutral" />
               <ActivationDuration Value="1" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
+              <OffAnimation Value="Off" />
+              <OnAnimation Value="On" />
               <State Value="Deactivated" />
             </Properties>
           </TemporaryEnergyDevice>
@@ -370,6 +391,23 @@
               <WaitThreatDuration Value="1" />
             </Properties>
           </EnemyCore>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:2}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="Checkpoint01" Layer="Energy">
