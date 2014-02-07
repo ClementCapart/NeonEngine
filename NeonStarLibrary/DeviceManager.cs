@@ -70,9 +70,9 @@ namespace NeonStarLibrary
                     _devices.Add(d);
                 }
 
-                AlreadyLoaded = true;
+                
             }
-            
+            AlreadyLoaded = true;
         }
 
         static public void SaveDevicesInformation()
