@@ -268,7 +268,7 @@ namespace NeonStarLibrary.Components.Avatar
                 }
                 else if (CurrentElementEffect != null)
                 {
-                    CurrentElementEffect.Update(gameTime);
+                   CurrentElementEffect.Update(gameTime);
                 }
             }
             

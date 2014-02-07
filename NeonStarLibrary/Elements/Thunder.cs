@@ -173,8 +173,9 @@ namespace NeonStarLibrary
                     }
                     break;
 
-                case ElementState.End:                
-                    ThunderAttack.CancelAttack();
+                case ElementState.End:  
+                    if(ThunderAttack != null)
+                        ThunderAttack.CancelAttack();
                     ThunderAttack = null;
                     break;
             }
