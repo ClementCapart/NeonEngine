@@ -143,17 +143,17 @@ namespace NeonStarLibrary
                     return;
                 if (!respawning)
                 {
-                    avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
-                
-                    if (avatarComponent.ElementSystem != null)
-                    {
-                        avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
-                        avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
-                        avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
-                        avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
-                    }
+                    avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);               
                 }
-                
+
+                if (avatarComponent.ElementSystem != null)
+                {
+                    avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
+                    avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
+                    avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
+                    avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
+                }
+
                 if (avatarComponent.EnergySystem != null)
                 {
                     avatarComponent.EnergySystem.CurrentEnergyStock = float.Parse(liOn.Element("Energy").Value);
