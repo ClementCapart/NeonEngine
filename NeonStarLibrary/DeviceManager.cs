@@ -57,9 +57,10 @@ namespace NeonStarLibrary
 
         static public void LoadDeviceProgression(XElement devicesStatus)
         {
-            _devices = new List<Device>();
+            
             if (devicesStatus != null)
             {
+                _devices = new List<Device>();
                 foreach (XElement device in devicesStatus.Elements("Device"))
                 {
                     Device d = new Device();
@@ -70,9 +71,9 @@ namespace NeonStarLibrary
                     _devices.Add(d);
                 }
 
-                
+                AlreadyLoaded = true;
             }
-            AlreadyLoaded = true;
+            
         }
 
         static public void SaveDevicesInformation()
