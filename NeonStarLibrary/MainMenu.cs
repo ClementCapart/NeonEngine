@@ -41,7 +41,7 @@ namespace NeonStarLibrary.Components.Menu
         private Entity _firstChapterEntity;
         private Entity _secondChapterEntity;
 
-
+        private bool _firstUpdateDone = false;
         private int _currentSelection = 0;
 
         public MainMenu(Entity entity)
@@ -64,11 +64,22 @@ namespace NeonStarLibrary.Components.Menu
             DeviceManager.AlreadyLoaded = false;
             DeviceManager.LoadDevicesInformation();
             GameScreen.CheckPointsData.Clear();
+            CollectibleManager.ResetCollectibles();
+            CollectibleManager.InitializeCollectibles(entity.GameWorld as GameScreen);
  	        base.Init();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (!_firstUpdateDone)
+            {
+                DeviceManager.AlreadyLoaded = false;
+                DeviceManager.LoadDevicesInformation();
+                GameScreen.CheckPointsData.Clear();
+                CollectibleManager.ResetCollectibles();
+                CollectibleManager.InitializeCollectibles(entity.GameWorld as GameScreen);
+                _firstUpdateDone = true;
+            }
             switch(_menuState)
             {
                 case MenuState.PressStart:

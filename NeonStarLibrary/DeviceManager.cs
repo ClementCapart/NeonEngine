@@ -51,25 +51,43 @@ namespace NeonStarLibrary
                     }
                 }
             }
+            else if (File.Exists(@"../Data/Config/DevicesSaveTemplate.xml"))
+                {
+                    XDocument devicesDocument = XDocument.Load(@"../Data/Config/DevicesSaveTemplate.xml");
+
+                    foreach (XElement device in devicesDocument.Element("Devices").Elements("Device"))
+                    {
+                        Device d = new Device();
+                        d.GroupName = device.Element("GroupName").Value;
+                        d.LevelName = device.Element("LevelName").Value;
+                        d.DeviceName = device.Element("DeviceName").Value;
+                        d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
+                        _devices.Add(d);
+                    }
+                }
             
             AlreadyLoaded = true;
         }
 
         static public void LoadDeviceProgression(XElement devicesStatus)
         {
-            _devices = new List<Device>();
-
-            foreach (XElement device in devicesStatus.Elements("Device"))
+            
+            if (devicesStatus != null)
             {
-                Device d = new Device();
-                d.GroupName = device.Element("GroupName").Value;
-                d.LevelName = device.Element("LevelName").Value;
-                d.DeviceName = device.Element("DeviceName").Value;
-                d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
-                _devices.Add(d);
+                _devices = new List<Device>();
+                foreach (XElement device in devicesStatus.Elements("Device"))
+                {
+                    Device d = new Device();
+                    d.GroupName = device.Element("GroupName").Value;
+                    d.LevelName = device.Element("LevelName").Value;
+                    d.DeviceName = device.Element("DeviceName").Value;
+                    d.State = (DeviceState)Enum.Parse(typeof(DeviceState), device.Element("State").Value);
+                    _devices.Add(d);
+                }
+
+                AlreadyLoaded = true;
             }
-             
-            AlreadyLoaded = true;
+            
         }
 
         static public void SaveDevicesInformation()
