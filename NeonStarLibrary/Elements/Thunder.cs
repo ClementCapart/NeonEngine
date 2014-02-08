@@ -90,11 +90,16 @@ namespace NeonStarLibrary
             switch(State)
             {
                 case ElementState.Initialization:
-                    _entity.spritesheets.ChangeAnimation(_elementSystem.ThunderLaunchAnimation, true, 0, true, false, false);
-                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;  
-                    _entity.rigidbody.GravityScale = 0.0f;
-                    _entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
-                    if (_entity.spritesheets.IsFinished())
+                    if(_entity.spritesheets != null)
+                        _entity.spritesheets.ChangeAnimation(_elementSystem.ThunderLaunchAnimation, true, 0, true, false, false);
+                    if (_entity.rigidbody != null)
+                    {
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        _entity.rigidbody.GravityScale = 0.0f;
+                    }
+                    if(_entity.hitboxes.Count > 0)
+                        _entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
+                    if (_entity.spritesheets != null && _entity.spritesheets.IsFinished())
                     {
                         _entity.spritesheets.Active = false;
                         State = ElementState.Charge;
@@ -166,7 +171,7 @@ namespace NeonStarLibrary
                     }
                     else
                     {
-                        if (finishEffect.spriteSheet.currentFrame == finishEffect.spriteSheet.spriteSheetInfo.FrameCount - 1)
+                        if (finishEffect != null && finishEffect.spriteSheet != null && finishEffect.spriteSheet.currentFrame == finishEffect.spriteSheet.spriteSheetInfo.FrameCount - 1)
                         {
                             State = ElementState.End;
                         }
