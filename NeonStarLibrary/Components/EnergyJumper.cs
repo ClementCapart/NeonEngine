@@ -43,6 +43,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _jumperOnAnimation; }
             set { _jumperOnAnimation = value; }
         }
+
+        private string _jumperImpulseAnimation = "";
+
+        public string JumperImpulseAnimation
+        {
+            get { return _jumperImpulseAnimation; }
+            set { _jumperImpulseAnimation = value; }
+        }
         #endregion
 
         private Entity _avatarEntity;
@@ -77,7 +85,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             if (_powered)
             {
                 if (entity.spritesheets != null)
-                    entity.spritesheets.ChangeAnimation(_jumperOnAnimation, true, 0, true, false, true);
+                    entity.spritesheets.ChangeAnimation(_jumperOnAnimation, false, 0, true, false, true);
                 if (_avatarEntity != null && _avatarEntity.hitboxes.Count > 0)
                 {
                     if (_avatarEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
@@ -86,9 +94,11 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         {
                             ElementSystem es = _avatarEntity.GetComponent<ElementSystem>();
                             if (es != null && es.CurrentElementEffect != null && es.CurrentElementEffect.EffectElement == Element.Thunder)
-                                es.CurrentElementEffect.State = ElementState.End;
+                                es.CurrentElementEffect.State = ElementState.End; 
                             _avatarEntity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _avatarEntity.rigidbody.body.ApplyLinearImpulse(_jumperImpulse);
+                            if (entity.spritesheets != null)
+                                entity.spritesheets.ChangeAnimation(_jumperImpulseAnimation, true, 0, true, false, false);
                         }
                     }
                 }
@@ -96,7 +106,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             else
             {
                 if (entity.spritesheets != null)
-                    entity.spritesheets.ChangeAnimation(_jumperOffAnimation, true, 0, true, false, true);
+                    entity.spritesheets.ChangeAnimation(_jumperOffAnimation, false, 0, true, false, true);
             }
             base.Update(gameTime);
         }

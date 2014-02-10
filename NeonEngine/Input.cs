@@ -100,7 +100,7 @@ namespace NeonEngine
                         CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, inputMethod.Value);
                     }
                 }
-
+                
                 Console.WriteLine("");
             }
             else
