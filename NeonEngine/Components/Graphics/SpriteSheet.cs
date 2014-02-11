@@ -20,6 +20,20 @@ namespace NeonEngine.Components.Graphics2D
         private bool _reverse = false;
 
 
+        private float _startingFrame = 0.0f;
+
+        public float StartingFrame
+        {
+            get { return _startingFrame; }
+            set 
+            {
+                if(spriteSheetInfo != null)
+                    if (value > spriteSheetInfo.FrameCount - 1)
+                        _startingFrame = 0.0f;
+                    else
+                        _startingFrame = value; 
+            }
+        }
 
         public bool Reverse
         {
@@ -42,7 +56,6 @@ namespace NeonEngine.Components.Graphics2D
             get { return _reverseLoop; }
             set { _reverseLoop = value; }
         }
-
 
 
         private float _delayBeforeLoopAgain = 0.0f;
@@ -75,7 +88,7 @@ namespace NeonEngine.Components.Graphics2D
             get { return spriteSheetTag; }
             set
             {
-                currentFrame = 0;
+                currentFrame = (int)_startingFrame;
                 spriteSheetTag = value;
                 spriteSheetInfo = AssetManager.GetSpriteSheet(value);
                 Init();
@@ -126,6 +139,8 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Init()
         {
+            currentFrame = (int)_startingFrame;
+
             if (spriteSheetInfo == null)
                 return;
 
@@ -177,9 +192,9 @@ namespace NeonEngine.Components.Graphics2D
                     else
                     {
                         if (_reverse)
-                            currentFrame = spriteSheetInfo.Frames.Length - 1;
+                            currentFrame = (int)_startingFrame - 1 < 0 ? (int)_startingFrame - 1 : spriteSheetInfo.Frames.Length - 1;
                         else
-                            currentFrame = 0;
+                            currentFrame = (int)_startingFrame + 1 > spriteSheetInfo.Frames.Length - 1 ? 0 : (int)_startingFrame + 1;
 
                         if (_changeSideEveryLoop)
                         {
@@ -212,7 +227,7 @@ namespace NeonEngine.Components.Graphics2D
                             {
                                 if (!_reverse)
                                 {
-                                    if (currentFrame == spriteSheetInfo.Frames.Length - 1)
+                                    if (currentFrame == ((_startingFrame - 1 < 0 ? spriteSheetInfo.Frames.Length - 1 : _startingFrame - 1)))
                                     {
                                         if (IsLooped)
                                         {
@@ -223,7 +238,7 @@ namespace NeonEngine.Components.Graphics2D
                                             }
                                             else
                                             {
-                                                currentFrame = 0;
+                                                currentFrame = (int)_startingFrame + 1 > spriteSheetInfo.Frames.Length - 1 ? 0 : (int)_startingFrame + 1;
                                                 if (_changeSideEveryLoop)
                                                 {
                                                     if (CurrentSide == Side.Left)
@@ -246,7 +261,7 @@ namespace NeonEngine.Components.Graphics2D
                                 }
                                 else
                                 {
-                                    if (currentFrame == 0)
+                                    if (currentFrame == (_startingFrame + 1 > spriteSheetInfo.Frames.Length - 1 ? 0 : _startingFrame + 1))
                                     {
                                         if (IsLooped)
                                         {
@@ -257,7 +272,7 @@ namespace NeonEngine.Components.Graphics2D
                                             }
                                             else
                                             {
-                                                currentFrame = spriteSheetInfo.Frames.Length - 1;
+                                                currentFrame = (_startingFrame - 1 < 0 ? spriteSheetInfo.Frames.Length - 1 : (int)_startingFrame - 1);
                                                 if (_changeSideEveryLoop)
                                                 {
                                                     if (CurrentSide == Side.Left)
@@ -321,6 +336,11 @@ namespace NeonEngine.Components.Graphics2D
 
                         frameTimer -= TimePerFrame;
                     }                  
+            }
+            if (spriteSheetInfo != null)
+            {
+                currentFrame = (int)currentFrame < 0 ? spriteSheetInfo.Frames.Length - 1 : currentFrame;
+                currentFrame = (int)currentFrame > spriteSheetInfo.Frames.Length - 1 ? 0 : currentFrame;
             }
             base.Update(gameTime);
         }
