@@ -26,14 +26,24 @@ namespace NeonEngine.Components.Graphics2D
             get { return _reverse; }
             set { _reverse = value; }
         }
-        public bool Active = true;   
-  
+        public bool Active = true;
+
+
+        private bool _changeSideEveryLoop = false;
+
+        public bool ChangeSideEveryLoop
+        {
+            get { return _changeSideEveryLoop; }
+            set { _changeSideEveryLoop = value; }
+        }
 
         public bool ReverseLoop
         {
             get { return _reverseLoop; }
             set { _reverseLoop = value; }
         }
+
+
 
         private float _delayBeforeLoopAgain = 0.0f;
 
@@ -150,7 +160,15 @@ namespace NeonEngine.Components.Graphics2D
                             _reverse = true;
                             currentFrame--;
                         }
-                        
+
+                        if (_changeSideEveryLoop)
+                        {
+                            if (CurrentSide == Side.Left)
+                                CurrentSide = Side.Right;
+                            else if (CurrentSide == Side.Right)
+                                CurrentSide = Side.Left;
+                        }
+
                         this._delayBeforeLoopAgainTimer = 0.0f;                 
                         _isInDelayBeforeLoop = false;
                         if(_invisibleDuringDelay)
@@ -162,6 +180,14 @@ namespace NeonEngine.Components.Graphics2D
                             currentFrame = spriteSheetInfo.Frames.Length - 1;
                         else
                             currentFrame = 0;
+
+                        if (_changeSideEveryLoop)
+                        {
+                            if (CurrentSide == Side.Left)
+                                CurrentSide = Side.Right;
+                            else if (CurrentSide == Side.Right)
+                                CurrentSide = Side.Left;
+                        }
 
                         this._delayBeforeLoopAgainTimer = 0.0f;
                         _isInDelayBeforeLoop = false;
@@ -196,7 +222,18 @@ namespace NeonEngine.Components.Graphics2D
                                                 _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
                                             }
                                             else
+                                            {
                                                 currentFrame = 0;
+                                                if (_changeSideEveryLoop)
+                                                {
+                                                    if (CurrentSide == Side.Left)
+                                                        CurrentSide = Side.Right;
+                                                    else if (CurrentSide == Side.Right)
+                                                        CurrentSide = Side.Left;
+                                                }
+                                            }
+
+                                            
                                         }
                                         else
                                         {
@@ -219,7 +256,16 @@ namespace NeonEngine.Components.Graphics2D
                                                 _delayBeforeLoopAgainTimer = _delayBeforeLoopAgain;
                                             }
                                             else
+                                            {
                                                 currentFrame = spriteSheetInfo.Frames.Length - 1;
+                                                if (_changeSideEveryLoop)
+                                                {
+                                                    if (CurrentSide == Side.Left)
+                                                        CurrentSide = Side.Right;
+                                                    else if (CurrentSide == Side.Right)
+                                                        CurrentSide = Side.Left;
+                                                }
+                                            }
                                         }
                                         else
                                         {
