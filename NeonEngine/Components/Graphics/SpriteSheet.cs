@@ -27,11 +27,15 @@ namespace NeonEngine.Components.Graphics2D
             get { return _startingFrame; }
             set 
             {
-                if(spriteSheetInfo != null)
+                if (spriteSheetInfo != null)
+                {
                     if (value > spriteSheetInfo.FrameCount - 1)
                         _startingFrame = 0.0f;
                     else
-                        _startingFrame = value; 
+                        _startingFrame = value;
+                }
+                else
+                    _startingFrame = value;
             }
         }
 
@@ -192,9 +196,9 @@ namespace NeonEngine.Components.Graphics2D
                     else
                     {
                         if (_reverse)
-                            currentFrame = (int)_startingFrame - 1 < 0 ? (int)_startingFrame - 1 : spriteSheetInfo.Frames.Length - 1;
+                            currentFrame--;
                         else
-                            currentFrame = (int)_startingFrame + 1 > spriteSheetInfo.Frames.Length - 1 ? 0 : (int)_startingFrame + 1;
+                            currentFrame++;
 
                         if (_changeSideEveryLoop)
                         {
@@ -238,7 +242,7 @@ namespace NeonEngine.Components.Graphics2D
                                             }
                                             else
                                             {
-                                                currentFrame = (int)_startingFrame + 1 > spriteSheetInfo.Frames.Length - 1 ? 0 : (int)_startingFrame + 1;
+                                                currentFrame++;
                                                 if (_changeSideEveryLoop)
                                                 {
                                                     if (CurrentSide == Side.Left)
@@ -270,7 +274,7 @@ namespace NeonEngine.Components.Graphics2D
                                             }
                                             else
                                             {
-                                                currentFrame = (_startingFrame - 1 < 0 ? spriteSheetInfo.Frames.Length - 1 : (int)_startingFrame - 1);
+                                                currentFrame--;
                                                 if (_changeSideEveryLoop)
                                                 {
                                                     if (CurrentSide == Side.Left)
