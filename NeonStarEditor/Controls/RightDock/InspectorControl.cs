@@ -172,6 +172,7 @@ namespace NeonStarEditor
                 
                 foreach (PropertyInfo pi in c.GetType().GetProperties())
                 {
+                    
                     Label label = new Label();
                     label.Text = pi.Name;
                     label.Font = new Font("Calibri", 10);

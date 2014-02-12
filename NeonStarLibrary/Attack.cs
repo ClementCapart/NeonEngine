@@ -513,6 +513,13 @@ namespace NeonStarLibrary
                             
                             break;
 
+                        case SpecialEffect.PlaySound:
+                            if(ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
+                            {
+                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                            }
+                            break;
+
                     }
                     _onDelaySpecialEffects.Remove(ae);
                 }
@@ -619,8 +626,13 @@ namespace NeonStarLibrary
                                 e.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
                             }
+                            break;
 
-
+                        case SpecialEffect.PlaySound:
+                            if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
+                            {
+                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                            }
                             break;
 
                     }
@@ -780,6 +792,13 @@ namespace NeonStarLibrary
 
 
                                 break;
+
+                            case SpecialEffect.PlaySound:
+                                if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
+                                {
+                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                }
+                                break;
                         }
                         _onGroundCancelSpecialEffects.Remove(ae);
                     }
@@ -925,6 +944,13 @@ namespace NeonStarLibrary
                                 Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
                                 e.rigidbody.body.LinearVelocity = Vector2.Zero;
                                 e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                            }
+                            break;
+
+                        case SpecialEffect.PlaySound:
+                            if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
+                            {
+                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                             }
                             break;
                     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using System;
@@ -140,6 +141,8 @@ namespace NeonStarLibrary.Components.Avatar
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();    
         private float _jumpInputDelay = 0.0f;
 
+        private SoundEffect _footStepSound = SoundManager.GetSound("Footstep");
+
         private bool _hasAlreadyAirJumped = false;
 
         private float _movementSpeedModifierTimer = 0.0f;
@@ -147,6 +150,8 @@ namespace NeonStarLibrary.Components.Avatar
         private float _movementSpeedModifier = 1.0f;
 
         public float NumberOfAirMove = 1.0f;
+
+        private bool _playedThisFrame = false;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -209,6 +214,30 @@ namespace NeonStarLibrary.Components.Avatar
 
                         if (Neon.Input.Check(NeonStarInput.MoveLeft))
                         {
+                            if (entity.spritesheets.CurrentSpritesheetName == this.WalkAnimation)
+                            {
+                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == 1)
+                                {
+                                    if (!_playedThisFrame)
+                                    {
+                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        _playedThisFrame = true;
+                                    }
+                                }
+                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 5)
+                                {
+                                    if (!_playedThisFrame)
+                                    {
+                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        _playedThisFrame = true;
+                                    }
+                                }
+                                else
+                                {
+                                    _playedThisFrame = false;
+                                }
+                            }
+                                
                             if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
                                 entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed) * _movementSpeedModifier, 0);
 
@@ -216,6 +245,29 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else if (Neon.Input.Check(NeonStarInput.MoveRight))
                         {
+                            if (entity.spritesheets.CurrentSpritesheetName == this.WalkAnimation)
+                            {
+                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == 2)
+                                {
+                                    if (!_playedThisFrame)
+                                    {
+                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        _playedThisFrame = true;
+                                    }
+                                }
+                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 6)
+                                {
+                                    if (!_playedThisFrame)
+                                    {
+                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        _playedThisFrame = true;
+                                    }
+                                }
+                                else
+                                {
+                                    _playedThisFrame = false;
+                                }
+                            }
                             if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(1) == null)
                                 entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed * _movementSpeedModifier, 0);
 
@@ -248,6 +300,7 @@ namespace NeonStarLibrary.Components.Avatar
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
+                            SoundManager.GetSound("Jump").Play(0.3f, 0.0f, 0.0f);
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
@@ -297,6 +350,7 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.01f);
+                            SoundManager.GetSound("Jump").Play(0.3f, 0.0f, 0.0f);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
                             _hasAlreadyAirJumped = true;

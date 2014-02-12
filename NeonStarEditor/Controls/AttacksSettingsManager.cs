@@ -275,6 +275,13 @@ namespace NeonStarEditor
                     effect.Add(parameterImpulsePrefab);
                     effect.Add(parameterOffsetPrefab);
                     break;
+
+                case SpecialEffect.PlaySound:
+                    XElement parameterSound = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters[0]));
+                    XElement parameterVolume = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString()));
+                    effect.Add(parameterSound);
+                    effect.Add(parameterVolume);
+                    break;
             }
 
             return effect;
@@ -795,6 +802,50 @@ namespace NeonStarEditor
                         offsetPrefab.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(offsetPrefab);
                         break;
+
+                    case SpecialEffect.PlaySound:
+                        label = new Label();
+                        label.Text = "Sound To Play";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, 60);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        ComboBox comboBox3 = new ComboBox();
+                        comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+                        comboBox3.BindingContext = new BindingContext();
+                        BindingSource bs2 = new BindingSource();
+                        List<string> sounds = new List<string>();
+                        sounds.AddRange(SoundManager.sounds.Keys.OrderBy(k => k.ToString()));
+
+                        bs2.DataSource = sounds;
+                        comboBox3.DataSource = bs2;
+                        comboBox3.Name = "SoundName";
+                        comboBox3.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        comboBox3.Width = 150;
+                        comboBox3.SelectedItem = (string)CurrentAttackEffectSelected.Parameters[0];
+                        comboBox3.SelectedValueChanged += comboBox_SelectedValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(comboBox3);
+
+                        label = new Label();
+                        label.Text = "Volume";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(5, comboBox3.Location.Y + comboBox3.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown volume = new NumericUpDown();
+                        volume.Name = "SoundVolume";
+                        volume.Maximum = 50000;
+                        volume.Minimum = -50000;
+                        volume.Width = 80;
+                        volume.DecimalPlaces = 2;
+                        volume.Increment = (decimal)0.1f;
+                        volume.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[1]);
+                        volume.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        volume.Enter += Numeric_Enter;
+                        volume.Leave += Numeric_Leave;
+                        volume.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(volume);
+                        break;
                 }
             }
         }
@@ -834,6 +885,12 @@ namespace NeonStarEditor
                 CurrentAttackEffectSelected.Parameters[0] = AssetManager.GetSpriteSheet((string)((sender as ComboBox).SelectedItem));
                 return;
             }
+            else if((sender as ComboBox).Name == "SoundName")
+            {
+                CurrentAttackEffectSelected.Parameters[0] = (string)((sender as ComboBox).SelectedItem);
+                return;
+            }
+               
 
             if (CurrentAttackEffectSelected.specialEffect != (SpecialEffect)(sender as ComboBox).SelectedItem)
             {
@@ -883,6 +940,10 @@ namespace NeonStarEditor
 
                     case SpecialEffect.InstantiatePrefab:
                         CurrentAttackEffectSelected.Parameters = new object[] { "", new Vector2(), new Vector2() };
+                        break;
+
+                    case SpecialEffect.PlaySound:
+                        CurrentAttackEffectSelected.Parameters = new object[] { "", 1.0f };
                         break;
                 }
                 this.InitEffectData();
@@ -1090,6 +1151,10 @@ namespace NeonStarEditor
         {
             switch((sender as NumericUpDown).Name)
             {
+                case "SoundVolume":
+                    CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
+                    break;
+
                 case "DamageNumeric":
                     _attackList[AttacksList.SelectedValue.ToString()].DamageOnHit = (float)(sender as NumericUpDown).Value * -1;
                     break;

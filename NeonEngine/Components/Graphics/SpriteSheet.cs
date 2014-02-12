@@ -246,9 +246,7 @@ namespace NeonEngine.Components.Graphics2D
                                                     else if (CurrentSide == Side.Right)
                                                         CurrentSide = Side.Left;
                                                 }
-                                            }
-
-                                            
+                                            }                                           
                                         }
                                         else
                                         {

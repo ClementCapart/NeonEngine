@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using System.IO;
 
 namespace NeonEngine
 {
@@ -12,9 +13,9 @@ namespace NeonEngine
     {
         #region fields
         static Dictionary<string, SoundEffect> soundsList;
-        static Dictionary<string, string> sounds;
+        static public Dictionary<string, string> sounds;
         static Dictionary<string, Song> songsList;
-        static Dictionary<string, string> songs;
+        static public Dictionary<string, string> songs;
         #endregion
 
         static public void LoadSounds()
@@ -34,6 +35,17 @@ namespace NeonEngine
             //assets.Add("", @"");
             //assets.Add("", @"");
             //assets.Add("", @"");
+            if(Directory.Exists(@"Content/SFX"))
+            {
+                foreach (string p in Directory.EnumerateFiles(@"Content/SFX"))
+                {
+                    sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
+                }
+            }
+            
+            songs.Add("Demo", @"Soundtracks/demo");
+
+
         }
 
         static public void Load(ContentManager Content)

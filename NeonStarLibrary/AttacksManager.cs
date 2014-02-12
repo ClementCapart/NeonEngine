@@ -23,7 +23,8 @@ namespace NeonStarLibrary
         Invincible,
         EffectAnimation,
         MoveWhileAttacking,
-        InstantiatePrefab
+        InstantiatePrefab,
+        PlaySound,
     }
 
     public enum AttackType
@@ -160,6 +161,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.InstantiatePrefab:
                             ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onDelaySpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                             break;
+
+                        case SpecialEffect.PlaySound:
+                            ai.OnDelaySpecialEffects.Add(new AttackEffect(se, new object[] { onDelaySpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(onDelaySpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            break;
                     }
                 }
 
@@ -223,6 +228,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.InstantiatePrefab:
                             ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onDurationSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
+                            break;
+
+                        case SpecialEffect.PlaySound:
+                            ai.OnDurationSpecialEffects.Add(new AttackEffect(se, new object[] { onDurationSpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(onDurationSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
                     }         
                 }
@@ -288,6 +297,10 @@ namespace NeonStarLibrary
                         case SpecialEffect.InstantiatePrefab:
                             ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onHitSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                             break;
+
+                        case SpecialEffect.PlaySound:
+                            ai.OnHitSpecialEffects.Add(new AttackEffect(se, new object[] { onHitSpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(onHitSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                            break;
                     }         
                 }
 
@@ -351,6 +364,10 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.InstantiatePrefab:
                             ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, Neon.Utils.ParseVector2(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value), Neon.Utils.ParseVector2(onGroundCancelSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
+                            break;
+
+                        case SpecialEffect.PlaySound:
+                            ai.OnGroundCancelSpecialEffects.Add(new AttackEffect(se, new object[] { onGroundCancelSpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(onGroundCancelSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                             break;
                     }
                 }

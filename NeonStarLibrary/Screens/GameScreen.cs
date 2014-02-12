@@ -185,6 +185,11 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
+            if (MediaPlayer.State == MediaState.Stopped)
+            {
+                MediaPlayer.Volume = 0.5f;
+                MediaPlayer.Play(SoundManager.GetSong("Demo"));
+            }
             if (!Pause)
             {
                 if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null)

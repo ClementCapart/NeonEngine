@@ -299,10 +299,30 @@ namespace NeonEngine
                         {
                             Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
 
-                            if (this.Pressed(currentButton))
+                            switch(currentButton)
                             {
-                                return true;
+                                case Buttons.LeftTrigger:
+                                    if (gps.Triggers.Left > 0.7f)
+                                    {
+                                        return true;
+                                    }
+                                    break;
+
+                                case Buttons.RightTrigger:
+                                    if (gps.Triggers.Right > 0.7f)
+                                    {
+                                        return true;
+                                    }
+                                    break;
+
+                                default:
+                                    if (this.Pressed(currentButton))
+                                    {
+                                        return true;
+                                    }
+                                    break;
                             }
+                            
                         }
                         else if (kvp.Key == "XboxController2")
                         {

@@ -1150,6 +1150,10 @@
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
         </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="LightAttack01" />
+          <SecondParameter Value="0.3" />
+        </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="EffectAnimation">
@@ -1187,6 +1191,10 @@
           <Parameter Value="{X:400 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="LightAttackFinish" />
+          <SecondParameter Value="0.3" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -1319,7 +1327,12 @@
       <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="Uppercut" />
+          <SecondParameter Value="0.3" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-3800}" />
@@ -1348,7 +1361,12 @@
       <StunLock>0.32</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="UppercutFinish" />
+          <SecondParameter Value="0.3" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:600 Y:-4000}" />
