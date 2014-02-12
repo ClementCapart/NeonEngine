@@ -42,8 +42,15 @@ namespace NeonEngine
                     sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
+
+            if (Directory.Exists(@"Content/Soundtracks"))
+            {
+                foreach (string p in Directory.EnumerateFiles(@"Content/Soundtracks"))
+                {
+                    songs.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks" + Path.GetFileNameWithoutExtension(p));
+                }
+            }
             
-            songs.Add("Demo", @"Soundtracks/demo");
 
 
         }
