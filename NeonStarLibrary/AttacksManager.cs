@@ -51,6 +51,7 @@ namespace NeonStarLibrary
         public float AirFactor = 1.0f;
         public float StunLock = 0.0f;
         public float MultiHitDelay = 0.0f;
+        public Vector2 AirImpulse = Vector2.Zero;
         public bool AirOnly = false;
         public bool CancelOnGround = false;
         public bool OnlyOnceInAir = false;
@@ -99,6 +100,7 @@ namespace NeonStarLibrary
                 ai.AirFactor = float.Parse(attack.Element("AirFactor").Value, CultureInfo.InvariantCulture);
                 ai.StunLock = float.Parse(attack.Element("StunLock").Value, CultureInfo.InvariantCulture);
                 ai.MultiHitDelay = float.Parse(attack.Element("MultiHitDelay").Value, CultureInfo.InvariantCulture);
+                ai.AirImpulse = Neon.Utils.ParseVector2(attack.Element("AirImpulse").Value);
 
                 ai.OnDelaySpecialEffects = new List<AttackEffect>();
 

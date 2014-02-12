@@ -139,6 +139,9 @@ namespace NeonStarEditor
                 XElement multiHitDelay = new XElement("MultiHitDelay", kvp.Value.MultiHitDelay.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(multiHitDelay);
 
+                XElement airImpulse = new XElement("AirImpulse", Neon.Utils.Vector2ToString(kvp.Value.AirImpulse));
+                attack.Add(airImpulse);
+
                 XElement onDelaySpecialEffects = new XElement("OnDelaySpecialEffects");
                 foreach (AttackEffect effect in kvp.Value.OnDelaySpecialEffects)
                 {
@@ -969,6 +972,8 @@ namespace NeonStarEditor
             this.StunLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].StunLock;
             this.LocalCooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].LocalCooldown;
             this.MultiHitDelayNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay;
+            this.AirImpulseX.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.X;
+            this.AirImpulseY.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.Y;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -1283,6 +1288,16 @@ namespace NeonStarEditor
 
                 case "DelayAnimation":
                     CurrentAttackEffectSelected.Parameters[5] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "AirImpulseX":
+                    Vector2 impulse = _attackList[AttacksList.SelectedValue.ToString()].AirImpulse;
+                    _attackList[AttacksList.SelectedValue.ToString()].AirImpulse = new Vector2((float)(sender as NumericUpDown).Value, impulse.Y);
+                    break;
+
+                case "AirImpulseY":
+                    Vector2 impulse2 = _attackList[AttacksList.SelectedValue.ToString()].AirImpulse;
+                    _attackList[AttacksList.SelectedValue.ToString()].AirImpulse = new Vector2(impulse2.X, (float)(sender as NumericUpDown).Value);
                     break;
             }
         }

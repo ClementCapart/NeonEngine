@@ -386,10 +386,13 @@ namespace NeonStarLibrary.Components.Enemies
 
             if (State == EnemyState.Dying)
             {
+                
                 if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _dyingAnim && entity.spritesheets.IsFinished())
                     State = EnemyState.Dead;
                 else if (entity.spritesheets == null || (entity.spritesheets != null && _dyingAnim == ""))
                     State = EnemyState.Dead;
+                if(entity.rigidbody != null)
+                    entity.rigidbody.Remove();
             }
             else if (State != EnemyState.Dead)
             {

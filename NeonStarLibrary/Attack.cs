@@ -38,7 +38,7 @@ namespace NeonStarLibrary
         private bool _mustStopAtTargetSight = false;
         private bool _alreadyLocked = false;
 
-        public Element AttackElement = Element.Neutral;
+        public Element AttackElement = Element.Neutral;      
 
         string _name;
         public string Name
@@ -224,6 +224,14 @@ namespace NeonStarLibrary
             set { _multiHitDelay = value; }
         }
 
+        private Vector2 _airImpulse;
+
+        public Vector2 AirImpulse
+        {
+            get { return _airImpulse; }
+            set { _airImpulse = value; }
+        }
+
         private List<AttackEffect> _onDelaySpecialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onDurationSpecialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
@@ -288,6 +296,7 @@ namespace NeonStarLibrary
             this.MultiHitDelay = attackInfo.MultiHitDelay;
             if (MultiHitDelay <= 0.0f)
                 this._shouldMultiHit = false;
+            this.AirImpulse = attackInfo.AirImpulse;
 
             foreach (AttackEffect ae in attackInfo.OnDelaySpecialEffects)
                 this._onDelaySpecialEffects.Add(ae);
@@ -790,7 +799,6 @@ namespace NeonStarLibrary
                                     e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
                                 }
 
-
                                 break;
 
                             case SpecialEffect.PlaySound:
@@ -953,6 +961,20 @@ namespace NeonStarLibrary
                                 SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                             }
                             break;
+                    }
+                }
+
+                if (AirImpulse != Vector2.Zero)
+                {
+                    if (entity.rigidbody != null)
+                    {
+                        if (!entity.rigidbody.isGrounded)
+                        {
+                            if (!velocityReset)
+                                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+
+                            entity.rigidbody.body.ApplyLinearImpulse(CurrentSide == Side.Right ? AirImpulse : new Vector2(-AirImpulse.X, AirImpulse.Y));
+                        }                      
                     }
                 }
             }
