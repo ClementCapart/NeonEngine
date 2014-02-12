@@ -121,13 +121,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Soundtracks\demo.mp3">
-      <Name>demo</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="SFX\LightAttack01.wav">
       <Name>LightAttack01</Name>
       <Importer>WavImporter</Importer>
@@ -158,6 +151,9 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Soundtracks\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

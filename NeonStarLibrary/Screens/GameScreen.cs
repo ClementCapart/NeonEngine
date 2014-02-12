@@ -188,7 +188,7 @@ namespace NeonStarLibrary
             if (MediaPlayer.State == MediaState.Stopped)
             {
                 MediaPlayer.Volume = 0.5f;
-                MediaPlayer.Play(SoundManager.GetSong("Demo"));
+                //MediaPlayer.Play(SoundManager.GetSong("Demo"));
             }
             if (!Pause)
             {
