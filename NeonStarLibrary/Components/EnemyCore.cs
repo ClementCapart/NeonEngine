@@ -247,7 +247,7 @@ namespace NeonStarLibrary.Components.Enemies
         public bool TakeDamage(Attack attack)
         {
             LastAttackTook = attack.Name;
-            bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
+            bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
             if (_triggerOnDamage)
             {
                 if (_componentToTrigger != null)
@@ -285,7 +285,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public bool TakeDamage(Bullet bullet)
         {
-            bool tookDamage = TakeDamage(bullet.DamageOnHit, bullet.StunLock, 0.0f, bullet.entity.spritesheets.CurrentSide);
+            bool tookDamage = TakeDamage(bullet.DamageOnHit, bullet.StunLock, true, 0.0f, bullet.entity.spritesheets.CurrentSide);
             if (tookDamage && _triggerOnDamage)
             {
                 if (_componentToTrigger != null)
@@ -317,7 +317,7 @@ namespace NeonStarLibrary.Components.Enemies
             return tookDamage;
         }
 
-        public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side)
+        public bool TakeDamage(float damageValue, float stunLockDuration, bool alwaysStunlock, float airLockDuration, Side side)
         {
             if (_immuneToDamage)
                 return false;
@@ -347,7 +347,9 @@ namespace NeonStarLibrary.Components.Enemies
                 Console.WriteLine(entity.Name + " have lost " + damageValue + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
             }
 
-            StunLock(stunLockDuration);
+            if(alwaysStunlock || State == EnemyState.StunLocked)
+                StunLock(stunLockDuration);
+            
             if (entity.rigidbody != null)
             {
                 if (!entity.rigidbody.isGrounded)
@@ -459,7 +461,7 @@ namespace NeonStarLibrary.Components.Enemies
                     if (_damageOverTimeTickTimer > _damageOverTimeSpeed)
                     {
                         _damageOverTimeTickTimer = 0.0f;
-                        TakeDamage(_damageOverTimeValue, 0.0f, 0.0f, _damageOverTimeSource.CurrentSide);
+                        TakeDamage(_damageOverTimeValue, 0.0f, true, 0.0f, _damageOverTimeSource.CurrentSide);
                     }
                     _damageOverTimeTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }

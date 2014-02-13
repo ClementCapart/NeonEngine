@@ -38,6 +38,14 @@ namespace NeonStarLibrary
         private bool _mustStopAtTargetSight = false;
         private bool _alreadyLocked = false;
 
+        private bool _alwaysStunlock = false;
+
+        public bool AlwaysStunlock
+        {
+            get { return _alwaysStunlock; }
+            set { _alwaysStunlock = value; }
+        }
+
         public Element AttackElement = Element.Neutral;      
 
         string _name;
@@ -294,6 +302,7 @@ namespace NeonStarLibrary
             this.FromEnemy = FromEnemy;
             this.AttackElement = attackInfo.AttackElement;
             this.MultiHitDelay = attackInfo.MultiHitDelay;
+            this.AlwaysStunlock = attackInfo.AlwaysStunlock;
             if (MultiHitDelay <= 0.0f)
                 this._shouldMultiHit = false;
             this.AirImpulse = attackInfo.AirImpulse;

@@ -142,6 +142,9 @@ namespace NeonStarEditor
                 XElement airImpulse = new XElement("AirImpulse", Neon.Utils.Vector2ToString(kvp.Value.AirImpulse));
                 attack.Add(airImpulse);
 
+                XElement alwaysStunlock = new XElement("AlwaysStunlock", kvp.Value.AlwaysStunlock.ToString());
+                attack.Add(alwaysStunlock);
+
                 XElement onDelaySpecialEffects = new XElement("OnDelaySpecialEffects");
                 foreach (AttackEffect effect in kvp.Value.OnDelaySpecialEffects)
                 {
@@ -974,6 +977,7 @@ namespace NeonStarEditor
             this.MultiHitDelayNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay;
             this.AirImpulseX.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.X;
             this.AirImpulseY.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.Y;
+            this.AlwaysStunlock.Checked = _attackList[AttacksList.SelectedValue.ToString()].AlwaysStunlock;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -1446,6 +1450,11 @@ namespace NeonStarEditor
                 CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects[(sender as ListBox).SelectedIndex];
             }
             InitEffectData();
+        }
+
+        private void AlwaysStunlock_CheckedChanged(object sender, EventArgs e)
+        {
+            _attackList[AttacksList.SelectedValue.ToString()].AlwaysStunlock = (sender as CheckBox).Checked;
         }
     }
 }
