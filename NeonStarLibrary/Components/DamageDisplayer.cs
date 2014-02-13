@@ -35,6 +35,38 @@ namespace NeonStarLibrary.Components.Graphics2D
             set { _font = value; }
         }
 
+        private Color _fontColor = Color.White;
+
+        public Color FontColor
+        {
+            get { return _fontColor; }
+            set { _fontColor = value; }
+        }
+
+        private bool _isOutlined;
+
+        public bool IsOutlined
+        {
+            get { return _isOutlined; }
+            set { _isOutlined = value; }
+        }
+
+        private float _outlineWidth;
+
+        public float OutlineWidth
+        {
+            get { return _outlineWidth; }
+            set { _outlineWidth = value; }
+        }
+
+        private Color _outlineColor = Color.Black;
+
+        public Color OutlineColor
+        {
+            get { return _outlineColor; }
+            set { _outlineColor = value; }
+        }
+
         private float _displayerDuration = 1.0f;
 
         public float DisplayerDuration
@@ -123,8 +155,12 @@ namespace NeonStarLibrary.Components.Graphics2D
                 TextDisplay td = new TextDisplay(entity);
                 td.DrawLayer = DrawLayer;
                 td.Font = Font;
-                td.TextColor = Color.White;
+                td.TextColor = _fontColor;
                 td.Offset = _startingOffset;
+                td.OutlineDisplacement = OutlineWidth;
+                td.OutlineColor = OutlineColor;
+                td.Outline = IsOutlined;
+
 
                 DamageDisplayInformation ddi = new DamageDisplayInformation();
                 ddi.TextDisplayer = td;
