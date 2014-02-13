@@ -52,15 +52,16 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), true);
                             }
 
-                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
                                 EnemyComponent.CurrentSide = Side.Right;
                             }
-                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
                                 EnemyComponent.CurrentSide = Side.Left;
@@ -83,9 +84,9 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), false);
                             }
-                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
                             }
@@ -111,15 +112,15 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), true);
                             }
 
-                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
                                 EnemyComponent.CurrentSide = Side.Right;
                             }
-                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
                                 EnemyComponent.CurrentSide = Side.Left;
@@ -142,9 +143,9 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), false);
                             }
-                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
                             }
@@ -171,15 +172,15 @@ namespace NeonStarLibrary.Components.Enemies
                                 }
                                 else
                                 {
-                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), true);
                                 }
 
-                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
                                     EnemyComponent.CurrentSide = Side.Right;
                                 }
-                                else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
                                     EnemyComponent.CurrentSide = Side.Left;
@@ -202,9 +203,9 @@ namespace NeonStarLibrary.Components.Enemies
                                 }
                                 else
                                 {
-                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                                    hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), false);
                                 }
-                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                                if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
                                 }
@@ -227,14 +228,14 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, true);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), true);
                             }
 
-                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.CurrentSide = Side.Right;
                             }
-                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _rangeForAttackOne)
+                            else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.CurrentSide = Side.Left;
                             }
@@ -257,7 +258,7 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             else
                             {
-                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _rangeForAttackOne, false);
+                                hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, _attacks.Keys.Last(), false);
                             }
                             if (hitEntities[0] != EntityToAttack || Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) > _rangeForAttackOne && !entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
@@ -315,61 +316,40 @@ namespace NeonStarLibrary.Components.Enemies
 
         private void ChooseAttack()
         {
-            if (_rangeForAttackThree != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackThree * _rangeForAttackThree)
+            foreach (KeyValuePair<float, List<string>> kvp in _attacks)
             {
-                if (_attackToLaunchThree == "Chase")
+                if (Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < kvp.Key * kvp.Key)
                 {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
-                else
-                {
-                    bool inLocalCooldown = false;
-                    foreach (Attack a in LocalAttacksInCooldown)
-                    {
-                        if (a.Name == _attackToLaunchThree)
-                            inLocalCooldown = true;
-                    }
+                    string selectedAttack = kvp.Value[new Random().Next(kvp.Value.Count)];
 
-                    if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchThree, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-            }
-            else if (_rangeForAttackTwo != 0.0f && Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < _rangeForAttackTwo * _rangeForAttackTwo)
-            {
-                if (_attackToLaunchTwo == "Chase")
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
-                else
-                {
-                    bool inLocalCooldown = false;
-                    foreach (Attack a in LocalAttacksInCooldown)
+                    if (selectedAttack == "Chase")
                     {
-                        if (a.Name == _attackToLaunchTwo)
-                            inLocalCooldown = true;
+                        EnemyComponent.State = EnemyState.Chase;
+                        return;
                     }
-
-                    if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchTwo, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                }
-            }
-            else
-            {
-                if (_attackToLaunchOne == "Chase")
-                {
-                    EnemyComponent.State = EnemyState.Chase;
-                }
-                else
-                {
-                    bool inLocalCooldown = false;
-                    foreach (Attack a in LocalAttacksInCooldown)
+                    else
                     {
-                        if (a.Name == _attackToLaunchOne)
-                            inLocalCooldown = true;
-                    }
+                        CurrentAttack = null;
 
-                    if (!inLocalCooldown)
-                        CurrentAttack = AttacksManager.GetAttack(_attackToLaunchOne, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
+                        while (CurrentAttack == null)
+                        {
+                            bool inLocalCooldown = false;
+                            foreach (Attack a in LocalAttacksInCooldown)
+                            {
+                                if (a.Name == selectedAttack)
+                                    inLocalCooldown = true;
+                            }
+
+                            if (!inLocalCooldown)
+                            {
+                                CurrentAttack = AttacksManager.GetAttack(selectedAttack, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
+                                return;
+                            }
+                            else
+                                selectedAttack = kvp.Value[new Random().Next(kvp.Value.Count)];
+                        }
+                        
+                    }
                 }
             }
         }

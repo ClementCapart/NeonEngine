@@ -131,6 +131,46 @@ namespace NeonStarLibrary.Components.Enemies
             get { return _attackThreeCooldownAnimation; }
             set { _attackThreeCooldownAnimation = value; }
         }
+
+        protected float _rangeForAttackFour = 0.0f;
+
+        public float RangeForAttackFour
+        {
+            get { return _rangeForAttackFour; }
+            set { _rangeForAttackFour = value; }
+        }
+
+        protected string _attackToLaunchFour = "";
+
+        public string AttackToLaunchFour
+        {
+            get { return _attackToLaunchFour; }
+            set { _attackToLaunchFour = value; }
+        }
+
+        protected string _attackFourDelayAnimation = "";
+
+        public string AttackFourDelayAnimation
+        {
+            get { return _attackFourDelayAnimation; }
+            set { _attackFourDelayAnimation = value; }
+        }
+
+        protected string _attackFourDurationAnimation = "";
+
+        public string AttackFourDurationAnimation
+        {
+            get { return _attackFourDurationAnimation; }
+            set { _attackFourDurationAnimation = value; }
+        }
+
+        protected string _attackFourCooldownAnimation = "";
+
+        public string AttackFourCooldownAnimation
+        {
+            get { return _attackFourCooldownAnimation; }
+            set { _attackFourCooldownAnimation = value; }
+        }
    
         private string _entityToAttackName = "";
 
@@ -147,6 +187,7 @@ namespace NeonStarLibrary.Components.Enemies
         public Entity EntityToAttack = null;
 
         public List<Attack> LocalAttacksInCooldown;
+        public Dictionary<float, List<string>> _attacks;
 
         public EnemyAttack(Entity entity)
             :base(entity, "EnemyAttack")
@@ -163,6 +204,40 @@ namespace NeonStarLibrary.Components.Enemies
 
             if (EnemyComponent != null)
                 EnemyComponent.Attack = this;
+
+            _attacks = new Dictionary<float, List<string>>();
+
+            if (_rangeForAttackOne != 0.0f)
+            {
+                if (!_attacks.ContainsKey(_rangeForAttackOne))
+                    _attacks.Add(_rangeForAttackOne, new List<string>());
+
+                _attacks[_rangeForAttackOne].Add(_attackToLaunchOne);
+            }
+            if (_rangeForAttackTwo != 0.0f)
+            {
+                if (!_attacks.ContainsKey(_rangeForAttackTwo))
+                    _attacks.Add(_rangeForAttackTwo, new List<string>());
+
+                _attacks[_rangeForAttackTwo].Add(_attackToLaunchTwo);
+            }
+            if (_rangeForAttackThree != 0.0f)
+            {
+                if (!_attacks.ContainsKey(_rangeForAttackThree))
+                    _attacks.Add(_rangeForAttackThree, new List<string>());
+
+                _attacks[_rangeForAttackThree].Add(_attackToLaunchThree);
+            }
+            if (_rangeForAttackFour != 0.0f)
+            {
+                if (!_attacks.ContainsKey(_rangeForAttackFour))
+                    _attacks.Add(_rangeForAttackFour, new List<string>());
+
+                _attacks[_rangeForAttackFour].Add(_attackToLaunchFour);
+            }
+
+            _attacks = _attacks.OrderBy(kvp => kvp.Key).ToDictionary(kvp => kvp.Key, kvp2 => kvp2.Value);
+
             base.Init();
         }
 
