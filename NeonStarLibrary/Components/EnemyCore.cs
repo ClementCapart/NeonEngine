@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.Graphics2D;
 using NeonStarLibrary.Private;
 using System;
 using System.Collections.Generic;
@@ -185,6 +186,7 @@ namespace NeonStarLibrary.Components.Enemies
         public FollowNodes FollowNodes;
         public Chase Chase;
         public EnemyAttack Attack;
+        public DamageDisplayer DamageDisplayer;
 
         public Side CurrentSide = Side.Right;
 
@@ -231,6 +233,8 @@ namespace NeonStarLibrary.Components.Enemies
                 Attack = entity.GetComponent<EnemyAttack>();
             if (Chase == null)
                 Chase = entity.GetComponent<Chase>();
+            if (DamageDisplayer == null)
+                DamageDisplayer = entity.GetComponent<DamageDisplayer>();
             
             if (_componentToTrigger == null && _componentToTriggerName != "")
             {
@@ -331,6 +335,10 @@ namespace NeonStarLibrary.Components.Enemies
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 IsAirLocked = false;
                 _airLockDuration = 0.0f;
+                if (DamageDisplayer != null)
+                {
+                    DamageDisplayer.DisplayDamage(damageValue);
+                }
                 return false;
             }
 
@@ -348,7 +356,12 @@ namespace NeonStarLibrary.Components.Enemies
                 }
             }
             TookDamageThisFrame = true;
-            
+
+            if (DamageDisplayer != null)
+            {
+                DamageDisplayer.DisplayDamage(damageValue);
+            }
+
             return true;
         }
 

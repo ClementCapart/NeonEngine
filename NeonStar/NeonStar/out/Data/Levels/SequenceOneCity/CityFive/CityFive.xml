@@ -2181,6 +2181,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:4 Y:2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2193,7 +2194,6 @@
               </Spritesheets>
               <DrawLayer Value="0.39" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -2601,6 +2601,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2612,7 +2613,6 @@
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -2723,6 +2723,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2734,7 +2735,6 @@
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -2744,8 +2744,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-308 Y:-356}" />
-              <InitialPosition Value="{X:-308 Y:-356}" />
+              <Position Value="{X:-349 Y:-356}" />
+              <InitialPosition Value="{X:-349 Y:-356}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2753,8 +2753,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-307 Y:-356}" />
-              <X Value="-357" />
+              <Center Value="{X:-348 Y:-356}" />
+              <X Value="-398" />
               <Y Value="-436" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2780,7 +2780,8 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2795,7 +2796,6 @@
               </Spritesheets>
               <DrawLayer Value="0.2" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -2803,7 +2803,7 @@
               <Debug Value="False" />
               <StartingHealthPoints Value="50" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="5" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -2811,7 +2811,7 @@
               <HitAnim Value="TakeHit" />
               <ImmuneToStunLock Value="False" />
               <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
+              <ImmuneToDeath Value="True" />
               <ImmuneToDamage Value="False" />
               <AlwaysTakeUppercut Value="False" />
               <Type Value="Ground" />
@@ -2867,6 +2867,25 @@
               <PathPrecisionTreshold Value="50" />
             </Properties>
           </FollowPlatformNodes>
+          <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="9">
+            <Properties>
+              <DrawLayer Value="0.99999" />
+              <Font Value="HUDFont" />
+              <DisplayerDuration Value="0.4" />
+              <DamageDisplayLerp Value="1" />
+              <DamageMoveLerp Value="0.3" />
+              <StartingOffset Value="{X:0 Y:0}" />
+              <TargetOffset Value="{X:0 Y:-150}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </DamageDisplayer>
         </Components>
       </Entity>
       <Entity Name="EnemyRobot" Layer="">
@@ -2874,8 +2893,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-287 Y:494}" />
-              <InitialPosition Value="{X:-287 Y:494}" />
+              <Position Value="{X:-256 Y:494}" />
+              <InitialPosition Value="{X:-256 Y:494}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -2883,8 +2902,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-287 Y:493}" />
-              <X Value="-337" />
+              <Center Value="{X:-255 Y:493}" />
+              <X Value="-305" />
               <Y Value="413" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2911,6 +2930,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -2925,7 +2945,6 @@
               </Spritesheets>
               <DrawLayer Value="0.2" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -3040,7 +3059,8 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -3056,7 +3076,6 @@
               </Spritesheets>
               <DrawLayer Value="0.2" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
