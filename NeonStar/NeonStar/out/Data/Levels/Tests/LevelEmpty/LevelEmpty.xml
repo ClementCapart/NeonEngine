@@ -32,7 +32,51 @@
               <UseGravity Value="False" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.39875" />
+              <Mass Value="1.4" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="False" />
+            </Properties>
+          </Rigidbody>
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
+            <Properties />
+          </LinkedToPath>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometrySA" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:-110 Y:308}" />
+              <InitialPosition Value="{X:-110 Y:308}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:-110 Y:308}" />
+              <X Value="-250" />
+              <Y Value="283" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="280" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="0" />
+              <UseGravity Value="False" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.4" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />

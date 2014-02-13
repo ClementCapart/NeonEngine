@@ -251,10 +251,12 @@ namespace NeonEngine.Components.CollisionDetection
                 switch (hitbox.ShapeType)
                 {
                     case BodyShapeType.Rectangle:
-                        body = BodyFactory.CreateRoundedRectangle(physicWorld,
+                        /*body = BodyFactory.CreateRoundedRectangle(physicWorld,
                             CoordinateConversion.screenToWorld(hitbox.Width),
                             CoordinateConversion.screenToWorld(hitbox.Height),
-                            0.025f,0.025f, 0, 1f, entity);
+                            0.025f,0.025f, 0, 1f, entity);*/
+                        body = BodyFactory.CreateRectangle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width),
+                            CoordinateConversion.screenToWorld(hitbox.Height), 1.0f, entity);
                         break;
                     case BodyShapeType.Circle:
                         body = BodyFactory.CreateCircle(physicWorld, CoordinateConversion.screenToWorld(hitbox.Width / 2), 1f, entity);
