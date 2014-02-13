@@ -185,10 +185,13 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if (MediaPlayer.State == MediaState.Stopped)
+            if (Neon.Game.IsActive)
             {
-                MediaPlayer.Volume = 0.5f;
-                //MediaPlayer.Play(SoundManager.GetSong("Demo"));
+                if (MediaPlayer.State == MediaState.Stopped)
+                {
+                    MediaPlayer.Volume = 0.5f;
+                    //MediaPlayer.Play(SoundManager.GetSong("Demo"));
+                }
             }
             if (!Pause)
             {
