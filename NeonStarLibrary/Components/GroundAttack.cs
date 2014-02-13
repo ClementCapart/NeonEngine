@@ -331,24 +331,17 @@ namespace NeonStarLibrary.Components.Enemies
                     {
                         CurrentAttack = null;
 
-                        while (CurrentAttack == null)
+                        bool inLocalCooldown = false;
+                        foreach (Attack a in LocalAttacksInCooldown)
                         {
-                            bool inLocalCooldown = false;
-                            foreach (Attack a in LocalAttacksInCooldown)
-                            {
-                                if (a.Name == selectedAttack)
-                                    inLocalCooldown = true;
-                            }
-
-                            if (!inLocalCooldown)
-                            {
-                                CurrentAttack = AttacksManager.GetAttack(selectedAttack, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
-                                return;
-                            }
-                            else
-                                selectedAttack = kvp.Value[new Random().Next(kvp.Value.Count)];
+                            if (a.Name == selectedAttack)
+                                inLocalCooldown = true;
                         }
-                        
+
+                        if (!inLocalCooldown)
+                            CurrentAttack = AttacksManager.GetAttack(selectedAttack, EnemyComponent.CurrentSide, entity, EntityToAttack, true);
+
+                        return;
                     }
                 }
             }
