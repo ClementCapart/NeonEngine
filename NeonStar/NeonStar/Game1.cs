@@ -26,7 +26,7 @@ namespace NeonStar
             graphics = new GraphicsDeviceManager(this);
             graphics.SynchronizeWithVerticalRetrace = true;
             InactiveSleepTime = TimeSpan.Zero;
-            this.TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0f / 60.0f);
+            this.TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0f / 75.0f);
             IsFixedTimeStep = false;
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
