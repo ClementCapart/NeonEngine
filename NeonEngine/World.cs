@@ -321,6 +321,10 @@ namespace NeonEngine
 
         public virtual void ChangeScreen(World nextScreen)
         {
+            foreach (Entity e in Entities)
+            {
+                e.OnChangeLevel();
+            }
             _change = true;
             this.NextScreen = nextScreen;
         }

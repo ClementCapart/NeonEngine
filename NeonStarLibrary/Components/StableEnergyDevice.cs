@@ -74,6 +74,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         private bool _isFilling = false;
         private float _fillingTimer = 0.0f;
         private TextDisplay _textDisplay;
+        private bool _isFilled = false;
 
         public StableEnergyDevice(Entity entity)
             :base(entity)
@@ -130,6 +131,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                     {
                                         if (_avatar.EnergySystem.CurrentEnergyStock >= EnergyCost)
                                         {
+                                            _isFilled = true;
                                             _isFilling = false;
                                             _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
                                             if (entity.spritesheets != null)
@@ -187,14 +189,25 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void ActivateDevice()
         {
+            _isFilled = true;
             base.ActivateDevice();
         }
 
         public override void DeactivateDevice()
         {
+            _isFilled = false;
             if(entity.spritesheets != null)
                 entity.spritesheets.ChangeAnimation(_deactivationAnimation, true, 0, true, false, false);
             base.DeactivateDevice();
+        }
+
+        public override void OnChangeLevel()
+        {
+            if (_isFilled)
+                ActivateDevice();
+            else
+                DeactivateDevice();
+            base.OnChangeLevel();
         }
 
     }

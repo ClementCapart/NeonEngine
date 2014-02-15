@@ -112,6 +112,12 @@ namespace NeonEngine
             return component;
         }
 
+        public virtual void OnChangeLevel()
+        {
+            foreach (Component c in Components)
+                c.OnChangeLevel();
+        }
+
         public virtual void Destroy()
         {         
             for(int i = Components.Count - 1; i >= 0; i--)

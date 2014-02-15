@@ -49,6 +49,11 @@ namespace NeonEngine
             
         }
 
+        public virtual void OnChangeLevel()
+        {
+
+        }
+
         public virtual void Init()
         {
 

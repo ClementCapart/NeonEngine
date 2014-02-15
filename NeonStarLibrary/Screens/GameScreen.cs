@@ -66,7 +66,7 @@ namespace NeonStarLibrary
             if (!DeviceManager.AlreadyLoaded)
                 DeviceManager.LoadDevicesInformation();
 
-            if (statusToLoad != null)
+            if (statusToLoad != null && respawning)
                 DeviceManager.LoadDeviceProgression(statusToLoad.Element("Devices"));
 
             DataManager.LoadLevelInfo(groupName, levelName, this);
