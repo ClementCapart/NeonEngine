@@ -58,7 +58,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private void SaveCheckPoint()
         {
-            if (GameScreen.CheckPointsData.Count > 0)
+            /*if (GameScreen.CheckPointsData.Count > 0)
             {
                 XElement progression = GameScreen.CheckPointsData.Last();
                 string levelName = progression.Element("CurrentLevel").Element("LevelName").Value;
@@ -72,9 +72,9 @@ namespace NeonStarLibrary.Components.GameplayElements
                     GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
             }
             else
-            {
+            {*/
                 GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
-            }          
+            //}          
         }
 
 
