@@ -173,6 +173,13 @@ namespace NeonStarEditor
                 }
                 attack.Add(onGroundCancelSpecialEffects);
 
+                XElement onFinishSpecialEffects = new XElement("OnFinishSpecialEffects");
+                foreach (AttackEffect effect in kvp.Value.OnFinishSpecialEffects)
+                {
+                    onFinishSpecialEffects.Add(CreateEffectText(effect));
+                }
+                attack.Add(onFinishSpecialEffects);
+
                 attacks.Add(attack);
             }
             xnaContent.Add(attacks);
@@ -218,7 +225,9 @@ namespace NeonStarEditor
                 case SpecialEffect.StartAttack:
                     string attackValue = (string)effectKvp.Parameters[0];
                     XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
+                    XElement linkedToLauncher = new XElement("SecondParameter", new XAttribute("Value", (bool)effectKvp.Parameters[1]));
                     effect.Add(parameterString);
+                    effect.Add(linkedToLauncher);
                     break;
 
                 case SpecialEffect.ShootBullet:
@@ -420,6 +429,20 @@ namespace NeonStarEditor
                         textBox.Leave += textBox_Leave;
                         textBox.Text = (string)CurrentAttackEffectSelected.Parameters[0];
                         this.EffectsInfoPanel.Controls.Add(textBox);
+
+                        label = new Label();
+                        label.Text = "Attached to Launcher";
+                        label.Height = 15;
+                        label.Width = 200;
+                        label.Location = new System.Drawing.Point(5, textBox.Location.Y + textBox.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        CheckBox checkbox3 = new CheckBox();
+                        checkbox3.Name = "AttachedToLauncher";
+                        checkbox3.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        checkbox3.CheckedChanged += checkbox3_CheckedChanged;
+                        checkbox3.Checked = (bool)CurrentAttackEffectSelected.Parameters[1];
+                        this.EffectsInfoPanel.Controls.Add(checkbox3);
                         break;
 
                     case SpecialEffect.ShootBullet:
@@ -856,6 +879,11 @@ namespace NeonStarEditor
             }
         }
 
+        void checkbox3_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentAttackEffectSelected.Parameters[1] = (sender as CheckBox).Checked;
+        }
+
         void checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Name == "NotInAirCheckbox")
@@ -925,7 +953,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.StartAttack:
-                        CurrentAttackEffectSelected.Parameters = new object[] { "" };
+                        CurrentAttackEffectSelected.Parameters = new object[] { "", false };
                         break;
 
                     case SpecialEffect.EffectAnimation:
@@ -1099,6 +1127,9 @@ namespace NeonStarEditor
             this.OnDelaySpecialEffectsList.DataSource = null;
             this.OnDelaySpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects;
             this.OnDelaySpecialEffectsList.DisplayMember = "NameType";
+            this.OnFinishSpecialEffectsList.DataSource = null;
+            this.OnFinishSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects;
+            this.OnFinishSpecialEffectsList.DisplayMember = "NameType";
         }
 
         void buttonAdd_Click(object sender, EventArgs e)
@@ -1455,6 +1486,32 @@ namespace NeonStarEditor
         private void AlwaysStunlock_CheckedChanged(object sender, EventArgs e)
         {
             _attackList[AttacksList.SelectedValue.ToString()].AlwaysStunlock = (sender as CheckBox).Checked;
+        }
+
+        private void AddFinishEffect_Click(object sender, EventArgs e)
+        {
+            _attackList[this.AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            InitInformations();
+        }
+
+        private void RemoveFinishEffect_Click(object sender, EventArgs e)
+        {
+            if (OnFinishSpecialEffectsList.SelectedValue != null)
+                _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects.RemoveAt(OnFinishSpecialEffectsList.SelectedIndex);
+            InitInformations();
+        }
+
+        private void OnFinishSpecialEffectsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ListBox).SelectedIndex == -1)
+            {
+                CurrentAttackEffectSelected = null;
+            }
+            else
+            {
+                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects[(sender as ListBox).SelectedIndex];
+            }
+            InitEffectData();
         }
     }
 }

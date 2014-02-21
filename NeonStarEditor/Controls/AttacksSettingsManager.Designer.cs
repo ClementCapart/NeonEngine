@@ -41,6 +41,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.OnlyOnceInAir = new System.Windows.Forms.CheckBox();
             this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
+            this.AlwaysStunlock = new System.Windows.Forms.CheckBox();
             this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
             this.AttackName = new System.Windows.Forms.TextBox();
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
@@ -85,7 +86,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ElementCombobox = new System.Windows.Forms.ComboBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.AlwaysStunlock = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.OnFinishSpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.AddFinishEffect = new System.Windows.Forms.Button();
+            this.RemoveFinishEffect = new System.Windows.Forms.Button();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -171,8 +175,12 @@
             // 
             // AttackInfo
             // 
+            this.AttackInfo.Controls.Add(this.RemoveFinishEffect);
             this.AttackInfo.Controls.Add(this.RemoveDelayEffect);
+            this.AttackInfo.Controls.Add(this.AddFinishEffect);
             this.AttackInfo.Controls.Add(this.AddDelayEffect);
+            this.AttackInfo.Controls.Add(this.OnFinishSpecialEffectsList);
+            this.AttackInfo.Controls.Add(this.label16);
             this.AttackInfo.Controls.Add(this.OnDelaySpecialEffectsList);
             this.AttackInfo.Controls.Add(this.label14);
             this.AttackInfo.Controls.Add(this.OnlyOnceInAir);
@@ -293,6 +301,17 @@
             this.GroundCancelCheckbox.Text = "GroundCancel";
             this.GroundCancelCheckbox.UseVisualStyleBackColor = true;
             this.GroundCancelCheckbox.CheckedChanged += new System.EventHandler(this.GroundCancelCheckbox_CheckedChanged);
+            // 
+            // AlwaysStunlock
+            // 
+            this.AlwaysStunlock.AutoSize = true;
+            this.AlwaysStunlock.Location = new System.Drawing.Point(520, 78);
+            this.AlwaysStunlock.Name = "AlwaysStunlock";
+            this.AlwaysStunlock.Size = new System.Drawing.Size(101, 17);
+            this.AlwaysStunlock.TabIndex = 5;
+            this.AlwaysStunlock.Text = "AlwaysStunlock";
+            this.AlwaysStunlock.UseVisualStyleBackColor = true;
+            this.AlwaysStunlock.CheckedChanged += new System.EventHandler(this.AlwaysStunlock_CheckedChanged);
             // 
             // AirOnlyCheckbox
             // 
@@ -701,9 +720,9 @@
             // 
             this.EffectsInfoPanel.AutoScroll = true;
             this.EffectsInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EffectsInfoPanel.Location = new System.Drawing.Point(174, 258);
+            this.EffectsInfoPanel.Location = new System.Drawing.Point(332, 258);
             this.EffectsInfoPanel.Name = "EffectsInfoPanel";
-            this.EffectsInfoPanel.Size = new System.Drawing.Size(459, 260);
+            this.EffectsInfoPanel.Size = new System.Drawing.Size(301, 260);
             this.EffectsInfoPanel.TabIndex = 2;
             // 
             // HitboxesPanel
@@ -870,16 +889,47 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // AlwaysStunlock
+            // label16
             // 
-            this.AlwaysStunlock.AutoSize = true;
-            this.AlwaysStunlock.Location = new System.Drawing.Point(520, 78);
-            this.AlwaysStunlock.Name = "AlwaysStunlock";
-            this.AlwaysStunlock.Size = new System.Drawing.Size(101, 17);
-            this.AlwaysStunlock.TabIndex = 5;
-            this.AlwaysStunlock.Text = "AlwaysStunlock";
-            this.AlwaysStunlock.UseVisualStyleBackColor = true;
-            this.AlwaysStunlock.CheckedChanged += new System.EventHandler(this.AlwaysStunlock_CheckedChanged);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(174, 262);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(122, 13);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "On Finish SpecialEffects";
+            // 
+            // OnFinishSpecialEffectsList
+            // 
+            this.OnFinishSpecialEffectsList.FormattingEnabled = true;
+            this.OnFinishSpecialEffectsList.Location = new System.Drawing.Point(176, 278);
+            this.OnFinishSpecialEffectsList.Name = "OnFinishSpecialEffectsList";
+            this.OnFinishSpecialEffectsList.Size = new System.Drawing.Size(113, 43);
+            this.OnFinishSpecialEffectsList.TabIndex = 6;
+            this.OnFinishSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnFinishSpecialEffectsList_SelectedIndexChanged);
+            // 
+            // AddFinishEffect
+            // 
+            this.AddFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddFinishEffect.Location = new System.Drawing.Point(295, 274);
+            this.AddFinishEffect.Name = "AddFinishEffect";
+            this.AddFinishEffect.Size = new System.Drawing.Size(31, 23);
+            this.AddFinishEffect.TabIndex = 9;
+            this.AddFinishEffect.Text = "+";
+            this.AddFinishEffect.UseVisualStyleBackColor = true;
+            this.AddFinishEffect.Click += new System.EventHandler(this.AddFinishEffect_Click);
+            // 
+            // RemoveFinishEffect
+            // 
+            this.RemoveFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveFinishEffect.Location = new System.Drawing.Point(295, 302);
+            this.RemoveFinishEffect.Name = "RemoveFinishEffect";
+            this.RemoveFinishEffect.Size = new System.Drawing.Size(31, 23);
+            this.RemoveFinishEffect.TabIndex = 8;
+            this.RemoveFinishEffect.Text = "-";
+            this.RemoveFinishEffect.UseVisualStyleBackColor = true;
+            this.RemoveFinishEffect.Click += new System.EventHandler(this.RemoveFinishEffect_Click);
             // 
             // AttacksSettingsManager
             // 
@@ -975,5 +1025,9 @@
         private System.Windows.Forms.NumericUpDown AirImpulseX;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox AlwaysStunlock;
+        private System.Windows.Forms.Button RemoveFinishEffect;
+        private System.Windows.Forms.Button AddFinishEffect;
+        private System.Windows.Forms.ListBox OnFinishSpecialEffectsList;
+        private System.Windows.Forms.Label label16;
     }
 }

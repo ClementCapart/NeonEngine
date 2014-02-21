@@ -203,9 +203,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void OnChangeLevel()
         {
-            if (_isFilled)
+            if (_isFilled && State == DeviceState.Deactivated)
                 ActivateDevice();
-            else
+            else if (!_isFilled && State == DeviceState.Activated)
                 DeactivateDevice();
             base.OnChangeLevel();
         }

@@ -23,6 +23,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyBomb" Type="MeleeSpecial">
       <Hitboxes>
@@ -48,6 +49,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyFirebatFlame" Type="MeleeSpecial">
       <Hitboxes>
@@ -79,6 +81,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyFTurretShot" Type="Range">
       <Hitboxes />
@@ -107,6 +110,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyFTurretShotRapid" Type="MeleeLight">
       <Hitboxes />
@@ -135,6 +139,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyFTurretShotSlow" Type="MeleeLight">
       <Hitboxes />
@@ -163,6 +168,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyLanternCrystalMane" Type="MeleeSpecial">
       <Hitboxes>
@@ -211,6 +217,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyRobotPunch" Type="MeleeSpecial">
       <Hitboxes>
@@ -265,6 +272,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemySleeperDash" Type="MeleeSpecial">
       <Hitboxes>
@@ -294,6 +302,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemySleeperPunch" Type="MeleeSpecial">
       <Hitboxes>
@@ -319,6 +328,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemySupervisorBombs" Type="MeleeSpecial">
       <Hitboxes />
@@ -363,6 +373,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyTigerDash" Type="MeleeSpecial">
       <Hitboxes>
@@ -406,6 +417,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="EnemyTigerPunch" Type="MeleeSpecial">
       <Hitboxes>
@@ -446,6 +458,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="Jumper" Type="MeleeLight">
       <Hitboxes>
@@ -477,6 +490,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnDiveAttack" Type="MeleeSpecial">
       <Hitboxes>
@@ -485,12 +499,12 @@
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-2</DamageOnHit>
       <AirOnly>True</AirOnly>
-      <GroundCancel>True</GroundCancel>
+      <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0.3</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>10</Duration>
+      <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -516,8 +530,15 @@
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffect" />
+          <SecondParameter Value="false" />
         </Effect>
       </OnGroundCancelSpecialEffects>
+      <OnFinishSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="LiOnUppercut" />
+          <SecondParameter Value="true" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="LiOnDiveAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -531,7 +552,7 @@
       <Delay>0</Delay>
       <Cooldown>0.4</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>10</Duration>
+      <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -557,8 +578,10 @@
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffectFinish" />
+          <SecondParameter Value="false" />
         </Effect>
       </OnGroundCancelSpecialEffects>
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnDiveEffect" Type="MeleeSpecial">
       <Hitboxes>
@@ -594,6 +617,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnDiveEffectFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -629,6 +653,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire11" Type="Special">
       <Hitboxes>
@@ -677,6 +702,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire12" Type="Special">
       <Hitboxes>
@@ -725,6 +751,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire13" Type="Special">
       <Hitboxes>
@@ -773,6 +800,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire21" Type="Special">
       <Hitboxes>
@@ -821,6 +849,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire22" Type="Special">
       <Hitboxes>
@@ -869,6 +898,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire23" Type="Special">
       <Hitboxes>
@@ -917,6 +947,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire24" Type="Special">
       <Hitboxes>
@@ -966,6 +997,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire31" Type="Special">
       <Hitboxes>
@@ -1014,6 +1046,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire32" Type="Special">
       <Hitboxes>
@@ -1062,6 +1095,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire33" Type="Special">
       <Hitboxes>
@@ -1110,6 +1144,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementFire34" Type="Special">
       <Hitboxes>
@@ -1159,6 +1194,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnElementThunder1" Type="Special">
       <Hitboxes>
@@ -1184,6 +1220,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnLightAttack" Type="MeleeLight">
       <Hitboxes>
@@ -1228,6 +1265,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnLightAttackFinish" Type="MeleeLight">
       <Hitboxes>
@@ -1277,6 +1315,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnRoll" Type="Special">
       <Hitboxes />
@@ -1309,6 +1348,7 @@
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnRushAttack" Type="MeleeSpecial">
       <Hitboxes>
@@ -1346,6 +1386,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnRushAttackFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -1377,6 +1418,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnUppercut" Type="MeleeSpecial">
       <Hitboxes>
@@ -1413,6 +1455,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnUppercutFinish" Type="MeleeSpecial">
       <Hitboxes>
@@ -1449,6 +1492,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="TrainingAlarmDetection" Type="MeleeSpecial">
       <Hitboxes>
@@ -1483,6 +1527,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="TrainingAlarmDetection2" Type="MeleeSpecial">
       <Hitboxes>
@@ -1519,6 +1564,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="TrainingConstantAttack" Type="MeleeLight">
       <Hitboxes>
@@ -1553,6 +1599,7 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
     </Attack>
   </Attacks>
 </XnaContent>

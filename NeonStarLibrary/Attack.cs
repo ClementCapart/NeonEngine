@@ -244,6 +244,7 @@ namespace NeonStarLibrary
         private List<AttackEffect> _onDurationSpecialEffects = new List<AttackEffect>();
         private List<AttackEffect> _onHitSpecialEffects  = new List<AttackEffect>();
         private List<AttackEffect> _onGroundCancelSpecialEffects = new List<AttackEffect>();
+        private List<AttackEffect> _onFinishSpecialEffects = new List<AttackEffect>();
 
         private Dictionary<Hitbox, float> _alreadyTouched = new Dictionary<Hitbox, float>();
 
@@ -318,6 +319,9 @@ namespace NeonStarLibrary
 
             foreach (AttackEffect ae in attackInfo.OnGroundCancelSpecialEffects)
                 this._onGroundCancelSpecialEffects.Add(ae);
+
+            foreach (AttackEffect ae in attackInfo.OnFinishSpecialEffects)
+                this._onFinishSpecialEffects.Add(ae);
 
             DelayStarted = true;
 
@@ -470,7 +474,29 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.StartAttack:
                             string attackName = (string)(ae.Parameters[0]);
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                            if ((bool)ae.Parameters[1])
+                            {
+                                if (FromEnemy)
+                                {
+                                    EnemyAttack ea = _entity.GetComponent<EnemyAttack>();
+                                    if (ea != null && ea.CurrentAttack != null)
+                                    {
+                                        ea.CurrentAttack.CancelAttack();
+                                        ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                    }
+                                }
+                                else
+                                {
+                                    MeleeFight mf = _entity.GetComponent<MeleeFight>();
+                                    if (mf != null && mf.CurrentAttack != null)
+                                    {
+                                        mf.CurrentAttack.CancelAttack();
+                                        mf.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity);
+                                    }
+                                }
+                            }
+                            else
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:
@@ -585,7 +611,29 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.StartAttack:
                             string attackName = (string)(ae.Parameters[0]);
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                            if ((bool)ae.Parameters[1])
+                            {
+                                if (FromEnemy)
+                                {
+                                    EnemyAttack ea = _entity.GetComponent<EnemyAttack>();
+                                    if (ea != null && ea.CurrentAttack != null)
+                                    {
+                                        ea.CurrentAttack.CancelAttack();
+                                        ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                    }
+                                }
+                                else
+                                {
+                                    MeleeFight mf = _entity.GetComponent<MeleeFight>();
+                                    if (mf != null && mf.CurrentAttack != null)
+                                    {
+                                        mf.CurrentAttack.CancelAttack();
+                                        mf.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity);
+                                    }
+                                }
+                            }
+                            else
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:
@@ -707,6 +755,117 @@ namespace NeonStarLibrary
                 {
                     Cooldown = 0.0f;
                     CooldownFinished = true;
+                    if (!Canceled)
+                    {
+                        for (int i = _onFinishSpecialEffects.Count - 1; i >= 0; i--)
+                        {
+                            AttackEffect ae = _onFinishSpecialEffects.ElementAt(i);
+                            switch (ae.specialEffect)
+                            {
+                                case SpecialEffect.Impulse:
+                                    if (_entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
+                                    {
+                                        Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
+                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                        _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
+                                    }
+                                    break;
+
+                                case SpecialEffect.PercentageDamageBoost:
+                                    break;
+
+                                case SpecialEffect.DamageOverTime:
+                                    break;
+
+                                case SpecialEffect.StartAttack:
+                                    string attackName = (string)ae.Parameters[0];
+                                    if ((bool)ae.Parameters[1])
+                                    {
+                                        if (FromEnemy)
+                                        {
+                                            EnemyAttack ea = _entity.GetComponent<EnemyAttack>();
+                                            if (ea != null && ea.CurrentAttack != null)
+                                            {
+                                                ea.CurrentAttack.CancelAttack();
+                                                ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MeleeFight mf = _entity.GetComponent<MeleeFight>();
+                                            if (mf != null && mf.CurrentAttack != null)
+                                            {
+                                                mf.CurrentAttack.CancelAttack();
+                                                mf.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity);
+                                            }
+                                        }
+                                    }
+                                    else
+                                        AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                    break;
+
+                                case SpecialEffect.ShootBullet:
+                                    BulletInfo bi = (BulletInfo)ae.Parameters[0];
+                                    BulletsManager.CreateBullet(bi, _side, Vector2.Zero, _entity, (GameScreen)_entity.GameWorld, FromEnemy);
+                                    break;
+
+                                case SpecialEffect.ShootBulletAtTarget:
+                                    BulletInfo bi2 = (BulletInfo)ae.Parameters[0];
+                                    if (_target != null)
+                                        BulletsManager.CreateBullet(bi2, _side, Vector2.Normalize(_target.transform.Position - _entity.transform.Position), _entity, (GameScreen)_entity.GameWorld, FromEnemy);
+                                    break;
+
+                                case SpecialEffect.Invincible:
+                                    _entity.hitboxes[0].SwitchType(HitboxType.Invincible, (float)ae.Parameters[0]);
+                                    break;
+
+                                case SpecialEffect.EffectAnimation:
+                                    if ((float)ae.Parameters[5] != 0.0f)
+                                    {
+                                        AnimationDelayed ad = new AnimationDelayed();
+                                        ad.Delay = (float)ae.Parameters[5];
+                                        ad.Parameters = ae.Parameters;
+                                        _delayedEffect.Add(ad);
+                                    }
+                                    else
+                                    {
+                                        SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                        Entity entityToFollow = null;
+                                        if (ssi != null)
+                                        {
+                                            if ((bool)ae.Parameters[3])
+                                                entityToFollow = _entity;
+                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                        }
+                                    }
+
+                                    break;
+
+                                case SpecialEffect.InstantiatePrefab:
+                                    Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/" + ae.Parameters[0] + ".prefab", Neon.World);
+                                    Vector2 offsetPrefab = Neon.Utils.ParseVector2(ae.Parameters[2].ToString());
+                                    e.transform.Position = (Launcher != null ? Launcher : _entity).transform.Position + (this.CurrentSide == Side.Right ? offsetPrefab : new Vector2(-offsetPrefab.X, offsetPrefab.Y));
+
+                                    if (e.rigidbody != null)
+                                    {
+                                        Vector2 impulse = Neon.Utils.ParseVector2(ae.Parameters[1].ToString());
+                                        e.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                        e.rigidbody.body.ApplyLinearImpulse((this.CurrentSide == Side.Right ? impulse : new Vector2(-impulse.X, impulse.Y)));
+                                    }
+
+                                    break;
+
+                                case SpecialEffect.PlaySound:
+                                    if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
+                                    {
+                                        SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                    }
+                                    break;
+                            }
+                            _onFinishSpecialEffects.Remove(ae);
+                        }
+                    }
+                    
                 }
             }
 
@@ -756,7 +915,29 @@ namespace NeonStarLibrary
 
                             case SpecialEffect.StartAttack:
                                 string attackName = (string)ae.Parameters[0];
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                if ((bool)ae.Parameters[1])
+                                {
+                                    if (FromEnemy)
+                                    {
+                                        EnemyAttack ea = _entity.GetComponent<EnemyAttack>();
+                                        if (ea != null && ea.CurrentAttack != null)
+                                        {
+                                            ea.CurrentAttack.CancelAttack();
+                                            ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MeleeFight mf = _entity.GetComponent<MeleeFight>();
+                                        if (mf != null && mf.CurrentAttack != null)
+                                        {
+                                            mf.CurrentAttack.CancelAttack();
+                                            mf.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity);
+                                        }
+                                    }
+                                }
+                                else
+                                    AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                                 break;
 
                             case SpecialEffect.ShootBullet:
@@ -909,7 +1090,29 @@ namespace NeonStarLibrary
 
                         case SpecialEffect.StartAttack:
                             string attackName = (string)ae.Parameters[0];
-                            AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                            if ((bool)ae.Parameters[1])
+                            {
+                                if (FromEnemy)
+                                {
+                                    EnemyAttack ea = _entity.GetComponent<EnemyAttack>();
+                                    if (ea != null && ea.CurrentAttack != null)
+                                    {
+                                        ea.CurrentAttack.CancelAttack();
+                                        ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                    }
+                                }
+                                else
+                                {
+                                    MeleeFight mf = _entity.GetComponent<MeleeFight>();
+                                    if (mf != null && mf.CurrentAttack != null)
+                                    {
+                                        mf.CurrentAttack.CancelAttack();
+                                        mf.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity);
+                                    }
+                                }
+                            }
+                            else
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:

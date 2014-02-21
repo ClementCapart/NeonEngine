@@ -75,10 +75,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                             entity.GameWorld.Camera.ChaseStrengtheningRate = CameraChaseStrengtheningRate;
                             if ((entity.GameWorld as GameScreen).InstantRespawnPoint != new Vector2(float.MaxValue, float.MaxValue))
                                 _avatar.entity.transform.Position = (entity.GameWorld as GameScreen).InstantRespawnPoint;
-                        }
-                        
-
-                        
+                        }                    
                     }
                 }
             }

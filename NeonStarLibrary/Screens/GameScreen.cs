@@ -110,7 +110,7 @@ namespace NeonStarLibrary
             if (_statusToLoad != null)
             {
                 XElement collectiblesData = _statusToLoad.Element("GatheredCollectibles");
-                if (collectiblesData != null && respawning)
+                if (collectiblesData != null)
                     CollectibleManager.InitializeCollectiblesFromCheckpointData(collectiblesData);
                 CollectibleManager.InitializeCollectibles(this);
             }
@@ -251,8 +251,6 @@ namespace NeonStarLibrary
         {
             if (CheckPointsData.Count > 0)
             {
-                if (_avatarComponent != null)
-                    CheckPointsData.Last().Element("PlayerStatus").Element("LiOnParameters").Element("Energy").Value = _avatarComponent.EnergySystem.CurrentEnergyStock.ToString();
                 ChangeLevel(CheckPointsData.Last());
             }
             else

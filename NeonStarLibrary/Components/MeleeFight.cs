@@ -270,7 +270,7 @@ namespace NeonStarLibrary.Components.Avatar
                     }
                     else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))
                     {
-                        /*if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
+                        if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                         {
                             PerformDiveAttack();
                             if (CurrentAttack == null)
@@ -280,7 +280,7 @@ namespace NeonStarLibrary.Components.Avatar
                         {
                             _nextAttack = "DiveAttack";
                             _chainDelayTimer = 0;
-                        }*/
+                        }
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.Attack) && !_triedAttacking && AvatarComponent.CanAttack)
                     {
