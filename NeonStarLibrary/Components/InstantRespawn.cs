@@ -8,9 +8,10 @@ using System.Xml.Linq;
 
 namespace NeonStarLibrary.Components.GameplayElements
 {
-    public class CheckPoint : Component
+    public class InstantRespawnPoint : Component
     {
         #region Properties
+
         private string _avatarName = "LiOn";
 
         public string AvatarName
@@ -27,13 +28,14 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _spawnPointIndex = value; }
         }
 
+        
         #endregion
 
         public bool Active = true;
         private Entity _avatar;
 
-        public CheckPoint(Entity entity)
-            :base(entity, "CheckPoint")
+        public InstantRespawnPoint(Entity entity)
+            :base(entity, "InstantRespawnPoint")
         {
             RequiredComponents = new Type[] { typeof(HitboxTrigger) };
         }
@@ -51,33 +53,8 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            SaveCheckPoint();
+            (entity.GameWorld as GameScreen).InstantRespawnPoint = (entity.GameWorld as GameScreen).SpawnPoints.ElementAt((int)_spawnPointIndex).Position;
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }
-
-        private void SaveCheckPoint()
-        {
-            /*if (GameScreen.CheckPointsData.Count > 0)
-            {
-                XElement progression = GameScreen.CheckPointsData.Last();
-                string levelName = progression.Element("CurrentLevel").Element("LevelName").Value;
-                string groupName = progression.Element("CurrentLevel").Element("GroupName").Value;
-                string indexString = progression.Element("CurrentLevel").Element("SpawnPoint").Value;
-                int index = int.MaxValue;
-                if (indexString != "None")
-                    index = int.Parse(indexString);
-
-                if (entity.GameWorld.LevelGroupName != groupName || entity.GameWorld.LevelName != levelName || index != SpawnPointIndex)
-                    GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
-            }
-            else
-            {*/
-                GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
-            //}          
-        }
-
-
-
-
     }
 }

@@ -42,6 +42,7 @@ namespace NeonStarLibrary
         //----------------------------------------//
 
         public static List<XElement> CheckPointsData = new List<XElement>();
+        public Vector2 InstantRespawnPoint = new Vector2(float.MaxValue, float.MaxValue);
 
 
         protected XElement _statusToLoad;
@@ -66,7 +67,7 @@ namespace NeonStarLibrary
             if (!DeviceManager.AlreadyLoaded)
                 DeviceManager.LoadDevicesInformation();
 
-            if (statusToLoad != null && !respawning)
+            if (statusToLoad != null && respawning)
                 DeviceManager.LoadDeviceProgression(statusToLoad.Element("Devices"));
 
             DataManager.LoadLevelInfo(groupName, levelName, this);
@@ -109,7 +110,7 @@ namespace NeonStarLibrary
             if (_statusToLoad != null)
             {
                 XElement collectiblesData = _statusToLoad.Element("GatheredCollectibles");
-                if (collectiblesData != null && !respawning)
+                if (collectiblesData != null && respawning)
                     CollectibleManager.InitializeCollectiblesFromCheckpointData(collectiblesData);
                 CollectibleManager.InitializeCollectibles(this);
             }
@@ -246,7 +247,7 @@ namespace NeonStarLibrary
             ChangeScreen(new LoadingScreen(Neon.Game, savedStatus));
         }
 
-        public void Respawn()
+        public void Respawn(bool instantRespawn = false)
         {
             if (CheckPointsData.Count > 0)
             {

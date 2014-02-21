@@ -16,6 +16,7 @@ namespace NeonEngine
         protected float _rotation; // Camera Rotation
         private bool _bounded = false;
         public Vector2 BasePosition;
+        public float ChaseStrengtheningRate = 0.05f;
 
         public bool MovedLastFrame = false;
         public bool HasMetSoftBounds = false;
@@ -117,7 +118,7 @@ namespace NeonEngine
         {
             Vector2 OldPosition = _pos;
             if (ChaseStrength < 0.9f)
-                ChaseStrength += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.05f;
+                ChaseStrength = MathHelper.Lerp(ChaseStrength, 1.0f, ChaseStrengtheningRate);
             if (ChaseStrength > 0.9f)
                 ChaseStrength = 0.9f;
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);

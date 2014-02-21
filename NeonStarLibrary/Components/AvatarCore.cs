@@ -257,6 +257,8 @@ namespace NeonStarLibrary.Components.Avatar
                 CanTurn = false;
                 CanUseElement = false;
                 CanRoll = false;
+                if (entity.rigidbody != null)
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 if (entity.spritesheets.CurrentSpritesheetName == RespawnAnimation && entity.spritesheets.IsFinished())
                     State = AvatarState.Idle;
             }
