@@ -310,10 +310,18 @@
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="CityBackgroundCosmeticsPalmtree" />
+              <StartingFrame Value="4" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="2" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXBigPlant" />
               <DrawLayer Value="0.455" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -323,7 +331,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="Tree5" Layer="BackgroundCosmetics">
@@ -520,16 +528,24 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-9 Y:-96}" />
-              <InitialPosition Value="{X:-9 Y:-96}" />
+              <Position Value="{X:-162 Y:-90}" />
+              <InitialPosition Value="{X:-162 Y:-90}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
           </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <GraphicTag Value="CityBackgroundCosmeticsDisplay" />
+              <StartingFrame Value="130" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="2" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontDisplay" />
               <DrawLayer Value="0.455" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -539,7 +555,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="Display4" Layer="BackgroundCosmetics">
