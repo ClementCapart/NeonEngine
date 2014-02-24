@@ -69,6 +69,7 @@ namespace NeonStarEditor
 
         internal void LoadTexture(string filePath)
         {
+            
             using (FileStream titleStream = File.OpenRead(filePath))
             {
                 TextureToDraw = Texture2D.FromStream(GraphicsDevice, titleStream);

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="Foreground">
+    <Entities>
+      <Entity Name="FirstForeground" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:15 Y:-21067}" />
+              <InitialPosition Value="{X:15 Y:-21067}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="1440" />
+              <DrawLayer Value="0.9" />
+              <GraphicTag Value="OpeningSequencePillar1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.2}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:0 G:0 B:0 A:255}" />
+            </Properties>
+          </TilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="OpeningSequencePillar2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.2}" />
+              <Offset Value="{X:-554 Y:-1080}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="OpeningSequencePillar3" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.2}" />
+              <Offset Value="{X:-563 Y:-360}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Vignette" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:87 Y:-37}" />
+              <InitialPosition Value="{X:87 Y:-37}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="10000" />
+              <DrawLayer Value="1" />
+              <GraphicTag Value="OpeningSequenceVignette" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
