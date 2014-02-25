@@ -22,7 +22,7 @@
               <DrawLayer Value="0.1" />
               <GraphicTag Value="OpeningSequenceTile1" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0.2}" />
               <Offset Value="{X:0 Y:0}" />
@@ -31,15 +31,75 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </TilableGraphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="1458" />
+              <DrawLayer Value="0.1" />
+              <GraphicTag Value="OpeningSequenceTile2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0.2}" />
+              <Offset Value="{X:0 Y:1474}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="OpeningSequenceTile1" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0.2}" />
+              <Offset Value="{X:-510 Y:258}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
             <Properties>
               <GraphicTag Value="OpeningSequenceTile2" />
               <DrawLayer Value="0.1" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0.2}" />
-              <Offset Value="{X:-510 Y:-1203}" />
+              <Offset Value="{X:-510 Y:744}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="5">
+            <Properties>
+              <GraphicTag Value="OpeningSequenceTile1" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0.2}" />
+              <Offset Value="{X:-510 Y:1230}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="OpeningSequenceTile3" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0.2}" />
+              <Offset Value="{X:-510 Y:1959}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -52,8 +112,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-570 Y:-17599}" />
-              <InitialPosition Value="{X:-570 Y:-17599}" />
+              <Position Value="{X:-571 Y:-18248}" />
+              <InitialPosition Value="{X:-571 Y:-18248}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -61,9 +121,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-569 Y:-17599}" />
-              <X Value="-868" />
-              <Y Value="-17637" />
+              <Center Value="{X:-571 Y:-18247}" />
+              <X Value="-870" />
+              <Y Value="-18285" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="598" />
@@ -103,7 +163,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:10 Y:-45}" />
+              <Offset Value="{X:-59 Y:-45}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -125,7 +185,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-156 Y:-30}" />
+              <Offset Value="{X:-180 Y:-30}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -139,7 +199,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:66 Y:-184}" />
+              <Offset Value="{X:-4 Y:-183}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -175,7 +235,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-21 Y:-84}" />
+              <Offset Value="{X:-33 Y:-66}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -405,8 +465,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:4368 Y:4845}" />
-              <InitialPosition Value="{X:4368 Y:4845}" />
+              <Position Value="{X:3008 Y:3895}" />
+              <InitialPosition Value="{X:3008 Y:3895}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -414,9 +474,9 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="3000.4" />
+              <TilingWidth Value="2000.4" />
               <UseTextureHeight Value="False" />
-              <TilingHeight Value="3000" />
+              <TilingHeight Value="6000" />
               <DrawLayer Value="0.003" />
               <GraphicTag Value="TrainingBackgroundStructure" />
               <IsHUD Value="False" />
@@ -455,7 +515,7 @@
               <DrawLayer Value="0.002" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0.85 Y:1}" />
               <Offset Value="{X:0 Y:0}" />
