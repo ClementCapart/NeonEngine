@@ -208,6 +208,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -222,7 +223,6 @@
               </Spritesheets>
               <DrawLayer Value="0.2" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -259,8 +259,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:534 Y:420}" />
-              <InitialPosition Value="{X:534 Y:420}" />
+              <Position Value="{X:451 Y:420}" />
+              <InitialPosition Value="{X:451 Y:420}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -268,8 +268,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:533 Y:419}" />
-              <X Value="483" />
+              <Center Value="{X:450 Y:419}" />
+              <X Value="400" />
               <Y Value="339" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -296,6 +296,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -310,7 +311,6 @@
               </Spritesheets>
               <DrawLayer Value="0.2" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -354,12 +354,12 @@
               <AttackThreeDelayAnimation Value="" />
               <AttackThreeDurationAnimation Value="" />
               <AttackThreeCooldownAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
               <RangeForAttackFour Value="0" />
               <AttackToLaunchFour Value="" />
               <AttackFourDelayAnimation Value="" />
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -957,8 +957,8 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-1450 Y:575}" />
-              <InitialPosition Value="{X:-1450 Y:575}" />
+              <Position Value="{X:-1050 Y:575}" />
+              <InitialPosition Value="{X:-1050 Y:575}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -967,30 +967,6 @@
             <Properties>
               <ReverseBound Value="False" />
               <SoftBound Value="True" />
-              <BoundSide Value="Down" />
-              <BoundStrength Value="0" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="1" />
-              <Enabled Value="True" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundDown" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-200 Y:575}" />
-              <InitialPosition Value="{X:-200 Y:575}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
               <BoundSide Value="Down" />
               <BoundStrength Value="1" />
               <SoftBoundStrength Value="1" />
