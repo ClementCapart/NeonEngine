@@ -239,7 +239,7 @@ namespace NeonEngine.Components.Graphics2D
                 else
                     _tilingHash += textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(_verticalTiling ? new Vector2(0, currentPosition) : new Vector2(currentPosition, 0));
 
-                currentPosition += texture.Width;
+                currentPosition += _verticalTiling ? texture.Height : texture.Width;
             }  
         }
 
