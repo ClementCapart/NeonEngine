@@ -103,7 +103,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.hitboxes[0] != null && _avatar != null && _avatar.entity.hitboxes[0] != null && (entity.spritesheets.CurrentSpritesheet.IsFinished || entity.spritesheets.CurrentSpritesheet.IsLooped))
+            if (entity.hitboxes.Count > 0 && entity.hitboxes[0] != null && _avatar != null && _avatar.entity.hitboxes.Count > 0 && (entity.spritesheets.CurrentSpritesheet.IsFinished || entity.spritesheets.CurrentSpritesheet.IsLooped))
             {
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {

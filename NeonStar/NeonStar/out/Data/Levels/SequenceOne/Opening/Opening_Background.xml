@@ -107,13 +107,13 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="Background">
+      <Entity Name="Elevator" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-574 Y:-18654}" />
-              <InitialPosition Value="{X:-574 Y:-18654}" />
+              <Position Value="{X:-540 Y:-17856}" />
+              <InitialPosition Value="{X:-540 Y:-17856}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -121,12 +121,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-573 Y:-18654}" />
-              <X Value="-872" />
-              <Y Value="-18692" />
+              <Center Value="{X:-540 Y:-17876}" />
+              <X Value="-865" />
+              <Y Value="-17914" />
               <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="598" />
+              <OffsetY Value="-20" />
+              <Width Value="650" />
               <Height Value="76" />
             </Properties>
           </Hitbox>
@@ -146,15 +146,6 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
-          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="3">
-            <Properties>
-              <CurrentNodeList Value="ElevatorPath" />
-              <Speed Value="1" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="10" />
-            </Properties>
-          </MovingGeometry>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
             <Properties>
               <GraphicTag Value="Elevator" />
@@ -241,6 +232,27 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="9">
+            <Properties>
+              <CurrentNodeList Value="ElevatorPath" />
+              <Speed Value="3" />
+              <Roundtrip Value="False" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="10" />
+            </Properties>
+          </MovingGeometry>
+          <OpeningElevatorScript Type="NeonStarLibrary.Components.Scripts.OpeningElevatorScript" ID="10">
+            <Properties />
+          </OpeningElevatorScript>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="11">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Elevator" />
+              <TriggeredComponentName Value="OpeningElevatorScript" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
       <Entity Name="Background" Layer="Background">
@@ -550,7 +562,7 @@
               <DrawLayer Value="0.002" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0.85 Y:1}" />
               <Offset Value="{X:0 Y:0}" />

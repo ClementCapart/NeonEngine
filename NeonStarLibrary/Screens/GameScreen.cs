@@ -129,8 +129,8 @@ namespace NeonStarLibrary
                     EnergyDevice ed = e.GetComponent<EnergyDevice>();
                     if(ed != null)
                         ed.State = d.State;
-
-                    ed.Init();
+                    if(ed != null)
+                        ed.Init();
                 }
             }
         } 
@@ -161,6 +161,13 @@ namespace NeonStarLibrary
 
                 if(respawning)
                     _avatarComponent.State = AvatarState.Respawning;
+
+                if (avatar != null)
+                {
+                    if (avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                    Camera.Position = avatar.transform.Position;
+                }
             }
         }
 
@@ -176,9 +183,7 @@ namespace NeonStarLibrary
             }
             else
             {
-                if(avatar != null)
-                    if(avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
-                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                
             }
             base.PreUpdate(gameTime);
         }
