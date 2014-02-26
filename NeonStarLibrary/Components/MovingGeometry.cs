@@ -83,7 +83,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             {
                 if (_currentNodeList.Type == PathType.Platform)
                 {
-                    Node CloserNode = CurrentNodeList.Nodes[0];
+                   /* Node CloserNode = CurrentNodeList.Nodes[0];
 
                     for (int i = 1; i < CurrentNodeList.Nodes.Count; i++)
                     {
@@ -92,71 +92,89 @@ namespace NeonStarLibrary.Components.GameplayElements
                             CloserNode = CurrentNodeList.Nodes[i];
                         }
                     }
-                    _nextNode = CloserNode;
+                    _nextNode = CloserNode;*/
+                    _nextNode = CurrentNodeList.Nodes[0];
+                    
                 }
                 _reverseStart = _reverse;
             }
+            Active = true;
             base.Init();
         }
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_currentNodeList != null)
+            if (entity.GameWorld.FirstUpdate)
             {
-                switch (_movingState)
+                this.entity.transform.Position = _nextNode.Position;
+            }
+
+            if (Active)
+            {
+                if (_currentNodeList != null)
                 {
-                    case MovingState.Wait:
-                        _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (_currentNodeDelay <= 0.0f)
-                        {
-                            _currentNodeDelay = 0.0f;
-                            _movingState = MovingState.Move;
-                            SearchNextNode();
-                        }
-                        break;
-
-                    case MovingState.Move:
-                        if (_currentNodeList.Type == PathType.Platform)
-                        {
-                            if (_nextNode != null)
+                    switch (_movingState)
+                    {
+                        case MovingState.Wait:
+                            _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (_currentNodeDelay <= 0.0f)
                             {
-                                if (Vector2.Distance(_nextNode.Position, entity.transform.Position) <= _pathPrecisionTreshold)
-                                {
-                                    switch (_nextNode.Type)
-                                    {
-                                        case NodeType.Move:
-                                            SearchNextNode();
-                                            break;
+                                _currentNodeDelay = 0.0f;
+                                _movingState = MovingState.Move;
+                                SearchNextNode();
+                            }
+                            break;
 
-                                        case NodeType.DelayedMove:
-                                            _currentNodeDelay = _nextNode.NodeDelay;
-                                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                            _movingState = MovingState.Wait;
-                                            break;
+                        case MovingState.Move:
+                            if (_currentNodeList.Type == PathType.Platform)
+                            {
+                                if (_nextNode != null)
+                                {
+                                    if (Vector2.Distance(_nextNode.Position, entity.transform.Position) <= _pathPrecisionTreshold)
+                                    {
+                                        switch (_nextNode.Type)
+                                        {
+                                            case NodeType.Move:
+                                                SearchNextNode();
+                                                break;
+
+                                            case NodeType.DelayedMove:
+                                                _currentNodeDelay = _nextNode.NodeDelay;
+                                                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                                _movingState = MovingState.Wait;
+                                                break;
+                                        }
                                     }
                                 }
-                            }                           
-                        }
-                        break;
+                            }
+                            break;
+                    }
                 }
             }
+            
             base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.rigidbody != null)
+            if (Active)
             {
-                if (_movingState == MovingState.Move)
+                if (entity.rigidbody != null)
                 {
-                    if (_nextNode != null)
+                    if (_movingState == MovingState.Move)
                     {
-                        if(entity.rigidbody.body != null)
-                            this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
+                        if (_nextNode != null)
+                        {
+                            if (entity.rigidbody.body != null)
+                                this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
+                        }
                     }
                 }
             }
-            
+            else
+            {
+                
+            }
 
             base.Update(gameTime);
         }
@@ -184,8 +202,21 @@ namespace NeonStarLibrary.Components.GameplayElements
                     newIndex = oldIndex + (_reverse ? -1 : 1);
                 }
 
+                this._nextNode = _currentNodeList.Nodes[newIndex];
             }
-            this._nextNode = _currentNodeList.Nodes[newIndex];
+            else
+            {
+                if (oldIndex == _currentNodeList.Nodes.Count - 1)
+                {
+                    this.Active = false;
+                    if (entity.rigidbody.body != null)
+                    {
+                        entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    }
+                    return;
+                }
+                this._nextNode = _currentNodeList.Nodes[oldIndex + 1];
+            }
         }
     }
 }
