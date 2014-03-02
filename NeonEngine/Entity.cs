@@ -164,7 +164,7 @@ namespace NeonEngine
             List<T> list = new List<T>();
 
             foreach (Component comp in Components)
-                if (comp.GetType().IsSubclassOf(typeof(T)))
+                if (comp.GetType().IsSubclassOf(typeof(T)) || ReferenceEquals(comp.GetType(), typeof(T)))
                     list.Add((T)comp);
 
             return list;
