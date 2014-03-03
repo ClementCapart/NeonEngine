@@ -183,7 +183,11 @@ namespace NeonStarLibrary
             }
             else
             {
-                
+                if (avatar != null)
+                {
+                    if (avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                }
             }
             base.PreUpdate(gameTime);
         }
@@ -200,7 +204,7 @@ namespace NeonStarLibrary
             }
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null)
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null && this.NextScreen == null)
                 {
                     Camera.Chase(avatar.transform.Position, CameraFocus.FocusDisplacement, CameraFocus.IgnoreSoftBounds, gameTime);
                 }

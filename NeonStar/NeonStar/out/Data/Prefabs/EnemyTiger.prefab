@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:774.9757 Y:-558.4999}" />
-          <InitialPosition Value="{X:774.9757 Y:-558.4999}" />
+          <Position Value="{X:645.2665 Y:44.99249}" />
+          <InitialPosition Value="{X:645.2665 Y:44.99249}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:774 Y:-558}" />
-          <X Value="734" />
-          <Y Value="-638" />
+          <Center Value="{X:645 Y:44}" />
+          <X Value="605" />
+          <Y Value="-36" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
@@ -42,6 +42,7 @@
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentSide Value="Left" />
+          <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="False" />
@@ -57,7 +58,6 @@
           </Spritesheets>
           <DrawLayer Value="0.2" />
           <IsHUD Value="False" />
-          <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -112,6 +112,11 @@
           <AttackThreeDelayAnimation Value="Punch" />
           <AttackThreeDurationAnimation Value="" />
           <AttackThreeCooldownAnimation Value="" />
+          <RangeForAttackFour Value="0" />
+          <AttackToLaunchFour Value="" />
+          <AttackFourDelayAnimation Value="" />
+          <AttackFourDurationAnimation Value="" />
+          <AttackFourCooldownAnimation Value="" />
           <EntityToAttackName Value="LiOn" />
         </Properties>
       </GroundAttack>
@@ -129,6 +134,29 @@
           <PathPrecisionTreshold Value="50" />
         </Properties>
       </FollowPlatformNodes>
+      <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="11">
+        <Properties>
+          <DrawLayer Value="0.99999" />
+          <Font Value="HUDFont" />
+          <FontColor Value="{R:211 G:211 B:211 A:255}" />
+          <IsOutlined Value="False" />
+          <OutlineWidth Value="0" />
+          <OutlineColor Value="{R:35 G:35 B:35 A:255}" />
+          <DisplayerDuration Value="1" />
+          <DamageDisplayLerp Value="0.2" />
+          <DamageMoveLerp Value="0.5" />
+          <StartingOffset Value="{X:0 Y:0}" />
+          <TargetOffset Value="{X:0 Y:0}" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </DamageDisplayer>
     </Components>
   </Entity>
 </Prefab>
