@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:645.2665 Y:44.99249}" />
-          <InitialPosition Value="{X:645.2665 Y:44.99249}" />
+          <Position Value="{X:809 Y:903.9927}" />
+          <InitialPosition Value="{X:809 Y:903.9927}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:645 Y:44}" />
-          <X Value="605" />
-          <Y Value="-36" />
+          <Center Value="{X:809 Y:903}" />
+          <X Value="769" />
+          <Y Value="823" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
@@ -41,8 +41,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Left" />
-          <ParallaxForce Value="{X:0 Y:0}" />
+          <CurrentSide Value="Right" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="False" />
@@ -58,6 +57,7 @@
           </Spritesheets>
           <DrawLayer Value="0.2" />
           <IsHUD Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -125,28 +125,19 @@
           <CanChangeSide Value="True" />
         </Properties>
       </EnemyAnimationManager>
-      <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="2">
-        <Properties>
-          <CurrentNodeList Value="TigerPath01" />
-          <Speed Value="2" />
-          <Roundtrip Value="True" />
-          <ReverseStart Value="False" />
-          <PathPrecisionTreshold Value="50" />
-        </Properties>
-      </FollowPlatformNodes>
       <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="11">
         <Properties>
           <DrawLayer Value="0.99999" />
           <Font Value="HUDFont" />
           <FontColor Value="{R:211 G:211 B:211 A:255}" />
           <IsOutlined Value="False" />
-          <OutlineWidth Value="0" />
+          <OutlineWidth Value="2" />
           <OutlineColor Value="{R:35 G:35 B:35 A:255}" />
-          <DisplayerDuration Value="1" />
-          <DamageDisplayLerp Value="0.2" />
-          <DamageMoveLerp Value="0.5" />
-          <StartingOffset Value="{X:0 Y:0}" />
-          <TargetOffset Value="{X:0 Y:0}" />
+          <DisplayerDuration Value="0.3" />
+          <DamageDisplayLerp Value="1" />
+          <DamageMoveLerp Value="0.2" />
+          <StartingOffset Value="{X:0 Y:-70}" />
+          <TargetOffset Value="{X:0 Y:-140}" />
           <IsHUD Value="False" />
           <CurrentSide Value="Right" />
           <Tint Value="False" />
