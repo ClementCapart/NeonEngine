@@ -183,7 +183,11 @@ namespace NeonStarLibrary
             }
             else
             {
-                
+                if (avatar != null)
+                {
+                    if (avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                }
             }
             base.PreUpdate(gameTime);
         }
