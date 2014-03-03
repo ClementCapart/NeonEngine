@@ -192,7 +192,7 @@ namespace NeonEngine.Components.Graphics2D
             if (!SpritesheetList.ContainsKey(spriteSheetName))
                 return;
 
-            if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1)
+            if (CurrentSpritesheetName == spriteSheetName && StartingFrame == -1 && !Reset)
             {
                     if (Reset)
                         CurrentSpritesheet.SetFrame(0);

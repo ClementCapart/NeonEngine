@@ -366,17 +366,20 @@ namespace NeonStarLibrary.Components.Avatar
                     _guardCooldownTimer = 0.0f;
                     if (Neon.Input.Pressed(NeonStarInput.Guard) && !Neon.Input.Check(NeonStarInput.MoveRight) && !Neon.Input.Check(NeonStarInput.MoveLeft) && AvatarComponent.State != AvatarState.Stunlocked)
                     {
-                        AvatarComponent.State = AvatarState.Guarding;
+                        if (AvatarComponent.CanRoll)
+                        {
+                            AvatarComponent.State = AvatarState.Guarding;
 
-                        PerformGuard();
-                        _durationTimer = _guardDuration;
-                        _isGuarding = true;
-                        _isAirDashing = false;
-                        _isRolling = false;
-                        AvatarComponent.CanMove = false;
-                        AvatarComponent.CanTurn = false;
-                        AvatarComponent.CanAttack = false;
-                        AvatarComponent.CanUseElement = false;
+                            PerformGuard();
+                            _durationTimer = _guardDuration;
+                            _isGuarding = true;
+                            _isAirDashing = false;
+                            _isRolling = false;
+                            AvatarComponent.CanMove = false;
+                            AvatarComponent.CanTurn = false;
+                            AvatarComponent.CanAttack = false;
+                            AvatarComponent.CanUseElement = false;
+                        }
                     }
                 }
                 else
