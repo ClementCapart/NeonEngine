@@ -29,6 +29,8 @@ namespace NeonStarLibrary.Components.Scripts
 
         private SpriteSheet _firstSpritesheet;
         private SpriteSheet _secondSpritesheet;
+        private Graphic _graphicToFadeOut;
+
 
         public OpeningElevatorScript(Entity entity)
             :base(entity, "OpeningElevatorScript")
@@ -53,6 +55,7 @@ namespace NeonStarLibrary.Components.Scripts
                 _secondSpritesheet = sss[1];
                 _secondSpritesheet.isPlaying = false;
             }
+            _graphicToFadeOut = entity.GetComponent<Graphic>();
             base.Init();
         }
 
@@ -79,6 +82,13 @@ namespace NeonStarLibrary.Components.Scripts
                 _liOn.CanRoll = false;
                 _liOn.CanTurn = false;
                 _liOn.CanUseElement = false;
+            }
+            if (this.entity.transform.Position.Y > -14500)
+            {
+                if (_graphicToFadeOut != null && _graphicToFadeOut.opacity > 0.0f)
+                {
+                    _graphicToFadeOut.opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 5.0f;
+                }
             }
             base.Update(gameTime);
         }

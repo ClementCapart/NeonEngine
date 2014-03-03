@@ -125,7 +125,7 @@ namespace NeonStarEditor
             {
                 DataManager.LoadPrefab(DataManager.SavePrefab(GameWorld.SelectedEntity), GameWorld);
                 Entity entity = GameWorld.Entities.Last();
-                entity.transform.Position += new Microsoft.Xna.Framework.Vector2(0, 720);
+                entity.transform.Position += new Microsoft.Xna.Framework.Vector2(100, -100);
                 entity.transform.InitialPosition = entity.transform.Position;
                 SelectEntityNode(entity);
             }

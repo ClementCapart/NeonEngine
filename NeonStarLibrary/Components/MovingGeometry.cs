@@ -202,7 +202,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                     newIndex = oldIndex + (_reverse ? -1 : 1);
                 }
 
-                this._nextNode = _currentNodeList.Nodes[newIndex];
+                if(newIndex < _currentNodeList.Nodes.Count)
+                    this._nextNode = _currentNodeList.Nodes[newIndex];
             }
             else
             {
@@ -215,6 +216,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                     }
                     return;
                 }
+                if (oldIndex + 1 < _currentNodeList.Nodes.Count)
                 this._nextNode = _currentNodeList.Nodes[oldIndex + 1];
             }
         }
