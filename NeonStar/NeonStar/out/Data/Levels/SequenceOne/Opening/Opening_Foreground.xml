@@ -28,7 +28,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_2-{X:0 Y:360}_1-{X:0 Y:720}_1-{X:0 Y:1080}_2-{X:0 Y:1440}_2-{X:0 Y:1800}_2-{X:0 Y:2160}_0-{X:0 Y:2520}_1-{X:0 Y:2880}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:360}_1-{X:0 Y:720}_2-{X:0 Y:1080}_0-{X:0 Y:1440}_1-{X:0 Y:1800}_1-{X:0 Y:2160}_1-{X:0 Y:2520}_1-{X:0 Y:2880}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -82,12 +82,38 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:360}_1-{X:0 Y:720}_1-{X:0 Y:1080}_1-{X:0 Y:1440}_1-{X:0 Y:1800}_1-{X:0 Y:2160}_0-{X:0 Y:2520}_0-{X:0 Y:2880}_1-{X:0 Y:3240}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:360}_0-{X:0 Y:720}_1-{X:0 Y:1080}_0-{X:0 Y:1440}_1-{X:0 Y:1800}_1-{X:0 Y:2160}_0-{X:0 Y:2520}_1-{X:0 Y:2880}_1-{X:0 Y:3240}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:-0.2}" />
               <Offset Value="{X:-320 Y:7560}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="5">
+            <Properties>
+              <VerticalTiling Value="True" />
+              <TilingSize Value="10000" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="ElevatorWindEffect01" />
+              <SecondTileGraphicTag Value="ElevatorWindEffect02" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:810}_0-{X:0 Y:1620}_1-{X:0 Y:2430}_0-{X:0 Y:3240}_1-{X:0 Y:4050}_0-{X:0 Y:4860}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.6}" />
+              <Offset Value="{X:129 Y:-1227}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -225,6 +251,55 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="VignetteInterne" Layer="Foreground">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <Position Value="{X:0 Y:720}" />
+              <InitialPosition Value="{X:0 Y:720}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="15000" />
+              <DrawLayer Value="0.7" />
+              <GraphicTag Value="OpeningSequenceVignetteLeft" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.2}" />
+              <Offset Value="{X:-882 Y:5294}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TilableGraphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="7000" />
+              <DrawLayer Value="0.7" />
+              <GraphicTag Value="OpeningSequenceVignetteLeft" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:-0.2}" />
+              <Offset Value="{X:-21 Y:-10651}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </TilableGraphic>
         </Components>
       </Entity>
     </Entities>
