@@ -88,6 +88,10 @@ namespace NeonStarLibrary.Components.Scripts
             if (trigger.Name == "ElevatorButton")
             {
                 _buttonPressed = true;
+                if (_firstSpritesheet.SpriteSheetTag == "ElevatorBack")
+                    _firstSpritesheet.currentFrame = 0;
+                else if (_secondSpritesheet.SpriteSheetTag == "ElevatorBack")
+                    _secondSpritesheet.currentFrame = 0;
             }
 
             if (trigger.Name == "Elevator" && _buttonPressed)

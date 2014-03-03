@@ -204,7 +204,7 @@ namespace NeonStarLibrary
             }
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null)
+                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null && this.NextScreen == null)
                 {
                     Camera.Chase(avatar.transform.Position, CameraFocus.FocusDisplacement, CameraFocus.IgnoreSoftBounds, gameTime);
                 }
