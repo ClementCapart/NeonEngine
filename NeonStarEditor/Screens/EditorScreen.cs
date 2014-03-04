@@ -544,8 +544,15 @@ namespace NeonStarEditor
             
         }
 
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            
+            base.FinalUpdate(gameTime);
+        }
+
         public override void PreUpdate(GameTime gameTime)
         {
+            
             ManageInspector();
             EntityChangedThisFrame = false;
             base.PreUpdate(gameTime);

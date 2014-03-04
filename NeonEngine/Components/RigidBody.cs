@@ -379,6 +379,8 @@ namespace NeonEngine.Components.CollisionDetection
 
         public override void Update(GameTime gameTime)
         {
+            
+            
             base.Update(gameTime);
         }
 
@@ -439,7 +441,7 @@ namespace NeonEngine.Components.CollisionDetection
             if (this.fixedRotation)
                 if (body != null)
                     body.Rotation = MathHelper.ToRadians(entity.transform.Rotation);
-            if(body != null) body.GravityScale = InitialGravityScale;
+            if (body != null) body.GravityScale = InitialGravityScale;
             if (beacon != null) beacon.GroundOffset = Vector2.Zero;
             base.PostUpdate(gameTime);
         }

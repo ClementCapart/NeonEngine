@@ -129,36 +129,38 @@ namespace NeonEngine
   
             Neon.ElapsedTime = gameTime.ElapsedGameTime.Milliseconds;
 
-            if(!Pause)
-                for (int i = Entities.Count - 1; i >= 0; i--)
-                    Entities[i].PreUpdate(gameTime);
-
             PreUpdate(gameTime);
 
             if(!Pause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
-                    Entities[i].Update(gameTime);
+                    Entities[i].PreUpdate(gameTime);
 
             Update(gameTime);
 
             if(!Pause)
-                for(int i = SpecialEffects.Count - 1; i >= 0; i--)
-                    SpecialEffects[i].Update(gameTime);
+                for (int i = Entities.Count - 1; i >= 0; i--)
+                    Entities[i].Update(gameTime);     
 
             if(!Pause)
+                for(int i = SpecialEffects.Count - 1; i >= 0; i--)
+                    SpecialEffects[i].Update(gameTime);
+ 
+            if(!Pause)
                 PhysicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
-                    
+
+            PostUpdate(gameTime);
+
             if(!Pause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
                     Entities[i].PostUpdate(gameTime);
 
-            PostUpdate(gameTime);
+            FinalUpdate(gameTime);
 
             if (!Pause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
                     Entities[i].FinalUpdate(gameTime);
 
-            FinalUpdate(gameTime);
+            
 
             DeferredDrawGame(Neon.SpriteBatch);
 
