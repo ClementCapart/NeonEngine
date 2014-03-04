@@ -25,7 +25,7 @@ namespace NeonStarLibrary.Components.Scripts
         {
             if(_airWave != null && _airWave.transform.Position.X <= 0)
             {
-                _airWave.transform.Position += new Vector2(1500,0);
+                _airWave.transform.Position += new Vector2(1650,0);
             }
         }
     }
