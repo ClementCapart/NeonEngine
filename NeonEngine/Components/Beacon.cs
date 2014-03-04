@@ -38,6 +38,8 @@ namespace NeonEngine.Components.Private
         Vector2 RightTopRaycast = new Vector2();
         Vector2 RightTopRaycastTarget = new Vector2();
 
+        public Vector2 GroundOffset = Vector2.Zero;
+
         public Beacon(Hitbox hitbox, FarseerPhysics.Dynamics.World PhysicWorld)
             :base(hitbox.entity, "Beacon")
         {
@@ -48,8 +50,8 @@ namespace NeonEngine.Components.Private
 
         public void RefreshRaycastPosition()
         {
-            GroundRaycast = new Vector2(hitbox.Center.X - hitbox.OffsetX, hitbox.Center.Y - hitbox.OffsetY + hitbox.Height / 2 - 2);
-            GroundRaycastTarget = GroundRaycast + new Vector2(0, 10);
+            GroundRaycast = new Vector2(hitbox.Center.X - hitbox.OffsetX, hitbox.Center.Y - hitbox.OffsetY + hitbox.Height / 2 - 1);
+            GroundRaycastTarget = GroundRaycast + new Vector2(0, 2) + GroundOffset;
 
             RearGroundRaycast = GroundRaycastTarget;
             RearGroundRaycastTarget = RearGroundRaycast + new Vector2(-hitbox.Width / 2 + 0.5f, 0);
@@ -78,7 +80,7 @@ namespace NeonEngine.Components.Private
             base.Update(gameTime);
         }
 
-        public Rigidbody CheckGround(Body body = null)
+        public Rigidbody CheckGround(Vector2 offset, Body body = null)
         {
             Rigidbody CurrentGround = null;
             bool hasHit = false;
@@ -95,7 +97,7 @@ namespace NeonEngine.Components.Private
                 return -1;
             },
             CoordinateConversion.screenToWorld(GroundRaycast),
-            CoordinateConversion.screenToWorld(GroundRaycastTarget));
+            CoordinateConversion.screenToWorld(GroundRaycastTarget + offset));
 
             if (!hasHit)
             {
@@ -110,8 +112,8 @@ namespace NeonEngine.Components.Private
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(FrontGroundRaycast),
-                CoordinateConversion.screenToWorld(FrontGroundRaycastTarget));
+                CoordinateConversion.screenToWorld(FrontGroundRaycast + offset),
+                CoordinateConversion.screenToWorld(FrontGroundRaycastTarget + offset));
 
                 PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
                 {
@@ -124,8 +126,8 @@ namespace NeonEngine.Components.Private
                     }
                     return -1;
                 },
-                CoordinateConversion.screenToWorld(RearGroundRaycast),
-                CoordinateConversion.screenToWorld(RearGroundRaycastTarget));
+                CoordinateConversion.screenToWorld(RearGroundRaycast + offset),
+                CoordinateConversion.screenToWorld(RearGroundRaycastTarget + offset));
             }
 
             return CurrentGround;

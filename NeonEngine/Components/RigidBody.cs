@@ -366,7 +366,6 @@ namespace NeonEngine.Components.CollisionDetection
                         return true;
                     }
                 }
-                
             }
 
             return true;
@@ -374,6 +373,18 @@ namespace NeonEngine.Components.CollisionDetection
 
         public override void PreUpdate(GameTime gameTime)
         {
+            
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            Position = Position;
             if (body != null)
             {
                 if (hitbox != null)
@@ -382,7 +393,7 @@ namespace NeonEngine.Components.CollisionDetection
                     {
                         wasGrounded = isGrounded;
                         beacon.Update(gameTime);
-                        Rigidbody rg = beacon.CheckGround(body);
+                        Rigidbody rg = beacon.CheckGround(Vector2.Zero, body);
                         if (rg != null)
                             isGrounded = rg.isGround ? true : false;
                         else
@@ -391,8 +402,6 @@ namespace NeonEngine.Components.CollisionDetection
                             body.Awake = true;
                     }
                 }
-
-                
             }
             if (isGround)
             {
@@ -423,38 +432,23 @@ namespace NeonEngine.Components.CollisionDetection
                                 _currentContacts.Remove(_currentContact);
                             }
                         }
-                        
+
                     }
                 }
             }
-
             if (this.fixedRotation)
                 if (body != null)
                     body.Rotation = MathHelper.ToRadians(entity.transform.Rotation);
-
-            base.PreUpdate(gameTime);
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
-
-        public override void PostUpdate(GameTime gameTime)
-        {
-            Position = Position;
             if(body != null) body.GravityScale = InitialGravityScale;
+            if (beacon != null) beacon.GroundOffset = Vector2.Zero;
             base.PostUpdate(gameTime);
         }
-
 
         public override void Remove()
         {
             body.Dispose();
             base.Remove();
-        }
-
-        
+        }     
 
         public void GenerateNewBody(Hitbox hitbox)
         {

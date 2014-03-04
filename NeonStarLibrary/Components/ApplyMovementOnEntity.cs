@@ -28,6 +28,22 @@ namespace NeonStarLibrary.Components.CollisionDetection
             get { return _checkIfGrounded; }
             set { _checkIfGrounded = value; }
         }
+
+        private Vector2 _checkGroundOffset;
+
+        public Vector2 CheckGroundOffset
+        {
+            get { return _checkGroundOffset; }
+            set { _checkGroundOffset = value; }
+        }
+
+        private bool _verticalMovingPlatform = false;
+
+        public bool VerticalMovingPlatform
+        {
+            get { return _verticalMovingPlatform; }
+            set { _verticalMovingPlatform = value; }
+        }
         #endregion
 
         private Entity _entityToMove;
@@ -46,15 +62,19 @@ namespace NeonStarLibrary.Components.CollisionDetection
             base.Init();
         }
 
-        public override void PreUpdate(GameTime gameTime)
+        public override void FinalUpdate(GameTime gameTime)
         {
             if (_checkIfGrounded)
             {
                 if (_entityToMove != null && _entityToMove.rigidbody != null && _entityToMove.rigidbody.beacon != null)
                 {
-                    if (entity.rigidbody != null && _entityToMove.rigidbody.beacon.CheckGround() == entity.rigidbody)
+                    if (entity.rigidbody != null && _entityToMove.rigidbody.beacon.CheckGround(_checkGroundOffset) == entity.rigidbody)
                     {
-                        _entityToMove.transform.Position = _entityToMove.transform.Position + (entity.transform.Position - _lastFramePosition);
+                        Vector2 deltaMove = entity.transform.Position - _lastFramePosition;
+                        if(!_verticalMovingPlatform)
+                            _entityToMove.transform.Position = _entityToMove.transform.Position + deltaMove;
+                        if(deltaMove.Y > 0)
+                            _entityToMove.rigidbody.beacon.GroundOffset = _checkGroundOffset;                  
                     }
                 }
             }
@@ -62,15 +82,9 @@ namespace NeonStarLibrary.Components.CollisionDetection
             {
                 _entityToMove.transform.Position = _entityToMove.transform.Position + (entity.transform.Position - _lastFramePosition);
             }
-            _lastFramePosition = entity.transform.Position;  
-            base.PreUpdate(gameTime);
-        }
 
-        public override void PostUpdate(GameTime gameTime)
-        {
-            
-       
-            base.PostUpdate(gameTime);
+            _lastFramePosition = entity.transform.Position;  
+            base.FinalUpdate(gameTime);
         }
 
 
