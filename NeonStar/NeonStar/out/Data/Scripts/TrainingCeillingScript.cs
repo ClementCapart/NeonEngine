@@ -25,11 +25,11 @@ namespace NeonStarLibrary.Components.Scripts
 
         public override void Update(GameTime gameTime)
         {
-            if(_flyingBotIn != null && _flyingBotIn.transform.Position.X <= -1500)
+            if(_flyingBotIn != null && _flyingBotIn.transform.Position.X <= -1400)
             {
                 _flyingBotIn.transform.Position += new Vector2(3200,0);
             }
-            if (_flyingBotOut != null && _flyingBotOut.transform.Position.X >= 1500)
+            if (_flyingBotOut != null && _flyingBotOut.transform.Position.X >= 1600)
             {
                 _flyingBotOut.transform.Position += new Vector2(-3200, 0);
             }
