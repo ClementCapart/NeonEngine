@@ -392,7 +392,7 @@ namespace NeonEngine.Components.CollisionDetection
                     }
                 }
 
-                Position = Position;
+                
             }
             if (isGround)
             {
@@ -436,19 +436,20 @@ namespace NeonEngine.Components.CollisionDetection
         }
 
         public override void Update(GameTime gameTime)
-        {          
+        {
             base.Update(gameTime);
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
+            Position = Position;
             if(body != null) body.GravityScale = InitialGravityScale;
             base.PostUpdate(gameTime);
         }
 
+
         public override void Remove()
         {
-
             body.Dispose();
             base.Remove();
         }

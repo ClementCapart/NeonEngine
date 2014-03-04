@@ -104,7 +104,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.GameWorld.FirstUpdate)
+            if (entity.GameWorld.FirstUpdate && _nextNode != null)
             {
                 this.entity.transform.Position = _nextNode.Position;
             }

@@ -72,9 +72,5 @@ namespace NeonEngine.Private
             base.Init();
         }
 
-        public override void PreUpdate(GameTime gameTime)
-        {
-            base.PreUpdate(gameTime);
-        }
     }
 }
