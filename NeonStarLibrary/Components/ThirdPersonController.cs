@@ -283,7 +283,7 @@ namespace NeonStarLibrary.Components.Avatar
 
                         if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
                         {
-                            Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+                            Rigidbody rg = entity.rigidbody.beacon.CheckGround(Vector2.Zero);
 
                             if (rg != null)
                                 if (rg.OneWayPlatform)

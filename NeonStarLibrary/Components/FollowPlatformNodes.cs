@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Utils;
 using System;
@@ -24,7 +25,7 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (entity.rigidbody != null && entity.rigidbody.beacon != null)
             {
-                _lastRigidBody = entity.rigidbody.beacon.CheckGround();
+                _lastRigidBody = entity.rigidbody.beacon.CheckGround(Vector2.Zero);
                 if (_lastRigidBody != null)
                 {
                     _lastEntityHit = _lastRigidBody.entity;
@@ -40,7 +41,7 @@ namespace NeonStarLibrary.Components.Enemies
                 this.CurrentNodeList = CurrentPlatform.LinkedPathNodeList;
             if (entity.rigidbody.beacon != null)
             {
-                Rigidbody rg = entity.rigidbody.beacon.CheckGround();
+                Rigidbody rg = entity.rigidbody.beacon.CheckGround(Vector2.Zero);
 
                 if (rg != null && rg != _lastRigidBody)
                 {

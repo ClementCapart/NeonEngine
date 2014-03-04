@@ -148,9 +148,9 @@ namespace NeonStarLibrary.Components.Avatar
 
         public bool TakeDamage(Attack attack)
         {
-            bool takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide);
+            bool takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide, attack.Type);
 
-            if (!takeDamage && State == AvatarState.Guarding)
+            if (!takeDamage && State == AvatarState.Guarding && attack.Type != AttackType.Special)
             {
                 if (attack.Launcher != null)
                 {
@@ -181,22 +181,21 @@ namespace NeonStarLibrary.Components.Avatar
             return TakeDamage(bullet.DamageOnHit, bullet.StunLock, 0.0f, bullet.entity.spritesheets.CurrentSide);
         }
 
-        public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side)
+        public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side, AttackType attackType = AttackType.MeleeLight)
         {
             if (IsInvincible)
                 return false;
 
-            if (State == AvatarState.Guarding && CurrentSide != side)
+            if (State == AvatarState.Guarding && CurrentSide != side && attackType != AttackType.Special)
             {
-                damageValue = Math.Min(damageValue + Guard.GuardDamageReduce, 0);              
-            }
-            
-            if (damageValue >= 0.0f)
-            {                
-                entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
-                EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
-                return false;
-            }
+                damageValue = Math.Min(damageValue + Guard.GuardDamageReduce, 0);
+                if (damageValue >= 0.0f)
+                {
+                    entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
+                    EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
+                    return false;
+                }
+            }     
 
             _currentHealthPoints += damageValue;
             entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, false, false);

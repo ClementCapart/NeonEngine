@@ -107,7 +107,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             {
                 if (_avatar != null && entity.hitboxes[0] != null)
                 {
-                    Rigidbody rb = _avatar.rigidbody.beacon.CheckGround();
+                    Rigidbody rb = _avatar.rigidbody.beacon.CheckGround(Vector2.Zero);
                     if (_avatar != null && rb != null && rb.entity == this.entity)
                     {
                         _startToCrumble = true;

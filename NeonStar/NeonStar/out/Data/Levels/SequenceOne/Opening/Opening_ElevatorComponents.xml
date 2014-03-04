@@ -7,8 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-578 Y:-17041}" />
-              <InitialPosition Value="{X:-578 Y:-17041}" />
+              <InitialPosition Value="{X:-578 Y:-17040}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -31,7 +30,7 @@
               <GravityScale Value="2" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
-              <Friction Value="0.3" />
+              <Friction Value="0" />
               <Mass Value="0" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
@@ -48,6 +47,7 @@
               <Roundtrip Value="False" />
               <ReverseStart Value="False" />
               <PathPrecisionTreshold Value="10" />
+              <InitAtFirstNode Value="True" />
             </Properties>
           </MovingGeometry>
           <OpeningElevatorScript Type="NeonStarLibrary.Components.Scripts.OpeningElevatorScript" ID="10">
@@ -120,6 +120,14 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </Graphic>
+          <ApplyMovemenentOnEntity Type="NeonStarLibrary.Components.CollisionDetection.ApplyMovementOnEntity" ID="15">
+            <Properties>
+              <EntityNameToMove Value="LiOn" />
+              <CheckIfGrounded Value="True" />
+              <CheckGroundOffset Value="{X:0 Y:30}" />
+              <VerticalMovingPlatform Value="True" />
+            </Properties>
+          </ApplyMovemenentOnEntity>
         </Components>
       </Entity>
       <Entity Name="Gears" Layer="ElevatorComponents">
@@ -127,8 +135,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <Position Value="{X:-933 Y:-17016}" />
-              <InitialPosition Value="{X:-933 Y:-17016}" />
+              <InitialPosition Value="{X:-933 Y:-17015}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
