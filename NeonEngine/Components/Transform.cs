@@ -68,7 +68,7 @@ namespace NeonEngine.Private
 
         public override void Init()
         {
-            this.position = InitialPosition;
+            this.Position = InitialPosition;
             base.Init();
         }
 
