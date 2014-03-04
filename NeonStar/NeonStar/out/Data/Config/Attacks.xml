@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <XnaContent>
   <Attacks>
-    <Attack ID="0" Name="AirWavePush" Type="MeleeSpecial">
+    <Attack ID="0" Name="AirWavePush" Type="Special">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="50" Height="200" />
       </Hitboxes>
@@ -13,7 +13,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.01</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -25,7 +25,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:2000 Y:-200}" />
+          <Parameter Value="{X:1500 Y:-200}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
