@@ -60,6 +60,14 @@ namespace NeonStarLibrary.Components.GameplayElements
             get { return _pathPrecisionTreshold; }
             set { _pathPrecisionTreshold = value; }
         }
+
+        private bool _initAtFirstNode = true;
+
+        public bool InitAtFirstNode
+        {
+            get { return _initAtFirstNode; }
+            set { _initAtFirstNode = value; }
+        }
         #endregion
 
         public bool Active = true;
@@ -104,7 +112,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.GameWorld.FirstUpdate && _nextNode != null)
+            if (entity.GameWorld.FirstUpdate && _nextNode != null && InitAtFirstNode)
             {
                 this.entity.transform.Position = _nextNode.Position;
             }
