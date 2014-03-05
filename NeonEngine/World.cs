@@ -45,13 +45,18 @@ namespace NeonEngine
         public List<Hitbox> Hitboxes;
         public List<AnimatedSpecialEffect> SpecialEffects;
 
+        public Entity Avatar;
+
         public Level LevelMap;
         public string LevelFilePath;
 
         public bool Pause = false;
 
+        public bool ShouldChangeAlpha = false;
+
         public bool FirstUpdateWorld = true;
         public bool FirstUpdate = true;
+
 
         public Game game;
 
@@ -163,14 +168,12 @@ namespace NeonEngine
             
 
             DeferredDrawGame(Neon.SpriteBatch);
-
-            if (!_change && Alpha > 0.0f)
+            if (!_change && Alpha > 0.0f && (gameTime.ElapsedGameTime.TotalSeconds <= 1.0f / 60.0f))
             {
                 Alpha -= 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (Alpha <= 0.0f)
                 {
-                    Alpha = 0.0f;
-                    
+                    Alpha = 0.0f;                  
                 }
             }
             else if(_change)

@@ -424,26 +424,26 @@ namespace NeonStarEditor
                 if (!FlyingModeActivated)
                 {
                     FlyingModeActivated = true;
-                    if (avatar != null)
+                    if (Avatar != null)
                     {
-                        avatar.rigidbody.body.Enabled = false;
-                        avatar.hitboxes[0].Type = HitboxType.Invincible;
+                        Avatar.rigidbody.body.Enabled = false;
+                        Avatar.hitboxes[0].Type = HitboxType.Invincible;
                         Camera.Bounded = false;
                     }
                 }
                 else
                 {
                     FlyingModeActivated = false;
-                    if (avatar != null)
+                    if (Avatar != null)
                     {
-                        avatar.rigidbody.body.Enabled = true;
-                        avatar.hitboxes[0].Type = HitboxType.Main;
+                        Avatar.rigidbody.body.Enabled = true;
+                        Avatar.hitboxes[0].Type = HitboxType.Main;
                         Camera.Bounded = true;
                     }
                 }
             }
 
-            if (FlyingModeActivated && avatar != null)
+            if (FlyingModeActivated && Avatar != null)
             {
                 int speed = 5;
                 if (Neon.Input.Check(Buttons.RightStick))
@@ -451,20 +451,20 @@ namespace NeonStarEditor
 
                 if (Neon.Input.Check(Buttons.LeftThumbstickLeft))
                 {
-                    avatar.transform.Position = new Vector2(avatar.transform.Position.X - speed, avatar.transform.Position.Y);
+                    Avatar.transform.Position = new Vector2(Avatar.transform.Position.X - speed, Avatar.transform.Position.Y);
                 }
                 else if (Neon.Input.Check(Buttons.LeftThumbstickRight))
                 {
-                    avatar.transform.Position = new Vector2(avatar.transform.Position.X + speed, avatar.transform.Position.Y);
+                    Avatar.transform.Position = new Vector2(Avatar.transform.Position.X + speed, Avatar.transform.Position.Y);
                 }
 
                 if (Neon.Input.Check(Buttons.LeftThumbstickUp))
                 {
-                    avatar.transform.Position = new Vector2(avatar.transform.Position.X, avatar.transform.Position.Y - speed);
+                    Avatar.transform.Position = new Vector2(Avatar.transform.Position.X, Avatar.transform.Position.Y - speed);
                 }
                 else if (Neon.Input.Check(Buttons.LeftThumbstickDown))
                 {
-                    avatar.transform.Position = new Vector2(avatar.transform.Position.X, avatar.transform.Position.Y + speed);
+                    Avatar.transform.Position = new Vector2(Avatar.transform.Position.X, Avatar.transform.Position.Y + speed);
                 }
             }
 

@@ -28,9 +28,8 @@ namespace NeonStarLibrary
         public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
 
-
         //Sounds obvious but still, I don't know...//
-        public Entity avatar;
+        
         public AvatarCore _avatarComponent;
 
         public CameraFocus CameraFocus;
@@ -43,7 +42,6 @@ namespace NeonStarLibrary
 
         public static List<XElement> CheckPointsData = new List<XElement>();
         public Vector2 InstantRespawnPoint = new Vector2(float.MaxValue, float.MaxValue);
-
 
         protected XElement _statusToLoad;
         protected int lastSpawnPointIndex;
@@ -85,12 +83,12 @@ namespace NeonStarLibrary
             {
                 if (File.Exists(@"../Data/Prefabs/" + AvatarName + ".prefab"))
                 {
-                    avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
+                    Avatar = DataManager.LoadPrefab(@"../Data/Prefabs/" + AvatarName + ".prefab", this);
                     if (File.Exists(@"../data/Prefabs/HUD.prefab"))
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
-                    avatar.transform.Position = currentSpawnPoint.Position;
-                    _avatarComponent = avatar.GetComponent<AvatarCore>();
-                    CameraFocus = avatar.GetComponent<CameraFocus>();
+                    Avatar.transform.Position = currentSpawnPoint.Position;
+                    _avatarComponent = Avatar.GetComponent<AvatarCore>();
+                    CameraFocus = Avatar.GetComponent<CameraFocus>();
                     if (_avatarComponent != null)
                     {
                         LoadAvatarStatus(_avatarComponent, respawning);
@@ -103,8 +101,8 @@ namespace NeonStarLibrary
 
             if(levelName != "")
                 LoadLevel(new Level(groupName, levelName, this, true));
-            if(avatar != null)
-                avatar.transform.Position = currentSpawnPoint.Position;
+            if(Avatar != null)
+                Avatar.transform.Position = currentSpawnPoint.Position;
             Camera.Bounded = true;
 
             if (_statusToLoad != null)
@@ -162,11 +160,11 @@ namespace NeonStarLibrary
                 if(respawning)
                     _avatarComponent.State = AvatarState.Respawning;
 
-                if (avatar != null)
+                if (Avatar != null)
                 {
-                    if (avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
-                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
-                    Camera.Position = avatar.transform.Position;
+                    if (Avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                        Avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                    Camera.Position = Avatar.transform.Position;
                 }
             }
         }
@@ -183,10 +181,10 @@ namespace NeonStarLibrary
             }
             else
             {
-                if (avatar != null)
+                if (Avatar != null)
                 {
-                    if (avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
-                        avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
+                    if (Avatar.spritesheets.CurrentSpritesheetName == _avatarComponent.RespawnAnimation)
+                        Avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
                 }
             }
             base.PreUpdate(gameTime);
@@ -202,15 +200,17 @@ namespace NeonStarLibrary
                     //MediaPlayer.Play(SoundManager.GetSong("Demo"));
                 }
             }
+
+            
             if (!Pause)
             {
-                if (MustFollowAvatar && avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null && this.NextScreen == null)
+                if (MustFollowAvatar && Avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null && this.NextScreen == null)
                 {
-                    Camera.Chase(avatar.transform.Position, CameraFocus.FocusDisplacement, CameraFocus.IgnoreSoftBounds, gameTime);
+                    Camera.Chase(Avatar.transform.Position, CameraFocus.FocusDisplacement, CameraFocus.IgnoreSoftBounds, gameTime);
                 }
-                else if (avatar == null)
+                else if (Avatar == null)
                 {
-                    avatar = this.GetEntityByName("LiOn");
+                    Avatar = this.GetEntityByName("LiOn");
                 }
                 for (int i = FreeAttacks.Count - 1; i >= 0; i--)
                 {
@@ -225,7 +225,8 @@ namespace NeonStarLibrary
                 }
 
                 for (int i = Bullets.Count - 1; i >= 0; i--)
-                    Bullets[i].Update(gameTime);             
+                    Bullets[i].Update(gameTime);    
+         
             }
             
 
@@ -286,8 +287,8 @@ namespace NeonStarLibrary
             XElement playerStatus = new XElement("PlayerStatus");
 
             AvatarCore avatarComponent = null;
-            if (avatar != null)
-                avatarComponent = avatar.GetComponent<AvatarCore>();
+            if (Avatar != null)
+                avatarComponent = Avatar.GetComponent<AvatarCore>();
 
             if (avatarComponent != null)
             {

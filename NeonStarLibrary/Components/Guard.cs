@@ -141,6 +141,7 @@ namespace NeonStarLibrary.Components.Avatar
         private bool _isAirDashing = false;
         private bool _isRolling = false;
         private bool _alreadyDashed = false;
+        private bool _airGuarding = false;
 
         public Guard(Entity entity)
             :base(entity, "Guard")
@@ -180,7 +181,7 @@ namespace NeonStarLibrary.Components.Avatar
                     if(_durationTimer <= 0.0f)
                         _guardCooldownTimer = _guardCooldown;
                     AvatarComponent.State = AvatarState.Guarding;
-                    if (!entity.rigidbody.isGrounded)
+                    if (!entity.rigidbody.isGrounded && _airGuarding)
                         entity.rigidbody.body.GravityScale = 0.0f;
 
                 }
@@ -210,7 +211,10 @@ namespace NeonStarLibrary.Components.Avatar
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
             else if (_isGuarding)
+            {
                 _isGuarding = false;
+                _airGuarding = false;
+            }
             else if (_isRolling)
             {
                 int offset = 0;
@@ -218,12 +222,12 @@ namespace NeonStarLibrary.Components.Avatar
                 if (entity.rigidbody.body.ContactList != null)
                 {
                     if (entity.rigidbody.body.ContactList.Contact.FixtureA.Body != entity.rigidbody.body)
-                    {    
+                    {
                         Entity EntityB = (Entity)entity.rigidbody.body.ContactList.Contact.FixtureA.UserData;
                         if (entity.hitboxes[0] != null && EntityB.transform.Position.Y - EntityB.hitboxes[0].Height / 2 + offset > entity.transform.Position.Y + entity.hitboxes[0].Height / 2)
                         {
                             entity.rigidbody.body.ContactList.Contact.ResetFriction();
-                        }                      
+                        }
                     }
                     else
                     {
@@ -416,7 +420,13 @@ namespace NeonStarLibrary.Components.Avatar
             if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
 
-            entity.rigidbody.GravityScale = 0;
+            if (!entity.rigidbody.isGrounded)
+            {
+                _airGuarding = true;
+                entity.rigidbody.GravityScale = 0;
+            }
+            else
+                _airGuarding = false;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             if(AvatarComponent.ElementSystem.CurrentElementEffect != null)
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
@@ -428,7 +438,6 @@ namespace NeonStarLibrary.Components.Avatar
         {
             if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
-
 
             entity.rigidbody.GravityScale = 0;
             entity.rigidbody.body.LinearVelocity = Vector2.Zero;

@@ -1064,7 +1064,9 @@ namespace NeonStarLibrary
                                 {
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0];
                                     if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    Console.WriteLine("Linear Velocity -> " + entity.rigidbody.body.LinearVelocity.ToString());
                                     entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
+                                    Console.WriteLine("Linear Velocity -> " + entity.rigidbody.body.LinearVelocity.ToString());
                                     velocityReset = true;
                                 }
                             }                

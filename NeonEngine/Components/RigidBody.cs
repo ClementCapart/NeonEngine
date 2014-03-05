@@ -443,6 +443,8 @@ namespace NeonEngine.Components.CollisionDetection
                     body.Rotation = MathHelper.ToRadians(entity.transform.Rotation);
             if (body != null) body.GravityScale = InitialGravityScale;
             if (beacon != null) beacon.GroundOffset = Vector2.Zero;
+            if (entity.GameWorld.FirstUpdate)
+                isGrounded = true;
             base.PostUpdate(gameTime);
         }
 
