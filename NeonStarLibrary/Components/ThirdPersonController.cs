@@ -170,7 +170,8 @@ namespace NeonStarLibrary.Components.Avatar
         public override void PreUpdate(GameTime gameTime)
         {
             LastSideChangedDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+            if (AvatarComponent.State == AvatarState.Idle)
+                entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.5f, entity.rigidbody.body.LinearVelocity.Y);
             base.PreUpdate(gameTime);
         }
 
@@ -278,7 +279,6 @@ namespace NeonStarLibrary.Components.Avatar
                         else
                         {
                             AvatarComponent.State = AvatarState.Idle;
-                            entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.5f, entity.rigidbody.body.LinearVelocity.Y);
                         }
 
                         if (Neon.Input.PressedComboInput(NeonStarInput.Jump, 0.2, NeonStarInput.MoveDown))
@@ -391,6 +391,12 @@ namespace NeonStarLibrary.Components.Avatar
             }
 
             base.Update(gameTime);
+        }
+
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            
+            base.FinalUpdate(gameTime);
         }
 
         public void BoostMovementSpeed(float newModifier, float duration)

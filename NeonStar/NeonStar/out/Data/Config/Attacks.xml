@@ -6,18 +6,18 @@
         <Hitbox OffsetX="0" OffsetY="0" Width="50" Height="200" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-0.1</DamageOnHit>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <AirFactor>0</AirFactor>
+      <StunLock>0.5</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
@@ -25,7 +25,7 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
-          <Parameter Value="{X:1500 Y:-200}" />
+          <Parameter Value="{X:800 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>

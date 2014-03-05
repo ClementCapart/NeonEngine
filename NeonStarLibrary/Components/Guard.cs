@@ -181,7 +181,7 @@ namespace NeonStarLibrary.Components.Avatar
                     if(_durationTimer <= 0.0f)
                         _guardCooldownTimer = _guardCooldown;
                     AvatarComponent.State = AvatarState.Guarding;
-                    if (!entity.rigidbody.isGrounded && _airGuarding)
+                    if (_airGuarding)
                         entity.rigidbody.body.GravityScale = 0.0f;
 
                 }
@@ -193,7 +193,6 @@ namespace NeonStarLibrary.Components.Avatar
                     if (entity.rigidbody.body.ContactList != null)
                     {
                         entity.rigidbody.body.ContactList.Contact.Friction = 0.0f;
-
                         ContactEdge ce = entity.rigidbody.body.ContactList;
 
                         while(ce.Next != null)

@@ -188,7 +188,7 @@ namespace NeonStarLibrary.Components.Avatar
 
             if (State == AvatarState.Guarding && CurrentSide != side && attackType != AttackType.Special)
             {
-                damageValue = Math.Min(damageValue + Guard.GuardDamageReduce, 0);
+                damageValue = 0;
                 if (damageValue >= 0.0f)
                 {
                     entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
@@ -230,8 +230,12 @@ namespace NeonStarLibrary.Components.Avatar
                 AirLock(airLockDuration);
             }
 
-            IsInvincible = true;
-            _invincibilityTimer = _invincibilityDuration;
+            if (damageValue < 0)
+            {
+                IsInvincible = true;
+                _invincibilityTimer = _invincibilityDuration;
+                return true;
+            }
 
             return true;
         }
