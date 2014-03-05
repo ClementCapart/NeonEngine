@@ -170,7 +170,7 @@ namespace NeonStarLibrary.Components.Avatar
         public override void PreUpdate(GameTime gameTime)
         {
             LastSideChangedDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (AvatarComponent.State == AvatarState.Idle)
+            if (AvatarComponent.State == AvatarState.Idle && entity.rigidbody != null && entity.rigidbody.isGrounded)
                 entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X * 0.5f, entity.rigidbody.body.LinearVelocity.Y);
             base.PreUpdate(gameTime);
         }
