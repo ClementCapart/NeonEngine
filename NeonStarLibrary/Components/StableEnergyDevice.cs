@@ -84,6 +84,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            State = DeviceManager.GetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name);
             _textDisplay = entity.GetComponent<TextDisplay>();
             Entity avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
             if (avatarEntity != null)
@@ -97,6 +98,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 if(this.entity.spritesheets != null)
                     this.entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
+                _isFilled = true;
+                if (_textDisplay != null)
+                    _textDisplay.Active = false;
             }
             base.Init();
         }
@@ -164,8 +168,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 {
                     if(entity.spritesheets.IsFinished())
                     {
-                        entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);
-                        
+                        entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);                     
                     }
                     else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 32)
                     {

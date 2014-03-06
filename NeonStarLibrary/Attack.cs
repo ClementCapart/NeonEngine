@@ -1068,10 +1068,8 @@ namespace NeonStarLibrary
                                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                         entity.rigidbody.body.ResetDynamics();
                                     }
-                                    
-                                    Console.WriteLine("Linear Velocity -> " + entity.rigidbody.body.LinearVelocity.ToString());
+
                                     entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
-                                    Console.WriteLine("Linear Velocity -> " + entity.rigidbody.body.LinearVelocity.ToString());
                                     velocityReset = true;
                                 }
                             }                

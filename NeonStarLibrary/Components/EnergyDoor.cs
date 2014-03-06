@@ -143,7 +143,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {           
+        {
+
+            Console.WriteLine(entity.spritesheets.CurrentSpritesheetName);
             if (Closed && !_opening && !_closing)
             {
                 if (_multiLockDoor)
@@ -167,9 +169,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
                 else
-                    if(entity.spritesheets != null && entity.spritesheets.IsFinished())
+                    if (entity.spritesheets != null && entity.spritesheets.IsFinished() && entity.spritesheets.CurrentSpritesheetName != _doorOpeningAnimation)
+                    {
                         entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, true, false);
-                
+                    }
             }
             
             if (entity.spritesheets != null)
@@ -251,7 +254,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _opening = true;
                 if (entity.spritesheets != null)
                 {
-                    entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, 0, true, false, false);
+                    entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, true, 0, true, false, false);
                     if (!_openWhenAnimationEnd)
                     {
                         Closed = false;
@@ -262,6 +265,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                             entity.rigidbody.Init();
                         }
                     }
+
 
                 }
             }

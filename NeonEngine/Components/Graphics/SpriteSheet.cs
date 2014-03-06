@@ -160,6 +160,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Update(GameTime gameTime = null)
         {
+            
             if (_isInDelayBeforeLoop)
             {
                 if(_invisibleDuringDelay)
@@ -214,7 +215,7 @@ namespace NeonEngine.Components.Graphics2D
                             Active = true;
                     }
                 }
-
+                
                 return;
             }
 
@@ -344,6 +345,8 @@ namespace NeonEngine.Components.Graphics2D
                 currentFrame = (int)currentFrame < 0 ? spriteSheetInfo.Frames.Length - 1 : currentFrame;
                 currentFrame = (int)currentFrame > spriteSheetInfo.Frames.Length - 1 ? 0 : currentFrame;
             }
+
+            
             base.Update(gameTime);
         }
 
