@@ -144,8 +144,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-
-            Console.WriteLine(entity.spritesheets.CurrentSpritesheetName);
             if (Closed && !_opening && !_closing)
             {
                 if (_multiLockDoor)

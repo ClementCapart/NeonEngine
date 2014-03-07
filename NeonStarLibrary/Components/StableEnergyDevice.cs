@@ -142,6 +142,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                                 entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
                                             if (_textDisplay != null)
                                                 _textDisplay.Active = false;
+
+                                            
                                         }
                                     }
                                 }
