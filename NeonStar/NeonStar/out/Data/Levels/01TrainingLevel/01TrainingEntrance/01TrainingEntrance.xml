@@ -254,7 +254,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:574 Y:420}" />
+              <InitialPosition Value="{X:205 Y:420}" />
               <Rotation Value="0" />
               <Scale Value="2" />
             </Properties>
@@ -262,8 +262,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:573 Y:419}" />
-              <X Value="523" />
+              <Center Value="{X:202 Y:419}" />
+              <X Value="152" />
               <Y Value="339" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1263,9 +1263,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:188 Y:-200}" />
+              <InitialPosition Value="{X:1268 Y:-200}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="1">
@@ -1293,8 +1293,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:208 Y:-200}" />
-              <X Value="183" />
+              <Center Value="{X:1288 Y:-200}" />
+              <X Value="1263" />
               <Y Value="-300" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1357,6 +1357,50 @@
               <EntityToAttackName Value="LiOn" />
             </Properties>
           </AreaAttack>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="WindAnimFront" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:24 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="8">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0.2" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="WindAnimBack" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:102 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
     </Entities>
