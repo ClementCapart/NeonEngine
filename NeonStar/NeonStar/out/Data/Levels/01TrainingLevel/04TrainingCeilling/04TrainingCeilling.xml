@@ -449,14 +449,14 @@
               <AutoChangeInitialPosition Value="False" />
               <InitialPosition Value="{X:-1350 Y:-975}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-149 Y:-975}" />
-              <X Value="-199" />
+              <Center Value="{X:-991 Y:-975}" />
+              <X Value="-1041" />
               <Y Value="-1010" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -494,8 +494,98 @@
             <Properties>
               <EntityNameToMove Value="LiOn" />
               <CheckIfGrounded Value="True" />
+              <CheckGroundOffset Value="{X:0 Y:0}" />
+              <VerticalMovingPlatform Value="False" />
             </Properties>
           </ApplyMovemenentOnEntity>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="5">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotIdle" />
+              <DrawLayer Value="0.45" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-6 Y:24}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="6">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
+            <Properties>
+              <StartingFrame Value="3" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="8">
+            <Properties>
+              <StartingFrame Value="8" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="FlyingBotIn" Layer="">
@@ -511,8 +601,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:149 Y:-1225}" />
-              <X Value="99" />
+              <Center Value="{X:991 Y:-1225}" />
+              <X Value="941" />
               <Y Value="-1260" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -540,6 +630,8 @@
             <Properties>
               <EntityNameToMove Value="LiOn" />
               <CheckIfGrounded Value="True" />
+              <CheckGroundOffset Value="{X:0 Y:0}" />
+              <VerticalMovingPlatform Value="False" />
             </Properties>
           </ApplyMovemenentOnEntity>
           <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="5">
@@ -783,7 +875,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.74995" />
+              <Mass Value="1.24995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
