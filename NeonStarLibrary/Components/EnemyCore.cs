@@ -108,6 +108,14 @@ namespace NeonStarLibrary.Components.Enemies
             set { _hitAnim = value; }
         }
 
+        private string _stunlockAnim = "";
+
+        public string StunlockAnim
+        {
+            get { return _stunlockAnim; }
+            set { _stunlockAnim = value; }
+        }
+
         private bool _immuneToStunLock = false;
 
         public bool ImmuneToStunLock

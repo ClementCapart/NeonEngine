@@ -60,8 +60,7 @@ namespace NeonStarLibrary.Components.Enemies
                 {
                     case EnemyState.Attacking:
                         if (EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null /*&& LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode()*/)
-                        {
-                            
+                        {                        
                             if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)

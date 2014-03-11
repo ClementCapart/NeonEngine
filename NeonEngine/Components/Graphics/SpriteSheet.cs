@@ -159,8 +159,7 @@ namespace NeonEngine.Components.Graphics2D
         }
 
         public override void Update(GameTime gameTime = null)
-        {
-            
+        {       
             if (_isInDelayBeforeLoop)
             {
                 if(_invisibleDuringDelay)

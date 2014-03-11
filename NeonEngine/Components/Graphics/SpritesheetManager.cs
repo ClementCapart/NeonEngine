@@ -134,6 +134,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Update(GameTime gameTime)
         {
+            
             if (CurrentSpritesheet != null)
             {
                 CurrentSpritesheet.Update(gameTime);
