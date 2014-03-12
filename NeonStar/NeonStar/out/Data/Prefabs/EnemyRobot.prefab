@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-23.6866 Y:-355.0074}" />
-          <InitialPosition Value="{X:-23.6866 Y:-355.0074}" />
+          <Position Value="{X:-621.2523 Y:-105.0075}" />
+          <InitialPosition Value="{X:-621.2523 Y:-105.0075}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-23 Y:-355}" />
-          <X Value="-73" />
-          <Y Value="-435" />
+          <Center Value="{X:-630 Y:-105}" />
+          <X Value="-680" />
+          <Y Value="-185" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -54,8 +54,9 @@
             <Animation Name="Idle" SpritesheetTag="EnemyRobotIdle" />
             <Animation Name="TakeHit" SpritesheetTag="EnemyRobotTakeHit" />
             <Animation Name="Death" SpritesheetTag="Explosion" />
+            <Animation Name="Stunlock" SpritesheetTag="EnemyRobotStunned" />
           </Spritesheets>
-          <DrawLayer Value="0.2" />
+          <DrawLayer Value="0.488" />
           <IsHUD Value="False" />
         </Properties>
       </SpritesheetManager>
@@ -70,6 +71,7 @@
           <IdleAnim Value="Idle" />
           <DyingAnim Value="Death" />
           <HitAnim Value="TakeHit" />
+          <StunlockAnim Value="Stunlock" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
           <ImmuneToDeath Value="False" />
@@ -126,7 +128,6 @@
       </EnemyAnimationManager>
       <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
         <Properties>
-          <CurrentNodeList Value="RobotPath01" />
           <Speed Value="2" />
           <Roundtrip Value="True" />
           <ReverseStart Value="False" />
@@ -156,6 +157,18 @@
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </DamageDisplayer>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="0">
+        <Properties>
+          <Type Value="Hit" />
+          <Center Value="{X:24120 Y:-13265}" />
+          <X Value="24045" />
+          <Y Value="-13295" />
+          <OffsetX Value="75" />
+          <OffsetY Value="-40" />
+          <Width Value="150" />
+          <Height Value="60" />
+        </Properties>
+      </Hitbox>
     </Components>
   </Entity>
 </Prefab>

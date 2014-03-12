@@ -50,8 +50,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                             }
                             else
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, 0, true, false, false);
-
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
                         }
                         else
                         {
