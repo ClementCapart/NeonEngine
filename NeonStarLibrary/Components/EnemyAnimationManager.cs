@@ -134,7 +134,10 @@ namespace NeonStarLibrary.Components.Enemies
                         break;
 
                     case EnemyState.StunLocked:
-                        entity.spritesheets.ChangeAnimation(EnemyComponent.HitAnim, true, 0, true, false, false);
+                        if(entity.spritesheets.CurrentSpritesheetName != EnemyComponent.HitAnim && entity.spritesheets.CurrentSpritesheetName != EnemyComponent.StunlockAnim)
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.HitAnim, true, 0, true, false, false);
+                        if (entity.spritesheets.CurrentSpritesheetName == EnemyComponent.HitAnim)
+                            entity.spritesheets.ChangeAnimation(EnemyComponent.StunlockAnim, false, 0, true, false, true);
                         break;
                 }
             }                  
