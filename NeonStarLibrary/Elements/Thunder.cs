@@ -44,11 +44,11 @@ namespace NeonStarLibrary
 
                 case 2:
                     _gaugeCost = (float)ElementManager.ThunderParameters[1][0];
-                    if (Neon.Input.Check(NeonStarInput.MoveUp))
+                    /*if (Neon.Input.Check(NeonStarInput.MoveUp))
                         _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[1][4]);
                     else if (Neon.Input.Check(NeonStarInput.MoveDown))
                         _dashImpulse = new Vector2(0, (float)ElementManager.ThunderParameters[1][5]);
-                    else
+                    else*/
                         _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[1][1] : -(float)ElementManager.ThunderParameters[1][1], 0);
                     _dashDuration = (float)ElementManager.ThunderParameters[1][2];
                     _attackToLaunch = (string)ElementManager.ThunderParameters[1][3];
@@ -56,11 +56,11 @@ namespace NeonStarLibrary
 
                 case 3:
                     _gaugeCost = (float)ElementManager.ThunderParameters[2][0];
-                    if (Neon.Input.Check(NeonStarInput.MoveUp))
+                    /*if (Neon.Input.Check(NeonStarInput.MoveUp))
                         _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[2][4]);
                     else if (Neon.Input.Check(NeonStarInput.MoveDown))
                         _dashImpulse = new Vector2(0, (float)ElementManager.ThunderParameters[2][5]);
-                    else
+                    else*/
                         _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[2][1] : -(float)ElementManager.ThunderParameters[2][1], 0);
                     _dashDuration = (float)ElementManager.ThunderParameters[2][2];
                     _attackToLaunch = (string)ElementManager.ThunderParameters[2][3];
