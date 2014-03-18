@@ -373,20 +373,6 @@ namespace NeonEngine.Components.CollisionDetection
 
         public override void PreUpdate(GameTime gameTime)
         {
-            
-            base.PreUpdate(gameTime);
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            
-            
-            base.Update(gameTime);
-        }
-
-        public override void PostUpdate(GameTime gameTime)
-        {
-            Position = Position;
             if (body != null)
             {
                 if (hitbox != null)
@@ -405,6 +391,20 @@ namespace NeonEngine.Components.CollisionDetection
                     }
                 }
             }
+            base.PreUpdate(gameTime);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            
+            
+            base.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            Position = Position;
+            
             if (isGround)
             {
                 for (int i = _currentContacts.Count - 1; i >= 0; i--)

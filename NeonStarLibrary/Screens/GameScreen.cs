@@ -28,8 +28,7 @@ namespace NeonStarLibrary
         public NeonPool<Entity> BulletsPool;
         public bool MustFollowAvatar = true;
 
-        //Sounds obvious but still, I don't know...//
-        
+        //Sounds obvious but still, I don't know...//        
         public AvatarCore _avatarComponent;
 
         public CameraFocus CameraFocus;
@@ -37,6 +36,7 @@ namespace NeonStarLibrary
         public Texture2D _pauseMenuTexture;
 
         public bool PauseAllowed = true;
+
 
         //----------------------------------------//
 
@@ -46,11 +46,20 @@ namespace NeonStarLibrary
         protected XElement _statusToLoad;
         protected int lastSpawnPointIndex;
 
+        public static MapScreen Map;
+
         public string AvatarName = "LiOn";
 
         public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, bool respawning = false)
             : base(game)
         {
+            if (Map == null)
+                Map = new MapScreen(game);
+
+            Map.CurrentGameScreen = this;
+
+            Map.AddLevelToMap(groupName, levelName);
+
             _pauseMenuTexture = AssetManager.GetTexture("PauseMenu");
             this._statusToLoad = statusToLoad;
             lastSpawnPointIndex = startingSpawnPointIndex;
@@ -225,14 +234,18 @@ namespace NeonStarLibrary
                 }
 
                 for (int i = Bullets.Count - 1; i >= 0; i--)
-                    Bullets[i].Update(gameTime);    
-         
+                    Bullets[i].Update(gameTime);           
             }
             
 
             if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
                 Pause = !Pause;
-            
+
+            if (Neon.Input.Pressed(Buttons.Back) && !Pause)
+            {
+                Neon.World = Map;
+            }
+
             if (Pause)
             {
                 if (Neon.Input.Pressed(Buttons.Back))
