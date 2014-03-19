@@ -26,13 +26,13 @@ namespace NeonStarLibrary.Components.Scripts
 
         public override void Update(GameTime gameTime)
         {
-            if(_airWave != null && _airWave.transform.Position.X <= 0)
+            if(_airWave != null && _airWave.transform.Position.X <= -600)
             {
                 if (_fadeEffect != null)
                 {
                     EffectsManager.GetEffect(_fadeEffect, Side.Right, entity.transform.Position, 0.0f, new Vector2(-30, 0), 2.0f, 0.45f);
                 }
-                _airWave.transform.Position += new Vector2(1650,0);
+                _airWave.transform.Position += new Vector2(2400,0);
                 
             }
         }
