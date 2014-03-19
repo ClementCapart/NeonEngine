@@ -12,14 +12,13 @@ namespace NeonStarLibrary
 {
     public class Wind : ElementEffect
     {
-        private Vector2 _windImpulse = new Vector2(0, -500);
-        private float _impulseDuration = 0.15f;
-        private float _airVerticalVelocity = -1.0f;
-        private float _airMaxVerticalVelocity = -4.0f;
-        private float _airControlSpeed = 1.5f;
-        private float _timedGaugeConsumption = 30.0f;
-        private Vector2 _enemyWindImpulse = new Vector2(0, -1000);
-        private string _attackName = "AirAttack";
+        private Vector2 _windImpulse;
+        private float _impulseDuration;
+        private float _airVerticalVelocity;
+        private float _airMaxVerticalVelocity;
+        private float _airControlSpeed;
+        private float _timedGaugeConsumption;
+        private string _attackName;
 
         private Attack _airAttack;
 
@@ -31,18 +30,16 @@ namespace NeonStarLibrary
         public override void InitializeLevelParameters()
         {           
             this.EffectElement = Element.Wind;
-            switch (ElementLevel)
-            {
-                case 1:
-                    _gaugeCost = 30.0f;
-                    break;
 
-                case 2:                    
-                    break;
+            _gaugeCost = (float)ElementManager.WindParameters[0][0];
+            _windImpulse = new Vector2(0, (float)ElementManager.WindParameters[0][1]);
+            _impulseDuration = (float)ElementManager.WindParameters[0][2];
+            _attackName = (string)ElementManager.WindParameters[0][3];
+            _timedGaugeConsumption = (float)ElementManager.WindParameters[0][4];
+            _airControlSpeed = (float)ElementManager.WindParameters[0][5];
+            _airVerticalVelocity = (float)ElementManager.WindParameters[0][6];
+            _airMaxVerticalVelocity = (float)ElementManager.WindParameters[0][7];
 
-                case 3:                  
-                    break;
-            }
             base.InitializeLevelParameters();
         }
 

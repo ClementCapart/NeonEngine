@@ -107,6 +107,12 @@
     <Compile Include="Controls\BottomDock\EntityListControl.Designer.cs">
       <DependentUpon>EntityListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ElementEditor\WindPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ElementEditor\WindPanel.Designer.cs">
+      <DependentUpon>WindPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SpritesheetPickerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BottomDock\EntityListControl.resx">
       <DependentUpon>EntityListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ElementEditor\WindPanel.resx">
+      <DependentUpon>WindPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SpritesheetPickerControl.resx">
       <DependentUpon>SpritesheetPickerControl.cs</DependentUpon>

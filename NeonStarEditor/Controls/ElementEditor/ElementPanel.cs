@@ -48,6 +48,10 @@ namespace NeonStarEditor
                 case Element.Thunder:
                     settingPanel.Controls.Add(new ThunderPanel());
                     break;
+
+                case Element.Wind:
+                    settingPanel.Controls.Add(new WindPanel());
+                    break;
             }
         }
 
@@ -58,10 +62,32 @@ namespace NeonStarEditor
             XElement elements = new XElement("Elements");
 
             SaveFireParameters(elements);
-            SaveThunderParameters(elements);        
+            SaveThunderParameters(elements);
+            SaveWindParameters(elements);
 
             document.Add(elements);
             document.Save(@"../Data/Config/Elements.xml");
+        }
+
+        private void SaveWindParameters(XElement elements)
+        {
+            XElement windParameters = new XElement("Wind");
+            XElement commonParameters = new XElement("CommonParameters");
+
+            XElement gaugeCost = new XElement("GaugeCost", ((float)(ElementManager.WindParameters[0][0])).ToString());
+            XElement airVerticalImpulse = new XElement("AirVerticalImpulse", ((float)(ElementManager.WindParameters[0][1])).ToString());
+            XElement impulseDuration = new XElement("ImpulseDuration", ((float)(ElementManager.WindParameters[0][2])).ToString());
+            XElement attackToLaunch = new XElement("AttackToLaunch", ElementManager.WindParameters[0][3].ToString());
+            XElement timedGaugeComsuption = new XElement("TimedGaugeComsuption", ((float)ElementManager.WindParameters[0][4]).ToString());
+            XElement airControlSpeed = new XElement("AirControlSpeed", ((float)ElementManager.WindParameters[0][5]).ToString());
+            XElement airVerticalVelocity = new XElement("AirVerticalVelocity", ((float)ElementManager.WindParameters[0][6]).ToString());
+            XElement airVerticalMaxVelocity = new XElement("AirVerticalMaxVelocity", ((float)ElementManager.WindParameters[0][7]).ToString());
+
+            commonParameters.Add(gaugeCost, airVerticalImpulse, impulseDuration, attackToLaunch, timedGaugeComsuption, airControlSpeed, airVerticalVelocity, airVerticalMaxVelocity);
+
+            windParameters.Add(commonParameters);
+
+            elements.Add(windParameters);
         }
 
         private void SaveFireParameters(XElement elements)

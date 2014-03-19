@@ -15,6 +15,7 @@ namespace NeonScripts
 		
 		public override void Init()
 		{
+            Console.WriteLine("hey");
 		}
 
         public override void Update(GameTime gameTime)
@@ -23,7 +24,6 @@ namespace NeonScripts
 		
 		public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
 		{
-			Console.WriteLine("HOY");
 		}
     }
 }

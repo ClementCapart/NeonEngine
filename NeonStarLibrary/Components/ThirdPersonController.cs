@@ -129,7 +129,6 @@ namespace NeonStarLibrary.Components.Avatar
             get { return _airSlowRate; }
             set { _airSlowRate = value; }
         }
-
         #endregion
 
         public float CurrentAirMaxSpeed;

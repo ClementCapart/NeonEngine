@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeonEngine;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -11,12 +12,14 @@ namespace NeonStarLibrary
     {
         static public List<List<object>> ThunderParameters = new List<List<object>>();
         static public List<List<object>> FireParameters = new List<List<object>>();
+        static public List<List<object>> WindParameters = new List<List<object>>();
 
         static public void LoadElementParameters()
         {
             XElement parameters = XDocument.Load(@"../Data/Config/Elements.xml").Element("Elements");
             LoadFireParameters(parameters);
             LoadThunderParameters(parameters);
+            LoadWindParameters(parameters);
         }
 
         static private void LoadFireParameters(XElement parameters)
@@ -130,6 +133,24 @@ namespace NeonStarLibrary
             assimilationParameters.Add(float.Parse(thunderParameters.Element("Assimilation").Element("ThirdLevel").Element("AttackSpeedModifier").Value.ToString()));
 
             ThunderParameters.Add(assimilationParameters);
+        }
+
+        static private void LoadWindParameters(XElement parameters)
+        {
+            XElement windParameters = parameters.Element("Wind");
+
+            List<object> commonParameters = new List<object>();
+
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("GaugeCost").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("AirVerticalImpulse").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("ImpulseDuration").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(windParameters.Element("CommonParameters").Element("AttackToLaunch").Value.ToString());
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("TimedGaugeComsuption").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("AirControlSpeed").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("AirVerticalVelocity").Value.ToString(), CultureInfo.InvariantCulture));
+            commonParameters.Add(float.Parse(windParameters.Element("CommonParameters").Element("AirVerticalMaxVelocity").Value.ToString(), CultureInfo.InvariantCulture));
+
+            WindParameters.Add(commonParameters);
         }
     }
 }

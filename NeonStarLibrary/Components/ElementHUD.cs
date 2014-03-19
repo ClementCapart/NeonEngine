@@ -254,6 +254,10 @@ namespace NeonStarLibrary.Components.HUD
                         case Element.Thunder:
                             ratio = Math.Abs(_elementSystem.LeftSlotEnergy / 100f);
                             break;
+
+                        case Element.Wind:
+                            ratio = Math.Abs(_elementSystem.LeftSlotEnergy / 100f);
+                            break;
                     }
                 }
 
@@ -271,6 +275,10 @@ namespace NeonStarLibrary.Components.HUD
                             break;
 
                         case Element.Thunder:
+                            ratio = Math.Abs(_elementSystem.RightSlotEnergy / 100f);
+                            break;
+
+                        case Element.Wind:
                             ratio = Math.Abs(_elementSystem.RightSlotEnergy / 100f);
                             break;
                     }
