@@ -53,7 +53,10 @@ namespace NeonEngine.Components.Graphics2D
         public override void Draw(SpriteBatch spriteBatch)
         {
             if (entity != null && texture != null)
+            {
+                CurrentEffect.CurrentTechnique.Passes[0].Apply();
                 spriteBatch.Draw(texture, entity.transform.Position + this._parallaxPosition + Offset, null, Color.Lerp(Color.Transparent, Color.White, opacity), entity.transform.rotation + RotationOffset, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, _currentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
+            }
         }
     }
 }

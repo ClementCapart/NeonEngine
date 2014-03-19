@@ -37,7 +37,6 @@ namespace NeonStarLibrary
 
         public bool PauseAllowed = true;
 
-
         //----------------------------------------//
 
         public static List<XElement> CheckPointsData = new List<XElement>();
@@ -53,11 +52,14 @@ namespace NeonStarLibrary
         public GameScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, bool respawning = false)
             : base(game)
         {
+            LevelGroupName = groupName;
+            LevelName = levelName;
+            
             if (Map == null)
                 Map = new MapScreen(game);
 
             Map.CurrentGameScreen = this;
-
+            Map.InitializeMapData(statusToLoad);
             Map.AddLevelToMap(groupName, levelName);
 
             _pauseMenuTexture = AssetManager.GetTexture("PauseMenu");
@@ -243,7 +245,8 @@ namespace NeonStarLibrary
 
             if (Neon.Input.Pressed(Buttons.Back) && !Pause)
             {
-                Neon.World = Map;
+                Map.RefreshMapData();
+                Neon.World = Map;              
             }
 
             if (Pause)
@@ -297,12 +300,15 @@ namespace NeonStarLibrary
 
             playerProgression.Add(currentLevel);
 
+            if (Map != null)
+                playerProgression.Add(Map.SaveMapStatus());
+
             XElement playerStatus = new XElement("PlayerStatus");
 
             AvatarCore avatarComponent = null;
             if (Avatar != null)
                 avatarComponent = Avatar.GetComponent<AvatarCore>();
-
+                
             if (avatarComponent != null)
             {
                 XElement liOn = new XElement("LiOnParameters");
