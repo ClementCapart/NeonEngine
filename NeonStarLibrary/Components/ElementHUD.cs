@@ -39,6 +39,7 @@ namespace NeonStarLibrary.Components.HUD
 
         private Texture2D fireElementHUD = null;
         private Texture2D thunderElementHUD = null;
+        private Texture2D windElementHUD = null;
 
         private Texture2D CurrentLeftElement = null;
         private Texture2D CurrentRightElement = null;
@@ -58,6 +59,7 @@ namespace NeonStarLibrary.Components.HUD
 
             fireElementHUD = AssetManager.GetTexture("HUDElementFire");
             thunderElementHUD = AssetManager.GetTexture("HUDElementThunder");
+            windElementHUD = AssetManager.GetTexture("HUDElementWind");
 
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (_avatar != null)
@@ -83,6 +85,10 @@ namespace NeonStarLibrary.Components.HUD
                         case Element.Thunder:
                             CurrentLeftElement = thunderElementHUD;
                             break;
+
+                        case Element.Wind:
+                            CurrentLeftElement = windElementHUD;
+                            break;
                     }
 
                     switch (_elementSystem.RightSlotElement)
@@ -98,13 +104,14 @@ namespace NeonStarLibrary.Components.HUD
                         case Element.Thunder:
                             CurrentRightElement = thunderElementHUD;
                             break;
+
+                        case Element.Wind:
+                            CurrentRightElement = windElementHUD;
+                            break;
                     }
                 }            
             }
 
-            
-
-            
             base.Init();
         }
 
@@ -189,6 +196,11 @@ namespace NeonStarLibrary.Components.HUD
                         CurrentLeftElement = null;
                         CurrentLeftElement = thunderElementHUD;
                         break;
+
+                    case Element.Wind:
+                        CurrentLeftElement = null;
+                        CurrentLeftElement = windElementHUD;
+                        break;
                 }
             }
             else
@@ -203,6 +215,11 @@ namespace NeonStarLibrary.Components.HUD
                     case Element.Thunder:
                         CurrentRightElement = null;
                         CurrentRightElement = thunderElementHUD;
+                        break;
+
+                    case Element.Wind:
+                        CurrentRightElement = null;
+                        CurrentRightElement = windElementHUD;
                         break;
                 }
             }

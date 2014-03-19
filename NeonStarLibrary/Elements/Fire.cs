@@ -97,6 +97,7 @@ namespace NeonStarLibrary
                 case ElementState.Charge:
                     _elementSystem.AvatarComponent.CanMove = false;
                     _elementSystem.AvatarComponent.CanTurn = false;
+                    _elementSystem.AvatarComponent.CanUseElement = false;
                     _elementSystem.AvatarComponent.CanAttack = false;
                     break;
             }

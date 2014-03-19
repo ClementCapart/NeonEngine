@@ -79,6 +79,7 @@ namespace NeonStarLibrary
                     _elementSystem.AvatarComponent.CanMove = false;
                     _elementSystem.AvatarComponent.CanTurn = false;
                     _elementSystem.AvatarComponent.CanAttack = false;
+                    _elementSystem.AvatarComponent.CanUseElement = false;
                     _entity.rigidbody.GravityScale = 0.0f;
                     break;
             }

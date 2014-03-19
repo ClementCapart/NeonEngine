@@ -11,7 +11,8 @@ namespace NeonStarLibrary.Components.Avatar
     {
         Neutral,
         Fire,
-        Thunder
+        Thunder,
+        Wind
     }
 
     public class ElementSystem : Component
@@ -207,28 +208,29 @@ namespace NeonStarLibrary.Components.Avatar
         {
             if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
-                if (LeftSlotEnergy < 100.0f)
-                {
-                    LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                    if (LeftSlotEnergy > 100.0f)
-                        LeftSlotEnergy = 100.0f;
-                }
-
-                if (RightSlotEnergy < 100.0f)
-                {
-                    RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                    if (RightSlotEnergy > 100.0f)
-                        RightSlotEnergy = 100.0f;
-                }
-
                 if (CurrentElementEffect != null)
                 {
                     AvatarComponent.State = AvatarState.UsingElement;
                     CurrentElementEffect.PreUpdate(gameTime);
                     AvatarComponent.CanUseElement = false;
                 }
-            }
-            
+                else
+                {
+                    if (LeftSlotEnergy < 100.0f)
+                    {
+                        LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                        if (LeftSlotEnergy > 100.0f)
+                            LeftSlotEnergy = 100.0f;
+                    }
+
+                    if (RightSlotEnergy < 100.0f)
+                    {
+                        RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
+                        if (RightSlotEnergy > 100.0f)
+                            RightSlotEnergy = 100.0f;
+                    }
+                }
+            }             
             base.PreUpdate(gameTime);
         }
 
@@ -392,6 +394,26 @@ namespace NeonStarLibrary.Components.Avatar
                             break;
                     }
 
+                    break;
+
+                case Element.Wind:
+                    float windGaugeCost = 30.0f;                  
+                    switch (input)
+                    {
+                        case NeonStarInput.UseLeftSlotElement:
+                            if (windGaugeCost <= LeftSlotEnergy)
+                                CurrentElementEffect = new Wind(this, level, entity, input, (GameScreen)entity.GameWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+
+                        case NeonStarInput.UseRightSlotElement:
+                            if(windGaugeCost <= RightSlotEnergy)
+                                CurrentElementEffect = new Wind(this, level, entity, input, (GameScreen)entity.GameWorld);
+                            else
+                                Console.WriteLine("Not enough energy");
+                            break;
+                    }
                     break;
             }
         }

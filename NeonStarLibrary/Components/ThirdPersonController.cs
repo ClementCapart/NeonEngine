@@ -132,7 +132,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         #endregion
 
-
+        public float CurrentAirMaxSpeed;
         public bool FallSpeedLimit = true;
         public AvatarCore AvatarComponent = null;
 
@@ -164,6 +164,7 @@ namespace NeonStarLibrary.Components.Avatar
         public override void Init()
         {
             AvatarComponent = entity.GetComponent<AvatarCore>();
+            CurrentAirMaxSpeed = AirMaxSpeed;
             base.Init();
         }
 
@@ -321,7 +322,7 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.State = AvatarState.Moving;
                             AvatarComponent.CurrentSide = Side.Left;
 
-                            if (entity.rigidbody.body.LinearVelocity.X > -(_airMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(0) == null)
+                            if (entity.rigidbody.body.LinearVelocity.X > -CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(0) == null)
                                 entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed) * _movementSpeedModifier, 0);
                         }
                         else if (Neon.Input.Check(NeonStarInput.MoveRight))
@@ -329,7 +330,7 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.State = AvatarState.Moving;
                             AvatarComponent.CurrentSide = Side.Right;
 
-                            if (entity.rigidbody.body.LinearVelocity.X < _airMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(0) == null)
+                            if (entity.rigidbody.body.LinearVelocity.X < CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(0) == null)
                                 entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed * _movementSpeedModifier, 0);
                         }
                         else if (AvatarComponent.CanMove)
@@ -395,7 +396,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void FinalUpdate(GameTime gameTime)
         {
-            
+            CurrentAirMaxSpeed = AirMaxSpeed;
             base.FinalUpdate(gameTime);
         }
 

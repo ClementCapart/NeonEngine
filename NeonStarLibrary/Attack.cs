@@ -1030,7 +1030,7 @@ namespace NeonStarLibrary
                 if (enemy != null)
                 {
                     validTarget = true;
-                    _hit = validTarget = enemy.TakeDamage(this);
+                    _hit = enemy.TakeDamage(this);
                 }
 
                 if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _meleeFight != null)
@@ -1045,7 +1045,7 @@ namespace NeonStarLibrary
                 if(avatar != null)
                 {
                     validTarget = true;
-                    _hit = validTarget = avatar.TakeDamage(this);                
+                    _hit = avatar.TakeDamage(this);                
                 }
             }
 
