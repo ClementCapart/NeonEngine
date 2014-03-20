@@ -33,6 +33,8 @@
             this.InspectorTab = new System.Windows.Forms.TabControl();
             this.AddComponent = new System.Windows.Forms.Button();
             this.OpenScript = new System.Windows.Forms.OpenFileDialog();
+            this.CopyComponentButton = new System.Windows.Forms.Button();
+            this.PasteComponentButton = new System.Windows.Forms.Button();
             this.Inspector.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             this.AddComponent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddComponent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddComponent.Location = new System.Drawing.Point(133, 605);
+            this.AddComponent.Location = new System.Drawing.Point(43, 601);
             this.AddComponent.Name = "AddComponent";
             this.AddComponent.Size = new System.Drawing.Size(141, 23);
             this.AddComponent.TabIndex = 6;
@@ -88,11 +90,39 @@
             // 
             this.OpenScript.Filter = "\"Fichiers NeonStar C#|*.nscs";
             // 
+            // CopyComponentButton
+            // 
+            this.CopyComponentButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CopyComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CopyComponentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.CopyComponentButton.Location = new System.Drawing.Point(190, 601);
+            this.CopyComponentButton.Name = "CopyComponentButton";
+            this.CopyComponentButton.Size = new System.Drawing.Size(79, 23);
+            this.CopyComponentButton.TabIndex = 6;
+            this.CopyComponentButton.Text = "Copy";
+            this.CopyComponentButton.UseVisualStyleBackColor = true;
+            this.CopyComponentButton.Click += new System.EventHandler(this.CopyComponentButton_Click);
+            // 
+            // PasteComponentButton
+            // 
+            this.PasteComponentButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PasteComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PasteComponentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.PasteComponentButton.Location = new System.Drawing.Point(275, 601);
+            this.PasteComponentButton.Name = "PasteComponentButton";
+            this.PasteComponentButton.Size = new System.Drawing.Size(79, 23);
+            this.PasteComponentButton.TabIndex = 6;
+            this.PasteComponentButton.Text = "Paste";
+            this.PasteComponentButton.UseVisualStyleBackColor = true;
+            this.PasteComponentButton.Click += new System.EventHandler(this.PasteComponentButton_Click);
+            // 
             // InspectorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.PasteComponentButton);
+            this.Controls.Add(this.CopyComponentButton);
             this.Controls.Add(this.AddComponent);
             this.Controls.Add(this.Inspector);
             this.Controls.Add(this.EntityList);
@@ -112,5 +142,7 @@
         private System.Windows.Forms.Button AddComponent;
         private System.Windows.Forms.OpenFileDialog OpenScript;
         private System.Windows.Forms.TabControl InspectorTab;
+        private System.Windows.Forms.Button CopyComponentButton;
+        private System.Windows.Forms.Button PasteComponentButton;
     }
 }

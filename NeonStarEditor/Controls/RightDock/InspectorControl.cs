@@ -34,6 +34,8 @@ namespace NeonStarEditor
 
     public partial class InspectorControl : UserControl
     {
+        public XElement ClipboardComponent = null;
+
         public EditorScreen GameWorld;
         PropertyInfo[] propertiesInfo;
 
@@ -427,6 +429,7 @@ namespace NeonStarEditor
                 tp.Controls.Add(RemoveButton);
 
                 tp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                tp.Tag = c;
 
                 this.InspectorTab.DrawItem += InspectorTab_DrawItem;
 
@@ -771,6 +774,23 @@ namespace NeonStarEditor
         private void AddComponent_Click(object sender, EventArgs e)
         {
             GameWorld.ToggleAddComponentPanel();
+        }
+
+        private void CopyComponentButton_Click(object sender, EventArgs e)
+        {
+            if (GameWorld.SelectedEntity != null && InspectorTab.SelectedTab.Tag != null)
+            {
+                this.ClipboardComponent = DataManager.SaveComponentParameters(InspectorTab.SelectedTab.Tag as Component);
+            }
+        }
+
+        private void PasteComponentButton_Click(object sender, EventArgs e)
+        {
+            if (GameWorld.SelectedEntity != null && ClipboardComponent != null)
+            {
+                DataManager.LoadComponent(ClipboardComponent, GameWorld.SelectedEntity);
+                this.InstantiateProperties(GameWorld.SelectedEntity);
+            }
         }
 
     }
