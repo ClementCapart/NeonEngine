@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="HealthCollectible" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:444 Y:-950.0073}" />
+          <InitialPosition Value="{X:444 Y:-950.0073}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <HealthCollectible Type="NeonStarLibrary.Components.GameplayElements.HealthCollectible" ID="2">
+        <Properties>
+          <HealthValue Value="10" />
+          <IdleAnimation Value="" />
+          <OutAnimation Value="" />
+          <AvatarName Value="LiOn" />
+        </Properties>
+      </HealthCollectible>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="None" />
+          <Center Value="{X:444 Y:-950}" />
+          <X Value="419" />
+          <Y Value="-975" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="50" />
+          <Height Value="50" />
+        </Properties>
+      </Hitbox>
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+        <Properties>
+          <BodyType Value="Dynamic" />
+          <GravityScale Value="2" />
+          <UseGravity Value="True" />
+          <Restitution Value="0" />
+          <Friction Value="10" />
+          <Mass Value="0.24995" />
+          <OneWayPlatform Value="False" />
+          <SleepingAllowed Value="True" />
+          <IsGround Value="False" />
+          <Hitbox Value="1" />
+          <Sensors Value="False" />
+          <FixedRotation Value="True" />
+        </Properties>
+      </Rigidbody>
+    </Components>
+  </Entity>
+</Prefab>

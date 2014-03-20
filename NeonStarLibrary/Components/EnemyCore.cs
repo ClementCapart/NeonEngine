@@ -7,6 +7,7 @@ using NeonStarLibrary.Components.Graphics2D;
 using NeonStarLibrary.Private;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -66,6 +67,22 @@ namespace NeonStarLibrary.Components.Enemies
         {
             get { return _currentHealthPoints; }
             set { _currentHealthPoints = value; }
+        }
+
+        private float _chanceToDropHealth = 0.6f;
+
+        public float ChanceToDropHealth
+        {
+            get { return _chanceToDropHealth; }
+            set { _chanceToDropHealth = value; }
+        }
+
+        private float _healthItemsToDrop = 1.0f;
+
+        public float HealthItemsToDrop
+        {
+            get { return _healthItemsToDrop; }
+            set { _healthItemsToDrop = value; }
         }
 
         private float _invincibilityDuration = 0.5f;
@@ -375,6 +392,28 @@ namespace NeonStarLibrary.Components.Enemies
             return true;
         }
 
+        public void DropHealthItems()
+        {
+            Random rdm = new Random();
+            double random = rdm.NextDouble();
+            if (random <= _chanceToDropHealth)
+            {
+                for(int i = 0; i < _healthItemsToDrop; i ++)
+                {
+                    if (File.Exists(@"../Data/Prefabs/HealthCollectible.prefab"))
+                    {
+                        Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/HealthCollectible.prefab", entity.GameWorld);
+                        e.transform.Position = entity.transform.Position;
+                        random = (rdm.NextDouble() * 2) - 1;
+                        if (e.rigidbody != null)
+                            e.rigidbody.body.ApplyLinearImpulse(new Vector2((float)random, -1));
+                    }
+                }
+            }
+            else
+                Console.WriteLine("No Health ! ");
+        }
+
         public void StunLock(float duration)
         {
             if (duration > 0.0f && !_immuneToStunLock)
@@ -517,6 +556,7 @@ namespace NeonStarLibrary.Components.Enemies
             if (State == EnemyState.Dead)
             {
                 this.entity.Destroy();
+                DropHealthItems();
                 return;
             }
             else if (State != EnemyState.Dying && State != EnemyState.StunLocked)

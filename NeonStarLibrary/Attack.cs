@@ -1058,7 +1058,7 @@ namespace NeonStarLibrary
                     switch (ae.specialEffect)
                     {
                         case SpecialEffect.Impulse:
-                            if (avatar != null || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
+                            if (avatar != null && _hit || (enemy != null && !enemy.ImmuneToImpulse && enemy.State != EnemyState.Dying))
                             {
                                 if (entity.rigidbody.isGrounded || !(bool)ae.Parameters[2])
                                 {
