@@ -66,6 +66,17 @@ namespace NeonStarLibrary
                     _attackToLaunch = (string)ElementManager.ThunderParameters[2][3];
                     break;
             }
+
+            switch (_input)
+            {
+                case NeonStarInput.UseLeftSlotElement:
+                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
+                    break;
+
+                case NeonStarInput.UseRightSlotElement:
+                    _elementSystem.RightSlotEnergy -= _gaugeCost;
+                    break;
+            }
             base.InitializeLevelParameters();
         }
 
@@ -131,6 +142,7 @@ namespace NeonStarLibrary
                             }
                             effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _dashImpulse.X != 0 ? _elementSystem.AvatarComponent.CurrentSide : Side.Right, _elementSystem.entity.transform.Position, angle, offset, 2.0f, 0.7f);
                         }
+                        
                     }
                     
                     break;
@@ -158,16 +170,7 @@ namespace NeonStarLibrary
                             if (ThunderAttack != null) ThunderAttack.CancelAttack();
                             ThunderAttack = null;
                             finishEffect = EffectsManager.GetEffect(_thunderFinishSpritesheetInfo, _elementSystem.AvatarComponent.CurrentSide, _entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
-                            switch (_input)
-                            {
-                                case NeonStarInput.UseLeftSlotElement:
-                                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                                    break;
-
-                                case NeonStarInput.UseRightSlotElement:
-                                    _elementSystem.RightSlotEnergy -= _gaugeCost;
-                                    break;
-                            }
+                            
                         }
                     }
                     else
