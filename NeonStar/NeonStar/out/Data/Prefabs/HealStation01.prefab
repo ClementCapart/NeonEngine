@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="HealStation01" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:1037 Y:-338}" />
+          <InitialPosition Value="{X:1037 Y:-338}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+        </Properties>
+      </Transform>
+      <HealStation Type="NeonStarLibrary.Components.EnergyObjects.HealStation" ID="2">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <FirstActivatingDeviceName Value="EnergyDevice02" />
+          <FirstDeviceInSameLevel Value="True" />
+          <FirstActivatingDeviceLevelGroup Value="" />
+          <FirstActivatingDeviceLevelName Value="" />
+          <SecondActivatingDeviceName Value="" />
+          <SecondDeviceInSameLevel Value="True" />
+          <SecondActivatingDeviceLevelGroup Value="" />
+          <SecondActivatingDeviceLevelName Value="" />
+          <ThirdActivatingDeviceName Value="" />
+          <ThirdDeviceInSameLevel Value="True" />
+          <ThirdActivatingDeviceLevelGroup Value="" />
+          <ThirdActivatingDeviceLevelName Value="" />
+          <FourthActivatingDeviceName Value="" />
+          <FourthDeviceInSameLevel Value="True" />
+          <FourthActivatingDeviceLevelGroup Value="" />
+          <FourthActivatingDeviceLevelName Value="" />
+          <FifthActivatingDeviceName Value="" />
+          <FifthDeviceInSameLevel Value="True" />
+          <FifthActivatingDeviceLevelGroup Value="" />
+          <FifthActivatingDeviceLevelName Value="" />
+        </Properties>
+      </HealStation>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Trigger" />
+          <Center Value="{X:1037 Y:-338}" />
+          <X Value="1012" />
+          <Y Value="-363" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="50" />
+          <Height Value="50" />
+        </Properties>
+      </Hitbox>
+    </Components>
+  </Entity>
+</Prefab>

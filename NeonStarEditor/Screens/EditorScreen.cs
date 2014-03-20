@@ -21,6 +21,7 @@ using NeonEngine.Components.VisualFX;
 using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarEditor.Controls;
+using NeonStarLibrary.Components.EnergyObjects;
 
 namespace NeonStarEditor
 {
@@ -1130,6 +1131,8 @@ namespace NeonStarEditor
             if (SpritesheetPicker != null)
                 SpritesheetPicker.Dispose();
             ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game, graphics));
+            HealStation._usedHealStations.Clear();
+            DeviceManager.LoadDevicesInformation();
         }
 
         public override void ChangeScreen(World nextScreen)

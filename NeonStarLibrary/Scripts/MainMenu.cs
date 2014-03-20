@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
+using NeonStarLibrary.Components.EnergyObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,7 @@ namespace NeonStarLibrary.Components.Menu
                 DeviceManager.AlreadyLoaded = false;
                 DeviceManager.LoadDevicesInformation();
                 GameScreen.CheckPointsData.Clear();
+                HealStation._usedHealStations.Clear();
                 CollectibleManager.ResetCollectibles();
                 CollectibleManager.InitializeCollectibles(entity.GameWorld as GameScreen);
                 _firstUpdateDone = true;

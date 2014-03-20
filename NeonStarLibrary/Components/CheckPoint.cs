@@ -1,5 +1,6 @@
 ﻿using NeonEngine;
 using NeonEngine.Components.Triggers;
+using NeonStarLibrary.Components.EnergyObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +74,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             else
             {*/
                 GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
+                HealStation._usedHealStations.Clear();
             //}          
         }
 
