@@ -793,5 +793,10 @@ namespace NeonStarEditor
             }
         }
 
+        public Component GetSelectedComponent()
+        {
+            return InspectorTab.SelectedTab.Tag as Component;
+        }
+
     }
 }

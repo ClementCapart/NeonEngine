@@ -400,7 +400,6 @@ namespace NeonStarEditor
             _isSpritesheetPickerDisplayed = true;
         }
 
-
         void GameAsForm_MouseLeave(object sender, EventArgs e)
         {
             MouseInGameWindow = false;
@@ -776,7 +775,16 @@ namespace NeonStarEditor
                     }
                 }
 
-                if (Neon.Input.Pressed(Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
+                if (Neon.Input.Pressed(Keys.End) && FocusedTextBox == null && FocusedNumericUpDown == null)
+                {
+                    NeonEngine.Component c = RightDockControl.InspectorControl.GetSelectedComponent();
+                    if (c != null)
+                        c.Remove();
+
+                    if(SelectedEntity != null)
+                        RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
+                }
+                else if (Neon.Input.Pressed(Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 {
                     //ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
                     SelectedEntity.Destroy();
