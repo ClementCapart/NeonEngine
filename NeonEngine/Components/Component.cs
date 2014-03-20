@@ -19,6 +19,10 @@ namespace NeonEngine
         public event ComponentRemoved Removed;
         public int ID;
 
+        public bool HasToBeSaved = true;
+
+        protected bool _alreadyInit = false;
+
         public Type[] RequiredComponents;
 
         public Component(Entity entity, string Name)
@@ -56,7 +60,7 @@ namespace NeonEngine
 
         public virtual void Init()
         {
-
+            _alreadyInit = true;
         }
 
         public virtual void Remove()

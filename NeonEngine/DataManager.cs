@@ -119,87 +119,90 @@ namespace NeonEngine
                         XElement Components = new XElement("Components");
                         foreach (Component c in e.Components)
                         {
-                            if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
-                                continue;
-
-                            XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
-                            XElement Properties = new XElement("Properties");
-                            foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+                            if (c.HasToBeSaved)
                             {
-                                if (pi.PropertyType.IsSubclassOf(typeof(Component)))
-                                {
-                                    Component comp = (Component)pi.GetValue(c, null);
-                                    XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
-                                    Properties.Add(Property);
-                                }
-                                else if (pi.Name == "InitialPosition" || pi.Name == "Position")
-                                {
-                                    if (pi.Name == "InitialPosition")
-                                    {
-                                        Vector2 value = (Vector2)pi.GetValue(c, null);
-                                        value = new Vector2((float)Math.Round(value.X), (float)Math.Round(value.Y));
-                                        XElement Property = new XElement(pi.Name, new XAttribute("Value", value));
-                                        Properties.Add(Property);
-                                    }                                  
-                                }
-                                else if (pi.Name == "Font")
-                                {
-                                    XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp2 => kvp2.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
-                                    Properties.Add(Property);
+                                if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
+                                    continue;
 
-                                }
-                                else if (pi.Name == "Spritesheets")
+                                XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
+                                XElement Properties = new XElement("Properties");
+                                foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                                 {
-                                    XElement Property = new XElement(pi.Name);
-                                    Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
-                                    foreach (KeyValuePair<string, SpriteSheetInfo> kvp2 in propertyDictionary)
+                                    if (pi.PropertyType.IsSubclassOf(typeof(Component)))
                                     {
-                                        if (kvp2.Value != null && kvp2.Value.Frames != null)
+                                        Component comp = (Component)pi.GetValue(c, null);
+                                        XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
+                                        Properties.Add(Property);
+                                    }
+                                    else if (pi.Name == "InitialPosition" || pi.Name == "Position")
+                                    {
+                                        if (pi.Name == "InitialPosition")
                                         {
-                                            XElement Animation = new XElement("Animation",
-                                                                                new XAttribute("Name", kvp2.Key),
-                                                                                new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp2.Value))
-                                                                                );
-                                            Property.Add(Animation);
+                                            Vector2 value = (Vector2)pi.GetValue(c, null);
+                                            value = new Vector2((float)Math.Round(value.X), (float)Math.Round(value.Y));
+                                            XElement Property = new XElement(pi.Name, new XAttribute("Value", value));
+                                            Properties.Add(Property);
                                         }
                                     }
-
-                                    Properties.Add(Property);
-                                }
-                                else if (pi.PropertyType.Equals(typeof(PathNodeList)))
-                                {
-                                    PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
-                                    XElement Property;
-                                    if (pnl != null)
+                                    else if (pi.Name == "Font")
                                     {
-                                        Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
+                                        XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp2 => kvp2.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
+                                        Properties.Add(Property);
+
+                                    }
+                                    else if (pi.Name == "Spritesheets")
+                                    {
+                                        XElement Property = new XElement(pi.Name);
+                                        Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
+                                        foreach (KeyValuePair<string, SpriteSheetInfo> kvp2 in propertyDictionary)
+                                        {
+                                            if (kvp2.Value != null && kvp2.Value.Frames != null)
+                                            {
+                                                XElement Animation = new XElement("Animation",
+                                                                                    new XAttribute("Name", kvp2.Key),
+                                                                                    new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp2.Value))
+                                                                                    );
+                                                Property.Add(Animation);
+                                            }
+                                        }
+
                                         Properties.Add(Property);
                                     }
-
-                                }
-                                else if (pi.PropertyType.Equals(typeof(Vector2)))
-                                {
-                                    XElement Property = null;
-                                    Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
-                                    Properties.Add(Property);
-                                }
-                                else if (pi.Name != "CurrentEffect")
-                                {
-                                    XElement Property = null;
-                                    if (pi.PropertyType == typeof(Single))
+                                    else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                                     {
-                                        Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
-                                    }
-                                    else
-                                    {
-                                        Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
-                                    }
-                                    Properties.Add(Property);
-                                }
-                            }
+                                        PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
+                                        XElement Property;
+                                        if (pnl != null)
+                                        {
+                                            Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
+                                            Properties.Add(Property);
+                                        }
 
-                            Component.Add(Properties);
-                            Components.Add(Component);
+                                    }
+                                    else if (pi.PropertyType.Equals(typeof(Vector2)))
+                                    {
+                                        XElement Property = null;
+                                        Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
+                                        Properties.Add(Property);
+                                    }
+                                    else if (pi.Name != "CurrentEffect")
+                                    {
+                                        XElement Property = null;
+                                        if (pi.PropertyType == typeof(Single))
+                                        {
+                                            Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
+                                        }
+                                        else
+                                        {
+                                            Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
+                                        }
+                                        Properties.Add(Property);
+                                    }
+                                }
+
+                                Component.Add(Properties);
+                                Components.Add(Component);
+                            }                           
                         }
                         Entity.Add(Components);
                         Entities.Add(Entity);

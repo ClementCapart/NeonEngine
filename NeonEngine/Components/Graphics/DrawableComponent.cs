@@ -102,6 +102,7 @@ namespace NeonEngine.Components.Graphics2D
             :base(entity, Name)
         {
             this.Layer = Layer;
+            CurrentEffect = AssetManager.GetEffect("BasicRender");
         }
 
         public override void Init()

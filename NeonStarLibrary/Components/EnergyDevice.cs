@@ -11,17 +11,18 @@ namespace NeonStarLibrary.Components.EnergyObjects
     {
         #region Properties
 
-        private DeviceState _state = DeviceState.Deactivated;
+        protected DeviceState _state = DeviceState.Deactivated;
 
         public DeviceState State
         {
             get { return _state; }
-            set { _state = value; }
+            set 
+            { 
+                _state = value;
+            }
         }
 
-        #endregion
-
-       
+        #endregion      
 
         public EnergyDevice(Entity entity)
             :base(entity, "EnergyDevice")
@@ -30,13 +31,13 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public virtual void ActivateDevice()
         {
-            State = DeviceState.Activated;
+            _state = DeviceState.Activated;
             DeviceManager.SetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name, State);
         }
 
         public virtual void DeactivateDevice()
         {
-            State = DeviceState.Deactivated;
+            _state = DeviceState.Deactivated;
             DeviceManager.SetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name, State);
         }
     }
