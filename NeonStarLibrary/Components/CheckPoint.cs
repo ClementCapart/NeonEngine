@@ -1,5 +1,6 @@
 ﻿using NeonEngine;
 using NeonEngine.Components.Triggers;
+using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public bool Active = true;
         private Entity _avatar;
+        private AvatarCore _avatarComponent;
 
         public CheckPoint(Entity entity)
             :base(entity, "CheckPoint")
@@ -42,6 +44,8 @@ namespace NeonStarLibrary.Components.GameplayElements
         public override void Init()
         {
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
+            if (_avatar != null)
+                _avatarComponent = _avatar.GetComponent<AvatarCore>();
             base.Init();
         }
 
@@ -74,6 +78,8 @@ namespace NeonStarLibrary.Components.GameplayElements
             else
             {*/
                 GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
+                if (_avatarComponent != null)
+                    _avatarComponent.CurrentHealthPoints = _avatarComponent.StartingHealthPoints;
                 HealStation._usedHealStations.Clear();
             //}          
         }
