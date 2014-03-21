@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.Triggers;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
@@ -87,6 +88,22 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _groundName = value; }
         }
 
+        private string _pipesName = "Pipes";
+
+        public string PipesName
+        {
+            get { return _pipesName; }
+            set { _pipesName = value; }
+        }
+
+        private string _lightingName = "RoomLighting";
+
+        public string LightingName
+        {
+            get { return _lightingName; }
+            set { _lightingName = value; }
+        }
+
         private float _waitAfterActivationDuration = 1.0f;
 
         public float WaitAfterActivationDuration
@@ -103,6 +120,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _saveDuration = value; }
         }
 
+
         #endregion
 
         public bool Active = true;
@@ -118,7 +136,11 @@ namespace NeonStarLibrary.Components.GameplayElements
         private Entity _leftLamp;
         private Entity _rightLamp;
 
+        private Entity _pipes;
+
         private Entity _ground;
+
+        private SpriteSheet _roomLighting;
 
         private bool _startSave = false;
         private bool _finishSave = false;
@@ -140,6 +162,12 @@ namespace NeonStarLibrary.Components.GameplayElements
         {
             _yButton = entity.GetComponent<FadingSpritesheet>();
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
+
+            Entity e = entity.GameWorld.GetEntityByName(_lightingName);
+            if (e != null)
+                _roomLighting = e.GetComponent<SpriteSheet>();
+            if (_roomLighting != null)
+                _roomLighting.Active = false;
             if (_avatar != null)
                 _avatarComponent = _avatar.GetComponent<AvatarCore>();
 
@@ -167,6 +195,10 @@ namespace NeonStarLibrary.Components.GameplayElements
             _ground = entity.GameWorld.GetEntityByName(_groundName);
             if (_ground != null && _ground.spritesheets != null)
                 _ground.spritesheets.ChangeAnimation("Off");
+
+            _pipes = entity.GameWorld.GetEntityByName(_pipesName);
+            if (_pipes != null && _pipes.spritesheets != null)
+                _pipes.spritesheets.ChangeAnimation("Off");
 
             base.Init();
         }
@@ -220,6 +252,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                         if (_cabin.spritesheets.CurrentSpritesheetName == "StartClosing" && _cabin.spritesheets.IsFinished())
                         {
                             _cabin.spritesheets.ChangeAnimation("Scanning", 0, true, false, false);
+                            if (_pipes != null && _pipes.spritesheets != null)
+                                _pipes.spritesheets.ChangeAnimation("Lighting", 0, true, false, true);
                             _finishSave = true;
                         }
                     }
@@ -231,6 +265,9 @@ namespace NeonStarLibrary.Components.GameplayElements
                     {
                         if (_cabin != null && _cabin.spritesheets != null)
                             _cabin.spritesheets.ChangeAnimation("EndOpening", 0, true, false, false);
+
+                        if (_pipes != null && _pipes.spritesheets != null)
+                            _pipes.spritesheets.ChangeAnimation("Off", 0, true, false, true);
                         _finishingSave = true;
                     }
                     else
@@ -259,6 +296,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                         _avatar.spritesheets.CurrentSpritesheet.opacity = 1.0f;
                         if (_cabin != null && _cabin.spritesheets != null)
                             _cabin.spritesheets.ChangeAnimation("EndClosing", 0, true, false, false);
+                        if (_roomLighting != null)
+                            _roomLighting.Active = true;
                         _finishedSave = true;
                         _avatarComponent.State = AvatarState.Idle;
 
@@ -277,7 +316,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                 {
                     if (_avatar.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                     {
-                        if (Neon.Input.Pressed(NeonStarInput.Interact))
+                        if (Neon.Input.Pressed(NeonStarInput.Interact) && _avatar.rigidbody != null && _avatar.rigidbody.isGrounded)
                         {
                             if (_leftColumn != null && _leftColumn.spritesheets != null)
                                 _leftColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
@@ -295,12 +334,18 @@ namespace NeonStarLibrary.Components.GameplayElements
                             if (_yButton != null)
                                 _yButton.Active = false;
 
+                            _avatarComponent.State = AvatarState.Idle;
+                            _avatarComponent.CanMove = false;
+                            _avatarComponent.CanTurn = false;
+                            _avatarComponent.CanRoll = false;
+                            _avatarComponent.CanAttack = false;
+                            _avatarComponent.CanUseElement = false;
+
                             _startSave = true;
                         }
                     }
                 }
-            }
-            
+            }           
                 
             base.Update(gameTime);
         }
