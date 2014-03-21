@@ -76,6 +76,14 @@ namespace NeonStarLibrary.Components.GameplayElements
             get { return _rightLampName; }
             set { _rightLampName = value; }
         }
+
+        private string _groundName = "Ground";
+
+        public string GroundName
+        {
+            get { return _groundName; }
+            set { _groundName = value; }
+        }
         #endregion
 
         public bool Active = true;
@@ -90,6 +98,8 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private Entity _leftLamp;
         private Entity _rightLamp;
+
+        private Entity _ground;
 
         public SaveRoom(Entity entity)
             :base(entity, "CheckPoint")
@@ -120,9 +130,13 @@ namespace NeonStarLibrary.Components.GameplayElements
             if (_leftLamp != null && _leftLamp.spritesheets != null)
                 _leftLamp.spritesheets.ChangeAnimation("Off");
 
-            _rightLamp = entity.GameWorld.GetEntityByName(_rightColumnName);
+            _rightLamp = entity.GameWorld.GetEntityByName(_rightLampName);
             if (_rightLamp != null && _rightLamp.spritesheets != null)
                 _rightLamp.spritesheets.ChangeAnimation("Off");
+
+            _ground = entity.GameWorld.GetEntityByName(_groundName);
+            if (_ground != null && _ground.spritesheets != null)
+                _ground.spritesheets.ChangeAnimation("Off");
 
             base.Init();
         }
@@ -147,6 +161,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                 _leftLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
             if (_rightLamp != null && _rightLamp.spritesheets != null)
                 _rightLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_ground != null && _ground.spritesheets != null)
+                _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
 
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }

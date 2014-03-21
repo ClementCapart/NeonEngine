@@ -96,7 +96,13 @@ namespace NeonEngine.Components.Graphics2D
             set { _tintColor = value; }
         }
 
-        public Color MainColor = Color.White;
+        private Color _mainColor = Color.White;
+
+        public Color MainColor
+        {
+            get { return _mainColor; }
+            set { _mainColor = value; }
+        }
 
         public DrawableComponent(float Layer, Entity entity, string Name)
             :base(entity, Name)
