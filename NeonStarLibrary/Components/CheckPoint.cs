@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace NeonStarLibrary.Components.GameplayElements
 {
-    public class CheckPoint : Component
+    public class SaveRoom : Component
     {
         #region Properties
         private string _avatarName = "LiOn";
@@ -35,7 +35,7 @@ namespace NeonStarLibrary.Components.GameplayElements
         private Entity _avatar;
         private AvatarCore _avatarComponent;
 
-        public CheckPoint(Entity entity)
+        public SaveRoom(Entity entity)
             :base(entity, "CheckPoint")
         {
             RequiredComponents = new Type[] { typeof(HitboxTrigger) };
@@ -62,26 +62,10 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private void SaveCheckPoint()
         {
-            /*if (GameScreen.CheckPointsData.Count > 0)
-            {
-                XElement progression = GameScreen.CheckPointsData.Last();
-                string levelName = progression.Element("CurrentLevel").Element("LevelName").Value;
-                string groupName = progression.Element("CurrentLevel").Element("GroupName").Value;
-                string indexString = progression.Element("CurrentLevel").Element("SpawnPoint").Value;
-                int index = int.MaxValue;
-                if (indexString != "None")
-                    index = int.Parse(indexString);
-
-                if (entity.GameWorld.LevelGroupName != groupName || entity.GameWorld.LevelName != levelName || index != SpawnPointIndex)
-                    GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
-            }
-            else
-            {*/
-                GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
-                if (_avatarComponent != null)
-                    _avatarComponent.CurrentHealthPoints = _avatarComponent.StartingHealthPoints;
-                HealStation._usedHealStations.Clear();
-            //}          
+            GameScreen.CheckPointsData.Add((entity.GameWorld as GameScreen).SaveStatus(this));
+            if (_avatarComponent != null)
+                _avatarComponent.CurrentHealthPoints = _avatarComponent.StartingHealthPoints;
+            HealStation._usedHealStations.Clear();        
         }
 
 

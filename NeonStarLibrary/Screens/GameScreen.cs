@@ -285,7 +285,7 @@ namespace NeonStarLibrary
             }
         }
 
-        public XElement SaveStatus(CheckPoint cp = null)
+        public XElement SaveStatus(SaveRoom cp = null)
         {
             XElement playerProgression = new XElement("PlayerProgression");
 

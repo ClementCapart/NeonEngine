@@ -226,7 +226,7 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 if (ReleasedAttackButton)
                 {
-                    if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp))
+                    if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveUp) && AvatarComponent.CanAttack)
                     {
                         if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                             PerformUppercut();
@@ -268,7 +268,7 @@ namespace NeonStarLibrary.Components.Avatar
                             if (CurrentAttack == null || CurrentAttack != null && CurrentAttack.CooldownFinished)
                                 PerformLightAttack();*/
                     }
-                    else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown))
+                    else if (Neon.Input.PressedComboInput(NeonStarInput.Attack, 0.0f, NeonStarInput.MoveDown) && AvatarComponent.CanAttack)
                     {
                         if (CurrentAttack == null || (CurrentAttack != null && CurrentAttack.Type == AttackType.MeleeLight && CurrentAttack.DurationFinished) && AvatarComponent.CanAttack)
                         {
