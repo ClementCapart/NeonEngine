@@ -174,7 +174,13 @@ namespace NeonStarLibrary.Components.GameplayElements
                         if (_nextNode != null)
                         {
                             if (entity.rigidbody.body != null)
-                                this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y)) * _speed;
+                            {
+                                Vector2 direction = new Vector2(_nextNode.Position.X - entity.transform.Position.X, _nextNode.Position.Y - entity.transform.Position.Y);
+                                if (direction == Vector2.Zero)
+                                    this.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                else
+                                    this.entity.rigidbody.body.LinearVelocity = Vector2.Normalize(direction) * _speed;
+                            }
                         }
                     }
                 }

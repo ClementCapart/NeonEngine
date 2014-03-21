@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="ScriptedElement">
+    <Entities>
+      <Entity Name="Scanner" Layer="ScriptedElement">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1381 Y:397}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Opening" SpritesheetTag="ScannerOpening" />
+                <Animation Name="Opened" SpritesheetTag="ScannerOpened" />
+                <Animation Name="Scanning" SpritesheetTag="ScannerScanning" />
+                <Animation Name="Error" SpritesheetTag="ScannerError" />
+              </Spritesheets>
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+            </Properties>
+          </SpritesheetManager>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="True" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Scanner" />
+              <TriggeredComponentName Value="EntranceScanScript" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-1381 Y:397}" />
+              <X Value="-1406" />
+              <Y Value="372" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <EntranceScanScript Type="NeonStarLibrary.Components.Scripts.EntranceScanScript" ID="4">
+            <Properties>
+              <ScanningDuration Value="1.8" />
+              <ScannerName Value="Scanner" />
+              <ScannerCommandName Value="ScannerCommand" />
+              <AvatarName Value="LiOn" />
+            </Properties>
+          </EntranceScanScript>
+        </Components>
+      </Entity>
+      <Entity Name="ScannerCommand" Layer="ScriptedElement">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1614 Y:396}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="Scanner" />
+              <TriggeredComponentName Value="EntranceScanScript" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-1614 Y:396}" />
+              <X Value="-1639" />
+              <Y Value="371" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
