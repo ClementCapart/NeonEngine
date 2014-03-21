@@ -163,7 +163,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -243,7 +243,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:75 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -337,7 +337,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -469,7 +469,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -509,8 +509,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-24 Y:-975}" />
-              <X Value="-74" />
+              <Center Value="{X:1525 Y:-975}" />
+              <X Value="1475" />
               <Y Value="-1010" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -649,14 +649,14 @@
               <AutoChangeInitialPosition Value="False" />
               <InitialPosition Value="{X:-850 Y:-1225}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:242 Y:-1225}" />
-              <X Value="192" />
+              <Center Value="{X:1544 Y:-1225}" />
+              <X Value="1494" />
               <Y Value="-1260" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -698,6 +698,94 @@
               <InitAtFirstNode Value="True" />
             </Properties>
           </MovingGeometry>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="5">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotIdle" />
+              <DrawLayer Value="0.45" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:6 Y:24}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="6">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
+            <Properties>
+              <StartingFrame Value="3" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="8">
+            <Properties>
+              <StartingFrame Value="8" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BotRing" />
+              <DrawLayer Value="0.44" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:5 Y:21}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
@@ -707,7 +795,7 @@
               <AutoChangeInitialPosition Value="True" />
               <InitialPosition Value="{X:-1425 Y:-1025}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
@@ -738,6 +826,284 @@
               <FixedRotation Value="True" />
             </Properties>
           </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingCornerBlocBlue" />
+              <DrawLayer Value="0.85" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:296 Y:325}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="True" />
+              <TilingSize Value="100" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingWallTile1" />
+              <SecondTileGraphicTag Value="NewTrainingWallDoubleTile1" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:300 Y:250}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingCornerBlocGray" />
+              <DrawLayer Value="0.85" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:296 Y:175}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingFloorTile2" />
+              <SecondTileGraphicTag Value="NewTrainingFloorDoubleTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:171}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingCornerBlocGray" />
+              <DrawLayer Value="0.85" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:296 Y:-25}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingCornerBlocGray" />
+              <DrawLayer Value="0.85" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:296 Y:-77}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingFloorTile2" />
+              <SecondTileGraphicTag Value="NewTrainingFloorDoubleTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_1-{X:75 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:171}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingFloorTile2" />
+              <SecondTileGraphicTag Value="NewTrainingFloorDoubleTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_1-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingCeilingDoubleTile2" />
+              <SecondTileGraphicTag Value="NewTrainingCeilingTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_0-{X:225 Y:0}_0-{X:250 Y:0}_0-{X:275 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingCeilingDoubleTile2" />
+              <SecondTileGraphicTag Value="NewTrainingCeilingTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:-25}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1000" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingFloorTile2" />
+              <SecondTileGraphicTag Value="NewTrainingFloorDoubleTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_0-{X:325 Y:0}_1-{X:350 Y:0}_1-{X:400 Y:0}_0-{X:450 Y:0}_0-{X:475 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:175 Y:-327}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="600" />
+              <DrawLayer Value="0.8" />
+              <CloserGraphicTag Value="" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="NewTrainingCeilingDoubleTile2" />
+              <SecondTileGraphicTag Value="NewTrainingCeilingTile2" />
+              <ThirdTileGraphicTag Value="" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:150 Y:0}_1-{X:175 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-25 Y:-277}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </RandomTilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingCornerBlocGray" />
+              <DrawLayer Value="0.849" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:296 Y:-277}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
       <Entity Name="ChangeLevelStock" Layer="">
@@ -1061,7 +1427,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:100}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1256,7 +1622,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_0-{X:425 Y:0}_0-{X:450 Y:0}_1-{X:475 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_0-{X:325 Y:0}_0-{X:350 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1322,7 +1688,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1497,7 +1863,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1589,7 +1955,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:75 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1817,7 +2183,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:0 Y:25}_0-{X:0 Y:75}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:75}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1871,7 +2237,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:25 Y:0}_0-{X:75 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1937,7 +2303,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
