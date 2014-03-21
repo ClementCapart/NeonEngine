@@ -1,7 +1,9 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Components.Triggers;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
+using NeonStarLibrary.Components.Graphics2D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +86,23 @@ namespace NeonStarLibrary.Components.GameplayElements
             get { return _groundName; }
             set { _groundName = value; }
         }
+
+        private float _waitAfterActivationDuration = 1.0f;
+
+        public float WaitAfterActivationDuration
+        {
+            get { return _waitAfterActivationDuration; }
+            set { _waitAfterActivationDuration = value; }
+        }
+
+        private float _saveDuration = 2.0f;
+
+        public float SaveDuration
+        {
+            get { return _saveDuration; }
+            set { _saveDuration = value; }
+        }
+
         #endregion
 
         public bool Active = true;
@@ -101,6 +120,16 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private Entity _ground;
 
+        private bool _startSave = false;
+        private bool _finishSave = false;
+        private bool _finishingSave = false;
+        private bool _startActualSave = false;
+        private bool _finishedSave = false;
+        private float _activationTimer = 0.0f;
+        private float _saveTimer = 0.0f;
+
+        private FadingSpritesheet _yButton;
+
         public SaveRoom(Entity entity)
             :base(entity, "CheckPoint")
         {
@@ -109,6 +138,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Init()
         {
+            _yButton = entity.GetComponent<FadingSpritesheet>();
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (_avatar != null)
                 _avatarComponent = _avatar.GetComponent<AvatarCore>();
@@ -141,30 +171,138 @@ namespace NeonStarLibrary.Components.GameplayElements
             base.Init();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            base.Update(gameTime);
+            if (!_finishedSave)
+            {
+                if (_startSave)
+                {
+                    if (_avatarComponent != null)
+                    {
+                        _avatarComponent.CanMove = false;
+                        _avatarComponent.CanTurn = false;
+                        _avatarComponent.CanRoll = false;
+                        _avatarComponent.CanAttack = false;
+                        _avatarComponent.CanUseElement = false;
+                    }
+                }
+                if (_startSave && !_startActualSave && !_finishSave)
+                {
+                    if (_activationTimer >= _waitAfterActivationDuration)
+                    {
+                        if (_cabin != null && _cabin.spritesheets != null && _cabin.spritesheets.CurrentSpritesheetName != "StartOpening")
+                            _cabin.spritesheets.ChangeAnimation("StartOpening", 0, true, false, false);
+                        else if (_cabin != null && _cabin.spritesheets != null && _cabin.spritesheets.CurrentSpritesheetName == "StartOpening" && _cabin.spritesheets.IsFinished())
+                        {
+                            _startActualSave = true;
+                        }
+                    }
+                    else
+                    {
+                        _activationTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                }
+
+                if (_startActualSave && !_finishSave)
+                {
+                    _avatarComponent.State = AvatarState.Saving;
+                    if (_avatar != null)
+                        _avatar.transform.Position = new Vector2(MathHelper.Lerp(_avatar.transform.Position.X, this.entity.transform.Position.X, 0.1f), _avatar.transform.Position.Y);
+
+                    if (_avatar != null && _avatar.spritesheets != null && _avatar.spritesheets.CurrentSpritesheet.opacity <= 0.0f)
+                    {
+                        SaveCheckPoint();
+                        if (_cabin != null && _cabin.spritesheets != null)
+                            _cabin.spritesheets.ChangeAnimation("StartClosing", 0, true, false, false);
+                    }
+                    if (_cabin != null && _cabin.spritesheets != null)
+                    {
+                        if (_cabin.spritesheets.CurrentSpritesheetName == "StartClosing" && _cabin.spritesheets.IsFinished())
+                        {
+                            _cabin.spritesheets.ChangeAnimation("Scanning", 0, true, false, false);
+                            _finishSave = true;
+                        }
+                    }
+                }
+
+                if (_finishSave && !_finishingSave)
+                {
+                    if (_cabin != null && _cabin.spritesheets != null && _cabin.spritesheets.CurrentSpritesheetName == "Scanning" && _cabin.spritesheets.CurrentSpritesheet.IsFinished)
+                    {
+                        if (_cabin != null && _cabin.spritesheets != null)
+                            _cabin.spritesheets.ChangeAnimation("EndOpening", 0, true, false, false);
+                        _finishingSave = true;
+                    }
+                    else
+                    {
+                        _saveTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                }
+
+                if (_finishingSave)
+                {
+                    if (_cabin != null && _cabin.spritesheets != null)
+                    {
+                        if (_cabin.spritesheets.CurrentSpritesheetName == "EndOpening" && _cabin.spritesheets.IsFinished())
+                        {
+                            if (_avatarComponent != null && _avatarComponent.State != AvatarState.FinishSaving)
+                            {
+                                _avatar.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                                _avatarComponent.State = AvatarState.FinishSaving;
+                            }
+
+                        }
+                    }
+
+                    if (_avatarComponent != null && _avatarComponent.State == AvatarState.FinishSaving && _avatar != null && _avatar.spritesheets.CurrentSpritesheet.opacity >= 1.0f)
+                    {
+                        _avatar.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                        if (_cabin != null && _cabin.spritesheets != null)
+                            _cabin.spritesheets.ChangeAnimation("EndClosing", 0, true, false, false);
+                        _finishedSave = true;
+                        _avatarComponent.State = AvatarState.Idle;
+
+                    }
+                }
+            }
+            
+            base.PreUpdate(gameTime);
         }
 
-        public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            SaveCheckPoint();
-            if (_leftColumn != null && _leftColumn.spritesheets != null)
-                _leftColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_rightColumn != null && _rightColumn.spritesheets != null)
-                _rightColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_background != null && _background.spritesheets != null)
-                _background.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_cabin != null && _cabin.spritesheets != null)
-                _cabin.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_leftLamp != null && _leftLamp.spritesheets != null)
-                _leftLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_rightLamp != null && _rightLamp.spritesheets != null)
-                _rightLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
-            if (_ground != null && _ground.spritesheets != null)
-                _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (!_finishedSave && !_startSave)
+            {
+                if (_avatar.hitboxes.Count > 0 && this.entity.hitboxes.Count > 0)
+                {
+                    if (_avatar.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
+                    {
+                        if (Neon.Input.Pressed(NeonStarInput.Interact))
+                        {
+                            if (_leftColumn != null && _leftColumn.spritesheets != null)
+                                _leftColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+                            if (_rightColumn != null && _rightColumn.spritesheets != null)
+                                _rightColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+                            if (_background != null && _background.spritesheets != null)
+                                _background.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
 
-            base.OnTrigger(trigger, triggeringEntity, parameters);
+                            if (_leftLamp != null && _leftLamp.spritesheets != null)
+                                _leftLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+                            if (_rightLamp != null && _rightLamp.spritesheets != null)
+                                _rightLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+                            if (_ground != null && _ground.spritesheets != null)
+                                _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+                            if (_yButton != null)
+                                _yButton.Active = false;
+
+                            _startSave = true;
+                        }
+                    }
+                }
+            }
+            
+                
+            base.Update(gameTime);
         }
 
         private void SaveCheckPoint()

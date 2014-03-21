@@ -201,6 +201,7 @@ namespace NeonEngine.Components.Graphics2D
                 return;
             }
             CurrentSpritesheetName = spriteSheetName;
+            CurrentSpritesheet.opacity = 1.0f;
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;
             CurrentSpritesheet.ReverseLoop = false;

@@ -22,6 +22,8 @@ namespace NeonStarLibrary.Components.Avatar
         UsingElement,
         Dying,
         Respawning,
+        Saving,
+        FinishSaving,
     }
 
     public class AvatarCore : Component
@@ -126,7 +128,6 @@ namespace NeonStarLibrary.Components.Avatar
         
         private bool _opacityGoingDown = true;
         private SpriteSheetInfo _hitGuardSpritesheet = null;
-
 
         public AvatarCore(Entity entity)
             :base(entity, "AvatarCore")
@@ -308,7 +309,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(GameTime gameTime)
         {
-            if (State != AvatarState.Dying && State != AvatarState.Respawning)
+            if (State != AvatarState.Dying && State != AvatarState.Respawning && State != AvatarState.Saving && State != AvatarState.FinishSaving)
             {
                 if (_invincibilityTimer > 0.0f)
                 {

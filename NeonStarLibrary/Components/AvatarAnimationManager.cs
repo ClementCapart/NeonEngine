@@ -32,9 +32,28 @@ namespace NeonStarLibrary.Components.Avatar
                 entity.spritesheets.ChangeSide(AvatarComponent.CurrentSide);
                 switch (AvatarComponent.State)
                 {
+
+                    case AvatarState.Saving:
+                        if (entity.spritesheets != null)
+                        {
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation);
+                            entity.spritesheets.CurrentSpritesheet.opacity -= 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        break;
+
+                    case AvatarState.FinishSaving:
+                        if (entity.spritesheets != null)
+                        {
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation);
+                            entity.spritesheets.CurrentSpritesheet.opacity += 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        }
+                        break;
+
                     case AvatarState.Respawning:
                         if (entity.spritesheets != null)
                         {
+                            entity.spritesheets.CurrentSpritesheet.Reverse = false;
+                            entity.spritesheets.Active = true;
                             entity.spritesheets.ChangeAnimation(AvatarComponent.RespawnAnimation, true, 0, false, false, false);
                         }
                         break;
