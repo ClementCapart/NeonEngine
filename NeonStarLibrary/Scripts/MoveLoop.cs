@@ -23,7 +23,7 @@ namespace NeonStarLibrary.Components.Scripts
         public override void Init()
         {
             _movingGeometry = entity.GetComponent<MovingGeometry>();
-            if (_movingGeometry.CurrentNodeList.Nodes.Count >= 2)
+            if (_movingGeometry.CurrentNodeList != null && _movingGeometry.CurrentNodeList.Nodes.Count >= 2)
             {
                 _startNode = _movingGeometry.CurrentNodeList.Nodes[0];
                 _targetNode = _movingGeometry.CurrentNodeList.Nodes[1];
@@ -33,7 +33,7 @@ namespace NeonStarLibrary.Components.Scripts
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (Vector2.DistanceSquared(this.entity.transform.Position, _targetNode.Position) < 50.0f*50.0f)
+            if (_targetNode != null && Vector2.DistanceSquared(this.entity.transform.Position, _targetNode.Position) < 50.0f*50.0f)
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 this.entity.transform.Position = _startNode.Position;
