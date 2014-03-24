@@ -38,10 +38,13 @@ namespace NeonStarLibrary.Components.Enemies
                         if (CheckIfEntityIsInRange())
                         {
                             EnemyComponent.State = EnemyState.Attacking;
-                            if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
-                                EnemyComponent.CurrentSide = Side.Left;
-                            else
-                                EnemyComponent.CurrentSide = Side.Right;
+                            if (CanTurn)
+                            {
+                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Left;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Right;
+                            }
                         }
                         break;
 
@@ -50,10 +53,14 @@ namespace NeonStarLibrary.Components.Enemies
                         if (CheckIfEntityIsInRange())
                         {
                             EnemyComponent.State = EnemyState.WaitThreat;
-                            if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
-                                EnemyComponent.CurrentSide = Side.Left;
-                            else
-                                EnemyComponent.CurrentSide = Side.Right;
+                            if (CanTurn)
+                            {
+                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Left;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Right;
+                            }
+                            
                         }
                         break;
 
@@ -64,10 +71,13 @@ namespace NeonStarLibrary.Components.Enemies
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
                             }
-                            if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
-                                EnemyComponent.CurrentSide = Side.Left;
-                            else
-                                EnemyComponent.CurrentSide = Side.Right;
+                            if (CanTurn)
+                            {
+                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                    EnemyComponent.CurrentSide = Side.Left;
+                                else
+                                    EnemyComponent.CurrentSide = Side.Right;
+                            }
                         }
                         else
                         {
