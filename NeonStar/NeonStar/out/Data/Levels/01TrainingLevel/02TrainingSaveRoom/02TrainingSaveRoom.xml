@@ -632,6 +632,69 @@
           </Rigidbody>
         </Components>
       </Entity>
+      <Entity Name="ParticleEmitter" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-108 Y:-648}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <ParticleEmitter Type="NeonEngine.Components.VisualFX.ParticleEmitter" ID="1">
+            <Properties>
+              <MovementType Value="Linear" />
+              <MinimumDispersionAngle Value="-90" />
+              <MaximumDispersionAngle Value="90" />
+              <MininimumStartingSpeed Value="100" />
+              <MaximumStartingSpeed Value="100" />
+              <MinimumEndingSpeed Value="100" />
+              <MaximumEndingSpeed Value="100" />
+              <MinimumDuration Value="2" />
+              <MaximumDuration Value="3" />
+              <MaximumSpawnPerTick Value="3" />
+              <MinimumSpawnPerTick Value="3" />
+              <MinimumFadeInTime Value="0.4" />
+              <MaximumFadeInTime Value="0.4" />
+              <MinimumFadeOutTime Value="0.3" />
+              <MaximumFadeOutTime Value="0.3" />
+              <SpawnRate Value="0.6" />
+              <MinimumOpacity Value="0.7" />
+              <MaximumOpacity Value="1" />
+              <MinimumStartingBrightness Value="1" />
+              <MaximumStartingBrightness Value="1" />
+              <MinimumEndingBrightness Value="1" />
+              <MaximumEndingBrightness Value="1" />
+              <StartingColor Value="{R:255 G:255 B:255 A:255}" />
+              <EndingColor Value="{R:255 G:255 B:255 A:255}" />
+              <MinimumStartingOpacity Value="0.5" />
+              <MaximumStartingOpacity Value="0.5" />
+              <MinimumEndingOpacity Value="1" />
+              <MaximumEndingOpacity Value="1" />
+              <MinimumStartingScale Value="1.5" />
+              <MaximumStartingScale Value="2.5" />
+              <MinimumEndingScale Value="1" />
+              <MaximumEndingScale Value="1" />
+              <ParticleLayer Value="0.9" />
+              <GraphicTag Value="SaveRoomParticle" />
+              <SpriteSheetTag Value="" />
+              <UseSpriteSheet Value="False" />
+              <Loop Value="False" />
+              <StartAtRandomFrame Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </ParticleEmitter>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>

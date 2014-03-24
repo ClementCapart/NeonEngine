@@ -71,21 +71,22 @@ namespace NeonStarLibrary
             switch(State)
             {
                 case ElementState.Initialization:
-                    switch (_input)
-                    {
-                        case NeonStarInput.UseLeftSlotElement:
-                            _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                            break;
-
-                        case NeonStarInput.UseRightSlotElement:
-                            _elementSystem.RightSlotEnergy -= _gaugeCost;
-                            break;
-                    }
+                    
                     
                     if (_entity.rigidbody != null && _entity.rigidbody.isGrounded)
                     {
                         _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
                         _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
+                        switch (_input)
+                        {
+                            case NeonStarInput.UseLeftSlotElement:
+                                _elementSystem.LeftSlotEnergy -= _gaugeCost;
+                                break;
+
+                            case NeonStarInput.UseRightSlotElement:
+                                _elementSystem.RightSlotEnergy -= _gaugeCost;
+                                break;
+                        }
                         State = ElementState.Charge;
                     }
                     else
