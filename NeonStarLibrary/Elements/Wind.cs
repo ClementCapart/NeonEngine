@@ -70,12 +70,11 @@ namespace NeonStarLibrary
         {
             switch(State)
             {
-                case ElementState.Initialization:
-                    
-                    
+                case ElementState.Initialization: 
                     if (_entity.rigidbody != null && _entity.rigidbody.isGrounded)
                     {
                         _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
+                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
                         switch (_input)
                         {

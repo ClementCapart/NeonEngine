@@ -142,8 +142,6 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (_hasBeenLaunched)
             {
-                Console.WriteLine("Good Boom ! ");
-
                 if (_explosionAttack != "")
                 {
                     Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);
@@ -153,7 +151,6 @@ namespace NeonStarLibrary.Components.Enemies
             }
             else
             {
-                Console.WriteLine("Bad Boom ! ");
                 if (_explosionAttack != "")
                 {
                     Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);

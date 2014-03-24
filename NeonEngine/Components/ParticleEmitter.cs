@@ -270,8 +270,6 @@ namespace NeonEngine.Components.VisualFX
             set { _maximumEndingScale = value; }
         }
 
-        private float _particleLayer = 1.0f;
-
         public float ParticleLayer
         {
             get { return this.Layer; }
