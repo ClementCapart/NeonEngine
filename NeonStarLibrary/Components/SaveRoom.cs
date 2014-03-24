@@ -206,6 +206,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             {
                 _ceiling.Active = false;
                 _ceiling.IsLooped = false;
+                _ceiling.isPlaying = false;
             }
 
             if (_roomLighting != null)
@@ -249,9 +250,20 @@ namespace NeonStarLibrary.Components.GameplayElements
         {
 
             if (_leftLamp != null && _leftLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _leftLamp.spritesheets.IsFinished())
+            {
                 _leftLamp.spritesheets.ChangeAnimation("On");
+                _leftLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoop = true;
+                _leftLamp.spritesheets.CurrentSpritesheet.InvisibleDuringDelay = false;
+                _leftLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoopAgain = 0.5f;
+            }
             if (_rightLamp != null && _rightLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _rightLamp.spritesheets.IsFinished())
+            {
+                
                 _rightLamp.spritesheets.ChangeAnimation("On");
+                _rightLamp.spritesheets.CurrentSpritesheet.InvisibleDuringDelay = false;
+                _rightLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoop = true;
+                _rightLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoopAgain = 0.5f;
+            }
             if (!_finishedSave)
             {
                 if (_startSave)
@@ -280,7 +292,10 @@ namespace NeonStarLibrary.Components.GameplayElements
                         }
 
                         if (_ceiling != null)
+                        {
                             _ceiling.Active = true;
+                            _ceiling.isPlaying = true;
+                        }
                     }
 
                     if (_activationTimer >= _waitAfterActivationDuration)

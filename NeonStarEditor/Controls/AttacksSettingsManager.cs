@@ -17,6 +17,9 @@ namespace NeonStarEditor
 {
     public partial class AttacksSettingsManager : UserControl
     {
+        
+        
+
         Dictionary<string, AttackInfo> _attackList = new Dictionary<string, AttackInfo>();
         string InitialName = "";
         AttackEffect CurrentAttackEffectSelected = null;

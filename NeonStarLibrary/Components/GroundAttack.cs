@@ -59,20 +59,25 @@ namespace NeonStarLibrary.Components.Enemies
                             if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
-                                EnemyComponent.CurrentSide = Side.Right;
+                                if(CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Right;
                             }
                             else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
-                                EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Left;
                             }
                             else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
-                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                    EnemyComponent.CurrentSide = Side.Right;
-                                else
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                {
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
                             }
                         }
                         else
@@ -93,10 +98,13 @@ namespace NeonStarLibrary.Components.Enemies
                             else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
                                 EnemyComponent.State = EnemyState.Attacking;
-                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                    EnemyComponent.CurrentSide = Side.Right;
-                                else
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                {
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
                             }
                         }
                         break;
@@ -118,20 +126,25 @@ namespace NeonStarLibrary.Components.Enemies
                             if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
-                                EnemyComponent.CurrentSide = Side.Right;
+                                if (CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Right;
                             }
                             else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
-                                EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Left;
                             }
                             else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
-                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                    EnemyComponent.CurrentSide = Side.Right;
-                                else
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                {
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
                             }
                         }
                         else
@@ -152,10 +165,13 @@ namespace NeonStarLibrary.Components.Enemies
                             else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
                                 EnemyComponent.State = EnemyState.WaitThreat;
-                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                    EnemyComponent.CurrentSide = Side.Right;
-                                else
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                {
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
                             }
                         }
                         break;
@@ -178,20 +194,25 @@ namespace NeonStarLibrary.Components.Enemies
                                 if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
-                                    EnemyComponent.CurrentSide = Side.Right;
+                                    if (CanTurn)
+                                        EnemyComponent.CurrentSide = Side.Right;
                                 }
                                 else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                    if (CanTurn)
+                                        EnemyComponent.CurrentSide = Side.Left;
                                 }
                                 else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
-                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                        EnemyComponent.CurrentSide = Side.Right;
-                                    else
-                                        EnemyComponent.CurrentSide = Side.Left;
+                                    if (CanTurn)
+                                    {
+                                        if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                            EnemyComponent.CurrentSide = Side.Right;
+                                        else
+                                            EnemyComponent.CurrentSide = Side.Left;
+                                    }
                                 }
                             }
                             else
@@ -212,10 +233,13 @@ namespace NeonStarLibrary.Components.Enemies
                                 else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                                 {
                                     EnemyComponent.State = EnemyState.Attacking;
-                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                        EnemyComponent.CurrentSide = Side.Right;
-                                    else
-                                        EnemyComponent.CurrentSide = Side.Left;
+                                    if (CanTurn)
+                                    {
+                                        if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                            EnemyComponent.CurrentSide = Side.Right;
+                                        else
+                                            EnemyComponent.CurrentSide = Side.Left;
+                                    }
                                 }
                             }
                         }
@@ -233,18 +257,23 @@ namespace NeonStarLibrary.Components.Enemies
 
                             if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
-                                EnemyComponent.CurrentSide = Side.Right;
+                                if (CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Right;
                             }
                             else if (hitEntities[1] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) < _attacks.Keys.Last())
                             {
-                                EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                    EnemyComponent.CurrentSide = Side.Left;
                             }
                             else if (entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
-                                if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
-                                    EnemyComponent.CurrentSide = Side.Right;
-                                else
-                                    EnemyComponent.CurrentSide = Side.Left;
+                                if (CanTurn)
+                                {
+                                    if (entity.transform.Position.X < EntityToAttack.transform.Position.X)
+                                        EnemyComponent.CurrentSide = Side.Right;
+                                    else
+                                        EnemyComponent.CurrentSide = Side.Left;
+                                }
                             }
                             else if (EnemyComponent.Chase == null)
                                 EnemyComponent.State = EnemyState.Idle;

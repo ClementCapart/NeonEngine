@@ -5,18 +5,18 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:758.2379 Y:-323.0074}" />
-          <InitialPosition Value="{X:758.2379 Y:-323.0074}" />
+          <InitialPosition Value="{X:-642 Y:106.9925}" />
           <Rotation Value="0" />
           <Scale Value="2" />
+          <Position Value="{X:-642 Y:106.9925}" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:758 Y:-323}" />
-          <X Value="738" />
-          <Y Value="-391" />
+          <Center Value="{X:-642 Y:106}" />
+          <X Value="-662" />
+          <Y Value="38" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -78,10 +78,12 @@
             <Animation Name="FireLaunchLoopThree" SpritesheetTag="ElementCrystalLoopLvlThree" />
             <Animation Name="FireReleaseThree" SpritesheetTag="ElementCrystalOutLvlThree" />
             <Animation Name="Respawn" SpritesheetTag="LiOnSpawn" />
+            <Animation Name="WindStart" SpritesheetTag="LiOnGravityStart" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </SpritesheetManager>
       <MeleeFight Type="NeonStarLibrary.Components.Avatar.MeleeFight" ID="4">
@@ -166,6 +168,7 @@
           <FireLaunchLoopAnimationLevelThree Value="FireLaunchLoopThree" />
           <FireReleaseAnimationLevelThree Value="FireReleaseThree" />
           <ThunderLaunchAnimation Value="ThunderLaunch" />
+          <WindStartAnimation Value="WindStart" />
           <LeftSlotElement Value="Wind" />
           <LeftSlotLevel Value="1" />
           <RightSlotElement Value="Neutral" />
@@ -196,6 +199,7 @@
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </FireGauge>
       <CameraFocus Type="NeonStarLibrary.Components.Camera.CameraFocus" ID="12">

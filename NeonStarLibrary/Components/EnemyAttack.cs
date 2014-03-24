@@ -11,6 +11,14 @@ namespace NeonStarLibrary.Components.Enemies
     {
         
         #region Properties
+        protected bool _canTurn = true;
+
+        public bool CanTurn
+        {
+            get { return _canTurn; }
+            set { _canTurn = value; }
+        }
+
         protected float _rangeForAttackOne = 0.0f;
 
         public float RangeForAttackOne

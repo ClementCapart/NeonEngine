@@ -204,6 +204,14 @@ namespace NeonStarLibrary.Components.Enemies
             get { return _waitThreatDuration; }
             set { _waitThreatDuration = value; }
         }
+
+        private Side _currentSide = Side.Right;
+
+        public Side CurrentSide
+        {
+            get { return _currentSide; }
+            set { _currentSide = value; }
+        }
         #endregion
 
         public EnemyState State = EnemyState.Idle;
@@ -213,7 +221,7 @@ namespace NeonStarLibrary.Components.Enemies
         public EnemyAttack Attack;
         public DamageDisplayer DamageDisplayer;
 
-        public Side CurrentSide = Side.Right;
+        
 
         public bool CanMove = true;
         public bool CanTurn = true;
