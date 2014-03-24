@@ -73,22 +73,31 @@ namespace NeonStarLibrary
                 case ElementState.Initialization: 
                     if (_entity.rigidbody != null && _entity.rigidbody.isGrounded)
                     {
-                        _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
-                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                        _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
-                        switch (_input)
+                        if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)
                         {
-                            case NeonStarInput.UseLeftSlotElement:
-                                _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                                break;
+                            _entity.spritesheets.ChangeAnimation(this._elementSystem.WindStartAnimation, 0, true, false, false);
+                            switch (_input)
+                            {
+                                case NeonStarInput.UseLeftSlotElement:
+                                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
+                                    break;
 
-                            case NeonStarInput.UseRightSlotElement:
-                                _elementSystem.RightSlotEnergy -= _gaugeCost;
-                                break;
+                                case NeonStarInput.UseRightSlotElement:
+                                    _elementSystem.RightSlotEnergy -= _gaugeCost;
+                                    break;
+                            }
+
+                            _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         }
+                        
+                    }
+                    else if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName == _elementSystem.WindStartAnimation && _entity.spritesheets.IsFinished())
+                    {
+                        _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
+                        _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
                         State = ElementState.Charge;
                     }
-                    else
+                    else if(_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)
                         State = ElementState.Effect;
                     break;
 

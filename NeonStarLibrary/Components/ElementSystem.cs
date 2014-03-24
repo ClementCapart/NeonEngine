@@ -98,6 +98,14 @@ namespace NeonStarLibrary.Components.Avatar
             set { _thunderLaunchAnimation = value; }
         }
 
+        private string _windStartAnimation = "";
+
+        public string WindStartAnimation
+        {
+            get { return _windStartAnimation; }
+            set { _windStartAnimation = value; }
+        }
+
         private Element _leftSlotElement = Element.Neutral;
 
         public Element LeftSlotElement
