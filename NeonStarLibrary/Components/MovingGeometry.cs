@@ -234,5 +234,15 @@ namespace NeonStarLibrary.Components.GameplayElements
                 this._nextNode = _currentNodeList.Nodes[oldIndex + 1];
             }
         }
+
+        public Node GetCurrentTargetNode()
+        {
+            return _nextNode;
+        }
+
+        public void SetCurrentTargetNode(Node node)
+        {
+            _nextNode = node;
+        }
     }
 }

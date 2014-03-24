@@ -14,6 +14,7 @@ namespace NeonStarLibrary.Components.Scripts
         private MovingGeometry _movingGeometry;
         private Node _startNode;
         private Node _targetNode;
+        private Node _currentTargetNode;
 
         public MoveLoop(Entity entity)
             : base(entity, "MoveLoop")
@@ -37,6 +38,15 @@ namespace NeonStarLibrary.Components.Scripts
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 this.entity.transform.Position = _startNode.Position;
+            }
+            if (_movingGeometry.CurrentNodeList != null && _movingGeometry.CurrentNodeList.Nodes.Count >= 2)
+            {
+                _currentTargetNode = _movingGeometry.GetCurrentTargetNode();
+                if(_currentTargetNode == _movingGeometry.CurrentNodeList.Nodes[0])
+                {
+                    _currentTargetNode = _movingGeometry.CurrentNodeList.Nodes[1];
+                    _movingGeometry.SetCurrentTargetNode(_currentTargetNode);
+                }
             }
             base.Update(gameTime);
         }
