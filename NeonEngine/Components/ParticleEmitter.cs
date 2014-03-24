@@ -262,6 +262,14 @@ namespace NeonEngine.Components.VisualFX
             set { _maximumEndingScale = value; }
         }
 
+        private float _particleLayer = 1.0f;
+
+        public float ParticleLayer
+        {
+            get { return this.Layer; }
+            set { Layer = value; }
+        }
+
         Texture2D _particleTexture;
         
         private string _graphicTag = "";
@@ -403,6 +411,7 @@ namespace NeonEngine.Components.VisualFX
             p.FadeInDelay = _minimumFadeInTime + (float)random.NextDouble() * (_maximumFadeInTime - _minimumFadeInTime);
             p.FadeOutDelay = _minimumFadeOutTime + (float)random.NextDouble() * (_maximumFadeOutTime - _minimumFadeOutTime);
             p.Position = entity.transform.Position;
+            p.Layer = ParticleLayer;
 
             p.StartingBrightness = _minimumStartingBrightness + (float)random.NextDouble() * (_maximumStartingBrightness - _minimumStartingBrightness);
             p.EndingBrightness = _minimumEndingBrightness + (float)random.NextDouble() * (_maximumEndingBrightness - _maximumEndingBrightness);
