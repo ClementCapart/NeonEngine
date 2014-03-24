@@ -11,9 +11,9 @@ namespace NeonStarLibrary.Components.Enemies
     {
         
         #region Properties
-        private bool _canTurn = true;
+        protected bool _canTurn = true;
 
-        protected bool CanTurn
+        public bool CanTurn
         {
             get { return _canTurn; }
             set { _canTurn = value; }
