@@ -104,6 +104,30 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _lightingName = value; }
         }
 
+        private string _leftScreensName = "ScreensLeft";
+
+        public string LeftScreensName
+        {
+            get { return _leftScreensName; }
+            set { _leftScreensName = value; }
+        }
+
+        private string _rightScreensName = "ScreensRight";
+
+        public string RightScreensName
+        {
+            get { return _rightScreensName; }
+            set { _rightScreensName = value; }
+        }
+
+        private string _ceilingFade = "CeilingFade";
+
+        public string CeilingFade
+        {
+            get { return _ceilingFade; }
+            set { _ceilingFade = value; }
+        }
+
         private float _waitAfterActivationDuration = 1.0f;
 
         public float WaitAfterActivationDuration
@@ -142,6 +166,11 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         private SpriteSheet _roomLighting;
 
+        private Entity _leftScreens;
+        private Entity _rightScreens;
+
+        private SpriteSheet _ceiling;
+
         private bool _startSave = false;
         private bool _finishSave = false;
         private bool _finishingSave = false;
@@ -166,6 +195,19 @@ namespace NeonStarLibrary.Components.GameplayElements
             Entity e = entity.GameWorld.GetEntityByName(_lightingName);
             if (e != null)
                 _roomLighting = e.GetComponent<SpriteSheet>();
+            _leftScreens = entity.GameWorld.GetEntityByName(_leftScreensName);
+            _rightScreens = entity.GameWorld.GetEntityByName(_rightScreensName);
+
+            e = null;
+            e = entity.GameWorld.GetEntityByName(_ceilingFade);
+            if (e != null)
+                _ceiling = e.GetComponent<SpriteSheet>();
+            if (_ceiling != null)
+            {
+                _ceiling.Active = false;
+                _ceiling.IsLooped = false;
+            }
+
             if (_roomLighting != null)
                 _roomLighting.Active = false;
             if (_avatar != null)
@@ -205,6 +247,11 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
+
+            if (_leftLamp != null && _leftLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _leftLamp.spritesheets.IsFinished())
+                _leftLamp.spritesheets.ChangeAnimation("On");
+            if (_rightLamp != null && _rightLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _rightLamp.spritesheets.IsFinished())
+                _rightLamp.spritesheets.ChangeAnimation("On");
             if (!_finishedSave)
             {
                 if (_startSave)
@@ -220,10 +267,28 @@ namespace NeonStarLibrary.Components.GameplayElements
                 }
                 if (_startSave && !_startActualSave && !_finishSave)
                 {
+
+                    if (_background.spritesheets.CurrentSpritesheet.currentFrame == 11)
+                    {
+                        if (_leftScreens != null)
+                        {
+                            _leftScreens.spritesheets.ChangeAnimation("Fade", 0, true, false, false);
+                        }
+                        if (_rightScreens != null)
+                        {
+                            _rightScreens.spritesheets.ChangeAnimation("Fade", 0, true, false, false);
+                        }
+
+                        if (_ceiling != null)
+                            _ceiling.Active = true;
+                    }
+
                     if (_activationTimer >= _waitAfterActivationDuration)
                     {
                         if (_cabin != null && _cabin.spritesheets != null && _cabin.spritesheets.CurrentSpritesheetName != "StartOpening")
                             _cabin.spritesheets.ChangeAnimation("StartOpening", 0, true, false, false);
+
+                        
                         else if (_cabin != null && _cabin.spritesheets != null && _cabin.spritesheets.CurrentSpritesheetName == "StartOpening" && _cabin.spritesheets.IsFinished())
                         {
                             _startActualSave = true;
@@ -254,6 +319,15 @@ namespace NeonStarLibrary.Components.GameplayElements
                             _cabin.spritesheets.ChangeAnimation("Scanning", 0, true, false, false);
                             if (_pipes != null && _pipes.spritesheets != null)
                                 _pipes.spritesheets.ChangeAnimation("Lighting", 0, true, false, true);
+
+                            if (_leftScreens != null)
+                            {
+                                _leftScreens.spritesheets.ChangeAnimation("Load", 0, true, false, true);
+                            }
+                            if (_rightScreens != null)
+                            {
+                                _rightScreens.spritesheets.ChangeAnimation("Load", 0, true, false, true);
+                            }
                             _finishSave = true;
                         }
                     }
@@ -265,6 +339,22 @@ namespace NeonStarLibrary.Components.GameplayElements
                     {
                         if (_cabin != null && _cabin.spritesheets != null)
                             _cabin.spritesheets.ChangeAnimation("EndOpening", 0, true, false, false);
+
+                        if (_leftScreens != null)
+                        {
+                            _leftScreens.spritesheets.ChangeAnimation("Fade", 0, true, false, true);
+                            _leftScreens.spritesheets.CurrentSpritesheet.spriteSheetInfo.Fps = 8;
+                            _leftScreens.spritesheets.CurrentSpritesheet.Init();
+                            _leftScreens.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+                        }
+                        if (_rightScreens != null)
+                        {
+                            _rightScreens.spritesheets.ChangeAnimation("Fade", 0, true, false, true);
+                            _rightScreens.spritesheets.CurrentSpritesheet.spriteSheetInfo.Fps = 8;
+                            _rightScreens.spritesheets.CurrentSpritesheet.Init();
+                            _rightScreens.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+                        }
+                            
 
                         if (_pipes != null && _pipes.spritesheets != null)
                             _pipes.spritesheets.ChangeAnimation("Off", 0, true, false, true);
@@ -333,6 +423,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                                 _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
                             if (_yButton != null)
                                 _yButton.Active = false;
+
+                            
 
                             _avatarComponent.State = AvatarState.Idle;
                             _avatarComponent.CanMove = false;

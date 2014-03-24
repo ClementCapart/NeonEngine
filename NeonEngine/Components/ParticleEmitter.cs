@@ -132,12 +132,20 @@ namespace NeonEngine.Components.VisualFX
             set { _maximumFadeOutTime = value; }
         }
 
-        private float _spawnRate = 0.6f;
+        private float _minimumSpawnRate = 0.6f;
 
-        public float SpawnRate
+        public float MinimumSpawnRate
         {
-            get { return _spawnRate; }
-            set { _spawnRate = value; }
+            get { return _minimumSpawnRate; }
+            set { _minimumSpawnRate = value; }
+        }
+
+        private float _maximumSpawnRate = 1.0f;
+
+        public float MaximumSpawnRate
+        {
+            get { return _maximumSpawnRate; }
+            set { _maximumSpawnRate = value; }
         }
 
         private float _minimumOpacity = 0.7f;
@@ -324,6 +332,7 @@ namespace NeonEngine.Components.VisualFX
         }
 
         public bool Active = true;
+        private float _currentSpawnRate = 0.0f;
 
         private float _SpawnTimer = 0.0f;
 
@@ -338,6 +347,7 @@ namespace NeonEngine.Components.VisualFX
         public override void Init()
         {
             particles.Clear();
+            _currentSpawnRate = (float)Neon.Utils.GetRandomNumber(_minimumSpawnRate, _maximumSpawnRate);
             base.Init();
         }
 
@@ -345,7 +355,7 @@ namespace NeonEngine.Components.VisualFX
         {
             if(Active)
             {
-                if (_SpawnTimer < _spawnRate)
+                if (_SpawnTimer < _currentSpawnRate)
                 {
                     _SpawnTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
@@ -404,8 +414,8 @@ namespace NeonEngine.Components.VisualFX
                 p.Texture = _particleTexture;
             }
             
-            float randomAngle = random.Next((int)_minimumDispersionAngle, (int)_maximumDispersionAngle);
-            p.Direction = new Vector2((float)Math.Cos(MathHelper.ToRadians(randomAngle)), -(float)(Math.Sin(randomAngle)));
+            float randomAngle = (float)Neon.Utils.GetRandomNumber(_minimumDispersionAngle, _maximumDispersionAngle, random);
+            p.Direction = new Vector2((float)Math.Cos(randomAngle), -(float)(Math.Sin(randomAngle)));
             p.Duration = _minimumDuration + (float)random.NextDouble() * (_maximumDuration - _minimumDuration);
             p.ParticleMovement = _movementType;
             p.FadeInDelay = _minimumFadeInTime + (float)random.NextDouble() * (_maximumFadeInTime - _minimumFadeInTime);
@@ -428,6 +438,8 @@ namespace NeonEngine.Components.VisualFX
             p.entity = this.entity;
             p.Emitter = this;
             p.Init();
+
+            _currentSpawnRate = (float)Neon.Utils.GetRandomNumber(_minimumSpawnRate, _maximumSpawnRate);
 
             return p;
         }

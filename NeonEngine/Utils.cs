@@ -27,6 +27,12 @@ namespace NeonEngine
             return angle;
         }
 
+        public double GetRandomNumber(double minimum, double maximum, Random random = null)
+        {
+            if (random == null)
+                random = new Random();
+            return random.NextDouble() * (maximum - minimum) + minimum;
+        }
 
         public Vector2 InputToWorldPosition(Vector2 input)
         {
