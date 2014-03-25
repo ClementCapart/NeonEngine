@@ -362,10 +362,11 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            Vector2 CurrentOffset = Vector2.Transform(spriteSheetInfo.Offset, Matrix.CreateRotationZ(RotationOffset));           
+               
 
             if (spriteSheetInfo != null && spriteSheetInfo.Frames != null && Active)
             {
+                Vector2 CurrentOffset = Vector2.Transform(spriteSheetInfo.Offset, Matrix.CreateRotationZ(RotationOffset));        
                 if (particle == null)
                 {
                     if (currentFrame >= 0 && currentFrame <= spriteSheetInfo.Frames.Length - 1)
