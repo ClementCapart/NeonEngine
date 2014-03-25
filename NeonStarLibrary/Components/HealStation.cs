@@ -163,7 +163,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             else
             {
                 if (_fadingSpritesheet != null)
-                    _fadingSpritesheet.Active = false;
+                        _fadingSpritesheet.Active = false;
             }
 
 
