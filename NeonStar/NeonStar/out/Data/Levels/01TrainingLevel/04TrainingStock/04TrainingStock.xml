@@ -55,7 +55,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}_0-{X:525 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_1-{X:425 Y:0}_0-{X:475 Y:0}_1-{X:500 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -137,7 +137,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_1-{X:0 Y:125}_1-{X:0 Y:150}_0-{X:0 Y:175}_0-{X:0 Y:225}_1-{X:0 Y:275}_0-{X:0 Y:300}_1-{X:0 Y:350}_1-{X:0 Y:375}_1-{X:0 Y:400}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:125}_1-{X:0 Y:175}_1-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_1-{X:0 Y:300}_1-{X:0 Y:325}_0-{X:0 Y:350}_1-{X:0 Y:400}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -219,7 +219,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -301,7 +301,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -505,12 +505,12 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="ChangeLevelCeilling" Layer="">
+      <Entity Name="ChangeLevelConduits" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2200 Y:-650}" />
+              <InitialPosition Value="{X:2200 Y:-950}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -518,7 +518,7 @@
           <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
             <Properties>
               <GroupName Value="01TrainingLevel" />
-              <LevelName Value="04TrainingCeilling" />
+              <LevelName Value="05TrainingConduits" />
               <SpawnPointIndex Value="0" />
             </Properties>
           </ChangeLevel>
@@ -527,16 +527,16 @@
               <OneShot Value="True" />
               <TriggerEveryFrame Value="False" />
               <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="ChangeLevelCeilling" />
+              <TriggeredEntityName Value="ChangeLevelConduits" />
               <TriggeredComponentName Value="ChangeLevel" />
             </Properties>
           </HitboxTrigger>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:2200 Y:-650}" />
+              <Center Value="{X:2200 Y:-950}" />
               <X Value="2050" />
-              <Y Value="-700" />
+              <Y Value="-1000" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
@@ -598,7 +598,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_1-{X:0 Y:125}_1-{X:0 Y:150}_0-{X:0 Y:175}_0-{X:0 Y:225}_1-{X:0 Y:275}_1-{X:0 Y:300}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:125}_1-{X:0 Y:175}_1-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_1-{X:0 Y:300}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -665,7 +665,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:75}_1-{X:0 Y:125}_1-{X:0 Y:150}_0-{X:0 Y:175}_0-{X:0 Y:225}_1-{X:0 Y:275}_1-{X:0 Y:300}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:125}_1-{X:0 Y:175}_1-{X:0 Y:200}_1-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:275}_1-{X:0 Y:300}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -732,7 +732,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}_1-{X:525 Y:0}_0-{X:575 Y:0}_0-{X:600 Y:0}_1-{X:625 Y:0}_1-{X:675 Y:0}_1-{X:725 Y:0}_0-{X:775 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_1-{X:425 Y:0}_0-{X:475 Y:0}_1-{X:500 Y:0}_1-{X:550 Y:0}_1-{X:600 Y:0}_1-{X:650 Y:0}_1-{X:700 Y:0}_1-{X:750 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -814,7 +814,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:175}_1-{X:0 Y:225}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:100}_1-{X:0 Y:125}_1-{X:0 Y:175}_1-{X:0 Y:225}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -926,7 +926,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_1-{X:425 Y:0}_0-{X:475 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1008,7 +1008,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}_1-{X:525 Y:0}_0-{X:575 Y:0}_0-{X:600 Y:0}_1-{X:625 Y:0}_1-{X:675 Y:0}_1-{X:725 Y:0}_0-{X:775 Y:0}_1-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:875 Y:0}_0-{X:900 Y:0}_1-{X:925 Y:0}_1-{X:975 Y:0}_0-{X:1025 Y:0}_0-{X:1050 Y:0}_1-{X:1075 Y:0}_1-{X:1125 Y:0}_1-{X:1175 Y:0}_0-{X:1225 Y:0}_1-{X:1250 Y:0}_1-{X:1300 Y:0}_0-{X:1350 Y:0}_0-{X:1375 Y:0}_1-{X:1400 Y:0}_1-{X:1450 Y:0}_0-{X:1500 Y:0}_1-{X:1525 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_1-{X:425 Y:0}_0-{X:475 Y:0}_1-{X:500 Y:0}_1-{X:550 Y:0}_1-{X:600 Y:0}_1-{X:650 Y:0}_1-{X:700 Y:0}_1-{X:750 Y:0}_1-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:875 Y:0}_0-{X:900 Y:0}_1-{X:925 Y:0}_1-{X:975 Y:0}_1-{X:1025 Y:0}_1-{X:1075 Y:0}_1-{X:1125 Y:0}_0-{X:1175 Y:0}_1-{X:1200 Y:0}_1-{X:1250 Y:0}_1-{X:1300 Y:0}_0-{X:1350 Y:0}_1-{X:1375 Y:0}_1-{X:1425 Y:0}_0-{X:1475 Y:0}_0-{X:1500 Y:0}_0-{X:1525 Y:0}_0-{X:1550 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1090,7 +1090,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:175}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:100}_1-{X:0 Y:125}_1-{X:0 Y:175}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1711,7 +1711,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}_1-{X:525 Y:0}_0-{X:575 Y:0}_0-{X:600 Y:0}_1-{X:625 Y:0}_1-{X:675 Y:0}_1-{X:725 Y:0}_0-{X:775 Y:0}_1-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:875 Y:0}_0-{X:900 Y:0}_1-{X:925 Y:0}_1-{X:975 Y:0}_0-{X:1025 Y:0}_0-{X:1050 Y:0}_1-{X:1075 Y:0}_1-{X:1125 Y:0}_1-{X:1175 Y:0}_0-{X:1225 Y:0}_1-{X:1250 Y:0}_0-{X:1300 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_1-{X:375 Y:0}_1-{X:425 Y:0}_0-{X:475 Y:0}_1-{X:500 Y:0}_1-{X:550 Y:0}_1-{X:600 Y:0}_1-{X:650 Y:0}_1-{X:700 Y:0}_1-{X:750 Y:0}_1-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:875 Y:0}_0-{X:900 Y:0}_1-{X:925 Y:0}_1-{X:975 Y:0}_1-{X:1025 Y:0}_1-{X:1075 Y:0}_1-{X:1125 Y:0}_0-{X:1175 Y:0}_1-{X:1200 Y:0}_1-{X:1250 Y:0}_0-{X:1300 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1793,7 +1793,7 @@
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:100}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -2387,6 +2387,147 @@
               <MainColor Value="{R:157 G:148 B:239 A:255}" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="ChangeLevelScan" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-2700 Y:-350}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="01TrainingLevel" />
+              <LevelName Value="03TrainingScan" />
+              <SpawnPointIndex Value="1" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevelScan" />
+              <TriggeredComponentName Value="ChangeLevel" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-2700 Y:-350}" />
+              <X Value="-2750" />
+              <Y Value="-600" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="500" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundLeft" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-2596 Y:-348}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Left" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2150 Y:-625}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:2150 Y:-625}" />
+              <X Value="2100" />
+              <Y Value="-650" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="50" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.49995" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+            </Properties>
+          </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="4">
+            <Properties>
+              <GraphicTag Value="NewTrainingVentsLedge3" />
+              <DrawLayer Value="0.85" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-6}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="BoundUp" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2208 Y:-859}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Up" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
