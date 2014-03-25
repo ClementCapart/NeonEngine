@@ -138,6 +138,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         if (_fadingSpritesheet != null)
                             _fadingSpritesheet.Active = false;
                     }
+
                     if (_avatarEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                     {
                         if (Neon.Input.Pressed(NeonStarInput.Interact) && _avatarComponent.CurrentHealthPoints < _avatarComponent.StartingHealthPoints)
@@ -158,6 +159,11 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         }
                     }
                 }
+            }
+            else
+            {
+                if (_fadingSpritesheet != null)
+                    _fadingSpritesheet.Active = false;
             }
 
 
