@@ -5,18 +5,18 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-642 Y:106.9925}" />
+          <Position Value="{X:153.5917 Y:356.9925}" />
+          <InitialPosition Value="{X:153.5917 Y:356.9925}" />
           <Rotation Value="0" />
           <Scale Value="2" />
-          <Position Value="{X:-642 Y:106.9925}" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-642 Y:106}" />
-          <X Value="-662" />
-          <Y Value="38" />
+          <Center Value="{X:153 Y:356}" />
+          <X Value="133" />
+          <Y Value="288" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -42,6 +42,7 @@
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="True" />
@@ -82,7 +83,6 @@
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
-          <ParallaxForce Value="{X:0 Y:0}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </SpritesheetManager>
@@ -107,7 +107,7 @@
       </MeleeFight>
       <ThirdPersonController Type="NeonStarLibrary.Components.Avatar.ThirdPersonController" ID="5">
         <Properties>
-          <JumpImpulseHeight Value="470" />
+          <JumpImpulseHeight Value="500" />
           <DoubleJumpImpulseHeight Value="370" />
           <GroundAccelerationSpeed Value="1" />
           <AirAccelerationSpeed Value="1" />
