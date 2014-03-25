@@ -2,6 +2,7 @@
 using NeonEngine.Components.Text2D;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
+using NeonStarLibrary.Components.Graphics2D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
         private float _fillingTimer = 0.0f;
         private TextDisplay _textDisplay;
         private bool _isFilled = false;
+        private bool _deactivatingDevice = false;
+        private FadingSpritesheet _fadingSpritesheet;
 
         public StableEnergyDevice(Entity entity)
             :base(entity)
@@ -110,6 +113,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (_textDisplay != null)
                     _textDisplay.Active = false;
             }
+            _fadingSpritesheet = entity.GetComponent<FadingSpritesheet>();
             base.Init();
         }
 
@@ -132,7 +136,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                             {
                                 if (State == DeviceState.Activated)
                                 {
-                                    DeactivateDevice();
+                                    _deactivatingDevice = true;
                                     _isFilling = false;
                                     if (_avatar.EnergySystem != null)
                                         _avatar.EnergySystem.CurrentEnergyStock += EnergyCost;
@@ -150,8 +154,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                                                 entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
                                             if (_textDisplay != null)
                                                 _textDisplay.Active = false;
-
-                                            
+                                           
                                         }
                                     }
                                 }
@@ -196,7 +199,21 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (_textDisplay != null)
                         _textDisplay.Active = true;
             }
-            
+
+
+            if (this._fadingSpritesheet != null && entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheetName == "Deactivation" || entity.spritesheets.CurrentSpritesheetName == "Activation"))
+            {
+                _fadingSpritesheet.Active = false;
+            }
+            else if (_fadingSpritesheet != null)
+            {
+                if (!_fadingSpritesheet.Active)
+                    _fadingSpritesheet.opacity = 0.0f;
+                _fadingSpritesheet.Active = true;
+            }
+                
+            if (_deactivatingDevice && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
+                DeactivateDevice();
             base.Update(gameTime);
         }
 
@@ -208,6 +225,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void DeactivateDevice()
         {
+            _deactivatingDevice = false;
             _isFilled = false;
             if(entity.spritesheets != null)
                 entity.spritesheets.ChangeAnimation(_deactivationAnimation, true, 0, true, false, false);

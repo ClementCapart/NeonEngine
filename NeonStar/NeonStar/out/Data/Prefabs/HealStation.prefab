@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="HealStation" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:-1072 Y:-42}" />
+          <InitialPosition Value="{X:-1072 Y:-42}" />
+          <Rotation Value="0" />
+          <Scale Value="2" />
+        </Properties>
+      </Transform>
+      <HealStation Type="NeonStarLibrary.Components.EnergyObjects.HealStation" ID="2">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <OffAnimation Value="" />
+          <LightingAnimation Value="" />
+          <OnAnimation Value="" />
+          <FirstActivatingDeviceName Value="HealDevice" />
+          <FirstDeviceInSameLevel Value="True" />
+          <FirstActivatingDeviceLevelGroup Value="" />
+          <FirstActivatingDeviceLevelName Value="" />
+          <SecondActivatingDeviceName Value="" />
+          <SecondDeviceInSameLevel Value="True" />
+          <SecondActivatingDeviceLevelGroup Value="" />
+          <SecondActivatingDeviceLevelName Value="" />
+          <ThirdActivatingDeviceName Value="" />
+          <ThirdDeviceInSameLevel Value="True" />
+          <ThirdActivatingDeviceLevelGroup Value="" />
+          <ThirdActivatingDeviceLevelName Value="" />
+          <FourthActivatingDeviceName Value="" />
+          <FourthDeviceInSameLevel Value="True" />
+          <FourthActivatingDeviceLevelGroup Value="" />
+          <FourthActivatingDeviceLevelName Value="" />
+          <FifthActivatingDeviceName Value="" />
+          <FifthDeviceInSameLevel Value="True" />
+          <FifthActivatingDeviceLevelGroup Value="" />
+          <FifthActivatingDeviceLevelName Value="" />
+        </Properties>
+      </HealStation>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Trigger" />
+          <Center Value="{X:-1072 Y:-42}" />
+          <X Value="-1122" />
+          <Y Value="-57" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="100" />
+          <Height Value="30" />
+        </Properties>
+      </Hitbox>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-73 Y:-64}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="PillarOff" SpritesheetTag="HealStationCommandOff" />
+            <Animation Name="PillarLighting" SpritesheetTag="HealStationCommandLighting" />
+            <Animation Name="PillarOn" SpritesheetTag="HealStationCommandIdle" />
+          </Spritesheets>
+          <DrawLayer Value="0.45" />
+          <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </SpritesheetManager>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-1 Y:3}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="BaseOff" SpritesheetTag="HealStationPlatformOff" />
+            <Animation Name="BaseLighting" SpritesheetTag="HealStationPlatformLighting" />
+            <Animation Name="BaseOn" SpritesheetTag="HealStationPlatformOn" />
+          </Spritesheets>
+          <DrawLayer Value="0.6" />
+          <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </SpritesheetManager>
+      <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+        <Properties>
+          <FadingSpeed Value="2.5" />
+          <AvatarName Value="LiOn" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0" />
+          <InvisibleDuringDelay Value="False" />
+          <DelayBeforeLoop Value="False" />
+          <SpriteSheetTag Value="YbuttonPress" />
+          <DrawLayer Value="1" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:1 Y:-84}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </FadingSpritesheet>
+    </Components>
+  </Entity>
+</Prefab>

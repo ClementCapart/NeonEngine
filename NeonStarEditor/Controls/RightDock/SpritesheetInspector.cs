@@ -23,8 +23,7 @@ namespace NeonStarEditor
             InitializeComponent();
             this.GameWorld = GameWorld;
             this.AutoSize = true;
-            RefreshData();
-            
+            RefreshData();           
         }
 
         public void RefreshData()
@@ -110,6 +109,7 @@ namespace NeonStarEditor
             {
                 SpriteSheetInfo ssi = spritesheetList[_lastSpritesheetKey];
                 spritesheetList.Remove(_lastSpritesheetKey);
+                
                 spritesheetList.Add((sender as TextBox).Text, ssi);
             }
             

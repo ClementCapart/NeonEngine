@@ -32,8 +32,8 @@
           <IdleActivatedAnimation Value="Activated" />
           <ActivationAnimation Value="Activation" />
           <DeactivationAnimation Value="Deactivation" />
-          <State Value="Deactivated" />
           <FrameToActivate Value="17" />
+          <State Value="Deactivated" />
         </Properties>
       </StableEnergyDevice>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -49,7 +49,7 @@
             <Animation Name="Activated" SpritesheetTag="HealDeviceIdle" />
             <Animation Name="Activation" SpritesheetTag="HealDeviceActivationLighting" />
             <Animation Name="Deactivated" SpritesheetTag="HealDeviceActivationOff" />
-            <Animation Name="Deactivation" SpritesheetTag="HealDeviceActivationOff" />
+            <Animation Name="Deactivation" SpritesheetTag="HealDeviceDeactivation" />
           </Spritesheets>
           <DrawLayer Value="0.45" />
           <IsHUD Value="False" />
@@ -69,7 +69,7 @@
           <DrawLayer Value="0.44" />
           <Font Value="EnergyFont" />
           <Text Value="10" />
-          <TextColor Value="{R:0 G:202 B:0 A:255}" />
+          <TextColor Value="{R:65 G:191 B:11 A:255}" />
           <Outline Value="False" />
           <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
           <OutlineDisplacement Value="0" />
@@ -85,6 +85,31 @@
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
         </Properties>
       </TextDisplay>
+      <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="6">
+        <Properties>
+          <FadingSpeed Value="2.5" />
+          <AvatarName Value="LiOn" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0" />
+          <InvisibleDuringDelay Value="False" />
+          <DelayBeforeLoop Value="False" />
+          <SpriteSheetTag Value="YbuttonPress" />
+          <DrawLayer Value="1" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:-39}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+        </Properties>
+      </FadingSpritesheet>
     </Components>
   </Entity>
 </Prefab>

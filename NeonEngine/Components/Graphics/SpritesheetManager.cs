@@ -205,6 +205,7 @@ namespace NeonEngine.Components.Graphics2D
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;
             CurrentSpritesheet.ReverseLoop = false;
+            CurrentSpritesheet.Reverse = false;
             CurrentSpritesheet.isPlaying = IsPlaying;
             CurrentSpritesheet.IsFinished = false;
             CurrentSpritesheet.SetFrame(0);

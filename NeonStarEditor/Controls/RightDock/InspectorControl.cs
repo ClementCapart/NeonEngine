@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using Color = System.Drawing.Color;
 using Component = NeonEngine.Component;
 using Point = System.Drawing.Point;
+using NeonEngine.Components.Graphics2D;
 
 namespace NeonStarEditor
 {
@@ -386,7 +387,7 @@ namespace NeonStarEditor
                     }
                     else if (pi.Name == "Spritesheets")
                     {
-                        SpritesheetInspector ssinspector = new SpritesheetInspector(SelectedEntity.spritesheets.Spritesheets, GameWorld);
+                        SpritesheetInspector ssinspector = new SpritesheetInspector((c as SpritesheetManager).Spritesheets, GameWorld);
                         ssinspector.Location = new Point(10, localY);
                         tp.Controls.Add(ssinspector);
                         ssinspector.RefreshData();
