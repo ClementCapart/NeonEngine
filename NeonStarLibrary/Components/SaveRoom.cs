@@ -248,7 +248,6 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-
             if (_leftLamp != null && _leftLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _leftLamp.spritesheets.IsFinished())
             {
                 _leftLamp.spritesheets.ChangeAnimation("On");

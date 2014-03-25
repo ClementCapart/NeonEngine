@@ -70,8 +70,8 @@ namespace NeonStarLibrary
         {
             switch(State)
             {
-                case ElementState.Initialization: 
-                    if (_entity.rigidbody != null && _entity.rigidbody.isGrounded)
+                case ElementState.Initialization:
+                    if (_entity.rigidbody != null && _entity.rigidbody.isGrounded && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)
                     {
                         if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)
                         {
@@ -91,7 +91,7 @@ namespace NeonStarLibrary
                         }
                         
                     }
-                    else if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName == _elementSystem.WindStartAnimation && _entity.spritesheets.IsFinished())
+                    else if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName == _elementSystem.WindStartAnimation && _entity.spritesheets.CurrentSpritesheet.IsFinished)
                     {
                         _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
                         _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);

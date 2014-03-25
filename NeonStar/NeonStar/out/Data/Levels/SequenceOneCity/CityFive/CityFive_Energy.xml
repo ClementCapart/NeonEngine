@@ -85,6 +85,7 @@
               </Spritesheets>
               <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -133,6 +134,8 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
@@ -148,6 +151,7 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
             </Properties>
           </EnemyCore>
           <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
@@ -176,6 +180,7 @@
               </Spritesheets>
               <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -268,6 +273,7 @@
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -304,6 +310,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <State Value="Deactivated" />
+              <FrameToActivate Value="32" />
             </Properties>
           </StableEnergyDevice>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -323,6 +330,7 @@
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
           <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
@@ -351,6 +359,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </TextDisplay>
         </Components>
@@ -443,6 +452,7 @@
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -502,6 +512,8 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
@@ -517,6 +529,7 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
             </Properties>
           </EnemyCore>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
@@ -534,6 +547,7 @@
               </Spritesheets>
               <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -593,6 +607,8 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
@@ -608,6 +624,7 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
             </Properties>
           </EnemyCore>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
@@ -625,6 +642,7 @@
               </Spritesheets>
               <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
             </Properties>
           </SpritesheetManager>
         </Components>

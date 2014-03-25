@@ -18,6 +18,30 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _avatarName; }
             set { _avatarName = value; }
         }
+
+        private string _offAnimation = "";
+
+        public string OffAnimation
+        {
+            get { return _offAnimation; }
+            set { _offAnimation = value; }
+        }
+
+        private string _lightingAnimation = "";
+
+        public string LightingAnimation
+        {
+            get { return _lightingAnimation; }
+            set { _lightingAnimation = value; }
+        }
+
+        private string _onAnimation = "";
+
+        public string OnAnimation
+        {
+            get { return _onAnimation; }
+            set { _onAnimation = value; }
+        }
         #endregion
 
         private Entity _avatarEntity;
@@ -40,6 +64,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _avatarComponent = _avatarEntity.GetComponent<AvatarCore>();
             if (_usedHealStations.Contains(entity.GameWorld.LevelGroupName + "_" + entity.GameWorld.LevelName + "_" + entity.Name))
                 _used = true;
+
+
             base.Init();
         }
 

@@ -67,7 +67,15 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _deactivationAnimation; }
             set { _deactivationAnimation = value; }
         }
-        
+
+        private float _frameToActivate = 32f;
+
+        public float FrameToActivate
+        {
+            get { return _frameToActivate; }
+            set { _frameToActivate = value; }
+        }
+
         #endregion
 
         public AvatarCore _avatar;
@@ -172,7 +180,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         entity.spritesheets.ChangeAnimation(_idleActivatedAnimation, true, 0, true, false, true);                     
                     }
-                    else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 32)
+                    else if (entity.spritesheets.CurrentSpritesheet.currentFrame == _frameToActivate)
                     {
                         ActivateDevice();
                     }

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnergyDevice02" Layer="Energy">
+  <Entity Name="HealDevice" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:314 Y:-370}" />
-          <InitialPosition Value="{X:314 Y:-370}" />
+          <Position Value="{X:-811 Y:-145}" />
+          <InitialPosition Value="{X:-811 Y:-145}" />
           <Rotation Value="0" />
           <Scale Value="2" />
         </Properties>
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:314 Y:-370}" />
-          <X Value="264" />
-          <Y Value="-445" />
+          <Center Value="{X:-811 Y:-145}" />
+          <X Value="-861" />
+          <Y Value="-220" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -25,7 +25,7 @@
       </Hitbox>
       <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="2">
         <Properties>
-          <EnergyCost Value="200" />
+          <EnergyCost Value="10" />
           <AvatarName Value="LiOn" />
           <FillingDuration Value="0.1" />
           <IdleDeactivatedAnimation Value="Deactivated" />
@@ -33,6 +33,7 @@
           <ActivationAnimation Value="Activation" />
           <DeactivationAnimation Value="Deactivation" />
           <State Value="Deactivated" />
+          <FrameToActivate Value="17" />
         </Properties>
       </StableEnergyDevice>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
@@ -45,10 +46,10 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
           <Spritesheets>
-            <Animation Name="Activated" SpritesheetTag="EnergyDeviceIdle" />
-            <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
-            <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceDeactivated" />
-            <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+            <Animation Name="Activated" SpritesheetTag="HealDeviceIdle" />
+            <Animation Name="Activation" SpritesheetTag="HealDeviceActivationLighting" />
+            <Animation Name="Deactivated" SpritesheetTag="HealDeviceActivationOff" />
+            <Animation Name="Deactivation" SpritesheetTag="HealDeviceActivationOff" />
           </Spritesheets>
           <DrawLayer Value="0.45" />
           <IsHUD Value="False" />
@@ -58,7 +59,7 @@
       <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
         <Properties>
           <Display Value="5" />
-          <EntityName Value="EnergyDevice02" />
+          <EntityName Value="HealDevice" />
           <ComponentName Value="StableEnergyDevice" />
           <DisplayedVariable Value="EnergyCost" />
         </Properties>
@@ -67,8 +68,8 @@
         <Properties>
           <DrawLayer Value="0.44" />
           <Font Value="EnergyFont" />
-          <Text Value="200" />
-          <TextColor Value="{R:147 G:217 B:255 A:255}" />
+          <Text Value="10" />
+          <TextColor Value="{R:0 G:202 B:0 A:255}" />
           <Outline Value="False" />
           <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
           <OutlineDisplacement Value="0" />
@@ -77,7 +78,7 @@
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:-29 Y:-55}" />
+          <Offset Value="{X:-95 Y:-110}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
