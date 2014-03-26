@@ -388,7 +388,7 @@ namespace NeonEngine
                     ssi.Offset.Y = int.Parse(ssiInfo[6].Remove(ssiInfo[6].Length - 3));
                 }
 
-                ssi.Frames = GenerateSpritesheetFrames(Neon.GraphicsDevice, texture, ssi.FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
+                ssi.Frames = GenerateSpritesheetFrames(Neon.GraphicsDevice, texture, ssi.                        FrameWidth, ssi.FrameHeight, ssi.FrameCount, 0);
                 assetsLibrary.Add(ssiInfo[0], ssi);
             }
             else
