@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
 using System;
@@ -21,18 +22,21 @@ namespace NeonStarLibrary
         private List<Graphic> _currentMapRooms;
 
         private Entity _mapEntity;
+        private float k = 0.2f;
+        private float kcube = 0.3f;
 
         public MapScreen(Game game)
             :base(game)
         {
-            /*this.ScreenEffect = AssetManager.GetEffect("CubicLens");
-            ScreenEffect.Parameters["k"].SetValue(0.4f);
-            ScreenEffect.Parameters["kcube"].SetValue(0.1f);*/
+            this.ScreenEffect = AssetManager.GetEffect("CubicLens");
+            ScreenEffect.Parameters["k"].SetValue(k);
+            ScreenEffect.Parameters["kcube"].SetValue(kcube);
             Camera.Position = Vector2.Zero;
         }
 
         public override void Update(GameTime gameTime)
         {
+
             if(Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Back))
             {
                 Neon.World = CurrentGameScreen;

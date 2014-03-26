@@ -1,7 +1,7 @@
 uniform extern texture ScreenTexture;    
 
-float k = -0.15;
-float kcube = 0.5;
+float k;
+float kcube;
 
 sampler ScreenS = sampler_state
 {
@@ -24,6 +24,7 @@ float4 PixelShaderFunction(float2 texCoord: TEXCOORD0) : COLOR
 
     float x = f*(texCoord.x-0.5)+0.5;
     float y = f*(texCoord.y-0.5)+0.5;
+
     float3 inputDistord = tex2D(ScreenS, float2(x,y));
 
 	return float4(inputDistord.r, inputDistord.g, inputDistord.b,1);
