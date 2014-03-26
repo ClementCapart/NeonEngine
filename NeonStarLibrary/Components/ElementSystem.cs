@@ -106,6 +106,14 @@ namespace NeonStarLibrary.Components.Avatar
             set { _windStartAnimation = value; }
         }
 
+        private string _windImpulseAnimation = "";
+
+        public string WindImpulseAnimation
+        {
+            get { return _windImpulseAnimation; }
+            set { _windImpulseAnimation = value; }
+        }
+
         private Element _leftSlotElement = Element.Neutral;
 
         public Element LeftSlotElement
