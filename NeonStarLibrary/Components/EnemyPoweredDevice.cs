@@ -50,6 +50,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _fifthEnemyToKill; }
             set { _fifthEnemyToKill = value; }
         }
+
+        private bool _addSignOnTargets = true;
+
+        public bool AddSignOnTargets
+        {
+            get { return _addSignOnTargets; }
+            set { _addSignOnTargets = value; }
+        }
         #endregion
 
         private List<EnemyCore> _enemiesToKill;
@@ -72,18 +80,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             AddEnemyCore(_fourthEnemyToKill);
             AddEnemyCore(_fifthEnemyToKill);
 
-            if (this.State == DeviceState.Deactivated)
+            if (_addSignOnTargets)
             {
-                foreach (EnemyCore ec in _enemiesToKill)
+                if (this.State == DeviceState.Deactivated)
                 {
-                    Graphic graphic = new Graphic(ec.entity);
-                    graphic.GraphicTag = "EnemyToKillSign";
-                    graphic.Layer = 0.499f;
-                    graphic.HasToBeSaved = false;                    
-                    ec.entity.AddComponent(graphic);
-                    graphic.Init();
+                    foreach (EnemyCore ec in _enemiesToKill)
+                    {
+                        Graphic graphic = new Graphic(ec.entity);
+                        graphic.GraphicTag = "EnemyToKillSign";
+                        graphic.Layer = 0.499f;
+                        graphic.HasToBeSaved = false;
+                        ec.entity.AddComponent(graphic);
+                        graphic.Init();
+                    }
                 }
             }
+            
             base.Init();
         }
 

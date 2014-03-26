@@ -150,7 +150,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:804 Y:1}" />
+              <InitialPosition Value="{X:651 Y:44}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -173,7 +173,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-709 Y:51}" />
+              <InitialPosition Value="{X:-594 Y:45}" />
               <Rotation Value="0" />
               <Scale Value="1" />
             </Properties>
@@ -294,7 +294,7 @@
           </Hitbox>
         </Components>
       </Entity>
-      <Entity Name="ChangeLevelStock" Layer="">
+      <Entity Name="ChangeLevelScan" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -307,7 +307,7 @@
           <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
             <Properties>
               <GroupName Value="01TrainingLevel" />
-              <LevelName Value="03TrainingStock" />
+              <LevelName Value="03TrainingScan" />
               <SpawnPointIndex Value="0" />
             </Properties>
           </ChangeLevel>
@@ -316,7 +316,7 @@
               <OneShot Value="True" />
               <TriggerEveryFrame Value="False" />
               <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="ChangeLevelStock" />
+              <TriggeredEntityName Value="ChangeLevelScan" />
               <TriggeredComponentName Value="ChangeLevel" />
             </Properties>
           </HitboxTrigger>

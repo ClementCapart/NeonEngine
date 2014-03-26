@@ -303,7 +303,8 @@ namespace NeonStarLibrary.Components.Enemies
                         Attack.CurrentAttack = null;
                     }
                 }
-                entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
+                if(entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
             if (tookDamage)
