@@ -25,6 +25,14 @@ namespace NeonEngine
 
         public Type[] RequiredComponents;
 
+        private string _nickName = "";
+
+        public string NickName
+        {
+            get { return _nickName; }
+            set { _nickName = value; }
+        }
+
         public Component(Entity entity, string Name)
         {
             RequiredComponents = new Type[0];

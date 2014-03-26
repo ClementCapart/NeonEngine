@@ -96,6 +96,8 @@ namespace NeonStarLibrary
                         _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
                         _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
                         _entity.spritesheets.ChangeAnimation(_elementSystem.WindImpulseAnimation, 0, true, false, false);
+                        //_entity.GameWorld.Camera.ChaseStrengtheningRate = 0.01f;
+                        //_entity.GameWorld.Camera.ChaseStrength = 0.0f;
                         State = ElementState.Charge;
                     }
                     else if(_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)

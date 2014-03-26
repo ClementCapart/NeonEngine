@@ -25,6 +25,9 @@ namespace NeonStarLibrary
         public MapScreen(Game game)
             :base(game)
         {
+            /*this.ScreenEffect = AssetManager.GetEffect("CubicLens");
+            ScreenEffect.Parameters["k"].SetValue(0.4f);
+            ScreenEffect.Parameters["kcube"].SetValue(0.1f);*/
             Camera.Position = Vector2.Zero;
         }
 
@@ -75,10 +78,13 @@ namespace NeonStarLibrary
                     }
                 }            
             }
-            if(File.Exists(@"../Data/Prefabs/Map" + CurrentGameScreen.LevelGroupName + ".prefab"))
+            if (File.Exists(@"../Data/Prefabs/Map" + CurrentGameScreen.LevelGroupName + ".prefab"))
+            {
                 _mapEntity = DataManager.LoadPrefab(@"../Data/Prefabs/Map" + CurrentGameScreen.LevelGroupName + ".prefab", this);
+                _mapEntity.transform.Position = Vector2.Zero;
+            }
             if(_mapEntity != null)
-                _currentMapRooms = _mapEntity.GetComponentsByInheritance<Graphic>().Where(g => g.GraphicTag != "MapBackground").ToList<Graphic>();
+                _currentMapRooms = _mapEntity.GetComponentsByInheritance<Graphic>().Where(g => g.GraphicTag != "MapBackground" && g.GraphicTag != "MapForeground").ToList<Graphic>();
             
         }
 
@@ -92,18 +98,18 @@ namespace NeonStarLibrary
             {
                 foreach (Graphic g in _currentMapRooms)
                 {
-                    if (g.GraphicTag == CurrentGameScreen.LevelName)
+                   /* if (g.GraphicTag == CurrentGameScreen.LevelName)
                     {
                         Camera.Position = _mapEntity.transform.Position + g.Offset;
                         g.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
                     }
                     else
-                        g.CurrentEffect = AssetManager.GetEffect("BasicRender");
+                        g.CurrentEffect = AssetManager.GetEffect("BasicRender");*/
 
-                    if (!_discoveredMap[CurrentGameScreen.LevelGroupName].Contains(g.GraphicTag))
+                    /*if (!_discoveredMap[CurrentGameScreen.LevelGroupName].Contains(g.GraphicTag))
                         g.opacity = 0.0f;
                     else
-                        g.opacity = 1.0f;
+                        g.opacity = 1.0f;*/
                 }
             }
 

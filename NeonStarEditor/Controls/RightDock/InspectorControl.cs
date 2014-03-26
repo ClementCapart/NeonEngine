@@ -172,10 +172,34 @@ namespace NeonStarEditor
                 tp.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
                 int localY = 20;
-                
-                foreach (PropertyInfo pi in c.GetType().GetProperties())
-                {
-                    
+
+                List<PropertyInfo> pis = c.GetType().GetProperties().ToList();
+                PropertyInfo nickName = pis.Where(p => p.Name == "NickName").First();
+
+                pis.Remove(nickName);
+
+                Label labelo = new Label();
+                labelo.Text = nickName.Name;
+                labelo.Font = new Font("Calibri", 10);
+                labelo.Location = new Point(10, localY);
+                labelo.AutoSize = true;
+                tp.Controls.Add(labelo);
+                localY += labelo.Height + 5;
+
+                TextBox texb = new TextBox();
+                texb.Location = new Point(10, localY);
+                texb.Width = 70;
+                PropertyControlList.Add(new PropertyComponentControl(nickName, c, texb));
+                texb.GotFocus += tb_GotFocus;
+                texb.LostFocus += tb_LostFocus;
+                texb.Text = (string)nickName.GetValue(c, null);
+
+                tp.Controls.Add(texb);
+
+                localY += texb.Height + 5;
+
+                foreach (PropertyInfo pi in pis)
+                {                 
                     Label label = new Label();
                     label.Text = pi.Name;
                     label.Font = new Font("Calibri", 10);
