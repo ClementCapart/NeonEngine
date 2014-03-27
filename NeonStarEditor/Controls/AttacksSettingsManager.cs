@@ -20,7 +20,6 @@ namespace NeonStarEditor
 
         AttackInfo CurrentAttackSelected;
 
-        string InitialName = "";
         AttackEffect CurrentAttackEffectSelected = null;
         List<AttackInfo> _completeAttackList;
 
@@ -52,11 +51,13 @@ namespace NeonStarEditor
     
                 TreeNode tn = new TreeNode(ai.Name);
                 tn.Tag = ai;
-
+                
                 AttacksList.Nodes[ai.GroupName].Nodes.Add(tn);
                 _completeAttackList.Add(ai);
-
-            }          
+                if (CurrentAttackSelected != null && CurrentAttackSelected == ai)
+                    AttacksList.SelectedNode = tn;
+            }   
+       
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace NeonStarEditor
             ai.GroupName = "NoGroup";
 
             AttacksManager._attacksInformation.Add(ai);
+            CurrentAttackSelected = ai;
             InitializeData(false);
         }
 

@@ -38,7 +38,6 @@ namespace NeonStarLibrary
         public float DamageOnHit;
 
         public List<AttackEffect> OnHitSpecialEffects = new List<AttackEffect>();
-
     }
 
     static public class BulletsManager
