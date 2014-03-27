@@ -1,46 +1,19 @@
 sampler s0;
 
-float Distance;
+float2 GDistance;
+float2 RDistance;
+float2 BDistance;
 
-float4 PixelShaderFunctionRed(float2 coords: TEXCOORD0) : COLOR0  
+float4 PixelShaderFunction(float2 coords: TEXCOORD0) : COLOR0  
 {  
-	float4 color = tex2D(s0, coords + (0, -Distance));
+	float4 rColor = tex2D(s0, coords + RDistance);
+	float4 gColor = tex2D(s0, coords + GDistance);
+	float4 bColor = tex2D(s0, coords + BDistance);
 
-	color.g = 0;
-	color.b = 0;
-	if(color.a > 0)
-		color.a = 0.2;
-	return color;
+	return float4(rColor.r, gColor.g, bColor.b, 1.0);
 }  
 
-float4 PixelShaderFunctionGreen(float2 coords: TEXCOORD0) : COLOR0  
-{  
-	float4 color = tex2D(s0, coords + (0 , Distance ));
-	color.r = 0;
-	color.b = 0;
-	if(color.a > 0)
-		color.a = 0.2;
-	return color;
-}  
 
-float4 PixelShaderFunctionBlue(float2 coords: TEXCOORD0) : COLOR0  
-{  
-	float4 color = tex2D(s0, coords + (Distance, -Distance));
-
-	color.g = 0;
-	color.r = 0;
-	
-	if(color.a > 0)
-		color.a = 0.2;
-
-	return color;
-} 
-
-float4 PixelShaderFunction(float2 coords: TEXCOORD0) : COLOR0
-{
-	float4 color = tex2D(s0, coords);
-		return color;
-}
 
 technique Technique1  
 {  
@@ -48,19 +21,4 @@ technique Technique1
 	{  
 		PixelShader = compile ps_2_0 PixelShaderFunction(); 
 	}  
-
-	pass Pass2
-	{
-		PixelShader = compile ps_2_0 PixelShaderFunctionGreen();
-	}
-
-	pass Pass3
-	{
-		PixelShader = compile ps_2_0 PixelShaderFunctionBlue();
-	}
-
-	pass Pass4
-	{
-		PixelShader = compile ps_2_0 PixelShaderFunctionRed();
-	}
 }  
