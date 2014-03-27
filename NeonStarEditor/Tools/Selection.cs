@@ -50,7 +50,6 @@ namespace NeonStarEditor
                             currentWorld.ToggleSpritesheetPicker();
                             break;
                         }
-
                     }
                 }
                 else

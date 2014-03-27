@@ -604,8 +604,10 @@ namespace NeonStarEditor
             }
             catch (InvalidOperationException exc)
             {
-                //Console.WriteLine(exc.ToString());
-                return;
+                if (exc != null)
+                    return;
+                else
+                    return;
             }
             pcc.pi.SetValue(pcc.c, ((sender as TextBox).Text), null);
         }
