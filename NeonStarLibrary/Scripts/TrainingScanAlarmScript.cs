@@ -155,8 +155,6 @@ namespace NeonStarLibrary.Components.Scripts
                 _importantTurretRange2.RangeForAttackOne = 1;
             }
 
-            _importantRobot.transform.Position = new Vector2(1230, 170);
-
             base.Init();
         }
 
