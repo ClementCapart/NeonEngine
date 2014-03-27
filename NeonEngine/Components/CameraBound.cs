@@ -144,7 +144,7 @@ namespace NeonEngine.Components.Camera
                     }
                     else
                     {
-                        if (!_reverseBound)
+                        /*if (!_reverseBound)
                         {
                             if (_boundStrength > 0.0f)
                                 _boundStrength -= (float)gameTime.ElapsedGameTime.TotalSeconds * _strengtheningRate;
@@ -160,7 +160,7 @@ namespace NeonEngine.Components.Camera
 
                             if (_boundStrength > 1.0f)
                                 _boundStrength = 1.0f;
-                        }
+                        }*/
                     }
                 }
                
