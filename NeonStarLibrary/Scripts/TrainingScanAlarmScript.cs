@@ -130,6 +130,11 @@ namespace NeonStarLibrary.Components.Scripts
             if (e != null)
                 _importantTurretRange2 = e.GetComponent<AreaAttack>();
 
+            if (_exitDoor != null)
+            {
+                _exitDoor.ActivateDevice();
+            }
+            
             if (_importantRobotRange != null)
             {
                 _importantRobotRange.RangeForAttackOne = 1;
