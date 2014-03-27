@@ -181,7 +181,7 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 for (int i = _ignoredGeometry.Count - 1; i >= 0; i--)
                 {
-                    if (entity.transform.Position.Y + entity.hitboxes[0].Height / 2 > _ignoredGeometry[i].entity.transform.Position.Y + _ignoredGeometry[i].entity.hitboxes[0].Height / 2 || entity.rigidbody.body.LinearVelocity.Y <= 0.05f)
+                    if (entity.transform.Position.Y + entity.hitboxes[0].Height / 2 > _ignoredGeometry[i].entity.transform.Position.Y + _ignoredGeometry[i].entity.hitboxes[0].Height / 2 || StartJumping)
                     {
                         entity.rigidbody.body.RestoreCollisionWith(_ignoredGeometry[i].body);
                         _ignoredGeometry.RemoveAt(i);
