@@ -123,6 +123,46 @@ namespace NeonEngine.Components.Graphics2D
             set { _fifthTileGraphicTag = value; }
         }
 
+        private string _sixthTileGraphicTag = "";
+
+        public string SixthTileGraphicTag
+        {
+            get { return _sixthTileGraphicTag; }
+            set { _sixthTileGraphicTag = value; }
+        }
+
+        private string _seventhTileGraphicTag = "";
+
+        public string SeventhTileGraphicTag
+        {
+            get { return _seventhTileGraphicTag; }
+            set { _seventhTileGraphicTag = value; }
+        }
+
+        private string _eighthTileGraphicTag = "";
+
+        public string EighthTileGraphicTag
+        {
+            get { return _eighthTileGraphicTag; }
+            set { _eighthTileGraphicTag = value; }
+        }
+
+        private string _ninthTileGraphicTag = "";
+
+        public string NinthTileGraphicTag
+        {
+            get { return _ninthTileGraphicTag; }
+            set { _ninthTileGraphicTag = value; }
+        }
+
+        private string _tenthTileGraphicTag = "";
+
+        public string TenthTileGraphicTag
+        {
+            get { return _tenthTileGraphicTag; }
+            set { _tenthTileGraphicTag = value; }
+        }
+
         private bool _keepTilingHash = false;
 
         public bool KeepTilingHash
@@ -164,6 +204,11 @@ namespace NeonEngine.Components.Graphics2D
         private Texture2D _thirdTileTexture;
         private Texture2D _fourthTileTexture;
         private Texture2D _fifthTileTexture;
+        private Texture2D _sixthTileTexture;
+        private Texture2D _seventhTileTexture;
+        private Texture2D _eighthTileTexture;
+        private Texture2D _ninthTileTexture;
+        private Texture2D _tenthTileTexture;
 
         Dictionary<Texture2D, List<Vector2>> _randomResult = new Dictionary<Texture2D, List<Vector2>>();
 
@@ -179,9 +224,13 @@ namespace NeonEngine.Components.Graphics2D
             this._firstTileTexture = AssetManager.GetTexture(_firstTileGraphicTag);
             this._secondTileTexture = AssetManager.GetTexture(_secondTileGraphicTag);
             this._thirdTileTexture = AssetManager.GetTexture(_thirdTileGraphicTag);
-            this._fourthTileTexture = AssetManager.GetTexture(_fourthTileGraphicTag);
-   
+            this._fourthTileTexture = AssetManager.GetTexture(_fourthTileGraphicTag);   
             this._fifthTileTexture = AssetManager.GetTexture(_fifthTileGraphicTag);
+            this._sixthTileTexture = AssetManager.GetTexture(_sixthTileGraphicTag);
+            this._seventhTileTexture = AssetManager.GetTexture(_seventhTileGraphicTag);
+            this._eighthTileTexture = AssetManager.GetTexture(_eighthTileGraphicTag);
+            this._ninthTileTexture = AssetManager.GetTexture(_ninthTileGraphicTag);
+            this._tenthTileTexture = AssetManager.GetTexture(_tenthTileGraphicTag);
 
             if (_tilingHash == "" || !_keepTilingHash)
             {
@@ -210,6 +259,17 @@ namespace NeonEngine.Components.Graphics2D
                 textures.Add(_fourthTileTexture);
             if (_fifthTileTexture != null)
                 textures.Add(_fifthTileTexture);
+            if (_sixthTileTexture != null)
+                textures.Add(_sixthTileTexture);
+            if (_seventhTileTexture != null)
+                textures.Add(_seventhTileTexture);
+            if (_eighthTileTexture != null)
+                textures.Add(_eighthTileTexture);
+            if (_ninthTileTexture != null)
+                textures.Add(_ninthTileTexture);
+            if (_tenthTileTexture != null)
+                textures.Add(_tenthTileTexture);
+
 
             if (textures.Count == 0)
                 return;
@@ -275,6 +335,16 @@ namespace NeonEngine.Components.Graphics2D
                 textures.Add(_fourthTileTexture);
             if (_fifthTileTexture != null)
                 textures.Add(_fifthTileTexture);
+            if (_sixthTileTexture != null)
+                textures.Add(_sixthTileTexture);
+            if (_seventhTileTexture != null)
+                textures.Add(_seventhTileTexture);
+            if (_eighthTileTexture != null)
+                textures.Add(_eighthTileTexture);
+            if (_ninthTileTexture != null)
+                textures.Add(_ninthTileTexture);
+            if (_tenthTileTexture != null)
+                textures.Add(_tenthTileTexture);
 
             foreach (string hash in hashInfo)
             {
