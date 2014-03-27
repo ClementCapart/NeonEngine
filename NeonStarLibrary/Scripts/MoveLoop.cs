@@ -50,7 +50,7 @@ namespace NeonStarLibrary.Components.Scripts
             {
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 if (_fadeEffect != null && _enemyCore != null)
-                    EffectsManager.GetEffect(_fadeEffect, _enemyCore.CurrentSide, entity.transform.Position, 0.0f, new Vector2(-30, 0), 2.0f, 0.45f);
+                    EffectsManager.GetEffect(_fadeEffect, _enemyCore.CurrentSide, entity.transform.Position, 0.0f, new Vector2(30, 0), 2.0f, 0.45f);
                 this.entity.transform.Position = _startNode.Position;
             }
             if (_movingGeometry.CurrentNodeList != null && _movingGeometry.CurrentNodeList.Nodes.Count >= 2)
