@@ -68,7 +68,7 @@ namespace NeonStarLibrary.Components.Avatar
                             {
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                             }
-                            else
+                            else if(entity.rigidbody.body.LinearVelocity.Y >= 0.0f)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
                         }
                         else
@@ -86,7 +86,7 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.spritesheets.Active = true;
                         if (entity.rigidbody.isGrounded && !AvatarComponent.ThirdPersonController.StartJumping)
                         {
-                            if (!entity.rigidbody.wasGrounded)
+                            if (!entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0.0f)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
                             else
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.WalkAnimation);

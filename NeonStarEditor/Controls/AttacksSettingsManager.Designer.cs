@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.Title = new System.Windows.Forms.Label();
-            this.AttacksList = new System.Windows.Forms.ListBox();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddNew = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClosePanel = new System.Windows.Forms.Button();
             this.AttackInfo = new System.Windows.Forms.GroupBox();
+            this.RemoveFinishEffect = new System.Windows.Forms.Button();
             this.RemoveDelayEffect = new System.Windows.Forms.Button();
+            this.AddFinishEffect = new System.Windows.Forms.Button();
             this.AddDelayEffect = new System.Windows.Forms.Button();
+            this.OnFinishSpecialEffectsList = new System.Windows.Forms.ListBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.OnDelaySpecialEffectsList = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
             this.OnlyOnceInAir = new System.Windows.Forms.CheckBox();
             this.GroundCancelCheckbox = new System.Windows.Forms.CheckBox();
             this.AlwaysStunlock = new System.Windows.Forms.CheckBox();
             this.AirOnlyCheckbox = new System.Windows.Forms.CheckBox();
+            this.GroupName = new System.Windows.Forms.TextBox();
             this.AttackName = new System.Windows.Forms.TextBox();
             this.TargetAirLockNumeric = new System.Windows.Forms.NumericUpDown();
             this.AirLockNumeric = new System.Windows.Forms.NumericUpDown();
@@ -72,6 +76,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.LocalCooldown = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -86,10 +91,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ElementCombobox = new System.Windows.Forms.ComboBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.OnFinishSpecialEffectsList = new System.Windows.Forms.ListBox();
-            this.AddFinishEffect = new System.Windows.Forms.Button();
-            this.RemoveFinishEffect = new System.Windows.Forms.Button();
+            this.AttacksList = new System.Windows.Forms.TreeView();
             this.AttackInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TargetAirLockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AirLockNumeric)).BeginInit();
@@ -115,15 +117,6 @@
             this.Title.Size = new System.Drawing.Size(155, 34);
             this.Title.TabIndex = 0;
             this.Title.Text = "Attacks Manager";
-            // 
-            // AttacksList
-            // 
-            this.AttacksList.FormattingEnabled = true;
-            this.AttacksList.Location = new System.Drawing.Point(17, 99);
-            this.AttacksList.Name = "AttacksList";
-            this.AttacksList.Size = new System.Drawing.Size(175, 355);
-            this.AttacksList.TabIndex = 1;
-            this.AttacksList.SelectedIndexChanged += new System.EventHandler(this.AttacksList_SelectedIndexChanged);
             // 
             // RemoveButton
             // 
@@ -187,6 +180,7 @@
             this.AttackInfo.Controls.Add(this.GroundCancelCheckbox);
             this.AttackInfo.Controls.Add(this.AlwaysStunlock);
             this.AttackInfo.Controls.Add(this.AirOnlyCheckbox);
+            this.AttackInfo.Controls.Add(this.GroupName);
             this.AttackInfo.Controls.Add(this.AttackName);
             this.AttackInfo.Controls.Add(this.TargetAirLockNumeric);
             this.AttackInfo.Controls.Add(this.AirLockNumeric);
@@ -216,6 +210,7 @@
             this.AttackInfo.Controls.Add(this.label15);
             this.AttackInfo.Controls.Add(this.label8);
             this.AttackInfo.Controls.Add(this.label7);
+            this.AttackInfo.Controls.Add(this.label17);
             this.AttackInfo.Controls.Add(this.LocalCooldown);
             this.AttackInfo.Controls.Add(this.label13);
             this.AttackInfo.Controls.Add(this.label6);
@@ -238,6 +233,18 @@
             this.AttackInfo.TabStop = false;
             this.AttackInfo.Text = "Attack Info";
             // 
+            // RemoveFinishEffect
+            // 
+            this.RemoveFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.RemoveFinishEffect.Location = new System.Drawing.Point(295, 302);
+            this.RemoveFinishEffect.Name = "RemoveFinishEffect";
+            this.RemoveFinishEffect.Size = new System.Drawing.Size(31, 23);
+            this.RemoveFinishEffect.TabIndex = 8;
+            this.RemoveFinishEffect.Text = "-";
+            this.RemoveFinishEffect.UseVisualStyleBackColor = true;
+            this.RemoveFinishEffect.Click += new System.EventHandler(this.RemoveFinishEffect_Click);
+            // 
             // RemoveDelayEffect
             // 
             this.RemoveDelayEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -250,6 +257,18 @@
             this.RemoveDelayEffect.UseVisualStyleBackColor = true;
             this.RemoveDelayEffect.Click += new System.EventHandler(this.RemoveDelayEffect_Click);
             // 
+            // AddFinishEffect
+            // 
+            this.AddFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.AddFinishEffect.Location = new System.Drawing.Point(295, 274);
+            this.AddFinishEffect.Name = "AddFinishEffect";
+            this.AddFinishEffect.Size = new System.Drawing.Size(31, 23);
+            this.AddFinishEffect.TabIndex = 9;
+            this.AddFinishEffect.Text = "+";
+            this.AddFinishEffect.UseVisualStyleBackColor = true;
+            this.AddFinishEffect.Click += new System.EventHandler(this.AddFinishEffect_Click);
+            // 
             // AddDelayEffect
             // 
             this.AddDelayEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -261,6 +280,24 @@
             this.AddDelayEffect.Text = "+";
             this.AddDelayEffect.UseVisualStyleBackColor = true;
             this.AddDelayEffect.Click += new System.EventHandler(this.AddDelayEffect_Click);
+            // 
+            // OnFinishSpecialEffectsList
+            // 
+            this.OnFinishSpecialEffectsList.FormattingEnabled = true;
+            this.OnFinishSpecialEffectsList.Location = new System.Drawing.Point(176, 278);
+            this.OnFinishSpecialEffectsList.Name = "OnFinishSpecialEffectsList";
+            this.OnFinishSpecialEffectsList.Size = new System.Drawing.Size(113, 43);
+            this.OnFinishSpecialEffectsList.TabIndex = 6;
+            this.OnFinishSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnFinishSpecialEffectsList_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(174, 262);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(122, 13);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "On Finish SpecialEffects";
             // 
             // OnDelaySpecialEffectsList
             // 
@@ -324,13 +361,27 @@
             this.AirOnlyCheckbox.UseVisualStyleBackColor = true;
             this.AirOnlyCheckbox.CheckedChanged += new System.EventHandler(this.AirOnlyCheckbox_CheckedChanged);
             // 
+            // GroupName
+            // 
+            this.GroupName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.GroupName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GroupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.GroupName.Location = new System.Drawing.Point(452, 31);
+            this.GroupName.Name = "GroupName";
+            this.GroupName.Size = new System.Drawing.Size(162, 24);
+            this.GroupName.TabIndex = 4;
+            this.GroupName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GroupName.Enter += new System.EventHandler(this.GroupName_Enter);
+            this.GroupName.Leave += new System.EventHandler(this.GroupName_Leave);
+            // 
             // AttackName
             // 
             this.AttackName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.AttackName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AttackName.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AttackName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AttackName.Location = new System.Drawing.Point(123, 19);
+            this.AttackName.Location = new System.Drawing.Point(86, 19);
             this.AttackName.Name = "AttackName";
             this.AttackName.Size = new System.Drawing.Size(286, 36);
             this.AttackName.TabIndex = 4;
@@ -761,6 +812,15 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "AirLock";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(449, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(36, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Group";
+            // 
             // LocalCooldown
             // 
             this.LocalCooldown.AutoSize = true;
@@ -889,47 +949,13 @@
             this.TypeComboBox.TabIndex = 0;
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
             // 
-            // label16
+            // AttacksList
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(174, 262);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(122, 13);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "On Finish SpecialEffects";
-            // 
-            // OnFinishSpecialEffectsList
-            // 
-            this.OnFinishSpecialEffectsList.FormattingEnabled = true;
-            this.OnFinishSpecialEffectsList.Location = new System.Drawing.Point(176, 278);
-            this.OnFinishSpecialEffectsList.Name = "OnFinishSpecialEffectsList";
-            this.OnFinishSpecialEffectsList.Size = new System.Drawing.Size(113, 43);
-            this.OnFinishSpecialEffectsList.TabIndex = 6;
-            this.OnFinishSpecialEffectsList.SelectedIndexChanged += new System.EventHandler(this.OnFinishSpecialEffectsList_SelectedIndexChanged);
-            // 
-            // AddFinishEffect
-            // 
-            this.AddFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.AddFinishEffect.Location = new System.Drawing.Point(295, 274);
-            this.AddFinishEffect.Name = "AddFinishEffect";
-            this.AddFinishEffect.Size = new System.Drawing.Size(31, 23);
-            this.AddFinishEffect.TabIndex = 9;
-            this.AddFinishEffect.Text = "+";
-            this.AddFinishEffect.UseVisualStyleBackColor = true;
-            this.AddFinishEffect.Click += new System.EventHandler(this.AddFinishEffect_Click);
-            // 
-            // RemoveFinishEffect
-            // 
-            this.RemoveFinishEffect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveFinishEffect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.RemoveFinishEffect.Location = new System.Drawing.Point(295, 302);
-            this.RemoveFinishEffect.Name = "RemoveFinishEffect";
-            this.RemoveFinishEffect.Size = new System.Drawing.Size(31, 23);
-            this.RemoveFinishEffect.TabIndex = 8;
-            this.RemoveFinishEffect.Text = "-";
-            this.RemoveFinishEffect.UseVisualStyleBackColor = true;
-            this.RemoveFinishEffect.Click += new System.EventHandler(this.RemoveFinishEffect_Click);
+            this.AttacksList.Location = new System.Drawing.Point(4, 57);
+            this.AttacksList.Name = "AttacksList";
+            this.AttacksList.Size = new System.Drawing.Size(192, 416);
+            this.AttacksList.TabIndex = 4;
+            this.AttacksList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AttacksList_AfterSelect);
             // 
             // AttacksSettingsManager
             // 
@@ -937,12 +963,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.AttacksList);
             this.Controls.Add(this.AttackInfo);
             this.Controls.Add(this.ClosePanel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddNew);
             this.Controls.Add(this.RemoveButton);
-            this.Controls.Add(this.AttacksList);
             this.Controls.Add(this.Title);
             this.Name = "AttacksSettingsManager";
             this.Size = new System.Drawing.Size(843, 579);
@@ -968,7 +994,6 @@
         #endregion
 
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.ListBox AttacksList;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button AddNew;
         private System.Windows.Forms.Button SaveButton;
@@ -1029,5 +1054,8 @@
         private System.Windows.Forms.Button AddFinishEffect;
         private System.Windows.Forms.ListBox OnFinishSpecialEffectsList;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox GroupName;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TreeView AttacksList;
     }
 }

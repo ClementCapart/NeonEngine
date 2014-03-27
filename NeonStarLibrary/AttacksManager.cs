@@ -37,6 +37,7 @@ namespace NeonStarLibrary
 
     public class AttackInfo
     {
+        public string GroupName = "NoGroup";
         public string Name;
         public AttackType Type = AttackType.MeleeSpecial;
         public Element AttackElement = Element.Neutral;

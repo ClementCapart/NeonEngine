@@ -33,6 +33,8 @@ namespace NeonStarEditor
 
         public bool FlyingModeActivated = false;
 
+        public bool DisplayEntityCenter = false;
+
         public bool EditorVisible = true;
         public Form GameAsForm;
         public BottomDock BottomDockControl;
@@ -413,6 +415,11 @@ namespace NeonStarEditor
 
         public override void PostUpdate(GameTime gameTime)
         {
+            if (Neon.Input.Pressed(Keys.F3))
+            {
+                DisplayEntityCenter = !DisplayEntityCenter;
+            }
+
             if (!Pause)
                 if (UnpauseTillNextFrame)
                 {
@@ -561,6 +568,21 @@ namespace NeonStarEditor
 
         public override void ManualDrawGame(SpriteBatch spriteBatch)
         {
+            if (DisplayEntityCenter)
+            {
+                Texture2D t = AssetManager.GetTexture("AssetCenter");
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.get_transformation(graphics.GraphicsDevice));
+                foreach (Entity e in Entities)
+                {
+                    if (SelectedEntity == e)
+                        spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2) , Color.Red);
+                    else
+                        spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.White);
+                    
+                }
+                
+            }
             if (EditorVisible)
             {
                 if (FocusEntity)

@@ -17,12 +17,12 @@ namespace NeonStarEditor
 {
     public partial class AttacksSettingsManager : UserControl
     {
-        
-        
 
-        Dictionary<string, AttackInfo> _attackList = new Dictionary<string, AttackInfo>();
+        AttackInfo CurrentAttackSelected;
+
         string InitialName = "";
         AttackEffect CurrentAttackEffectSelected = null;
+        List<AttackInfo> _completeAttackList;
 
         public AttacksSettingsManager()
         {
@@ -37,25 +37,33 @@ namespace NeonStarEditor
 
         public void InitializeData(bool fromGame = true)
         {
-            if (fromGame)
+            _completeAttackList = new List<AttackInfo>();
+            AttacksList.Nodes.Clear();
+            AttacksManager._attacksInformation = AttacksManager._attacksInformation.OrderBy(a => a.Name).ToList();
+            foreach (AttackInfo ai in AttacksManager._attacksInformation)
             {
-                _attackList.Clear();
-                AttacksManager._attacksInformation = AttacksManager._attacksInformation.OrderBy(ai => ai.Name).ToList<AttackInfo>();
-                foreach (AttackInfo ai in AttacksManager._attacksInformation)
+                if (!AttacksList.Nodes.ContainsKey(ai.GroupName))
                 {
-                    _attackList.Add(ai.Name, ai);
+                    TreeNode groupTn = new TreeNode(ai.GroupName);
+                    groupTn.Name = ai.GroupName;
+                    AttacksList.Nodes.Add(groupTn);
                 }
-            }
-            AttacksList.DataSource = _attackList.Keys.ToList();
-            
+                    
+    
+                TreeNode tn = new TreeNode(ai.Name);
+                tn.Tag = ai;
+
+                AttacksList.Nodes[ai.GroupName].Nodes.Add(tn);
+                _completeAttackList.Add(ai);
+
+            }          
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (AttacksList.SelectedValue != null)
+            if (CurrentAttackSelected != null)
             {
-                AttacksManager._attacksInformation.Remove(_attackList[(string)AttacksList.SelectedValue]);
-                _attackList.Remove((string)AttacksList.SelectedValue);
+                AttacksManager._attacksInformation.Remove(CurrentAttackSelected);
                 InitializeData(false);
             }
         }
@@ -63,14 +71,14 @@ namespace NeonStarEditor
         private void AddNew_Click(object sender, EventArgs e)
         {
             int i = 1;
-            while(_attackList.ContainsKey("Attack"+i))
+            while(_completeAttackList.Where(a => a.Name == "Attack"+i).Count() > 0)
                 i++;
-            
+
             AttackInfo ai = new AttackInfo();
             ai.Name = "Attack"+i;
+            ai.GroupName = "NoGroup";
 
-            _attackList.Add("Attack" + i, ai);
-            AttacksManager._attacksInformation.Add(_attackList["Attack" + i]);
+            AttacksManager._attacksInformation.Add(ai);
             InitializeData(false);
         }
 
@@ -82,14 +90,15 @@ namespace NeonStarEditor
             XElement xnaContent = new XElement("XnaContent");
             XElement attacks = new XElement("Attacks");
 
-            foreach (KeyValuePair<string, AttackInfo> kvp in _attackList)
+            foreach (AttackInfo ai in _completeAttackList)
             {
                 XElement attack = new XElement("Attack", new XAttribute("ID", i), 
-                                                new XAttribute("Name", kvp.Key),
-                                                new XAttribute("Type", kvp.Value.Type.ToString()));
+                                                new XAttribute("Name", ai.Name),
+                                                new XAttribute("Group", ai.GroupName),
+                                                new XAttribute("Type", ai.Type.ToString()));
 
                 XElement hitboxes = new XElement("Hitboxes");
-                foreach(Microsoft.Xna.Framework.Rectangle rectangle in kvp.Value.Hitboxes)
+                foreach(Microsoft.Xna.Framework.Rectangle rectangle in ai.Hitboxes)
                 {
                     XElement hitbox = new XElement("Hitbox", new XAttribute("OffsetX", rectangle.X),
                                                     new XAttribute("OffsetY", rectangle.Y),
@@ -100,84 +109,84 @@ namespace NeonStarEditor
 
                 attack.Add(hitboxes);
 
-                XElement element = new XElement("AttackElement", kvp.Value.AttackElement.ToString());
+                XElement element = new XElement("AttackElement", ai.AttackElement.ToString());
                 attack.Add(element);
 
-                XElement damageOnHit = new XElement("DamageOnHit", kvp.Value.DamageOnHit.ToString("G", CultureInfo.InvariantCulture));
+                XElement damageOnHit = new XElement("DamageOnHit", ai.DamageOnHit.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(damageOnHit);
 
-                XElement airOnly = new XElement("AirOnly", kvp.Value.AirOnly.ToString());
+                XElement airOnly = new XElement("AirOnly", ai.AirOnly.ToString());
                 attack.Add(airOnly);
 
-                XElement cancelOnGround = new XElement("GroundCancel", kvp.Value.CancelOnGround.ToString());
+                XElement cancelOnGround = new XElement("GroundCancel", ai.CancelOnGround.ToString());
                 attack.Add(cancelOnGround);
 
-                XElement onlyOnceInAir = new XElement("OnlyOnceInAir", kvp.Value.OnlyOnceInAir.ToString());
+                XElement onlyOnceInAir = new XElement("OnlyOnceInAir", ai.OnlyOnceInAir.ToString());
                 attack.Add(onlyOnceInAir);
 
-                XElement delay = new XElement("Delay", kvp.Value.Delay.ToString("G", CultureInfo.InvariantCulture));
+                XElement delay = new XElement("Delay", ai.Delay.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(delay);
 
-                XElement cooldown = new XElement("Cooldown", kvp.Value.Cooldown.ToString("G", CultureInfo.InvariantCulture));
+                XElement cooldown = new XElement("Cooldown", ai.Cooldown.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(cooldown);
 
-                XElement localCooldown = new XElement("LocalCooldown", kvp.Value.LocalCooldown.ToString("G", CultureInfo.InvariantCulture));
+                XElement localCooldown = new XElement("LocalCooldown", ai.LocalCooldown.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(localCooldown);
 
-                XElement duration = new XElement("Duration", kvp.Value.Duration.ToString("G", CultureInfo.InvariantCulture));
+                XElement duration = new XElement("Duration", ai.Duration.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(duration);
 
-                XElement airLock = new XElement("AirLock", kvp.Value.AirLock.ToString("G", CultureInfo.InvariantCulture));
+                XElement airLock = new XElement("AirLock", ai.AirLock.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(airLock);
 
-                XElement targetAirLock = new XElement("TargetAirLock", kvp.Value.TargetAirLock.ToString("G", CultureInfo.InvariantCulture));
+                XElement targetAirLock = new XElement("TargetAirLock", ai.TargetAirLock.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(targetAirLock);
 
-                XElement airFactor = new XElement("AirFactor", kvp.Value.AirFactor.ToString("G", CultureInfo.InvariantCulture));
+                XElement airFactor = new XElement("AirFactor", ai.AirFactor.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(airFactor);
 
-                XElement stunLock = new XElement("StunLock", kvp.Value.StunLock.ToString("G", CultureInfo.InvariantCulture));
+                XElement stunLock = new XElement("StunLock", ai.StunLock.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(stunLock);
 
-                XElement multiHitDelay = new XElement("MultiHitDelay", kvp.Value.MultiHitDelay.ToString("G", CultureInfo.InvariantCulture));
+                XElement multiHitDelay = new XElement("MultiHitDelay", ai.MultiHitDelay.ToString("G", CultureInfo.InvariantCulture));
                 attack.Add(multiHitDelay);
 
-                XElement airImpulse = new XElement("AirImpulse", Neon.Utils.Vector2ToString(kvp.Value.AirImpulse));
+                XElement airImpulse = new XElement("AirImpulse", Neon.Utils.Vector2ToString(ai.AirImpulse));
                 attack.Add(airImpulse);
 
-                XElement alwaysStunlock = new XElement("AlwaysStunlock", kvp.Value.AlwaysStunlock.ToString());
+                XElement alwaysStunlock = new XElement("AlwaysStunlock", ai.AlwaysStunlock.ToString());
                 attack.Add(alwaysStunlock);
 
                 XElement onDelaySpecialEffects = new XElement("OnDelaySpecialEffects");
-                foreach (AttackEffect effect in kvp.Value.OnDelaySpecialEffects)
+                foreach (AttackEffect effect in ai.OnDelaySpecialEffects)
                 {
                     onDelaySpecialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(onDelaySpecialEffects);
 
                 XElement onDurationSpecialEffects = new XElement("OnDurationSpecialEffects");
-                foreach (AttackEffect effect in kvp.Value.OnDurationSpecialEffects)
+                foreach (AttackEffect effect in ai.OnDurationSpecialEffects)
                 {
                     onDurationSpecialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(onDurationSpecialEffects);
 
                 XElement onHitSpecialEffects = new XElement("OnHitSpecialEffects");
-                foreach (AttackEffect effect in kvp.Value.OnHitSpecialEffects)
+                foreach (AttackEffect effect in ai.OnHitSpecialEffects)
                 {
                     onHitSpecialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(onHitSpecialEffects);
 
                 XElement onGroundCancelSpecialEffects = new XElement("OnGroundCancelSpecialEffects");
-                foreach (AttackEffect effect in kvp.Value.OnGroundCancelSpecialEffects)
+                foreach (AttackEffect effect in ai.OnGroundCancelSpecialEffects)
                 {
                     onGroundCancelSpecialEffects.Add(CreateEffectText(effect));
                 }
                 attack.Add(onGroundCancelSpecialEffects);
 
                 XElement onFinishSpecialEffects = new XElement("OnFinishSpecialEffects");
-                foreach (AttackEffect effect in kvp.Value.OnFinishSpecialEffects)
+                foreach (AttackEffect effect in ai.OnFinishSpecialEffects)
                 {
                     onFinishSpecialEffects.Add(CreateEffectText(effect));
                 }
@@ -899,15 +908,17 @@ namespace NeonStarEditor
             }
             else
                 CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
+
         }
 
         void textBox_Leave(object sender, EventArgs e)
         {
-            if((sender as TextBox).Name == "BulletName")
+            if ((sender as TextBox).Name == "BulletName")
                 CurrentAttackEffectSelected.Parameters[0] = BulletsManager.GetBulletInfo((sender as TextBox).Text);
             else
                 CurrentAttackEffectSelected.Parameters[0] = (sender as TextBox).Text;
             (Neon.World as EditorScreen).FocusedTextBox = null;
+
         }
 
         void textBox_Enter(object sender, EventArgs e)
@@ -922,18 +933,18 @@ namespace NeonStarEditor
                 CurrentAttackEffectSelected.Parameters[0] = AssetManager.GetSpriteSheet((string)((sender as ComboBox).SelectedItem));
                 return;
             }
-            else if((sender as ComboBox).Name == "SoundName")
+            else if ((sender as ComboBox).Name == "SoundName")
             {
                 CurrentAttackEffectSelected.Parameters[0] = (string)((sender as ComboBox).SelectedItem);
                 return;
             }
-               
+
 
             if (CurrentAttackEffectSelected.specialEffect != (SpecialEffect)(sender as ComboBox).SelectedItem)
             {
                 CurrentAttackEffectSelected.specialEffect = (SpecialEffect)(sender as ComboBox).SelectedItem;
                 CurrentAttackEffectSelected.Parameters = null;
-                switch(CurrentAttackEffectSelected.specialEffect)
+                switch (CurrentAttackEffectSelected.specialEffect)
                 {
                     case SpecialEffect.PositionalPulse:
                         CurrentAttackEffectSelected.Parameters = new object[] { new Vector2() };
@@ -985,30 +996,32 @@ namespace NeonStarEditor
                 }
                 this.InitEffectData();
             }
+
         }
 
 
         private void InitInformations()
         {
-            this.AttackName.Text = _attackList[AttacksList.SelectedValue.ToString()].Name;
-            this.TypeComboBox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].Type;
-            this.ElementCombobox.SelectedIndex = (int)_attackList[AttacksList.SelectedValue.ToString()].AttackElement;
-            this.DamageNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].DamageOnHit * -1;
-            this.DelayNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Delay;
-            this.DurationNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Duration;
-            this.CooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].Cooldown;
-            this.AirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirLock;
-            this.TargetAirLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].TargetAirLock;
-            this.AirOnlyCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].AirOnly;
-            this.GroundCancelCheckbox.Checked = _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround;
-            this.OnlyOnceInAir.Checked = _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir;
-            this.AirFactorNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirFactor;
-            this.StunLockNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].StunLock;
-            this.LocalCooldownNumeric.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].LocalCooldown;
-            this.MultiHitDelayNU.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay;
-            this.AirImpulseX.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.X;
-            this.AirImpulseY.Value = (decimal)_attackList[AttacksList.SelectedValue.ToString()].AirImpulse.Y;
-            this.AlwaysStunlock.Checked = _attackList[AttacksList.SelectedValue.ToString()].AlwaysStunlock;
+            this.AttackName.Text = this.CurrentAttackSelected.Name;
+            this.GroupName.Text = this.CurrentAttackSelected.GroupName;
+            this.TypeComboBox.SelectedIndex = (int)this.CurrentAttackSelected.Type;
+            this.ElementCombobox.SelectedIndex = (int)this.CurrentAttackSelected.AttackElement;
+            this.DamageNumeric.Value = (decimal)this.CurrentAttackSelected.DamageOnHit * -1;
+            this.DelayNumeric.Value = (decimal)this.CurrentAttackSelected.Delay;
+            this.DurationNumeric.Value = (decimal)this.CurrentAttackSelected.Duration;
+            this.CooldownNumeric.Value = (decimal)this.CurrentAttackSelected.Cooldown;
+            this.AirLockNumeric.Value = (decimal)this.CurrentAttackSelected.AirLock;
+            this.TargetAirLockNumeric.Value = (decimal)this.CurrentAttackSelected.TargetAirLock;
+            this.AirOnlyCheckbox.Checked = this.CurrentAttackSelected.AirOnly;
+            this.GroundCancelCheckbox.Checked = this.CurrentAttackSelected.CancelOnGround;
+            this.OnlyOnceInAir.Checked = this.CurrentAttackSelected.OnlyOnceInAir;
+            this.AirFactorNU.Value = (decimal)this.CurrentAttackSelected.AirFactor;
+            this.StunLockNumeric.Value = (decimal)this.CurrentAttackSelected.StunLock;
+            this.LocalCooldownNumeric.Value = (decimal)this.CurrentAttackSelected.LocalCooldown;
+            this.MultiHitDelayNU.Value = (decimal)this.CurrentAttackSelected.MultiHitDelay;
+            this.AirImpulseX.Value = (decimal)this.CurrentAttackSelected.AirImpulse.X;
+            this.AirImpulseY.Value = (decimal)this.CurrentAttackSelected.AirImpulse.Y;
+            this.AlwaysStunlock.Checked = this.CurrentAttackSelected.AlwaysStunlock;
 
             int yPosition = 5;
             int rectangleIndex = 0;
@@ -1016,7 +1029,7 @@ namespace NeonStarEditor
             for (int i = HitboxesPanel.Controls.Count - 1; i >= 0; i--)
                 HitboxesPanel.Controls[i].Dispose();
 
-                foreach (Microsoft.Xna.Framework.Rectangle rectangle in _attackList[AttacksList.SelectedValue.ToString()].Hitboxes)
+            foreach (Microsoft.Xna.Framework.Rectangle rectangle in CurrentAttackSelected.Hitboxes)
                 {
                     Label label = new Label();
                     label.Text = "X";
@@ -1119,37 +1132,38 @@ namespace NeonStarEditor
 
             this.HitboxesPanel.Controls.Add(buttonAdd);
             this.OnDurationSpecialEffectsList.DataSource = null;
-            this.OnDurationSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects;
+            this.OnDurationSpecialEffectsList.DataSource = this.CurrentAttackSelected.OnDurationSpecialEffects;
             this.OnDurationSpecialEffectsList.DisplayMember = "NameType";
             this.OnHitSpecialEffectsList.DataSource = null;
-            this.OnHitSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects;
+            this.OnHitSpecialEffectsList.DataSource = this.CurrentAttackSelected.OnHitSpecialEffects;
             this.OnHitSpecialEffectsList.DisplayMember = "NameType";
             this.OnGroundCancelSpecialEffectList.DataSource = null;
-            this.OnGroundCancelSpecialEffectList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects;
+            this.OnGroundCancelSpecialEffectList.DataSource = this.CurrentAttackSelected.OnGroundCancelSpecialEffects;
             this.OnGroundCancelSpecialEffectList.DisplayMember = "NameType";
             this.OnDelaySpecialEffectsList.DataSource = null;
-            this.OnDelaySpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects;
+            this.OnDelaySpecialEffectsList.DataSource = this.CurrentAttackSelected.OnDelaySpecialEffects;
             this.OnDelaySpecialEffectsList.DisplayMember = "NameType";
             this.OnFinishSpecialEffectsList.DataSource = null;
-            this.OnFinishSpecialEffectsList.DataSource = _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects;
+            this.OnFinishSpecialEffectsList.DataSource = this.CurrentAttackSelected.OnFinishSpecialEffects;
             this.OnFinishSpecialEffectsList.DisplayMember = "NameType";
         }
 
         void buttonAdd_Click(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].Hitboxes.Add(new Microsoft.Xna.Framework.Rectangle(0, 0, 0, 0));
+            this.CurrentAttackSelected.Hitboxes.Add(new Microsoft.Xna.Framework.Rectangle(0, 0, 0, 0));
             InitInformations();
         }
 
-        private void AttacksList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            InitInformations();
-        }
 
         void buttonRemove_Click(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].Hitboxes.RemoveAt(_attackList[AttacksList.SelectedValue.ToString()].Hitboxes.Count - 1);
-            InitInformations();
+            if (CurrentAttackSelected != null)
+            {
+                CurrentAttackSelected.Hitboxes.RemoveAt(CurrentAttackSelected.Hitboxes.Count - 1);
+                InitInformations();
+            }
+            
+
         }
 
         private void hitboxesNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -1158,36 +1172,37 @@ namespace NeonStarEditor
             string[] nameInformation = numericUpDown.Name.Split('_');
 
             string name = nameInformation[0];
-            Microsoft.Xna.Framework.Rectangle rectangle = _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])];      
+            Microsoft.Xna.Framework.Rectangle rectangle = CurrentAttackSelected.Hitboxes[int.Parse(nameInformation[1])];
 
-            switch(name)
+            switch (name)
             {
                 case "X":
-                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle((int)numericUpDown.Value, rectangle.Y, rectangle.Width, rectangle.Height);
+                    CurrentAttackSelected.Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle((int)numericUpDown.Value, rectangle.Y, rectangle.Width, rectangle.Height);
                     break;
 
                 case "Y":
-                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, (int)numericUpDown.Value, rectangle.Width, rectangle.Height);
+                    CurrentAttackSelected.Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, (int)numericUpDown.Value, rectangle.Width, rectangle.Height);
                     break;
 
                 case "W":
-                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, (int)numericUpDown.Value, rectangle.Height);
+                    CurrentAttackSelected.Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, (int)numericUpDown.Value, rectangle.Height);
                     break;
 
                 case "H":
-                    _attackList[AttacksList.SelectedValue.ToString()].Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, rectangle.Width, (int)numericUpDown.Value);
+                    CurrentAttackSelected.Hitboxes[int.Parse(nameInformation[1])] = new Microsoft.Xna.Framework.Rectangle(rectangle.X, rectangle.Y, rectangle.Width, (int)numericUpDown.Value);
                     break;
             }
+
         }
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].Type = (AttackType)this.TypeComboBox.SelectedIndex;
+            this.CurrentAttackSelected.Type = (AttackType)this.TypeComboBox.SelectedIndex;
         }
 
         private void ElementComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].AttackElement = (Element)this.ElementCombobox.SelectedIndex;
+            this.CurrentAttackSelected.AttackElement = (Element)this.ElementCombobox.SelectedIndex;
         }
 
         private void Numeric_ValueChanged(object sender, EventArgs e)
@@ -1199,27 +1214,27 @@ namespace NeonStarEditor
                     break;
 
                 case "DamageNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].DamageOnHit = (float)(sender as NumericUpDown).Value * -1;
+                    this.CurrentAttackSelected.DamageOnHit = (float)(sender as NumericUpDown).Value * -1;
                     break;
 
                 case "DelayNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].Delay = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.Delay = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "DurationNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].Duration = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.Duration = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "CooldownNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].Cooldown = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.Cooldown = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "AirLockNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].AirLock = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.AirLock = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "TargetAirLockNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].TargetAirLock = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.TargetAirLock = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "ImpulsePowerX":
@@ -1247,11 +1262,11 @@ namespace NeonStarEditor
                     break;
 
                 case "AirFactorNU":
-                    _attackList[AttacksList.SelectedValue.ToString()].AirFactor = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.AirFactor = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "StunLockNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].StunLock = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.StunLock = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "InvincibleDuration":
@@ -1263,7 +1278,7 @@ namespace NeonStarEditor
                     break;
 
                 case "LocalCooldownNumeric":
-                    _attackList[AttacksList.SelectedValue.ToString()].LocalCooldown = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.LocalCooldown = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "BoostDuration":
@@ -1297,7 +1312,7 @@ namespace NeonStarEditor
                     break;
 
                 case "MultiHitDelayNU":
-                    _attackList[AttacksList.SelectedValue.ToString()].MultiHitDelay = (float)(sender as NumericUpDown).Value;
+                    this.CurrentAttackSelected.MultiHitDelay = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "EffectScale":
@@ -1329,13 +1344,13 @@ namespace NeonStarEditor
                     break;
 
                 case "AirImpulseX":
-                    Vector2 impulse = _attackList[AttacksList.SelectedValue.ToString()].AirImpulse;
-                    _attackList[AttacksList.SelectedValue.ToString()].AirImpulse = new Vector2((float)(sender as NumericUpDown).Value, impulse.Y);
+                    Vector2 impulse = this.CurrentAttackSelected.AirImpulse;
+                    this.CurrentAttackSelected.AirImpulse = new Vector2((float)(sender as NumericUpDown).Value, impulse.Y);
                     break;
 
                 case "AirImpulseY":
-                    Vector2 impulse2 = _attackList[AttacksList.SelectedValue.ToString()].AirImpulse;
-                    _attackList[AttacksList.SelectedValue.ToString()].AirImpulse = new Vector2(impulse2.X, (float)(sender as NumericUpDown).Value);
+                    Vector2 impulse2 = this.CurrentAttackSelected.AirImpulse;
+                    this.CurrentAttackSelected.AirImpulse = new Vector2(impulse2.X, (float)(sender as NumericUpDown).Value);
                     break;
             }
         }
@@ -1352,56 +1367,52 @@ namespace NeonStarEditor
 
         private void AttackName_Enter(object sender, EventArgs e)
         {
-            InitialName = (sender as TextBox).Text;
             (Neon.World as EditorScreen).FocusedTextBox = sender as TextBox;
         }
 
         private void AttackName_Leave(object sender, EventArgs e)
         {
+            CurrentAttackSelected.Name = (sender as TextBox).Text;
             (Neon.World as EditorScreen).FocusedTextBox = null;
-            AttackInfo ai = _attackList[InitialName];
-            ai.Name = (sender as TextBox).Text;
-            _attackList.Remove(InitialName);
-            _attackList.Add((sender as TextBox).Text, ai);
             InitializeData(false);
         }
 
         private void AddSpecial_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            this.CurrentAttackSelected.OnDurationSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void AddOnHit_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            this.CurrentAttackSelected.OnHitSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void AddOnGround_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            this.CurrentAttackSelected.OnGroundCancelSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void RemoveSpecial_Click(object sender, EventArgs e)
         {
             if (OnDurationSpecialEffectsList.SelectedValue != null)
-                _attackList[AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects.RemoveAt(OnDurationSpecialEffectsList.SelectedIndex);
+                this.CurrentAttackSelected.OnDurationSpecialEffects.RemoveAt(OnDurationSpecialEffectsList.SelectedIndex);
             InitInformations();
         }
 
         private void RemoveOnHit_Click(object sender, EventArgs e)
         {
             if (OnHitSpecialEffectsList.SelectedValue != null)
-                _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects.RemoveAt(OnHitSpecialEffectsList.SelectedIndex);
+                this.CurrentAttackSelected.OnHitSpecialEffects.RemoveAt(OnHitSpecialEffectsList.SelectedIndex);
             InitInformations();
         }
 
         private void RemoveOnGround_Click(object sender, EventArgs e)
         {
             if (OnGroundCancelSpecialEffectList.SelectedValue != null)
-                _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects.RemoveAt(OnGroundCancelSpecialEffectList.SelectedIndex);
+                this.CurrentAttackSelected.OnGroundCancelSpecialEffects.RemoveAt(OnGroundCancelSpecialEffectList.SelectedIndex);
             InitInformations();
         }
 
@@ -1413,7 +1424,7 @@ namespace NeonStarEditor
             }
             else
             {
-                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnDurationSpecialEffects[(sender as ListBox).SelectedIndex];
+                CurrentAttackEffectSelected = this.CurrentAttackSelected.OnDurationSpecialEffects[(sender as ListBox).SelectedIndex];
             }           
             InitEffectData();
         }
@@ -1426,7 +1437,7 @@ namespace NeonStarEditor
             }
             else
             {
-                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnHitSpecialEffects[(sender as ListBox).SelectedIndex];
+                CurrentAttackEffectSelected = this.CurrentAttackSelected.OnHitSpecialEffects[(sender as ListBox).SelectedIndex];
             }          
             InitEffectData();
         }
@@ -1439,7 +1450,7 @@ namespace NeonStarEditor
             }
             else
             {
-                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnGroundCancelSpecialEffects[(sender as ListBox).SelectedIndex];
+                CurrentAttackEffectSelected = this.CurrentAttackSelected.OnGroundCancelSpecialEffects[(sender as ListBox).SelectedIndex];
             }
             
             InitEffectData();
@@ -1447,29 +1458,29 @@ namespace NeonStarEditor
 
         private void GroundCancelCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].CancelOnGround = (sender as CheckBox).Checked;
+            this.CurrentAttackSelected.CancelOnGround = (sender as CheckBox).Checked;
         }
 
         private void AirOnlyCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].AirOnly = (sender as CheckBox).Checked;
+            this.CurrentAttackSelected.AirOnly = (sender as CheckBox).Checked;
         }
 
         private void OnlyOnceInAir_CheckedChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].OnlyOnceInAir = (sender as CheckBox).Checked;
+            this.CurrentAttackSelected.OnlyOnceInAir = (sender as CheckBox).Checked;
         }
 
         private void AddDelayEffect_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            this.CurrentAttackSelected.OnDelaySpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void RemoveDelayEffect_Click(object sender, EventArgs e)
         {
             if (OnDelaySpecialEffectsList.SelectedValue != null)
-                _attackList[AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects.RemoveAt(OnDelaySpecialEffectsList.SelectedIndex);
+                this.CurrentAttackSelected.OnDelaySpecialEffects.RemoveAt(OnDelaySpecialEffectsList.SelectedIndex);
             InitInformations();
         }
 
@@ -1481,26 +1492,26 @@ namespace NeonStarEditor
             }
             else
             {
-                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnDelaySpecialEffects[(sender as ListBox).SelectedIndex];
+                CurrentAttackEffectSelected = this.CurrentAttackSelected.OnDelaySpecialEffects[(sender as ListBox).SelectedIndex];
             }
             InitEffectData();
         }
 
         private void AlwaysStunlock_CheckedChanged(object sender, EventArgs e)
         {
-            _attackList[AttacksList.SelectedValue.ToString()].AlwaysStunlock = (sender as CheckBox).Checked;
+            this.CurrentAttackSelected.AlwaysStunlock = (sender as CheckBox).Checked;
         }
 
         private void AddFinishEffect_Click(object sender, EventArgs e)
         {
-            _attackList[this.AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
+            this.CurrentAttackSelected.OnFinishSpecialEffects.Add(new AttackEffect(SpecialEffect.Impulse, new object[] { Vector2.Zero, false, false }));
             InitInformations();
         }
 
         private void RemoveFinishEffect_Click(object sender, EventArgs e)
         {
             if (OnFinishSpecialEffectsList.SelectedValue != null)
-                _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects.RemoveAt(OnFinishSpecialEffectsList.SelectedIndex);
+                this.CurrentAttackSelected.OnFinishSpecialEffects.RemoveAt(OnFinishSpecialEffectsList.SelectedIndex);
             InitInformations();
         }
 
@@ -1512,9 +1523,36 @@ namespace NeonStarEditor
             }
             else
             {
-                CurrentAttackEffectSelected = _attackList[AttacksList.SelectedValue.ToString()].OnFinishSpecialEffects[(sender as ListBox).SelectedIndex];
+                CurrentAttackEffectSelected = this.CurrentAttackSelected.OnFinishSpecialEffects[(sender as ListBox).SelectedIndex];
             }
             InitEffectData();
+        }
+
+        private void GroupName_Leave(object sender, EventArgs e)
+        {
+            this.CurrentAttackSelected.GroupName = (sender as TextBox).Text;
+            this.InitializeData();
+            (Neon.World as EditorScreen).FocusedTextBox = null;
+        }
+
+        private void GroupName_Enter(object sender, EventArgs e)
+        {
+            (Neon.World as EditorScreen).FocusedTextBox = (sender as TextBox);
+        }
+
+        private void AttacksList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeView tv = (sender as TreeView);
+            if (tv != null)
+            {
+                if (tv.SelectedNode != null && tv.SelectedNode.Tag != null)
+                {
+                    CurrentAttackSelected = tv.SelectedNode.Tag as AttackInfo;
+                    if (CurrentAttackSelected != null)
+                        InitInformations();
+                }
+            }
+            
         }
     }
 }

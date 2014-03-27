@@ -139,7 +139,7 @@ namespace NeonEngine
             {
                 foreach (CameraBound cb in CameraBounds)
                 {
-                    if ((!cb.SoftBound && cb.entity.ViewedByCamera(NewPosition)) || (cb.SoftBound && cb.BoundStrength > 0.0f))
+                    if ((cb.entity.ViewedByCamera(NewPosition)))
                     {
                         if (cb.SoftBound)
                             hasMetSoftBounds = true;

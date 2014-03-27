@@ -33,24 +33,9 @@ namespace NeonStarEditor
             Vector2 position = CoordinateConversion.screenToWorld(Neon.Input.MousePosition);
             if (Neon.Input.MousePressed(MouseButton.LeftButton) && currentWorld.IsActiveForm)
             {
-                fixture = currentWorld.PhysicWorld.TestPoint(position);
-                if (fixture != null)
-                {   
-                    currentWorld.SelectedEntity = Neon.Utils.GetEntityByBody(fixture.Body);
-                    if (Neon.Utils.GetEntityByBody(fixture.Body) != null)
-                    {
-                        currentWorld.BottomDockControl.entityListControl.SelectEntityNode(Neon.Utils.GetEntityByBody(fixture.Body));
-                    }
-                    currentWorld.FocusedTextBox = null;
-                    currentWorld.FocusedNumericUpDown = null;
-                    currentWorld.ToggleGraphicPicker();
-                    currentWorld.ToggleSpritesheetPicker();
-
-                }
-                else
+                bool NoSelection = true;
+                if (currentWorld.DisplayEntityCenter)
                 {
-                    bool NoSelection = true;
-
                     foreach (Entity e in currentWorld.Entities)
                     {
                         if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
@@ -65,19 +50,36 @@ namespace NeonStarEditor
                             currentWorld.ToggleSpritesheetPicker();
                             break;
                         }
-
                     }
-
-                    if (NoSelection)
-                    {
-                        currentWorld.SelectedEntity = null;
-                        currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode = null;
-                        currentWorld.RefreshInspector(null);
+                }
+                else
+                {
+                    fixture = currentWorld.PhysicWorld.TestPoint(position);
+                    if (fixture != null)
+                    {   
+                        currentWorld.SelectedEntity = Neon.Utils.GetEntityByBody(fixture.Body);
+                        if (Neon.Utils.GetEntityByBody(fixture.Body) != null)
+                        {
+                            currentWorld.BottomDockControl.entityListControl.SelectEntityNode(Neon.Utils.GetEntityByBody(fixture.Body));
+                            NoSelection = false;
+                        }
                         currentWorld.FocusedTextBox = null;
                         currentWorld.FocusedNumericUpDown = null;
                         currentWorld.ToggleGraphicPicker();
                         currentWorld.ToggleSpritesheetPicker();
+
                     }
+                }
+                
+                if (NoSelection)
+                {
+                    currentWorld.SelectedEntity = null;
+                    currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode = null;
+                    currentWorld.RefreshInspector(null);
+                    currentWorld.FocusedTextBox = null;
+                    currentWorld.FocusedNumericUpDown = null;
+                    currentWorld.ToggleGraphicPicker();
+                    currentWorld.ToggleSpritesheetPicker();
                 }
             } 
         }
