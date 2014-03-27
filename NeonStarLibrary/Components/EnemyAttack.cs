@@ -245,7 +245,6 @@ namespace NeonStarLibrary.Components.Enemies
             }
 
             _attacks = _attacks.OrderBy(kvp => kvp.Key).ToDictionary(kvp => kvp.Key, kvp2 => kvp2.Value);
-
             base.Init();
         }
 
