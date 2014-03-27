@@ -21,7 +21,6 @@ namespace NeonStarLibrary.Components.Scripts
             this.entity.spritesheets.ChangeAnimation("Opened", 0, true, false, false);
             this.entity.rigidbody.IsGround = false;
             this.entity.rigidbody.Init();
-            
             base.Init();
         }
 
