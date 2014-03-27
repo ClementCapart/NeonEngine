@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Private;
 using NeonStarLibrary.Components.Enemies;
 using NeonStarLibrary.Components.EnergyObjects;
@@ -13,7 +14,8 @@ namespace NeonStarLibrary.Components.Scripts
     {
         private Entity _scanDoor;
         private EnemyPoweredDevice _exitDoor;
-        private EnemyCore _importantRobot;
+        private Entity _importantRobot;
+        private EnemyCore _importantRobotEnemyCore;
         private EnemyCore _importantTurret;
         private EnemyCore _importantTurret2;
         private AreaAttack _importantRobotRange;
@@ -103,7 +105,7 @@ namespace NeonStarLibrary.Components.Scripts
 
             e = entity.GameWorld.GetEntityByName(_importantRobotName);
             if (e != null)
-                _importantRobot = e.GetComponent<EnemyCore>();
+                _importantRobotEnemyCore = e.GetComponent<EnemyCore>();
             e = null;
 
             e = entity.GameWorld.GetEntityByName(_importantTurret2Name);
@@ -129,7 +131,15 @@ namespace NeonStarLibrary.Components.Scripts
             e = entity.GameWorld.GetEntityByName(_importantTurretRange2Name);
             if (e != null)
                 _importantTurretRange2 = e.GetComponent<AreaAttack>();
+            e = null;
 
+            _importantRobot = entity.GameWorld.GetEntityByName(_importantRobotName);
+
+            if (_exitDoor != null)
+            {
+                _exitDoor.ActivateDevice();
+            }
+            
             if (_importantRobotRange != null)
             {
                 _importantRobotRange.RangeForAttackOne = 1;
@@ -144,6 +154,8 @@ namespace NeonStarLibrary.Components.Scripts
             {
                 _importantTurretRange2.RangeForAttackOne = 1;
             }
+
+            _importantRobot.transform.Position = new Vector2(1230, 170);
 
             base.Init();
         }
