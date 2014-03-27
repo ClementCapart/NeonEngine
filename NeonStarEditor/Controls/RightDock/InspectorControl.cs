@@ -188,7 +188,7 @@ namespace NeonStarEditor
 
                 TextBox texb = new TextBox();
                 texb.Location = new Point(10, localY);
-                texb.Width = 70;
+                texb.Width = 250;
                 PropertyControlList.Add(new PropertyComponentControl(nickName, c, texb));
                 texb.GotFocus += tb_GotFocus;
                 texb.LostFocus += tb_LostFocus;
