@@ -593,6 +593,7 @@ namespace NeonStarEditor
 
         void tb_LostFocus(object sender, EventArgs e)
         {
+
             if (GameWorld.FocusedTextBox == (sender as TextBox))
                 GameWorld.FocusedTextBox = null;
 
@@ -603,7 +604,7 @@ namespace NeonStarEditor
             }
             catch (InvalidOperationException exc)
             {
-                Console.WriteLine(exc.ToString());
+                //Console.WriteLine(exc.ToString());
                 return;
             }
             pcc.pi.SetValue(pcc.c, ((sender as TextBox).Text), null);
