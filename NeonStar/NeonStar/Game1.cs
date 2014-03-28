@@ -71,6 +71,11 @@ namespace NeonStar
 
                 preferences.Add(defaultLayer);
 
+                XElement backgroundColor = new XElement("BackgroundColor");
+                backgroundColor.Value = (Neon.ClearColor.ToString());
+
+                preferences.Add(backgroundColor);
+
                 content.Add(preferences);
                 preferenceFile.Add(content);
 

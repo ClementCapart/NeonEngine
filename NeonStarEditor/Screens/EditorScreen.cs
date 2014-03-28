@@ -22,6 +22,7 @@ using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarEditor.Controls;
 using NeonStarLibrary.Components.EnergyObjects;
+using System.Globalization;
 
 namespace NeonStarEditor
 {
@@ -131,6 +132,22 @@ namespace NeonStarEditor
                     bool showHitboxes = bool.Parse(preferences.Element("ShowHitboxes").Value);
                     bool showPhysics = bool.Parse(preferences.Element("ShowPhysics").Value);
                     string defaultLayer = preferences.Element("DefaultLayer").Value;
+                    string backgroundColorString = preferences.Element("BackgroundColor").Value;
+                    Vector4 result = new Vector4();
+                    string CleanString = backgroundColorString.Replace("{R:", "");
+                    CleanString = CleanString.Replace("G:", "");
+                    CleanString = CleanString.Replace("B:", "");
+                    CleanString = CleanString.Replace("A:", "");
+                    CleanString = CleanString.Replace("}", "");
+                    String[] Results = CleanString.Split(' ');
+                    foreach(string s in Results)
+                        Console.WriteLine(s);
+                    result.X = float.Parse(Results[0], CultureInfo.InvariantCulture);
+                    result.Y = float.Parse(Results[1], CultureInfo.InvariantCulture);
+                    result.Z = float.Parse(Results[2], CultureInfo.InvariantCulture);
+                    result.W = float.Parse(Results[3], CultureInfo.InvariantCulture);
+
+                    Neon.ClearColor = Color.FromNonPremultiplied(result);
 
                     if (showEditor)
                     {
@@ -150,6 +167,8 @@ namespace NeonStarEditor
 
                     if (showPhysics)
                         Neon.DebugViewEnabled = true;
+
+                  
 
                     BottomDockControl.levelList.DefaultLayerBox.Text = defaultLayer;
                 }
