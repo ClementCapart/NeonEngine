@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="FunctionalTrain">
+    <Entities>
+      <Entity Name="ExitZone" Layer="FunctionalTrain">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2500 Y:1125}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2500 Y:1125}" />
+              <X Value="2475" />
+              <Y Value="1025" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="200" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="DoorTrain" />
+              <TriggeredComponentName Value="TriggeredAnimation" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="3">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ExitZone" />
+              <TriggeredComponentName Value="ChangeLevel" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="4">
+            <Properties>
+              <GroupName Value="" />
+              <LevelName Value="" />
+              <SpawnPointIndex Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeLevel>
+        </Components>
+      </Entity>
+      <Entity Name="OpenDoorTrigger" Layer="FunctionalTrain">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2060 Y:925}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2060 Y:925}" />
+              <X Value="2035" />
+              <Y Value="625" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="600" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="DoorTrain" />
+              <TriggeredComponentName Value="TriggeredAnimation" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
