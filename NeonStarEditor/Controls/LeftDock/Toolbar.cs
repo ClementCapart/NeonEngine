@@ -291,5 +291,11 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.ToggleElementPanel();
         }
+
+        private void SaveLockLayer_Click(object sender, EventArgs e)
+        {
+            DataManager.SaveLayer(GameWorld, "Lock");
+            DataManager.SaveLevel(GameWorld, "LiOn", "HUD");
+        }
     }
 }

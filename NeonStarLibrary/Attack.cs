@@ -1021,6 +1021,7 @@ namespace NeonStarLibrary
         private void Effect(Entity entity, Hitbox collidedHitbox)
         {
             bool validTarget = false;
+            DamageResult damageResult;
             AvatarCore avatar = null;
             EnemyCore enemy = null;;
 
@@ -1030,7 +1031,8 @@ namespace NeonStarLibrary
                 if (enemy != null)
                 {
                     validTarget = true;
-                    _hit = enemy.TakeDamage(this);
+                    damageResult = enemy.TakeDamage(this);
+                    _hit = damageResult == DamageResult.Effective ? true : false;
                 }
 
                 if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _meleeFight != null)
@@ -1045,7 +1047,8 @@ namespace NeonStarLibrary
                 if(avatar != null)
                 {
                     validTarget = true;
-                    _hit = avatar.TakeDamage(this);                
+                    damageResult = avatar.TakeDamage(this);
+                    _hit = damageResult == DamageResult.Effective ? true : false;
                 }
             }
 

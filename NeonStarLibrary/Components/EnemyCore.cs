@@ -277,16 +277,16 @@ namespace NeonStarLibrary.Components.Enemies
             base.Init();
         }
 
-        public bool TakeDamage(Attack attack)
+        public DamageResult TakeDamage(Attack attack)
         {
             LastAttackTook = attack.Name;
-            bool tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
+            DamageResult tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
             if (_triggerOnDamage)
             {
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, attack.Launcher != null ? attack.Launcher : attack._entity, new object[] { attack });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f)
+            else if (tookDamage == DamageResult.Missed && _currentHealthPoints <= 0.0f)
             {
                 if (attack.Launcher != null && CoreElement != Element.Neutral)
                     attack.Launcher.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
@@ -307,7 +307,7 @@ namespace NeonStarLibrary.Components.Enemies
                     entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
-            if (tookDamage)
+            if (tookDamage == DamageResult.Effective)
             {
                 _damageBlinking = true;
                 TookDamageThisFrame = true;
@@ -317,15 +317,15 @@ namespace NeonStarLibrary.Components.Enemies
             return tookDamage;
         }
 
-        public bool TakeDamage(Bullet bullet)
+        public DamageResult TakeDamage(Bullet bullet)
         {
-            bool tookDamage = TakeDamage(bullet.DamageOnHit, bullet.StunLock, true, 0.0f, bullet.entity.spritesheets.CurrentSide);
-            if (tookDamage && _triggerOnDamage)
+            DamageResult tookDamage = TakeDamage(bullet.DamageOnHit, bullet.StunLock, true, 0.0f, bullet.entity.spritesheets.CurrentSide);
+            if (tookDamage == DamageResult.Effective && _triggerOnDamage)
             {
                 if (_componentToTrigger != null)
                     _componentToTrigger.OnTrigger(this.entity, bullet.launcher != null ? bullet.launcher : bullet.launcher, new object[] { bullet });
             }
-            else if (!tookDamage && _currentHealthPoints <= 0.0f)
+            else if (tookDamage == DamageResult.Missed && _currentHealthPoints <= 0.0f)
             {
                 if (bullet.launcher != null && CoreElement != Element.Neutral)
                     bullet.launcher.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
@@ -341,7 +341,7 @@ namespace NeonStarLibrary.Components.Enemies
                 entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
             }
 
-            if (tookDamage)
+            if (tookDamage == DamageResult.Effective)
             {
                 _damageBlinking = true;
                 //entity.spritesheets.ChangeAnimation(HitAnim, true, 0, true, true, false);
@@ -351,16 +351,16 @@ namespace NeonStarLibrary.Components.Enemies
             return tookDamage;
         }
 
-        public bool TakeDamage(float damageValue, float stunLockDuration, bool alwaysStunlock, float airLockDuration, Side side)
+        public DamageResult TakeDamage(float damageValue, float stunLockDuration, bool alwaysStunlock, float airLockDuration, Side side)
         {
             if (_immuneToDamage)
-                return false;
+                return DamageResult.Missed;
 
             if (IsInvincible)
-                return false;
+                return DamageResult.Missed;
 
             if (damageValue >= 0.0f)
-                return false;
+                return DamageResult.Missed;
 
             _currentHealthPoints += damageValue;
 
@@ -373,7 +373,7 @@ namespace NeonStarLibrary.Components.Enemies
                 {
                     DamageDisplayer.DisplayDamage(damageValue);
                 }
-                return false;
+                return DamageResult.Missed;
             }
 
             if (Debug)
@@ -398,7 +398,7 @@ namespace NeonStarLibrary.Components.Enemies
                 DamageDisplayer.DisplayDamage(damageValue);
             }
 
-            return true;
+            return DamageResult.Effective;
         }
 
         public void DropHealthItems()

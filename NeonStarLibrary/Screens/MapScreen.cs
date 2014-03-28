@@ -43,9 +43,9 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-
-            if(Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Back))
+            if(Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Back) || Neon.Input.Pressed(Buttons.B))
             {
+                CurrentGameScreen.Alpha = 1.0f;
                 Neon.World = CurrentGameScreen;
             }
 
