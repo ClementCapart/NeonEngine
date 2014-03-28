@@ -150,7 +150,7 @@ namespace NeonStarLibrary.Components.Menu
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
                         if (_currentSelection == 0)
-                            entity.GameWorld.ChangeLevel("SequenceOne", "TrainingOne", 0);
+                            entity.GameWorld.ChangeLevel("01TrainingLevel", "00TrainingOpening", 0);
                         else
                             ChangeState(MenuState.ChapterSelect);
                     }
@@ -245,9 +245,9 @@ namespace NeonStarLibrary.Components.Menu
                         if (Neon.Input.Pressed(NeonStarInput.Jump))
                         {
                             if (_currentSelection == 0)
-                                entity.GameWorld.ChangeLevel("SequenceOne", "TrainingOne", 0);
-                            else
-                                entity.GameWorld.ChangeLevel("SequenceOneCity", "CityOne", 0);
+                                entity.GameWorld.ChangeLevel("01TrainingLevel", "01TrainingEntrance", 0);
+                            /*else
+                                entity.GameWorld.ChangeLevel("SequenceOneCity", "CityOne", 0);*/
                         }
 
                         
