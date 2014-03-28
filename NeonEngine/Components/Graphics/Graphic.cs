@@ -9,7 +9,7 @@ namespace NeonEngine.Components.Graphics2D
 {
     public class Graphic : DrawableComponent
     {
-        private Texture2D texture;
+        public Texture2D texture;
         public float opacity = 1f;
 
         public string graphicTag = "";

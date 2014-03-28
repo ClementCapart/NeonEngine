@@ -159,7 +159,8 @@ namespace NeonEngine.Components.Graphics2D
         }
 
         public override void Update(GameTime gameTime = null)
-        {       
+        {
+            base.Update(gameTime);
             if (_isInDelayBeforeLoop)
             {
                 if(_invisibleDuringDelay)
@@ -352,7 +353,7 @@ namespace NeonEngine.Components.Graphics2D
             }
 
             
-            base.Update(gameTime);
+            
         }
 
         public void SetFrame(int frame)
@@ -362,8 +363,6 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spritebatch)
         {
-               
-
             if (spriteSheetInfo != null && spriteSheetInfo.Frames != null && Active)
             {
                 Vector2 CurrentOffset = Vector2.Transform(spriteSheetInfo.Offset, Matrix.CreateRotationZ(RotationOffset));        
@@ -372,7 +371,7 @@ namespace NeonEngine.Components.Graphics2D
                     if (currentFrame >= 0 && currentFrame <= spriteSheetInfo.Frames.Length - 1)
                     {
                         CurrentEffect.CurrentTechnique.Passes[0].Apply();
-                        spritebatch.Draw(spriteSheetInfo.Frames[currentFrame], new Vector2((int)(entity.transform.Position.X + this._parallaxPosition.X + ((CurrentSide == Side.Right ? (int)CurrentOffset.X + (int)Offset.X : -(int)CurrentOffset.X - (int)Offset.X) * entity.transform.Scale)), (int)(entity.transform.Position.Y + this._parallaxPosition.Y + (((int)CurrentOffset.Y + Offset.Y) * entity.transform.Scale))), null,
+                        spritebatch.Draw(spriteSheetInfo.Frames[currentFrame], new Vector2((int)(entity.transform.Position.X + ((CurrentSide == Side.Right ? (int)CurrentOffset.X + (int)Offset.X : -(int)CurrentOffset.X - (int)Offset.X) * entity.transform.Scale)), (int)(entity.transform.Position.Y + (((int)CurrentOffset.Y + Offset.Y) * entity.transform.Scale))) + _parallaxPosition, null,
                             Color.Lerp(Color.Transparent, Tint ? Color.Lerp(Color.White, TintColor, 0.5f) : MainColor, opacity), RotationOffset, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2) + RotationCenter, entity.transform.Scale, CurrentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
                     }
                 }
