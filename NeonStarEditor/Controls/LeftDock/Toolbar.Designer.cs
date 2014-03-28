@@ -47,6 +47,7 @@
             this.SaveHitboxes = new System.Windows.Forms.Button();
             this.SaveCurrentMap = new System.Windows.Forms.Button();
             this.elementPanelButton = new System.Windows.Forms.Button();
+            this.SaveLockLayer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,6 +265,18 @@
             this.elementPanelButton.UseVisualStyleBackColor = true;
             this.elementPanelButton.Click += new System.EventHandler(this.elementPanelButton_Click);
             // 
+            // SaveLockLayer
+            // 
+            this.SaveLockLayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveLockLayer.BackgroundImage")));
+            this.SaveLockLayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.SaveLockLayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveLockLayer.Location = new System.Drawing.Point(40, 7);
+            this.SaveLockLayer.Name = "SaveLockLayer";
+            this.SaveLockLayer.Size = new System.Drawing.Size(30, 30);
+            this.SaveLockLayer.TabIndex = 1;
+            this.SaveLockLayer.UseVisualStyleBackColor = true;
+            this.SaveLockLayer.Click += new System.EventHandler(this.SaveLockLayer_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,10 +299,11 @@
             this.Controls.Add(this.PausePlayButton);
             this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.SaveHitboxes);
+            this.Controls.Add(this.SaveLockLayer);
             this.Controls.Add(this.SaveCurrentMap);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Name = "Toolbar";
-            this.Size = new System.Drawing.Size(38, 624);
+            this.Size = new System.Drawing.Size(75, 624);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,5 +330,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button respawnPanel;
         private System.Windows.Forms.Button elementPanelButton;
+        private System.Windows.Forms.Button SaveLockLayer;
     }
 }

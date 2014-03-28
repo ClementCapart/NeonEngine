@@ -26,7 +26,10 @@ namespace NeonEngine
             try
             {
                 foreach (string s in Directory.GetFiles(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/"))
-                    File.Move(s, @"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old/" + Path.GetFileName(s));
+                {
+                    if(!s.EndsWith("Lock.xml"))
+                        File.Move(s, @"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/Old/" + Path.GetFileName(s));
+                }
             }
             catch { }
             
@@ -86,7 +89,7 @@ namespace NeonEngine
 
                 foreach (Entity entity in CurrentWorld.Entities)
                 {
-                    if (entity.Name == avatarEntity || entity.Name == hudEntity)
+                    if (entity.Name == avatarEntity || entity.Name == hudEntity || entity.Layer == "Lock")
                         continue;
 
                     if (layerList.ContainsKey(entity.Layer))
@@ -105,43 +108,7 @@ namespace NeonEngine
             {
                 foreach (KeyValuePair<string, List<Entity>> kvp in layerList)
                 {
-                    Console.WriteLine("Save : Layer '" + kvp.Key + "' save started...");
-
-                    XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-                    XElement content = new XElement("XnaContent");
-                    XElement level = new XElement("Level", new XAttribute("Layer", kvp.Key));
-
-                    XElement Entities = new XElement("Entities");
-
-                    foreach (Entity e in kvp.Value)
-                    {
-                        XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name), new XAttribute("Layer", e.Layer));
-                        XElement Components = new XElement("Components");
-                        foreach (Component c in e.Components)
-                        {
-                            if (c.HasToBeSaved)
-                            {
-                                if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
-                                    continue;
-
-                                Components.Add(SaveComponentParameters(c));
-                            }                           
-                        }
-                        Entity.Add(Components);
-                        Entities.Add(Entity);
-                    }
-
-                    level.Add(Entities);
-
-                    content.Add(level);
-                    document.Add(content);
-
-                    if (kvp.Key != "")
-                        document.Save(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/" + CurrentWorld.LevelName + "_" + kvp.Key + ".xml");
-                    else
-                        document.Save(@"../Data/Levels/" + CurrentWorld.LevelGroupName + "/" + CurrentWorld.LevelName + "/" + CurrentWorld.LevelName + ".xml");                 
-
-                    Console.WriteLine("Save : Layer '" + kvp.Key + "' saved succesfully !");
+                    SaveLayer(CurrentWorld, kvp.Key, kvp.Value);
                 }
             }
             else
@@ -152,6 +119,57 @@ namespace NeonEngine
 
             Console.WriteLine("Save : Level saved succesfully !");
             Console.WriteLine("");
+        }
+
+        public static void SaveLayer(World currentWorld, string layerName, List<Entity> entities = null)
+        {
+            Console.WriteLine("Save : Layer '" + layerName + "' save started...");
+
+            if(entities == null)
+            {
+                entities = new List<Entity>();
+                foreach(Entity e in currentWorld.Entities)
+                    if(e.Layer == layerName) entities.Add(e);
+
+                if (entities.Count == 0)
+                    return;
+            }
+
+            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement content = new XElement("XnaContent");
+            XElement level = new XElement("Level", new XAttribute("Layer", layerName));
+
+            XElement Entities = new XElement("Entities");
+
+            foreach (Entity e in entities)
+            {
+                XElement Entity = new XElement("Entity", new XAttribute("Name", e.Name), new XAttribute("Layer", e.Layer));
+                XElement Components = new XElement("Components");
+                foreach (Component c in e.Components)
+                {
+                    if (c.HasToBeSaved)
+                    {
+                        if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
+                            continue;
+
+                        Components.Add(SaveComponentParameters(c));
+                    }
+                }
+                Entity.Add(Components);
+                Entities.Add(Entity);
+            }
+
+            level.Add(Entities);
+
+            content.Add(level);
+            document.Add(content);
+
+            if (layerName != "")
+                document.Save(@"../Data/Levels/" + currentWorld.LevelGroupName + "/" + currentWorld.LevelName + "/" + currentWorld.LevelName + "_" + layerName + ".xml");
+            else
+                document.Save(@"../Data/Levels/" + currentWorld.LevelGroupName + "/" + currentWorld.LevelName + "/" + currentWorld.LevelName + ".xml");
+
+            Console.WriteLine("Save : Layer '" + layerName + "' saved succesfully !");
         }
 
         static public void LoadLevel(string FilePath, World GameWorld)

@@ -45,7 +45,7 @@
             this.MainToolbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MainToolbar.Location = new System.Drawing.Point(-1, 39);
             this.MainToolbar.Name = "MainToolbar";
-            this.MainToolbar.Size = new System.Drawing.Size(36, 681);
+            this.MainToolbar.Size = new System.Drawing.Size(76, 681);
             this.MainToolbar.TabIndex = 1;
             // 
             // magnetismValue
