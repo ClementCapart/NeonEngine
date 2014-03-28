@@ -346,7 +346,7 @@ namespace NeonEngine.Components.Graphics2D
                     }                  
             }
 
-            if (spriteSheetInfo != null)
+            if (spriteSheetInfo != null && spriteSheetInfo.Frames != null)
             {
                 currentFrame = (int)currentFrame < 0 ? spriteSheetInfo.Frames.Length - 1 : currentFrame;
                 currentFrame = (int)currentFrame > spriteSheetInfo.Frames.Length - 1 ? 0 : currentFrame;
