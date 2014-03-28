@@ -20,10 +20,12 @@ namespace NeonStarLibrary
         private int _startingSpawnPointIndex = 0;
         private XElement _statusToLoad;
         private bool _respawning = false;
+        private bool _sameGroup = false;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null)
+        public LoadingScreen(Game game, bool sameGroup, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null)
             : base(game)
         {
+            _sameGroup = sameGroup;
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
             GroupToLoad = groupToLoad;
@@ -43,7 +45,8 @@ namespace NeonStarLibrary
 
         public void LoadNextLevelAssets()
         {
-            AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
+            if(!_sameGroup)
+                AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
             AssetManager.LoadLevelData(Neon.GraphicsDevice, GroupToLoad, LevelToLoad);
             ThreadFinished = true;
         }

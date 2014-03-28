@@ -265,7 +265,7 @@ namespace NeonStarLibrary
 
         public override void ChangeLevel(string groupName, string levelName, int spawnPointIndex)
         {
-            ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
+            ChangeScreen(new LoadingScreen(Neon.Game, LevelGroupName == groupName ? true : false, spawnPointIndex, groupName, levelName, SaveStatus()));
         }
 
         public override void ChangeLevel(XElement savedStatus)

@@ -1213,12 +1213,12 @@ namespace NeonStarEditor
                 GraphicPicker.Dispose();
             if (SpritesheetPicker != null)
                 SpritesheetPicker.Dispose();
-            ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, groupName, levelName, SaveStatus()));
+            ChangeScreen(new LoadingScreen(Neon.Game, spawnPointIndex, LevelGroupName == groupName ? true : false, groupName, levelName, SaveStatus()));
         }
 
         public override void ChangeLevel(XElement savedStatus)
         {           
-            ChangeScreen(new LoadingScreen(Neon.Game, savedStatus));
+            ChangeScreen(new LoadingScreen(Neon.Game, savedStatus, LevelGroupName));
         }
     }
 }

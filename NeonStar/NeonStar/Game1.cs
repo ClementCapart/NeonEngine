@@ -93,7 +93,7 @@ namespace NeonStar
 
             Neon.ClearColor = Color.Black;
             #if DEBUG
-            Neon.World = new NeonStarEditor.LoadingScreen(this, 0, "", "", null, true);
+            Neon.World = new NeonStarEditor.LoadingScreen(this, 0, false, "", "", null, true);
             #else                    
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();

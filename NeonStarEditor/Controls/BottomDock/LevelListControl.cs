@@ -62,7 +62,7 @@ namespace NeonStarEditor.Controls.BottomDock
             {
                 if (levelListTreeView.SelectedNode.Parent != null)
                 {
-                    Neon.World.ChangeScreen(new LoadingScreen(Neon.Game, (int)loadSpawnPoint.Value, levelListTreeView.SelectedNode.Parent.Text ,levelListTreeView.SelectedNode.Text));
+                    Neon.World.ChangeScreen(new LoadingScreen(Neon.Game, (int)loadSpawnPoint.Value, GameWorld.LevelGroupName == levelListTreeView.SelectedNode.Parent.Text ? true : false, levelListTreeView.SelectedNode.Parent.Text ,levelListTreeView.SelectedNode.Text));
                 }
             }
         }

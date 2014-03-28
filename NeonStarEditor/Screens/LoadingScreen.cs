@@ -23,11 +23,13 @@ namespace NeonStarEditor
 
         public int _startingSpawnPointIndex;
         private bool _respawning = false;
+        private bool _sameGroup = false;
 
-        public LoadingScreen(Game game, int startingSpawnPointIndex, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null, bool loadPreferences = false)
+        public LoadingScreen(Game game, int startingSpawnPointIndex, bool sameGroup, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null, bool loadPreferences = false)
             :base(game)
         {
             this._startingSpawnPointIndex = startingSpawnPointIndex;
+            _sameGroup = sameGroup;
             LevelToLoad = levelToLoad;
             GroupToLoad = groupToLoad;
             _statusToLoad = statusToLoad;
@@ -55,20 +57,23 @@ namespace NeonStarEditor
             }
         }
 
-        public LoadingScreen(Game game, XElement statusCheckPoint)
+        public LoadingScreen(Game game, XElement statusCheckPoint, string levelGroupName)
             : base(game)
         {
             string indexString = statusCheckPoint.Element("CurrentLevel").Element("SpawnPoint").Value;
             _startingSpawnPointIndex = indexString != "None" ? int.Parse(indexString) : 0;
             LevelToLoad = statusCheckPoint.Element("CurrentLevel").Element("LevelName").Value;
             GroupToLoad = statusCheckPoint.Element("CurrentLevel").Element("GroupName").Value;
+            if (GroupToLoad == levelGroupName) _sameGroup = true;
+            else _sameGroup = false;
             _statusToLoad = statusCheckPoint;
             _respawning = true;
         }
 
         public void LoadNextLevelAssets()
         {
-            AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
+            if(!_sameGroup)
+                AssetManager.LoadGroupData(Neon.GraphicsDevice, GroupToLoad);
             AssetManager.LoadLevelData(Neon.GraphicsDevice, GroupToLoad, LevelToLoad);
             ThreadFinished = true;
         }
