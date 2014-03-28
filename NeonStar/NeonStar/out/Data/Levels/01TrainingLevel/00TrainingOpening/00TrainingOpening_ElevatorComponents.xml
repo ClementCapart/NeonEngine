@@ -7,21 +7,23 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-578 Y:-17040}" />
+              <InitialPosition Value="{X:-578 Y:-17706}" />
               <Rotation Value="0" />
               <Scale Value="2" />
+              <NickName Value="" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-578 Y:-17060}" />
+              <Center Value="{X:-578 Y:-17731}" />
               <X Value="-953" />
-              <Y Value="-17098" />
+              <Y Value="-17769" />
               <OffsetX Value="0" />
               <OffsetY Value="-20" />
               <Width Value="750" />
               <Height Value="76" />
+              <NickName Value="" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -38,6 +40,7 @@
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
+              <NickName Value="" />
             </Properties>
           </Rigidbody>
           <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="9">
@@ -48,10 +51,13 @@
               <ReverseStart Value="False" />
               <PathPrecisionTreshold Value="10" />
               <InitAtFirstNode Value="True" />
+              <NickName Value="" />
             </Properties>
           </MovingGeometry>
           <OpeningElevatorScript Type="NeonStarLibrary.Components.Scripts.OpeningElevatorScript" ID="10">
-            <Properties />
+            <Properties>
+              <NickName Value="" />
+            </Properties>
           </OpeningElevatorScript>
           <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="11">
             <Properties>
@@ -60,6 +66,7 @@
               <TriggeringEntityName Value="LiOn" />
               <TriggeredEntityName Value="Elevator" />
               <TriggeredComponentName Value="OpeningElevatorScript" />
+              <NickName Value="" />
             </Properties>
           </HitboxTrigger>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="12">
@@ -73,7 +80,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ElevatorBack" />
               <DrawLayer Value="0.4" />
-              <IsFinished Value="True" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -82,6 +89,8 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
             </Properties>
           </Spritesheet>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="13">
@@ -95,7 +104,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ElevatorFront" />
               <DrawLayer Value="0.51" />
-              <IsFinished Value="True" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -104,6 +113,8 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
             </Properties>
           </Spritesheet>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="14">
@@ -118,6 +129,8 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
             </Properties>
           </Graphic>
           <ApplyMovemenentOnEntity Type="NeonStarLibrary.Components.CollisionDetection.ApplyMovementOnEntity" ID="15">
@@ -126,6 +139,7 @@
               <CheckIfGrounded Value="True" />
               <CheckGroundOffset Value="{X:0 Y:30}" />
               <VerticalMovingPlatform Value="True" />
+              <NickName Value="" />
             </Properties>
           </ApplyMovemenentOnEntity>
         </Components>
@@ -135,9 +149,10 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-933 Y:-17015}" />
+              <InitialPosition Value="{X:-933 Y:-17681}" />
               <Rotation Value="0" />
               <Scale Value="2" />
+              <NickName Value="" />
             </Properties>
           </Transform>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
@@ -160,12 +175,15 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
             </Properties>
           </Spritesheet>
           <KinematicDistanceJoint Type="NeonStarLibrary.Components.CollisionDetection.KinematicDistanceJoint" ID="4">
             <Properties>
               <LinkedEntityName Value="Elevator" />
               <Offset Value="{X:-355 Y:25}" />
+              <NickName Value="" />
             </Properties>
           </KinematicDistanceJoint>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
@@ -182,18 +200,20 @@
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
+              <NickName Value="" />
             </Properties>
           </Rigidbody>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:-933 Y:-17015}" />
+              <Center Value="{X:-933 Y:-17686}" />
               <X Value="-958" />
-              <Y Value="-17040" />
+              <Y Value="-17711" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
               <Height Value="50" />
+              <NickName Value="" />
             </Properties>
           </Hitbox>
         </Components>
