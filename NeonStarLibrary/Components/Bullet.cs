@@ -64,7 +64,6 @@ namespace NeonStarLibrary.Private
             get { return _stunLock; }
             set { _stunLock = value; }
         }
-
        
         private List<AttackEffect> _onHitSpecialEffects;
 
@@ -137,14 +136,16 @@ namespace NeonStarLibrary.Private
                                     AvatarCore avatar = hb.entity.GetComponent<AvatarCore>();
                                     if (avatar != null)
                                     {
-                                       if(avatar.TakeDamage(this))
-                                       {
+                                        DamageResult dr = avatar.TakeDamage(this);
+                                        if(dr == DamageResult.Effective)
+                                        {
                                             LifeTime = 0f;
                                             entity.spritesheets.ChangeAnimation("hit", true, 0, true, true, false);
                                             return;
-                                       }
-                                       else
-                                       {
+                                        }
+                                        else if(dr == DamageResult.Guarded)
+                                        {
+                                           
                                             launcher = avatar.entity;
                                             EnemyBullet = false;
                                             LifeTime = _initialLifeTime;

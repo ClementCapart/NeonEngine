@@ -26,6 +26,13 @@ namespace NeonStarLibrary.Components.Avatar
         FinishSaving,
     }
 
+    public enum DamageResult
+    {
+        Effective,
+        Missed,
+        Guarded
+    }
+
     public class AvatarCore : Component
     {
         #region Properties
@@ -143,15 +150,14 @@ namespace NeonStarLibrary.Components.Avatar
             ElementSystem = this.entity.GetComponent<ElementSystem>();
             EnergySystem = this.entity.GetComponent<EnergySystem>();
             _hitGuardSpritesheet = AssetManager.GetSpriteSheet(_hitGuardFX);
-
             base.Init();
         }
 
-        public bool TakeDamage(Attack attack)
+        public DamageResult TakeDamage(Attack attack)
         {
-            bool takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide, attack.Type);
+            DamageResult takeDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.TargetAirLock, attack.CurrentSide, attack.Type);
 
-            if (!takeDamage && State == AvatarState.Guarding && attack.Type != AttackType.Special)
+            if (takeDamage == DamageResult.Guarded)
             {
                 if (attack.Launcher != null)
                 {
@@ -177,15 +183,15 @@ namespace NeonStarLibrary.Components.Avatar
             
         }
 
-        public bool TakeDamage(Bullet bullet)
+        public DamageResult TakeDamage(Bullet bullet)
         {
             return TakeDamage(bullet.DamageOnHit, bullet.StunLock, 0.0f, bullet.entity.spritesheets.CurrentSide);
         }
 
-        public bool TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side, AttackType attackType = AttackType.MeleeLight)
+        public DamageResult TakeDamage(float damageValue, float stunLockDuration, float airLockDuration, Side side, AttackType attackType = AttackType.MeleeLight)
         {
             if (IsInvincible)
-                return false;
+                return DamageResult.Missed;
 
             if (State == AvatarState.Guarding && CurrentSide != side && attackType != AttackType.Special)
             {
@@ -194,7 +200,7 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
                     EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
-                    return false;
+                    return DamageResult.Guarded;
                 }
             }     
 
@@ -235,10 +241,10 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 IsInvincible = true;
                 _invincibilityTimer = _invincibilityDuration;
-                return true;
+                return DamageResult.Effective;
             }
 
-            return true;
+            return DamageResult.Effective;
         }
 
         public void AirLock(float duration)
