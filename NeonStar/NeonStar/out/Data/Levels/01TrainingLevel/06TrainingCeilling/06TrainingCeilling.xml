@@ -181,7 +181,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -232,7 +232,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -250,15 +250,15 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="150" />
-              <DrawLayer Value="0.8" />
-              <CloserGraphicTag Value="" />
+              <TilingSize Value="200" />
+              <DrawLayer Value="0.79" />
+              <CloserGraphicTag Value="NoGraphic" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
+              <SecondCloserGraphicTag Value="NoGraphic" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="NewTrainingFloorTile1" />
-              <SecondTileGraphicTag Value="NewTrainingFloorDoubleTile1" />
-              <ThirdTileGraphicTag Value="" />
+              <FirstTileGraphicTag Value="Floor100" />
+              <SecondTileGraphicTag Value="Floor200" />
+              <ThirdTileGraphicTag Value="Floor50" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <SixthTileGraphicTag Value="" />
@@ -267,33 +267,33 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}" />
+              <CloserOffset Value="{X:1 Y:0}" />
+              <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:25 Y:-77}" />
+              <Offset Value="{X:25 Y:-76}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
+              <NickName Value="FirstUp" />
             </Properties>
           </RandomTilableGraphic>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="5">
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="1200" />
-              <DrawLayer Value="0.5" />
-              <CloserGraphicTag Value="" />
+              <TilingSize Value="250" />
+              <DrawLayer Value="0.79" />
+              <CloserGraphicTag Value="NoGraphic" />
               <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
+              <SecondCloserGraphicTag Value="NoGraphic" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="NewTrainingBacktileBlack" />
-              <SecondTileGraphicTag Value="NewTrainingBacktileBlack2" />
-              <ThirdTileGraphicTag Value="NewTrainingBacktileBlack3" />
+              <FirstTileGraphicTag Value="SecondFloor100" />
+              <SecondTileGraphicTag Value="SecondFloor200" />
+              <ThirdTileGraphicTag Value="SecondFloor50" />
               <FourthTileGraphicTag Value="" />
               <FifthTileGraphicTag Value="" />
               <SixthTileGraphicTag Value="" />
@@ -302,19 +302,54 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:100 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-450 Y:0}" />
+              <Offset Value="{X:0 Y:-26}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
+              <NickName Value="SecondUp" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.78" />
+              <CloserGraphicTag Value="ThirdFloorCornerReverse" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="ThirdFloorCornerReverse" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="ThirdFloorReverse100" />
+              <SecondTileGraphicTag Value="ThirdFloorReverse200" />
+              <ThirdTileGraphicTag Value="ThirdFloorReverse50" />
+              <FourthTileGraphicTag Value="" />
+              <FifthTileGraphicTag Value="" />
+              <SixthTileGraphicTag Value="" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-250 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="ThirdDown" />
             </Properties>
           </RandomTilableGraphic>
         </Components>
@@ -333,8 +368,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1590 Y:-1020}" />
-              <X Value="1540" />
+              <Center Value="{X:449 Y:-1020}" />
+              <X Value="399" />
               <Y Value="-1055" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -498,8 +533,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-470 Y:-1240}" />
-              <X Value="-520" />
+              <Center Value="{X:350 Y:-1240}" />
+              <X Value="300" />
               <Y Value="-1275" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1041,7 +1076,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:500 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_0-{X:400 Y:0}_1-{X:425 Y:0}_1-{X:475 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1076,7 +1111,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_1-{X:500 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1315,7 +1350,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:50}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_0-{X:0 Y:50}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1382,7 +1417,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1417,7 +1452,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1452,7 +1487,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1811,7 +1846,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1862,7 +1897,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1913,7 +1948,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -1980,7 +2015,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2015,7 +2050,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2093,7 +2128,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2160,7 +2195,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}_0-{X:0 Y:100}_0-{X:0 Y:125}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2195,7 +2230,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2230,7 +2265,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2576,7 +2611,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2627,7 +2662,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2678,7 +2713,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2745,7 +2780,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2780,7 +2815,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2858,7 +2893,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2909,7 +2944,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -2960,7 +2995,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:75 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_1-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -3027,7 +3062,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -3062,7 +3097,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -3120,8 +3155,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1941 Y:325}" />
-              <X Value="1916" />
+              <Center Value="{X:1240 Y:325}" />
+              <X Value="1215" />
               <Y Value="225" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3283,8 +3318,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1941 Y:-75}" />
-              <X Value="1916" />
+              <Center Value="{X:839 Y:-75}" />
+              <X Value="814" />
               <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3446,8 +3481,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-760 Y:125}" />
-              <X Value="-785" />
+              <Center Value="{X:-2000 Y:125}" />
+              <X Value="-2025" />
               <Y Value="25" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3609,8 +3644,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-340 Y:-275}" />
-              <X Value="-365" />
+              <Center Value="{X:-1600 Y:-275}" />
+              <X Value="-1625" />
               <Y Value="-375" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3938,8 +3973,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-9 Y:-1020}" />
-              <X Value="-59" />
+              <Center Value="{X:-1199 Y:-1020}" />
+              <X Value="-1249" />
               <Y Value="-1055" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4103,8 +4138,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:840 Y:-1240}" />
-              <X Value="790" />
+              <Center Value="{X:-1309 Y:-1240}" />
+              <X Value="-1359" />
               <Y Value="-1275" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4378,8 +4413,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1590 Y:-2175}" />
-              <X Value="1540" />
+              <Center Value="{X:429 Y:-2175}" />
+              <X Value="379" />
               <Y Value="-2210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4543,8 +4578,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-39 Y:-2175}" />
-              <X Value="-89" />
+              <Center Value="{X:-1209 Y:-2175}" />
+              <X Value="-1259" />
               <Y Value="-2210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4694,92 +4729,6 @@
           </MoveLoop>
         </Components>
       </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-600 Y:-2275}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-600 Y:-2275}" />
-              <X Value="-625" />
-              <Y Value="-2325" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="100" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.49995" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="LevelGeometry" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:0 Y:-2275}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:0 Y:-2275}" />
-              <X Value="-25" />
-              <Y Value="-2325" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="50" />
-              <Height Value="100" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.49995" />
-              <OneWayPlatform Value="True" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-        </Components>
-      </Entity>
       <Entity Name="BlueSolid" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -4841,7 +4790,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -4911,7 +4860,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -4981,7 +4930,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5016,7 +4965,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5121,7 +5070,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5219,7 +5168,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -5289,7 +5238,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -5359,7 +5308,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5394,7 +5343,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5499,7 +5448,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5597,7 +5546,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -5667,7 +5616,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -5737,7 +5686,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5772,7 +5721,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -5870,7 +5819,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -5940,7 +5889,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -6010,7 +5959,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6045,7 +5994,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6143,7 +6092,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -6178,7 +6127,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_0-{X:0 Y:200}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6213,7 +6162,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -6248,7 +6197,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_0-{X:0 Y:200}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6353,7 +6302,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:175}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6388,7 +6337,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:175}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6661,7 +6610,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -6696,7 +6645,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6766,7 +6715,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6899,7 +6848,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -6934,7 +6883,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -6952,7 +6901,7 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
             <Properties>
               <VerticalTiling Value="True" />
-              <TilingSize Value="100" />
+              <TilingSize Value="150" />
               <DrawLayer Value="0.8" />
               <CloserGraphicTag Value="" />
               <CloserRotation Value="0" />
@@ -6969,14 +6918,14 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_2-{X:0 Y:25}" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:0 Y:25}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:325 Y:0}" />
+              <Offset Value="{X:325 Y:25}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -7004,7 +6953,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -7025,7 +6974,7 @@
               <TilingWidth Value="750" />
               <UseTextureHeight Value="False" />
               <TilingHeight Value="250" />
-              <DrawLayer Value="0.79" />
+              <DrawLayer Value="0.75" />
               <GraphicTag Value="VioletTile" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -7102,7 +7051,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -7207,7 +7156,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:175}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -7277,7 +7226,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_0-{X:0 Y:25}_2-{X:0 Y:75}_0-{X:0 Y:100}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:0 Y:100}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -7375,7 +7324,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:1 Y:0}" />
               <SecondCloserOffset Value="{X:-1 Y:0}" />
               <IsHUD Value="False" />
@@ -7410,7 +7359,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_2-{X:25 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_0-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -7445,7 +7394,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:175 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -7552,125 +7501,25 @@
           </RandomTilableGraphic>
         </Components>
       </Entity>
-      <Entity Name="BlueSolid" Layer="">
+      <Entity Name="Shadow" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-600 Y:-475}" />
-              <Rotation Value="0" />
+              <InitialPosition Value="{X:1148 Y:-182}" />
+              <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:-600 Y:-475}" />
-              <X Value="-1000" />
-              <Y Value="-575" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="800" />
-              <Height Value="200" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="15.99995" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="800" />
-              <DrawLayer Value="0.8" />
-              <CloserGraphicTag Value="FloorCorner" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="FloorCorner" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="Floor100" />
-              <SecondTileGraphicTag Value="Floor200" />
-              <ThirdTileGraphicTag Value="Floor50" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}" />
-              <CloserOffset Value="{X:1 Y:0}" />
-              <SecondCloserOffset Value="{X:-1 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-76}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="FirstUp" />
-            </Properties>
-          </RandomTilableGraphic>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="3">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="700" />
-              <DrawLayer Value="0.8" />
-              <CloserGraphicTag Value="SecondFloorCorner" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="SecondFloorCorner" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="SecondFloor100" />
-              <SecondTileGraphicTag Value="SecondFloor200" />
-              <ThirdTileGraphicTag Value="SecondFloor50" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_2-{X:275 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-26}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="SecondUp" />
-            </Properties>
-          </RandomTilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="4">
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="750" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="150" />
-              <DrawLayer Value="0.79" />
-              <GraphicTag Value="VioletTile" />
+              <TilingWidth Value="600" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="1500" />
+              <DrawLayer Value="0.8" />
+              <GraphicTag Value="NewTrainingCosmeticsBlackshade" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -7680,7 +7529,40 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="Middle" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:51 Y:-383}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="600" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="1500" />
+              <DrawLayer Value="0.8" />
+              <GraphicTag Value="NewTrainingCosmeticsBlackshade" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
             </Properties>
           </TilableGraphic>
         </Components>

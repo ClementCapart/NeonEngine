@@ -31,7 +31,6 @@ namespace NeonEngine.Components.Camera2D
         {
             Entity e = entity.GameWorld.GetEntityByName(_boundName);
             if (e != null) _bound = e.GetComponent<CameraBound>();
-
             base.Init();
         }
 
