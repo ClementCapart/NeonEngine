@@ -338,8 +338,7 @@ namespace NeonEngine.Components.VisualFX
             :base(0, entity, "ParticleEmitter")
         {
             particles = new List<Particle>();
-           
-            random = new Random();
+            random = Neon.Utils.CommonRandom;
         }
 
         public override void Init()

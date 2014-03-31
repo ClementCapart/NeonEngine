@@ -16,6 +16,8 @@ namespace NeonEngine
 {
     public class Utils
     {
+        public Random CommonRandom = new Random();
+        
         public Utils()
         {
         }
@@ -30,7 +32,7 @@ namespace NeonEngine
         public double GetRandomNumber(double minimum, double maximum, Random random = null)
         {
             if (random == null)
-                random = new Random();
+                random = CommonRandom;
             return random.NextDouble() * (maximum - minimum) + minimum;
         }
 

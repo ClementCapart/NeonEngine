@@ -38,7 +38,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Init()
         {
-            _random = new Random();
+            _random = Neon.Utils.CommonRandom;
             if (SpritesheetList.Count > 0)
             {
                 int random = _random.Next(0, SpritesheetList.Count);

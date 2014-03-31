@@ -302,7 +302,6 @@ namespace NeonEngine.Components.Graphics2D
             Texture2D _shorterTexture = null;
                 
             _randomResult = new Dictionary<Texture2D,List<Vector2>>();
-            Random r = new Random();
             foreach(Texture2D t in textures)
                 if(_shorterTexture == null)
                     _shorterTexture = t;
@@ -311,7 +310,7 @@ namespace NeonEngine.Components.Graphics2D
 
             while (currentPosition < sizeWithoutClosers)
             {
-                int tileIndex = r.Next(textures.Count);
+                int tileIndex = Neon.Utils.CommonRandom.Next(textures.Count);
                 Texture2D texture = textures[tileIndex];
 
                 if (currentPosition + (_verticalTiling ? texture.Height : texture.Width) > sizeWithoutClosers)

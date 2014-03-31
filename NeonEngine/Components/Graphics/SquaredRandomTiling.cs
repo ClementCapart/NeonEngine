@@ -217,6 +217,10 @@ namespace NeonEngine.Components.Graphics2D
                 RandomizeBottom();
                 RandomizeWalls();
             }
+            else
+            {
+                LoadFromHash();
+            }
 
             Neon.SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
             Neon.GraphicsDevice.SetRenderTarget(_finalTexture);
@@ -253,7 +257,119 @@ namespace NeonEngine.Components.Graphics2D
             Neon.SpriteBatch.End();
             Neon.GraphicsDevice.SetRenderTarget(null);
             
+
+
             base.Init();
+        }
+
+        private void LoadFromHash()
+        {
+            _topRandomResult.Clear();
+            string topHash = _tilingHash.Substring(4, _tilingHash.IndexOf("_BOT") - 4);
+            string[] hashInfo = topHash.Split('_');
+
+            List<Texture2D> textures = new List<Texture2D>();
+
+            if (_firstTopTileTexture != null)
+                textures.Add(_firstTopTileTexture);
+            if (_secondTopTileTexture != null)
+                textures.Add(_secondTopTileTexture);
+            if (_thirdTopTileTexture != null)
+                textures.Add(_thirdTopTileTexture);
+
+            foreach (string hash in hashInfo)
+            {
+                string[] values = hash.Split('-');
+
+                if (int.Parse(values[0]) >= textures.Count)
+                    continue;
+                if (!_topRandomResult.ContainsKey(textures[int.Parse(values[0])]))
+                    _topRandomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
+
+                Vector2 v = Neon.Utils.ParseVector2(values[1]);
+                v += new Vector2((_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, GlobalOffset);
+
+                _topRandomResult[textures[int.Parse(values[0])]].Add(v);
+            }
+
+            int i = _tilingHash.IndexOf("_BOT_");
+            string botHash = _tilingHash.Substring(i + 5, _tilingHash.IndexOf("_LEFT_") - i - 5);
+
+            hashInfo = botHash.Split('_');
+
+            textures = new List<Texture2D>();
+
+            if (_firstBottomTileTexture != null)
+                textures.Add(_firstBottomTileTexture);
+            if (_secondBottomTileTexture != null)
+                textures.Add(_secondBottomTileTexture);
+            if (_thirdBottomTileTexture != null)
+                textures.Add(_thirdBottomTileTexture);
+
+            foreach (string hash in hashInfo)
+            {
+                string[] values = hash.Split('-');
+
+                if (int.Parse(values[0]) >= textures.Count)
+                    continue;
+                if (!_bottomRandomResult.ContainsKey(textures[int.Parse(values[0])]))
+                    _bottomRandomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
+
+                Vector2 v = Neon.Utils.ParseVector2(values[1]);
+                v += new Vector2((_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, entity.hitboxes[0].Height - textures[int.Parse(values[0])].Height * entity.transform.Scale - GlobalOffset);
+
+                _bottomRandomResult[textures[int.Parse(values[0])]].Add(v);
+            }
+
+            i = _tilingHash.IndexOf("_LEFT_");
+            string leftHash = _tilingHash.Substring(i + 6, _tilingHash.IndexOf("_RIGHT_") - i - 6);
+
+            hashInfo = leftHash.Split('_');
+
+            textures = new List<Texture2D>();
+
+            if (_firstWallTileTexture != null)
+                textures.Add(_firstWallTileTexture);
+            if (_secondWallTileTexture != null)
+                textures.Add(_secondWallTileTexture);
+            if (_thirdWallTileTexture != null)
+                textures.Add(_thirdWallTileTexture);
+
+            foreach (string hash in hashInfo)
+            {
+                string[] values = hash.Split('-');
+
+                if (int.Parse(values[0]) >= textures.Count)
+                    continue;
+                if (!_leftWallRandomResult.ContainsKey(textures[int.Parse(values[0])]))
+                    _leftWallRandomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
+
+                Vector2 v = Neon.Utils.ParseVector2(values[1]);
+                v += new Vector2(GlobalOffset, (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset);
+
+                _leftWallRandomResult[textures[int.Parse(values[0])]].Add(v);
+            }
+
+            i = _tilingHash.IndexOf("_RIGHT_");
+            string rightHash = _tilingHash.Substring(i + 7, _tilingHash.Length - 1);
+
+            hashInfo = rightHash.Split('_');
+
+            foreach (string hash in hashInfo)
+            {
+                string[] values = hash.Split('-');
+
+                if (int.Parse(values[0]) >= textures.Count)
+                    continue;
+                if (!_rightWallRandomResult.ContainsKey(textures[int.Parse(values[0])]))
+                    _rightWallRandomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
+
+                Vector2 v = Neon.Utils.ParseVector2(values[1]);
+                v += new Vector2(entity.hitboxes[0].Width - textures[int.Parse(values[0])].Width * entity.transform.Scale - GlobalOffset, (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset);
+
+                _rightWallRandomResult[textures[int.Parse(values[0])]].Add(v);
+            }
+
         }
 
         private void SetCorners()
@@ -280,7 +396,6 @@ namespace NeonEngine.Components.Graphics2D
 
         private void RandomizeTop()
         {
-            Random r = new Random();
             List<Texture2D> textures = new List<Texture2D>();
 
             if (_firstTopTileTexture != null)
@@ -308,7 +423,7 @@ namespace NeonEngine.Components.Graphics2D
 
             while (currentPosition < widthToFill)
             {
-                int tileIndex = r.Next(textures.Count);
+                int tileIndex = Neon.Utils.CommonRandom.Next(textures.Count);
                 Texture2D texture = textures[tileIndex];
 
                 if (currentPosition + texture.Width * entity.transform.Scale > widthToFill)
@@ -319,14 +434,20 @@ namespace NeonEngine.Components.Graphics2D
 
                 _topRandomResult[texture].Add(new Vector2(currentPosition + (_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, GlobalOffset));
 
-                currentPosition += texture.Width * entity.transform.Scale;
+                if (_tilingHash != "")
+                    _tilingHash += "_" + textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(new Vector2(currentPosition, 0));
+                else
+                    _tilingHash += "TOP_"+ textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(new Vector2(currentPosition, 0));
+
+                currentPosition += texture.Width * entity.transform.Scale;             
             }
+
+            _tilingHash += "_BOT";
 
         }
 
         private void RandomizeBottom()
         {
-            Random r = new Random();
             List<Texture2D> textures = new List<Texture2D>();
 
             if (_firstBottomTileTexture != null)
@@ -354,7 +475,7 @@ namespace NeonEngine.Components.Graphics2D
 
             while (currentPosition < widthToFill)
             {
-                int tileIndex = r.Next(textures.Count);
+                int tileIndex = Neon.Utils.CommonRandom.Next(textures.Count);
                 Texture2D texture = textures[tileIndex];
 
                 if (currentPosition + texture.Width * entity.transform.Scale > widthToFill)
@@ -365,13 +486,17 @@ namespace NeonEngine.Components.Graphics2D
 
                 _bottomRandomResult[texture].Add(new Vector2(currentPosition + (_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, entity.hitboxes[0].Height - texture.Height * entity.transform.Scale - GlobalOffset));
 
+                if (_tilingHash != "")
+                    _tilingHash += "_" + textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(new Vector2(currentPosition, 0));
+
                 currentPosition += texture.Width * entity.transform.Scale;
             }
+
+            _tilingHash += "_LEFT";
         }
 
         private void RandomizeWalls()
         {
-            Random r = new Random();
             List<Texture2D> textures = new List<Texture2D>();
 
             if (_firstWallTileTexture != null)
@@ -399,7 +524,7 @@ namespace NeonEngine.Components.Graphics2D
 
             while (currentPosition < heightToFill)
             {
-                int tileIndex = r.Next(textures.Count);
+                int tileIndex = Neon.Utils.CommonRandom.Next(textures.Count);
                 Texture2D texture = textures[tileIndex];
 
                 if (currentPosition + texture.Height * entity.transform.Scale > heightToFill)
@@ -410,8 +535,13 @@ namespace NeonEngine.Components.Graphics2D
 
                 _leftWallRandomResult[texture].Add(new Vector2(GlobalOffset, currentPosition + (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset));
 
+                if (_tilingHash != "")
+                    _tilingHash += "_" + textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(new Vector2(0, currentPosition));
+
                 currentPosition += texture.Height * entity.transform.Scale;
             }
+
+            _tilingHash += "_RIGHT";
 
             _rightWallRandomResult = new Dictionary<Texture2D, List<Vector2>>();
 
@@ -419,7 +549,7 @@ namespace NeonEngine.Components.Graphics2D
 
             while (currentPosition < heightToFill)
             {
-                int tileIndex = r.Next(textures.Count);
+                int tileIndex = Neon.Utils.CommonRandom.Next(textures.Count);
                 Texture2D texture = textures[tileIndex];
 
                 if (currentPosition + texture.Height * entity.transform.Scale > heightToFill)
@@ -429,6 +559,9 @@ namespace NeonEngine.Components.Graphics2D
                     _rightWallRandomResult.Add(texture, new List<Vector2>());
 
                 _rightWallRandomResult[texture].Add(new Vector2(entity.hitboxes[0].Width - texture.Width * entity.transform.Scale - GlobalOffset, currentPosition + (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset));
+
+                if (_tilingHash != "")
+                    _tilingHash += "_" + textures.IndexOf(texture) + "-" + Neon.Utils.Vector2ToString(new Vector2(0, currentPosition));
 
                 currentPosition += texture.Height * entity.transform.Scale;
             }

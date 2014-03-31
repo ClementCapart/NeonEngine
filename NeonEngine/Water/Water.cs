@@ -41,7 +41,7 @@ namespace NeonEngine
 
 		PrimitiveWater pb;
 		WaterColumn[] columns;
-		static Random rand = new Random();
+        static Random rand = Neon.Utils.CommonRandom;
 		Body collision;
 
 		public float Tension = 0.08f;

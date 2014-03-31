@@ -98,7 +98,7 @@ namespace NeonStarLibrary.Components.GameplayElements
             if (avatar != null) 
                 _avatarComponent = avatar.GetComponent<AvatarCore>();
 
-            _currentSpawnPositionIndex = new Random().Next(3);
+            _currentSpawnPositionIndex = Neon.Utils.CommonRandom.Next(3);
             switch(_currentSpawnPositionIndex)
             {
                 case 0:

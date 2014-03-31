@@ -349,7 +349,7 @@ namespace NeonStarLibrary.Components.Enemies
             {
                 if (Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < kvp.Key * kvp.Key)
                 {
-                    string selectedAttack = kvp.Value[new Random().Next(kvp.Value.Count)];
+                    string selectedAttack = kvp.Value[Neon.Utils.CommonRandom.Next(kvp.Value.Count)];
 
                     if (selectedAttack == "Chase")
                     {

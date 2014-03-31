@@ -403,8 +403,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public void DropHealthItems()
         {
-            Random rdm = new Random();
-            double random = rdm.NextDouble();
+            double random = Neon.Utils.CommonRandom.NextDouble();
             if (random <= _chanceToDropHealth)
             {
                 for(int i = 0; i < _healthItemsToDrop; i ++)
@@ -413,7 +412,7 @@ namespace NeonStarLibrary.Components.Enemies
                     {
                         Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/HealthCollectible.prefab", entity.GameWorld);
                         e.transform.Position = entity.transform.Position;
-                        random = (rdm.NextDouble() * 2) - 1;
+                        random = (Neon.Utils.CommonRandom.NextDouble() * 2) - 1;
                         if (e.rigidbody != null)
                             e.rigidbody.body.ApplyLinearImpulse(new Vector2((float)random, -1));
                     }
