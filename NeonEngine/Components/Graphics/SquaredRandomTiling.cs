@@ -20,6 +20,14 @@ namespace NeonEngine.Components.Graphics2D
             set { _globalOffset = value; }
         }
 
+        private Vector2 _centerOffset = new Vector2(50, 50);
+
+        public Vector2 CenterOffset
+        {
+            get { return _centerOffset; }
+            set { _centerOffset = value; }
+        }
+
         private bool _keepTilingHash = false;
 
         public bool KeepTilingHash
@@ -139,7 +147,13 @@ namespace NeonEngine.Components.Graphics2D
             set { _thirdWallTileGraphicTag = value; }
         }
 
-        
+        private string _centerTileGraphicTag = "";
+
+        public string CenterTileGraphicTag
+        {
+            get { return _centerTileGraphicTag; }
+            set { _centerTileGraphicTag = value; }
+        }
         #endregion
 
         private Texture2D _topCornerTexture;
@@ -156,6 +170,8 @@ namespace NeonEngine.Components.Graphics2D
         private Texture2D _firstWallTileTexture;
         private Texture2D _secondWallTileTexture;
         private Texture2D _thirdWallTileTexture;
+
+        private Texture2D _centerTexture;
 
         private Vector2[] _cornerPositions;
         RenderTarget2D _finalTexture;
@@ -190,6 +206,8 @@ namespace NeonEngine.Components.Graphics2D
             _secondWallTileTexture = AssetManager.GetTexture(_secondWallTileGraphicTag);
             _thirdWallTileTexture = AssetManager.GetTexture(_thirdWallTileGraphicTag);
 
+            _centerTexture = AssetManager.GetTexture(_centerTileGraphicTag);
+
             SetCorners();
 
             if (_tilingHash == "" || !_keepTilingHash)
@@ -197,6 +215,7 @@ namespace NeonEngine.Components.Graphics2D
                 _tilingHash = "";
                 RandomizeTop();
                 RandomizeBottom();
+                RandomizeWalls();
             }
 
             Neon.SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
@@ -214,20 +233,22 @@ namespace NeonEngine.Components.Graphics2D
             }
             
             foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _topRandomResult)
-            {
                 foreach (Vector2 position in kvp.Value)
-                {
                     Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-                }
-            }
 
             foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _bottomRandomResult)
-            {
                 foreach (Vector2 position in kvp.Value)
-                {
                     Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-                }
-            }
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _leftWallRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _rightWallRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+
+            
            
             Neon.SpriteBatch.End();
             Neon.GraphicsDevice.SetRenderTarget(null);
@@ -240,14 +261,20 @@ namespace NeonEngine.Components.Graphics2D
             _cornerPositions = new Vector2[4];
             if (_topCornerTexture != null)
             {
-                _cornerPositions[0] = Vector2.Zero + new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2) * entity.transform.Scale /*+ new Vector2(Offset ;*/;
-                _cornerPositions[1] = new Vector2(entity.hitboxes[0].Width - 1, 0) + new Vector2(-_topCornerTexture.Width / 2, _topCornerTexture.Height / 2) * entity.transform.Scale - Offset;
+                float displacement = 0.0f;
+                if (_topCornerTexture.Width < 50)
+                    displacement = 1.0f;
+                _cornerPositions[0] = Vector2.Zero + new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2) * entity.transform.Scale + new Vector2(GlobalOffset, GlobalOffset);
+                _cornerPositions[1] = new Vector2(entity.hitboxes[0].Width - displacement * entity.transform.Scale, 0) + new Vector2(-_topCornerTexture.Width / 2, _topCornerTexture.Height / 2) * entity.transform.Scale + new Vector2(-GlobalOffset, GlobalOffset);
             }
 
             if (_bottomCornerTexture != null)
             {
-                _cornerPositions[2] = new Vector2(entity.hitboxes[0].Width - 1, entity.hitboxes[0].Height - 1) + new Vector2(-_bottomCornerTexture.Width / 2, -_bottomCornerTexture.Height / 2) * entity.transform.Scale;
-                _cornerPositions[3] = new Vector2(0, entity.hitboxes[0].Height - 1) + new Vector2(_bottomCornerTexture.Width / 2, -_bottomCornerTexture.Height / 2) * entity.transform.Scale;
+                float displacement = 0.0f;
+                if (_topCornerTexture.Width < 50)
+                    displacement = 1.0f;
+                _cornerPositions[2] = new Vector2(entity.hitboxes[0].Width - displacement * entity.transform.Scale, entity.hitboxes[0].Height - displacement * entity.transform.Scale) + new Vector2(-_bottomCornerTexture.Width / 2, -_bottomCornerTexture.Height / 2) * entity.transform.Scale + new Vector2(-GlobalOffset, -GlobalOffset);
+                _cornerPositions[3] = new Vector2(0, entity.hitboxes[0].Height - displacement * entity.transform.Scale) + new Vector2(_bottomCornerTexture.Width / 2, -_bottomCornerTexture.Height / 2) * entity.transform.Scale + new Vector2(GlobalOffset, -GlobalOffset);
             }
         }
 
@@ -266,7 +293,7 @@ namespace NeonEngine.Components.Graphics2D
             if (textures.Count == 0)
                 return;
 
-            float widthToFill = entity.hitboxes[0].Width - (_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale * 2 : 0);
+            float widthToFill = entity.hitboxes[0].Width - (_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale * 2 : 0) - GlobalOffset * 2;
 
             Texture2D _shorterTexture = null;
             foreach (Texture2D t in textures)
@@ -290,7 +317,7 @@ namespace NeonEngine.Components.Graphics2D
                 if (!_topRandomResult.ContainsKey(texture))
                     _topRandomResult.Add(texture, new List<Vector2>());
 
-                _topRandomResult[texture].Add(new Vector2(currentPosition + (_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale : 0), 0));
+                _topRandomResult[texture].Add(new Vector2(currentPosition + (_topCornerTexture != null ? _topCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, GlobalOffset));
 
                 currentPosition += texture.Width * entity.transform.Scale;
             }
@@ -312,7 +339,7 @@ namespace NeonEngine.Components.Graphics2D
             if (textures.Count == 0)
                 return;
 
-            float widthToFill = entity.hitboxes[0].Width - (_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale * 2 : 0);
+            float widthToFill = entity.hitboxes[0].Width - (_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale * 2 : 0) - GlobalOffset * 2;
 
             Texture2D _shorterTexture = null;
             foreach (Texture2D t in textures)
@@ -336,15 +363,86 @@ namespace NeonEngine.Components.Graphics2D
                 if (!_bottomRandomResult.ContainsKey(texture))
                     _bottomRandomResult.Add(texture, new List<Vector2>());
 
-                _bottomRandomResult[texture].Add(new Vector2(currentPosition + (_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale : 0), entity.hitboxes[0].Height - texture.Height));
+                _bottomRandomResult[texture].Add(new Vector2(currentPosition + (_bottomCornerTexture != null ? _bottomCornerTexture.Width * entity.transform.Scale : 0) + GlobalOffset, entity.hitboxes[0].Height - texture.Height * entity.transform.Scale - GlobalOffset));
 
                 currentPosition += texture.Width * entity.transform.Scale;
+            }
+        }
+
+        private void RandomizeWalls()
+        {
+            Random r = new Random();
+            List<Texture2D> textures = new List<Texture2D>();
+
+            if (_firstWallTileTexture != null)
+                textures.Add(_firstWallTileTexture);
+            if (_secondWallTileTexture != null)
+                textures.Add(_secondWallTileTexture);
+            if (_thirdWallTileTexture != null)
+                textures.Add(_thirdWallTileTexture);
+
+            if (textures.Count == 0)
+                return;
+
+            float heightToFill = entity.hitboxes[0].Height - (_bottomCornerTexture != null ? _bottomCornerTexture.Height * entity.transform.Scale : 0) - (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) - GlobalOffset * 2;
+
+            Texture2D _shorterTexture = null;
+            foreach (Texture2D t in textures)
+                if (_shorterTexture == null)
+                    _shorterTexture = t;
+                else if (t.Width < _shorterTexture.Height)
+                    _shorterTexture = t;
+
+            _leftWallRandomResult = new Dictionary<Texture2D, List<Vector2>>();
+
+            float currentPosition = 0.0f;
+
+            while (currentPosition < heightToFill)
+            {
+                int tileIndex = r.Next(textures.Count);
+                Texture2D texture = textures[tileIndex];
+
+                if (currentPosition + texture.Height * entity.transform.Scale > heightToFill)
+                    texture = _shorterTexture;
+
+                if (!_leftWallRandomResult.ContainsKey(texture))
+                    _leftWallRandomResult.Add(texture, new List<Vector2>());
+
+                _leftWallRandomResult[texture].Add(new Vector2(GlobalOffset, currentPosition + (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset));
+
+                currentPosition += texture.Height * entity.transform.Scale;
+            }
+
+            _rightWallRandomResult = new Dictionary<Texture2D, List<Vector2>>();
+
+            currentPosition = 0.0f;
+
+            while (currentPosition < heightToFill)
+            {
+                int tileIndex = r.Next(textures.Count);
+                Texture2D texture = textures[tileIndex];
+
+                if (currentPosition + texture.Height * entity.transform.Scale > heightToFill)
+                    texture = _shorterTexture;
+
+                if (!_rightWallRandomResult.ContainsKey(texture))
+                    _rightWallRandomResult.Add(texture, new List<Vector2>());
+
+                _rightWallRandomResult[texture].Add(new Vector2(entity.hitboxes[0].Width - texture.Width * entity.transform.Scale - GlobalOffset, currentPosition + (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) + GlobalOffset));
+
+                currentPosition += texture.Height * entity.transform.Scale;
             }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_finalTexture, entity.transform.Position, null, Color.White, 0.0f, new Vector2(_finalTexture.Width / 2, _finalTexture.Height / 2), 1.0f, SpriteEffects.None, Layer);
+            if (_centerTexture != null)
+            {
+                Vector2 size = (new Vector2((entity.hitboxes[0].Width), (entity.hitboxes[0].Height)) - new Vector2(GlobalOffset * 2) - _centerOffset * 2) / entity.transform.Scale;
+                Neon.SpriteBatch.Draw(_centerTexture, entity.transform.Position,
+                    new Rectangle(0, 0, (int)(size.X), (int)(size.Y)), Color.White, 0.0f, size / 2, entity.transform.Scale, SpriteEffects.None, Layer - 0.001f);
+            }
             base.Draw(spriteBatch);
         }
 
