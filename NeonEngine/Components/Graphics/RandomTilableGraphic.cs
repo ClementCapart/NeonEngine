@@ -419,8 +419,7 @@ namespace NeonEngine.Components.Graphics2D
                     else if(_closerTexture != null)
                         spriteBatch.Draw(_closerTexture, new Vector2(basePositionX + _tilingSize - _closerTexture.Width / 2 * entity.transform.Scale - 2, entity.transform.Position.Y) + Offset + _secondCloserOffset + this._parallaxPosition, null, Color.White, _closerRotation, new Vector2(_closerTexture.Width / 2, _closerTexture.Height / 2), entity.transform.Scale, this.SecondCloserBasicSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
                 }
-            }
-            
+            }          
             base.Draw(spriteBatch);
         }
     }

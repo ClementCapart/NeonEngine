@@ -80,6 +80,7 @@ namespace NeonStarLibrary
                 AttackInfo ai = new AttackInfo();
                 ai.Name = attack.Attribute("Name").Value.ToString();
                 ai.Type = (AttackType)Enum.Parse(typeof(AttackType), attack.Attribute("Type").Value);
+                ai.GroupName = attack.Attribute("Group").Value.ToString();
                 ai.Hitboxes = new List<Rectangle>();
 
                 foreach (XElement hitbox in attack.Element("Hitboxes").Elements("Hitbox"))

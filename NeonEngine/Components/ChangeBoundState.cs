@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeonEngine.Components.Camera2D
+namespace NeonEngine.Components.Camera
 {
     public class ChangeBoundState : Component
     {

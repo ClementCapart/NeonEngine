@@ -140,8 +140,6 @@ namespace NeonStarEditor
                     CleanString = CleanString.Replace("A:", "");
                     CleanString = CleanString.Replace("}", "");
                     String[] Results = CleanString.Split(' ');
-                    foreach(string s in Results)
-                        Console.WriteLine(s);
                     result.X = float.Parse(Results[0], CultureInfo.InvariantCulture);
                     result.Y = float.Parse(Results[1], CultureInfo.InvariantCulture);
                     result.Z = float.Parse(Results[2], CultureInfo.InvariantCulture);
