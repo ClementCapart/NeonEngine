@@ -347,7 +347,7 @@ namespace NeonStarLibrary.Components.Enemies
         {
             foreach (KeyValuePair<float, List<string>> kvp in _attacks)
             {
-                if (Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) <= kvp.Key * kvp.Key)
+                if (Math.Abs(entity.transform.Position.X - EntityToAttack.transform.Position.X) <= kvp.Key)
                 {
                     string selectedAttack = kvp.Value[Neon.Utils.CommonRandom.Next(kvp.Value.Count)];
 
