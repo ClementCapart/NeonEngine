@@ -40,7 +40,7 @@ namespace NeonStarLibrary.Components.Enemies
                             EnemyComponent.State = EnemyState.Attacking;
                             if (CanTurn)
                             {
-                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                if (EntityToAttack.transform.Position.X <= entity.transform.Position.X)
                                     EnemyComponent.CurrentSide = Side.Left;
                                 else
                                     EnemyComponent.CurrentSide = Side.Right;
@@ -55,7 +55,7 @@ namespace NeonStarLibrary.Components.Enemies
                             EnemyComponent.State = EnemyState.WaitThreat;
                             if (CanTurn)
                             {
-                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                if (EntityToAttack.transform.Position.X <= entity.transform.Position.X)
                                     EnemyComponent.CurrentSide = Side.Left;
                                 else
                                     EnemyComponent.CurrentSide = Side.Right;
@@ -73,7 +73,7 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             if (CanTurn)
                             {
-                                if (EntityToAttack.transform.Position.X < entity.transform.Position.X)
+                                if (EntityToAttack.transform.Position.X <= entity.transform.Position.X)
                                     EnemyComponent.CurrentSide = Side.Left;
                                 else
                                     EnemyComponent.CurrentSide = Side.Right;
@@ -127,7 +127,7 @@ namespace NeonStarLibrary.Components.Enemies
         public bool CheckIfEntityIsInRange()
         {
             float distanceSquared = Vector2.DistanceSquared(EntityToAttack.transform.Position, entity.transform.Position);
-            if (distanceSquared < _attacks.Keys.Last() * _attacks.Keys.Last())
+            if (distanceSquared <= _attacks.Keys.Last() * _attacks.Keys.Last())
             {
                 float angle = (Neon.Utils.AngleBetween(entity.transform.Position, EntityToAttack.transform.Position) - entity.transform.rotation);
                 if (angle < 0)
@@ -148,7 +148,7 @@ namespace NeonStarLibrary.Components.Enemies
         {
             foreach (KeyValuePair<float, List<string>> kvp in _attacks)
             {
-                if (Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) < kvp.Key * kvp.Key)
+                if (Vector2.DistanceSquared(entity.transform.Position, EntityToAttack.transform.Position) <= kvp.Key * kvp.Key)
                 {
                     string selectedAttack = kvp.Value[Neon.Utils.CommonRandom.Next(kvp.Value.Count)];
 

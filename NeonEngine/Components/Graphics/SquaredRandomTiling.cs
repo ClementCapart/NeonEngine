@@ -351,7 +351,7 @@ namespace NeonEngine.Components.Graphics2D
             }
 
             i = _tilingHash.IndexOf("_RIGHT_");
-            string rightHash = _tilingHash.Substring(i + 7, _tilingHash.Length - 1);
+            string rightHash = _tilingHash.Substring(i + 7, _tilingHash.Length - 1 - (i + 7));
 
             hashInfo = rightHash.Split('_');
 
@@ -361,6 +361,7 @@ namespace NeonEngine.Components.Graphics2D
 
                 if (int.Parse(values[0]) >= textures.Count)
                     continue;
+
                 if (!_rightWallRandomResult.ContainsKey(textures[int.Parse(values[0])]))
                     _rightWallRandomResult.Add(textures[int.Parse(values[0])], new List<Vector2>());
 
