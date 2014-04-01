@@ -510,7 +510,7 @@ namespace NeonEngine.Components.Graphics2D
             if (textures.Count == 0)
                 return;
 
-            float heightToFill = entity.hitboxes[0].Height - (_bottomCornerTexture != null ? _bottomCornerTexture.Height * entity.transform.Scale : 0) - (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) - GlobalOffset * 2;
+            float heightToFill = entity.hitboxes[0] .Height - (_bottomCornerTexture != null ? _bottomCornerTexture.Height * entity.transform.Scale : 0) - (_topCornerTexture != null ? _topCornerTexture.Height * entity.transform.Scale : 0) - GlobalOffset * 2;
 
             Texture2D _shorterTexture = null;
             foreach (Texture2D t in textures)

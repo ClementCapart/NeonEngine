@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Graphics2D;
 using NeonStarLibrary.Components.Avatar;
@@ -54,7 +55,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         private SpritesheetManager _baseSpritesheets;
         private SpritesheetManager _pillarSpritesheets;
+        private SpritesheetManager _basePillarSpritesheets;
         private FadingSpritesheet _fadingSpritesheet;
+
+        private bool _healing = false;
 
         public HealStation(Entity entity)
             :base(entity)
@@ -74,23 +78,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
             _fadingSpritesheet = entity.GetComponent<FadingSpritesheet>();
 
             List<SpritesheetManager> sm = entity.GetComponentsByInheritance<SpritesheetManager>();
-            if (sm != null && sm.Count >= 2)
+            if (sm != null && sm.Count >= 3)
             {
-                if (sm[0].SpritesheetList.ContainsKey("BaseOff"))
+                foreach (SpritesheetManager ssm in sm)
                 {
-                    _baseSpritesheets = sm[0];
-                    _pillarSpritesheets = sm[1];
-                }
-                else
-                {
-                    _baseSpritesheets = sm[1];
-                    _pillarSpritesheets = sm[0];
-                }
+                    if (ssm.SpritesheetList.ContainsKey("BaseOff"))
+                        _baseSpritesheets = ssm;
+                    if (ssm.SpritesheetList.ContainsKey("PillarOff"))
+                        _pillarSpritesheets = ssm;
+                    if (ssm.SpritesheetList.ContainsKey("BasePillarOff"))
+                        _basePillarSpritesheets = ssm;
+                } 
             }
 
             base.Init();
 
-            if (_baseSpritesheets != null && _pillarSpritesheets != null)
+            if (_baseSpritesheets != null && _pillarSpritesheets != null && _basePillarSpritesheets != null)
             {
                 if (_powered)
                 {
@@ -98,7 +101,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if (_fadingSpritesheet != null)
                             _fadingSpritesheet.Active = false;
-                        _baseSpritesheets.ChangeAnimation("BaseOff", 0, true, false, true);
+                        _baseSpritesheets.ChangeAnimation("BaseOnDisabled", 0, true, false, true);
+                        _basePillarSpritesheets.ChangeAnimation("BasePillarOnDisabled", 0, true, false, true);
                         _pillarSpritesheets.ChangeAnimation("PillarOn", 0, true, false, true);
                     }
                     else
@@ -106,7 +110,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         if (_fadingSpritesheet != null)
                             _fadingSpritesheet.Active = true;
                         _baseSpritesheets.ChangeAnimation("BaseOn", 0, true, false, true);
+                        _basePillarSpritesheets.ChangeAnimation("BasePillarOn", 0, true, false, true);
                         _pillarSpritesheets.ChangeAnimation("PillarOn", 0, true, false, true);
+
                     }
                 }
                 else
@@ -114,12 +120,24 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (_fadingSpritesheet != null)
                         _fadingSpritesheet.Active = false;
                     _baseSpritesheets.ChangeAnimation("BaseOff", 0, true, false, true);
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarOff", 0, true, false, true);
                     _pillarSpritesheets.ChangeAnimation("PillarOff", 0, true, false, true);
                 }
-            }
-            
+            }  
+        }
 
-            
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (_avatarComponent != null && _healing)
+            {
+                _avatarComponent.CanAttack = false;
+                _avatarComponent.CanMove = false;
+                _avatarComponent.CanRoll = false;
+                _avatarComponent.CanTurn = false;
+                _avatarComponent.CanUseElement = false;
+                _avatarEntity.hitboxes[0].SwitchType(HitboxType.Invincible, 1.0f);
+            }
+            base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -143,18 +161,16 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if (Neon.Input.Pressed(NeonStarInput.Interact) && _avatarComponent.CurrentHealthPoints < _avatarComponent.StartingHealthPoints)
                         {
-                            _avatarComponent.CurrentHealthPoints = _avatarComponent.StartingHealthPoints;
-                            _usedHealStations.Add(entity.GameWorld.LevelGroupName + "_" + entity.GameWorld.LevelName + "_" + entity.Name);
+                            
 
+                            _healing = true;
                             if (_baseSpritesheets != null)
                             {
-                                _baseSpritesheets.ChangeAnimation("BaseLighting", 0, true, false, false);
-                                _baseSpritesheets.CurrentSpritesheet.currentFrame = _baseSpritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
-                                _baseSpritesheets.CurrentSpritesheet.Reverse = true;
+                                _baseSpritesheets.ChangeAnimation("BaseUse", 0, true, false, false);
+                                _basePillarSpritesheets.ChangeAnimation("BasePillarUse", 0, true, false, false);
                                 if (_fadingSpritesheet != null)
                                     _fadingSpritesheet.Active = false;
                             }
-
                             _used = true;
                         }
                     }
@@ -166,6 +182,20 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         _fadingSpritesheet.Active = false;
             }
 
+            if (_healing)
+            {
+                if (_avatarEntity != null)
+                    _avatarEntity.transform.Position = new Vector2(MathHelper.Lerp(_avatarEntity.transform.Position.X, this.entity.transform.Position.X, 0.1f), _avatarEntity.transform.Position.Y);
+                if (_baseSpritesheets.IsFinished() && _basePillarSpritesheets.IsFinished())
+                {
+                    _avatarComponent.CurrentHealthPoints = _avatarComponent.StartingHealthPoints;
+                    _usedHealStations.Add(entity.GameWorld.LevelGroupName + "_" + entity.GameWorld.LevelName + "_" + entity.Name);
+                    _baseSpritesheets.ChangeAnimation("BaseOnDisabled", 0, true, false, true);
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarOnDisabled", 0, true, false, true);
+                    _healing = false;
+                    _used = true;
+                }
+            }
 
             if (_baseSpritesheets != null && _pillarSpritesheets != null)
             {              
@@ -194,6 +224,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 }
                 
             }
+
+            
             base.Update(gameTime);
         }
 
@@ -201,8 +233,17 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (_baseSpritesheets != null && _pillarSpritesheets != null)
             {
-                if(!_used)
+                if (!_used)
+                {
                     _baseSpritesheets.ChangeAnimation("BaseLighting", 0, true, false, false);
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarLighting", true, 0, true, true, false);
+                }
+                else
+                {
+                    _baseSpritesheets.ChangeAnimation("BaseDisabledOn", 0, true, true, false);
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarDisabledOn", true, 0, true, true, false);
+                }
+
                 _pillarSpritesheets.ChangeAnimation("PillarLighting", 0, true, false, false);
                 if (_fadingSpritesheet != null)
                 {
@@ -227,6 +268,18 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _baseSpritesheets.ChangeAnimation("BaseLighting", 0, true, false, false);
                     _baseSpritesheets.CurrentSpritesheet.currentFrame = _baseSpritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
                     _baseSpritesheets.CurrentSpritesheet.Reverse = true;
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarLighting", true, 0, true, false, false);
+                    _basePillarSpritesheets.CurrentSpritesheet.currentFrame = _basePillarSpritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
+                    _basePillarSpritesheets.CurrentSpritesheet.Reverse = true;
+                }
+                else
+                {
+                    _baseSpritesheets.ChangeAnimation("BaseDisabledOn", 0, true, false, false);
+                    _baseSpritesheets.CurrentSpritesheet.currentFrame = _baseSpritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
+                    _baseSpritesheets.CurrentSpritesheet.Reverse = true;
+                    _basePillarSpritesheets.ChangeAnimation("BasePillarDisabledOn", 0, true, false, false);
+                    _basePillarSpritesheets.CurrentSpritesheet.currentFrame = _basePillarSpritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
+                    _basePillarSpritesheets.CurrentSpritesheet.Reverse = true;
                 }
                 
                 _pillarSpritesheets.ChangeAnimation("PillarLighting", 0, true, false, false);
