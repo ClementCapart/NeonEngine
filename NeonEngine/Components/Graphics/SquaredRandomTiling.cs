@@ -565,11 +565,11 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_finalTexture, entity.transform.Position, null, MainColor, 0.0f, new Vector2(_finalTexture.Width / 2, _finalTexture.Height / 2), 1.0f, SpriteEffects.None, Layer);
+            spriteBatch.Draw(_finalTexture, entity.transform.Position + _parallaxPosition, null, MainColor, 0.0f, new Vector2(_finalTexture.Width / 2, _finalTexture.Height / 2), 1.0f, SpriteEffects.None, Layer);
             if (_centerTexture != null)
             {
                 Vector2 size = (new Vector2((entity.hitboxes[0].Width), (entity.hitboxes[0].Height)) - new Vector2(GlobalOffset * 2) - _centerOffset * 2) / entity.transform.Scale;
-                Neon.SpriteBatch.Draw(_centerTexture, entity.transform.Position,
+                Neon.SpriteBatch.Draw(_centerTexture, entity.transform.Position + _parallaxPosition,
                     new Rectangle(0, 0, (int)(size.X), (int)(size.Y)), MainColor, 0.0f, size / 2, entity.transform.Scale, SpriteEffects.None, Layer - 0.001f);
             }
             base.Draw(spriteBatch);
