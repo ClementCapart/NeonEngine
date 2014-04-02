@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components.CollisionDetection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -212,6 +213,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Init()
         {
+            Fire.FirePlatforms.Clear();
             FrontFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
             BackFireGatheringFX = AssetManager.GetSpriteSheet(_fireGatheringFX);
             FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
@@ -222,6 +224,10 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            foreach (Rigidbody rg in Fire.FirePlatforms)
+                if (!entity.GameWorld.PhysicWorld.BodyList.Contains(rg.body))
+                    Fire.FirePlatforms.Remove(rg);
+
             if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
                 if (CurrentElementEffect != null)

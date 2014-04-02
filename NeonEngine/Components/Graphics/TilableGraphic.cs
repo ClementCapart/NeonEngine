@@ -45,7 +45,7 @@ namespace NeonEngine.Components.Graphics2D
             set { Layer = value; }
         }
 
-        public string graphicTag;
+        public string graphicTag = "";
         public string GraphicTag
         {
             get

@@ -1,5 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using FarseerPhysics.Dynamics;
+using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonEngine.Components;
+using NeonEngine.Components.CollisionDetection;
 using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,8 @@ namespace NeonStarLibrary
 {
     public class Fire : ElementEffect
     {
+        public static List<Rigidbody> FirePlatforms = new List<Rigidbody>();
+
         public double CurrentCharge = 0.0f;
         private double _chargeSpeed;
 
@@ -28,6 +33,8 @@ namespace NeonStarLibrary
         public string StageTwoAttack;
         public string StageThreeAttack;
         public string StageFourAttack;
+
+        private Entity _firePlatform;
 
         public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
             :base(elementSystem, elementLevel, entity, input, world)
@@ -153,28 +160,67 @@ namespace NeonStarLibrary
                     _elementSystem.AvatarComponent.AirLock(_airlockLaunched);
                     _elementSystem.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
+                    Attack a = null;
+
                     if (CurrentCharge > StageFourThreshold)
                     {
-                        Attack a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                         a.Launcher = _entity;
+                        
                     }
                     else if (CurrentCharge > StageThreeThreshold)
                     {
-                        Attack a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                         a.Launcher = _entity;
                     }
                     else if (CurrentCharge > StageTwoThreshold)
                     {
-                        Attack a = AttacksManager.StartFreeAttack(StageTwoAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageTwoAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                         a.Launcher = _entity;
                     }
                     else
                     {
-                        Attack a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
                         a.Launcher = _entity;
                     }
-                   
+                    if (a != null)
+                    {
+                        Entity e = new Entity(_entity.GameWorld);
+                        e.transform.Scale = 2.0f;
+                        e.transform.Position = _entity.transform.Position + new Vector2(a.AttackInfo.Hitboxes[0].X * (a.CurrentSide == Side.Right ? 1 : -1), a.AttackInfo.Hitboxes[0].Y);
+                        e.Layer = "Lock";
 
+                        Hitbox h = new Hitbox(e);
+                        h.ID = 1;
+                        h.Width = a.AttackInfo.Hitboxes[0].Width;
+                        h.Height = a.AttackInfo.Hitboxes[0].Height;
+                        h.Type = HitboxType.OneWay;
+                        h.Init();
+                        e.AddComponent(h);
+                        
+                        Rigidbody r = new Rigidbody(e);
+                        r.ID = 2;
+                        r.BodyType = BodyType.Static;
+                        r.Friction = 0.3f;                
+                        r.IsGround = true;
+                        r.Init();
+                        r.Hitbox = h;
+                        e.AddComponent(r);
+                        r.OneWayPlatform = true;
+
+                        AutoDestruction ad = new AutoDestruction(e);
+                        ad.ID = 3;
+                        ad.DestructionTimer = a.AttackInfo.Delay + a.AttackInfo.Duration;
+                        ad.Init();
+                        e.AddComponent(ad);
+
+                        _entity.GameWorld.AddEntity(e);
+
+                        FirePlatforms.Add(e.rigidbody);
+                        _firePlatform = e;
+                        
+                    }
+                    
                     switch(_input)
                     {
                         case NeonStarInput.UseLeftSlotElement:

@@ -5,22 +5,24 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-621.2523 Y:-105.0075}" />
-          <InitialPosition Value="{X:-621.2523 Y:-105.0075}" />
+          <Position Value="{X:356.2552 Y:171.9925}" />
+          <InitialPosition Value="{X:356.2552 Y:171.9925}" />
           <Rotation Value="0" />
           <Scale Value="2" />
+          <NickName Value="" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-630 Y:-105}" />
-          <X Value="-680" />
-          <Y Value="-185" />
+          <Center Value="{X:356 Y:171}" />
+          <X Value="306" />
+          <Y Value="91" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
           <Height Value="160" />
+          <NickName Value="" />
         </Properties>
       </Hitbox>
       <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -37,11 +39,12 @@
           <Hitbox Value="1" />
           <Sensors Value="True" />
           <FixedRotation Value="True" />
+          <NickName Value="" />
         </Properties>
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:-3}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -58,6 +61,8 @@
           </Spritesheets>
           <DrawLayer Value="0.488" />
           <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -65,7 +70,7 @@
           <Debug Value="False" />
           <StartingHealthPoints Value="50" />
           <CoreElement Value="Neutral" />
-          <CurrentHealthPoints Value="50" />
+          <CurrentHealthPoints Value="45" />
           <InvincibilityDuration Value="0.5" />
           <RunAnim Value="Run" />
           <IdleAnim Value="Idle" />
@@ -81,6 +86,10 @@
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
+          <ChanceToDropHealth Value="0.6" />
+          <HealthItemsToDrop Value="1" />
+          <CurrentSide Value="Left" />
+          <NickName Value="" />
         </Properties>
       </EnemyCore>
       <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -92,6 +101,7 @@
           <WaitStopDuration Value="1" />
           <ChaseSpeed Value="3.5" />
           <ChasePrecision Value="10" />
+          <NickName Value="" />
         </Properties>
       </GroundChase>
       <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
@@ -119,11 +129,14 @@
           <AttackFourDurationAnimation Value="" />
           <AttackFourCooldownAnimation Value="" />
           <EntityToAttackName Value="LiOn" />
+          <CanTurn Value="True" />
+          <NickName Value="" />
         </Properties>
       </GroundAttack>
       <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
         <Properties>
           <CanChangeSide Value="True" />
+          <NickName Value="" />
         </Properties>
       </EnemyAnimationManager>
       <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
@@ -132,6 +145,7 @@
           <Roundtrip Value="True" />
           <ReverseStart Value="False" />
           <PathPrecisionTreshold Value="50" />
+          <NickName Value="" />
         </Properties>
       </FollowPlatformNodes>
       <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="9">
@@ -155,20 +169,10 @@
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
         </Properties>
       </DamageDisplayer>
-      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="0">
-        <Properties>
-          <Type Value="Hit" />
-          <Center Value="{X:24120 Y:-13265}" />
-          <X Value="24045" />
-          <Y Value="-13295" />
-          <OffsetX Value="75" />
-          <OffsetY Value="-40" />
-          <Width Value="150" />
-          <Height Value="60" />
-        </Properties>
-      </Hitbox>
     </Components>
   </Entity>
 </Prefab>

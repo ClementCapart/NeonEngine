@@ -12,6 +12,14 @@ namespace NeonStarLibrary.Components.Avatar
     public class ThirdPersonController : Component
     {
         #region Properties
+        private bool _debug = false;
+
+        public bool Debug
+        {
+            get { return _debug; }
+            set { _debug = value; }
+        }
+
         private float _jumpImpulseHeight = 4.5f;
 
         public float JumpImpulseHeight
@@ -395,6 +403,8 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void FinalUpdate(GameTime gameTime)
         {
+            if (_debug)
+                Console.WriteLine("Linear Velocity -> " + entity.rigidbody.body.LinearVelocity.ToString());
             CurrentAirMaxSpeed = AirMaxSpeed;
             base.FinalUpdate(gameTime);
         }

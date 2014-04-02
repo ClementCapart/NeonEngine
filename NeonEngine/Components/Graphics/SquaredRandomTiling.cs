@@ -250,14 +250,9 @@ namespace NeonEngine.Components.Graphics2D
 
             foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _rightWallRandomResult)
                 foreach (Vector2 position in kvp.Value)
-                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
-
-            
-           
+                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);    
             Neon.SpriteBatch.End();
-            Neon.GraphicsDevice.SetRenderTarget(null);
-            
-
+            Neon.GraphicsDevice.SetRenderTarget(null);            
 
             base.Init();
         }

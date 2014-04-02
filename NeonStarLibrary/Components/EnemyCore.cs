@@ -452,6 +452,22 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (State != EnemyState.Dying && State != EnemyState.Dead)
+            {
+                for (int i = Fire.FirePlatforms.Count - 1; i >= 0; i--)
+                {
+                    Rigidbody rg = Fire.FirePlatforms[i];
+                    if (entity.GameWorld.PhysicWorld.BodyList.Contains(rg.body))
+                    {
+                        if (entity.rigidbody != null)
+                            entity.rigidbody.body.IgnoreCollisionWith(rg.body);
+                    }
+                    else
+                        Fire.FirePlatforms.Remove(rg);
+                }
+            }
+            
+
             LastAttackTook = "";
 
             if (State == EnemyState.Dying)
