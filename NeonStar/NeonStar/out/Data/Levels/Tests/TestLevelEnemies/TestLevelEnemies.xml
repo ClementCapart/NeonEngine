@@ -50,7 +50,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:99 Y:-246}" />
+              <InitialPosition Value="{X:180 Y:-246}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -58,9 +58,9 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:99 Y:-246}" />
-              <X Value="-1" />
+              <Type Value="Solid" />
+              <Center Value="{X:180 Y:-246}" />
+              <X Value="80" />
               <Y Value="-381" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -79,7 +79,7 @@
               <Mass Value="400" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="True" />
               <FixedRotation Value="True" />
@@ -109,7 +109,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -130,13 +130,13 @@
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
               <CanTurn Value="True" />
-              <RangeForAttackOne Value="160" />
-              <AttackToLaunchOne Value="FortressContact" />
+              <RangeForAttackOne Value="175" />
+              <AttackToLaunchOne Value="FortressAoE" />
               <AttackOneDelayAnimation Value="" />
               <AttackOneDurationAnimation Value="" />
               <AttackOneCooldownAnimation Value="" />
-              <RangeForAttackTwo Value="0" />
-              <AttackToLaunchTwo Value="" />
+              <RangeForAttackTwo Value="210" />
+              <AttackToLaunchTwo Value="FortressContact" />
               <AttackTwoDelayAnimation Value="" />
               <AttackTwoDurationAnimation Value="" />
               <AttackTwoCooldownAnimation Value="" />
