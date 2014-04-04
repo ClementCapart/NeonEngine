@@ -26,10 +26,30 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _doorLockNickname; }
             set { _doorLockNickname = value; }
         }
+
+        private string _gaugeBackName = "";
+
+        public string GaugeBackName
+        {
+            get { return _gaugeBackName; }
+            set { _gaugeBackName = value; }
+        }
+
+        private string _gaugeGridName = "";
+
+        public string GaugeGridName
+        {
+            get { return _gaugeGridName; }
+            set { _gaugeGridName = value; }
+        }
         #endregion
 
         private SpriteSheet _doorTop;
         private SpriteSheet _doorLock;
+
+        private Graphic _gaugeBack;
+        private Graphic _gaugeGrid;
+        private TilableGraphic _gauge;
 
         public QuotaEnergyDoor(Entity e)
             :base(e)
@@ -39,6 +59,21 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            _gauge = entity.GetComponent<TilableGraphic>();
+
+            List<Graphic> gs = entity.GetComponentsByInheritance<Graphic>();
+            foreach (Graphic g in gs)
+            {
+                if (g.NickName == _gaugeBackName)
+                {
+                    _gaugeBack = g;
+                    continue;
+                }
+
+                if (g.NickName == _gaugeGridName)
+                    _gaugeGrid = g;
+            }
+
             List<SpriteSheet> sss = entity.GetComponentsByInheritance<SpriteSheet>();
             foreach (SpriteSheet ss in sss)
             {
@@ -60,11 +95,29 @@ namespace NeonStarLibrary.Components.EnergyObjects
             }
 
             if (_doorLock != null)
+            {
                 _doorLock.isPlaying = false;
+                _doorTop.IsLooped = false;
+                _doorTop.isPlaying = false;
+                _doorTop.currentFrame = 0;
+            }
             base.Init();
 
             if (_powered)
+            {
                 this.entity.spritesheets.Layer = 0.3f;
+                if (_doorLock != null)
+                {
+                    _doorLock.Active = false;
+                }
+                if (_gauge != null)
+                    _gauge.Active = false;
+
+                if (_gaugeGrid != null)
+                    _gaugeGrid.Active = false;
+                if (_gaugeBack != null)
+                    _gaugeBack.Active = false;
+            }
             else
                 this.entity.spritesheets.Layer = 0.6f;
         }
@@ -82,6 +135,18 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _doorTop.currentFrame = 0;
                 _doorTop.isPlaying = true;
             }
+            if (_doorLock != null)
+            {
+                _doorLock.Active = false;
+            }
+
+            if (_gauge != null)
+                _gauge.Active = false;
+
+            if (_gaugeGrid != null)
+                _gaugeGrid.Active = false;
+            if (_gaugeBack != null)
+                _gaugeBack.Active = false;
             base.PowerDevice();
         }
 

@@ -689,7 +689,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:75 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_0-{X:275 Y:0}_1-{X:325 Y:0}_2-{X:425 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_2-{X:525 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_2-{X:825 Y:0}_1-{X:850 Y:0}_2-{X:950 Y:0}_1-{X:975 Y:0}_0-{X:1075 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_2-{X:25 Y:0}_2-{X:50 Y:0}_1-{X:75 Y:0}_1-{X:175 Y:0}_2-{X:275 Y:0}_2-{X:300 Y:0}_2-{X:325 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}_2-{X:525 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_2-{X:675 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_2-{X:775 Y:0}_0-{X:800 Y:0}_2-{X:850 Y:0}_0-{X:875 Y:0}_1-{X:925 Y:0}_1-{X:1025 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-23 Y:0}" />
               <IsHUD Value="False" />
@@ -726,7 +726,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_1-{X:50 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-2 Y:0}" />
               <IsHUD Value="False" />
@@ -1474,7 +1474,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -1495,7 +1495,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.3" />
+              <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -1509,7 +1509,7 @@
               <FourthEnemyToKill Value="" />
               <FifthEnemyToKill Value="" />
               <AddSignOnTargets Value="True" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -1553,26 +1553,12 @@
               <NickName Value="DoorTop" />
             </Properties>
           </Spritesheet>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="8">
-            <Properties>
-              <GraphicTag Value="" />
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
           <QuotaEnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.QuotaEnergyDoor" ID="10">
             <Properties>
               <DoorTopNickName Value="DoorTop" />
               <DoorLockNickname Value="DoorLock" />
+              <GaugeBackName Value="GaugeBack" />
+              <GaugeGridName Value="GaugeGrid" />
               <OpenWhenAnimationEnd Value="True" />
               <ClosedIdleAnimation Value="Closed" />
               <OpenedIdleAnimation Value="Opened" />
@@ -1602,6 +1588,82 @@
               <NickName Value="" />
             </Properties>
           </QuotaEnergyDoor>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="11">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ArenaDoorLockHighlight" />
+              <DrawLayer Value="0.7" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:3}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="DoorLock" />
+            </Properties>
+          </Spritesheet>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
+            <Properties>
+              <GraphicTag Value="ArenaDoorGridFront" />
+              <DrawLayer Value="0.72" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:6}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="GaugeGrid" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
+            <Properties>
+              <GraphicTag Value="ArenaDoorGridBack" />
+              <DrawLayer Value="0.7" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:6}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="GaugeBack" />
+            </Properties>
+          </Graphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="5" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.71" />
+              <GraphicTag Value="ArenaDoorGauge" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Gauge" />
+            </Properties>
+          </TilableGraphic>
         </Components>
       </Entity>
       <Entity Name="ScanDoor" Layer="">
@@ -1638,7 +1700,7 @@
               <Mass Value="1.31995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
