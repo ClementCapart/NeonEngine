@@ -13,7 +13,6 @@ namespace NeonStarLibrary.Components.Scripts
     public class TrainingScanAlarmScript : ScriptComponent
     {
         private Entity _scanDoor;
-        private EnemyPoweredDevice _exitDoor;
         private Entity _importantRobot;
         private EnemyCore _importantRobotEnemyCore;
         private EnemyCore _importantTurret;
@@ -98,11 +97,6 @@ namespace NeonStarLibrary.Components.Scripts
 
             Entity e;
 
-            e = entity.GameWorld.GetEntityByName(_exitDoorName);
-            if (e != null)
-                _exitDoor = e.GetComponent<EnemyPoweredDevice>();
-            e = null;
-
             e = entity.GameWorld.GetEntityByName(_importantRobotName);
             if (e != null)
                 _importantRobotEnemyCore = e.GetComponent<EnemyCore>();
@@ -134,11 +128,6 @@ namespace NeonStarLibrary.Components.Scripts
             e = null;
 
             _importantRobot = entity.GameWorld.GetEntityByName(_importantRobotName);
-
-            if (_exitDoor != null)
-            {
-                _exitDoor.ActivateDevice();
-            }
             
             if (_importantRobotRange != null)
             {
@@ -159,19 +148,11 @@ namespace NeonStarLibrary.Components.Scripts
         }
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
-        {
-            
-            this.entity.spritesheets.ChangeAnimation("Closing", 0, true, false, false);
-            
+        {         
             if (_scanDoor != null)
             {
                 _scanDoor.rigidbody.IsGround = true;
                 _scanDoor.rigidbody.Init();
-            }
-            
-            if (_exitDoor != null)
-            {
-                _exitDoor.DeactivateDevice();
             }
 
             if (_importantRobotRange != null)

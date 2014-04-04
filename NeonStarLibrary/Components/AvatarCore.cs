@@ -205,7 +205,7 @@ namespace NeonStarLibrary.Components.Avatar
             }     
 
             _currentHealthPoints += damageValue;
-            entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, false, false);
+            entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, true, false);
 
             if (Debug)
             {
@@ -216,14 +216,14 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 _stunLockDuration = stunLockDuration;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                
+
                 if (State == AvatarState.Attacking && MeleeFight != null && MeleeFight.CurrentAttack != null)
                 {
                     MeleeFight.CurrentAttack.CancelAttack();
                     MeleeFight.CurrentAttack = null;
                     entity.spritesheets.CurrentPriority = 0;
                 }
-                
+
                 if (State == AvatarState.UsingElement && ElementSystem.CurrentElementEffect != null)
                 {
                     ElementSystem.CurrentElementEffect.End();

@@ -17,36 +17,12 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _openWhenAnimationEnd = value; }
         }
 
-        private bool _multiLockDoor = false;
-
-        public bool MultiLockDoor
-        {
-            get { return _multiLockDoor; }
-            set { _multiLockDoor = value; }
-        }
-
         private string _closedIdleAnimation = "";
 
         public string ClosedIdleAnimation
         {
             get { return _closedIdleAnimation; }
             set { _closedIdleAnimation = value; }
-        }
-
-        private string _closedIdleOnePoweredAnimation = "";
-
-        public string ClosedIdleOnePoweredAnimation
-        {
-            get { return _closedIdleOnePoweredAnimation; }
-            set { _closedIdleOnePoweredAnimation = value; }
-        }
-
-        private string _closedIdleTwoPoweredAnimation = "";
-
-        public string ClosedIdleTwoPoweredAnimation
-        {
-            get { return _closedIdleTwoPoweredAnimation; }
-            set { _closedIdleTwoPoweredAnimation = value; }
         }
 
         private string _openedIdleAnimation = "";
@@ -123,11 +99,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         entity.rigidbody.Init();
                     }
                     Closed = true;
-
                 }
             }
-
-            
+         
         }
 
         public override void PowerDevice()
@@ -146,31 +120,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (Closed && !_opening && !_closing)
             {
-                if (_multiLockDoor)
+                if (entity.spritesheets != null && entity.spritesheets.IsFinished() && entity.spritesheets.CurrentSpritesheetName != _doorOpeningAnimation)
                 {
-                    switch (_numberOfDeviceActivated)
-                    {
-                        case 0:
-                            if (entity.spritesheets != null && entity.spritesheets.IsFinished())
-                                entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, true, false);
-                            break;
-
-                        case 1:
-                            if (entity.spritesheets != null && entity.spritesheets.IsFinished())
-                                entity.spritesheets.ChangeAnimation(_closedIdleOnePoweredAnimation, true, 0, true, true, false);
-                            break;
-
-                        case 2:
-                            if (entity.spritesheets != null && entity.spritesheets.IsFinished())
-                                entity.spritesheets.ChangeAnimation(_closedIdleTwoPoweredAnimation, true, 0, true, true, false);
-                            break;
-                    }
+                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, 0, true, true, false);
                 }
-                else
-                    if (entity.spritesheets != null && entity.spritesheets.IsFinished() && entity.spritesheets.CurrentSpritesheetName != _doorOpeningAnimation)
-                    {
-                        entity.spritesheets.ChangeAnimation(_closedIdleAnimation, 0, true, true, false);
-                    }
             }
             
             if (entity.spritesheets != null)

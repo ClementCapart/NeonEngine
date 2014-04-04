@@ -689,7 +689,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:225 Y:0}_0-{X:275 Y:0}_0-{X:325 Y:0}_0-{X:375 Y:0}_2-{X:425 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_1-{X:525 Y:0}_0-{X:625 Y:0}_0-{X:675 Y:0}_2-{X:725 Y:0}_2-{X:750 Y:0}_1-{X:775 Y:0}_1-{X:875 Y:0}_0-{X:975 Y:0}_1-{X:1025 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:75 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_0-{X:275 Y:0}_1-{X:325 Y:0}_2-{X:425 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_2-{X:525 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_2-{X:825 Y:0}_1-{X:850 Y:0}_2-{X:950 Y:0}_1-{X:975 Y:0}_0-{X:1075 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-23 Y:0}" />
               <IsHUD Value="False" />
@@ -726,7 +726,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:75 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-2 Y:0}" />
               <IsHUD Value="False" />
@@ -1445,7 +1445,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1350 Y:100}" />
+              <InitialPosition Value="{X:1373 Y:100}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1454,8 +1454,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1350 Y:100}" />
-              <X Value="1300" />
+              <Center Value="{X:1373 Y:100}" />
+              <X Value="1323" />
               <Y Value="-50" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1485,18 +1485,17 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="EnergyDoor1Lock0Key" />
-                <Animation Name="Opening" SpritesheetTag="EnergyDoor1LockOpening" />
-                <Animation Name="Closing" SpritesheetTag="EnergyDoor1LockClosing" />
-                <Animation Name="Opened" SpritesheetTag="EnergyDoor1LockOpened" />
+                <Animation Name="Closed" SpritesheetTag="ArenaDoorBackClosed" />
+                <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
+                <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.6" />
+              <DrawLayer Value="0.3" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -1505,8 +1504,8 @@
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="4">
             <Properties>
               <FirstEnemyToKill Value="ImportantRobot" />
-              <SecondEnemyToKill Value="ImportantTurret" />
-              <ThirdEnemyToKill Value="ImportantTurret2" />
+              <SecondEnemyToKill Value="" />
+              <ThirdEnemyToKill Value="" />
               <FourthEnemyToKill Value="" />
               <FifthEnemyToKill Value="" />
               <AddSignOnTargets Value="True" />
@@ -1514,17 +1513,72 @@
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
-          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="5">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
-              <OpenWhenAnimationEnd Value="False" />
-              <MultiLockDoor Value="False" />
+              <GraphicTag Value="ArenaDoorFrontBot" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:143}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
+            <Properties>
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ArenaDoorFrontTop" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-55}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="DoorTop" />
+            </Properties>
+          </Spritesheet>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="8">
+            <Properties>
+              <GraphicTag Value="" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <QuotaEnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.QuotaEnergyDoor" ID="10">
+            <Properties>
+              <DoorTopNickName Value="DoorTop" />
+              <DoorLockNickname Value="DoorLock" />
+              <OpenWhenAnimationEnd Value="True" />
               <ClosedIdleAnimation Value="Closed" />
-              <ClosedIdleOnePoweredAnimation Value="" />
-              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="False" />
-              <DoorClosingAnimation Value="Closing" />
+              <ClosingIsReverseOpening Value="True" />
+              <DoorClosingAnimation Value="" />
               <FirstActivatingDeviceName Value="ExitDoor" />
               <FirstDeviceInSameLevel Value="True" />
               <FirstActivatingDeviceLevelGroup Value="" />
@@ -1547,7 +1601,7 @@
               <FifthActivatingDeviceLevelName Value="" />
               <NickName Value="" />
             </Properties>
-          </EnergyDoor>
+          </QuotaEnergyDoor>
         </Components>
       </Entity>
       <Entity Name="ScanDoor" Layer="">
@@ -1584,7 +1638,7 @@
               <Mass Value="1.31995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />

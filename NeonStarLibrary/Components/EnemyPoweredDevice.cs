@@ -95,7 +95,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
             }
-            
+
             base.Init();
         }
 
