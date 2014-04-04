@@ -233,7 +233,7 @@ namespace NeonEngine
                             break;
 
                         case HitboxType.None:
-                            _polygonRenderer.Color = Color.White;
+                            _polygonRenderer.Color = Color.Transparent;
                             break;
 
                         case HitboxType.Bullet:
