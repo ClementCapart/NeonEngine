@@ -224,9 +224,13 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            foreach (Rigidbody rg in Fire.FirePlatforms)
+            for (int i = Fire.FirePlatforms.Count - 1; i >= 0; i--)
+            {
+                Rigidbody rg = Fire.FirePlatforms[i];
                 if (!entity.GameWorld.PhysicWorld.BodyList.Contains(rg.body))
                     Fire.FirePlatforms.Remove(rg);
+            }
+                
 
             if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
             {
