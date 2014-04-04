@@ -64,46 +64,54 @@ namespace NeonStarLibrary.Components.Avatar
             set { _airMaxSpeed = value; }
         }
 
-        private string _idleAnimation;
+        private string _idleAnimation = "";
         public string IdleAnimation
         {
             get { return _idleAnimation; }
             set { _idleAnimation = value; }
         }
 
-        private string _walkAnimation;
+        private string _walkAnimation = "";
         public string WalkAnimation
         {
             get { return _walkAnimation; }
             set { _walkAnimation = value; }
         }
 
-        private string _jumpAnimation;
+        private string _jumpAnimation = "";
         public string JumpAnimation
         {
             get { return _jumpAnimation; }
             set { _jumpAnimation = value; }
         }
 
-        private string _startFallAnimation;
+        private string _startFallAnimation = "";
         public string StartFallAnimation
         {
             get { return _startFallAnimation; }
             set { _startFallAnimation = value; }
         }
 
-        private string _fallLoopAnimation;
+        private string _fallLoopAnimation = "";
         public string FallLoopAnimation
         {
             get { return _fallLoopAnimation; }
             set { _fallLoopAnimation = value; }
         }
 
-        private string _landingAnimation;
+        private string _landingAnimation = "";
         public string LandingAnimation
         {
             get { return _landingAnimation; }
             set { _landingAnimation = value; }
+        }
+
+        private string _doubleJumpAnimation = "";
+
+        public string DoubleJumpAnimation
+        {
+            get { return _doubleJumpAnimation; }
+            set { _doubleJumpAnimation = value; }
         }
 
         private float _maxJumpInputDelay = 0.5f;
@@ -161,6 +169,8 @@ namespace NeonStarLibrary.Components.Avatar
         public float NumberOfAirMove = 1.0f;
 
         private bool _playedThisFrame = false;
+
+        public bool IsAirJumping = false;
 
         public ThirdPersonController(Entity entity)
             :base(entity, "ThirdPersonController")
@@ -221,6 +231,7 @@ namespace NeonStarLibrary.Components.Avatar
                     if (entity.rigidbody != null && entity.rigidbody.isGrounded && !StartJumping)
                     {
                         _hasAlreadyAirJumped = false;
+                        IsAirJumping = false;
                         NumberOfAirMove = 1.0f;
 
                         if (Neon.Input.Check(NeonStarInput.MoveLeft))
@@ -355,6 +366,7 @@ namespace NeonStarLibrary.Components.Avatar
 
                         if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && Neon.Input.Check(NeonStarInput.Jump) && CanDoubleJump && NumberOfAirMove > 0)
                         {
+                            IsAirJumping = true;
                             entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, 0);
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_doubleJumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;

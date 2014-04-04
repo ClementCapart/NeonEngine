@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-2548.713 Y:-166.0074}" />
-          <InitialPosition Value="{X:-2548.713 Y:-166.0074}" />
+          <Position Value="{X:-2971.841 Y:681.9926}" />
+          <InitialPosition Value="{X:-2971.841 Y:681.9926}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -15,9 +15,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-2548 Y:-166}" />
-          <X Value="-2568" />
-          <Y Value="-234" />
+          <Center Value="{X:-2971 Y:681}" />
+          <X Value="-2991" />
+          <Y Value="613" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -84,6 +84,7 @@
             <Animation Name="Respawn" SpritesheetTag="LiOnSpawn" />
             <Animation Name="WindStart" SpritesheetTag="LiOnGravityStart" />
             <Animation Name="WindImpulse" SpritesheetTag="LiOnGravitySpin" />
+            <Animation Name="DoubleJump" SpritesheetTag="LiOnDoubleJump" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
@@ -113,6 +114,7 @@
       </MeleeFight>
       <ThirdPersonController Type="NeonStarLibrary.Components.Avatar.ThirdPersonController" ID="5">
         <Properties>
+          <Debug Value="False" />
           <JumpImpulseHeight Value="500" />
           <DoubleJumpImpulseHeight Value="370" />
           <GroundAccelerationSpeed Value="1" />
@@ -125,6 +127,7 @@
           <StartFallAnimation Value="startFall" />
           <FallLoopAnimation Value="fallLoop" />
           <LandingAnimation Value="landing" />
+          <DoubleJumpAnimation Value="DoubleJump" />
           <MaxJumpInputDelay Value="0.5" />
           <MaxFallSpeed Value="12" />
           <CanDoubleJump Value="True" />
@@ -136,7 +139,7 @@
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
-          <CurrentHealthPoints Value="98.9" />
+          <CurrentHealthPoints Value="99" />
           <InvincibilityDuration Value="0.4" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />

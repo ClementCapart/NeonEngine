@@ -73,12 +73,15 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else
                         {
-                            if (AvatarComponent.ThirdPersonController.StartJumping)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, true, false);
+                            if (AvatarComponent.ThirdPersonController.StartJumping && !AvatarComponent.ThirdPersonController.IsAirJumping)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, false, false);
+                            else if (AvatarComponent.ThirdPersonController.StartJumping && AvatarComponent.ThirdPersonController.IsAirJumping)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.DoubleJumpAnimation, true, 0, true, false, false);
                             else if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, true, false);
                             else
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.FallLoopAnimation, false);
+                           
                         }
                         break;
 
@@ -93,8 +96,10 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else
                         {
-                            if (AvatarComponent.ThirdPersonController.StartJumping)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, true, false);
+                            if (AvatarComponent.ThirdPersonController.StartJumping && !AvatarComponent.ThirdPersonController.IsAirJumping)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.JumpAnimation, true, 0, true, false, false);
+                            else if (AvatarComponent.ThirdPersonController.StartJumping && AvatarComponent.ThirdPersonController.IsAirJumping)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.DoubleJumpAnimation, true, 0, true, false, false);
                             else if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.ThirdPersonController.JumpAnimation)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.StartFallAnimation, 0, true, false, false);
                             else
