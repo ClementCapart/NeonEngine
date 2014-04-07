@@ -14,7 +14,14 @@ namespace NeonEngine.Components.Graphics2D
         public SpriteEffects spriteEffects = SpriteEffects.None;
         public bool isHUD;
         public Vector2 Position;
-        public bool IsLooped = true;
+        private bool _isLooped = true;
+
+        public bool IsLooped
+        {
+            get { return _isLooped; }
+            set { _isLooped = value; }
+        }
+        
         public float opacity = 1f;
         private bool _reverseLoop = false;
         private bool _reverse = false;

@@ -42,14 +42,18 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _gaugeGridName; }
             set { _gaugeGridName = value; }
         }
+
         #endregion
 
         private SpriteSheet _doorTop;
-        private SpriteSheet _doorLock;
 
         private Graphic _gaugeBack;
         private Graphic _gaugeGrid;
         private TilableGraphic _gauge;
+        public float _totalEnemiesToKill = 0.0f;
+        public float _currentEnemiesKilled = 0.0f;
+
+        List<EnemyPoweredDevice> _enemyPoweredDevices;
 
         public QuotaEnergyDoor(Entity e)
             :base(e)
@@ -59,6 +63,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            _totalEnemiesToKill = 0.0f;
+            _currentEnemiesKilled = 0.0f;
+
+            _enemyPoweredDevices = new List<EnemyPoweredDevice>();
             _gauge = entity.GetComponent<TilableGraphic>();
 
             List<Graphic> gs = entity.GetComponentsByInheritance<Graphic>();
@@ -83,8 +91,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     continue;
                 }
 
-                if (ss.NickName == _doorLockNickname)
-                    _doorLock = ss;
             }
 
             if (_doorTop != null)
@@ -94,22 +100,12 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 _doorTop.currentFrame = 0;
             }
 
-            if (_doorLock != null)
-            {
-                _doorLock.isPlaying = false;
-                _doorTop.IsLooped = false;
-                _doorTop.isPlaying = false;
-                _doorTop.currentFrame = 0;
-            }
             base.Init();
 
             if (_powered)
             {
                 this.entity.spritesheets.Layer = 0.3f;
-                if (_doorLock != null)
-                {
-                    _doorLock.Active = false;
-                }
+
                 if (_gauge != null)
                     _gauge.Active = false;
 
@@ -119,7 +115,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _gaugeBack.Active = false;
             }
             else
+            {
                 this.entity.spritesheets.Layer = 0.6f;
+            }
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -134,10 +132,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 _doorTop.currentFrame = 0;
                 _doorTop.isPlaying = true;
-            }
-            if (_doorLock != null)
-            {
-                _doorLock.Active = false;
             }
 
             if (_gauge != null)
