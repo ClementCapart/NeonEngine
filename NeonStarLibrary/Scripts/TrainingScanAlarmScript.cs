@@ -148,7 +148,9 @@ namespace NeonStarLibrary.Components.Scripts
         }
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
-        {         
+        {
+            this.entity.spritesheets.ChangeAnimation("Closing", 0, true, false, false);
+
             if (_scanDoor != null)
             {
                 _scanDoor.rigidbody.IsGround = true;

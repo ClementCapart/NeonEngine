@@ -11,6 +11,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
     public class EnemyPoweredDevice : EnergyDevice
     {
         #region Properties
+        private bool _displayGauge = true;
+
+        public bool DisplayGauge
+        {
+            get { return _displayGauge; }
+            set { _displayGauge = value; }
+        }
+
         private string _firstEnemyToKill = "";
 
         public string FirstEnemyToKill
@@ -58,9 +66,40 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _addSignOnTargets; }
             set { _addSignOnTargets = value; }
         }
+
+        private string _lockName = "DoorLock";
+
+        public string LockName
+        {
+            get { return _lockName; }
+            set { _lockName = value; }
+        }
+
+        private string _gaugeName = "Gauge";
+
+        public string GaugeName
+        {
+            get { return _gaugeName; }
+            set { _gaugeName = value; }
+        }
+
+        private float _gaugeMaxWidth = 100.0f;
+
+        public float GaugeMaxWidth
+        {
+            get { return _gaugeMaxWidth; }
+            set { _gaugeMaxWidth = value; }
+        }
         #endregion
 
-        private List<EnemyCore> _enemiesToKill;
+        public List<EnemyCore> _enemiesToKill;
+        private TilableGraphic _gauge;
+        private SpriteSheet _doorLock;
+
+
+        private float _totalEnemiesToKill = 0.0f;
+        private float _currentEnemiesKilled = 0.0f;
+        private float _gaugeTargetWidth = 0.0f;
 
         public EnemyPoweredDevice(Entity entity)
             :base(entity)
@@ -70,6 +109,33 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            if (_displayGauge)
+            {
+                _totalEnemiesToKill = 0.0f;
+                _currentEnemiesKilled = 0.0f;
+                List<TilableGraphic> tg = entity.GetComponentsByInheritance<TilableGraphic>();
+                if (tg != null && tg.Count > 0)
+                    tg = tg.Where(t => t.NickName == _gaugeName).ToList();
+                if(tg.Count > 0)
+                    _gauge = tg.First();
+
+                if (_gauge != null)
+                    _gauge.TilingWidth = 0.0f;
+                
+                List<SpriteSheet> ss = entity.GetComponentsByInheritance<SpriteSheet>();
+                if (ss != null && ss.Count > 0)
+                    ss = ss.Where(t => t.NickName == _lockName).ToList();
+                if (ss.Count > 0)
+                    _doorLock = ss.First();
+
+
+                if (_doorLock != null)
+                {
+                    _doorLock.isPlaying = false;
+                }
+
+            }
+
             State = DeviceManager.GetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name);
 
             _enemiesToKill = new List<EnemyCore>();
@@ -79,6 +145,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             AddEnemyCore(_thirdEnemyToKill);
             AddEnemyCore(_fourthEnemyToKill);
             AddEnemyCore(_fifthEnemyToKill);
+
+            if (State == DeviceState.Activated)
+            {
+                if (_doorLock != null)
+                    _doorLock.Active = false;
+                if (_gauge != null)
+                    _gauge.Active = false;
+            }
 
             if (_addSignOnTargets)
             {
@@ -94,6 +168,11 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         graphic.Init();
                     }
                 }
+            }
+
+            if (_displayGauge)
+            {
+                _totalEnemiesToKill = _enemiesToKill.Count;
             }
 
             base.Init();
@@ -117,13 +196,34 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (ec.State == EnemyState.Dead)
                 {
                     _enemiesToKill.Remove(ec);
+                    _currentEnemiesKilled++;
+                    if (_doorLock != null)
+                    {
+                        _doorLock.currentFrame = 0;
+                        _doorLock.isPlaying = true;
+                    }
+
                 }
             }
 
+            if (_displayGauge)
+            {
+                _gaugeTargetWidth = _currentEnemiesKilled / _totalEnemiesToKill * GaugeMaxWidth;
+                if (_gauge != null)
+                    _gauge.TilingWidth = _gaugeTargetWidth;
+
+                _gauge.Offset = new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y);
+            }
             if (_enemiesToKill.Count <= 0)
             {
-                if(State == DeviceState.Deactivated)
+                if (State == DeviceState.Deactivated)
+                {
                     this.ActivateDevice();
+                    if (_doorLock != null)
+                    {
+                        _doorLock.Active = false;
+                    }
+                }
             }
             base.Update(gameTime);
         }
