@@ -369,13 +369,21 @@ namespace NeonStarLibrary
                         return;
                     }
             }
-
             if (_type == AttackType.MeleeSpecial && _meleeFight != null)
             {
                 _meleeFight.CurrentComboHit = ComboSequence.None;
                 if (AirLock > 0.0f) 
                     _meleeFight.AvatarComponent.AirLock(this.AirLock);
             }
+            else if (_meleeFight == null && _entity != null)
+            {
+                EnemyCore ec = _entity.GetComponent<EnemyCore>();
+                if (ec != null)
+                {
+                    if (AirLock > 0.0f)
+                        ec.AirLock(AirLock);
+                }
+            }       
         }
 
         public void Init()

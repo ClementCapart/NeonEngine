@@ -276,5 +276,5 @@ namespace NeonStarLibrary.Components.Enemies
             }
             base.FinalUpdate(gameTime);
         }
-    }
+   } 
 }
