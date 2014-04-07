@@ -95,7 +95,8 @@ namespace NeonStarLibrary.Components.Enemies
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
-                if (CurrentAttack.CooldownFinished)
+                
+                if (CurrentAttack != null && CurrentAttack.CooldownFinished)
                 {
                     CurrentAttack = null;
                 }
