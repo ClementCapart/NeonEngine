@@ -36,7 +36,8 @@ namespace NeonStarEditor
             if (GameWorld != null)
             {
                 _layerList.Clear();
-                EntityListBox.Nodes.Clear();
+                if(EntityListBox.Nodes != null)
+                    EntityListBox.Nodes.Clear();
 
                 if (GameWorld.Entities.Count > 0)
                 {
