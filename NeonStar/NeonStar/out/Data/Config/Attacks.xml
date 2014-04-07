@@ -100,15 +100,15 @@
     <Attack ID="0" Name="BisonAirLock" Group="EnemyBison" Type="MeleeSpecial">
       <Hitboxes />
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
-      <AirLock>1</AirLock>
+      <Duration>0.4</Duration>
+      <AirLock>0.4</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
@@ -129,14 +129,14 @@
     <Attack ID="0" Name="BisonBackDash" Group="EnemyBison" Type="MeleeSpecial">
       <Hitboxes />
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.3</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -146,13 +146,43 @@
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:-6000 Y:0}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
+        <Effect Type="MoveWhileAttacking">
+          <Parameter Value="-10" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="BisonBurst" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="200" Height="200" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0.4</Delay>
+      <Cooldown>0.6</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.2</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0.6</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:400 Y:-300}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
@@ -165,14 +195,14 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.8</Delay>
       <Cooldown>1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.3</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <AirFactor>0.4</AirFactor>
+      <StunLock>0.6</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
@@ -186,12 +216,20 @@
           <SecondParameter Value="false" />
         </Effect>
       </OnDurationSpecialEffects>
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:500 Y:-300}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="BisonDive" Group="EnemyBison" Type="MeleeSpecial">
-      <Hitboxes />
+    <Attack ID="0" Name="BisonDive" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="50" Width="100" Height="100" />
+      </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
       <AirOnly>True</AirOnly>
@@ -216,7 +254,13 @@
           <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:0 Y:1000}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="BisonDiveEffect" />
@@ -225,9 +269,9 @@
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="BisonDiveEffect" Group="EnemyBison" Type="MeleeSpecial">
+    <Attack ID="0" Name="BisonDiveEffect" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="200" Height="100" />
+        <Hitbox OffsetX="0" OffsetY="50" Width="400" Height="100" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
@@ -240,28 +284,32 @@
       <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <AirFactor>0.4</AirFactor>
+      <StunLock>0.6</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:400 Y:-200}" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="BisonJump" Group="EnemyBison" Type="MeleeSpecial">
+    <Attack ID="0" Name="BisonJump" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="10" Height="500" />
+        <Hitbox OffsetX="0" OffsetY="250" Width="10" Height="500" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>2</Cooldown>
+      <Delay>0.8</Delay>
+      <Cooldown>1</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>1</Duration>
       <AirLock>0</AirLock>
@@ -305,7 +353,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0.1</MultiHitDelay>
+      <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
@@ -336,7 +384,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0.1</MultiHitDelay>
+      <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
@@ -367,7 +415,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0.1</MultiHitDelay>
+      <MultiHitDelay>0.2</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
