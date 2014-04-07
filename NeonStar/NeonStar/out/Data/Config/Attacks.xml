@@ -97,10 +97,42 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="BisonDash" Group="EnemyBison" Type="MeleeSpecial">
+    <Attack ID="0" Name="BisonBackDash" Group="EnemyBison" Type="MeleeSpecial">
       <Hitboxes />
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:-6000 Y:0}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="BisonDash" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="50" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -116,7 +148,15 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="MoveWhileAttacking">
+          <Parameter Value="10" />
+        </Effect>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonTrace1" />
+          <SecondParameter Value="false" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
@@ -124,7 +164,44 @@
     <Attack ID="0" Name="BisonDive" Group="EnemyBison" Type="MeleeSpecial">
       <Hitboxes />
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>1</DamageOnHit>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>True</AirOnly>
+      <GroundCancel>True</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:0 Y:4000}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonDiveEffect" />
+          <SecondParameter Value="true" />
+        </Effect>
+      </OnGroundCancelSpecialEffects>
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="BisonDiveEffect" Group="EnemyBison" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="200" Height="100" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -173,6 +250,99 @@
           <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
+      <OnHitSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonDive" />
+          <SecondParameter Value="true" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="BisonTrace1" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="100" Width="200" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.1</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0.1</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonTrace2" />
+          <SecondParameter Value="false" />
+        </Effect>
+      </OnFinishSpecialEffects>
+    </Attack>
+    <Attack ID="0" Name="BisonTrace2" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="100" OffsetY="100" Width="400" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.2</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0.1</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonTrace3" />
+          <SecondParameter Value="false" />
+        </Effect>
+      </OnFinishSpecialEffects>
+    </Attack>
+    <Attack ID="0" Name="BisonTrace3" Group="EnemyBison" Type="Special">
+      <Hitboxes>
+        <Hitbox OffsetX="200" OffsetY="100" Width="600" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.8</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0.1</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
@@ -778,7 +948,7 @@
       <Delay>0</Delay>
       <Cooldown>0.3</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>5</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -807,12 +977,7 @@
           <SecondParameter Value="false" />
         </Effect>
       </OnGroundCancelSpecialEffects>
-      <OnFinishSpecialEffects>
-        <Effect Type="StartAttack">
-          <Parameter Value="LiOnUppercut" />
-          <SecondParameter Value="true" />
-        </Effect>
-      </OnFinishSpecialEffects>
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="LiOnDiveAttackFinish" Group="LiOnDive" Type="MeleeSpecial">
       <Hitboxes>
