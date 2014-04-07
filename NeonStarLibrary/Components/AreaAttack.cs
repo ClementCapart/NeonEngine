@@ -91,6 +91,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void Update(GameTime gameTime)
         {
+            base.Update(gameTime);
             if (CurrentAttack != null)
             {
                 CurrentAttack.Update(gameTime);
@@ -108,7 +109,7 @@ namespace NeonStarLibrary.Components.Enemies
                         break;
                 }
             }
-            base.Update(gameTime);
+            
         }
 
         public override void PostUpdate(GameTime gameTime)

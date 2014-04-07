@@ -217,13 +217,13 @@ namespace NeonStarLibrary
             return attack;
         }
 
-        static public Attack StartFreeAttack(string name, Side side, Vector2 Position)
+        static public Attack StartFreeAttack(string name, Side side, Vector2 Position, bool fromEnemy)
         {
             AttackInfo[] aiList = _attacksInformation.Where(ai => ai.Name == name).ToArray();
 
             if (aiList.Length == 0)
                 return null;
-            Attack attack = new Attack(aiList.First(), side, Position);
+            Attack attack = new Attack(aiList.First(), side, Position, fromEnemy);
             (Neon.World as GameScreen).FreeAttacks.Add(attack);
 
             return attack;

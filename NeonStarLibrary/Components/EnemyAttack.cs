@@ -263,8 +263,18 @@ namespace NeonStarLibrary.Components.Enemies
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {           
+        {
+            
             base.Update(gameTime);
+        }
+
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            if (CurrentAttack != null)
+            {
+                CurrentAttack.FinalUpdate(gameTime);
+            }
+            base.FinalUpdate(gameTime);
         }
     }
 }

@@ -93,7 +93,7 @@ namespace NeonStarLibrary
                     }
                     else if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName == _elementSystem.WindStartAnimation && _entity.spritesheets.CurrentSpritesheet.IsFinished)
                     {
-                        _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position);
+                        _airAttack = AttacksManager.StartFreeAttack(_attackName, Side.Left, _entity.transform.Position, false);
                         _entity.rigidbody.body.ApplyLinearImpulse(_windImpulse);
                         _entity.spritesheets.ChangeAnimation(_elementSystem.WindImpulseAnimation, 0, true, false, false);
                         //_entity.GameWorld.Camera.ChaseStrengtheningRate = 0.01f;

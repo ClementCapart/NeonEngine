@@ -18,7 +18,6 @@ namespace NeonEngine.Components.Utils
         public LinkedToPath(Entity entity)
             :base(entity, "LinkedToPath")
         {
-
         }
     }
 }

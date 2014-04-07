@@ -164,23 +164,23 @@ namespace NeonStarLibrary
 
                     if (CurrentCharge > StageFourThreshold)
                     {
-                        a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
                         a.Launcher = _entity;
                         
                     }
                     else if (CurrentCharge > StageThreeThreshold)
                     {
-                        a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
                         a.Launcher = _entity;
                     }
                     else if (CurrentCharge > StageTwoThreshold)
                     {
-                        a = AttacksManager.StartFreeAttack(StageTwoAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageTwoAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
                         a.Launcher = _entity;
                     }
                     else
                     {
-                        a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position);
+                        a = AttacksManager.StartFreeAttack(StageOneAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
                         a.Launcher = _entity;
                     }
                     if (a != null)

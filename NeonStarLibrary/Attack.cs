@@ -272,8 +272,8 @@ namespace NeonStarLibrary
             this._target = target;
         }
 
-        public Attack(AttackInfo attackInfo, Side side, Vector2 Position)
-            :this(attackInfo, side, null)
+        public Attack(AttackInfo attackInfo, Side side, Vector2 Position, bool FromEnemy)
+            :this(attackInfo, side, null, FromEnemy)
         {
             _entity = new Entity(Neon.World);
             _entity.Name = "AttackHolder";
@@ -496,7 +496,7 @@ namespace NeonStarLibrary
                                 }
                             }
                             else
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position, FromEnemy).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:
@@ -633,7 +633,7 @@ namespace NeonStarLibrary
                                 }
                             }
                             else
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position, FromEnemy).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:
@@ -801,7 +801,7 @@ namespace NeonStarLibrary
                                         }
                                     }
                                     else
-                                        AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                        AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position, FromEnemy).Launcher = _entity;
                                     break;
 
                                 case SpecialEffect.ShootBullet:
@@ -937,7 +937,7 @@ namespace NeonStarLibrary
                                     }
                                 }
                                 else
-                                    AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                    AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position, FromEnemy).Launcher = _entity;
                                 break;
 
                             case SpecialEffect.ShootBullet:
@@ -1120,7 +1120,7 @@ namespace NeonStarLibrary
                                 }
                             }
                             else
-                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position).Launcher = _entity;
+                                AttacksManager.StartFreeAttack(attackName, _side, _entity.transform.Position, FromEnemy).Launcher = _entity;
                             break;
 
                         case SpecialEffect.ShootBullet:

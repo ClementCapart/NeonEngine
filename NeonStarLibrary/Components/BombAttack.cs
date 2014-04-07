@@ -144,8 +144,7 @@ namespace NeonStarLibrary.Components.Enemies
             {
                 if (_explosionAttack != "")
                 {
-                    Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);
-                    a.FromEnemy = false;
+                    AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, false);
                 }
                 
             }
@@ -153,8 +152,7 @@ namespace NeonStarLibrary.Components.Enemies
             {
                 if (_explosionAttack != "")
                 {
-                    Attack a = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position);
-                    a.FromEnemy = true;
+                    AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, true);
                 }
                 
             }
