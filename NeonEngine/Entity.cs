@@ -12,6 +12,8 @@ namespace NeonEngine
 {
     public class Entity
     {
+        public bool HasToBeSaved = true;
+
         private string _layer = "";
 
         public string Layer

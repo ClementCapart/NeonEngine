@@ -11,6 +11,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
     public class EnemyPoweredDevice : EnergyDevice
     {
         #region Properties
+        private string _signSpriteSheetTag = "";
+
+        public string SignSpriteSheetTag
+        {
+            get { return _signSpriteSheetTag; }
+            set { _signSpriteSheetTag = value; }
+        }
+
         private bool _displayGauge = true;
 
         public bool DisplayGauge
@@ -93,9 +101,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
         #endregion
 
         public List<EnemyCore> _enemiesToKill;
-        private TilableGraphic _gauge;
+        private TilableGraphic _gauge; 
         private SpriteSheet _doorLock;
-
 
         private float _totalEnemiesToKill = 0.0f;
         private float _currentEnemiesKilled = 0.0f;
@@ -128,7 +135,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (ss.Count > 0)
                     _doorLock = ss.First();
 
-
                 if (_doorLock != null)
                 {
                     _doorLock.isPlaying = false;
@@ -154,22 +160,24 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _gauge.Active = false;
             }
 
-            if (_addSignOnTargets)
+            if (!_alreadyInit)
             {
-                if (this.State == DeviceState.Deactivated)
+                if (_addSignOnTargets)
                 {
-                    foreach (EnemyCore ec in _enemiesToKill)
+                    if (this.State == DeviceState.Deactivated)
                     {
-                        Graphic graphic = new Graphic(ec.entity);
-                        graphic.GraphicTag = "EnemyToKillSign";
-                        graphic.Layer = 0.499f;
-                        graphic.HasToBeSaved = false;
-                        ec.entity.AddComponent(graphic);
-                        graphic.Init();
+                        foreach (EnemyCore ec in _enemiesToKill)
+                        {
+                            SpriteSheet spritesheet = new SpriteSheet(ec.entity);
+                            spritesheet.SpriteSheetTag = SignSpriteSheetTag;
+                            spritesheet.Layer = 0.499f;
+                            spritesheet.HasToBeSaved = false;
+                            ec.entity.AddComponent(spritesheet);
+                            spritesheet.Init();
+                        }
                     }
                 }
             }
-
             if (_displayGauge)
             {
                 _totalEnemiesToKill = _enemiesToKill.Count;
@@ -206,7 +214,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 }
             }
 
-            if (_displayGauge)
+            if (_displayGauge && _gauge != null)
             {
                 _gaugeTargetWidth = _currentEnemiesKilled / _totalEnemiesToKill * GaugeMaxWidth;
                 if (_gauge != null)

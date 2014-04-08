@@ -398,6 +398,7 @@ namespace NeonStarLibrary
                 hb.Center = _entity.transform.Position;
                 hb.OffsetX = this._side == Side.Right ? hitbox.X : -hitbox.X;
                 hb.OffsetY = hitbox.Y;
+                hb.HasToBeSaved = false;
                 _entity.AddComponent(hb);
                 Hitboxes.Add(hb);
             }

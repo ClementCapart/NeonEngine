@@ -89,7 +89,7 @@ namespace NeonEngine
 
                 foreach (Entity entity in CurrentWorld.Entities)
                 {
-                    if (entity.Name == avatarEntity || entity.Name == hudEntity || entity.Layer == "Lock")
+                    if (entity.Name == avatarEntity || entity.Name == hudEntity || entity.Layer == "Lock" || !entity.HasToBeSaved)
                         continue;
 
                     if (layerList.ContainsKey(entity.Layer))
@@ -129,7 +129,7 @@ namespace NeonEngine
             {
                 entities = new List<Entity>();
                 foreach(Entity e in currentWorld.Entities)
-                    if(e.Layer == layerName) entities.Add(e);
+                    if(e.Layer == layerName && e.HasToBeSaved) entities.Add(e);
 
                 if (entities.Count == 0)
                     return;

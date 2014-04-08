@@ -411,6 +411,7 @@ namespace NeonStarLibrary.Components.Enemies
                     if (File.Exists(@"../Data/Prefabs/HealthCollectible.prefab"))
                     {
                         Entity e = DataManager.LoadPrefab(@"../Data/Prefabs/HealthCollectible.prefab", entity.GameWorld);
+                        e.HasToBeSaved = false;
                         e.transform.Position = entity.transform.Position;
                         random = (Neon.Utils.CommonRandom.NextDouble() * 2) - 1;
                         if (e.rigidbody != null)
