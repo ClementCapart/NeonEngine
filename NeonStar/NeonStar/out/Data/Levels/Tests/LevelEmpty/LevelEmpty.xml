@@ -55,9 +55,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-648 Y:183}" />
+              <InitialPosition Value="{X:507 Y:183}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
@@ -81,8 +81,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-648 Y:182}" />
-              <X Value="-698" />
+              <Center Value="{X:506 Y:182}" />
+              <X Value="456" />
               <Y Value="82" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -94,14 +94,14 @@
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="3">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="20" />
+              <StartingHealthPoints Value="50" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="20" />
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
-              <IdleAnim Value="" />
+              <IdleAnim Value="Idle" />
               <DyingAnim Value="" />
               <HitAnim Value="" />
               <StunlockAnim Value="" />
@@ -124,14 +124,14 @@
               <CanTurn Value="True" />
               <RangeForAttackOne Value="500" />
               <AttackToLaunchOne Value="BisonDash" />
-              <AttackOneDelayAnimation Value="" />
-              <AttackOneDurationAnimation Value="" />
-              <AttackOneCooldownAnimation Value="" />
+              <AttackOneDelayAnimation Value="1Del" />
+              <AttackOneDurationAnimation Value="1Dur" />
+              <AttackOneCooldownAnimation Value="1Cool" />
               <RangeForAttackTwo Value="500" />
               <AttackToLaunchTwo Value="BisonJump" />
-              <AttackTwoDelayAnimation Value="" />
-              <AttackTwoDurationAnimation Value="" />
-              <AttackTwoCooldownAnimation Value="" />
+              <AttackTwoDelayAnimation Value="2Del" />
+              <AttackTwoDurationAnimation Value="2Dur" />
+              <AttackTwoCooldownAnimation Value="2Cool" />
               <RangeForAttackThree Value="100" />
               <AttackToLaunchThree Value="BisonBackDash" />
               <AttackThreeDelayAnimation Value="" />
@@ -146,6 +146,36 @@
               <NickName Value="" />
             </Properties>
           </AreaAttack>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
+            <Properties>
+              <CanChangeSide Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyAnimationManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="IdlePlaceholder" />
+                <Animation Name="1Del" SpritesheetTag="1DelayPlaceholder" />
+                <Animation Name="1Dur" SpritesheetTag="1DurationPlaceholder" />
+                <Animation Name="1Cool" SpritesheetTag="1CooldownPlaceholder" />
+                <Animation Name="2Del" SpritesheetTag="2DelayPlaceholder" />
+                <Animation Name="2Dur" SpritesheetTag="2DurationPlaceholder" />
+                <Animation Name="2Cool" SpritesheetTag="2CooldownPlaceholder" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>
