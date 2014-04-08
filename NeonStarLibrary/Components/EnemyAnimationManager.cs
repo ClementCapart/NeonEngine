@@ -61,7 +61,7 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.Attacking:
                         if (EnemyComponent.Attack != null && EnemyComponent.Attack.CurrentAttack != null /*&& LastAttackHashCode != EnemyComponent.Attack.CurrentAttack.GetHashCode()*/)
                         {                        
-                            if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
+                            if(EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchOne)
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
                                 {
@@ -104,7 +104,22 @@ namespace NeonStarLibrary.Components.Enemies
                                 else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
                                 {
                                     entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeCooldownAnimation, false, 0, true, false, false);
-                                }              
+                                }
+                            }
+                            else
+                            {
+                                if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.CurrentAttack.Name + "Delay", false, 0, true, false, false);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.CurrentAttack.Name + "Duration", false, 0, true, false, true);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.CurrentAttack.Name + "Cooldown", false, 0, true, false, false);
+                                }
                             }
                         }
 

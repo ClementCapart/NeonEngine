@@ -491,7 +491,7 @@ namespace NeonStarLibrary
                                     if (ea != null && ea.CurrentAttack != null)
                                     {
                                         ea.CurrentAttack.CancelAttack();
-                                        ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);
+                                        ea.CurrentAttack = AttacksManager.GetAttack(attackName, CurrentSide, _entity, _target, true);                                       
                                     }
                                 }
                                 else
