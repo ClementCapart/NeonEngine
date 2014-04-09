@@ -220,39 +220,7 @@ namespace NeonEngine.Components.Graphics2D
             else
             {
                 LoadFromHash();
-            }
-
-            Neon.SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-            Neon.GraphicsDevice.SetRenderTarget(_finalTexture);
-            Neon.GraphicsDevice.Clear(Color.Transparent);
-            if (_topCornerTexture != null)
-            {
-                Neon.SpriteBatch.Draw(_topCornerTexture, _cornerPositions[0], null, Color.White, 0.0f, new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                Neon.SpriteBatch.Draw(_topCornerTexture, _cornerPositions[1], null, Color.White, 0.0f, new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
-            }
-            if(_bottomCornerTexture != null)
-            {                
-                Neon.SpriteBatch.Draw(_bottomCornerTexture, _cornerPositions[3], null, Color.White, 0.0f, new Vector2(_bottomCornerTexture.Width / 2, _bottomCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                Neon.SpriteBatch.Draw(_bottomCornerTexture, _cornerPositions[2], null, Color.White, 0.0f, new Vector2(_bottomCornerTexture.Width / 2, _bottomCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
-            }
-            
-            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _topRandomResult)
-                foreach (Vector2 position in kvp.Value)
-                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-
-            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _bottomRandomResult)
-                foreach (Vector2 position in kvp.Value)
-                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-
-            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _leftWallRandomResult)
-                foreach (Vector2 position in kvp.Value)
-                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
-
-            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _rightWallRandomResult)
-                foreach (Vector2 position in kvp.Value)
-                    Neon.SpriteBatch.Draw(kvp.Key, position, null, Color.White, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);    
-            Neon.SpriteBatch.End();
-            Neon.GraphicsDevice.SetRenderTarget(null);            
+            }          
 
             base.Init();
         }
@@ -565,11 +533,37 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_finalTexture, entity.transform.Position + _parallaxPosition, null, MainColor, 0.0f, new Vector2(_finalTexture.Width / 2, _finalTexture.Height / 2), 1.0f, SpriteEffects.None, Layer);
+            if (_topCornerTexture != null)
+            {
+                spriteBatch.Draw(_topCornerTexture, _cornerPositions[0] + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                Neon.SpriteBatch.Draw(_topCornerTexture, _cornerPositions[1] + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+            }
+            if (_bottomCornerTexture != null)
+            {
+                spriteBatch.Draw(_bottomCornerTexture, _cornerPositions[3] + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, new Vector2(_bottomCornerTexture.Width / 2, _bottomCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_bottomCornerTexture, _cornerPositions[2] + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, new Vector2(_bottomCornerTexture.Width / 2, _bottomCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);
+            }
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _topRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    spriteBatch.Draw(kvp.Key, position + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _bottomRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    spriteBatch.Draw(kvp.Key, position + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _leftWallRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    spriteBatch.Draw(kvp.Key, position + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
+            foreach (KeyValuePair<Texture2D, List<Vector2>> kvp in _rightWallRandomResult)
+                foreach (Vector2 position in kvp.Value)
+                    spriteBatch.Draw(kvp.Key, position + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, Vector2.Zero, entity.transform.Scale, SpriteEffects.FlipHorizontally, Layer);    
+            
             if (_centerTexture != null)
             {
                 Vector2 size = (new Vector2((entity.hitboxes[0].Width), (entity.hitboxes[0].Height)) - new Vector2(GlobalOffset * 2) - _centerOffset * 2) / entity.transform.Scale;
-                Neon.SpriteBatch.Draw(_centerTexture, entity.transform.Position + _parallaxPosition,
+                spriteBatch.Draw(_centerTexture, entity.transform.Position + _parallaxPosition,
                     new Rectangle(0, 0, (int)(size.X), (int)(size.Y)), MainColor, 0.0f, size / 2, entity.transform.Scale, SpriteEffects.None, Layer - 0.001f);
             }
             base.Draw(spriteBatch);
