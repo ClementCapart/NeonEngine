@@ -181,7 +181,7 @@ namespace NeonStarLibrary
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
-                        currentAttackEffects.Add(new AttackEffect(se, new object[] { float.Parse(currentSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture) }));
+                        currentAttackEffects.Add(new AttackEffect(se, new object[] { float.Parse(currentSpecialEffect.Element("Parameter").Attribute("Value").Value, CultureInfo.InvariantCulture), bool.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
                         break;
 
                     case SpecialEffect.PercentageDamageBoost:

@@ -284,7 +284,10 @@ namespace NeonStarEditor
 
                 case SpecialEffect.MoveWhileAttacking:
                     XElement parameterChase = new XElement("Parameter", new XAttribute("Value", ((float)(effectKvp.Parameters[0])).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterStop = new XElement("SecondParameter", new XAttribute("Value", ((bool)(effectKvp.Parameters[1])).ToString()));
                     effect.Add(parameterChase);
+                    effect.Add(parameterStop);
+                    
                     break;
 
                 case SpecialEffect.DamageOverTime:
@@ -342,7 +345,6 @@ namespace NeonStarEditor
                 comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 comboBox.SelectedValueChanged += comboBox_SelectedValueChanged;
                 this.EffectsInfoPanel.Controls.Add(comboBox);
-
 
                 switch(CurrentAttackEffectSelected.specialEffect)
                 {
@@ -668,6 +670,14 @@ namespace NeonStarEditor
                         speed.Leave += Numeric_Leave;
                         speed.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(speed);
+
+                        CheckBox checkBox5 = new CheckBox();
+                        checkBox5.Text = "Must stop on target";
+                        checkBox5.Name = "TargetStop";
+                        checkBox5.Checked = (bool)CurrentAttackEffectSelected.Parameters[1];
+                        checkBox5.Location = new System.Drawing.Point(label.Location.X, speed.Location.Y + speed.Height + 5);
+                        checkBox5.CheckedChanged += checkBox_CheckedChanged;
+                        EffectsInfoPanel.Controls.Add(checkBox5);
                         break;
 
                     case SpecialEffect.PercentageDamageBoost:
@@ -910,7 +920,6 @@ namespace NeonStarEditor
             }
             else
                 CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
-
         }
 
         void textBox_Leave(object sender, EventArgs e)
@@ -977,7 +986,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
-                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f };
+                        CurrentAttackEffectSelected.Parameters = new object[] { 0.0f, false };
                         break;
 
                     case SpecialEffect.PercentageDamageBoost:

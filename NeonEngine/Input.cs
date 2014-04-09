@@ -29,7 +29,7 @@ namespace NeonEngine
         private MouseState ms, _ms;
         private GamePadState gps, _gps;
 
-        private Dictionary<string, Dictionary<string, string>> CustomInputs;
+        private Dictionary<string, Dictionary<string, Enum>> CustomInputs;
         private float _ThumbstickThreshold = 0.5f;
 
         private Dictionary<Keys, long> KeyboardPressedDelays = new Dictionary<Keys,long>();
@@ -83,7 +83,7 @@ namespace NeonEngine
             if (File.Exists(@"../Data/Config/Input.xml"))
             {
                 EnumType = enumType;
-                CustomInputs = new Dictionary<string, Dictionary<string, string>>();
+                CustomInputs = new Dictionary<string, Dictionary<string, Enum>>();
 
                 Stream stream = File.OpenRead(@"../Data/Config/Input.xml");
                 XDocument document = XDocument.Load(stream);
@@ -93,11 +93,18 @@ namespace NeonEngine
 
                 foreach (XElement input in neonInputs.Elements("Input"))
                 {
-                    CustomInputs[input.Attribute("Name").Value] = new Dictionary<string, string>();
+                    CustomInputs[input.Attribute("Name").Value] = new Dictionary<string, Enum>();
 
                     foreach (XElement inputMethod in input.Elements("InputMethod"))
                     {
-                        CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, inputMethod.Value);
+                        if(inputMethod.Attribute("Name").Value.StartsWith("Keyboard"))
+                        {
+                            CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Keys), inputMethod.Value));
+                        }
+                        else if (inputMethod.Attribute("Name").Value.StartsWith("XboxController"))
+                        {
+                            CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Buttons), inputMethod.Value));
+                        }
                     }
                 }
                 
@@ -182,16 +189,17 @@ namespace NeonEngine
 
         public DelayStatus CheckPressedDelay<T>(T NeonCustomInput, double Delay)
         {
-            if (CustomInputs[NeonCustomInput.ToString()] != null)
+            Dictionary<string, Enum> input = CustomInputs[NeonCustomInput.ToString()];
+            if (input != null)
             {
-                foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+                foreach (KeyValuePair<string, Enum> kvp in input)
                 {
-                    if (kvp.Value == "None")
+                    if (kvp.Value == null)
                         continue;
 
                     if (kvp.Key == "Keyboard")
                     {
-                        Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+                        Keys currentKey = (Keys)kvp.Value;
                         if (KeyboardPressedDelays.ContainsKey(currentKey))
                         {
                             if (DateTime.Now.Ticks - KeyboardPressedDelays[currentKey] <= TimeSpan.TicksPerSecond * Delay)
@@ -202,7 +210,7 @@ namespace NeonEngine
                     }
                     else if (kvp.Key == "XboxController")
                     {
-                        Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                        Buttons currentButton = (Buttons)kvp.Value;
 
                         if (ControllerPressedDelays.ContainsKey(currentButton))
                         {
@@ -215,7 +223,7 @@ namespace NeonEngine
                     }
                     else if (kvp.Key == "XboxController2")
                     {
-                        Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                        Buttons currentButton = (Buttons)kvp.Value;
 
                         if (ControllerPressedDelays.ContainsKey(currentButton))
                         {
@@ -236,25 +244,27 @@ namespace NeonEngine
             if (NeonCustomInput.GetType() != EnumType)
                 return;
             else
-                if (CustomInputs[NeonCustomInput.ToString()] != null)
-                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+            {
+                Dictionary<string, Enum> input = CustomInputs[NeonCustomInput.ToString()];
+                if (input != null)
+                    foreach (KeyValuePair<string, Enum> kvp in input)
                     {
-                        if (kvp.Value == "None")
+                        if (kvp.Value == null)
                             continue;
 
                         if (kvp.Key == "Keyboard")
                         {
-                            Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+                            Keys currentKey = (Keys)kvp.Value;
 
                             if (this.Pressed(currentKey))
                             {
-                                KeyboardPressedDelays.Add((Keys)Enum.Parse(typeof(Keys), kvp.Value), DateTime.Now.Ticks);
+                                KeyboardPressedDelays.Add(currentKey, DateTime.Now.Ticks);
                                 return;
                             }
                         }
                         else if (kvp.Key == "XboxController")
                         {
-                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                            Buttons currentButton = (Buttons)kvp.Value;
 
                             if (this.Pressed(currentButton))
                             {
@@ -264,7 +274,7 @@ namespace NeonEngine
                         }
                         else if (kvp.Key == "XboxController2")
                         {
-                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                            Buttons currentButton = (Buttons)kvp.Value;
 
                             if (this.Pressed(currentButton))
                             {
@@ -273,6 +283,7 @@ namespace NeonEngine
                             }
                         }
                     }
+            }
         }
 
         public bool Pressed<T>(T NeonCustomInput)
@@ -280,26 +291,28 @@ namespace NeonEngine
             if (NeonCustomInput.GetType() != EnumType)
                 return false;
             else
-                if (CustomInputs[NeonCustomInput.ToString()] != null)
-                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+            {
+                Dictionary<string, Enum> input = CustomInputs[NeonCustomInput.ToString()];
+                if (input != null)
+                    foreach (KeyValuePair<string, Enum> kvp in input)
                     {
-                        if (kvp.Value == "None")
+                        if (kvp.Value == null)
                             continue;
 
                         if (kvp.Key == "Keyboard")
                         {
-                            Keys currentKey = (Keys)Enum.Parse(typeof(Keys), kvp.Value);
+                            Keys currentKey = (Keys)kvp.Value;
 
                             if (this.Pressed(currentKey))
                             {
-                                return true;                              
+                                return true;
                             }
                         }
                         else if (kvp.Key == "XboxController")
                         {
-                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                            Buttons currentButton = (Buttons)kvp.Value;
 
-                            switch(currentButton)
+                            switch (currentButton)
                             {
                                 case Buttons.LeftTrigger:
                                     if (gps.Triggers.Left > 0.7f)
@@ -322,11 +335,11 @@ namespace NeonEngine
                                     }
                                     break;
                             }
-                            
+
                         }
                         else if (kvp.Key == "XboxController2")
                         {
-                            Buttons currentButton = (Buttons)Enum.Parse(typeof(Buttons), kvp.Value);
+                            Buttons currentButton = (Buttons)kvp.Value;
 
                             if (this.Pressed(currentButton))
                             {
@@ -334,6 +347,7 @@ namespace NeonEngine
                             }
                         }
                     }
+            }
             return false;
         }
 
@@ -342,20 +356,22 @@ namespace NeonEngine
             if (NeonCustomInput.GetType() != EnumType)
                 return false;
             else
-                if (CustomInputs[NeonCustomInput.ToString()] != null)
-                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+            {
+                Dictionary<string, Enum> input = CustomInputs[NeonCustomInput.ToString()];
+                if (input != null)
+                    foreach (KeyValuePair<string, Enum> kvp in input)
                     {
-                        if (kvp.Value == "None")
+                        if (kvp.Value == null)
                             continue;
 
                         if (kvp.Key == "Keyboard")
                         {
-                            if (this.Check((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
+                            if (this.Check((Keys)kvp.Value))
                                 return true;
                         }
                         else if (kvp.Key == "XboxController")
-                        {                              
-                            switch((Buttons)Enum.Parse(typeof(Buttons), kvp.Value))
+                        {
+                            switch ((Buttons)kvp.Value)
                             {
                                 case Buttons.LeftThumbstickLeft:
                                     if (gps.ThumbSticks.Left.X <= -_ThumbstickThreshold)
@@ -398,14 +414,14 @@ namespace NeonEngine
                                     break;
 
                                 default:
-                                    if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                    if (this.Check((Buttons) kvp.Value))
                                         return true;
                                     break;
-                            }                                                     
+                            }
                         }
                         else if (kvp.Key == "XboxController2")
                         {
-                            switch ((Buttons)Enum.Parse(typeof(Buttons), kvp.Value))
+                            switch ((Buttons)kvp.Value)
                             {
                                 case Buttons.LeftThumbstickLeft:
                                     if (gps.ThumbSticks.Left.X <= -_ThumbstickThreshold)
@@ -448,13 +464,13 @@ namespace NeonEngine
                                     break;
 
                                 default:
-                                    if (this.Check((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                                    if (this.Check((Buttons)kvp.Value))
                                         return true;
                                     break;
                             }
                         }
                     }
-                       
+            }
             return false;
         }
 
@@ -463,29 +479,31 @@ namespace NeonEngine
             if (NeonCustomInput.GetType() != EnumType)
                 return false;
             else
-                if (CustomInputs[NeonCustomInput.ToString()] != null)
-                    foreach (KeyValuePair<string, string> kvp in CustomInputs[NeonCustomInput.ToString()])
+            {
+                Dictionary<string, Enum> input = CustomInputs[NeonCustomInput.ToString()];
+                if (input != null)
+                    foreach (KeyValuePair<string, Enum> kvp in input)
                     {
-                        if (kvp.Value == "None")
+                        if (kvp.Value == null)
                             continue;
 
                         if (kvp.Key == "Keyboard")
                         {
-                            if (this.Released((Keys)Enum.Parse(typeof(Keys), kvp.Value)))
+                            if (this.Released((Keys)kvp.Value))
                                 return true;
                         }
                         else if (kvp.Key == "XboxController")
                         {
-                            if (this.Released((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                            if (this.Released((Buttons)kvp.Value))
                                 return true;
                         }
                         else if (kvp.Key == "XboxController2")
                         {
-                            if (this.Released((Buttons)Enum.Parse(typeof(Buttons), kvp.Value)))
+                            if (this.Released((Buttons)kvp.Value))
                                 return true;
                         }
                     }
-
+            }
             return false;
         }
 

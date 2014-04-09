@@ -550,6 +550,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.MoveWhileAttacking:
                             _isMoving = true;
                             _movingSpeed = (float)(ae.Parameters[0]);
+                            _mustStopAtTargetSight = (bool)(ae.Parameters[1]);
                             break;
 
                         case SpecialEffect.InstantiatePrefab:
@@ -688,6 +689,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.MoveWhileAttacking:
                             _isMoving = true;
                             _movingSpeed = (float)(ae.Parameters[0]);
+                            _mustStopAtTargetSight = (bool)(ae.Parameters[1]);
                             break;
 
                         case SpecialEffect.InstantiatePrefab:
@@ -887,11 +889,17 @@ namespace NeonStarLibrary
             {
                 if(_side == Side.Left)
                     if (_target.hitboxes[0].Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckLeftSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    {
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        _isMoving = false;
+                    }
 
                 if (_side == Side.Right)
-                    if (_target.hitboxes[0].Type != HitboxType.Invincible &&  _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    if (_target.hitboxes[0].Type != HitboxType.Invincible && _entity.rigidbody.beacon.CheckRightSide(Math.Abs(_entity.rigidbody.body.LinearVelocity.X) * 4, true) == _target)
+                    {
                         _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                        _isMoving = false;
+                    }
             }
                 
         }
