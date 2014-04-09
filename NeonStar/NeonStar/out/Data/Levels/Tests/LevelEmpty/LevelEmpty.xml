@@ -55,7 +55,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-682 Y:183}" />
+              <InitialPosition Value="{X:-46 Y:183}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -81,8 +81,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-682 Y:182}" />
-              <X Value="-757" />
+              <Center Value="{X:-47 Y:182}" />
+              <X Value="-122" />
               <Y Value="82" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -100,7 +100,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
+              <RunAnim Value="Move" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="" />
               <HitAnim Value="" />
@@ -114,7 +114,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -122,26 +122,27 @@
             <Properties>
               <MaximumAngleDifference Value="360" />
               <CanTurn Value="True" />
+              <RandomBalanceRate Value="20" />
               <RangeForAttackOne Value="500" />
               <AttackToLaunchOne Value="BisonDash" />
-              <AttackOneDelayAnimation Value="1Del" />
-              <AttackOneDurationAnimation Value="1Dur" />
-              <AttackOneCooldownAnimation Value="1Cool" />
+              <AttackOneDelayAnimation Value="DashDelay" />
+              <AttackOneDurationAnimation Value="DashDuration" />
+              <AttackOneCooldownAnimation Value="DashCooldown" />
               <RangeForAttackTwo Value="500" />
               <AttackToLaunchTwo Value="BisonJump" />
-              <AttackTwoDelayAnimation Value="2Del" />
-              <AttackTwoDurationAnimation Value="2Dur" />
-              <AttackTwoCooldownAnimation Value="2Cool" />
+              <AttackTwoDelayAnimation Value="JumpDelay" />
+              <AttackTwoDurationAnimation Value="JumpDuration" />
+              <AttackTwoCooldownAnimation Value="JumpCooldown" />
               <RangeForAttackThree Value="100" />
               <AttackToLaunchThree Value="BisonBackDash" />
-              <AttackThreeDelayAnimation Value="" />
-              <AttackThreeDurationAnimation Value="" />
-              <AttackThreeCooldownAnimation Value="" />
+              <AttackThreeDelayAnimation Value="BackDelay" />
+              <AttackThreeDurationAnimation Value="BackDuration" />
+              <AttackThreeCooldownAnimation Value="BackCooldown" />
               <RangeForAttackFour Value="100" />
               <AttackToLaunchFour Value="BisonBurst" />
-              <AttackFourDelayAnimation Value="" />
-              <AttackFourDurationAnimation Value="" />
-              <AttackFourCooldownAnimation Value="" />
+              <AttackFourDelayAnimation Value="BurstDelay" />
+              <AttackFourDurationAnimation Value="BurstDuration" />
+              <AttackFourCooldownAnimation Value="BurstCooldown" />
               <EntityToAttackName Value="LiOn" />
               <NickName Value="" />
             </Properties>
@@ -163,12 +164,19 @@
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="IdlePlaceholder" />
-                <Animation Name="1Del" SpritesheetTag="1DelayPlaceholder" />
-                <Animation Name="1Dur" SpritesheetTag="1DurationPlaceholder" />
-                <Animation Name="1Cool" SpritesheetTag="1CooldownPlaceholder" />
-                <Animation Name="2Del" SpritesheetTag="2DelayPlaceholder" />
-                <Animation Name="2Dur" SpritesheetTag="2DurationPlaceholder" />
-                <Animation Name="2Cool" SpritesheetTag="2CooldownPlaceholder" />
+                <Animation Name="DashDelay" SpritesheetTag="1DelayPlaceholder" />
+                <Animation Name="DashDuration" SpritesheetTag="1DurationPlaceholder" />
+                <Animation Name="DashCooldown" SpritesheetTag="1CooldownPlaceholder" />
+                <Animation Name="JumpDelay" SpritesheetTag="2DelayPlaceholder" />
+                <Animation Name="JumpDuration" SpritesheetTag="2DurationPlaceholder" />
+                <Animation Name="JumpCooldown" SpritesheetTag="2CooldownPlaceholder" />
+                <Animation Name="BackDelay" SpritesheetTag="3DelayPlaceholder" />
+                <Animation Name="BackDuration" SpritesheetTag="3DurationPlaceholder" />
+                <Animation Name="BackCooldown" SpritesheetTag="3CooldownPlaceholder" />
+                <Animation Name="BurstDelay" SpritesheetTag="4DelayPlaceholder" />
+                <Animation Name="BurstDuration" SpritesheetTag="4DurationPlaceholder" />
+                <Animation Name="BurstCooldown" SpritesheetTag="4CooldownPlaceholder" />
+                <Animation Name="Move" SpritesheetTag="MovePlaceholder" />
               </Spritesheets>
               <DrawLayer Value="0" />
               <IsHUD Value="False" />
@@ -176,6 +184,18 @@
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="7">
+            <Properties>
+              <CheckBothSide Value="True" />
+              <RaycastOffset Value="{X:0 Y:0}" />
+              <EntityToChaseName Value="LiOn" />
+              <DetectionDistance Value="900" />
+              <WaitStopDuration Value="1" />
+              <ChaseSpeed Value="5" />
+              <ChasePrecision Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </GroundChase>
         </Components>
       </Entity>
     </Entities>
