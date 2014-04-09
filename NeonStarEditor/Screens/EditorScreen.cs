@@ -571,7 +571,11 @@ namespace NeonStarEditor
 
         public override void FinalUpdate(GameTime gameTime)
         {
-            
+            if ((Neon.Input.Check(Keys.LeftAlt) || Neon.Input.Check(Keys.RightAlt)) && Neon.Input.Pressed(Keys.Enter))
+            {
+                Neon.GraphicsDeviceManager.ToggleFullScreen();
+                Neon.GraphicsDeviceManager.ApplyChanges();
+            }
             base.FinalUpdate(gameTime);
         }
 
