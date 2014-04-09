@@ -106,6 +106,21 @@ namespace NeonStarLibrary.Components.Enemies
                                     entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackThreeCooldownAnimation, false, 0, true, false, false);
                                 }
                             }
+                            else if (EnemyComponent.Attack.CurrentAttack.Name == EnemyComponent.Attack.AttackToLaunchFour)
+                            {
+                                if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourDelayAnimation, false, 0, true, false, false);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.DurationStarted && !EnemyComponent.Attack.CurrentAttack.DurationFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourDurationAnimation, false, 0, true, false, true);
+                                }
+                                else if (EnemyComponent.Attack.CurrentAttack.CooldownStarted && !EnemyComponent.Attack.CurrentAttack.CooldownFinished)
+                                {
+                                    entity.spritesheets.ChangeAnimation(EnemyComponent.Attack.AttackFourCooldownAnimation, false, 0, true, false, false);
+                                }
+                            }
                             else
                             {
                                 if (EnemyComponent.Attack.CurrentAttack.DelayStarted && !EnemyComponent.Attack.CurrentAttack.DelayFinished)
