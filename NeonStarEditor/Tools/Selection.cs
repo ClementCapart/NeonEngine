@@ -13,7 +13,7 @@ namespace NeonStarEditor
 {
     class Selection : Tool
     {
-        private XElement TransformState = null;
+        private Vector2 _previousPosition;
 
         public Selection(EditorScreen currentWorld)
             :base(currentWorld)
@@ -89,7 +89,7 @@ namespace NeonStarEditor
             if (Neon.Input.MousePressed(MouseButton.RightButton))
             {
                 if(currentWorld.SelectedEntity != null)
-                    TransformState = DataManager.SaveComponentParameters(currentWorld.SelectedEntity.transform);
+                    _previousPosition = new Vector2(currentWorld.SelectedEntity.transform.Position.X, currentWorld.SelectedEntity.transform.Position.Y);
             }
             if (Neon.Input.MouseCheck(MouseButton.RightButton) && currentWorld.IsActiveForm)
             {
@@ -125,8 +125,7 @@ namespace NeonStarEditor
                         }
                     }
 
-                    //ActionManager.SaveAction(ActionType.ChangeEntityParameters, new object[2] { currentWorld.SelectedEntity.transform, TransformState });
-                    TransformState = null;
+                    ActionManager.SaveAction(ActionType.MovedEntity, new object[2] { currentWorld.SelectedEntity, new Vector2(_previousPosition.X, _previousPosition.Y) });
                 }
                 else if (currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode != null && currentWorld.BottomDockControl.entityListControl.EntityListBox.SelectedNode.Parent == null)
                 {

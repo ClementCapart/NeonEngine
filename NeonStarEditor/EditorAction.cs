@@ -11,7 +11,8 @@ namespace NeonStarEditor
         AddEntity,
         ChangeEntityParameters,
         DeleteComponent,
-        AddComponent
+        AddComponent,
+        MovedEntity
     }
 
     public class EditorAction

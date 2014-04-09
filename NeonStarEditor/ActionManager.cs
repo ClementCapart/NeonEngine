@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,11 @@ namespace NeonStarEditor
                     case ActionType.DeleteEntity:
                         DataManager.LoadPrefab(LastAction.GetParameters[0] as XElement, LastAction.GetParameters[1] as EditorScreen);
                         Console.WriteLine("Undo 'Delete Entity'.");
+                        break;
+
+                    case ActionType.MovedEntity:
+                        (LastAction.GetParameters[0] as Entity).transform.Position = (Vector2)LastAction.GetParameters[1];
+                        Console.WriteLine("Undo 'Moved Entity'.");
                         break;
                 }
             }
