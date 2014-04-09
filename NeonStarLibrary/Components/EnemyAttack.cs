@@ -19,6 +19,14 @@ namespace NeonStarLibrary.Components.Enemies
             set { _canTurn = value; }
         }
 
+        protected float _randomBalanceRate = 0.0f;
+
+        public float RandomBalanceRate
+        {
+            get { return _randomBalanceRate; }
+            set { _randomBalanceRate = value; }
+        }
+
         protected float _rangeForAttackOne = 0.0f;
 
         public float RangeForAttackOne
@@ -195,7 +203,8 @@ namespace NeonStarLibrary.Components.Enemies
         public Entity EntityToAttack = null;
 
         public List<Attack> LocalAttacksInCooldown;
-        public Dictionary<float, List<string>> _attacks;
+        public Dictionary<float, Dictionary<string, float>> Attacks;
+        protected string _lastAttackLaunched = "";
 
         public EnemyAttack(Entity entity)
             :base(entity, "EnemyAttack")
@@ -213,38 +222,50 @@ namespace NeonStarLibrary.Components.Enemies
             if (EnemyComponent != null)
                 EnemyComponent.Attack = this;
 
-            _attacks = new Dictionary<float, List<string>>();
+            Attacks = new Dictionary<float, Dictionary<string, float>>();
 
             if (_rangeForAttackOne != 0.0f)
             {
-                if (!_attacks.ContainsKey(_rangeForAttackOne))
-                    _attacks.Add(_rangeForAttackOne, new List<string>());
+                if (!Attacks.ContainsKey(_rangeForAttackOne))
+                    Attacks.Add(_rangeForAttackOne, new Dictionary<string, float>());
 
-                _attacks[_rangeForAttackOne].Add(_attackToLaunchOne);
+                Attacks[_rangeForAttackOne].Add(_attackToLaunchOne, 0.0f);
             }
             if (_rangeForAttackTwo != 0.0f)
             {
-                if (!_attacks.ContainsKey(_rangeForAttackTwo))
-                    _attacks.Add(_rangeForAttackTwo, new List<string>());
+                if (!Attacks.ContainsKey(_rangeForAttackTwo))
+                    Attacks.Add(_rangeForAttackTwo, new Dictionary<string, float>());
 
-                _attacks[_rangeForAttackTwo].Add(_attackToLaunchTwo);
+                Attacks[_rangeForAttackTwo].Add(_attackToLaunchTwo, 0.0f);
             }
             if (_rangeForAttackThree != 0.0f)
             {
-                if (!_attacks.ContainsKey(_rangeForAttackThree))
-                    _attacks.Add(_rangeForAttackThree, new List<string>());
+                if (!Attacks.ContainsKey(_rangeForAttackThree))
+                    Attacks.Add(_rangeForAttackThree, new Dictionary<string, float>());
 
-                _attacks[_rangeForAttackThree].Add(_attackToLaunchThree);
+                Attacks[_rangeForAttackThree].Add(_attackToLaunchThree, 0.0f);
             }
             if (_rangeForAttackFour != 0.0f)
             {
-                if (!_attacks.ContainsKey(_rangeForAttackFour))
-                    _attacks.Add(_rangeForAttackFour, new List<string>());
+                if (!Attacks.ContainsKey(_rangeForAttackFour))
+                    Attacks.Add(_rangeForAttackFour, new Dictionary<string, float>());
 
-                _attacks[_rangeForAttackFour].Add(_attackToLaunchFour);
+                Attacks[_rangeForAttackFour].Add(_attackToLaunchFour, 0.0f);
             }
 
-            _attacks = _attacks.OrderBy(kvp => kvp.Key).ToDictionary(kvp => kvp.Key, kvp2 => kvp2.Value);
+            Attacks = Attacks.OrderBy(kvp => kvp.Key).ToDictionary(kvp => kvp.Key, kvp2 => kvp2.Value);
+
+            foreach (KeyValuePair<float, Dictionary<string, float>> kvp in Attacks)
+            {
+                int numberOfAttacks = kvp.Value.Count;
+                for (int i = numberOfAttacks - 1; i >= 0; i--)
+                {
+                    KeyValuePair<string, float> kvp2 = kvp.Value.ElementAt(i);
+                    kvp.Value[kvp2.Key] = 100.0f / numberOfAttacks;
+                }
+                    
+            }
+
             base.Init();
         }
 
