@@ -720,7 +720,7 @@ namespace NeonStarLibrary
                     for(int j = _entity.GameWorld.Hitboxes.Count - 1; j >= 0; j--)
                     {
                         Hitbox hb = _entity.GameWorld.Hitboxes[j];
-                        if (hb.Type == HitboxType.Main && hb.entity != this._entity)
+                        if (( hb.Type == HitboxType.Main || hb.Type == HitboxType.Invincible) && hb.entity != this._entity)
                         {
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
                             {
@@ -1032,7 +1032,7 @@ namespace NeonStarLibrary
             bool validTarget = false;
             DamageResult damageResult;
             AvatarCore avatar = null;
-            EnemyCore enemy = null;;
+            EnemyCore enemy = null;
 
             if (!FromEnemy)
             {
@@ -1041,7 +1041,8 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     damageResult = enemy.TakeDamage(this);
-                    _hit = damageResult == DamageResult.Effective ? true : false;
+                    if (collidedHitbox.Type != HitboxType.Invincible)
+                        _hit = damageResult == DamageResult.Effective ? true : false;
                 }
 
                 if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _meleeFight != null)
@@ -1057,7 +1058,8 @@ namespace NeonStarLibrary
                 {
                     validTarget = true;
                     damageResult = avatar.TakeDamage(this);
-                    _hit = damageResult == DamageResult.Effective ? true : false;
+                    if (collidedHitbox.Type != HitboxType.Invincible)
+                        _hit = damageResult == DamageResult.Effective ? true : false;
                 }
             }
 
@@ -1088,7 +1090,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PositionalPulse:
-                            if (avatar != null || (enemy != null && !enemy.ImmuneToImpulse))
+                            if ((avatar != null && _hit) || (enemy != null && !enemy.ImmuneToImpulse))
                             {
                                 Vector2 pulseForce = (Vector2)ae.Parameters[0];
                                 if (!velocityReset) entity.rigidbody.body.LinearVelocity = Vector2.Zero;
@@ -1148,27 +1150,29 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.EffectAnimation:
-                            if ((float)ae.Parameters[5] != 0.0f)
+                            if (_hit)
                             {
-                                AnimationDelayed ad = new AnimationDelayed();
-                                ad.Delay = (float)ae.Parameters[5];
-                                ad.Parameters = ae.Parameters;
-                                _delayedEffect.Add(ad);
-                            }
-                            else
-                            {
-                                SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
-                                if (ssi != null)
+                                if ((float)ae.Parameters[5] != 0.0f)
                                 {
-                                    Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
-                                    Entity entityToFollow = null;
-                                    if ((bool)ae.Parameters[3])
-                                        entityToFollow = _entity;
-                                    Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
-                                    EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                    AnimationDelayed ad = new AnimationDelayed();
+                                    ad.Delay = (float)ae.Parameters[5];
+                                    ad.Parameters = ae.Parameters;
+                                    _delayedEffect.Add(ad);
                                 }
-                            }
-                            
+                                else
+                                {
+                                    SpriteSheetInfo ssi = (SpriteSheetInfo)ae.Parameters[0];
+                                    if (ssi != null)
+                                    {
+                                        Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
+                                        Entity entityToFollow = null;
+                                        if ((bool)ae.Parameters[3])
+                                            entityToFollow = _entity;
+                                        Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
+                                        EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
+                                    }
+                                }
+                            }                           
                             break;
 
                         case SpecialEffect.InstantiatePrefab:
