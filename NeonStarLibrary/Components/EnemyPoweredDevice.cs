@@ -103,6 +103,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         public List<EnemyCore> _enemiesToKill;
         private TilableGraphic _gauge; 
         private SpriteSheet _doorLock;
+        private List<EnemyEnergy> _enemiesEnergy;
 
         private float _totalEnemiesToKill = 0.0f;
         private float _currentEnemiesKilled = 0.0f;
@@ -139,13 +140,13 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 {
                     _doorLock.isPlaying = false;
                 }
-
+                
             }
 
             State = DeviceManager.GetDeviceState(entity.GameWorld.LevelGroupName, entity.GameWorld.LevelName, entity.Name);
 
             _enemiesToKill = new List<EnemyCore>();
-
+            _enemiesEnergy = new List<EnemyEnergy>();
             AddEnemyCore(_firstEnemyToKill);           
             AddEnemyCore(_secondEnemyToKill);
             AddEnemyCore(_thirdEnemyToKill);
@@ -204,14 +205,34 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (ec.State == EnemyState.Dead)
                 {
                     _enemiesToKill.Remove(ec);
-                    _currentEnemiesKilled++;
+                   
+                    Entity enemyEnergy = DataManager.LoadPrefab(@"../Data/Prefabs/EnemyEnergy.prefab", entity.GameWorld);
+                    enemyEnergy.HasToBeSaved = false;
+                    enemyEnergy.transform.Position = ec.entity.transform.Position;
+                    EnemyEnergy ee = enemyEnergy.GetComponent<EnemyEnergy>();
+                    if (ee != null)
+                    {
+                        ee.TargetPosition = this.entity.transform.Position;
+                        ee.Init();
+                        _enemiesEnergy.Add(ee);
+                    }
+                }
+            }
+
+            for(int i= _enemiesEnergy.Count - 1; i >= 0; i --)
+            {
+                EnemyEnergy ee = _enemiesEnergy[i];
+                if (ee.FinishedTraveling)
+                {
                     if (_doorLock != null)
                     {
                         _doorLock.currentFrame = 0;
                         _doorLock.isPlaying = true;
                     }
-
+                    _currentEnemiesKilled++;
+                    _enemiesEnergy.Remove(ee);
                 }
+                    
             }
 
             if (_displayGauge && _gauge != null)
@@ -222,7 +243,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
                 _gauge.Offset = new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y);
             }
-            if (_enemiesToKill.Count <= 0)
+            if (_currentEnemiesKilled >= _totalEnemiesToKill)
             {
                 if (State == DeviceState.Deactivated)
                 {

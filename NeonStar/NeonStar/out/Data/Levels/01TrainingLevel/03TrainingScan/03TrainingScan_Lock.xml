@@ -2,12 +2,12 @@
 <XnaContent>
   <Level Layer="Lock">
     <Entities>
-      <Entity Name="ImportantRobot" Layer="Lock">
+      <Entity Name="ImportantRobot3" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:779 Y:170}" />
+              <InitialPosition Value="{X:667 Y:170}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:779 Y:169}" />
-              <X Value="729" />
+              <Center Value="{X:667 Y:169}" />
+              <X Value="617" />
               <Y Value="89" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -69,9 +69,9 @@
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="50" />
+              <StartingHealthPoints Value="1" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="50" />
+              <CurrentHealthPoints Value="1" />
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
@@ -110,6 +110,7 @@
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
               <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />

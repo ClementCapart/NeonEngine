@@ -291,7 +291,7 @@ namespace NeonStarLibrary.Components.Enemies
                             }
                             if (hitEntities[0] != EntityToAttack || Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) > _rangeForAttackOne && !entity.hitboxes[0].hitboxRectangle.Intersects(EntityToAttack.hitboxes[0].hitboxRectangle))
                             {
-                                if (EnemyComponent.Chase != null)
+                                if (EnemyComponent.Chase == null)
                                     EnemyComponent.State = EnemyState.Idle;
                             }
                         }
