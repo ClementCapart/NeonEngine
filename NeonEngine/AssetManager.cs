@@ -268,6 +268,20 @@ namespace NeonEngine
 
             foreach (string s in LevelAssets.Keys)
                 LoadTexture(s, LevelAssets, _levelAssetsList);
+
+            Console.WriteLine("Graphics loaded: ");
+            Console.WriteLine("Common -> " + _commonAssetsList.Count);
+            Console.WriteLine("Group -> " + _groupAssetsList.Count);
+            Console.WriteLine("Level -> " + _levelAssetsList.Count);
+            Console.WriteLine("TOTAL -> " + (_commonAssetsList.Count + _groupAssetsList.Count + _levelAssetsList.Count));
+            Console.WriteLine("");
+            Console.WriteLine("Spritesheets loaded: ");
+            Console.WriteLine("Common -> " + _commonSpritesheetList.Count);
+            Console.WriteLine("Group -> " + _groupSpritesheetList.Count);
+            Console.WriteLine("Level -> " + _levelSpritesheetList.Count);
+            Console.WriteLine("TOTAL -> " + (_commonSpritesheetList.Count + _groupSpritesheetList.Count + _levelSpritesheetList.Count));
+            Console.WriteLine("");
+
         }
 
         static List<string> DirectorySearch(string currentDirectory)
