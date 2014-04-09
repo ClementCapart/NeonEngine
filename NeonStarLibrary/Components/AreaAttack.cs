@@ -81,7 +81,7 @@ namespace NeonStarLibrary.Components.Enemies
                         }
                         else
                         {
-                            if (EnemyComponent.Chase != null) EnemyComponent.State = EnemyState.Idle;
+                            if (EnemyComponent.Chase == null) EnemyComponent.State = EnemyState.Idle;
                         }
                         break;
                 }
