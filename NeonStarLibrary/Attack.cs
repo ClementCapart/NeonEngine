@@ -724,7 +724,7 @@ namespace NeonStarLibrary
                         {
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
                             {
-                                Effect(hb.entity, hitbox);    
+                                Effect(hb.entity, hb);    
                                 _alreadyTouched.Add(hb, _multiHitDelay);
                             }
                         }                      
@@ -1040,9 +1040,11 @@ namespace NeonStarLibrary
                 if (enemy != null)
                 {
                     validTarget = true;
-                    damageResult = enemy.TakeDamage(this);
                     if (collidedHitbox.Type != HitboxType.Invincible)
+                    {
+                        damageResult = enemy.TakeDamage(this);
                         _hit = damageResult == DamageResult.Effective ? true : false;
+                    }
                 }
 
                 if (!_alreadyLocked && AirLock >= 0 && Type == AttackType.MeleeLight && _meleeFight != null)
@@ -1057,9 +1059,11 @@ namespace NeonStarLibrary
                 if(avatar != null)
                 {
                     validTarget = true;
-                    damageResult = avatar.TakeDamage(this);
                     if (collidedHitbox.Type != HitboxType.Invincible)
+                    {
+                        damageResult = avatar.TakeDamage(this);
                         _hit = damageResult == DamageResult.Effective ? true : false;
+                    }
                 }
             }
 
@@ -1086,7 +1090,7 @@ namespace NeonStarLibrary
                                     entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y) * (entity.rigidbody.isGrounded ? 1 : AirFactor));
                                     velocityReset = true;
                                 }
-                            }                
+                            }
                             break;
 
                         case SpecialEffect.PositionalPulse:
@@ -1103,7 +1107,7 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.DamageOverTime:
-                            if(enemy != null)
+                            if (enemy != null)
                                 enemy.AfflictDamageOverTime((float)ae.Parameters[1], (float)ae.Parameters[0], (float)ae.Parameters[2], this);
                             break;
 
@@ -1172,7 +1176,7 @@ namespace NeonStarLibrary
                                         EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
                                     }
                                 }
-                            }                           
+                            }
                             break;
 
                         case SpecialEffect.InstantiatePrefab:
@@ -1207,11 +1211,10 @@ namespace NeonStarLibrary
                                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
                             entity.rigidbody.body.ApplyLinearImpulse(CurrentSide == Side.Right ? AirImpulse : new Vector2(-AirImpulse.X, AirImpulse.Y));
-                        }                      
+                        }
                     }
                 }
-            }
-            
+            }        
         }
 
         public void CancelAttack()
