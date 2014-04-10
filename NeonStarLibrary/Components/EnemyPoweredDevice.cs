@@ -199,40 +199,29 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            for(int i = _enemiesToKill.Count - 1; i >= 0; i--)
+            if (State != DeviceState.Activated)
             {
-                EnemyCore ec = _enemiesToKill[i];
-                if (ec.State == EnemyState.Dead)
+                for (int i = _enemiesToKill.Count - 1; i >= 0; i--)
                 {
-                    _enemiesToKill.Remove(ec);
-                   
-                    Entity enemyEnergy = DataManager.LoadPrefab(@"../Data/Prefabs/EnemyEnergy.prefab", entity.GameWorld);
-                    enemyEnergy.HasToBeSaved = false;
-                    enemyEnergy.transform.Position = ec.entity.transform.Position;
-                    EnemyEnergy ee = enemyEnergy.GetComponent<EnemyEnergy>();
-                    if (ee != null)
+                    EnemyCore ec = _enemiesToKill[i];
+                    if (ec.State == EnemyState.Dead)
                     {
-                        ee.TargetPosition = this.entity.transform.Position;
-                        ee.Init();
-                        _enemiesEnergy.Add(ee);
-                    }
-                }
-            }
+                        _enemiesToKill.Remove(ec);
 
-            for(int i= _enemiesEnergy.Count - 1; i >= 0; i --)
-            {
-                EnemyEnergy ee = _enemiesEnergy[i];
-                if (ee.FinishedTraveling)
-                {
-                    if (_doorLock != null)
-                    {
-                        _doorLock.currentFrame = 0;
-                        _doorLock.isPlaying = true;
+                        Entity enemyEnergy = DataManager.LoadPrefab(@"../Data/Prefabs/EnemyEnergy.prefab", entity.GameWorld);
+                        enemyEnergy.HasToBeSaved = false;
+                        enemyEnergy.transform.Position = ec.entity.transform.Position;
+                        EnemyEnergy ee = enemyEnergy.GetComponent<EnemyEnergy>();
+                        if (ee != null)
+                        {
+                            ee.TargetPosition = this.entity.transform.Position;
+                            ee.Init();
+                            _enemiesEnergy.Add(ee);
+                        }
                     }
-                    _currentEnemiesKilled++;
-                    _enemiesEnergy.Remove(ee);
                 }
-                    
+
+                
             }
 
             if (_displayGauge && _gauge != null)
@@ -253,6 +242,30 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         _doorLock.Active = false;
                     }
                 }
+            }
+
+            for (int i = _enemiesEnergy.Count - 1; i >= 0; i--)
+            {
+                EnemyEnergy ee = _enemiesEnergy[i];
+
+                if (ee.FinishedTraveling && !ee.WaitingToBeDestroyed)
+                {
+                    if (_doorLock != null)
+                    {
+                        _doorLock.currentFrame = 0;
+                        _doorLock.isPlaying = true;
+                        _doorLock.Active = true;
+                    }
+                    _currentEnemiesKilled++;
+                    ee.WaitingToBeDestroyed = true;
+                }
+
+                if (ee.WaitingToBeDestroyed && ee.ShouldBeDestroyed)
+                {
+                    ee.entity.Destroy();
+                    _enemiesEnergy.Remove(ee);
+                }
+
             }
             base.Update(gameTime);
         }

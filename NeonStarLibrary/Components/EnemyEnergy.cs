@@ -58,6 +58,10 @@ namespace NeonStarLibrary.Components.Enemies
         private bool _startMoving = false;
         private Vector2 _direction;
         public bool FinishedTraveling = false;
+        public bool ShouldBeDestroyed = false;
+        public bool WaitingToBeDestroyed = false;
+
+        AnimatedSpecialEffect _startEffect;
 
         public EnemyEnergy(Entity entity)
             :base(entity, "EnemyEnergy")
@@ -69,7 +73,11 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (entity.spritesheets != null)
             {
-                entity.spritesheets.ChangeAnimation(StartAnimationName, 0, true, false, false);
+                if (_startEffect == null)
+                    _startEffect = EffectsManager.GetEffect(entity.spritesheets.SpritesheetList[StartAnimationName], Side.Right, Vector2.Zero, 0.0f, Vector2.Zero, 2.0f, 0.89f);
+                else
+                    _startEffect.transform.Position = entity.transform.Position;
+                //entity.spritesheets.ChangeAnimation(StartAnimationName, 0, true, false, false);
                 _direction = Vector2.Normalize(new Vector2(TargetPosition.X - entity.transform.Position.X, TargetPosition.Y - entity.transform.Position.Y));
                 entity.spritesheets.RotationOffset = (float)Math.Atan2(_direction.Y, _direction.X);
             }
@@ -80,7 +88,8 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (entity.spritesheets != null)
             {
-                if (entity.spritesheets.CurrentSpritesheetName == StartAnimationName && entity.spritesheets.IsFinished())
+                //if (entity.spritesheets.CurrentSpritesheetName == StartAnimationName && entity.spritesheets.IsFinished())
+                if(_startEffect != null && _startEffect.spriteSheet.currentFrame == 7)
                 {
                     entity.spritesheets.ChangeAnimation(MovingAnimationName, 0, true, false, true);
                     _startMoving = true;
@@ -88,7 +97,7 @@ namespace NeonStarLibrary.Components.Enemies
 
                 if (FinishedTraveling && entity.spritesheets.CurrentSpritesheetName == CompleteAnimationName && entity.spritesheets.IsFinished())
                 {
-                    this.entity.Destroy();
+                    ShouldBeDestroyed = true;
                 }
             }
 

@@ -689,7 +689,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_1-{X:25 Y:0}_2-{X:125 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_1-{X:275 Y:0}_0-{X:375 Y:0}_0-{X:425 Y:0}_1-{X:475 Y:0}_0-{X:575 Y:0}_1-{X:625 Y:0}_1-{X:725 Y:0}_1-{X:825 Y:0}_0-{X:925 Y:0}_2-{X:975 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_2-{X:1075 Y:0}_2-{X:1100 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_2-{X:25 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_0-{X:175 Y:0}_1-{X:225 Y:0}_2-{X:325 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}_1-{X:525 Y:0}_1-{X:625 Y:0}_1-{X:725 Y:0}_0-{X:825 Y:0}_1-{X:875 Y:0}_2-{X:975 Y:0}_2-{X:1000 Y:0}_1-{X:1025 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-23 Y:0}" />
               <IsHUD Value="False" />
@@ -726,7 +726,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:75 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:75 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-2 Y:0}" />
               <IsHUD Value="False" />
@@ -1474,7 +1474,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -1495,7 +1495,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.3" />
+              <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -1510,7 +1510,7 @@
               <ThirdEnemyToKill Value="ImportantRobot3" />
               <FourthEnemyToKill Value="" />
               <FifthEnemyToKill Value="" />
-              <AddSignOnTargets Value="True" />
+              <AddSignOnTargets Value="False" />
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="75" />
@@ -1606,7 +1606,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlight" />
               <DrawLayer Value="0.7" />
-              <IsFinished Value="True" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1654,7 +1654,7 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="50" />
+              <TilingWidth Value="0" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
@@ -1663,7 +1663,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-12.5 Y:0}" />
+              <Offset Value="{X:-37.5 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1707,7 +1707,7 @@
               <Mass Value="1.31995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
