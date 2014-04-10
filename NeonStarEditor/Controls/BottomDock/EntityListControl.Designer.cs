@@ -116,6 +116,7 @@
             this.EntityListBox.Size = new System.Drawing.Size(287, 118);
             this.EntityListBox.TabIndex = 4;
             this.EntityListBox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.EntityListBox_AfterSelect);
+            this.EntityListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EntityListBox_KeyDown);
             // 
             // EntityListControl
             // 

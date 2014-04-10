@@ -49,7 +49,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if ((CurrentSpritesheet.IsFinished || CurrentSpritesheet.spriteSheetInfo.Frames == null) && SpritesheetList.Count > 0 && !_startChanging)
+            if ((CurrentSpritesheet.IsFinished || (CurrentSpritesheet.spriteSheetInfo != null && CurrentSpritesheet.spriteSheetInfo.Frames == null)) && SpritesheetList.Count > 0 && !_startChanging)
             {
                 _startChanging = true;
                 _timer = 0.0f;

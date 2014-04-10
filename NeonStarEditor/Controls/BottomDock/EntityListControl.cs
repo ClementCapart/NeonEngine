@@ -179,5 +179,10 @@ namespace NeonStarEditor
                 }
             }
         }
+
+        private void EntityListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
