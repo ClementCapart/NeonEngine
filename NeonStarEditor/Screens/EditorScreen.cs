@@ -828,6 +828,24 @@ namespace NeonStarEditor
                     if(SelectedEntity != null)
                         RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
                 }
+                else if (Neon.Input.Pressed(Keys.Home) && FocusedTextBox == null && FocusedNumericUpDown == null)
+                {
+                    if (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))
+                    {
+                        if (SelectedEntity != null)
+                            foreach (NeonEngine.Component c in SelectedEntity.Components)
+                                c.Init();
+                    }
+                    else
+                    {
+                        NeonEngine.Component c = RightDockControl.InspectorControl.GetSelectedComponent();
+                        if (c != null)
+                            c.Init();
+                    }
+
+                    if (SelectedEntity != null)
+                        RightDockControl.InspectorControl.InstantiateProperties(SelectedEntity);
+                }
                 else if (Neon.Input.Pressed(Keys.Delete) && FocusedTextBox == null && FocusedNumericUpDown == null)
                 {
                     //ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
@@ -836,6 +854,50 @@ namespace NeonStarEditor
                     RightDockControl.InspectorControl.ClearInspector();                 
                 }
                 ManagingInspector = false;
+            }
+
+            if (SelectedEntity != null)
+            {
+                if (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))
+                {
+                    if (Neon.Input.Pressed(Keys.Left))
+                    {
+                        SelectedEntity.transform.Position -= new Vector2(1.0f, 0.0f);
+                    }
+                    else if (Neon.Input.Pressed(Keys.Right))
+                    {
+                        SelectedEntity.transform.Position += new Vector2(1.0f, 0.0f);
+                    }
+
+                    if (Neon.Input.Pressed(Keys.Up))
+                    {
+                        SelectedEntity.transform.Position -= new Vector2(0.0f, 1.0f);
+                    }
+                    else if (Neon.Input.Pressed(Keys.Down))
+                    {
+                        SelectedEntity.transform.Position += new Vector2(0.0f, 1.0f);
+                    }
+                }
+                else
+                {
+                    if (Neon.Input.Check(Keys.Left))
+                    {
+                        SelectedEntity.transform.Position -= new Vector2(1.0f, 0.0f);
+                    }
+                    else if (Neon.Input.Check(Keys.Right))
+                    {
+                        SelectedEntity.transform.Position += new Vector2(1.0f, 0.0f);
+                    }
+
+                    if (Neon.Input.Check(Keys.Up))
+                    {
+                        SelectedEntity.transform.Position -= new Vector2(0.0f, 1.0f);
+                    }
+                    else if (Neon.Input.Check(Keys.Down))
+                    {
+                        SelectedEntity.transform.Position += new Vector2(0.0f, 1.0f);
+                    }
+                }
             }
 
             if (FocusedTextBox != null)

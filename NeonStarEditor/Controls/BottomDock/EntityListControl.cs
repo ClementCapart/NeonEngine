@@ -179,7 +179,5 @@ namespace NeonStarEditor
                 }
             }
         }
-
-
     }
 }
