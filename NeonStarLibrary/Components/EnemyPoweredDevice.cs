@@ -201,7 +201,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 for (int i = _enemiesToKill.Count - 1; i >= 0; i--)
                 {
                     EnemyCore ec = _enemiesToKill[i];
-                    if (ec.State == EnemyState.Dead)
+                    if (ec.State == EnemyState.Dying)
                     {
                         _enemiesToKill.Remove(ec);
 

@@ -22,22 +22,6 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _healthValue = value; }
         }
 
-        private string _idleAnimation = "";
-
-        public string IdleAnimation
-        {
-            get { return _idleAnimation; }
-            set { _idleAnimation = value; }
-        }
-
-        private string _outAnimation = "";
-
-        public string OutAnimation
-        {
-            get { return _outAnimation; }
-            set { _outAnimation = value; }
-        }
-
         private string _avatarName = "LiOn";
 
         public string AvatarName
@@ -46,10 +30,21 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _avatarName = value; }
         }
 
+        private string _healingFeedbackSpriteSheetTag = "";
+
+        public string HealingFeedbackSpriteSheetTag
+        {
+            get { return _healingFeedbackSpriteSheetTag; }
+            set { _healingFeedbackSpriteSheetTag = value; }
+        }
+
+
         #endregion
 
         private bool _noGravity = false;
         private AvatarCore _avatar;
+
+        private SpriteSheetInfo _healingFeedback;
 
         public HealthCollectible(Entity entity)
             :base(entity, "HealthCollectible")
@@ -65,8 +60,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                 if (e != null)
                     _avatar = e.GetComponent<AvatarCore>();
             }
-            if (entity.spritesheets != null)
-                entity.spritesheets.ChangeAnimation(_idleAnimation, false, 0, true, false, true);
+
+            _healingFeedback = AssetManager.GetSpriteSheet(_healingFeedbackSpriteSheetTag);
             
             base.Init();
         }
@@ -78,6 +73,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {
                     _avatar.CurrentHealthPoints = Math.Min(_avatar.CurrentHealthPoints + _healthValue, _avatar.StartingHealthPoints);
+                    EffectsManager.GetEffect(_healingFeedback, _avatar.CurrentSide, _avatar.entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.52f, _avatar.entity);
                     this.entity.Destroy();
                 }
             }
