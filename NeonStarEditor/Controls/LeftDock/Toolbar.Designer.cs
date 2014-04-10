@@ -48,6 +48,7 @@
             this.SaveCurrentMap = new System.Windows.Forms.Button();
             this.elementPanelButton = new System.Windows.Forms.Button();
             this.SaveLockLayer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,7 +223,7 @@
             this.ReloadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadButton.BackgroundImage")));
             this.ReloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ReloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReloadButton.Location = new System.Drawing.Point(4, 42);
+            this.ReloadButton.Location = new System.Drawing.Point(40, 43);
             this.ReloadButton.Name = "ReloadButton";
             this.ReloadButton.Size = new System.Drawing.Size(30, 30);
             this.ReloadButton.TabIndex = 3;
@@ -277,6 +278,18 @@
             this.SaveLockLayer.UseVisualStyleBackColor = true;
             this.SaveLockLayer.Click += new System.EventHandler(this.SaveLockLayer_Click);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(4, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +310,7 @@
             this.Controls.Add(this.CreateRectangle);
             this.Controls.Add(this.frameByFrame);
             this.Controls.Add(this.PausePlayButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.SaveHitboxes);
             this.Controls.Add(this.SaveLockLayer);
@@ -331,5 +345,6 @@
         private System.Windows.Forms.Button respawnPanel;
         private System.Windows.Forms.Button elementPanelButton;
         private System.Windows.Forms.Button SaveLockLayer;
+        private System.Windows.Forms.Button button1;
     }
 }

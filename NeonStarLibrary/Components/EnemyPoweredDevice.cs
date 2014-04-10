@@ -179,10 +179,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     }
                 }
             }
-            if (_displayGauge)
-            {
-                _totalEnemiesToKill = _enemiesToKill.Count;
-            }
+            _totalEnemiesToKill = _enemiesToKill.Count;
 
             base.Init();
         }
@@ -208,20 +205,25 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         _enemiesToKill.Remove(ec);
 
-                        Entity enemyEnergy = DataManager.LoadPrefab(@"../Data/Prefabs/EnemyEnergy.prefab", entity.GameWorld);
-                        enemyEnergy.HasToBeSaved = false;
-                        enemyEnergy.transform.Position = ec.entity.transform.Position;
-                        EnemyEnergy ee = enemyEnergy.GetComponent<EnemyEnergy>();
-                        if (ee != null)
+                        if (_displayGauge)
                         {
-                            ee.TargetPosition = this.entity.transform.Position;
-                            ee.Init();
-                            _enemiesEnergy.Add(ee);
+                            Entity enemyEnergy = DataManager.LoadPrefab(@"../Data/Prefabs/EnemyEnergy.prefab", entity.GameWorld);
+                            enemyEnergy.HasToBeSaved = false;
+                            enemyEnergy.transform.Position = ec.entity.transform.Position;
+                            EnemyEnergy ee = enemyEnergy.GetComponent<EnemyEnergy>();
+                            if (ee != null)
+                            {
+                                ee.TargetPosition = this.entity.transform.Position;
+                                ee.Init();
+                                _enemiesEnergy.Add(ee);
+                            }
+                        }
+                        else
+                        {
+                            _currentEnemiesKilled++;
                         }
                     }
-                }
-
-                
+                }               
             }
 
             if (_displayGauge && _gauge != null)

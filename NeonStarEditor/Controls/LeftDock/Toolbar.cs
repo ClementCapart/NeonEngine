@@ -296,5 +296,16 @@ namespace NeonStarEditor.Controls.LeftDock
             }
             DeviceManager.SaveDevicesTemplate(GameWorld.LevelGroupName, GameWorld.LevelName, devices);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeviceManager.AlreadyLoaded = false;
+            DeviceManager.LoadDevicesInformation();
+            GameScreen.CheckPointsData.Clear();
+            HealStation._usedHealStations.Clear();
+            CollectibleManager.ResetCollectibles();
+            CollectibleManager.InitializeCollectibles(GameWorld as GameScreen);
+            GameWorld.ReloadLevel();
+        }
     }
 }
