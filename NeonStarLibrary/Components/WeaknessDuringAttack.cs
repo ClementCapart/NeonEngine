@@ -35,7 +35,7 @@ namespace NeonStarLibrary.Components.Enemies
         }
         #endregion
 
-        EnemyCore EnemyComponent;
+        public EnemyCore EnemyComponent;
         public bool CurrentlyWeak = false;
 
         public WeaknessDuringAttack(Entity entity)

@@ -37,6 +37,9 @@ namespace NeonStarLibrary.Components.GameplayElements
         }
         #endregion
 
+        private Attack _damagingAvatar;
+        private Attack _damagingEnemies;
+
         public DamagingArea(Entity entity)
             :base(entity, "DamagingArea")
         {
@@ -62,8 +65,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                         EnemyCore ec = e.GetComponent<EnemyCore>();
                         if (ec != null)
                         {
-                            ec.TakeDamage(AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, false));
-
+                            if(_damagingEnemies == null)
+                                _damagingEnemies = AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, false);
                         }
                     }
 
@@ -72,11 +75,18 @@ namespace NeonStarLibrary.Components.GameplayElements
                         AvatarCore ac = e.GetComponent<AvatarCore>();
                         if (ac != null)
                         {
-                            ac.TakeDamage(AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, true));
+                            if(_damagingAvatar == null)
+                                _damagingAvatar = AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, true);
                         }
                     }
                 }
             }
+
+            if (_damagingAvatar != null && _damagingAvatar.CooldownFinished)
+                _damagingAvatar = null;
+            if (_damagingEnemies != null && _damagingEnemies.CooldownFinished)
+                _damagingEnemies = null;
+
             base.Update(gameTime);
         }
     }

@@ -271,7 +271,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
+            if (EnemyComponent != null && EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
                 for (int i = LocalAttacksInCooldown.Count - 1; i >= 0; i--)
                 {

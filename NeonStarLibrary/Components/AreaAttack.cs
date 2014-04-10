@@ -27,7 +27,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (EntityToAttack != null)
+            if (EntityToAttack != null && EnemyComponent != null)
             {
                 switch(EnemyComponent.State)
                 {
@@ -101,7 +101,7 @@ namespace NeonStarLibrary.Components.Enemies
                     CurrentAttack = null;
                 }
             }
-            else
+            else if(EnemyComponent != null)
             {
                 switch (EnemyComponent.State)
                 {
@@ -115,10 +115,10 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking)
+            if (CurrentAttack == null && EnemyComponent != null && EnemyComponent.State == EnemyState.Attacking)
                 EnemyComponent.State = EnemyState.Wait;
 
-            if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
+            if (EnemyComponent != null && EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
             {
                 CurrentAttack.CancelAttack();
                 CurrentAttack = null;
