@@ -220,7 +220,7 @@ namespace NeonStarLibrary.Components.Enemies
         public Chase Chase;
         public EnemyAttack Attack;
         public DamageDisplayer DamageDisplayer;
-
+        public WeaknessDuringAttack WeaknessDuringAttack;
         
 
         public bool CanMove = true;
@@ -268,6 +268,8 @@ namespace NeonStarLibrary.Components.Enemies
                 Chase = entity.GetComponent<Chase>();
             if (DamageDisplayer == null)
                 DamageDisplayer = entity.GetComponent<DamageDisplayer>();
+            if (WeaknessDuringAttack == null)
+                WeaknessDuringAttack = entity.GetComponent<WeaknessDuringAttack>();
             
             if (_componentToTrigger == null && _componentToTriggerName != "")
             {
@@ -280,7 +282,12 @@ namespace NeonStarLibrary.Components.Enemies
         public DamageResult TakeDamage(Attack attack)
         {
             LastAttackTook = attack.Name;
-            DamageResult tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
+            DamageResult tookDamage;
+            if(WeaknessDuringAttack != null && WeaknessDuringAttack.CurrentlyWeak && WeaknessDuringAttack.AttackWeakTo == attack.Name)
+                tookDamage = TakeDamage(attack.DamageOnHit * WeaknessDuringAttack.DamageModifier, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
+            else
+                tookDamage = TakeDamage(attack.DamageOnHit, attack.StunLock, attack.AlwaysStunlock, attack.TargetAirLock, attack.CurrentSide);
+
             if (_triggerOnDamage)
             {
                 if (_componentToTrigger != null)
