@@ -16,10 +16,7 @@
           <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="1">
             <Properties>
               <OpenWhenAnimationEnd Value="True" />
-              <MultiLockDoor Value="False" />
               <ClosedIdleAnimation Value="Closed" />
-              <ClosedIdleOnePoweredAnimation Value="" />
-              <ClosedIdleTwoPoweredAnimation Value="" />
               <OpenedIdleAnimation Value="Opened" />
               <DoorOpeningAnimation Value="Opening" />
               <ClosingIsReverseOpening Value="True" />
@@ -67,9 +64,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-997 Y:-551}" />
-              <X Value="-1022" />
-              <Y Value="-651" />
+              <Center Value="{X:-975 Y:-550}" />
+              <X Value="-1000" />
+              <Y Value="-650" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -99,12 +96,17 @@
           </SpritesheetManager>
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
             <Properties>
+              <SignSpriteSheetTag Value="" />
+              <DisplayGauge Value="False" />
               <FirstEnemyToKill Value="Breakable" />
               <SecondEnemyToKill Value="" />
               <ThirdEnemyToKill Value="" />
               <FourthEnemyToKill Value="" />
               <FifthEnemyToKill Value="" />
               <AddSignOnTargets Value="False" />
+              <LockName Value="DoorLock" />
+              <GaugeName Value="Gauge" />
+              <GaugeMaxWidth Value="100" />
               <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
@@ -125,9 +127,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-998 Y:-551}" />
-              <X Value="-1023" />
-              <Y Value="-576" />
+              <Center Value="{X:-975 Y:-550}" />
+              <X Value="-1000" />
+              <Y Value="-575" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -141,8 +143,8 @@
               <StartingHealthPoints Value="1" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
+              <ChanceToDropHealth Value="0" />
+              <HealthItemsToDrop Value="0" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />

@@ -23,11 +23,6 @@ namespace NeonStarEditor
             MainToolbar.GameWorld = this.GameWorld;
         }
 
-        private void ReloadButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void magnetismValue_ValueChanged(object sender, EventArgs e)
         {
             GameWorld.MagnetismValue = (float)(sender as NumericUpDown).Value;

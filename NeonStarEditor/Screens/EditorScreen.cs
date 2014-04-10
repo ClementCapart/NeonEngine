@@ -53,6 +53,7 @@ namespace NeonStarEditor
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
+        public List<Entity> OtherSelectedEntities = new List<Entity>();
 
         public bool MagnetismActivated = true;
         public float MagnetismValue = 1.0f;
@@ -597,12 +598,15 @@ namespace NeonStarEditor
                 foreach (Entity e in Entities)
                 {
                     if (SelectedEntity == e)
-                        spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2) , Color.Red);
+                        spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.Red);
                     else
-                        spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.White);
-                    
-                }
-                
+                    {
+                        if(OtherSelectedEntities.Contains(e))
+                            spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.Red);
+                        else
+                            spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.White);
+                    }                   
+                }              
             }
             if (EditorVisible)
             {
@@ -801,11 +805,14 @@ namespace NeonStarEditor
                     if (pcc.ctrl.Name == "X")
                     {
                         Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
-                        (pcc.ctrl as NumericUpDown).Value = (decimal)v.X;
+                        if (!float.IsNaN(v.X))
+                            (pcc.ctrl as NumericUpDown).Value = (decimal)v.X;
+                        
                     }
                     else if(pcc.ctrl.Name == "Y")
                     {
                         Vector2 v = (Vector2)pcc.pi.GetValue(pcc.c, null);
+                        if (!float.IsNaN(v.Y))
                         (pcc.ctrl as NumericUpDown).Value = (decimal)v.Y;
                     }
                     else if (pcc.pi.PropertyType.IsEnum)
@@ -815,7 +822,8 @@ namespace NeonStarEditor
                     else if (pcc.pi.PropertyType == typeof(float))
                     {
                         float value = (float)pcc.pi.GetValue(pcc.c, null);
-                        (pcc.ctrl as NumericUpDown).Value = (decimal)value;
+                        if(!float.IsNaN(value))
+                            (pcc.ctrl as NumericUpDown).Value = (decimal)value;
                     }
                 }
 
@@ -863,19 +871,27 @@ namespace NeonStarEditor
                     if (Neon.Input.Pressed(Keys.Left))
                     {
                         SelectedEntity.transform.Position -= new Vector2(1.0f, 0.0f);
+                        foreach(Entity e in OtherSelectedEntities)
+                            e.transform.Position -= new Vector2(1.0f, 0.0f);
                     }
                     else if (Neon.Input.Pressed(Keys.Right))
                     {
                         SelectedEntity.transform.Position += new Vector2(1.0f, 0.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position += new Vector2(1.0f, 0.0f);
                     }
 
                     if (Neon.Input.Pressed(Keys.Up))
                     {
                         SelectedEntity.transform.Position -= new Vector2(0.0f, 1.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position -= new Vector2(0.0f, 1.0f);
                     }
                     else if (Neon.Input.Pressed(Keys.Down))
                     {
                         SelectedEntity.transform.Position += new Vector2(0.0f, 1.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position += new Vector2(0.0f, 1.0f);
                     }
                 }
                 else
@@ -883,22 +899,32 @@ namespace NeonStarEditor
                     if (Neon.Input.Check(Keys.Left))
                     {
                         SelectedEntity.transform.Position -= new Vector2(1.0f, 0.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position -= new Vector2(1.0f, 0.0f);
                     }
                     else if (Neon.Input.Check(Keys.Right))
                     {
                         SelectedEntity.transform.Position += new Vector2(1.0f, 0.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position += new Vector2(1.0f, 0.0f);
                     }
 
                     if (Neon.Input.Check(Keys.Up))
                     {
                         SelectedEntity.transform.Position -= new Vector2(0.0f, 1.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position -= new Vector2(0.0f, 1.0f);
                     }
                     else if (Neon.Input.Check(Keys.Down))
                     {
                         SelectedEntity.transform.Position += new Vector2(0.0f, 1.0f);
+                        foreach (Entity e in OtherSelectedEntities)
+                            e.transform.Position += new Vector2(0.0f, 1.0f);
                     }
                 }
             }
+
+
 
             if (FocusedTextBox != null)
                 ManageText();
@@ -1245,8 +1271,6 @@ namespace NeonStarEditor
             if (SpritesheetPicker != null)
                 SpritesheetPicker.Dispose();
             ChangeScreen(new EditorScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game, graphics));
-            HealStation._usedHealStations.Clear();
-            DeviceManager.LoadDevicesInformation();
         }
 
         public override void ChangeScreen(World nextScreen)
