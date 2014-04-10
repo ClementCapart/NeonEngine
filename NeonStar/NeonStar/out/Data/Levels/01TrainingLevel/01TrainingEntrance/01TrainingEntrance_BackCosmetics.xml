@@ -267,6 +267,41 @@
           </Graphic>
         </Components>
       </Entity>
+      <Entity Name="InformationsPanel" Layer="BackCosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1806 Y:405}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SpritesheetRandomizer Type="NeonEngine.Components.Graphics2D.SpritesheetRandomizer" ID="1">
+            <Properties>
+              <DelayBetweenAnimation Value="0.1" />
+              <CanPlayTheSameTwice Value="False" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Anim0" SpritesheetTag="ScannerInfosNormal" />
+                <Animation Name="Anim1" SpritesheetTag="ScannerInfosBlurred1" />
+                <Animation Name="Anim2" SpritesheetTag="ScannerInfosBlurred2" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetRandomizer>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
