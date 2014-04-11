@@ -104,7 +104,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
             if (_powered)
             {
-                this.entity.spritesheets.Layer = 0.3f;
+                this.entity.spritesheets.Layer = 0.35f;
 
                 if (_gauge != null)
                     _gauge.Active = false;
@@ -127,7 +127,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void PowerDevice()
         {
-            this.entity.spritesheets.Layer = 0.3f;
+            this.entity.spritesheets.Layer = 0.35f;
             if (_doorTop != null)
             {
                 _doorTop.currentFrame = 0;
