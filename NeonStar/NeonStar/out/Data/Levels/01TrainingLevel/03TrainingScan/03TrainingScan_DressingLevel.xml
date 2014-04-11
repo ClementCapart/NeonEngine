@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="DressingLevel">
+    <Entities>
+      <Entity Name="CubeCosmet900" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-90 Y:-725}" />
+              <Rotation Value="0" />
+              <Scale Value="3" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-90 Y:-725}" />
+              <X Value="-590" />
+              <Y Value="-1075" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1000" />
+              <Height Value="700" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:75 Y:0}_1-{X:225 Y:0}_1-{X:375 Y:0}_0-{X:525 Y:0}_1-{X:600 Y:0}_0-{X:750 Y:0}_0-{X:825 Y:0}_BOT_2-{X:0 Y:0}_1-{X:300 Y:0}_1-{X:450 Y:0}_1-{X:600 Y:0}_0-{X:750 Y:0}_0-{X:825 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:150}_2-{X:0 Y:225}_0-{X:0 Y:525}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:150}_1-{X:0 Y:300}_0-{X:0 Y:450}_0-{X:0 Y:525}" />
+              <DrawLayer Value="0.9" />
+              <TopCornerGraphicTag Value="FloorCorner" />
+              <BottomCornerGraphicTag Value="CeilingCorner" />
+              <FirstBottomTileGraphicTag Value="Ceiling50" />
+              <SecondBottomTileGraphicTag Value="Ceiling100" />
+              <ThirdBottomTileGraphicTag Value="Ceiling200" />
+              <FirstTopTileGraphicTag Value="Floor50" />
+              <SecondTopTileGraphicTag Value="Floor100" />
+              <ThirdTopTileGraphicTag Value="Floor200" />
+              <FirstWallTileGraphicTag Value="Wall50" />
+              <SecondWallTileGraphicTag Value="Wall100" />
+              <ThirdWallTileGraphicTag Value="Wall200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:5 G:5 B:5 A:255}" />
+              <NickName Value="1" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="3">
+            <Properties>
+              <GlobalOffset Value="75" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:300 Y:0}_0-{X:600 Y:0}_0-{X:675 Y:0}_BOT_1-{X:0 Y:0}_1-{X:150 Y:0}_1-{X:300 Y:0}_0-{X:450 Y:0}_0-{X:525 Y:0}_0-{X:600 Y:0}_0-{X:675 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:300}_0-{X:0 Y:375}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:75}_0-{X:0 Y:375}" />
+              <DrawLayer Value="0.9" />
+              <TopCornerGraphicTag Value="SecondFloorCorner" />
+              <BottomCornerGraphicTag Value="SecondFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="SecondFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="SecondFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="SecondFloorReverse200" />
+              <FirstTopTileGraphicTag Value="SecondFloor50" />
+              <SecondTopTileGraphicTag Value="SecondFloor100" />
+              <ThirdTopTileGraphicTag Value="SecondFloor200" />
+              <FirstWallTileGraphicTag Value="SecondFloorVertical50" />
+              <SecondWallTileGraphicTag Value="SecondFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="SecondFloorVertical200" />
+              <CenterTileGraphicTag Value="" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:5 G:5 B:5 A:255}" />
+              <NickName Value="2" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="4">
+            <Properties>
+              <GlobalOffset Value="150" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:75 Y:0}_0-{X:150 Y:0}_1-{X:225 Y:0}_0-{X:375 Y:0}_BOT_2-{X:0 Y:0}_0-{X:300 Y:0}_0-{X:375 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:75}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:75}" />
+              <DrawLayer Value="0.9" />
+              <TopCornerGraphicTag Value="ThirdFloorCorner" />
+              <BottomCornerGraphicTag Value="ThirdFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="ThirdFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="ThirdFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="ThirdFloorReverse200" />
+              <FirstTopTileGraphicTag Value="ThirdFloor50" />
+              <SecondTopTileGraphicTag Value="ThirdFloor100" />
+              <ThirdTopTileGraphicTag Value="ThirdFloor200" />
+              <FirstWallTileGraphicTag Value="ThirdFloorVertical50" />
+              <SecondWallTileGraphicTag Value="ThirdFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="ThirdFloorVertical200" />
+              <CenterTileGraphicTag Value="VioletTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:5 G:5 B:5 A:255}" />
+              <NickName Value="3" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="5">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsTube2" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:186 Y:378}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="cables" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsBrokenScreen" />
+              <DrawLayer Value="0.901" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:-117 Y:348}" />
+              <RotationOffset Value="1.7" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:53 G:53 B:53 A:255}" />
+              <NickName Value="Screen" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="7">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsTube1" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Up" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:99 Y:483}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="Cables" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="7">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsTube2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Up" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:-261 Y:396}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="Cables" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="CubeCosmet100" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-593 Y:679}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-593 Y:679}" />
+              <X Value="-943" />
+              <Y Value="179" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="700" />
+              <Height Value="1000" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:125 Y:0}_0-{X:225 Y:0}_0-{X:250 Y:0}_2-{X:275 Y:0}_2-{X:375 Y:0}_0-{X:475 Y:0}_0-{X:500 Y:0}_1-{X:525 Y:0}_1-{X:575 Y:0}_0-{X:625 Y:0}_BOT_1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_2-{X:150 Y:0}_0-{X:250 Y:0}_0-{X:275 Y:0}_0-{X:300 Y:0}_0-{X:325 Y:0}_1-{X:350 Y:0}_0-{X:400 Y:0}_1-{X:425 Y:0}_1-{X:475 Y:0}_2-{X:525 Y:0}_0-{X:625 Y:0}_LEFT_1-{X:0 Y:0}_2-{X:0 Y:50}_1-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:250}_1-{X:0 Y:275}_2-{X:0 Y:325}_1-{X:0 Y:425}_1-{X:0 Y:475}_1-{X:0 Y:525}_2-{X:0 Y:575}_0-{X:0 Y:675}_2-{X:0 Y:700}_2-{X:0 Y:800}_0-{X:0 Y:900}_0-{X:0 Y:925}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:75}_0-{X:0 Y:125}_0-{X:0 Y:150}_1-{X:0 Y:175}_0-{X:0 Y:225}_0-{X:0 Y:250}_0-{X:0 Y:275}_2-{X:0 Y:300}_1-{X:0 Y:400}_0-{X:0 Y:450}_1-{X:0 Y:475}_1-{X:0 Y:525}_2-{X:0 Y:575}_1-{X:0 Y:675}_1-{X:0 Y:725}_2-{X:0 Y:775}_1-{X:0 Y:875}_0-{X:0 Y:925}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="FloorCorner" />
+              <BottomCornerGraphicTag Value="CeilingCorner" />
+              <FirstBottomTileGraphicTag Value="Ceiling50" />
+              <SecondBottomTileGraphicTag Value="Ceiling100" />
+              <ThirdBottomTileGraphicTag Value="Ceiling200" />
+              <FirstTopTileGraphicTag Value="Floor50" />
+              <SecondTopTileGraphicTag Value="Floor100" />
+              <ThirdTopTileGraphicTag Value="Floor200" />
+              <FirstWallTileGraphicTag Value="Wall50" />
+              <SecondWallTileGraphicTag Value="Wall100" />
+              <ThirdWallTileGraphicTag Value="Wall200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="1" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="3">
+            <Properties>
+              <GlobalOffset Value="25" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_0-{X:200 Y:0}_1-{X:225 Y:0}_2-{X:275 Y:0}_2-{X:375 Y:0}_2-{X:475 Y:0}_0-{X:575 Y:0}_BOT_1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_2-{X:325 Y:0}_2-{X:425 Y:0}_0-{X:525 Y:0}_1-{X:550 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:50}_1-{X:0 Y:75}_1-{X:0 Y:125}_0-{X:0 Y:175}_2-{X:0 Y:200}_2-{X:0 Y:300}_0-{X:0 Y:400}_1-{X:0 Y:425}_1-{X:0 Y:475}_0-{X:0 Y:525}_2-{X:0 Y:550}_1-{X:0 Y:650}_1-{X:0 Y:700}_0-{X:0 Y:750}_1-{X:0 Y:775}_0-{X:0 Y:825}_1-{X:0 Y:850}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:50}_2-{X:0 Y:75}_1-{X:0 Y:175}_1-{X:0 Y:225}_2-{X:0 Y:275}_2-{X:0 Y:375}_2-{X:0 Y:475}_0-{X:0 Y:575}_2-{X:0 Y:600}_1-{X:0 Y:700}_1-{X:0 Y:750}_2-{X:0 Y:800}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="SecondFloorCorner" />
+              <BottomCornerGraphicTag Value="SecondFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="SecondFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="SecondFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="SecondFloorReverse200" />
+              <FirstTopTileGraphicTag Value="SecondFloor50" />
+              <SecondTopTileGraphicTag Value="SecondFloor100" />
+              <ThirdTopTileGraphicTag Value="SecondFloor200" />
+              <FirstWallTileGraphicTag Value="SecondFloorVertical50" />
+              <SecondWallTileGraphicTag Value="SecondFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="SecondFloorVertical200" />
+              <CenterTileGraphicTag Value="" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="2" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="4">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:125 Y:0}_1-{X:225 Y:0}_1-{X:275 Y:0}_0-{X:325 Y:0}_1-{X:350 Y:0}_2-{X:400 Y:0}_BOT_1-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}_0-{X:125 Y:0}_2-{X:150 Y:0}_1-{X:250 Y:0}_2-{X:300 Y:0}_2-{X:400 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:25}_0-{X:0 Y:75}_2-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:250}_1-{X:0 Y:300}_0-{X:0 Y:350}_0-{X:0 Y:375}_2-{X:0 Y:400}_2-{X:0 Y:500}_1-{X:0 Y:600}_2-{X:0 Y:650}_1-{X:0 Y:750}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:50}_1-{X:0 Y:150}_1-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:300}_0-{X:0 Y:325}_1-{X:0 Y:350}_0-{X:0 Y:400}_1-{X:0 Y:425}_2-{X:0 Y:475}_2-{X:0 Y:575}_1-{X:0 Y:675}_0-{X:0 Y:725}_1-{X:0 Y:750}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="ThirdFloorCorner" />
+              <BottomCornerGraphicTag Value="ThirdFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="ThirdFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="ThirdFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="ThirdFloorReverse200" />
+              <FirstTopTileGraphicTag Value="ThirdFloor50" />
+              <SecondTopTileGraphicTag Value="ThirdFloor100" />
+              <ThirdTopTileGraphicTag Value="ThirdFloor200" />
+              <FirstWallTileGraphicTag Value="ThirdFloorVertical50" />
+              <SecondWallTileGraphicTag Value="ThirdFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="ThirdFloorVertical200" />
+              <CenterTileGraphicTag Value="VioletTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="3" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="5">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsVentpipe2" />
+              <DrawLayer Value="0.101" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:159 Y:-667}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Conduit" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsContBox2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-186 Y:-528}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:148 G:148 B:148 A:255}" />
+              <NickName Value="boxbig" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsContBox3" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-264 Y:-520}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:148 G:148 B:148 A:255}" />
+              <NickName Value="box" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-309 Y:-514}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="fence" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-249 Y:-514}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="fence" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence4" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-198 Y:-514}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="fence" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsBrokenScreen" />
+              <DrawLayer Value="0.101" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-303 Y:-433}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:191 G:191 B:191 A:255}" />
+              <NickName Value="Screen" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsBrokenScreenSmall" />
+              <DrawLayer Value="0.101" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-206 Y:-462}" />
+              <RotationOffset Value="1.561" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:192 G:192 B:192 A:255}" />
+              <NickName Value="Screen" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="FrontPillars1" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-5604 Y:462}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="2500" />
+              <DrawLayer Value="0.998" />
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.7 Y:-0.7}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="Pillars" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="FrontPillars2" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-4248 Y:-376}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="4500" />
+              <DrawLayer Value="0.998" />
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.7 Y:-0.7}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="Pillars" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="BIGPlateforme100" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1258 Y:-459}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="DressingPlatform" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:63 G:63 B:63 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsTable" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:3 Y:-84}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:127 G:127 B:127 A:255}" />
+              <NickName Value="tbale" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsChair1" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-44 Y:-84}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:127 G:127 B:127 A:255}" />
+              <NickName Value="chair" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsChair2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:66 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:127 G:127 B:127 A:255}" />
+              <NickName Value="chair" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-42 Y:-141}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:85 G:85 B:85 A:255}" />
+              <NickName Value="chair" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SMALLPlateforme900" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-2561 Y:-409}" />
+              <Rotation Value="0" />
+              <Scale Value="3" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="DressingPlatform2" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="PLATEFORME" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingForegroundCosmeticsLamp1" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:33 Y:-288}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:21 G:21 B:21 A:255}" />
+              <NickName Value="LAMP" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsFence1" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:3 Y:-216}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:21 G:21 B:21 A:255}" />
+              <NickName Value="FENCE" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingVentsLedge" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:-243 Y:-147}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="PLATEFORME" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsFence2" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:-357 Y:-216}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:21 G:21 B:21 A:255}" />
+              <NickName Value="FENCE" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsFence3" />
+              <DrawLayer Value="0.899" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:-177 Y:-216}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:21 G:21 B:21 A:255}" />
+              <NickName Value="FENCE" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="ExitLevelLight" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-806 Y:99}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+        </Components>
+      </Entity>
+      <Entity Name="IndoorLight" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:877 Y:-201}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsLamp2" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-276 Y:156}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Left" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsLamp2" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:216 Y:156}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Right" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:240 Y:180}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="AtmoblurRight" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-276 Y:174}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="AtmoblurLeft" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="OutdoorLight" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-472 Y:71}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <StartingFrame Value="1" />
+              <Reverse Value="True" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="6" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXBigLightFull" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Lamp01" />
+              <IsLooped Value="True" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <StartingFrame Value="1" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="5" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXPinkParticleFull" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:20 Y:-45}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Particle01" />
+              <IsLooped Value="True" />
+            </Properties>
+          </Spritesheet>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblurPink" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-42}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Atmoblur" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="OutdoorLight" Layer="DressingLevel">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-710 Y:168}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <StartingFrame Value="1" />
+              <Reverse Value="True" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="4" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle01" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Particle" />
+              <IsLooped Value="True" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <StartingFrame Value="1" />
+              <Reverse Value="True" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="True" />
+              <DelayBeforeLoopAgain Value="5" />
+              <InvisibleDuringDelay Value="True" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="EnvFXFrontParticle03" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:375 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="Particle02" />
+              <IsLooped Value="True" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
