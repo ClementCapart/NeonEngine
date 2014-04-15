@@ -232,7 +232,7 @@ namespace NeonStarLibrary.Components.Avatar
             }
                 
 
-            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 if (CurrentElementEffect != null)
                 {
@@ -262,7 +262,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 if (AvatarComponent.CanAttack && AvatarComponent.CanMove && AvatarComponent.CanTurn && AvatarComponent.CanUseElement)
                 {
@@ -304,7 +304,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 if (CurrentElementEffect != null)
                 {

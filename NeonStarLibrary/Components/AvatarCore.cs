@@ -21,6 +21,7 @@ namespace NeonStarLibrary.Components.Avatar
         Stunlocked,
         UsingElement,
         Dying,
+        FastRespawning,
         Respawning,
         Saving,
         FinishSaving,
@@ -261,7 +262,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (State == AvatarState.Respawning)
+            if (State == AvatarState.FastRespawning)
             {
                 CanMove = false;
                 CanAttack = false;
@@ -282,7 +283,7 @@ namespace NeonStarLibrary.Components.Avatar
                 CanRoll = false;
                
             }
-            if (State != AvatarState.Dying && State != AvatarState.Respawning)
+            if (State != AvatarState.Dying && State != AvatarState.FastRespawning)
             {
                 if (CurrentHealthPoints <= 0 && State != AvatarState.Dying)
                 {
@@ -325,7 +326,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(GameTime gameTime)
         {
-            if (State != AvatarState.Dying && State != AvatarState.Respawning && State != AvatarState.Saving && State != AvatarState.FinishSaving)
+            if (State != AvatarState.Dying && State != AvatarState.FastRespawning && State != AvatarState.Saving && State != AvatarState.FinishSaving)
             {
                 if (_invincibilityTimer > 0.0f)
                 {

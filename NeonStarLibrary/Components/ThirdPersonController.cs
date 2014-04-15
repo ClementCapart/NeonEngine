@@ -195,7 +195,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning)
+            if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 for (int i = _ignoredGeometry.Count - 1; i >= 0; i--)
                 {

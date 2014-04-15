@@ -70,7 +70,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                         _avatar.CurrentHealthPoints -= _healthPointsLoss;
                         if (_avatar.CurrentHealthPoints > 0.0f)
                         {
-                            _avatar.State = AvatarState.Respawning;
+                            _avatar.State = AvatarState.FastRespawning;
                             entity.GameWorld.Camera.ChaseStrength = CameraChaseStrengthReset;
                             entity.GameWorld.Camera.ChaseStrengtheningRate = CameraChaseStrengtheningRate;
                             if ((entity.GameWorld as GameScreen).InstantRespawnPoint != new Vector2(float.MaxValue, float.MaxValue))

@@ -98,22 +98,27 @@ namespace NeonStarLibrary
                     if (File.Exists(@"../data/Prefabs/HUD.prefab"))
                         DataManager.LoadPrefab(@"../Data/Prefabs/HUD.prefab", this);
                     Avatar.transform.Position = currentSpawnPoint.Position;
-                    _avatarComponent = Avatar.GetComponent<AvatarCore>();
-                    CameraFocus = Avatar.GetComponent<CameraFocus>();
-                    if (_avatarComponent != null)
-                    {
-                        LoadAvatarStatus(_avatarComponent, respawning);
-                        _avatarComponent.CurrentSide = currentSpawnPoint.Side;
-                    }
+                    
                 }         
             }
             else
                 Console.WriteLine("Warning : SpawnPoint "+ startingSpawnPointIndex + " not found, Avatar won't be created, please select an existing SpawnPoint");
 
+
             if(levelName != "")
                 LoadLevel(new Level(groupName, levelName, this, true));
-            if(Avatar != null)
-                Avatar.transform.Position = currentSpawnPoint.Position;
+            if (Avatar != null)
+            {
+                _avatarComponent = Avatar.GetComponent<AvatarCore>();
+                CameraFocus = Avatar.GetComponent<CameraFocus>();
+                if (_avatarComponent != null)
+                {
+                    LoadAvatarStatus(_avatarComponent, respawning);
+                    _avatarComponent.CurrentSide = currentSpawnPoint.Side;
+                }
+                if(!respawning)
+                    Avatar.transform.Position = currentSpawnPoint.Position;
+            }
             Camera.Bounded = true;
 
             if (_statusToLoad != null)
@@ -169,7 +174,21 @@ namespace NeonStarLibrary
                 }
 
                 if(respawning)
-                    _avatarComponent.State = AvatarState.Respawning;
+                {
+                    _avatarComponent.State = AvatarState.FastRespawning;
+
+                    Entity e = GetEntityByName("SavePoint");
+                    if (e != null)
+                    {
+                        _avatarComponent.entity.transform.Position = e.transform.Position;
+                        SaveRoom saveRoom = e.GetComponent<SaveRoom>();
+                        if (saveRoom != null)
+                        {
+                            saveRoom.Respawn();
+                        }
+                    }
+
+                }
 
                 if (Avatar != null)
                 {

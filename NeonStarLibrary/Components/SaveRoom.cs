@@ -170,6 +170,7 @@ namespace NeonStarLibrary.Components.GameplayElements
         private Entity _rightScreens;
 
         private SpriteSheet _ceiling;
+        private bool _wasRespawning = false;
 
         private bool _startSave = false;
         private bool _finishSave = false;
@@ -323,7 +324,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
                     if (_avatar != null && _avatar.spritesheets != null && _avatar.spritesheets.CurrentSpritesheet.opacity <= 0.0f)
                     {
-                        SaveCheckPoint();
+                        if(!_wasRespawning) SaveCheckPoint();
                         if (_cabin != null && _cabin.spritesheets != null)
                             _cabin.spritesheets.ChangeAnimation("StartClosing", 0, true, false, false);
                     }
@@ -421,7 +422,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                 {
                     if (_avatar.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                     {
-                        if (Neon.Input.Pressed(NeonStarInput.Interact) && _avatar.rigidbody != null && _avatar.rigidbody.isGrounded)
+                        if (Neon.Input.Pressed(NeonStarInput.Interact)  && _avatarComponent.State == AvatarState.Idle && _avatar.rigidbody != null && _avatar.rigidbody.isGrounded)
                         {
                             if (_leftColumn != null && _leftColumn.spritesheets != null)
                                 _leftColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
@@ -438,8 +439,6 @@ namespace NeonStarLibrary.Components.GameplayElements
                                 _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
                             if (_yButton != null)
                                 _yButton.Active = false;
-
-                            
 
                             _avatarComponent.State = AvatarState.Idle;
                             _avatarComponent.CanMove = false;
@@ -465,8 +464,47 @@ namespace NeonStarLibrary.Components.GameplayElements
             HealStation._usedHealStations.Clear();        
         }
 
+        internal void Respawn()
+        {
+            _wasRespawning = true;
 
+            if (_leftColumn != null && _leftColumn.spritesheets != null)
+                _leftColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_rightColumn != null && _rightColumn.spritesheets != null)
+                _rightColumn.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_background != null && _background.spritesheets != null)
+                _background.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
 
+            if (_leftLamp != null && _leftLamp.spritesheets != null)
+                _leftLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_rightLamp != null && _rightLamp.spritesheets != null)
+                _rightLamp.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_ground != null && _ground.spritesheets != null)
+                _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
+            if (_yButton != null)
+                _yButton.Active = false;
 
+            _avatarComponent.State = AvatarState.Respawning;
+            _avatarComponent.CanMove = false;
+            _avatarComponent.CanTurn = false;
+            _avatarComponent.CanRoll = false;
+            _avatarComponent.CanAttack = false;
+            _avatarComponent.CanUseElement = false;
+            _startSave = true;
+            _startActualSave = true;
+            _cabin.spritesheets.ChangeAnimation("Scanning", 0, true, false, false);
+            if (_pipes != null && _pipes.spritesheets != null)
+                _pipes.spritesheets.ChangeAnimation("Lighting", 0, true, false, true);
+
+            if (_leftScreens != null)
+            {
+                _leftScreens.spritesheets.ChangeAnimation("Load", 0, true, false, true);
+            }
+            if (_rightScreens != null)
+            {
+                _rightScreens.spritesheets.ChangeAnimation("Load", 0, true, false, true);
+            }
+            _finishSave = true;
+        }
     }
 }
