@@ -190,6 +190,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Init()
         {
+
             _finalTexture = new RenderTarget2D(Neon.GraphicsDevice, (int)entity.hitboxes[0].Width, (int)entity.hitboxes[0].Height);
             _topCornerTexture = AssetManager.GetTexture(_topCornerGraphicTag);
             _bottomCornerTexture = AssetManager.GetTexture(_bottomCornerGraphicTag);
