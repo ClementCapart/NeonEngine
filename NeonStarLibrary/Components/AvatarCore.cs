@@ -24,6 +24,7 @@ namespace NeonStarLibrary.Components.Avatar
         Respawning,
         Saving,
         FinishSaving,
+        ChangingLevel
     }
 
     public enum DamageResult
@@ -271,6 +272,15 @@ namespace NeonStarLibrary.Components.Avatar
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 if (entity.spritesheets.CurrentSpritesheetName == RespawnAnimation && entity.spritesheets.IsFinished())
                     State = AvatarState.Idle;
+            }
+            else if (State == AvatarState.ChangingLevel)
+            {
+                CanMove = false;
+                CanAttack = false;
+                CanTurn = false;
+                CanUseElement = false;
+                CanRoll = false;
+               
             }
             if (State != AvatarState.Dying && State != AvatarState.Respawning)
             {

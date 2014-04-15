@@ -254,6 +254,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                 _leftLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoop = true;
                 _leftLamp.spritesheets.CurrentSpritesheet.InvisibleDuringDelay = false;
                 _leftLamp.spritesheets.CurrentSpritesheet.DelayBeforeLoopAgain = 0.5f;
+                _leftLamp.spritesheets.Offset -= new Vector2(1, 0);
             }
             if (_rightLamp != null && _rightLamp.spritesheets.CurrentSpritesheetName == "Lighting" && _rightLamp.spritesheets.IsFinished())
             {

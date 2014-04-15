@@ -1,5 +1,6 @@
 ﻿using NeonEngine;
 using NeonEngine.Components.Triggers;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,11 +43,36 @@ namespace NeonStarLibrary.Components.Triggers
             RequiredComponents = new Type[] { typeof(HitboxTrigger) };
         }
 
+        public override void Init()
+        {
+            if (entity.spritesheets != null)
+                entity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
+            base.Init();
+        }
+
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == "Opening" && entity.spritesheets.IsFinished())
+                entity.spritesheets.ChangeAnimation("Opened");
+            base.Update(gameTime);
+        }
+
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + "/" + LevelName + "_Info.xml"))
             {
                 entity.GameWorld.ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation("Closing", 0, true, false, false);
+                if (entity.GameWorld.Avatar != null && entity.GameWorld.Avatar.spritesheets != null)
+                {
+                    AvatarCore ac = entity.GameWorld.Avatar.GetComponent<AvatarCore>();
+                    if (ac != null)
+                    {
+                        entity.GameWorld.Avatar.spritesheets.Active = false;
+                        ac.State = AvatarState.ChangingLevel;
+                    }
+                }
             } 
             else
             {

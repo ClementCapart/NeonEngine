@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="ChangeLevelEntrance" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <Position Value="{X:-760 Y:26}" />
+          <InitialPosition Value="{X:-760 Y:26}" />
+          <Rotation Value="0" />
+          <Scale Value="2" />
+          <NickName Value="" />
+        </Properties>
+      </Transform>
+      <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+        <Properties>
+          <GroupName Value="01TrainingLevel" />
+          <LevelName Value="01TrainingEntrance" />
+          <SpawnPointIndex Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </ChangeLevel>
+      <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+        <Properties>
+          <OneShot Value="True" />
+          <TriggerEveryFrame Value="False" />
+          <TriggeringEntityName Value="LiOn" />
+          <TriggeredEntityName Value="ChangeLevelEntrance" />
+          <TriggeredComponentName Value="ChangeLevel" />
+          <NickName Value="" />
+        </Properties>
+      </HitboxTrigger>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Trigger" />
+          <Center Value="{X:-760 Y:26}" />
+          <X Value="-810" />
+          <Y Value="-124" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="100" />
+          <Height Value="300" />
+          <NickName Value="" />
+        </Properties>
+      </Hitbox>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:96 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Closing" SpritesheetTag="TransitionDoorClosing" />
+            <Animation Name="Opening" SpritesheetTag="TransitionDoorOpening" />
+            <Animation Name="Closed" SpritesheetTag="TransitionDoorClosed" />
+            <Animation Name="Opened" SpritesheetTag="TransitionDoorOpened" />
+          </Spritesheets>
+          <DrawLayer Value="0.51" />
+          <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
+        </Properties>
+      </SpritesheetManager>
+    </Components>
+  </Entity>
+</Prefab>
