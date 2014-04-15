@@ -33,6 +33,22 @@ namespace NeonEngine.Components.Camera
             get { return _enableBounds; }
             set { _enableBounds = value; }
         }
+
+        private bool _shouldChangeBoundStrength = false;
+
+        public bool ShouldChangeBoundStrength
+        {
+          get { return _shouldChangeBoundStrength; }
+          set { _shouldChangeBoundStrength = value; }
+        }
+
+        private float _targetBoundStrength = 0.0f;
+
+        public float TargetBoundStrength
+        {
+            get { return _targetBoundStrength; }
+            set { _targetBoundStrength = value; }
+        }
         #endregion
 
         private CameraBound _bound;
@@ -57,9 +73,37 @@ namespace NeonEngine.Components.Camera
                 if (_bound.SoftBound)
                 {
                     if (_switchBoundsOnly)
+                    {
                         _bound.ReverseBound = !_bound.ReverseBound;
+
+                        if (_shouldChangeBoundStrength)
+                        {
+                            _bound.BoundStrength = _targetBoundStrength;
+                        }
+                        else
+                        {
+                            if (_bound.ReverseBound)
+                                _bound.BoundStrength = 1.0f;
+                            else
+                                _bound.BoundStrength = 0.0f;
+                        }                       
+                    }
                     else
+                    {
                         _bound.ReverseBound = !EnableBounds;
+                        if (_shouldChangeBoundStrength)
+                        {
+                            _bound.BoundStrength = _targetBoundStrength;
+                        }
+                        else
+                        {
+                            if (_bound.ReverseBound)
+                                _bound.BoundStrength = 1.0f;
+                            else
+                                _bound.BoundStrength = 0.0f;
+                        }
+                        
+                    }
                 }
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);

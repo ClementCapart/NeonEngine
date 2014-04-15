@@ -11,7 +11,7 @@ namespace NeonEngine.Components.Camera
     {
         Side _boundSide;
 
-        private bool _reverseBound = false;
+        public bool _reverseBound = false;
 
         public bool ReverseBound
         {
