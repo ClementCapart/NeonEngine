@@ -5,10 +5,10 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-648.4935 Y:182.9925}" />
-          <InitialPosition Value="{X:-648.4935 Y:182.9925}" />
+          <Position Value="{X:608.9999 Y:182.9925}" />
+          <InitialPosition Value="{X:608.9999 Y:182.9925}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
           <NickName Value="" />
         </Properties>
       </Transform>
@@ -32,12 +32,12 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-648 Y:182}" />
-          <X Value="-698" />
+          <Center Value="{X:608 Y:182}" />
+          <X Value="533" />
           <Y Value="82" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
-          <Width Value="100" />
+          <Width Value="150" />
           <Height Value="200" />
           <NickName Value="" />
         </Properties>
@@ -45,14 +45,14 @@
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="3">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="20" />
+          <StartingHealthPoints Value="50" />
           <CoreElement Value="Neutral" />
-          <CurrentHealthPoints Value="20" />
+          <CurrentHealthPoints Value="50" />
           <ChanceToDropHealth Value="0.6" />
           <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
-          <RunAnim Value="" />
-          <IdleAnim Value="" />
+          <RunAnim Value="Move" />
+          <IdleAnim Value="Idle" />
           <DyingAnim Value="" />
           <HitAnim Value="" />
           <StunlockAnim Value="" />
@@ -65,7 +65,7 @@
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <NickName Value="" />
         </Properties>
       </EnemyCore>
@@ -75,28 +75,78 @@
           <CanTurn Value="True" />
           <RangeForAttackOne Value="500" />
           <AttackToLaunchOne Value="BisonDash" />
-          <AttackOneDelayAnimation Value="" />
-          <AttackOneDurationAnimation Value="" />
-          <AttackOneCooldownAnimation Value="" />
+          <AttackOneDelayAnimation Value="DashDelay" />
+          <AttackOneDurationAnimation Value="DashDuration" />
+          <AttackOneCooldownAnimation Value="DashCooldown" />
           <RangeForAttackTwo Value="500" />
           <AttackToLaunchTwo Value="BisonJump" />
-          <AttackTwoDelayAnimation Value="" />
-          <AttackTwoDurationAnimation Value="" />
-          <AttackTwoCooldownAnimation Value="" />
+          <AttackTwoDelayAnimation Value="JumpDelay" />
+          <AttackTwoDurationAnimation Value="JumpDuration" />
+          <AttackTwoCooldownAnimation Value="JumpCooldown" />
           <RangeForAttackThree Value="100" />
           <AttackToLaunchThree Value="BisonBackDash" />
-          <AttackThreeDelayAnimation Value="" />
-          <AttackThreeDurationAnimation Value="" />
-          <AttackThreeCooldownAnimation Value="" />
+          <AttackThreeDelayAnimation Value="BackDelay" />
+          <AttackThreeDurationAnimation Value="BackDuration" />
+          <AttackThreeCooldownAnimation Value="BackCooldown" />
           <RangeForAttackFour Value="100" />
           <AttackToLaunchFour Value="BisonBurst" />
-          <AttackFourDelayAnimation Value="" />
-          <AttackFourDurationAnimation Value="" />
-          <AttackFourCooldownAnimation Value="" />
+          <AttackFourDelayAnimation Value="BurstDelay" />
+          <AttackFourDurationAnimation Value="BurstDuration" />
+          <AttackFourCooldownAnimation Value="BurstCooldown" />
           <EntityToAttackName Value="LiOn" />
           <NickName Value="" />
+          <RandomBalanceRate Value="20" />
         </Properties>
       </AreaAttack>
+      <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
+        <Properties>
+          <CanChangeSide Value="False" />
+          <NickName Value="" />
+        </Properties>
+      </EnemyAnimationManager>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+        <Properties>
+          <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Idle" SpritesheetTag="IdlePlaceholder" />
+            <Animation Name="DashDelay" SpritesheetTag="1DelayPlaceholder" />
+            <Animation Name="DashDuration" SpritesheetTag="1DurationPlaceholder" />
+            <Animation Name="DashCooldown" SpritesheetTag="1CooldownPlaceholder" />
+            <Animation Name="JumpDelay" SpritesheetTag="2DelayPlaceholder" />
+            <Animation Name="JumpDuration" SpritesheetTag="2DurationPlaceholder" />
+            <Animation Name="JumpCooldown" SpritesheetTag="2CooldownPlaceholder" />
+            <Animation Name="BackDelay" SpritesheetTag="3DelayPlaceholder" />
+            <Animation Name="BackDuration" SpritesheetTag="3DurationPlaceholder" />
+            <Animation Name="BackCooldown" SpritesheetTag="3CooldownPlaceholder" />
+            <Animation Name="BurstDelay" SpritesheetTag="4DelayPlaceholder" />
+            <Animation Name="BurstDuration" SpritesheetTag="4DurationPlaceholder" />
+            <Animation Name="BurstCooldown" SpritesheetTag="4CooldownPlaceholder" />
+            <Animation Name="Move" SpritesheetTag="MovePlaceholder" />
+          </Spritesheets>
+          <DrawLayer Value="0" />
+          <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
+        </Properties>
+      </SpritesheetManager>
+      <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="7">
+        <Properties>
+          <CheckBothSide Value="True" />
+          <RaycastOffset Value="{X:0 Y:0}" />
+          <EntityToChaseName Value="LiOn" />
+          <DetectionDistance Value="900" />
+          <WaitStopDuration Value="1" />
+          <ChaseSpeed Value="5" />
+          <ChasePrecision Value="10" />
+          <NickName Value="" />
+        </Properties>
+      </GroundChase>
     </Components>
   </Entity>
 </Prefab>
