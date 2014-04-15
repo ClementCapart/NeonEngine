@@ -161,7 +161,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1075 Y:100}" />
+              <InitialPosition Value="{X:-1125 Y:100}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -170,8 +170,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-1075 Y:100}" />
-              <X Value="-1100" />
+              <Center Value="{X:-1124 Y:100}" />
+              <X Value="-1149" />
               <Y Value="-50" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -689,7 +689,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:125 Y:0}_2-{X:150 Y:0}_1-{X:175 Y:0}_1-{X:275 Y:0}_2-{X:375 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_2-{X:850 Y:0}_0-{X:875 Y:0}_1-{X:925 Y:0}_0-{X:1025 Y:0}_0-{X:1075 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:25 Y:0}_1-{X:75 Y:0}_0-{X:175 Y:0}_0-{X:225 Y:0}_2-{X:275 Y:0}_2-{X:300 Y:0}_2-{X:325 Y:0}_2-{X:350 Y:0}_0-{X:375 Y:0}_0-{X:425 Y:0}_2-{X:475 Y:0}_0-{X:500 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_0-{X:675 Y:0}_2-{X:725 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_2-{X:825 Y:0}_0-{X:850 Y:0}_2-{X:900 Y:0}_2-{X:925 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_2-{X:1075 Y:0}_2-{X:1100 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-23 Y:0}" />
               <IsHUD Value="False" />
@@ -726,7 +726,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:75 Y:0}_2-{X:125 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:25 Y:0}_0-{X:75 Y:0}_2-{X:125 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:-2 Y:0}" />
               <IsHUD Value="False" />
@@ -873,7 +873,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1049 Y:100}" />
+              <InitialPosition Value="{X:-1100 Y:100}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -900,8 +900,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-1049 Y:100}" />
-              <X Value="-1099" />
+              <Center Value="{X:-1100 Y:100}" />
+              <X Value="-1150" />
               <Y Value="-50" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1506,7 +1506,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -1527,7 +1527,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.35" />
+              <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -1546,7 +1546,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="75" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -1578,7 +1578,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorFrontTop" />
               <DrawLayer Value="0.9" />
-              <IsFinished Value="True" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1638,7 +1638,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlight" />
               <DrawLayer Value="0.7" />
-              <IsFinished Value="True" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1686,7 +1686,7 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="75" />
+              <TilingWidth Value="0" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
@@ -1695,7 +1695,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:-37.5 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1739,7 +1739,7 @@
               <Mass Value="1.31995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />

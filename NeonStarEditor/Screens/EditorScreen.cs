@@ -864,7 +864,7 @@ namespace NeonStarEditor
                 ManagingInspector = false;
             }
 
-            if (SelectedEntity != null)
+            if (SelectedEntity != null && FocusedNumericUpDown == null && FocusedTextBox == null)
             {
                 if (Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl))
                 {
