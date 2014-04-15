@@ -143,6 +143,7 @@ namespace NeonStarLibrary.Components.Scripts
                         _scanningTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                         if (_avatar != null)
                         {
+                            _avatar.entity.transform.Position = new Vector2(MathHelper.Lerp(_avatar.entity.transform.Position.X, entity.transform.Position.X, 0.5f), _avatar.entity.transform.Position.Y);
                             _avatar.CanMove = false;
                             _avatar.CanAttack = false;
                             _avatar.CanRoll = false;
