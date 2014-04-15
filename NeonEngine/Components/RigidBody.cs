@@ -342,24 +342,7 @@ namespace NeonEngine.Components.CollisionDetection
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (body != null)
-            {
-                if (hitbox != null)
-                {
-                    if (Sensors)
-                    {
-                        wasGrounded = isGrounded;
-                        beacon.Update(gameTime);
-                        Rigidbody rg = beacon.CheckGround(Vector2.Zero, body);
-                        if (rg != null)
-                            isGrounded = rg.isGround ? true : false;
-                        else
-                            isGrounded = false;
-                        if (!isGrounded && !body.Awake)
-                            body.Awake = true;
-                    }
-                }
-            }
+            
             base.PreUpdate(gameTime);
         }
 
@@ -408,6 +391,29 @@ namespace NeonEngine.Components.CollisionDetection
             if (entity.GameWorld.FirstUpdate)
                 isGrounded = true;
             base.PostUpdate(gameTime);
+        }
+
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            if (body != null)
+            {
+                if (hitbox != null)
+                {
+                    if (Sensors)
+                    {
+                        wasGrounded = isGrounded;
+                        beacon.Update(gameTime);
+                        Rigidbody rg = beacon.CheckGround(Vector2.Zero, body);
+                        if (rg != null)
+                            isGrounded = rg.isGround ? true : false;
+                        else
+                            isGrounded = false;
+                        if (!isGrounded && !body.Awake)
+                            body.Awake = true;
+                    }
+                }
+            }
+            base.FinalUpdate(gameTime);
         }
 
         public override void Remove()

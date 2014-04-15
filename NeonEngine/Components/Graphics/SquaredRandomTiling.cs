@@ -174,7 +174,6 @@ namespace NeonEngine.Components.Graphics2D
         private Texture2D _centerTexture;
 
         private Vector2[] _cornerPositions;
-        RenderTarget2D _finalTexture;
 
         Dictionary<Texture2D, List<Vector2>> _topRandomResult = new Dictionary<Texture2D, List<Vector2>>();
         Dictionary<Texture2D, List<Vector2>> _bottomRandomResult = new Dictionary<Texture2D, List<Vector2>>();
