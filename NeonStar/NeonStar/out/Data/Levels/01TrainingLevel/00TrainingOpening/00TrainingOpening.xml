@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-195 Y:-17189}" />
+              <InitialPosition Value="{X:-191 Y:-17223}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -23,9 +23,9 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="RedIdle" SpritesheetTag="FloorStopRedButton" />
-                <Animation Name="GreenIdle" SpritesheetTag="FloorStopGreenButtonIdle" />
-                <Animation Name="Activation" SpritesheetTag="FloorStopGreenButtonActivation" />
+                <Animation Name="RedIdle" SpritesheetTag="BoutonRougeIdle" />
+                <Animation Name="GreenIdle" SpritesheetTag="BoutonVertIdle" />
+                <Animation Name="Activation" SpritesheetTag="BoutonRedToGreen" />
               </Spritesheets>
               <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
@@ -47,9 +47,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-202 Y:-17235}" />
-              <X Value="-232" />
-              <Y Value="-17260" />
+              <Center Value="{X:-198 Y:-17269}" />
+              <X Value="-228" />
+              <Y Value="-17294" />
               <OffsetX Value="-7" />
               <OffsetY Value="-46.4" />
               <Width Value="60" />
@@ -61,6 +61,7 @@
             <Properties>
               <FadingSpeed Value="4" />
               <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
               <StartingFrame Value="0" />
               <Reverse Value="False" />
               <ChangeSideEveryLoop Value="False" />
@@ -176,7 +177,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-978 Y:-19441}" />
+              <InitialPosition Value="{X:-978 Y:-17480}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -202,9 +203,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:-978 Y:-19446}" />
+              <Center Value="{X:-978 Y:-17480}" />
               <X Value="-1003" />
-              <Y Value="-19846" />
+              <Y Value="-17880" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -226,7 +227,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-278 Y:-19441}" />
+              <InitialPosition Value="{X:-278 Y:-17480}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -242,7 +243,7 @@
               <Mass Value="0" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -252,9 +253,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="None" />
-              <Center Value="{X:-278 Y:-19446}" />
+              <Center Value="{X:-278 Y:-17480}" />
               <X Value="-303" />
-              <Y Value="-19846" />
+              <Y Value="-17880" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
