@@ -17,6 +17,22 @@ namespace NeonEngine.Components.Camera
             get { return _boundName; }
             set { _boundName = value; }
         }
+
+        private bool _switchBoundsOnly = false;
+
+        public bool SwitchBoundsOnly
+        {
+            get { return _switchBoundsOnly; }
+            set { _switchBoundsOnly = value; }
+        }
+
+        private bool _enableBounds = false;
+
+        public bool EnableBounds
+        {
+            get { return _enableBounds; }
+            set { _enableBounds = value; }
+        }
         #endregion
 
         private CameraBound _bound;
@@ -40,7 +56,10 @@ namespace NeonEngine.Components.Camera
             {
                 if (_bound.SoftBound)
                 {
-                    _bound.ReverseBound = !_bound.ReverseBound;
+                    if (_switchBoundsOnly)
+                        _bound.ReverseBound = !_bound.ReverseBound;
+                    else
+                        _bound.ReverseBound = !EnableBounds;
                 }
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);

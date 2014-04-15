@@ -18,7 +18,6 @@ namespace NeonEngine
         static public Color FadeColor = Color.Black;
         static public Color ClearColor = new Color(40, 40, 40);
 
-
         static public ScriptingEngine NeonScripting;
         static public List<Type> Scripts;
 
