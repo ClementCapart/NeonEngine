@@ -679,8 +679,7 @@ namespace NeonStarLibrary
 
                                         if ((bool)ae.Parameters[3])
                                             entityToFollow = _entity;
-                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);
-                            
+                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), 1.0f, entityToFollow);                         
                                 }
                             }
                            
@@ -726,8 +725,9 @@ namespace NeonStarLibrary
                         {
                             if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
                             {
-                                Effect(hb.entity, hb);    
-                                _alreadyTouched.Add(hb, _multiHitDelay);
+                                Effect(hb.entity, hb); 
+                                if(hb.Type != HitboxType.Invincible)
+                                    _alreadyTouched.Add(hb, _multiHitDelay);
                             }
                         }                      
                     }
