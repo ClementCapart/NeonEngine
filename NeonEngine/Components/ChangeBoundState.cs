@@ -79,14 +79,7 @@ namespace NeonEngine.Components.Camera
                         if (_shouldChangeBoundStrength)
                         {
                             _bound.BoundStrength = _targetBoundStrength;
-                        }
-                        else
-                        {
-                            if (_bound.ReverseBound)
-                                _bound.BoundStrength = 1.0f;
-                            else
-                                _bound.BoundStrength = 0.0f;
-                        }                       
+                        }                      
                     }
                     else
                     {
@@ -94,13 +87,6 @@ namespace NeonEngine.Components.Camera
                         if (_shouldChangeBoundStrength)
                         {
                             _bound.BoundStrength = _targetBoundStrength;
-                        }
-                        else
-                        {
-                            if (_bound.ReverseBound)
-                                _bound.BoundStrength = 1.0f;
-                            else
-                                _bound.BoundStrength = 0.0f;
                         }
                         
                     }
