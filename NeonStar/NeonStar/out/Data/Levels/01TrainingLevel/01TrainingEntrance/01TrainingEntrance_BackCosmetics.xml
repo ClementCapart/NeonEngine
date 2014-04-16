@@ -249,10 +249,26 @@
               <NickName Value="" />
             </Properties>
           </Transform>
-          <SpritesheetRandomizer Type="NeonEngine.Components.Graphics2D.SpritesheetRandomizer" ID="1">
+          <AnimatedScreen Type="NeonStarLibrary.Components.Scripts.AnimatedScreen" ID="2">
             <Properties>
-              <DelayBetweenAnimation Value="0.1" />
-              <CanPlayTheSameTwice Value="False" />
+              <MinimumProcTimer Value="1" />
+              <MaximumProcTimer Value="3" />
+              <IdleAnimation Value="Normal" />
+              <FirstAnimation Value="Blurred1" />
+              <FirstAnimationRate Value="30" />
+              <SecondAnimation Value="Blurred2" />
+              <SecondAnimationRate Value="30" />
+              <ThirdAnimation Value="Blurred3" />
+              <ThirdAnimationRate Value="40" />
+              <FourthAnimationRate Value="0" />
+              <FourthAnimation Value="" />
+              <FifthAnimation Value="" />
+              <FifthAnimationRate Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </AnimatedScreen>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
@@ -261,16 +277,17 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Anim0" SpritesheetTag="ScannerInfosNormal" />
-                <Animation Name="Anim1" SpritesheetTag="ScannerInfosBlurred1" />
-                <Animation Name="Anim2" SpritesheetTag="ScannerInfosBlurred2" />
+                <Animation Name="Blurred1" SpritesheetTag="ScannerInfosBlurred1" />
+                <Animation Name="Blurred2" SpritesheetTag="ScannerInfosBlurred2" />
+                <Animation Name="Blurred3" SpritesheetTag="ScannerInfosBlurred3" />
+                <Animation Name="Normal" SpritesheetTag="ScannerInfosNormal" />
               </Spritesheets>
-              <DrawLayer Value="0.4" />
+              <DrawLayer Value="0" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
-          </SpritesheetRandomizer>
+          </SpritesheetManager>
         </Components>
       </Entity>
     </Entities>
