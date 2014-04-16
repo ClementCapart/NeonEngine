@@ -163,7 +163,10 @@ namespace NeonStarLibrary.Components.Scripts
                         while (i < _animations.Count)
                         {
                             if (random > excludedPart && random < excludedPart + _animations.ElementAt(i).Value)
+                            {
                                 selectedAnimation = _animations.ElementAt(i).Key;
+                                break;
+                            }
                             else
                             {
                                 excludedPart += _animations.ElementAt(i).Value;

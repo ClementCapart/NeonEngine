@@ -203,10 +203,9 @@ namespace NeonStarEditor.Controls
         private void ChangeBackgroundColorButton_Click(object sender, EventArgs e)
         {
             DialogResult result = BackgroundColorDialog.ShowDialog();
-            // See if user pressed ok.
+
             if (result == DialogResult.OK)
             {
-                // Set form background to the selected color.
                 graphicView1.BackgroundColor = new Microsoft.Xna.Framework.Color(BackgroundColorDialog.Color.R, BackgroundColorDialog.Color.G, BackgroundColorDialog.Color.B, BackgroundColorDialog.Color.A);
             }
         }
