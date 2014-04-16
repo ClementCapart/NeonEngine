@@ -582,7 +582,34 @@ namespace NeonStarEditor
 
         public override void PreUpdate(GameTime gameTime)
         {
-            
+            if(Neon.Input.Check(Keys.LeftControl) || Neon.Input.Check(Keys.RightControl)) 
+            {
+                if(Neon.Input.Pressed(Keys.F12))
+                {
+                    foreach(Entity e in Entities)
+                    {
+                        foreach(NeonEngine.Component c in e.Components)
+                        {
+                            if(c.GetType().Equals(typeof(RandomTilableGraphic)))
+                                (c as RandomTilableGraphic).KeepTilingHash = true;
+                            else if(c.GetType().Equals(typeof(SquaredRandomTiling)))
+                                (c as SquaredRandomTiling).KeepTilingHash = true;
+                        }
+                    }
+                }
+                else if(Neon.Input.Pressed(Keys.F5))
+                {
+                    DeviceManager.AlreadyLoaded = false;
+                    DeviceManager.LoadDevicesInformation();
+                    GameScreen.CheckPointsData.Clear();
+                    HealStation._usedHealStations.Clear();
+                    CollectibleManager.ResetCollectibles();
+                    CollectibleManager.InitializeCollectibles(this);
+                    ReloadLevel();
+                }
+                
+            }
+
             ManageInspector();
             EntityChangedThisFrame = false;
             base.PreUpdate(gameTime);
