@@ -376,6 +376,8 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            if(CurrentEffect != null)
+                CurrentEffect.CurrentTechnique.Passes[0].Apply();
             if (_verticalTiling)
             {
                 float basePositionY = entity.transform.Position.Y - _tilingSize / 2;

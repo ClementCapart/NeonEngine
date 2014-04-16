@@ -531,6 +531,8 @@ namespace NeonEngine.Components.Graphics2D
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            if(CurrentEffect != null)
+                CurrentEffect.CurrentTechnique.Passes[0].Apply();
             if (_topCornerTexture != null)
             {
                 spriteBatch.Draw(_topCornerTexture, _cornerPositions[0] + _parallaxPosition + entity.transform.Position - new Vector2(entity.hitboxes[0].Width / 2, entity.hitboxes[0].Height / 2), null, MainColor, 0.0f, new Vector2(_topCornerTexture.Width / 2, _topCornerTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
