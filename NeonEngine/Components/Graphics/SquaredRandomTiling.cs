@@ -283,6 +283,8 @@ namespace NeonEngine.Components.Graphics2D
             }
 
             i = _tilingHash.IndexOf("_LEFT_");
+            if (_tilingHash.IndexOf("_RIGHT_") == -1)
+                return;
             string leftHash = _tilingHash.Substring(i + 6, _tilingHash.IndexOf("_RIGHT_") - i - 6);
 
             hashInfo = leftHash.Split('_');
