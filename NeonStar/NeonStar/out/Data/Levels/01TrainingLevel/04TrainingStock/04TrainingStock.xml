@@ -281,7 +281,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:175}_0-{X:0 Y:200}_0-{X:0 Y:250}" />
+              <TilingHash Value="0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:75}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:175}_1-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:275}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -375,7 +375,7 @@
               <Mass Value="5.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -432,7 +432,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1200 Y:-625}" />
+              <InitialPosition Value="{X:-1200 Y:-743}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -441,9 +441,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-1200 Y:-625}" />
+              <Center Value="{X:-1200 Y:-743}" />
               <X Value="-2800" />
-              <Y Value="-650" />
+              <Y Value="-768" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="3200" />
@@ -593,7 +593,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-700 Y:-112}" />
+              <InitialPosition Value="{X:-700 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -602,9 +602,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-700 Y:-112}" />
+              <Center Value="{X:-700 Y:-230}" />
               <X Value="-1000" />
-              <Y Value="-124" />
+              <Y Value="-242" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="600" />
@@ -927,7 +927,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1450 Y:-75}" />
+              <InitialPosition Value="{X:-1450 Y:-193}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -936,9 +936,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-1450 Y:-75}" />
+              <Center Value="{X:-1450 Y:-193}" />
               <X Value="-2800" />
-              <Y Value="-100" />
+              <Y Value="-218" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="2700" />
@@ -970,7 +970,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-150 Y:100}" />
+              <InitialPosition Value="{X:-150 Y:-18}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -979,9 +979,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-150 Y:100}" />
+              <Center Value="{X:-150 Y:-18}" />
               <X Value="-200" />
-              <Y Value="-50" />
+              <Y Value="-168" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -1013,7 +1013,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2000 Y:-112}" />
+              <InitialPosition Value="{X:-2000 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1022,9 +1022,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-2000 Y:-112}" />
+              <Center Value="{X:-2000 Y:-230}" />
               <X Value="-2150" />
-              <Y Value="-124" />
+              <Y Value="-242" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
@@ -1415,7 +1415,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2700 Y:-350}" />
+              <InitialPosition Value="{X:-2700 Y:-468}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1442,9 +1442,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-2700 Y:-350}" />
+              <Center Value="{X:-2700 Y:-468}" />
               <X Value="-2750" />
-              <Y Value="-600" />
+              <Y Value="-718" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -1459,7 +1459,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2596 Y:-348}" />
+              <InitialPosition Value="{X:-2596 Y:-466}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1509,7 +1509,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2750 Y:-350}" />
+              <InitialPosition Value="{X:-2750 Y:-468}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1518,9 +1518,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-2750 Y:-350}" />
+              <Center Value="{X:-2750 Y:-467}" />
               <X Value="-2775" />
-              <Y Value="-600" />
+              <Y Value="-717" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="50" />
@@ -1552,7 +1552,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1438 Y:97}" />
+              <InitialPosition Value="{X:1438 Y:100}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1561,9 +1561,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1438 Y:97}" />
+              <Center Value="{X:1438 Y:100}" />
               <X Value="1388" />
-              <Y Value="-53" />
+              <Y Value="-50" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -1940,7 +1940,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2500 Y:-25}" />
+              <InitialPosition Value="{X:-2500 Y:-143}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1965,7 +1965,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2500 Y:-745}" />
+              <InitialPosition Value="{X:-2500 Y:-863}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1990,7 +1990,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1500 Y:-745}" />
+              <InitialPosition Value="{X:-1500 Y:-863}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2015,7 +2015,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-500 Y:-745}" />
+              <InitialPosition Value="{X:-500 Y:-863}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2065,7 +2065,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-750 Y:-25}" />
+              <InitialPosition Value="{X:-750 Y:-143}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2090,7 +2090,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1500 Y:-25}" />
+              <InitialPosition Value="{X:-1500 Y:-143}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2258,7 +2258,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2165 Y:-111}" />
+              <InitialPosition Value="{X:-2165 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2296,7 +2296,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1836 Y:-111}" />
+              <InitialPosition Value="{X:-1836 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2334,7 +2334,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1618 Y:-112}" />
+              <InitialPosition Value="{X:-1618 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2372,7 +2372,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1285 Y:-112}" />
+              <InitialPosition Value="{X:-1285 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2410,7 +2410,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1017 Y:-112}" />
+              <InitialPosition Value="{X:-1017 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2448,7 +2448,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-385 Y:-112}" />
+              <InitialPosition Value="{X:-385 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2638,7 +2638,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1450 Y:-112}" />
+              <InitialPosition Value="{X:-1450 Y:-230}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2647,9 +2647,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-1450 Y:-112}" />
+              <Center Value="{X:-1450 Y:-230}" />
               <X Value="-1600" />
-              <Y Value="-124" />
+              <Y Value="-242" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
@@ -2880,7 +2880,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:75}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:225}_1-{X:0 Y:275}" />
+              <TilingHash Value="1-{X:0 Y:0}_1-{X:0 Y:25}_0-{X:0 Y:50}_0-{X:0 Y:100}_1-{X:0 Y:150}_0-{X:0 Y:175}_0-{X:0 Y:225}_1-{X:0 Y:275}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />

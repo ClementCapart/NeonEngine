@@ -39,6 +39,8 @@ namespace NeonStarEditor
                 {
                     foreach (Entity e in currentWorld.Entities)
                     {
+                        if (!currentWorld.Layers.Contains(e.Layer))
+                            continue;
                         if (Neon.Input.MousePosition.X >= e.transform.Position.X - 30 && Neon.Input.MousePosition.X <= e.transform.Position.X + 30
                             && Neon.Input.MousePosition.Y >= e.transform.Position.Y - 30 && Neon.Input.MousePosition.Y <= e.transform.Position.Y + 30)
                         {

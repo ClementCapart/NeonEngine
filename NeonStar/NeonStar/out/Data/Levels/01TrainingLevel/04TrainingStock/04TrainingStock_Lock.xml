@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1381 Y:-539}" />
+              <InitialPosition Value="{X:-1381 Y:-660}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -51,7 +51,7 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0.2617994" />
+              <RotationOffset Value="2.86234" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -86,7 +86,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -153,7 +153,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1050 Y:-539}" />
+              <InitialPosition Value="{X:-1050 Y:-660}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -299,7 +299,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-430 Y:-539}" />
+              <InitialPosition Value="{X:-430 Y:-660}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -445,7 +445,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-200 Y:-539}" />
+              <InitialPosition Value="{X:-200 Y:-660}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -591,7 +591,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:913 Y:172}" />
+              <InitialPosition Value="{X:913 Y:170}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -600,9 +600,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:913 Y:171}" />
+              <Center Value="{X:913 Y:169}" />
               <X Value="863" />
-              <Y Value="91" />
+              <Y Value="89" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -693,6 +693,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -714,9 +716,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -868,6 +868,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -889,9 +891,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">

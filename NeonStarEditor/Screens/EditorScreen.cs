@@ -92,6 +92,8 @@ namespace NeonStarEditor
 
         public string DefaultLayer = "";
 
+        public List<string> Layers;
+
         public EditorScreen(string groupName, string levelName, int startingSpawnPointIndex, XElement statusToLoad, Game game, GraphicsDeviceManager graphics, bool loadPreferences = false, bool respawning = false)
             : base(groupName, levelName, startingSpawnPointIndex, statusToLoad, game, respawning)
         {
@@ -99,6 +101,7 @@ namespace NeonStarEditor
             this.graphics = graphics;
             game.IsMouseVisible = true;
             CurrentTool = new Selection(this);
+            Layers = new List<string>();
 
             //GameAsForm.Controls.Add(new NeonStarToolstrip());       
             
@@ -438,6 +441,21 @@ namespace NeonStarEditor
                 DisplayEntityCenter = !DisplayEntityCenter;
             }
 
+            if (Neon.Input.Pressed(Keys.S))
+            {
+                if (BottomDockControl.entityListControl.EntityListBox.SelectedNode != null && BottomDockControl.entityListControl.EntityListBox.SelectedNode.Nodes.Count > 0)
+                {
+                    if (Layers.Contains(BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text))
+                    {
+                        Layers.Remove(BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text);
+                    }
+                    else
+                    {
+                        Layers.Add(BottomDockControl.entityListControl.EntityListBox.SelectedNode.Text);
+                    }
+                }
+            }
+
             if (!Pause)
                 if (UnpauseTillNextFrame)
                 {
@@ -624,6 +642,8 @@ namespace NeonStarEditor
                 spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.get_transformation(graphics.GraphicsDevice));
                 foreach (Entity e in Entities)
                 {
+                    if (!Layers.Contains(e.Layer))
+                        continue;
                     if (SelectedEntity == e)
                         spriteBatch.Draw(t, e.transform.Position - new Vector2(t.Width / 2, t.Height / 2), Color.Red);
                     else

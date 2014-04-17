@@ -36,6 +36,7 @@ namespace NeonStarEditor
             if (GameWorld != null)
             {
                 _layerList.Clear();
+                GameWorld.Layers.Clear();
                 try
                 {
                     if (EntityListBox.Nodes != null)
@@ -59,6 +60,7 @@ namespace NeonStarEditor
                         }
                         else
                         {
+                            GameWorld.Layers.Add(entity.Layer);
                             _layerList.Add(entity.Layer, new List<Entity>());
                             TreeNode layerNode = new TreeNode((entity.Layer != "" ? entity.Layer : "NoLayer"));
                             layerNode.Name = (entity.Layer != "" ? entity.Layer : "NoLayer");
