@@ -2,6 +2,125 @@
 <XnaContent>
   <Level Layer="Jumper">
     <Entities>
+      <Entity Name="ButtonJumper01" Layer="Jumper">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1300 Y:-125}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:1300 Y:-125}" />
+              <X Value="1250" />
+              <Y Value="-200" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="150" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="2">
+            <Properties>
+              <EnergyCost Value="0" />
+              <AvatarName Value="LiOn" />
+              <FillingDuration Value="0.1" />
+              <IdleDeactivatedAnimation Value="Deactivated" />
+              <IdleActivatedAnimation Value="Activated" />
+              <ActivationAnimation Value="Activation" />
+              <DeactivationAnimation Value="Deactivation" />
+              <FrameToActivate Value="32" />
+              <State Value="Disabled" />
+              <NickName Value="" />
+            </Properties>
+          </StableEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Activated" SpritesheetTag="EnergyDeviceIdle" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
+                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceDeactivated" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <DisplayValue Type="NeonEngine.Components.Text2D.DisplayValue" ID="4">
+            <Properties>
+              <Display Value="5" />
+              <EntityName Value="EnergyDevice02" />
+              <ComponentName Value="StableEnergyDevice" />
+              <DisplayedVariable Value="EnergyCost" />
+              <NickName Value="" />
+            </Properties>
+          </DisplayValue>
+          <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="5">
+            <Properties>
+              <DrawLayer Value="0.44" />
+              <Font Value="EnergyFont" />
+              <Text Value="00" />
+              <TextColor Value="{R:147 G:217 B:255 A:255}" />
+              <Outline Value="False" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
+              <OutlineDisplacement Value="0" />
+              <Active Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-29 Y:-55}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TextDisplay>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="6">
+            <Properties>
+              <FadingSpeed Value="2.5" />
+              <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="YbuttonPress" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-61}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </FadingSpritesheet>
+        </Components>
+      </Entity>
       <Entity Name="Jumper01" Layer="Jumper">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -32,8 +151,7 @@
               <AvatarName Value="LiOn" />
               <JumperOffAnimation Value="Off" />
               <JumperOnAnimation Value="On" />
-              <JumperImpulseAnimation Value="" />
-              <FirstActivatingDeviceName Value="" />
+              <FirstActivatingDeviceName Value="ButtonJumper01" />
               <FirstDeviceInSameLevel Value="True" />
               <FirstActivatingDeviceLevelGroup Value="" />
               <FirstActivatingDeviceLevelName Value="" />
@@ -53,13 +171,13 @@
               <FifthDeviceInSameLevel Value="True" />
               <FifthActivatingDeviceLevelGroup Value="" />
               <FifthActivatingDeviceLevelName Value="" />
+              <JumperImpulseAnimation Value="" />
               <NickName Value="" />
             </Properties>
           </EnergyJumper>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
             <Properties>
               <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-17}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -68,104 +186,11 @@
               <Spritesheets />
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="Button01" Layer="Jumper">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1200 Y:-100}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets />
-              <DrawLayer Value="0.4" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-          <InteractionTrigger Type="NeonStarLibrary.Components.Triggers.InteractionTrigger" ID="3">
-            <Properties>
-              <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="Button01" />
-              <TriggeredComponentName Value="" />
-              <InitialAnimation Value="RedIdle" />
-              <ActivationAnimation Value="Activation" />
-              <ActivatedAnimation Value="GreenIdle" />
-              <NickName Value="" />
-            </Properties>
-          </InteractionTrigger>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
-            <Properties>
-              <Type Value="Trigger" />
-              <Center Value="{X:1193 Y:-146}" />
-              <X Value="1163" />
-              <Y Value="-171" />
-              <OffsetX Value="-7" />
-              <OffsetY Value="-46.4" />
-              <Width Value="60" />
-              <Height Value="50" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
-            <Properties>
-              <FadingSpeed Value="4" />
-              <AvatarName Value="LiOn" />
-              <IsLooped Value="True" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="YbuttonPress" />
-              <DrawLayer Value="0.99" />
-              <IsFinished Value="False" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-2 Y:-82}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </FadingSpritesheet>
-          <StableEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.StableEnergyDevice" ID="5">
-            <Properties>
-              <EnergyCost Value="100" />
-              <AvatarName Value="LiOn" />
-              <FillingDuration Value="1" />
-              <IdleDeactivatedAnimation Value="" />
-              <IdleActivatedAnimation Value="" />
-              <ActivationAnimation Value="" />
-              <DeactivationAnimation Value="" />
-              <FrameToActivate Value="32" />
-              <State Value="Disabled" />
-              <NickName Value="" />
-            </Properties>
-          </StableEnergyDevice>
         </Components>
       </Entity>
     </Entities>
