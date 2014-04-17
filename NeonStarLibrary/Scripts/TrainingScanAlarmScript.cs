@@ -12,15 +12,6 @@ namespace NeonStarLibrary.Components.Scripts
 {
     public class TrainingScanAlarmScript : ScriptComponent
     {
-        private Entity _scanDoor;
-        private Entity _importantRobot;
-        private EnemyCore _importantRobotEnemyCore;
-        private EnemyCore _importantTurret;
-        private EnemyCore _importantTurret2;
-        private AreaAttack _importantRobotRange;
-        private AreaAttack _importantTurretRange;
-        private AreaAttack _importantTurretRange2;
-
         private string _scanDoorName = "";
         public string ScanDoorName
         {
@@ -28,54 +19,34 @@ namespace NeonStarLibrary.Components.Scripts
             set { _scanDoorName = value; }
         }
 
-        private string _exitDoorName = "";
-        public string ExitDoorName
-        {
-            get { return _exitDoorName; }
-            set { _exitDoorName = value; }
-        }
-
-        private string _importantTurret2Name = "";
-        public string ImportantTurret2Name
-        {
-            get { return _importantTurret2Name; }
-            set { _importantTurret2Name = value; }
-        }
-
-        private string _importantRobotRangeName = "";
-        public string ImportantRobotRangeName
-        {
-            get { return _importantRobotRangeName; }
-            set { _importantRobotRangeName = value; }
-        }
-
-        private string _importantTurretRangeName = "";
-        public string ImportantTurretRangeName
-        {
-            get { return _importantTurretRangeName; }
-            set { _importantTurretRangeName = value; }
-        }
-
-        private string _importantTurretRange2Name = "";
-        public string ImportantTurretRange2Name
-        {
-            get { return _importantTurretRange2Name; }
-            set { _importantTurretRange2Name = value; }
-        }
-
-        private string _importantRobotName = "";
+        private string _importantRobotName = "ImportantRobot";
         public string ImportantRobotName
         {
             get { return _importantRobotName; }
             set { _importantRobotName = value; }
         }
 
-        private string _importantTurretName = "";
-        public string ImportantTurretName
+        private string _secondImportantRobotName = "ImportantRobot2";
+
+        public string SecondImportantRobotName
         {
-            get { return _importantTurretName; }
-            set { _importantTurretName = value; }
+            get { return _secondImportantRobotName; }
+            set { _secondImportantRobotName = value; }
         }
+
+        private string _thirdImportantRobotName = "ImportantRobot3";
+
+        public string ThirdImportantRobotName
+        {
+            get { return _thirdImportantRobotName; }
+            set { _thirdImportantRobotName = value; }
+        }
+
+        private Entity _scanDoor;
+        private Entity _importantRobot;
+        private Entity _secondImportantRobot;
+        private Entity _thirdImportantRobot;
+        private EnemyCore _importantRobotEnemyCore;
 
         public TrainingScanAlarmScript(Entity entity)
             : base(entity, "TrainingScanAlarmScript")
@@ -83,8 +54,7 @@ namespace NeonStarLibrary.Components.Scripts
         }
 
         public override void Init()
-        {
-            
+        {         
             this.entity.spritesheets.ChangeAnimation("Opened", 0, true, false, false);
 
             if (_scanDoorName != "")
@@ -95,54 +65,13 @@ namespace NeonStarLibrary.Components.Scripts
                 _scanDoor.rigidbody.Init();
             }
 
-            Entity e;
-
-            e = entity.GameWorld.GetEntityByName(_importantRobotName);
-            if (e != null)
-                _importantRobotEnemyCore = e.GetComponent<EnemyCore>();
-            e = null;
-
-            e = entity.GameWorld.GetEntityByName(_importantTurret2Name);
-            if (e != null)
-                _importantTurret2 = e.GetComponent<EnemyCore>();
-            e = null;
-
-            e = entity.GameWorld.GetEntityByName(_importantTurretName);
-            if (e != null)
-                _importantTurret = e.GetComponent<EnemyCore>();
-            e = null;
-
-            e = entity.GameWorld.GetEntityByName(_importantRobotRangeName);
-            if (e != null)
-                _importantRobotRange = e.GetComponent<AreaAttack>();
-            e = null;
-
-            e = entity.GameWorld.GetEntityByName(_importantTurretRangeName);
-            if (e != null)
-                _importantTurretRange = e.GetComponent<AreaAttack>();
-            e = null;
-
-            e = entity.GameWorld.GetEntityByName(_importantTurretRange2Name);
-            if (e != null)
-                _importantTurretRange2 = e.GetComponent<AreaAttack>();
-            e = null;
-
             _importantRobot = entity.GameWorld.GetEntityByName(_importantRobotName);
-            
-            if (_importantRobotRange != null)
-            {
-                _importantRobotRange.RangeForAttackOne = 1;
-            }
+            if (_importantRobot != null)
+                _importantRobotEnemyCore = _importantRobot.GetComponent<EnemyCore>();
+            _importantRobot = null;
 
-            if (_importantTurretRange != null)
-            {
-                _importantTurretRange.RangeForAttackOne = 1;
-            }
-
-            if (_importantTurretRange2 != null)
-            {
-                _importantTurretRange2.RangeForAttackOne = 1;
-            }
+            _secondImportantRobot = entity.GameWorld.GetEntityByName(_secondImportantRobotName);
+            _thirdImportantRobot = entity.GameWorld.GetEntityByName(_thirdImportantRobotName);
 
             base.Init();
         }
@@ -157,29 +86,24 @@ namespace NeonStarLibrary.Components.Scripts
                 _scanDoor.rigidbody.Init();
             }
 
-            if (_importantRobotRange != null)
-            {
-                _importantRobotRange.RangeForAttackOne = 1000;
-                _importantRobotRange.Init();
-            }
-
-            if (_importantTurretRange != null)
-            {
-                _importantTurretRange.RangeForAttackOne = 1000;
-                _importantTurretRange.Init();
-            }
-
-            if (_importantTurretRange2 != null)
-            {
-                _importantTurretRange2.RangeForAttackOne = 1000;
-                _importantTurretRange2.Init();
-            }
-
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (_importantRobotEnemyCore != null && _importantRobotEnemyCore.State == EnemyState.Dying)
+            {
+                if (_secondImportantRobot != null && _thirdImportantRobot != null)
+                {
+                    _secondImportantRobot.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
+                    _secondImportantRobot.rigidbody.Mass = 400.0f;
+                    _secondImportantRobot.rigidbody.Init();
+                    _thirdImportantRobot.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
+                    _thirdImportantRobot.rigidbody.Mass = 400.0f;
+                    _thirdImportantRobot.rigidbody.Init();
+                }
+            }
+
             base.Update(gameTime);
         }
 

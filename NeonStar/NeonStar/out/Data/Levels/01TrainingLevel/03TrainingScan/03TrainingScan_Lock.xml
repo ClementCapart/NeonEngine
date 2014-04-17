@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:667 Y:170}" />
+              <InitialPosition Value="{X:1014 Y:170}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:667 Y:169}" />
-              <X Value="617" />
+              <Center Value="{X:1013 Y:169}" />
+              <X Value="963" />
               <Y Value="89" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -143,6 +143,7 @@
           </EnemyAnimationManager>
           <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="RobotPatrol" />
               <Speed Value="2" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -182,7 +183,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:767 Y:170}" />
+              <InitialPosition Value="{X:814 Y:-933}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -191,9 +192,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:766 Y:169}" />
-              <X Value="716" />
-              <Y Value="89" />
+              <Center Value="{X:813 Y:-932}" />
+              <X Value="763" />
+              <Y Value="-1012" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -203,12 +204,12 @@
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
-              <BodyType Value="Dynamic" />
+              <BodyType Value="Static" />
               <GravityScale Value="2" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="10" />
-              <Mass Value="400" />
+              <Mass Value="1.59995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
               <IsGround Value="False" />
@@ -357,7 +358,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:867 Y:170}" />
+              <InitialPosition Value="{X:879 Y:-675}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -366,9 +367,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:866 Y:169}" />
-              <X Value="816" />
-              <Y Value="89" />
+              <Center Value="{X:879 Y:-675}" />
+              <X Value="829" />
+              <Y Value="-755" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -378,12 +379,12 @@
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
-              <BodyType Value="Dynamic" />
+              <BodyType Value="Static" />
               <GravityScale Value="2" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="10" />
-              <Mass Value="400" />
+              <Mass Value="1.59995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
               <IsGround Value="False" />
