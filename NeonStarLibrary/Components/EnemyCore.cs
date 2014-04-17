@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Graphics2D;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.Graphics2D;
 using NeonStarLibrary.Private;
@@ -38,7 +39,6 @@ namespace NeonStarLibrary.Components.Enemies
 
     public class EnemyCore : Component
     {
-
         #region Properties
         private bool _debug;
         public bool Debug
@@ -221,7 +221,8 @@ namespace NeonStarLibrary.Components.Enemies
         public EnemyAttack Attack;
         public DamageDisplayer DamageDisplayer;
         public WeaknessDuringAttack WeaknessDuringAttack;
-        
+
+        private List<DrawableComponent> _drawableComponents;
 
         public bool CanMove = true;
         public bool CanTurn = true;
@@ -270,12 +271,14 @@ namespace NeonStarLibrary.Components.Enemies
                 DamageDisplayer = entity.GetComponent<DamageDisplayer>();
             if (WeaknessDuringAttack == null)
                 WeaknessDuringAttack = entity.GetComponent<WeaknessDuringAttack>();
-            
+
             if (_componentToTrigger == null && _componentToTriggerName != "")
             {
                 _componentToTrigger = entity.GetComponentByName(_componentToTriggerName);
             }
             _currentHealthPoints = _startingHealthPoints;
+
+            _drawableComponents = entity.GetComponentsByInheritance<DrawableComponent>();
             base.Init();
         }
 
@@ -371,6 +374,14 @@ namespace NeonStarLibrary.Components.Enemies
 
             _currentHealthPoints += damageValue;
 
+            foreach (DrawableComponent dc in _drawableComponents)
+            {
+                if (dc.GetType() == typeof(SpritesheetManager))
+                {
+                    (dc as SpritesheetManager).CurrentSpritesheet.MainColor = Color.Lerp(Color.Red, Color.White, (_currentHealthPoints / _startingHealthPoints) + 0.25f);
+                }            
+            }
+
             if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
             {
                 entity.hitboxes[0].Type = HitboxType.Invincible;
@@ -380,7 +391,25 @@ namespace NeonStarLibrary.Components.Enemies
                 {
                     DamageDisplayer.DisplayDamage(damageValue);
                 }
+
+                foreach (DrawableComponent dc in _drawableComponents)
+                {
+                    if (dc.GetType() == typeof(SpritesheetManager))
+                    {
+                        (dc as SpritesheetManager).CurrentSpritesheet.MainColor = Color.White;
+                    }
+                }
                 return DamageResult.Missed;
+            }
+            else
+            {
+                foreach (DrawableComponent dc in _drawableComponents)
+                {
+                    if (dc.GetType() == typeof(SpritesheetManager))
+                    {
+                        (dc as SpritesheetManager).CurrentSpritesheet.MainColor = Color.Lerp(Color.Red, Color.White, (_currentHealthPoints / _startingHealthPoints) + 0.25f);
+                    }
+                }
             }
 
             if (Debug)
