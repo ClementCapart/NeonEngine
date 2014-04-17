@@ -1139,6 +1139,64 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="EnemyFTurretStraightShot" Group="EnemyTurret" Type="Range">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0.6</Delay>
+      <Cooldown>0.5</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="ShootBullet">
+          <Parameter Value="NeutralBullet" />
+          <SecondParameter Value="{X:0 Y:0}" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="EnemyFTurretTrainingShot" Group="EnemyTurret" Type="Range">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>1</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0.6</Delay>
+      <Cooldown>1</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="ShootBulletAtTarget">
+          <Parameter Value="NeutralBullet" />
+          <SecondParameter Value="{X:10 Y:0}" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
     <Attack ID="0" Name="EnemyLanternCrystalMane" Group="EnemyLantern" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="250" Height="250" />
