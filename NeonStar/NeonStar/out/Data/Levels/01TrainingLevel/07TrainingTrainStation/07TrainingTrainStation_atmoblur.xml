@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <XnaContent>
-  <Level Layer="ArtTrain">
+  <Level Layer="atmoblur">
     <Entities>
-      <Entity Name="BrokenTrains" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1520 Y:1096}" />
+              <InitialPosition Value="{X:-495 Y:235}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="3" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="NewTrainingCosmeticsTrainStation" />
-              <DrawLayer Value="0.2" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -31,21 +31,21 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="BaseTrain" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2334 Y:1287}" />
+              <InitialPosition Value="{X:709 Y:55}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="2.2" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="TrainingTrainBase" />
-              <DrawLayer Value="0.7" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -60,21 +60,21 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="2ndPartTrain" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2528 Y:1101}" />
+              <InitialPosition Value="{X:1532 Y:306}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="3" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="TrainingTrainWagonUp" />
-              <DrawLayer Value="0.6" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -89,21 +89,21 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="1stPartTrain" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2184 Y:1101}" />
+              <InitialPosition Value="{X:767 Y:1350}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="3" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="TrainingTrainWagonDown" />
-              <DrawLayer Value="0.3" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -118,33 +118,21 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="DoorTrain" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2260 Y:1123}" />
+              <InitialPosition Value="{X:-336 Y:1379}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="3" />
               <NickName Value="" />
             </Properties>
           </Transform>
-          <TriggeredAnimation Type="NeonEngine.Components.Graphics2D.TriggeredAnimation" ID="3">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <StartPlaying Value="False" />
-              <PlayReverseOnSecondTrigger Value="True" />
-              <Loop Value="False" />
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="TrainingTrainDoorAnimation" />
-              <DrawLayer Value="0.3" />
-              <IsFinished Value="False" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -156,26 +144,55 @@
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
-          </TriggeredAnimation>
+          </Graphic>
         </Components>
       </Entity>
-      <Entity Name="BrokenTrains" Layer="ArtTrain">
+      <Entity Name="atmoblur1" Layer="atmoblur">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-123 Y:1093}" />
+              <InitialPosition Value="{X:1826 Y:1344}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="3" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="NewTrainingCosmeticsTrainStation" />
-              <DrawLayer Value="0.2" />
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="atmoblur1" Layer="atmoblur">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-529 Y:685}" />
+              <Rotation Value="0" />
+              <Scale Value="3" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsAtmoblur" />
+              <DrawLayer Value="0.8" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
