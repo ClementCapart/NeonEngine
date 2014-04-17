@@ -120,9 +120,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (Closed && !_opening && !_closing)
             {
-                if (entity.spritesheets != null && entity.spritesheets.IsFinished() && entity.spritesheets.CurrentSpritesheetName != _doorOpeningAnimation)
+                if (entity.spritesheets != null)
                 {
-                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, 0, true, true, false);
+                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, true, false);
                 }
             }
             
