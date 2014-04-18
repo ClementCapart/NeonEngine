@@ -1407,7 +1407,7 @@
       <Hitboxes>
         <Hitbox OffsetX="50" OffsetY="0" Width="50" Height="100" />
       </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
+      <AttackElement>Thunder</AttackElement>
       <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
@@ -1441,6 +1441,14 @@
         </Effect>
         <Effect Type="Invincible">
           <Parameter Value="0.5" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="LiOnThunderDashLink" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:130 Y:0}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />

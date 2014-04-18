@@ -17,6 +17,7 @@ namespace NeonEngine
         private bool _bounded = false;
         public Vector2 BasePosition;
         public float ChaseStrengtheningRate = 0.05f;
+        public bool MustStrengthen = true;
 
         public bool MovedLastFrame = false;
         public bool HasMetSoftBounds = false;
@@ -30,8 +31,7 @@ namespace NeonEngine
             get { return _bounded; }
             set { _bounded = value; }
         }
-
-        
+       
         public float Zoom
         {
             get { return _zoom; }
@@ -116,11 +116,15 @@ namespace NeonEngine
 
         public void Chase(Vector2 desiredPosition, Vector2 focusDisplacement, bool ignoreSoftBounds, GameTime gameTime)
         {
+            _ppos = _pos;
             Vector2 OldPosition = _pos;
-            if (ChaseStrength < 0.9f)
-                ChaseStrength = MathHelper.Lerp(ChaseStrength, 1.0f, ChaseStrengtheningRate);
-            if (ChaseStrength > 0.9f)
-                ChaseStrength = 0.9f;
+            if (MustStrengthen)
+            {
+                if (ChaseStrength < 0.9f)
+                    ChaseStrength = MathHelper.Lerp(ChaseStrength, 1.0f, ChaseStrengtheningRate);
+                if (ChaseStrength > 0.9f)
+                    ChaseStrength = 0.9f;
+            }
             Vector2 NewPosition = new Vector2(_pos.X, _pos.Y);
 
             _pos = new Vector2(MathHelper.Lerp(NewPosition.X, desiredPosition.X, ChaseStrength), MathHelper.Lerp(NewPosition.Y, desiredPosition.Y, ChaseStrength));

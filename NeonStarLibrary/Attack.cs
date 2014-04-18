@@ -601,9 +601,8 @@ namespace NeonStarLibrary
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                     _mustStopAtTargetSight = (bool)ae.Parameters[1];
 
-                                        _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                                        _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));
-                                    
+                                    _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                                    _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));   
                                 }
                             }
                             break;

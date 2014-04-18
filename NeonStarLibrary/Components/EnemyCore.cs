@@ -28,7 +28,8 @@ namespace NeonStarLibrary.Components.Enemies
         StunLocked,
         StunLockEnd,
         Dying,
-        Dead
+        Dead,
+        ScriptControlled,
     }
 
     public enum EnemyType
