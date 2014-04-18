@@ -391,7 +391,7 @@ namespace NeonStarLibrary.Components.Avatar
             CheckComboHit();
             if (CurrentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack(_uppercutName + "Finish", AvatarComponent.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_uppercutName, AvatarComponent.CurrentSide, entity);
                 if (DamageModifierTimer > 0.0f)
                 {
                     CurrentAttack.DamageOnHit *= DamageModifier;
@@ -425,7 +425,7 @@ namespace NeonStarLibrary.Components.Avatar
             CheckComboHit();
             if (CurrentComboHit == ComboSequence.Finish)
             {               
-                CurrentAttack = AttacksManager.GetAttack(_rushAttackName+"Finish", Side.Left, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName, Side.Left, entity);
                 if (DamageModifierTimer > 0.0f)
                 {
                     CurrentAttack.DamageOnHit *= DamageModifier;
@@ -457,7 +457,7 @@ namespace NeonStarLibrary.Components.Avatar
             CheckComboHit();
             if (CurrentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack(_rushAttackName + "Finish", Side.Right, entity);
+                CurrentAttack = AttacksManager.GetAttack(_rushAttackName, Side.Right, entity);
                 if (DamageModifierTimer > 0.0f)
                 {
                     CurrentAttack.DamageOnHit *= DamageModifier;
@@ -492,7 +492,7 @@ namespace NeonStarLibrary.Components.Avatar
             CheckComboHit();
             if (CurrentComboHit == ComboSequence.Finish)
             {
-                CurrentAttack = AttacksManager.GetAttack(_diveAttackName + "Finish", AvatarComponent.CurrentSide, entity);
+                CurrentAttack = AttacksManager.GetAttack(_diveAttackName, AvatarComponent.CurrentSide, entity);
                 if (DamageModifierTimer > 0.0f)
                 {
                     CurrentAttack.DamageOnHit *= DamageModifier;

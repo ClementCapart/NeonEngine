@@ -132,7 +132,7 @@ namespace NeonStarLibrary.Components.Avatar
 
                     case AvatarState.Attacking:
                         entity.spritesheets.Active = true;
-                        if (AvatarComponent.MeleeFight.CurrentAttack == null)
+                        if (AvatarComponent.MeleeFight.CurrentAttack == null /*|| AvatarComponent.MeleeFight.CurrentAttack.Canceled*/)
                         {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                         }
