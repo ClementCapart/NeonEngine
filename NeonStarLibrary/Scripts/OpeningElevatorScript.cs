@@ -30,6 +30,8 @@ namespace NeonStarLibrary.Components.Scripts
         private SpriteSheet _firstSpritesheet;
         private SpriteSheet _secondSpritesheet;
         private Graphic _graphicToFadeOut;
+        private SpriteSheet _arrowDown;
+        private SpritesheetManager _buttonToPressSpritesheet;
 
 
         public OpeningElevatorScript(Entity entity)
@@ -39,6 +41,9 @@ namespace NeonStarLibrary.Components.Scripts
 
         public override void Init()
         {
+            Entity e = entity.GameWorld.GetEntityByName("ElevatorButton");
+            if (e != null)
+                _buttonToPressSpritesheet = e.GetComponent<SpritesheetManager>();
             _gears = entity.GameWorld.GetEntityByName("Gears");
             if (_gears != null)
                 _gearsSpritesheet = _gears.GetComponent<SpriteSheet>();
@@ -48,14 +53,18 @@ namespace NeonStarLibrary.Components.Scripts
             _rightWall.rigidbody.IsGround = true;
             _rightWall.rigidbody.Init();
             SpriteSheet[] sss = entity.GetComponentsByInheritance<SpriteSheet>().ToArray();
-            if (sss.Length == 2)
+            if (sss.Length == 3)
             {
                 _firstSpritesheet = sss[0];
                 _firstSpritesheet.isPlaying = false;
                 _secondSpritesheet = sss[1];
                 _secondSpritesheet.isPlaying = false;
+                _arrowDown = sss[2];
+                _arrowDown.Active = false;
             }
             _graphicToFadeOut = entity.GetComponent<Graphic>();
+            if (_buttonToPressSpritesheet != null)
+                _buttonToPressSpritesheet.ChangeAnimation("GreenIdle");
             base.Init();
         }
 
@@ -74,6 +83,10 @@ namespace NeonStarLibrary.Components.Scripts
                 _firstSpritesheet.isPlaying = true;
                 _secondSpritesheet.isPlaying = true;
                 _stopped = true;
+                if(_buttonToPressSpritesheet != null)
+                {
+                    _buttonToPressSpritesheet.ChangeAnimation("RedIdle", true, 0, true, false, true);
+                }
             }
             if(_falling && _liOn != null)
             {
@@ -98,6 +111,7 @@ namespace NeonStarLibrary.Components.Scripts
             if (trigger.Name == "ElevatorButton")
             {
                 _buttonPressed = true;
+                _arrowDown.Active = true;
                 if (_firstSpritesheet.SpriteSheetTag == "ElevatorBack")
                     _firstSpritesheet.currentFrame = 0;
                 else if (_secondSpritesheet.SpriteSheetTag == "ElevatorBack")
@@ -106,6 +120,7 @@ namespace NeonStarLibrary.Components.Scripts
 
             if (trigger.Name == "Elevator" && _buttonPressed)
             {
+                _arrowDown.Active = false;
                 if (_liOn != null)
                 {
                     _liOn.ThirdPersonController.FallSpeedLimit = false;

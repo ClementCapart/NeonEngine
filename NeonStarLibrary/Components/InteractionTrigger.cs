@@ -102,9 +102,9 @@ namespace NeonStarLibrary.Components.Triggers
                     }
                 }
             }
-            
 
-            if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _activationAnimation && entity.spritesheets.CurrentSpritesheet.IsFinished)
+
+            if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName == _activationAnimation && entity.spritesheets.CurrentSpritesheet.IsFinished && !entity.spritesheets.CurrentSpritesheet.Reverse)
                 entity.spritesheets.ChangeAnimation(_activatedAnimation);
             base.Update(gameTime);
         }
