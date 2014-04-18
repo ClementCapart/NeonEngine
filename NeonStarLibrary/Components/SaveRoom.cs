@@ -128,6 +128,14 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _ceilingFade = value; }
         }
 
+        private string _extraSpritesheetName = "UpArrow";
+
+        public string ExtraSpritesheetName
+        {
+            get { return _extraSpritesheetName; }
+            set { _extraSpritesheetName = value; }
+        }
+
         private float _waitAfterActivationDuration = 1.0f;
 
         public float WaitAfterActivationDuration
@@ -170,6 +178,8 @@ namespace NeonStarLibrary.Components.GameplayElements
         private Entity _rightScreens;
 
         private SpriteSheet _ceiling;
+
+        private SpriteSheet _extraSpritesheet;
         private bool _wasRespawning = false;
 
         private bool _startSave = false;
@@ -209,6 +219,10 @@ namespace NeonStarLibrary.Components.GameplayElements
                 _ceiling.IsLooped = false;
                 _ceiling.isPlaying = false;
             }
+
+            e = entity.GameWorld.GetEntityByName(_extraSpritesheetName);
+            if (e != null)
+                _extraSpritesheet = e.GetComponent<SpriteSheet>();
 
             if (_roomLighting != null)
                 _roomLighting.Active = false;
@@ -439,6 +453,8 @@ namespace NeonStarLibrary.Components.GameplayElements
                                 _ground.spritesheets.ChangeAnimation("Lighting", 0, true, false, false);
                             if (_yButton != null)
                                 _yButton.Active = false;
+                            if (_extraSpritesheet != null)
+                                _extraSpritesheet.Active = false;
 
                             _avatarComponent.State = AvatarState.Idle;
                             _avatarComponent.CanMove = false;
