@@ -226,7 +226,9 @@ namespace NeonEngine.Components.Graphics2D
         private void LoadFromHash()
         {
             _topRandomResult.Clear();
-            string topHash = _tilingHash.Substring(4, _tilingHash.IndexOf("_BOT") - 4);
+            if (_tilingHash.IndexOf("_BOT") - 4 < 0)
+                return;
+            string topHash = _tilingHash.Substring(4, _tilingHash.IndexOf("_BOT") - 4) ;
             string[] hashInfo = topHash.Split('_');
 
             List<Texture2D> textures = new List<Texture2D>();
@@ -254,6 +256,9 @@ namespace NeonEngine.Components.Graphics2D
             }
 
             int i = _tilingHash.IndexOf("_BOT_");
+            if (_tilingHash.IndexOf("_LEFT_") - i - 5 < 0)
+                    return;
+                return;
             string botHash = _tilingHash.Substring(i + 5, _tilingHash.IndexOf("_LEFT_") - i - 5);
 
             hashInfo = botHash.Split('_');
@@ -283,7 +288,7 @@ namespace NeonEngine.Components.Graphics2D
             }
 
             i = _tilingHash.IndexOf("_LEFT_");
-            if (_tilingHash.IndexOf("_RIGHT_") == -1)
+            if (_tilingHash.IndexOf("_RIGHT_") - i - 6 < 0)
                 return;
             string leftHash = _tilingHash.Substring(i + 6, _tilingHash.IndexOf("_RIGHT_") - i - 6);
 
