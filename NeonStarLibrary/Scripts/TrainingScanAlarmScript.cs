@@ -99,7 +99,7 @@ namespace NeonStarLibrary.Components.Scripts
                     _secondImportantRobot.rigidbody.Mass = 400.0f;
                     _secondImportantRobot.rigidbody.Init();
                     _thirdImportantRobot.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
-                    _thirdImportantRobot.rigidbody.Mass = 400.0f;
+                    _thirdImportantRobot.rigidbody.Mass = 500.0f;
                     _thirdImportantRobot.rigidbody.Init();
                 }
             }
