@@ -83,8 +83,6 @@ namespace NeonEngine.Components.Camera
 
         public override void Init()
         {
-            if (_softBound)
-                _boundStrength = 0.0f;
             base.Init();
         }
 
