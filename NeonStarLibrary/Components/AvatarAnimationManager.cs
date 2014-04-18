@@ -184,7 +184,7 @@ namespace NeonStarLibrary.Components.Avatar
                                     entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
                             }
                         }
-                        else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.DiveAttackName))
+                        else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith(AvatarComponent.MeleeFight.DiveAttackName) && !AvatarComponent.MeleeFight.CurrentAttack.Canceled)
                         {
                             if (entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLoopAnimation && entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLandAnimation)
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
