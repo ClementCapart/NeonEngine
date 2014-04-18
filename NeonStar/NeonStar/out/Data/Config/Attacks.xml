@@ -1638,7 +1638,7 @@
       <Delay>0</Delay>
       <Cooldown>0.3</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>5</Duration>
+      <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -1664,12 +1664,17 @@
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffect" />
-          <SecondParameter Value="false" />
+          <SecondParameter Value="true" />
         </Effect>
       </OnGroundCancelSpecialEffects>
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="StartAttack">
+          <Parameter Value="LiOnDiveAttackLevelTwo" />
+          <SecondParameter Value="true" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
-    <Attack ID="0" Name="LiOnDiveAttackFinish" Group="LiOnDive" Type="MeleeSpecial">
+    <Attack ID="0" Name="LiOnDiveAttackLevelTwo" Group="LiOnDive" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="20" Width="100" Height="100" />
       </Hitboxes>
@@ -1679,9 +1684,9 @@
       <GroundCancel>True</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>0.4</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>10</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -1706,8 +1711,8 @@
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects>
         <Effect Type="StartAttack">
-          <Parameter Value="LiOnDiveEffectFinish" />
-          <SecondParameter Value="false" />
+          <Parameter Value="LiOnDiveEffectLevelTwo" />
+          <SecondParameter Value="true" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects />
@@ -1723,7 +1728,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>1</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.2</Duration>
       <AirLock>0</AirLock>
@@ -1748,7 +1753,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="LiOnDiveEffectFinish" Group="LiOnDive" Type="MeleeSpecial">
+    <Attack ID="0" Name="LiOnDiveEffectLevelTwo" Group="LiOnDive" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="43" Width="200" Height="50" />
         <Hitbox OffsetX="0" OffsetY="-5" Width="80" Height="50" />
@@ -1759,7 +1764,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>1</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.2</Duration>
       <AirLock>0</AirLock>
@@ -2378,10 +2383,6 @@
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
         </Effect>
-        <Effect Type="PlaySound">
-          <Parameter Value="LightAttack01" />
-          <SecondParameter Value="0.3" />
-        </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="EffectAnimation">
@@ -2422,10 +2423,6 @@
           <Parameter Value="{X:400 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="True" />
-        </Effect>
-        <Effect Type="PlaySound">
-          <Parameter Value="LightAttackFinish" />
-          <SecondParameter Value="0.3" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2570,12 +2567,7 @@
       <AirImpulse>{X:3000 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="PlaySound">
-          <Parameter Value="Uppercut" />
-          <SecondParameter Value="0.3" />
-        </Effect>
-      </OnDurationSpecialEffects>
+      <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-3800}" />

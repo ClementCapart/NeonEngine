@@ -70,8 +70,6 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.spritesheets.Active = true;
                         if (entity.rigidbody.isGrounded)
                         {
-                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
                             if (entity.rigidbody.wasGrounded)
                             {
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
@@ -132,7 +130,7 @@ namespace NeonStarLibrary.Components.Avatar
 
                     case AvatarState.Attacking:
                         entity.spritesheets.Active = true;
-                        if (AvatarComponent.MeleeFight.CurrentAttack == null /*|| AvatarComponent.MeleeFight.CurrentAttack.Canceled*/)
+                        if (AvatarComponent.MeleeFight.CurrentAttack == null)
                         {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, false);
                         }
@@ -192,16 +190,16 @@ namespace NeonStarLibrary.Components.Avatar
                                 if (AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
                                 {
                                     entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartAnimation, true, 0, true, true, false);
-                                    if (AvatarComponent.MeleeFight != null)
-                                        entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
                                 }
                             if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation && entity.spritesheets.IsFinished())
                             {
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, true, 0, true, true, true);
-                                if (AvatarComponent.MeleeFight != null)
-                                    entity.spritesheets.CurrentSpritesheet.TimePerFrame /= AvatarComponent.MeleeFight.AttackSpeedModifier;
                             }
-
+                        }
+                        else if (AvatarComponent.MeleeFight.CurrentAttack.Name.StartsWith("LiOnDiveEffect"))
+                        {
+                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartAnimation)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
                         }
 
                         if (AvatarComponent.MeleeFight.CurrentAttack != null && AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
@@ -217,7 +215,6 @@ namespace NeonStarLibrary.Components.Avatar
                             string fireLaunchAnim = "";
                             string fireLaunchLoopAnim = "";
                             string fireReleaseAnim = "";
-
 
                             switch(AvatarComponent.ElementSystem.CurrentElementEffect.ElementLevel)
                             {
