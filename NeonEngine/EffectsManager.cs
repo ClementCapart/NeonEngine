@@ -18,11 +18,12 @@ namespace NeonEngine
             EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
         }
 
-        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null)
+        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null, float duration = 0.0f, bool loop = false)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
             animatedSpecialEffect.GameWorld = Neon.World;
             animatedSpecialEffect.transform.Scale = scale;
+            animatedSpecialEffect.Duration = duration;
 
             SpriteSheet spriteSheet;
 
@@ -42,7 +43,7 @@ namespace NeonEngine
             spriteSheet.spriteSheetInfo = spriteSheetInfo;
             spriteSheet.currentFrame = 0;
             spriteSheet.Layer = layer;
-            spriteSheet.IsLooped = false;
+            spriteSheet.IsLooped = loop;
             spriteSheet.IsFinished = false;
             spriteSheet.CurrentSide = side;
             spriteSheet.Active = true;

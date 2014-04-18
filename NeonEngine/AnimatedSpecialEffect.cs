@@ -11,6 +11,7 @@ namespace NeonEngine
     {
         public SpriteSheet spriteSheet;
         public ParticleEmitter particleEmitter;
+        public float Duration = 0.0f;
 
         public AnimatedSpecialEffect(World containerWorld)
             :base(containerWorld)
@@ -25,7 +26,14 @@ namespace NeonEngine
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             base.Update(gameTime);
-            if (spriteSheet.IsFinished)
+            if(Duration >= 0.0f)
+            {
+                Duration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if(Duration < 0.0f)
+                    Duration = 0.0f;
+            }
+           
+            if (Duration == 0.0f && (spriteSheet.IsFinished || spriteSheet.IsLooped))
             {
                 this.Destroy();
             }

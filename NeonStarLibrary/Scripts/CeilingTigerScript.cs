@@ -35,6 +35,22 @@ namespace NeonStarLibrary.Components.Scripts
             get { return _robotEntityName; }
             set { _robotEntityName = value; }
         }
+
+        private string _exclamationMarkName = "ExclamationMark";
+
+        public string ExclamationMarkName
+        {
+            get { return _exclamationMarkName; }
+            set { _exclamationMarkName = value; }
+        }
+
+        private Vector2 _effectOffset = Vector2.Zero;
+
+        public Vector2 EffectOffset
+        {
+            get { return _effectOffset; }
+            set { _effectOffset = value; }
+        }
         #endregion
 
         private Entity _avatarEntity;
@@ -50,6 +66,7 @@ namespace NeonStarLibrary.Components.Scripts
         private bool _startUsingThunder = false;
         private bool _usedThunder = false;
         private bool _finishedSequence = false;
+        private SpriteSheetInfo _exclamationMark;
 
         public CeilingTigerScript(Entity entity)
             :base(entity, "CeilingTigerScript")
@@ -67,6 +84,8 @@ namespace NeonStarLibrary.Components.Scripts
                 _tigerComponent = _tigerEntity.GetComponent<EnemyCore>();
 
             _robotEntity = entity.GameWorld.GetEntityByName(_robotEntityName);
+
+            _exclamationMark = AssetManager.GetSpriteSheet(_exclamationMarkName);
             base.Init();
         }
 
@@ -105,6 +124,7 @@ namespace NeonStarLibrary.Components.Scripts
                 if (!_startMovingTiger)
                 {
                     _startMovingTiger = true;
+                    EffectsManager.GetEffect(_exclamationMark, Side.Right, _avatarEntity.transform.Position, 0.0f, _effectOffset, 2.0f, 1.0f, null, 2.5f, false);
                 }
                 else if (_startMovingTiger && !_startUsingThunder)
                 {
