@@ -5,22 +5,24 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:809 Y:903.9927}" />
-          <InitialPosition Value="{X:809 Y:903.9927}" />
+          <Position Value="{X:34.99251 Y:-105.0075}" />
+          <InitialPosition Value="{X:34.99251 Y:-105.0075}" />
           <Rotation Value="0" />
           <Scale Value="2" />
+          <NickName Value="" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:809 Y:903}" />
-          <X Value="769" />
-          <Y Value="823" />
+          <Center Value="{X:34 Y:-105}" />
+          <X Value="-6" />
+          <Y Value="-185" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
           <Height Value="160" />
+          <NickName Value="" />
         </Properties>
       </Hitbox>
       <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -37,11 +39,12 @@
           <Hitbox Value="1" />
           <Sensors Value="True" />
           <FixedRotation Value="True" />
+          <NickName Value="" />
         </Properties>
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="False" />
@@ -58,6 +61,8 @@
           <DrawLayer Value="0.2" />
           <IsHUD Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
@@ -80,6 +85,11 @@
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
+          <ChanceToDropHealth Value="0.6" />
+          <HealthItemsToDrop Value="1" />
+          <StunlockAnim Value="" />
+          <CurrentSide Value="Left" />
+          <NickName Value="" />
         </Properties>
       </EnemyCore>
       <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
@@ -91,6 +101,7 @@
           <WaitStopDuration Value="1" />
           <ChaseSpeed Value="3.5" />
           <ChasePrecision Value="10" />
+          <NickName Value="" />
         </Properties>
       </GroundChase>
       <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
@@ -112,17 +123,21 @@
           <AttackThreeDelayAnimation Value="Punch" />
           <AttackThreeDurationAnimation Value="" />
           <AttackThreeCooldownAnimation Value="" />
-          <RangeForAttackFour Value="0" />
-          <AttackToLaunchFour Value="" />
+          <RangeForAttackFour Value="120" />
+          <AttackToLaunchFour Value="BisonBackDash" />
           <AttackFourDelayAnimation Value="" />
           <AttackFourDurationAnimation Value="" />
           <AttackFourCooldownAnimation Value="" />
           <EntityToAttackName Value="LiOn" />
+          <CanTurn Value="True" />
+          <RandomBalanceRate Value="0" />
+          <NickName Value="" />
         </Properties>
       </GroundAttack>
       <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
         <Properties>
           <CanChangeSide Value="True" />
+          <NickName Value="" />
         </Properties>
       </EnemyAnimationManager>
       <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="11">
@@ -146,6 +161,8 @@
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
         </Properties>
       </DamageDisplayer>
     </Components>
