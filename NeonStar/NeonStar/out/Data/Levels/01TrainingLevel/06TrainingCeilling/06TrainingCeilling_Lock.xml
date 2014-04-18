@@ -306,9 +306,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:-791 Y:-920}" />
-              <X Value="-891" />
-              <Y Value="-930" />
+              <Center Value="{X:-1520 Y:-945}" />
+              <X Value="-1620" />
+              <Y Value="-955" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -475,9 +475,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:1510 Y:-1100}" />
-              <X Value="1410" />
-              <Y Value="-1110" />
+              <Center Value="{X:-1066 Y:-1125}" />
+              <X Value="-1166" />
+              <Y Value="-1135" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -644,9 +644,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:1203 Y:-920}" />
-              <X Value="1103" />
-              <Y Value="-930" />
+              <Center Value="{X:229 Y:-945}" />
+              <X Value="129" />
+              <Y Value="-955" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -813,9 +813,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:-190 Y:-1100}" />
-              <X Value="-290" />
-              <Y Value="-1110" />
+              <Center Value="{X:620 Y:-1125}" />
+              <X Value="520" />
+              <Y Value="-1135" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -982,9 +982,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:-1160 Y:-2550}" />
-              <X Value="-1260" />
-              <Y Value="-2560" />
+              <Center Value="{X:1987 Y:-2575}" />
+              <X Value="1887" />
+              <Y Value="-2585" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -1151,9 +1151,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:-239 Y:-2550}" />
-              <X Value="-339" />
-              <Y Value="-2560" />
+              <Center Value="{X:-1970 Y:-2575}" />
+              <X Value="-2070" />
+              <Y Value="-2585" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -1320,9 +1320,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:719 Y:-2550}" />
-              <X Value="619" />
-              <Y Value="-2560" />
+              <Center Value="{X:-970 Y:-2575}" />
+              <X Value="-1070" />
+              <Y Value="-2585" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -1489,9 +1489,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:1789 Y:-2550}" />
-              <X Value="1689" />
-              <Y Value="-2560" />
+              <Center Value="{X:-21 Y:-2575}" />
+              <X Value="-121" />
+              <Y Value="-2585" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -1658,9 +1658,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:2819 Y:-2550}" />
-              <X Value="2719" />
-              <Y Value="-2560" />
+              <Center Value="{X:987 Y:-2575}" />
+              <X Value="887" />
+              <Y Value="-2585" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -1813,12 +1813,12 @@
           </MoveLoop>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="Lock">
+      <Entity Name="ImportantRobot" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:381 Y:-3155}" />
+              <InitialPosition Value="{X:162 Y:-3155}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1827,8 +1827,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:381 Y:-3155}" />
-              <X Value="331" />
+              <Center Value="{X:164 Y:-3155}" />
+              <X Value="114" />
               <Y Value="-3235" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1954,6 +1954,7 @@
           </EnemyAnimationManager>
           <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="TopRobotPath" />
               <Speed Value="2" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
@@ -1988,12 +1989,12 @@
           </DamageDisplayer>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="Lock">
+      <Entity Name="ImportantRobot2" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-117 Y:-3155}" />
+              <InitialPosition Value="{X:236 Y:-3155}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2002,8 +2003,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-116 Y:-3155}" />
-              <X Value="-166" />
+              <Center Value="{X:233 Y:-3155}" />
+              <X Value="183" />
               <Y Value="-3235" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2031,7 +2032,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -2075,7 +2076,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -2129,6 +2130,7 @@
           </EnemyAnimationManager>
           <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
             <Properties>
+              <CurrentNodeList Value="TopRobotPath" />
               <Speed Value="2" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
