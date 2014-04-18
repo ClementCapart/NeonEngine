@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-937.8129 Y:-1693.007}" />
-          <InitialPosition Value="{X:-937.8129 Y:-1693.007}" />
+          <Position Value="{X:-598.8334 Y:556.9926}" />
+          <InitialPosition Value="{X:-598.8334 Y:556.9926}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -15,9 +15,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-937 Y:-1693}" />
-          <X Value="-957" />
-          <Y Value="-1761" />
+          <Center Value="{X:-598 Y:556}" />
+          <X Value="-618" />
+          <Y Value="488" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -45,6 +45,7 @@
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="True" />
@@ -87,7 +88,6 @@
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
-          <ParallaxForce Value="{X:0 Y:0}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
           <NickName Value="" />
         </Properties>
@@ -139,7 +139,7 @@
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="99" />
-          <CurrentHealthPoints Value="97" />
+          <CurrentHealthPoints Value="99" />
           <InvincibilityDuration Value="1" />
           <InvincibilityBlinkSpeed Value="15" />
           <HitAnim Value="Hit" />
@@ -182,10 +182,10 @@
           <ThunderLaunchAnimation Value="ThunderLaunch" />
           <WindStartAnimation Value="WindStart" />
           <WindImpulseAnimation Value="WindImpulse" />
-          <LeftSlotElement Value="Thunder" />
-          <LeftSlotLevel Value="3" />
-          <RightSlotElement Value="Fire" />
-          <RightSlotLevel Value="3" />
+          <LeftSlotElement Value="Neutral" />
+          <LeftSlotLevel Value="1" />
+          <RightSlotElement Value="Neutral" />
+          <RightSlotLevel Value="1" />
           <MaxLevel Value="3" />
           <ThunderGatheringFX Value="FeedbackThunderGathering" />
           <FireGatheringFX Value="FeedbackFireGathering" />
@@ -202,7 +202,7 @@
       <EnergySystem Type="NeonStarLibrary.Components.Avatar.EnergySystem" ID="11">
         <Properties>
           <MaxEnergyStock Value="1000" />
-          <CurrentEnergyStock Value="10" />
+          <CurrentEnergyStock Value="0" />
           <NickName Value="Blabla" />
         </Properties>
       </EnergySystem>
