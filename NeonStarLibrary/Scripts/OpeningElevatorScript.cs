@@ -88,6 +88,7 @@ namespace NeonStarLibrary.Components.Scripts
                     _buttonToPressSpritesheet.ChangeAnimation("RedIdle", true, 0, true, false, true);
                 }
             }
+
             if(_falling && _liOn != null)
             {
                 _liOn.CanAttack = false;
@@ -96,6 +97,7 @@ namespace NeonStarLibrary.Components.Scripts
                 _liOn.CanTurn = false;
                 _liOn.CanUseElement = false;
             }
+
             if (this.entity.transform.Position.Y > -14500)
             {
                 if (_graphicToFadeOut != null && _graphicToFadeOut.opacity > 0.0f)
