@@ -258,7 +258,6 @@ namespace NeonEngine.Components.Graphics2D
             int i = _tilingHash.IndexOf("_BOT_");
             if (_tilingHash.IndexOf("_LEFT_") - i - 5 < 0)
                     return;
-                return;
             string botHash = _tilingHash.Substring(i + 5, _tilingHash.IndexOf("_LEFT_") - i - 5);
 
             hashInfo = botHash.Split('_');

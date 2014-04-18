@@ -624,8 +624,7 @@ namespace NeonStarEditor
                     CollectibleManager.ResetCollectibles();
                     CollectibleManager.InitializeCollectibles(this);
                     ReloadLevel();
-                }
-                
+                }         
             }
 
             ManageInspector();
@@ -971,8 +970,6 @@ namespace NeonStarEditor
                 }
             }
 
-
-
             if (FocusedTextBox != null)
                 ManageText();
             if (FocusedNumericUpDown != null)
@@ -1028,6 +1025,23 @@ namespace NeonStarEditor
                              }
                              FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
                                  ":");
+                             FocusedTextBox.SelectionStart = ++LastSelectionStart;
+                         }
+                         else if (Neon.Input.KeysPressed[i] == Keys.Space && PressedDelay <= 0.0f)
+                         {
+                             PressedDelay = 0.2f;
+                             int SelectionStart = FocusedTextBox.SelectionStart;
+                             if (FocusedTextBox.SelectedText.Length > 0)
+                             {
+                                 string[] text = FocusedTextBox.Text.Split(FocusedTextBox.SelectedText.ToCharArray());
+                                 FocusedTextBox.Text = "";
+                                 foreach (string s in text)
+                                 {
+                                     FocusedTextBox.Text += s;
+                                 }
+                             }
+                             FocusedTextBox.Text = FocusedTextBox.Text.Insert(SelectionStart,
+                                 " ");
                              FocusedTextBox.SelectionStart = ++LastSelectionStart;
                          }
                          else if (Neon.Input.KeysPressed[i] == Keys.D4 && PressedDelay <= 0.0f)
