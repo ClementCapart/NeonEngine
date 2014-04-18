@@ -11,7 +11,7 @@ namespace NeonEngine.Components.Triggers
         private bool _alreadyTouched = false;
         private bool _notOutYet = false;
 
-        private bool _oneShot = false;
+        protected bool _oneShot = false;
 
         public bool OneShot
         {
@@ -19,7 +19,7 @@ namespace NeonEngine.Components.Triggers
             set { _oneShot = value; }
         }
 
-        private bool _triggerEveryFrame = false;
+        protected bool _triggerEveryFrame = false;
 
         public bool TriggerEveryFrame
         {
@@ -27,7 +27,7 @@ namespace NeonEngine.Components.Triggers
             set { _triggerEveryFrame = value; }
         }
 
-        private string _triggeringEntityName = "";
+        protected string _triggeringEntityName = "";
 
         public string TriggeringEntityName
         {
@@ -35,7 +35,7 @@ namespace NeonEngine.Components.Triggers
             set { _triggeringEntityName = value; }
         }
 
-        private string _triggeredEntityName = "";
+        protected string _triggeredEntityName = "";
 
         public string TriggeredEntityName
         {
@@ -43,7 +43,7 @@ namespace NeonEngine.Components.Triggers
             set { _triggeredEntityName = value; }
         }
 
-        private string _triggeredComponentName = "";
+        protected string _triggeredComponentName = "";
 
         public string TriggeredComponentName
         {
@@ -51,9 +51,9 @@ namespace NeonEngine.Components.Triggers
             set { _triggeredComponentName = value; }
         }
 
-        private Entity _triggeringEntity = null;
-        private Entity _triggeredEntity = null;
-        private Component _triggeredComponent = null;
+        protected Entity _triggeringEntity = null;
+        protected Entity _triggeredEntity = null;
+        protected Component _triggeredComponent = null;
 
         public HitboxTrigger(Entity entity)
             :base(entity, "HitboxTrigger")
@@ -108,7 +108,7 @@ namespace NeonEngine.Components.Triggers
  	        base.PreUpdate(gameTime);
         }
 
-        public void Trigger()
+        public virtual void Trigger()
         {
             if (_triggeredEntity != null && _triggeredComponent != null)
             {

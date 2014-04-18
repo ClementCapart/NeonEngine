@@ -400,6 +400,12 @@ namespace NeonStarLibrary.Components.Enemies
                         (dc as SpritesheetManager).CurrentSpritesheet.MainColor = Color.White;
                     }
                 }
+
+                State = EnemyState.Dying;
+
+                if (entity.spritesheets != null)
+                    entity.spritesheets.ChangeAnimation(DyingAnim, true, 0, true, false, false);
+
                 return DamageResult.Missed;
             }
             else
