@@ -4377,6 +4377,7 @@
           </Transform>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
+              <IsLooped Value="True" />
               <StartingFrame Value="0" />
               <Reverse Value="False" />
               <ChangeSideEveryLoop Value="False" />
@@ -4397,7 +4398,6 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
-              <IsLooped Value="True" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -4415,6 +4415,7 @@
           </Transform>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
+              <IsLooped Value="True" />
               <StartingFrame Value="0" />
               <Reverse Value="False" />
               <ChangeSideEveryLoop Value="False" />
@@ -4435,7 +4436,6 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
-              <IsLooped Value="True" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -4585,36 +4585,6 @@
               <NickName Value="" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:1901 Y:700}" />
-              <X Value="1882" />
-              <Y Value="568" />
-              <OffsetX Value="-0.6" />
-              <OffsetY Value="0" />
-              <Width Value="39" />
-              <Height Value="265" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="5">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="1.03345" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
               <GraphicTag Value="CeilingCorner" />

@@ -188,11 +188,11 @@ namespace NeonStarLibrary.Components.Menu
                         {
                             if (Neon.Input.Pressed(NeonStarInput.MoveRight))
                             {
-                                _currentSelection = (_currentSelection + 1) % 2;
+                                _currentSelection = (_currentSelection + 1) % 1;
                             }
                             else if (Neon.Input.Pressed(NeonStarInput.MoveLeft))
                             {
-                                _currentSelection = Math.Abs((_currentSelection - 1)) % 2;
+                                _currentSelection = Math.Abs((_currentSelection - 1)) % 1;
                             }
                         }
                         
