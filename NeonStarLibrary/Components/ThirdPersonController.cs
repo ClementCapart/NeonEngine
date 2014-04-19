@@ -242,7 +242,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -250,7 +250,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -273,7 +273,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -281,7 +281,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
