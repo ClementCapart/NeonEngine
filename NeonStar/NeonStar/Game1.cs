@@ -115,25 +115,27 @@ namespace NeonStar
 
                 average /= AvatarCore.TimeBeforeDeaths.Count;
 
-                statsContent += "Average time before Death: " + TimeSpan.FromSeconds(average).ToString("hh':'mm':'ss") + Environment.NewLine + Environment.NewLine;
+                statsContent += "Average time before Death: " + TimeSpan.FromSeconds(average).ToString("hh':'mm':'ss") + Environment.NewLine ;
             }
+
+            statsContent += Environment.NewLine;
+
+            statsContent += "Health points healed: " + AvatarCore.TotalHealedHealthPoints.ToString() + Environment.NewLine;
 
             if(AvatarCore.HealedHealthPointsBeforeDeaths.Count > 0)
             {
                 float average = 0.0f; 
-                float total = 0.0f;
+
                 foreach (float f in AvatarCore.HealedHealthPointsBeforeDeaths)
-                {
-                    total += f;
-                    average = total / AvatarCore.HealedHealthPointsBeforeDeaths.Count;;
-                }
+                    average += f;
 
-                statsContent += "Health points healed: " + total.ToString() + Environment.NewLine;
+                average /= AvatarCore.HealedHealthPointsBeforeDeaths.Count;
 
-                statsContent += "Average Health points healed before dying: " + average.ToString() + Environment.NewLine + Environment.NewLine;
+                statsContent += "Average Health points healed before dying: " + average.ToString() + Environment.NewLine;
             }
-            else
-                statsContent += "Health points healed: 0" + Environment.NewLine + Environment.NewLine;
+
+            statsContent += Environment.NewLine;
+                
 
             statsContent += "--------------------------" + Environment.NewLine + Environment.NewLine;
 

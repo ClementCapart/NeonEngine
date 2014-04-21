@@ -119,6 +119,7 @@ namespace NeonStarLibrary.Components.Avatar
         public static List<float> TimeBeforeDeaths = new List<float>();
         
         public static float HealedHealthPointsSinceLastDeath = 0.0f;
+        public static float TotalHealedHealthPoints = 0.0f;
         public static List<float> HealedHealthPointsBeforeDeaths = new List<float>();
 
         public static int NumberOfGameCompleted = 0;
