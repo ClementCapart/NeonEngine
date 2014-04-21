@@ -111,6 +111,19 @@ namespace NeonStarLibrary.Components.Avatar
         }
         #endregion       
 
+        public static int AvatarDeath = 0;
+        public static float TotalGameTime = 0.0f;
+        public static float TimeSinceLastCompletion = 0.0f;
+
+        public static float TimeSinceLastDeath = 0.0f;
+        public static List<float> TimeBeforeDeaths = new List<float>();
+        
+        public static float HealedHealthPointsSinceLastDeath = 0.0f;
+        public static List<float> HealedHealthPointsBeforeDeaths = new List<float>();
+
+        public static int NumberOfGameCompleted = 0;
+        public static List<float> CompletionTime = new List<float>();       
+
         public AvatarState State = AvatarState.Idle;
 
         public AvatarAnimationManager AvatarAnimationManager;
@@ -262,6 +275,10 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void PreUpdate(GameTime gameTime)
         {
+            TotalGameTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            TimeSinceLastDeath += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            TimeSinceLastCompletion += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
             if (State == AvatarState.FastRespawning)
             {
                 CanMove = false;
@@ -290,6 +307,15 @@ namespace NeonStarLibrary.Components.Avatar
                     State = AvatarState.Dying;
                     if (entity.rigidbody != null)
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                    
+                    ///////////////////
+                    AvatarDeath++;
+                    TimeBeforeDeaths.Add(TimeSinceLastDeath);
+                    TimeSinceLastDeath = 0.0f;
+                    HealedHealthPointsBeforeDeaths.Add(HealedHealthPointsSinceLastDeath);
+                    HealedHealthPointsSinceLastDeath = 0.0f;
+                    //////////////////
+
                     (this.entity.GameWorld as GameScreen).Respawn();
                 }
                 else if (_airLockDuration > 0.0f && IsAirLocked)

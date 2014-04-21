@@ -500,6 +500,9 @@ namespace NeonStarLibrary.Components.GameplayElements
             if (_yButton != null)
                 _yButton.Active = false;
 
+            if (_extraSpritesheet != null)
+                _extraSpritesheet.Active = false;
+
             _avatarComponent.State = AvatarState.Respawning;
             _avatarComponent.CanMove = false;
             _avatarComponent.CanTurn = false;

@@ -61,6 +61,12 @@ namespace NeonStarLibrary.Components.Triggers
         {
             if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + "/" + LevelName + "_Info.xml"))
             {
+                if (LevelName == "Menu")
+                {
+                    AvatarCore.NumberOfGameCompleted++;
+                    AvatarCore.CompletionTime.Add(AvatarCore.TimeSinceLastCompletion);
+                    AvatarCore.TimeSinceLastCompletion = 0.0f;
+                }
                 entity.GameWorld.ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
                 if (entity.spritesheets != null)
                     entity.spritesheets.ChangeAnimation("Closing", 0, true, false, false);

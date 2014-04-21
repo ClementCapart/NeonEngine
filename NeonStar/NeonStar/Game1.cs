@@ -13,6 +13,7 @@ using NeonStarEditor;
 using NeonStarLibrary;
 using System.IO;
 using System.Xml.Linq;
+using NeonStarLibrary.Components.Avatar;
 
 namespace NeonStar
 {
@@ -83,6 +84,62 @@ namespace NeonStar
 
                 (Neon.World as GameScreen).SaveProgressionToFile();
             }
+
+            string statsContent = "";
+            StreamReader sr = new StreamReader(File.Open(@"stats.txt", FileMode.OpenOrCreate));
+            statsContent = sr.ReadToEnd();
+            sr.Close();
+
+            if (statsContent == "")
+                statsContent += "Game Statistics Tracking" + Environment.NewLine + Environment.NewLine + "--------------------------" + Environment.NewLine + Environment.NewLine;
+
+            statsContent += DateTime.Now.ToString() + Environment.NewLine + Environment.NewLine;
+
+
+            statsContent += "Total play time: " + TimeSpan.FromSeconds(AvatarCore.TotalGameTime).ToString("hh':'mm':'ss") + Environment.NewLine + Environment.NewLine;
+            statsContent += "Game Completions: " + AvatarCore.NumberOfGameCompleted.ToString() + Environment.NewLine;
+
+            if (AvatarCore.CompletionTime.Count > 0)
+                statsContent += "Fastest Game Completion: " + TimeSpan.FromSeconds(AvatarCore.CompletionTime.OrderBy(f => f).First()).ToString("hh':'mm':'ss") + Environment.NewLine;
+
+            if (AvatarCore.CompletionTime.Count > 0)
+                statsContent += "Slowest Game Completion: " + TimeSpan.FromSeconds(AvatarCore.CompletionTime.OrderBy(f => f).Last()).ToString("hh':'mm':'ss") + Environment.NewLine + Environment.NewLine;
+
+            statsContent += "Number of Deaths: " + AvatarCore.AvatarDeath.ToString() + Environment.NewLine;
+            if (AvatarCore.TimeBeforeDeaths.Count > 0)
+            {
+                float average = 0.0f;
+
+                foreach (float f in AvatarCore.TimeBeforeDeaths)
+                    average += f;
+
+                average /= AvatarCore.TimeBeforeDeaths.Count;
+
+                statsContent += "Average time before Death: " + TimeSpan.FromSeconds(average).ToString("hh':'mm':'ss") + Environment.NewLine + Environment.NewLine;
+            }
+
+            if(AvatarCore.HealedHealthPointsBeforeDeaths.Count > 0)
+            {
+                float average = 0.0f; 
+                float total = 0.0f;
+                foreach (float f in AvatarCore.HealedHealthPointsBeforeDeaths)
+                {
+                    total += f;
+                    average = total / AvatarCore.HealedHealthPointsBeforeDeaths.Count;;
+                }
+
+                statsContent += "Health points healed: " + total.ToString() + Environment.NewLine;
+
+                statsContent += "Average Health points healed before dying: " + average.ToString() + Environment.NewLine + Environment.NewLine;
+            }
+            else
+                statsContent += "Health points healed: 0" + Environment.NewLine + Environment.NewLine;
+
+            statsContent += "--------------------------" + Environment.NewLine + Environment.NewLine;
+
+            TextWriter tx = new StreamWriter("stats.txt");
+            tx.Write(statsContent);
+            tx.Close();
             base.OnExiting(sender, args);
         }
 

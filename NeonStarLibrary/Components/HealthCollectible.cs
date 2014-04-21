@@ -73,6 +73,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {
                     _avatar.CurrentHealthPoints = Math.Min(_avatar.CurrentHealthPoints + _healthValue, _avatar.StartingHealthPoints);
+                    AvatarCore.HealedHealthPointsSinceLastDeath += _healthValue;
                     EffectsManager.GetEffect(_healingFeedback, _avatar.CurrentSide, _avatar.entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.52f, _avatar.entity);
                     this.entity.Destroy();
                 }

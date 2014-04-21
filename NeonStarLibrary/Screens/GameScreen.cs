@@ -58,6 +58,7 @@ namespace NeonStarLibrary
             if (Map == null)
                 Map = new MapScreen(game);
 
+            
             Map.CurrentGameScreen = this;
             Map.InitializeMapData(statusToLoad);
             Map.AddLevelToMap(groupName, levelName);
@@ -147,6 +148,9 @@ namespace NeonStarLibrary
                         ed.Init();
                 }
             }
+
+            if (CheckPointsData.Count == 0 && _avatarComponent != null)
+                GameScreen.CheckPointsData.Add(SaveStatus());
         } 
 
         public void LoadAvatarStatus(AvatarCore avatarComponent, bool respawning = false)
@@ -312,7 +316,7 @@ namespace NeonStarLibrary
 
             XElement currentGroupName = new XElement("GroupName", this.LevelGroupName);
             XElement currentLevelName = new XElement("LevelName", this.LevelName);
-            XElement currentSpawnPoint = new XElement("SpawnPoint", cp != null ? cp.SpawnPointIndex.ToString() : "None");
+            XElement currentSpawnPoint = new XElement("SpawnPoint", cp != null ? cp.SpawnPointIndex.ToString() : "0");
             currentLevel.Add(currentGroupName);
             currentLevel.Add(currentLevelName);
             currentLevel.Add(currentSpawnPoint);
