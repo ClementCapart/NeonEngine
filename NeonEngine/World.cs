@@ -168,7 +168,7 @@ namespace NeonEngine
             
 
             DeferredDrawGame(Neon.SpriteBatch);
-            if (!_change && Alpha > 0.0f && (gameTime.ElapsedGameTime.TotalSeconds <= 1.0f / 60.0f))
+            if (!_change && Alpha > 0.0f && (gameTime.ElapsedGameTime.TotalSeconds <= 1.0f / 30.0f))
             {
                 Alpha -= 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (Alpha <= 0.0f)
