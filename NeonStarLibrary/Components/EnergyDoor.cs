@@ -91,7 +91,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 if (entity.spritesheets != null)
                 {
-                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, false, false);
+                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, false, true);
                     _closing = false;
                     if (entity.rigidbody != null)
                     {
@@ -122,7 +122,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 if (entity.spritesheets != null)
                 {
-                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, true, false);
+                    entity.spritesheets.ChangeAnimation(_closedIdleAnimation, true, 0, true, false, true);
                 }
             }
             
