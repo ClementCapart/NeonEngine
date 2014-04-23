@@ -307,5 +307,10 @@ namespace NeonStarEditor.Controls.LeftDock
             CollectibleManager.InitializeCollectibles(GameWorld as GameScreen);
             GameWorld.ReloadLevel();
         }
+
+        private void AreaSelection_Click(object sender, EventArgs e)
+        {
+            GameWorld.CurrentTool = new AreaSelection(GameWorld);
+        }
     }
 }

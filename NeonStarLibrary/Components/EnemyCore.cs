@@ -385,7 +385,8 @@ namespace NeonStarLibrary.Components.Enemies
 
             if (_currentHealthPoints <= 0.0f && !_immuneToDeath)
             {
-                entity.hitboxes[0].Type = HitboxType.Invincible;
+                if(entity.hitboxes.Count > 0)
+                    entity.hitboxes[0].Type = HitboxType.Invincible;
                 IsAirLocked = false;
                 _airLockDuration = 0.0f;
                 if (DamageDisplayer != null)

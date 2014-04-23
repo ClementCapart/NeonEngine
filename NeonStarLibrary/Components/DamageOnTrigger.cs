@@ -47,7 +47,7 @@ namespace NeonStarLibrary.Components.Triggers
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
-            if (_enemyComponent != null)
+            if (_enemyComponent != null && _enemyComponent.State != EnemyState.Dying && _enemyComponent.State != EnemyState.Dead)
                 _enemyComponent.TakeDamage(_damageToInflict * -1, 0.0f, false, 0.0f, Side.Right);
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }

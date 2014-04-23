@@ -49,6 +49,7 @@
             this.elementPanelButton = new System.Windows.Forms.Button();
             this.SaveLockLayer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.AreaSelection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -290,6 +291,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // AreaSelection
+            // 
+            this.AreaSelection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AreaSelection.BackgroundImage")));
+            this.AreaSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AreaSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AreaSelection.Location = new System.Drawing.Point(40, 179);
+            this.AreaSelection.Name = "AreaSelection";
+            this.AreaSelection.Size = new System.Drawing.Size(30, 30);
+            this.AreaSelection.TabIndex = 5;
+            this.AreaSelection.UseVisualStyleBackColor = true;
+            this.AreaSelection.Click += new System.EventHandler(this.AreaSelection_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +311,7 @@
             this.Controls.Add(this.elementPanelButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.magnetCheckbox);
+            this.Controls.Add(this.AreaSelection);
             this.Controls.Add(this.Selection);
             this.Controls.Add(this.PathNodeTool);
             this.Controls.Add(this.ToggleBoundsButton);
@@ -346,5 +360,6 @@
         private System.Windows.Forms.Button elementPanelButton;
         private System.Windows.Forms.Button SaveLockLayer;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AreaSelection;
     }
 }
