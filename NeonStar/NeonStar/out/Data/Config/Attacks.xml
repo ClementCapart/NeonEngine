@@ -970,30 +970,6 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="Empty" Group="NoGroup" Type="MeleeSpecial">
-      <Hitboxes />
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>1</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>0</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.1</Duration>
-      <AirLock>0</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <AirImpulse>{X:0 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
-      <OnHitSpecialEffects />
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
     <Attack ID="0" Name="EnemyBomb" Group="EnemySupervisor" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="150" Height="150" />
@@ -1017,38 +993,6 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
-    <Attack ID="0" Name="EnemyFirebatFlame" Group="EnemyFirebat" Type="MeleeSpecial">
-      <Hitboxes>
-        <Hitbox OffsetX="140" OffsetY="-35" Width="280" Height="80" />
-      </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-4</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.5</Delay>
-      <Cooldown>0</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>1.5</Duration>
-      <AirLock>0</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0.2</StunLock>
-      <MultiHitDelay>0.3</MultiHitDelay>
-      <AirImpulse>{X:0 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
-      <OnHitSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:50 Y:100}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
@@ -2443,109 +2387,6 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="LiOnRoll" Group="LiOnRoll" Type="Special">
-      <Hitboxes />
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>0</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
-      <Cooldown>0</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.3</Duration>
-      <AirLock>0</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>0</AirFactor>
-      <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <AirImpulse>{X:0 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:600 Y:0}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-        <Effect Type="Invincible">
-          <Parameter Value="0.4" />
-        </Effect>
-      </OnDurationSpecialEffects>
-      <OnHitSpecialEffects />
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
-    <Attack ID="0" Name="LiOnRushAttack" Group="LiOnRush" Type="MeleeSpecial">
-      <Hitboxes>
-        <Hitbox OffsetX="60" OffsetY="-5" Width="100" Height="60" />
-      </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-15</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0.3</Delay>
-      <Cooldown>0</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.24</Duration>
-      <AirLock>0.5</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>0.5</AirFactor>
-      <StunLock>0.24</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <AirImpulse>{X:0 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:-320 Y:0}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnDurationSpecialEffects>
-      <OnHitSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:3500 Y:0}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnHitSpecialEffects>
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
-    <Attack ID="0" Name="LiOnRushAttackFinish" Group="LiOnRush" Type="MeleeSpecial">
-      <Hitboxes>
-        <Hitbox OffsetX="45" OffsetY="0" Width="90" Height="50" />
-      </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-20</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0.3</Delay>
-      <Cooldown>0.2</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
-      <AirLock>0.6</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>0.5</AirFactor>
-      <StunLock>0.32</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <AirImpulse>{X:0 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
-      <OnHitSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:4500 Y:0}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnHitSpecialEffects>
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
     <Attack ID="0" Name="LiOnUppercut" Group="LiOnUppercut" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="30" OffsetY="-35" Width="60" Height="110" />
@@ -2571,43 +2412,6 @@
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-3800}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnHitSpecialEffects>
-      <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
-    </Attack>
-    <Attack ID="0" Name="LiOnUppercutFinish" Group="LiOnUppercut" Type="MeleeSpecial">
-      <Hitboxes>
-        <Hitbox OffsetX="30" OffsetY="-35" Width="60" Height="110" />
-      </Hitboxes>
-      <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-10</DamageOnHit>
-      <AirOnly>False</AirOnly>
-      <GroundCancel>False</GroundCancel>
-      <OnlyOnceInAir>True</OnlyOnceInAir>
-      <Delay>0.1</Delay>
-      <Cooldown>0.1</Cooldown>
-      <LocalCooldown>0</LocalCooldown>
-      <Duration>0.1</Duration>
-      <AirLock>0.4</AirLock>
-      <TargetAirLock>0</TargetAirLock>
-      <AirFactor>1</AirFactor>
-      <StunLock>0.32</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
-      <AirImpulse>{X:3000 Y:0}</AirImpulse>
-      <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects>
-        <Effect Type="PlaySound">
-          <Parameter Value="UppercutFinish" />
-          <SecondParameter Value="0.3" />
-        </Effect>
-      </OnDurationSpecialEffects>
-      <OnHitSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:600 Y:-4000}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
