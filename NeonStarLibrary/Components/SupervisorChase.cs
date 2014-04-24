@@ -172,7 +172,7 @@ namespace NeonStarLibrary.Components.Enemies
                     case EnemyState.Idle:
                     case EnemyState.Patrol:
                     case EnemyState.WaitNode:
-                        if (!_onDuty)
+                        if (!_onDuty && EntityToChase.hitboxes.Count > 0)
                         {
                             EnemyComponent.RunAnim = _normalPatrolAnimation;
                             Rectangle detectionHitbox = new Rectangle((int)(entity.transform.Position.X + _detectionBoxOffset.X - _detectionWidth / 2), (int)(entity.transform.Position.Y + _detectionBoxOffset.Y - _detectionHeight / 2), (int)_detectionWidth, (int)_detectionHeight);

@@ -905,6 +905,11 @@ namespace NeonStarEditor
                     //ActionManager.SaveAction(ActionType.DeleteEntity, new object[2] { DataManager.SavePrefab(SelectedEntity), this });
                     SelectedEntity.Destroy();
                     SelectedEntity = null;
+                    foreach (Entity e in OtherSelectedEntities)
+                    {
+                        e.Destroy();
+                    }
+                    OtherSelectedEntities.Clear();
                     RightDockControl.InspectorControl.ClearInspector();                 
                 }
                 ManagingInspector = false;
