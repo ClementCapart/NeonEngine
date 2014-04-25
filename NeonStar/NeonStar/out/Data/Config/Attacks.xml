@@ -786,7 +786,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="ElectricFloor250" Group="ElectricFloor" Type="MeleeSpecial">
+    <Attack ID="0" Name="ElectricRay250" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="250" Height="50" />
       </Hitboxes>
@@ -816,12 +816,42 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="ElectricFloor300" Group="ElectricFloor" Type="MeleeSpecial">
+    <Attack ID="0" Name="ElectricRay250E" Group="ElectricRay" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="250" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-20</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.5</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>1</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>True</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:600 Y:200}" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="ElectricRay300" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="300" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-8</DamageOnHit>
+      <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -846,7 +876,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="ElectricFloor500" Group="ElectricFloor" Type="MeleeSpecial">
+    <Attack ID="0" Name="ElectricRay500" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="50" OffsetY="0" Width="500" Height="50" />
       </Hitboxes>
@@ -876,12 +906,42 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="ElectricFloor600" Group="ElectricFloor" Type="MeleeSpecial">
+    <Attack ID="0" Name="ElectricRay500E" Group="ElectricRay" Type="MeleeSpecial">
+      <Hitboxes>
+        <Hitbox OffsetX="0" OffsetY="0" Width="500" Height="50" />
+      </Hitboxes>
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>-20</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.5</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>1</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>True</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:600 Y:200}" />
+        </Effect>
+      </OnHitSpecialEffects>
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
+    <Attack ID="0" Name="ElectricRay600" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="600" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>-8</DamageOnHit>
+      <DamageOnHit>-10</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -906,7 +966,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="ElectricFloorVertical300" Group="ElectricFloor" Type="MeleeSpecial">
+    <Attack ID="0" Name="ElectricRayVertical300" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="50" Height="300" />
       </Hitboxes>
