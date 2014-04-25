@@ -28,12 +28,20 @@ namespace NeonStarLibrary.Components.GameplayElements
             set { _hitAvatar = value; }
         }
 
-        private string _attackName = "";
+        private string _hitAvatarAttackName = "";
 
-        public string AttackName
+        public string HitAvatarAttackName
         {
-            get { return _attackName; }
-            set { _attackName = value; }
+            get { return _hitAvatarAttackName; }
+            set { _hitAvatarAttackName = value; }
+        }
+
+        private string _hitEnemyAttackName = "";
+
+        public string HitEnemyAttackName
+        {
+            get { return _hitEnemyAttackName; }
+            set { _hitEnemyAttackName = value; }
         }
         #endregion
 
@@ -66,7 +74,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                         if (ec != null)
                         {
                             if(_damagingEnemies == null)
-                                _damagingEnemies = AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, false);
+                                _damagingEnemies = AttacksManager.StartFreeAttack(_hitEnemyAttackName, Side.Right, entity.transform.Position, false);
                         }
                     }
 
@@ -76,7 +84,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                         if (ac != null)
                         {
                             if(_damagingAvatar == null)
-                                _damagingAvatar = AttacksManager.StartFreeAttack(_attackName, Side.Right, entity.transform.Position, true);
+                                _damagingAvatar = AttacksManager.StartFreeAttack(_hitAvatarAttackName, Side.Right, entity.transform.Position, true);
                         }
                     }
                 }
