@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyCaster" Layer="">
+  <Entity Name="EnemyCaster" Layer="Lock">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-505 Y:-100.0075}" />
-          <InitialPosition Value="{X:-505 Y:-100.0075}" />
+          <Position Value="{X:4350 Y:-1425.007}" />
+          <InitialPosition Value="{X:4350 Y:-1425.007}" />
           <Rotation Value="0" />
           <Scale Value="1" />
           <NickName Value="" />
@@ -16,7 +16,7 @@
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="50" />
-          <CoreElement Value="Neutral" />
+          <CoreElement Value="Fire" />
           <CurrentHealthPoints Value="50" />
           <ChanceToDropHealth Value="0.6" />
           <HealthItemsToDrop Value="1" />
@@ -113,9 +113,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="4">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-504 Y:-100}" />
-          <X Value="-539" />
-          <Y Value="-175" />
+          <Center Value="{X:4350 Y:-1425}" />
+          <X Value="4315" />
+          <Y Value="-1500" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="70" />
