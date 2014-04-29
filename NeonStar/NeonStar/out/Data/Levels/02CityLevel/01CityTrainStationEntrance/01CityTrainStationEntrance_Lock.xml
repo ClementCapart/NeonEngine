@@ -2,7 +2,7 @@
 <XnaContent>
   <Level Layer="Lock">
     <Entities>
-      <Entity Name="EnemyRobot" Layer="Lock">
+      <Entity Name="ArenaRobot2" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -109,6 +109,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -130,9 +132,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -177,7 +177,7 @@
           </DamageDisplayer>
         </Components>
       </Entity>
-      <Entity Name="EnemyRobot" Layer="Lock">
+      <Entity Name="ArenaRobot1" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -284,6 +284,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -305,9 +307,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -352,7 +352,7 @@
           </DamageDisplayer>
         </Components>
       </Entity>
-      <Entity Name="EnemyNeutralTurret" Layer="Lock">
+      <Entity Name="ArenaNeutralTurret1" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -605,6 +605,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -626,9 +628,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -780,6 +780,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -801,9 +803,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">

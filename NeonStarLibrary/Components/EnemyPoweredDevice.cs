@@ -228,7 +228,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
             if (_displayGauge && _gauge != null)
             {
-                _gaugeTargetWidth = _currentEnemiesKilled / _totalEnemiesToKill * GaugeMaxWidth;
+                if (_totalEnemiesToKill == 0.0f)
+                    _gaugeTargetWidth = 0.0f;
+                else
+                    _gaugeTargetWidth = _currentEnemiesKilled / _totalEnemiesToKill * GaugeMaxWidth;
                 if (_gauge != null)
                     _gauge.TilingWidth = _gaugeTargetWidth;
 
