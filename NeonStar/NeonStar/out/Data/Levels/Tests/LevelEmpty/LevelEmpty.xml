@@ -55,7 +55,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:609 Y:183}" />
+              <InitialPosition Value="{X:-802 Y:195}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -81,13 +81,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:608 Y:182}" />
-              <X Value="533" />
-              <Y Value="82" />
+              <Center Value="{X:-802 Y:195}" />
+              <X Value="-877" />
+              <Y Value="108" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="150" />
-              <Height Value="200" />
+              <Height Value="175" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -149,37 +149,40 @@
           </AreaAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
             <Properties>
-              <CanChangeSide Value="False" />
+              <CanChangeSide Value="True" />
               <NickName Value="" />
             </Properties>
           </EnemyAnimationManager>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
             <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
+              <CurrentSide Value="Left" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="IdlePlaceholder" />
-                <Animation Name="DashDelay" SpritesheetTag="1DelayPlaceholder" />
-                <Animation Name="DashDuration" SpritesheetTag="1DurationPlaceholder" />
-                <Animation Name="DashCooldown" SpritesheetTag="1CooldownPlaceholder" />
-                <Animation Name="JumpDelay" SpritesheetTag="2DelayPlaceholder" />
-                <Animation Name="JumpDuration" SpritesheetTag="2DurationPlaceholder" />
-                <Animation Name="JumpCooldown" SpritesheetTag="2CooldownPlaceholder" />
+                <Animation Name="Idle" SpritesheetTag="ChargerIdle" />
+                <Animation Name="DashDelay" SpritesheetTag="ChargerDashDelay" />
+                <Animation Name="DashDuration" SpritesheetTag="ChargerDashDuration" />
+                <Animation Name="DashCooldown" SpritesheetTag="ChargerDashCooldown" />
+                <Animation Name="JumpDelay" SpritesheetTag="ChargerJumpDelay" />
+                <Animation Name="JumpDuration" SpritesheetTag="ChargerJumpDuration" />
+                <Animation Name="JumpCooldown" SpritesheetTag="ChargerJumpCooldown" />
                 <Animation Name="BackDelay" SpritesheetTag="3DelayPlaceholder" />
                 <Animation Name="BackDuration" SpritesheetTag="3DurationPlaceholder" />
                 <Animation Name="BackCooldown" SpritesheetTag="3CooldownPlaceholder" />
                 <Animation Name="BurstDelay" SpritesheetTag="4DelayPlaceholder" />
                 <Animation Name="BurstDuration" SpritesheetTag="4DurationPlaceholder" />
                 <Animation Name="BurstCooldown" SpritesheetTag="4CooldownPlaceholder" />
-                <Animation Name="Move" SpritesheetTag="MovePlaceholder" />
+                <Animation Name="Move" SpritesheetTag="ChargerWalk" />
+                <Animation Name="BisonAirLockDuration" SpritesheetTag="ChargerAirLock" />
+                <Animation Name="BisonDiveDuration" SpritesheetTag="ChargerDiveDuration" />
+                <Animation Name="BisonDiveEffectCooldown" SpritesheetTag="ChargerIdle" />
               </Spritesheets>
               <DrawLayer Value="0" />
               <IsHUD Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
