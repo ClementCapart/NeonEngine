@@ -300,9 +300,17 @@ namespace NeonStarLibrary.Components.Enemies
             else if (tookDamage == DamageResult.Missed && _currentHealthPoints <= 0.0f)
             {
                 if (attack.Launcher != null && CoreElement != Element.Neutral)
-                    attack.Launcher.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
+                {
+                    AvatarCore ac = attack.Launcher.GetComponent<AvatarCore>();
+                    if(ac != null)
+                        ac.ElementSystem.GetElement(CoreElement);
+                }
                 else if (attack._entity != null && CoreElement != Element.Neutral)
-                    attack._entity.GetComponent<AvatarCore>().ElementSystem.GetElement(CoreElement);
+                {
+                    AvatarCore ac = attack._entity.GetComponent<AvatarCore>();
+                    if(ac != null)
+                        ac.ElementSystem.GetElement(CoreElement);
+                }
 
                 entity.hitboxes[0].Type = HitboxType.Invincible;
                 State = EnemyState.Dying;
