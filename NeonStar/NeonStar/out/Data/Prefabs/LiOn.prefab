@@ -5,8 +5,8 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-598.8334 Y:556.9926}" />
-          <InitialPosition Value="{X:-598.8334 Y:556.9926}" />
+          <Position Value="{X:885.4479 Y:-179.0074}" />
+          <InitialPosition Value="{X:885.4479 Y:-179.0074}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -15,9 +15,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-598 Y:556}" />
-          <X Value="-618" />
-          <Y Value="488" />
+          <Center Value="{X:885 Y:-179}" />
+          <X Value="865" />
+          <Y Value="-247" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -63,9 +63,9 @@
             <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
             <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
             <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
-            <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveStart" />
-            <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveLoop" />
-            <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
+            <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveAttackStart" />
+            <Animation Name="DiveAttackLoopStart" SpritesheetTag="LiOnDiveAttackLvl1Fade" />
+            <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveAttackLvl1Loop" />
             <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
             <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
             <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
@@ -85,6 +85,8 @@
             <Animation Name="WindStart" SpritesheetTag="LiOnGravityStart" />
             <Animation Name="WindImpulse" SpritesheetTag="LiOnGravitySpin" />
             <Animation Name="DoubleJump" SpritesheetTag="LiOnDoubleJump" />
+            <Animation Name="DiveAttackLoop2" SpritesheetTag="LiOnDiveAttackLvl2Fade" />
+            <Animation Name="DiveAttackStartLoop2" SpritesheetTag="LiOnDiveAttackLvl2Loop" />
           </Spritesheets>
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
@@ -104,8 +106,12 @@
           <UppercutAnimation Value="uppercut" />
           <RushAttackAnimation Value="rushattack" />
           <DiveAttackStartAnimation Value="DiveAttackStart" />
+          <DiveAttackStartLoopAnimation Value="DiveAttackLoopStart" />
           <DiveAttackLoopAnimation Value="DiveAttackLoop" />
+          <DiveAttackStartLoop2Animation Value="DiveAttackStartLoop2" />
+          <DiveAttackLoop2Animation Value="DiveAttackLoop2" />
           <DiveAttackLandAnimation Value="DiveAttackLand" />
+          <DiveAttackLand2Animation Value="" />
           <RushAttackSideDelay Value="0.09" />
           <ChainDelay Value="0.15" />
           <RushAttackStickDelay Value="0.08" />

@@ -739,6 +739,22 @@
               <NickName Value="" />
             </Properties>
           </ChangeBoundState>
+          <ArenaBattleMusic Type="NeonStarLibrary.Scripts.ArenaBattleMusic" ID="4">
+            <Properties>
+              <ArenaDoorName Value="ExitDoor" />
+              <NickName Value="" />
+            </Properties>
+          </ArenaBattleMusic>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="5">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="TriggerBoundEnableC" />
+              <TriggeredComponentName Value="ArenaBattleMusic" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
       <Entity Name="TriggerBoundDisableC" Layer="Bounds">

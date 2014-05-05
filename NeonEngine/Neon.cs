@@ -75,7 +75,7 @@ namespace NeonEngine
             Neon.SpriteBatch = spriteBatch;
             AssetManager.Initialize(GraphicsDevice);
 
-            SoundManager.LoadSounds();
+            SoundManager.InitializeSounds();
             SoundManager.Load(Game.Content);
             TextManager.LoadFontList();
 

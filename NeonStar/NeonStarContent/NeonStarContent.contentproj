@@ -107,6 +107,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shaders\CubicLens.fx">
+      <Name>CubicLens</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\RunningLeft.wav">
+      <Name>RunningLeft</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="SFX\RunningRight.wav">
+      <Name>RunningRight</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="SFX\Jump.wav">
       <Name>Jump</Name>
       <Importer>WavImporter</Importer>
@@ -114,52 +133,83 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SFX\Footstep.wav">
-      <Name>Footstep</Name>
+    <Compile Include="SFX\DoubleJump.wav">
+      <Name>DoubleJump</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SFX\LightAttack01.wav">
-      <Name>LightAttack01</Name>
+    <Compile Include="SFX\GroundCollision.wav">
+      <Name>GroundCollision</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="SFX\LightAttack02.wav">
-      <Name>LightAttack02</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\Roll.wav">
+      <Name>Roll</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="SFX\LightAttack03.wav">
-      <Name>LightAttack03</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\Dash.wav">
+      <Name>Dash</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Soundtracks\BattleTransition.wav">
+      <Name>BattleTransition</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="SFX\LightAttackFinish.wav">
       <Name>LightAttackFinish</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="SFX\Uppercut.wav">
-      <Name>Uppercut</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="SFX\UppercutFinish.wav">
-      <Name>UppercutFinish</Name>
+    <Compile Include="SFX\LightAttack.wav">
+      <Name>LightAttack</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Soundtracks\" />
+    <Compile Include="Soundtracks\BattleFirstLoop.wav">
+      <Name>BattleFirstLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shaders\CubicLens.fx">
-      <Name>CubicLens</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
+    <Compile Include="Soundtracks\BattleMainLoop.wav">
+      <Name>BattleMainLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Soundtracks\TrainingTrackFirstLoop.wav">
+      <Name>TrainingTrackFirstLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Soundtracks\TrainingTrackFirstTransition.wav">
+      <Name>TrainingTrackFirstTransition</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Soundtracks\TrainingTrackSecondLoop.wav">
+      <Name>TrainingTrackSecondLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

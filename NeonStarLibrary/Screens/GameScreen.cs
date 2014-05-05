@@ -57,8 +57,7 @@ namespace NeonStarLibrary
             
             if (Map == null)
                 Map = new MapScreen(game);
-
-            
+          
             Map.CurrentGameScreen = this;
             Map.InitializeMapData(statusToLoad);
             Map.AddLevelToMap(groupName, levelName);
@@ -201,10 +200,35 @@ namespace NeonStarLibrary
                     Camera.Position = Avatar.transform.Position;
                 }
             }
+            
         }
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (!SoundManager.MusicLock)
+            {
+                if(LevelGroupName == "01TrainingLevel")
+                {
+                    if (LevelName == "01TrainingEntrance" || LevelName == "02TrainingSaveRoom")
+                    {
+                        if (SoundManager.CurrentTrackName != "TrainingTrackFirstLoop" && SoundManager.NextTrackName != "TrainingTrackFirstLoop")
+                            SoundManager.CrossFadeLoopTrack("TrainingTrackFirstLoop");
+                    }
+                    else
+                    {
+                        if (SoundManager.CurrentTrackName != "TrainingTrackSecondLoop" && SoundManager.NextTrackName != "TrainingTrackSecondLoop" && SoundManager.CurrentTrackName != "TrainingTrackFirstTransition" && SoundManager.NextTrackName != "TrainingTrackFirstTransition")
+                        {
+                            SoundManager.CrossFadeTrack("TrainingTrackFirstTransition");
+                        }
+                        else if (SoundManager.CurrentTrackName == "TrainingTrackFirstTransition"  && SoundManager.NextTrackName != "TrainingTrackSecondLoop")
+                        {
+                            SoundManager.PrepareLoopTrack("TrainingTrackSecondLoop");
+                        }
+                    }
+                }
+                
+            }
+
             if (Alpha != 0.0f && _avatarComponent != null)
             {
                 _avatarComponent.CanAttack = false;
@@ -226,14 +250,6 @@ namespace NeonStarLibrary
 
         public override void Update(GameTime gameTime)
         {
-            if (Neon.Game.IsActive)
-            {
-                if (MediaPlayer.State == MediaState.Stopped)
-                {
-                    MediaPlayer.Volume = 0.5f;
-                    //MediaPlayer.Play(SoundManager.GetSong("Demo"));
-                }
-            }
 
             
             if (!Pause)
@@ -261,10 +277,23 @@ namespace NeonStarLibrary
                 for (int i = Bullets.Count - 1; i >= 0; i--)
                     Bullets[i].Update(gameTime);           
             }
-            
+
 
             if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
+            {
                 Pause = !Pause;
+                if (Pause)
+                {
+                    if (SoundManager.CurrentTrack != null)
+                        SoundManager.CurrentTrack.Pause();
+                }
+                else
+                {
+                    if (SoundManager.CurrentTrack != null)
+                        SoundManager.CurrentTrack.Resume();
+                }
+
+            }
 
             if (Neon.Input.Pressed(Buttons.Back) && !Pause)
             {

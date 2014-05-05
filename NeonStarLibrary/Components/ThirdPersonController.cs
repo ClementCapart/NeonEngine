@@ -158,7 +158,11 @@ namespace NeonStarLibrary.Components.Avatar
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();    
         private float _jumpInputDelay = 0.0f;
 
-        private SoundEffect _footStepSound = SoundManager.GetSound("Footstep");
+        private SoundEffect _leftFootStepSound = SoundManager.GetSound("RunningLeft");
+        private SoundEffect _rightFootStepSound = SoundManager.GetSound("RunningRight");
+        private SoundEffect _jumpSound = SoundManager.GetSound("Jump");
+        private SoundEffect _doubleJumpSound = SoundManager.GetSound("DoubleJump");
+        private SoundEffect _groundCollisionSound = SoundManager.GetSound("GroundCollision");
 
         private bool _hasAlreadyAirJumped = false;
 
@@ -242,7 +246,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        this._rightFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -250,7 +254,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        this._leftFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -273,7 +277,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        this._rightFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -281,7 +285,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        //this._footStepSound.Play(0.3f, 0.0f, 0.0f);
+                                        this._leftFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -321,7 +325,7 @@ namespace NeonStarLibrary.Components.Avatar
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
-                            //SoundManager.GetSound("Jump").Play(0.3f, 0.0f, 0.0f);
+                            _jumpSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
@@ -372,7 +376,7 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
-                            //SoundManager.GetSound("Jump").Play(0.3f, 0.0f, 0.0f);
+                            _doubleJumpSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
                             _hasAlreadyAirJumped = true;
@@ -391,7 +395,10 @@ namespace NeonStarLibrary.Components.Avatar
                 }
 
                 if (entity.rigidbody != null && entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
+                {
                     EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
+                    _groundCollisionSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                }
 
                 if (entity.rigidbody != null && entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0.0 && FallSpeedLimit)
                     entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, _maxFallSpeed);

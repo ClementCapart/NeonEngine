@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using NeonEngine;
 using NeonEngine.Private;
 using NeonStarLibrary.Components.Enemies;
@@ -48,13 +49,19 @@ namespace NeonStarLibrary.Components.Scripts
         private Entity _thirdImportantRobot;
         private EnemyCore _importantRobotEnemyCore;
 
+        private QuotaEnergyDoor _arenaDoor;
+
         public TrainingScanAlarmScript(Entity entity)
             : base(entity, "TrainingScanAlarmScript")
         {
         }
 
         public override void Init()
-        {         
+        {
+            Entity e = entity.GameWorld.GetEntityByName("ExitDoor");
+            if (e != null)
+                _arenaDoor = e.GetComponent<QuotaEnergyDoor>();
+            
             this.entity.spritesheets.ChangeAnimation("Opened", 0, true, false, false);
 
             if (_scanDoorName != "")
@@ -79,7 +86,9 @@ namespace NeonStarLibrary.Components.Scripts
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             this.entity.spritesheets.ChangeAnimation("Closing", 0, true, false, false);
-
+            
+            if(SoundManager.MusicLock)  
+                SoundManager.PrepareTrack("BattleTransition");
             if (_scanDoor != null)
             {
                 _scanDoor.rigidbody.IsGround = true;
@@ -91,6 +100,18 @@ namespace NeonStarLibrary.Components.Scripts
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if(!SoundManager.MusicLock && _arenaDoor != null && _arenaDoor.Closed && entity.GameWorld.NextScreen == null)
+            {
+                SoundManager.MusicLock = true;
+                SoundManager.CrossFadeLoopTrack("BattleFirstLoop");
+            }
+
+            if (SoundManager.CurrentTrackName == "BattleTransition" && SoundManager.MusicLock)
+                SoundManager.PrepareLoopTrack("BattleMainLoop");
+
+            if (_arenaDoor != null && !_arenaDoor.Closed)
+                SoundManager.MusicLock = false;
+
             if (_importantRobotEnemyCore != null && _importantRobotEnemyCore.State == EnemyState.Dying)
             {
                 if (_secondImportantRobot != null && _thirdImportantRobot != null)
@@ -105,6 +126,12 @@ namespace NeonStarLibrary.Components.Scripts
             }
 
             base.Update(gameTime);
+        }
+
+        public override void OnChangeLevel()
+        {
+            SoundManager.MusicLock = false;
+            base.OnChangeLevel();
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using FarseerPhysics.Dynamics.Contacts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using System;
@@ -132,6 +133,9 @@ namespace NeonStarLibrary.Components.Avatar
         public AvatarCore AvatarComponent;
 
         private SpriteSheetInfo _dashEffectSpritesheet;
+
+        private SoundEffect _rollSound = SoundManager.GetSound("Roll");
+        private SoundEffect _dashSound = SoundManager.GetSound("Dash");
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
@@ -411,7 +415,8 @@ namespace NeonStarLibrary.Components.Avatar
             AvatarComponent.MeleeFight.ResetComboHit();
             if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
-            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration);           
+            entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration);
+            _rollSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
         }
 
         private void PerformGuard()
@@ -447,6 +452,7 @@ namespace NeonStarLibrary.Components.Avatar
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
             EffectsManager.GetEffect(_dashEffectSpritesheet, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(50, 0), 2.0f, 0.90f);
+            _dashSound.Play(SoundManager.GlobalEffectsVolume -0.1f, SoundManager.GlobalPitch, 0.0f);
         }
     }
 }

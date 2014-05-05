@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
+using Microsoft.Xna.Framework;
+using System.Threading;
 
 namespace NeonEngine
 {
@@ -16,9 +18,147 @@ namespace NeonEngine
         static public Dictionary<string, string> sounds;
         static Dictionary<string, Song> songsList;
         static public Dictionary<string, string> songs;
+
+        static public string CurrentTrackName = "";
+        static public SoundEffectInstance CurrentTrack;
+        static private bool _currentTrackMustLoop = false;
+        static public string NextTrackName = "";
+        static public SoundEffectInstance NextTrack;
+        static private bool _nextTrackMustLoop = false;
+        static public bool MusicLock = false;
+        static public float MusicTimer = -1.0f;
+
+        static private bool _fading = false;
+
+        static public float GlobalPitch = -0.2f;
+        static public float GlobalEffectsVolume = 0.3f;
+        static public float GlobalSoundtrackVolume = 0.2f;
+
+        static public Thread StoppedEventThread;
         #endregion
 
-        static public void LoadSounds()
+        static public void StartLoopTrack(string name)
+        {           
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            if (CurrentTrack != null)
+                CurrentTrack.Stop();
+            CurrentTrack = se.CreateInstance();
+            CurrentTrackName = name;
+            CurrentTrack.Volume = GlobalSoundtrackVolume;
+            CurrentTrack.Play();
+            _currentTrackMustLoop = true;
+        }
+
+        static public void StartTrack(string name)
+        {
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            if (CurrentTrack != null)
+                CurrentTrack.Stop();
+            CurrentTrack = se.CreateInstance();
+            CurrentTrackName = name;
+            CurrentTrack.Volume = GlobalSoundtrackVolume;
+            CurrentTrack.Play();
+            _currentTrackMustLoop = false;
+        }
+
+        static public void PrepareLoopTrack(string name)
+        {
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            NextTrack = se.CreateInstance();
+            NextTrackName = name;
+            NextTrack.Volume = GlobalSoundtrackVolume;
+            _nextTrackMustLoop = true;
+        }
+
+        static public void PrepareTrack(string name)
+        {
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            NextTrackName = name;
+            NextTrack = se.CreateInstance();
+            NextTrack.Volume = GlobalSoundtrackVolume;
+            _nextTrackMustLoop = false;
+        }
+
+        static public void CrossFadeLoopTrack(string name)
+        {
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            NextTrack = se.CreateInstance();
+            NextTrackName = name;
+            NextTrack.Volume = 0.0f;
+            NextTrack.Play();
+            _nextTrackMustLoop = true;
+            _fading = true;
+        }
+
+        static public void CrossFadeTrack(string name)
+        {          
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return;
+            NextTrackName = name;
+            NextTrack = se.CreateInstance();
+            NextTrack.Volume = 0.0f;
+            NextTrack.Play();
+            _nextTrackMustLoop = false;
+            _fading = true;
+        }
+
+        static public void Update(GameTime gameTime)
+        {
+            if (_fading)
+            {
+                if (NextTrack != null)
+                {
+                    if (NextTrack.Volume < GlobalSoundtrackVolume)
+                    {
+                        if(CurrentTrack != null)
+                            CurrentTrack.Volume = Math.Max(CurrentTrack.Volume - GlobalSoundtrackVolume * (float)gameTime.ElapsedGameTime.TotalSeconds / 2, 0.0f) ;
+                        NextTrack.Volume = Math.Min(NextTrack.Volume + GlobalSoundtrackVolume * (float)gameTime.ElapsedGameTime.TotalSeconds / 2, GlobalSoundtrackVolume);
+                    }
+                    else
+                    {
+                        CurrentTrackName = NextTrackName;
+                        CurrentTrack = NextTrack;
+                        CurrentTrack.Volume = GlobalSoundtrackVolume;
+                        _currentTrackMustLoop = _nextTrackMustLoop;
+                        NextTrack = null;
+                        NextTrackName = "";
+                        _fading = false;
+                    }
+                }
+            }
+
+            if (CurrentTrack != null && CurrentTrack.State == SoundState.Stopped)
+            {
+                if (NextTrack == null)
+                {
+                    if(_currentTrackMustLoop)
+                        CurrentTrack.Play();
+                }
+                else
+                {
+                    CurrentTrack = NextTrack;
+                    NextTrack = null;
+                    CurrentTrackName = NextTrackName;
+                    NextTrackName = "";
+                    _currentTrackMustLoop = _nextTrackMustLoop;
+                    CurrentTrack.Play();
+                }
+            }
+            //MusicTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        static public void InitializeSounds()
         {
             sounds = new Dictionary<string, string>();
             songs = new Dictionary<string, string>();
@@ -47,7 +187,8 @@ namespace NeonEngine
             {
                 foreach (string p in Directory.EnumerateFiles(@"Content/Soundtracks"))
                 {
-                    songs.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks" + Path.GetFileNameWithoutExtension(p));
+                    if(Path.GetExtension(p) == ".xnb")
+                        sounds.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
             
@@ -68,11 +209,6 @@ namespace NeonEngine
         static public SoundEffect GetSound(string tag)
         {
             return soundsList[tag];
-        }
-
-        static public Song GetSong(string tag)
-        {
-            return songsList[tag];
         }
     }
 }

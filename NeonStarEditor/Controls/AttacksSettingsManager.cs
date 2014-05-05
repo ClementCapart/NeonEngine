@@ -274,12 +274,14 @@ namespace NeonStarEditor
                     XElement parameterFollow = new XElement("FourthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[3]).ToString()));
                     XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterDelay = new XElement("SixthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[5]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterLayer = new XElement("SeventhParameter", new XAttribute("Value", ((float)effectKvp.Parameters[6]).ToString("G", CultureInfo.InvariantCulture)));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
                     effect.Add(parameterFollow);
                     effect.Add(parameterScale);
                     effect.Add(parameterDelay);
+                    effect.Add(parameterLayer);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -649,6 +651,25 @@ namespace NeonStarEditor
                         delay.Leave += Numeric_Leave;
                         delay.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(delay);
+
+                        label = new Label();
+                        label.Text = "Layer";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(delay.Location.X, delay.Location.Y + delay.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown layer = new NumericUpDown();
+                        layer.Name = "LayerAnimation";
+                        layer.Maximum = 50000;
+                        layer.Minimum = -50000;
+                        layer.Width = 80;
+                        layer.DecimalPlaces = 2;
+                        layer.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[6]);
+                        layer.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        layer.Enter += Numeric_Enter;
+                        layer.Leave += Numeric_Leave;
+                        layer.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(layer);
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -982,7 +1003,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f, 1.0f };
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -1328,6 +1349,10 @@ namespace NeonStarEditor
 
                 case "EffectScale":
                     CurrentAttackEffectSelected.Parameters[4] = (float)(sender as NumericUpDown).Value;
+                    break;
+
+                case "LayerAnimation":
+                    CurrentAttackEffectSelected.Parameters[6] = (float)(sender as NumericUpDown).Value;
                     break;
 
                 case "ImpulsePrefabX":

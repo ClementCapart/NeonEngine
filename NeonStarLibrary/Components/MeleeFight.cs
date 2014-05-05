@@ -28,7 +28,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public Attack CurrentAttack;
 
-        private string _lightAttackName;
+        private string _lightAttackName = "";
 
         public string LightAttackName
         {
@@ -36,7 +36,7 @@ namespace NeonStarLibrary.Components.Avatar
             set { _lightAttackName = value; }
         }
 
-        private string _rushAttackName;
+        private string _rushAttackName = "";
 
         public string RushAttackName
         {
@@ -44,7 +44,7 @@ namespace NeonStarLibrary.Components.Avatar
             set { _rushAttackName = value; }
         }
 
-        private string _uppercutName;
+        private string _uppercutName = "";
 
         public string UppercutName
         {
@@ -52,7 +52,7 @@ namespace NeonStarLibrary.Components.Avatar
             set { _uppercutName = value; }
         }
 
-        private string _diveAttackName;
+        private string _diveAttackName = "";
 
         public string DiveAttackName
         {
@@ -67,47 +67,80 @@ namespace NeonStarLibrary.Components.Avatar
             set { _comboDelayMax = value; }
         }
 
-        private string _lightAttackAnimation;
+        private string _lightAttackAnimation = "";
         public string LightAttackAnimation
         {
             get { return _lightAttackAnimation; }
             set { _lightAttackAnimation = value; }
         }
 
-        private string _uppercutAnimation;
+        private string _uppercutAnimation = "";
         public string UppercutAnimation
         {
             get { return _uppercutAnimation; }
             set { _uppercutAnimation = value; }
         }
 
-        private string _rushAttackAnimation;
+        private string _rushAttackAnimation = "";
         public string RushAttackAnimation
         {
             get { return _rushAttackAnimation; }
             set { _rushAttackAnimation = value; }
         }
 
-        private string _diveAttackStartAnimation;
+        private string _diveAttackStartAnimation = "";
         public string DiveAttackStartAnimation
         {
             get { return _diveAttackStartAnimation; }
             set { _diveAttackStartAnimation = value; }
         }
 
-        private string _diveAttackLoopAnimation;
+        private string _diveAttackStartLoopAnimation = "";
+
+        public string DiveAttackStartLoopAnimation
+        {
+            get { return _diveAttackStartLoopAnimation; }
+            set { _diveAttackStartLoopAnimation = value; }
+        }
+
+        private string _diveAttackLoopAnimation = "";
+
         public string DiveAttackLoopAnimation
         {
             get { return _diveAttackLoopAnimation; }
             set { _diveAttackLoopAnimation = value; }
         }
 
-        private string _diveAttackLandAnimation;
+        private string _diveAttackStartLoop2Animation = "";
+
+        public string DiveAttackStartLoop2Animation
+        {
+            get { return _diveAttackStartLoop2Animation; }
+            set { _diveAttackStartLoop2Animation = value; }
+        }
+
+        private string _diveAttackLoop2Animation = "";
+
+        public string DiveAttackLoop2Animation
+        {
+            get { return _diveAttackLoop2Animation; }
+            set { _diveAttackLoop2Animation = value; }
+        }
+
+        private string _diveAttackLandAnimation = "";
 
         public string DiveAttackLandAnimation
         {
             get { return _diveAttackLandAnimation; }
             set { _diveAttackLandAnimation = value; }
+        }
+
+        private string _diveAttackLand2Animation = "";
+
+        public string DiveAttackLand2Animation
+        {
+            get { return _diveAttackLand2Animation; }
+            set { _diveAttackLand2Animation = value; }
         }
 
         private float _rushAttackSideDelay = 1.0f;
