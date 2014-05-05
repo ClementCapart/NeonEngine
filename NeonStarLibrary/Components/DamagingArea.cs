@@ -61,6 +61,9 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (!ComponentEnabled)
+                return;
+
             if(!_hitEnemies && !_hitAvatar)
                 return;
 
