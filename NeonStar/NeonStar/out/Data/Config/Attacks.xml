@@ -1739,7 +1739,7 @@
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects>
         <Effect Type="EffectAnimation">
-          <Parameter Value="DiveFXFront" />
+          <Parameter Value="DiveFXFrontLvl1" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:0 Y:0}" />
           <FourthParameter Value="False" />
@@ -1748,7 +1748,7 @@
           <SeventhParameter Value="0.7" />
         </Effect>
         <Effect Type="EffectAnimation">
-          <Parameter Value="DiveFXBack" />
+          <Parameter Value="DiveFXBackLvl1" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:0 Y:0}" />
           <FourthParameter Value="False" />
@@ -1792,7 +1792,26 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="DiveFXBackLvl2" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="0.49" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="DiveFXFrontLvl2" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="0.7" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects>
         <Effect Type="Impulse">

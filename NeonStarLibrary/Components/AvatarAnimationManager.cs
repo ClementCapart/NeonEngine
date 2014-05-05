@@ -187,7 +187,7 @@ namespace NeonStarLibrary.Components.Avatar
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == AvatarComponent.MeleeFight.DiveAttackName && !AvatarComponent.MeleeFight.CurrentAttack.Canceled)
                         {
                             if (entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation && entity.spritesheets.CurrentSpritesheetName != AvatarComponent.MeleeFight.DiveAttackLoopAnimation)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation, 0, true, false, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation,true,  0, true, false, false);
 
                             if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation && entity.spritesheets.CurrentSpritesheet.IsFinished)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoopAnimation, 0, true, false, true);
@@ -195,22 +195,20 @@ namespace NeonStarLibrary.Components.Avatar
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == "LiOnDiveEffect")
                         {
                             if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation)
-                                //entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, 0, true, false, true);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
                         }
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == "LiOnDiveAttackLevelTwo" && !AvatarComponent.MeleeFight.CurrentAttack.Canceled)
                         {
                             if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartLoop2Animation, 0, true, false, false);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartLoop2Animation, true, 0, true, false, false);
 
                             if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoop2Animation && entity.spritesheets.CurrentSpritesheet.IsFinished)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoop2Animation, 0, true, false, true);
                         }
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == "LiOnDiveEffectLevelTwo")
                         {
-                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation)
-                                //entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation, 0, true, false, true);
+                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoop2Animation || entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoopAnimation)
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLandAnimation, 0, true, false, false);
                         }
 
                         if (AvatarComponent.MeleeFight.CurrentAttack != null && AvatarComponent.MeleeFight.CurrentAttack.GetHashCode() != LastAttackHashCode)
