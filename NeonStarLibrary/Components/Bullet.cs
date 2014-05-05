@@ -159,7 +159,7 @@ namespace NeonStarLibrary.Private
                                 if (hb.Type == HitboxType.Main)
                                 {
                                     EnemyCore enemy = hb.entity.GetComponent<EnemyCore>();
-                                    if (enemy != null)
+                                    if (enemy != null && !enemy.ImmuneToDamage)
                                     {
                                         enemy.TakeDamage(this);
                                         LifeTime = 0f;
