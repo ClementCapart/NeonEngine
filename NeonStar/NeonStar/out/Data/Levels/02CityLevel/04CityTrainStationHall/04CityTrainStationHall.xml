@@ -240,7 +240,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2150 Y:-338}" />
+              <InitialPosition Value="{X:1900 Y:-338}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -249,8 +249,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2150 Y:-338}" />
-              <X Value="2000" />
+              <Center Value="{X:1900 Y:-338}" />
+              <X Value="1750" />
               <Y Value="-350" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -467,6 +467,8 @@
               <StartingHealthPoints Value="1" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="1" />
+              <ChanceToDropHealth Value="0" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="Solid" />
@@ -482,8 +484,6 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="1" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
@@ -1019,32 +1019,6 @@
           </DeviceActivatedComponent>
         </Components>
       </Entity>
-      <Entity Name="TriggerArena" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2800 Y:-200}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Trigger" />
-              <Center Value="{X:2800 Y:-200}" />
-              <X Value="2750" />
-              <Y Value="-350" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="300" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-        </Components>
-      </Entity>
       <Entity Name="EnemyRobot" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -1115,6 +1089,8 @@
               <StartingHealthPoints Value="50" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="50" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
@@ -1130,8 +1106,6 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
               <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
@@ -1152,6 +1126,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1173,9 +1149,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
