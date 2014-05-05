@@ -5,19 +5,19 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:600 Y:-200}" />
-          <InitialPosition Value="{X:600 Y:-200}" />
+          <Position Value="{X:600 Y:-800}" />
+          <InitialPosition Value="{X:600 Y:-800}" />
           <Rotation Value="0" />
-          <Scale Value="1" />
+          <Scale Value="2" />
           <NickName Value="" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Solid" />
-          <Center Value="{X:600 Y:-200}" />
+          <Center Value="{X:600 Y:-800}" />
           <X Value="550" />
-          <Y Value="-350" />
+          <Y Value="-950" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -35,7 +35,7 @@
           <Mass Value="2.99995" />
           <OneWayPlatform Value="False" />
           <SleepingAllowed Value="True" />
-          <IsGround Value="False" />
+          <IsGround Value="True" />
           <Hitbox Value="1" />
           <Sensors Value="False" />
           <FixedRotation Value="True" />
@@ -51,7 +51,12 @@
           <Tint Value="False" />
           <RotationCenter Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
-          <Spritesheets />
+          <Spritesheets>
+            <Animation Name="Closed" SpritesheetTag="BigEnergyDoorClosed" />
+            <Animation Name="Opened" SpritesheetTag="BigEnergyDoorOpened" />
+            <Animation Name="Closing" SpritesheetTag="BigEnergyDoorClosing" />
+            <Animation Name="Opening" SpritesheetTag="BigEnergyDoorOpening" />
+          </Spritesheets>
           <DrawLayer Value="0" />
           <IsHUD Value="False" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -61,11 +66,11 @@
       <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="4">
         <Properties>
           <OpenWhenAnimationEnd Value="True" />
-          <ClosedIdleAnimation Value="" />
-          <OpenedIdleAnimation Value="" />
-          <DoorOpeningAnimation Value="" />
+          <ClosedIdleAnimation Value="Closed" />
+          <OpenedIdleAnimation Value="Opened" />
+          <DoorOpeningAnimation Value="Opening" />
           <ClosingIsReverseOpening Value="True" />
-          <DoorClosingAnimation Value="" />
+          <DoorClosingAnimation Value="Closing" />
           <FirstActivatingDeviceName Value="SwitchDoor2" />
           <FirstDeviceInSameLevel Value="True" />
           <FirstActivatingDeviceLevelGroup Value="" />
