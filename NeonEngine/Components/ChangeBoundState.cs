@@ -10,7 +10,7 @@ namespace NeonEngine.Components.Camera
     public class ChangeBoundState : Component
     {
         #region Properties
-        private string _boundName;
+        private string _boundName = "";
 
         public string BoundName
         {
