@@ -330,6 +330,8 @@ namespace NeonStarLibrary.Components.Avatar
                                     _ignoredGeometry.Add(rg);
                                     StartJumping = true;
                                 }
+
+                            MustJumpAsSoonAsPossible = false;
                         }
                         else if (Neon.Input.Pressed(NeonStarInput.Jump))
                         {
