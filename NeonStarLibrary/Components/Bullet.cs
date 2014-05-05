@@ -144,8 +144,7 @@ namespace NeonStarLibrary.Private
                                             return;
                                         }
                                         else if(dr == DamageResult.Guarded)
-                                        {
-                                           
+                                        {                                           
                                             launcher = avatar.entity;
                                             EnemyBullet = false;
                                             LifeTime = _initialLifeTime;

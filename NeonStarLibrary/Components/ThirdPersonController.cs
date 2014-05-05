@@ -114,7 +114,7 @@ namespace NeonStarLibrary.Components.Avatar
             set { _doubleJumpAnimation = value; }
         }
 
-        private float _maxJumpInputDelay = 0.5f;
+        private float _maxJumpInputDelay = 0.3f;
 
         public float MaxJumpInputDelay
         {
@@ -208,6 +208,22 @@ namespace NeonStarLibrary.Components.Avatar
                         entity.rigidbody.body.RestoreCollisionWith(_ignoredGeometry[i].body);
                         _ignoredGeometry.RemoveAt(i);
                     }
+                }
+
+                if (Neon.Input.Pressed(NeonStarInput.Jump))
+                {
+                    MustJumpAsSoonAsPossible = true;
+                }
+
+                if (MustJumpAsSoonAsPossible)
+                    _jumpInputDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                else
+                    _jumpInputDelay = 0.0f;
+
+                if (_jumpInputDelay >= _maxJumpInputDelay || !Neon.Input.Check(NeonStarInput.Jump))
+                {
+                    _jumpInputDelay = 0.0f;
+                    MustJumpAsSoonAsPossible = false;
                 }
 
                 if (AvatarComponent.CanTurn)
@@ -320,7 +336,7 @@ namespace NeonStarLibrary.Components.Avatar
                             MustJumpAsSoonAsPossible = true;
                         }
 
-                        if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && Neon.Input.Check(NeonStarInput.Jump))
+                        if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay)
                         {
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
@@ -331,11 +347,7 @@ namespace NeonStarLibrary.Components.Avatar
                             MustJumpAsSoonAsPossible = false;
                         }
 
-                        if (_jumpInputDelay >= _maxJumpInputDelay || !Neon.Input.Check(NeonStarInput.Jump))
-                        {
-                            _jumpInputDelay = 0.0f;
-                            MustJumpAsSoonAsPossible = false;
-                        }
+                        
                     }
                     else if (entity.rigidbody != null)
                     {
@@ -357,7 +369,6 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else if (AvatarComponent.CanMove)
                         {
-
                             AvatarComponent.State = AvatarState.Idle;
                         }
 
@@ -368,7 +379,7 @@ namespace NeonStarLibrary.Components.Avatar
                             MustJumpAsSoonAsPossible = true;
                         }
 
-                        if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && Neon.Input.Check(NeonStarInput.Jump) && CanDoubleJump && NumberOfAirMove > 0)
+                        if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && CanDoubleJump && NumberOfAirMove > 0)
                         {
                             IsAirJumping = true;
                             entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, 0);
@@ -385,12 +396,6 @@ namespace NeonStarLibrary.Components.Avatar
 
                         if (entity.rigidbody.body.LinearVelocity.Y > 0)
                             StartJumping = false;
-
-                        if (MustJumpAsSoonAsPossible)
-                            _jumpInputDelay += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        else
-                            _jumpInputDelay = 0.0f;
-
                     }
                 }
 
