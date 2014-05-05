@@ -208,6 +208,9 @@ namespace NeonEngine
 
         static public SoundEffect GetSound(string tag)
         {
+            if (!soundsList.ContainsKey(tag))
+                return null;
+
             return soundsList[tag];
         }
     }
