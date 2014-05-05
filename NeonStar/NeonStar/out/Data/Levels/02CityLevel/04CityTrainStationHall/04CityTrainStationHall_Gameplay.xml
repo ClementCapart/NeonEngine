@@ -36,7 +36,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <FrameToActivate Value="32" />
-              <State Value="Disabled" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </StableEnergyDevice>
@@ -79,7 +79,7 @@
               <Outline Value="False" />
               <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
               <OutlineDisplacement Value="0" />
-              <Active Value="False" />
+              <Active Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -223,7 +223,7 @@
               <AutoChangeInitialPosition Value="True" />
               <InitialPosition Value="{X:-450 Y:-125}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
@@ -273,12 +273,31 @@
               <TriggeringElement Value="Neutral" />
               <ActivationDuration Value="1" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
-              <OffAnimation Value="" />
-              <OnAnimation Value="" />
+              <OffAnimation Value="Off" />
+              <OnAnimation Value="On" />
               <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </TemporaryEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="Jumper1" Layer="Gameplay">
@@ -655,7 +674,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <FrameToActivate Value="32" />
-              <State Value="Disabled" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </StableEnergyDevice>
@@ -698,7 +717,7 @@
               <Outline Value="False" />
               <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
               <OutlineDisplacement Value="0" />
-              <Active Value="False" />
+              <Active Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -774,7 +793,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <FrameToActivate Value="32" />
-              <State Value="Disabled" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </StableEnergyDevice>
@@ -817,7 +836,7 @@
               <Outline Value="False" />
               <OutlineColor Value="{R:0 G:0 B:0 A:0}" />
               <OutlineDisplacement Value="0" />
-              <Active Value="False" />
+              <Active Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
