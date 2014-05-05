@@ -15,7 +15,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Trigger" />
+              <Type Value="Main" />
               <Center Value="{X:1050 Y:-125}" />
               <X Value="1030" />
               <Y Value="-200" />
@@ -32,8 +32,6 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
@@ -49,6 +47,8 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
@@ -99,7 +99,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Trigger" />
+              <Type Value="Main" />
               <Center Value="{X:3200 Y:-125}" />
               <X Value="3180" />
               <Y Value="-200" />
@@ -116,8 +116,6 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
@@ -133,6 +131,92 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
+              <CurrentSide Value="Right" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+          <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
+            <Properties>
+              <TriggerFromAllElementsExceptNeutral Value="True" />
+              <TriggeringElement Value="Neutral" />
+              <ActivationDuration Value="1" />
+              <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
+              <OffAnimation Value="Off" />
+              <OnAnimation Value="On" />
+              <State Value="Deactivated" />
+              <NickName Value="" />
+            </Properties>
+          </TemporaryEnergyDevice>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="SwitchDoor02" Layer="Switch">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2450 Y:-125}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:2450 Y:-125}" />
+              <X Value="2430" />
+              <Y Value="-200" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="40" />
+              <Height Value="150" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="3">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="10" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="10" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="True" />
+              <ImmuneToDamage Value="True" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="True" />
+              <ComponentToTriggerName Value="TemporaryEnergyDevice" />
+              <WaitThreatDuration Value="1" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
