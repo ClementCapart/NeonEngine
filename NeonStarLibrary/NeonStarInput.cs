@@ -22,6 +22,6 @@ namespace NeonStarLibrary
         CameraLeft,
         CameraRight,
         CameraUp,
-        CameraDown
+        CameraDown,
     }
 }

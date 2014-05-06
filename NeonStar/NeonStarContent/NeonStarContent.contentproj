@@ -173,7 +173,71 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Soundtracks\" />
+    <Compile Include="SFX\LightHit.wav">
+      <Name>LightHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\Uppercut.wav">
+      <Name>Uppercut</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\DiveEffect.wav">
+      <Name>DiveEffect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SFX\DiveAttackLevelOne.wav">
+      <Name>DiveAttackLevelOne</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="SFX\DiveAttackLevelTwo.wav">
+      <Name>DiveAttackLevelTwo</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Soundtracks\TrainingTrackFirstLoop.wav">
+      <Name>TrainingTrackFirstLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Soundtracks\TrainingTrackFirstTransition.wav">
+      <Name>TrainingTrackFirstTransition</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Soundtracks\TrainingTrackSecondLoop.wav">
+      <Name>TrainingTrackSecondLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Soundtracks\BattleFirstLoop.wav">
+      <Name>BattleFirstLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Soundtracks\BattleMainLoop.wav">
+      <Name>BattleMainLoop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Soundtracks\BattleTransition.wav">
+      <Name>BattleTransition</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
