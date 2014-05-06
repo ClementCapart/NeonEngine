@@ -245,7 +245,7 @@ namespace NeonEngine
 
         private void RegisterForDelay<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return;
             else
             {
@@ -292,7 +292,7 @@ namespace NeonEngine
 
         public bool Pressed<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {
@@ -357,7 +357,7 @@ namespace NeonEngine
 
         public bool Check<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {
@@ -480,7 +480,7 @@ namespace NeonEngine
 
         public bool Released<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {
