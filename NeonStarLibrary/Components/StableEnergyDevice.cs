@@ -200,7 +200,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         _textDisplay.Active = true;
             }
 
-
             if (this._fadingSpritesheet != null && entity.spritesheets != null && (entity.spritesheets.CurrentSpritesheetName == "Deactivation" || entity.spritesheets.CurrentSpritesheetName == "Activation"))
             {
                 _fadingSpritesheet.Active = false;
@@ -211,7 +210,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _fadingSpritesheet.opacity = 0.0f;
                 _fadingSpritesheet.Active = true;
             }
-                
+            
             if (_deactivatingDevice && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)
                 DeactivateDevice();
             base.Update(gameTime);

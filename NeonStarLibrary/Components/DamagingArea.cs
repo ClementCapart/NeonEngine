@@ -76,8 +76,11 @@ namespace NeonStarLibrary.Components.GameplayElements
                         EnemyCore ec = e.GetComponent<EnemyCore>();
                         if (ec != null)
                         {
-                            if(_damagingEnemies == null)
+                            if (_damagingEnemies == null)
+                            {
                                 _damagingEnemies = AttacksManager.StartFreeAttack(_hitEnemyAttackName, Side.Right, entity.transform.Position, false);
+                                _damagingEnemies.Launcher = entity.GameWorld.Avatar;
+                            }
                         }
                     }
 
