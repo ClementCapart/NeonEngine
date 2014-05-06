@@ -91,6 +91,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonDive" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -155,7 +156,7 @@
     </Attack>
     <Attack ID="0" Name="BisonDash" Group="EnemyBison" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="50" OffsetY="25" Width="50" Height="200" />
+        <Hitbox OffsetX="80" OffsetY="25" Width="50" Height="200" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
@@ -182,6 +183,17 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace1" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
+        </Effect>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonTrace2" />
+          <SecondParameter Value="false" />
+          <ThirdParameter Value="0.15" />
+        </Effect>
+        <Effect Type="StartAttack">
+          <Parameter Value="BisonTrace3" />
+          <SecondParameter Value="false" />
+          <ThirdParameter Value="0.3" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -233,6 +245,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonDiveEffect" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerDiveDurationFX" />
@@ -317,6 +330,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonAirLock" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -334,7 +348,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.1</Duration>
+      <Duration>0.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -346,16 +360,11 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects>
-        <Effect Type="StartAttack">
-          <Parameter Value="BisonTrace2" />
-          <SecondParameter Value="false" />
-        </Effect>
-      </OnFinishSpecialEffects>
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="BisonTrace2" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="100" OffsetY="100" Width="400" Height="50" />
+        <Hitbox OffsetX="25" OffsetY="100" Width="200" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
@@ -365,7 +374,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>0.7</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -377,16 +386,11 @@
       <OnDurationSpecialEffects />
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects>
-        <Effect Type="StartAttack">
-          <Parameter Value="BisonTrace3" />
-          <SecondParameter Value="false" />
-        </Effect>
-      </OnFinishSpecialEffects>
+      <OnFinishSpecialEffects />
     </Attack>
     <Attack ID="0" Name="BisonTrace3" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="200" OffsetY="100" Width="600" Height="50" />
+        <Hitbox OffsetX="100" OffsetY="100" Width="200" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>0</DamageOnHit>
@@ -396,7 +400,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.8</Duration>
+      <Duration>0.6</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -463,6 +467,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterDefense" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -524,10 +529,12 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL1" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR1" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -566,6 +573,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL2" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -601,6 +609,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL3" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -636,6 +645,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL4" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -701,6 +711,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR2" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -736,6 +747,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR3" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -771,6 +783,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR4" />
           <SecondParameter Value="false" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -1664,12 +1677,14 @@
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffect" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveAttackLevelTwo" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -1712,6 +1727,7 @@
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffectLevelTwo" />
           <SecondParameter Value="true" />
+          <ThirdParameter Value="0" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects />

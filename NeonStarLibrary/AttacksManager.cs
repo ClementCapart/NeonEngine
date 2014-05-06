@@ -151,7 +151,7 @@ namespace NeonStarLibrary
 
                     case SpecialEffect.StartAttack:
                         string attackToLaunch = currentSpecialEffect.Element("Parameter").Attribute("Value").Value;
-                        currentAttackEffects.Add(new AttackEffect(se, new object[] { attackToLaunch, bool.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                        currentAttackEffects.Add(new AttackEffect(se, new object[] { attackToLaunch, bool.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value), float.Parse(currentSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                         break;
 
                     case SpecialEffect.PositionalPulse:

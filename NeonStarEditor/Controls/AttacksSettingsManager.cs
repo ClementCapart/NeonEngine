@@ -17,7 +17,6 @@ namespace NeonStarEditor
 {
     public partial class AttacksSettingsManager : UserControl
     {
-
         AttackInfo CurrentAttackSelected;
 
         AttackEffect CurrentAttackEffectSelected = null;
@@ -240,8 +239,10 @@ namespace NeonStarEditor
                     string attackValue = (string)effectKvp.Parameters[0];
                     XElement parameterString = new XElement("Parameter", new XAttribute("Value", attackValue));
                     XElement linkedToLauncher = new XElement("SecondParameter", new XAttribute("Value", (bool)effectKvp.Parameters[1]));
+                    XElement attackDelay = new XElement("ThirdParameter", new XAttribute("Value", (float)effectKvp.Parameters[2]));
                     effect.Add(parameterString);
                     effect.Add(linkedToLauncher);
+                    effect.Add(attackDelay);
                     break;
 
                 case SpecialEffect.ShootBullet:
@@ -461,6 +462,25 @@ namespace NeonStarEditor
                         checkbox3.CheckedChanged += checkbox3_CheckedChanged;
                         checkbox3.Checked = (bool)CurrentAttackEffectSelected.Parameters[1];
                         this.EffectsInfoPanel.Controls.Add(checkbox3);
+
+                        label = new Label();
+                        label.Text = "Delay";
+                        label.Height = 15;
+                        label.Location = new System.Drawing.Point(checkbox3.Location.X, checkbox3.Location.Y + checkbox3.Height + 5);
+                        this.EffectsInfoPanel.Controls.Add(label);
+
+                        NumericUpDown duration = new NumericUpDown();
+                        duration.Name = "AttackDelay";
+                        duration.Maximum = 50000;
+                        duration.Minimum = -50000;
+                        duration.Width = 80;
+                        duration.DecimalPlaces = 2;
+                        duration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[2]);
+                        duration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        duration.Enter += Numeric_Enter;
+                        duration.Leave += Numeric_Leave;
+                        duration.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(duration);
                         break;
 
                     case SpecialEffect.ShootBullet:
@@ -518,18 +538,18 @@ namespace NeonStarEditor
                         label.Location = new System.Drawing.Point(5, 60);
                         this.EffectsInfoPanel.Controls.Add(label);
 
-                        NumericUpDown duration = new NumericUpDown();
-                        duration.Name = "InvincibleDuration";
-                        duration.Maximum = 50000;
-                        duration.Minimum = -50000;
-                        duration.Width = 80;
-                        duration.DecimalPlaces = 2;
-                        duration.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
-                        duration.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
-                        duration.Enter += Numeric_Enter;
-                        duration.Leave += Numeric_Leave;
-                        duration.ValueChanged += Numeric_ValueChanged;
-                        this.EffectsInfoPanel.Controls.Add(duration);
+                        NumericUpDown attackDelay = new NumericUpDown();
+                        attackDelay.Name = "InvincibleDuration";
+                        attackDelay.Maximum = 50000;
+                        attackDelay.Minimum = -50000;
+                        attackDelay.Width = 80;
+                        attackDelay.DecimalPlaces = 2;
+                        attackDelay.Value = (decimal)((float)CurrentAttackEffectSelected.Parameters[0]);
+                        attackDelay.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
+                        attackDelay.Enter += Numeric_Enter;
+                        attackDelay.Leave += Numeric_Leave;
+                        attackDelay.ValueChanged += Numeric_ValueChanged;
+                        this.EffectsInfoPanel.Controls.Add(attackDelay);
                         break;
 
                     case SpecialEffect.EffectAnimation:
@@ -999,7 +1019,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.StartAttack:
-                        CurrentAttackEffectSelected.Parameters = new object[] { "", false };
+                        CurrentAttackEffectSelected.Parameters = new object[] { "", false, 0.0f };
                         break;
 
                     case SpecialEffect.EffectAnimation:
@@ -1241,6 +1261,10 @@ namespace NeonStarEditor
         {
             switch((sender as NumericUpDown).Name)
             {
+                case "AttackDelay":
+                    CurrentAttackEffectSelected.Parameters[2] = (float)(sender as NumericUpDown).Value;
+                    break;
+
                 case "SoundVolume":
                     CurrentAttackEffectSelected.Parameters[1] = (float)(sender as NumericUpDown).Value;
                     break;
