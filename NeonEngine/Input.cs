@@ -99,10 +99,14 @@ namespace NeonEngine
                     {
                         if(inputMethod.Attribute("Name").Value.StartsWith("Keyboard"))
                         {
+                            if (inputMethod.Value == "None")
+                                continue;
                             CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Keys), inputMethod.Value));
                         }
                         else if (inputMethod.Attribute("Name").Value.StartsWith("XboxController"))
                         {
+                            if (inputMethod.Value == "None")
+                                continue;
                             CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Buttons), inputMethod.Value));
                         }
                     }
