@@ -209,7 +209,7 @@ namespace NeonStarLibrary
             {
                 if(LevelGroupName == "01TrainingLevel")
                 {
-                    if (LevelName == "01TrainingEntrance" || LevelName == "02TrainingSaveRoom")
+                    if (LevelName == "01TrainingEntrance" || LevelName == "02TrainingSaveRoom" || LevelName == "00TrainingOpening" || LevelName == "Menu")
                     {
                         if (SoundManager.CurrentTrackName != "TrainingTrackFirstLoop" && SoundManager.NextTrackName != "TrainingTrackFirstLoop")
                             SoundManager.CrossFadeLoopTrack("TrainingTrackFirstLoop");
