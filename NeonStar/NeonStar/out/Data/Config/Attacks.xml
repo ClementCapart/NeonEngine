@@ -91,7 +91,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonDive" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -183,17 +182,14 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace1" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace2" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.15" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace3" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.3" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -245,7 +241,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonDiveEffect" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerDiveDurationFX" />
@@ -254,7 +249,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects />
@@ -323,14 +317,12 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="BisonAirLock" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -423,10 +415,10 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.2</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>3</Duration>
+      <Duration>2.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -434,15 +426,42 @@
       <MultiHitDelay>0.2</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationFadeIn" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:300 Y:-300}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterDefenseCast" Group="EnemyCaster" Type="Special">
       <Hitboxes />
@@ -451,7 +470,7 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.6</Delay>
+      <Delay>1</Delay>
       <Cooldown>0.6</Cooldown>
       <LocalCooldown>4</LocalCooldown>
       <Duration>0.1</Duration>
@@ -462,12 +481,20 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="CasterDefense" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -494,8 +521,26 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterFloorDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:400 Y:50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterFloorDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:400 Y:50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-550}" />
@@ -529,12 +574,10 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL1" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR1" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -550,10 +593,10 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>1</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -573,7 +616,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL2" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -589,7 +631,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -609,7 +651,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL3" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -625,7 +666,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -645,7 +686,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonL4" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -688,10 +728,10 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>1</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -711,7 +751,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR2" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -727,7 +766,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -747,7 +786,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR3" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -763,7 +801,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -783,7 +821,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="CasterPrisonR4" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -1258,7 +1295,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="0.8" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1275,7 +1311,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1309,7 +1344,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="0.8" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
@@ -1332,7 +1366,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1468,7 +1501,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="1" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
@@ -1487,7 +1519,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -1522,7 +1553,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="1" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1564,7 +1594,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="0.8" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1581,7 +1610,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="0.8" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1615,7 +1643,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="0.8" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1632,7 +1659,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -1677,14 +1703,12 @@
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffect" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveAttackLevelTwo" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
@@ -1727,7 +1751,6 @@
         <Effect Type="StartAttack">
           <Parameter Value="LiOnDiveEffectLevelTwo" />
           <SecondParameter Value="true" />
-          <ThirdParameter Value="0" />
         </Effect>
       </OnGroundCancelSpecialEffects>
       <OnFinishSpecialEffects />
@@ -1761,7 +1784,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="0.7" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="DiveFXBackLvl1" />
@@ -1770,7 +1792,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="0.49" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1816,7 +1837,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="0.49" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="DiveFXFrontLvl2" />
@@ -1825,7 +1845,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="0.7" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects />
@@ -1871,7 +1890,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlOneExplosion" />
@@ -1880,7 +1898,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -1922,7 +1939,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlOneExplosion" />
@@ -1931,7 +1947,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -1973,7 +1988,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlOneExplosion" />
@@ -1982,7 +1996,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2024,7 +2037,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlTwoExplosion" />
@@ -2033,7 +2045,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2075,7 +2086,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlTwoExplosion" />
@@ -2084,7 +2094,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2126,7 +2135,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlTwoExplosion" />
@@ -2135,7 +2143,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2176,7 +2183,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
@@ -2187,7 +2193,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2229,7 +2234,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
@@ -2238,7 +2242,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2280,7 +2283,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
@@ -2289,7 +2291,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2331,7 +2332,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0.3" />
-          <SeventhParameter Value="1" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
@@ -2340,7 +2340,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2381,7 +2380,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
@@ -2392,7 +2390,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2471,7 +2468,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -2522,7 +2518,6 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
