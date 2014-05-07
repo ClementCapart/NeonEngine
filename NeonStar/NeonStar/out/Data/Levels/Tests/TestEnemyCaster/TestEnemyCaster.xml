@@ -50,9 +50,9 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-505 Y:-100}" />
+              <InitialPosition Value="{X:-504 Y:-125}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
@@ -122,14 +122,14 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="FloorDelay" SpritesheetTag="1DelayPlaceholder" />
-                <Animation Name="FloorDuration" SpritesheetTag="1DurationPlaceholder" />
-                <Animation Name="FloorCooldown" SpritesheetTag="1CooldownPlaceholder" />
-                <Animation Name="Idle" SpritesheetTag="IdlePlaceholder" />
+                <Animation Name="FloorDelay" SpritesheetTag="CrystalCasterFloorDelay" />
+                <Animation Name="FloorDuration" SpritesheetTag="CrystalCasterFloorDuration" />
+                <Animation Name="FloorCooldown" SpritesheetTag="CrystalCasterIdle" />
+                <Animation Name="Idle" SpritesheetTag="CrystalCasterIdle" />
                 <Animation Name="PrisonDuration" SpritesheetTag="2DurationPlaceholder" />
                 <Animation Name="PrisonCooldown" SpritesheetTag="2CooldownPlaceholder" />
-                <Animation Name="DefenseDelay" SpritesheetTag="3DelayPlaceholder" />
-                <Animation Name="DefenseCooldown" SpritesheetTag="3CooldownPlaceholder" />
+                <Animation Name="DefenseDelay" SpritesheetTag="CrystalCasterDefenceDelay" />
+                <Animation Name="DefenseCooldown" SpritesheetTag="CrystalCasterDefenceDuration" />
               </Spritesheets>
               <DrawLayer Value="0" />
               <IsHUD Value="False" />
@@ -157,13 +157,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="4">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-504 Y:-100}" />
-              <X Value="-539" />
-              <Y Value="-175" />
+              <Center Value="{X:-504 Y:-125}" />
+              <X Value="-569" />
+              <Y Value="-225" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="70" />
-              <Height Value="150" />
+              <Width Value="130" />
+              <Height Value="200" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
