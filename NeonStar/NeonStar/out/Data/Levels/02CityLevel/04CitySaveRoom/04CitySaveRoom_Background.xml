@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <XnaContent>
-  <Level Layer="Foreground">
+  <Level Layer="Background">
     <Entities>
-      <Entity Name="ColumnLeft" Layer="Foreground">
+      <Entity Name="BackgroundLeft" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-461 Y:-100}" />
+              <InitialPosition Value="{X:-577 Y:-102}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -15,8 +15,8 @@
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="ForegroundColumn" />
-              <DrawLayer Value="0.9" />
+              <GraphicTag Value="SaveRoomBackgroundLeft" />
+              <DrawLayer Value="0.1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -31,12 +31,157 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Lanterns" Layer="Foreground">
+      <Entity Name="BackgroundToLight" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-443 Y:-187}" />
+              <InitialPosition Value="{X:47 Y:-70}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="Ceiling" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:47 Y:-322}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="SaveRoomPipeBase" />
+              <DrawLayer Value="0.48" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="BackgroundRight" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:677 Y:-102}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="SaveRoomBackgroundLeft" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="SaveCabin" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:47 Y:-54}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets />
+              <DrawLayer Value="0.48" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="Pipes" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:47 Y:-158}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets />
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="RoomLighting" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:47 Y:-70}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -49,11 +194,11 @@
               <Reverse Value="False" />
               <ChangeSideEveryLoop Value="False" />
               <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
+              <DelayBeforeLoopAgain Value="1" />
               <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="SaveRoomLantern" />
-              <DrawLayer Value="0.95" />
+              <DelayBeforeLoop Value="True" />
+              <SpriteSheetTag Value="SaveRoomLightened" />
+              <DrawLayer Value="0.2" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -69,12 +214,12 @@
           </Spritesheet>
         </Components>
       </Entity>
-      <Entity Name="LeftLamp" Layer="Foreground">
+      <Entity Name="ScreensLeft" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-169 Y:-60}" />
+              <InitialPosition Value="{X:-355 Y:-110}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -84,17 +229,13 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-5 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Off" SpritesheetTag="SaveRoomLightingOff" />
-                <Animation Name="Lighting" SpritesheetTag="SaveRoomLightingLighting" />
-                <Animation Name="On" SpritesheetTag="SaveRoomLightingIdle" />
-              </Spritesheets>
-              <DrawLayer Value="0.8" />
+              <Spritesheets />
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -102,12 +243,12 @@
           </SpritesheetManager>
         </Components>
       </Entity>
-      <Entity Name="RightLamp" Layer="Foreground">
+      <Entity Name="ScreensRight" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:263 Y:-60}" />
+              <InitialPosition Value="{X:449 Y:-110}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -122,12 +263,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Off" SpritesheetTag="SaveRoomLightingOff" />
-                <Animation Name="Lighting" SpritesheetTag="SaveRoomLightingLighting" />
-                <Animation Name="On" SpritesheetTag="SaveRoomLightingIdle" />
-              </Spritesheets>
-              <DrawLayer Value="0.8" />
+              <Spritesheets />
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -135,41 +272,12 @@
           </SpritesheetManager>
         </Components>
       </Entity>
-      <Entity Name="ColumnRight" Layer="Foreground">
+      <Entity Name="CeilingFade" Layer="Background">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:554 Y:-100}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="ForegroundColumn" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Lanterns" Layer="Foreground">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:533 Y:-186}" />
+              <InitialPosition Value="{X:47 Y:-102}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -177,7 +285,7 @@
           </Transform>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
             <Properties>
-              <IsLooped Value="True" />
+              <IsLooped Value="False" />
               <StartingFrame Value="0" />
               <Reverse Value="False" />
               <ChangeSideEveryLoop Value="False" />
@@ -185,11 +293,11 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="SaveRoomLantern" />
-              <DrawLayer Value="0.95" />
+              <SpriteSheetTag Value="SaveRoomChipsetFade" />
+              <DrawLayer Value="0.49" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
@@ -200,97 +308,6 @@
               <NickName Value="" />
             </Properties>
           </Spritesheet>
-        </Components>
-      </Entity>
-      <Entity Name="Ground" Layer="Foreground">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:25 Y:174}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Off" SpritesheetTag="SaveRoomFloorOff" />
-                <Animation Name="Lighting" SpritesheetTag="SaveRoomFloorLighting" />
-                <Animation Name="On" SpritesheetTag="SaveRoomFloorOn" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="SaveRoomExitLight" Layer="Foreground">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-429 Y:-1}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="SaveRoomExitLight" />
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="SaveRoomExitLight" Layer="Foreground">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:523 Y:-1}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="SaveRoomExitLight" />
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
         </Components>
       </Entity>
     </Entities>

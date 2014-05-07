@@ -32,7 +32,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:687 Y:45}" />
+              <InitialPosition Value="{X:687 Y:44}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -115,9 +115,9 @@
           </Transform>
           <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
             <Properties>
-              <GroupName Value="01TrainingLevel" />
-              <LevelName Value="01TrainingEntrance" />
-              <SpawnPointIndex Value="1" />
+              <GroupName Value="02CityLevel" />
+              <LevelName Value="04CityTrainStationHall" />
+              <SpawnPointIndex Value="2" />
               <NickName Value="" />
             </Properties>
           </ChangeLevel>
@@ -136,50 +136,6 @@
               <Type Value="Trigger" />
               <Center Value="{X:-694 Y:0}" />
               <X Value="-744" />
-              <Y Value="-175" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="350" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-        </Components>
-      </Entity>
-      <Entity Name="ChangeLevelScan" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:789 Y:0}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
-            <Properties>
-              <GroupName Value="01TrainingLevel" />
-              <LevelName Value="03TrainingScan" />
-              <SpawnPointIndex Value="0" />
-              <NickName Value="" />
-            </Properties>
-          </ChangeLevel>
-          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
-            <Properties>
-              <OneShot Value="True" />
-              <TriggerEveryFrame Value="False" />
-              <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="ChangeLevelScan" />
-              <TriggeredComponentName Value="ChangeLevel" />
-              <NickName Value="" />
-            </Properties>
-          </HitboxTrigger>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Trigger" />
-              <Center Value="{X:789 Y:0}" />
-              <X Value="739" />
               <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />

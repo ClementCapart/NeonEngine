@@ -165,6 +165,8 @@ namespace NeonStarEditor.Controls.BottomDock
 
         private void AddEntityButton_Click(object sender, EventArgs e)
         {
+            if (levelListTreeView.SelectedNode == null)
+                return;
             if (levelListTreeView.SelectedNode.Parent == null)
             {
                 int i = 0;

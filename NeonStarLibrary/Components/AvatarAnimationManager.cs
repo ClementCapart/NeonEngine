@@ -97,7 +97,7 @@ namespace NeonStarLibrary.Components.Avatar
                             if (!entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0.0f)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.LandingAnimation, true, 0, true, false, false);
                             else
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.WalkAnimation);
+                                entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.WalkAnimation, true, 0, true, false, true);
                         }
                         else
                         {

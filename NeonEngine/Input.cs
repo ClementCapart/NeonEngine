@@ -99,10 +99,14 @@ namespace NeonEngine
                     {
                         if(inputMethod.Attribute("Name").Value.StartsWith("Keyboard"))
                         {
+                            if (inputMethod.Value == "None")
+                                continue;
                             CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Keys), inputMethod.Value));
                         }
                         else if (inputMethod.Attribute("Name").Value.StartsWith("XboxController"))
                         {
+                            if (inputMethod.Value == "None")
+                                continue;
                             CustomInputs[input.Attribute("Name").Value].Add(inputMethod.Attribute("Name").Value, (Enum)Enum.Parse(typeof(Buttons), inputMethod.Value));
                         }
                     }
@@ -241,7 +245,7 @@ namespace NeonEngine
 
         private void RegisterForDelay<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return;
             else
             {
@@ -288,7 +292,7 @@ namespace NeonEngine
 
         public bool Pressed<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {
@@ -353,7 +357,7 @@ namespace NeonEngine
 
         public bool Check<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {
@@ -476,7 +480,7 @@ namespace NeonEngine
 
         public bool Released<T>(T NeonCustomInput)
         {
-            if (NeonCustomInput.GetType() != EnumType)
+            if (NeonCustomInput.GetType() != EnumType || !CustomInputs.ContainsKey(NeonCustomInput.ToString()))
                 return false;
             else
             {

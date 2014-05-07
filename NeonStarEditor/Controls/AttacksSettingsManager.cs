@@ -314,8 +314,10 @@ namespace NeonStarEditor
                 case SpecialEffect.PlaySound:
                     XElement parameterSound = new XElement("Parameter", new XAttribute("Value", effectKvp.Parameters[0]));
                     XElement parameterVolume = new XElement("SecondParameter", new XAttribute("Value", ((float)effectKvp.Parameters[1]).ToString()));
+                    XElement parameterStopSound = new XElement("ThirdParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[2]).ToString()));
                     effect.Add(parameterSound);
                     effect.Add(parameterVolume);
+                    effect.Add(parameterStopSound);
                     break;
             }
 
@@ -939,6 +941,14 @@ namespace NeonStarEditor
                         volume.Leave += Numeric_Leave;
                         volume.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(volume);
+                        
+                        CheckBox checkBox6 = new CheckBox();
+                        checkBox6.Text = "StopSoundWithAttack";
+                        checkBox6.Name = "StopSound";
+                        checkBox6.Checked = (bool)CurrentAttackEffectSelected.Parameters[2];
+                        checkBox6.Location = new System.Drawing.Point(label.Location.X, volume.Location.Y + volume.Height + 5);
+                        checkBox6.CheckedChanged += checkBox_CheckedChanged;
+                        EffectsInfoPanel.Controls.Add(checkBox6);
                         break;
                 }
             }
@@ -958,6 +968,10 @@ namespace NeonStarEditor
             else if ((sender as CheckBox).Name == "MustFollowCheckbox")
             {
                 CurrentAttackEffectSelected.Parameters[3] = (bool)(sender as CheckBox).Checked;
+            }
+            else if ((sender as CheckBox).Name == "StopSound")
+            {
+                CurrentAttackEffectSelected.Parameters[2] = (bool)(sender as CheckBox).Checked;
             }
             else
                 CurrentAttackEffectSelected.Parameters[1] = (bool)(sender as CheckBox).Checked;
@@ -1043,7 +1057,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.PlaySound:
-                        CurrentAttackEffectSelected.Parameters = new object[] { "", 1.0f };
+                        CurrentAttackEffectSelected.Parameters = new object[] { "", 1.0f, false };
                         break;
                 }
                 this.InitEffectData();

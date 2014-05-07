@@ -1674,9 +1674,9 @@
       <GroundCancel>True</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>0.3</Cooldown>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.5</Duration>
+      <Duration>0.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -1690,6 +1690,11 @@
           <Parameter Value="{X:0 Y:800}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="DiveAttackLevelOne" />
+          <SecondParameter Value="0.1" />
+          <ThirdParameter Value="True" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -1738,6 +1743,11 @@
           <Parameter Value="{X:0 Y:800}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="DiveAttackLevelOne" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="True" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -1794,7 +1804,13 @@
           <SixthParameter Value="0" />
         </Effect>
       </OnDelaySpecialEffects>
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="DiveEffect" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-1700}" />
@@ -1847,7 +1863,13 @@
           <SixthParameter Value="0" />
         </Effect>
       </OnDelaySpecialEffects>
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="DiveEffect" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-2000}" />
@@ -2457,7 +2479,8 @@
         </Effect>
         <Effect Type="PlaySound">
           <Parameter Value="LightAttack" />
-          <SecondParameter Value="0.3" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2468,6 +2491,11 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="LightHit" />
+          <SecondParameter Value="0.1" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -2502,7 +2530,8 @@
         </Effect>
         <Effect Type="PlaySound">
           <Parameter Value="LightAttackFinish" />
-          <SecondParameter Value="0.3" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2518,6 +2547,11 @@
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="LightHit" />
+          <SecondParameter Value="0.1" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
@@ -2544,7 +2578,13 @@
       <AirImpulse>{X:3000 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="Uppercut" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-3800}" />

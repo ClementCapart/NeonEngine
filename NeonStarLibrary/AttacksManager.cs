@@ -197,7 +197,7 @@ namespace NeonStarLibrary
                         break;
 
                     case SpecialEffect.PlaySound:
-                        currentAttackEffects.Add(new AttackEffect(se, new object[] { currentSpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value) }));
+                        currentAttackEffects.Add(new AttackEffect(se, new object[] { currentSpecialEffect.Element("Parameter").Attribute("Value").Value, float.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value), bool.Parse(currentSpecialEffect.Element("ThirdParameter").Attribute("Value").Value) }));
                         break;
                 }
             }

@@ -206,6 +206,9 @@ namespace NeonEngine.Components.Graphics2D
 
             _centerTexture = AssetManager.GetTexture(_centerTileGraphicTag);
 
+            if (entity.hitboxes.Count <= 0)
+                return;
+
             SetCorners();
 
             if (_tilingHash == "" || !_keepTilingHash)

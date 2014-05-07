@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarLibrary.Components.Avatar;
@@ -256,6 +257,7 @@ namespace NeonStarLibrary
 
         private List<AnimationDelayed> _delayedEffect = new List<AnimationDelayed>();
         private List<AttackDelayed> _delayedAttacks = new List<AttackDelayed>();
+        private List<SoundEffectInstance> _soundEffectsToStop = new List<SoundEffectInstance>();
 
         public List<Hitbox> Hitboxes;
         public bool Canceled = false;
@@ -622,7 +624,15 @@ namespace NeonStarLibrary
                         case SpecialEffect.PlaySound:
                             if(ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                             {
-                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                if((bool)ae.Parameters[2])
+                                {
+                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
+                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                    se.Play();
+                                    _soundEffectsToStop.Add(se);
+                                }
+                                else
+                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                             }
                             break;
 
@@ -768,7 +778,15 @@ namespace NeonStarLibrary
                         case SpecialEffect.PlaySound:
                             if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                             {
-                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                if ((bool)ae.Parameters[2])
+                                {
+                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
+                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                    se.Play();
+                                    _soundEffectsToStop.Add(se);
+                                }
+                                else
+                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                             }
                             break;
 
@@ -940,7 +958,15 @@ namespace NeonStarLibrary
                                 case SpecialEffect.PlaySound:
                                     if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                                     {
-                                        SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                        if ((bool)ae.Parameters[2])
+                                        {
+                                            SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
+                                            se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                            se.Play();
+                                            _soundEffectsToStop.Add(se);
+                                        }
+                                        else
+                                            SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                                     }
                                     break;
                             }
@@ -1097,7 +1123,15 @@ namespace NeonStarLibrary
                             case SpecialEffect.PlaySound:
                                 if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                                 {
-                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                    if ((bool)ae.Parameters[2])
+                                    {
+                                        SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
+                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                    se.Play();
+                                    _soundEffectsToStop.Add(se);
+                                    }
+                                    else
+                                        SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                                 }
                                 break;
                         }
@@ -1109,6 +1143,8 @@ namespace NeonStarLibrary
                         Hitboxes[i].Remove();
                     }
                     Hitboxes.Clear();
+                    foreach (SoundEffectInstance se in _soundEffectsToStop)
+                        se.Stop();
                     this.DurationStarted = true;
                     this.DurationFinished = true;
                     this.DelayStarted = true;
@@ -1297,9 +1333,19 @@ namespace NeonStarLibrary
                             break;
 
                         case SpecialEffect.PlaySound:
+                            if (!_hit)
+                                break;
                             if (ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                             {
-                                SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                if ((bool)ae.Parameters[2])
+                                {
+                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
+                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                    se.Play();
+                                    _soundEffectsToStop.Add(se);
+                                }
+                                else
+                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
                             }
                             break;
                     }
@@ -1327,6 +1373,8 @@ namespace NeonStarLibrary
             {
                 Hitboxes[i].Remove();
             }
+            foreach (SoundEffectInstance se in _soundEffectsToStop)
+                se.Stop();
             this.Hitboxes.Clear();
             this.CooldownFinished = true;
             this.CooldownStarted = true;
