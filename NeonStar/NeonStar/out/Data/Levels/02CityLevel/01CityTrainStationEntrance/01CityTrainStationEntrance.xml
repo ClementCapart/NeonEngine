@@ -46,6 +46,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:4}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -58,7 +59,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
@@ -294,11 +294,14 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
               <HitAnim Value="" />
+              <StunlockAnim Value="" />
               <ImmuneToStunLock Value="True" />
               <ImmuneToImpulse Value="True" />
               <ImmuneToDeath Value="True" />
@@ -308,9 +311,6 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
-              <StunlockAnim Value="" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
@@ -318,6 +318,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -329,7 +330,6 @@
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
@@ -395,11 +395,14 @@
               <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
               <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
               <HitAnim Value="" />
+              <StunlockAnim Value="" />
               <ImmuneToStunLock Value="True" />
               <ImmuneToImpulse Value="True" />
               <ImmuneToDeath Value="True" />
@@ -409,9 +412,6 @@
               <TriggerOnDamage Value="True" />
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
-              <StunlockAnim Value="" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
@@ -419,6 +419,7 @@
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
             <Properties>
               <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
@@ -430,7 +431,6 @@
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
@@ -767,7 +767,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1200 Y:-1100}" />
+              <InitialPosition Value="{X:-1238 Y:-1099}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -792,7 +792,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-600 Y:-1100}" />
+              <InitialPosition Value="{X:-638 Y:-1099}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -817,7 +817,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:0 Y:-1100}" />
+              <InitialPosition Value="{X:8 Y:-959}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1018,31 +1018,6 @@
             <Properties>
               <AutoChangeInitialPosition Value="True" />
               <InitialPosition Value="{X:4000 Y:-600}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Right" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="Bound24" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4000 Y:-300}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
