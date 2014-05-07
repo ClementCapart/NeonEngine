@@ -259,6 +259,11 @@ namespace NeonStarLibrary
         private List<AttackDelayed> _delayedAttacks = new List<AttackDelayed>();
         private List<SoundEffectInstance> _soundEffectsToStop = new List<SoundEffectInstance>();
 
+        private List<AnimatedSpecialEffect> _delayLoopedAnimation = new List<AnimatedSpecialEffect>();
+        private List<AnimatedSpecialEffect> _durationLoopedAnimation = new List<AnimatedSpecialEffect>();
+        private List<AnimatedSpecialEffect> _cooldownLoopedAnimation = new List<AnimatedSpecialEffect>();
+
+
         public List<Hitbox> Hitboxes;
         public bool Canceled = false;
         public Entity _entity;
@@ -595,8 +600,12 @@ namespace NeonStarLibrary
                                    
                                         if ((bool)ae.Parameters[3])
                                             entityToFollow = _entity;
-                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                        if((bool)ae.Parameters[7])
+                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Delay, true);
+                                        else
+                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
                                 }   
+
                             }                                                 
                             
                             break;
@@ -662,7 +671,6 @@ namespace NeonStarLibrary
                                 {
                                     Vector2 impulseForce = (Vector2)ae.Parameters[0] * (_entity.rigidbody.isGrounded ? 1 : AirFactor);
                                     _mustStopAtTargetSight = (bool)ae.Parameters[1];
-
                                     _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                                     _entity.rigidbody.body.ApplyLinearImpulse(new Vector2(_side == Side.Right ? impulseForce.X : -impulseForce.X, impulseForce.Y));   
                                 }
@@ -750,7 +758,10 @@ namespace NeonStarLibrary
 
                                         if ((bool)ae.Parameters[3])
                                             entityToFollow = _entity;
-                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);                         
+                                        if ((bool)ae.Parameters[7])
+                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Duration, true);
+                                        else
+                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
                                 }
                             }
                            
@@ -935,7 +946,10 @@ namespace NeonStarLibrary
                                         {
                                             if ((bool)ae.Parameters[3])
                                                 entityToFollow = _entity;
-                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                            if ((bool)ae.Parameters[7])
+                                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Cooldown, true);
+                                            else
+                                                EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
                                         }
                                     }
 

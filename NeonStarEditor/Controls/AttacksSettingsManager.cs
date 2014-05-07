@@ -276,6 +276,7 @@ namespace NeonStarEditor
                     XElement parameterScale = new XElement("FifthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[4]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterDelay = new XElement("SixthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[5]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterLayer = new XElement("SeventhParameter", new XAttribute("Value", ((float)effectKvp.Parameters[6]).ToString("G", CultureInfo.InvariantCulture)));
+                    XElement parameterLoopAnimation = new XElement("EighthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[7]).ToString()));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
@@ -283,6 +284,7 @@ namespace NeonStarEditor
                     effect.Add(parameterScale);
                     effect.Add(parameterDelay);
                     effect.Add(parameterLayer);
+                    effect.Add(parameterLoopAnimation);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -574,7 +576,7 @@ namespace NeonStarEditor
                         comboBox2.DataSource = bs;
                         comboBox2.Name = "SpritesheetName";
                         comboBox2.Location = new System.Drawing.Point(5, label.Location.Y + label.Height + 5);
-                        comboBox2.Width = 150;
+                        comboBox2.Width = 250;
                         comboBox2.SelectedItem = (string)AssetManager.GetSpritesheetTag((SpriteSheetInfo)CurrentAttackEffectSelected.Parameters[0]);
                         comboBox2.SelectedValueChanged += comboBox_SelectedValueChanged;                       
                         this.EffectsInfoPanel.Controls.Add(comboBox2);
@@ -692,6 +694,13 @@ namespace NeonStarEditor
                         layer.Leave += Numeric_Leave;
                         layer.ValueChanged += Numeric_ValueChanged;
                         this.EffectsInfoPanel.Controls.Add(layer);
+
+                        CheckBox checkbox6 = new CheckBox();
+                        checkbox6.Text = "Loop";
+                        checkbox6.Location = new System.Drawing.Point(5, layer.Location.Y + layer.Height + 5);
+                        checkbox6.CheckedChanged += checkbox6_CheckedChanged;
+                        checkbox6.Checked = (bool)CurrentAttackEffectSelected.Parameters[7];
+                        this.EffectsInfoPanel.Controls.Add(checkbox6);
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -954,6 +963,11 @@ namespace NeonStarEditor
             }
         }
 
+        void checkbox6_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentAttackEffectSelected.Parameters[7] = (sender as CheckBox).Checked;
+        }
+
         void checkbox3_CheckedChanged(object sender, EventArgs e)
         {
             CurrentAttackEffectSelected.Parameters[1] = (sender as CheckBox).Checked;
@@ -1037,7 +1051,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f, 1.0f };
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f, 1.0f, false};
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:

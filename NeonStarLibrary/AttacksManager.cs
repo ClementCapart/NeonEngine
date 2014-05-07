@@ -177,7 +177,7 @@ namespace NeonStarLibrary
                         SpriteSheetInfo ssi = AssetManager.GetSpriteSheet(currentSpecialEffect.Element("Parameter").Attribute("Value").Value);
                         float rotation = float.Parse(currentSpecialEffect.Element("SecondParameter").Attribute("Value").Value, CultureInfo.InvariantCulture);
                         Vector2 offset = Neon.Utils.ParseVector2(currentSpecialEffect.Element("ThirdParameter").Attribute("Value").Value);
-                        currentAttackEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(currentSpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(currentSpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(currentSpecialEffect.Element("SixthParameter").Attribute("Value").Value), float.Parse(currentSpecialEffect.Element("SeventhParameter").Attribute("Value").Value) }));
+                        currentAttackEffects.Add(new AttackEffect(se, new object[] { ssi, rotation, offset, bool.Parse(currentSpecialEffect.Element("FourthParameter").Attribute("Value").Value), float.Parse(currentSpecialEffect.Element("FifthParameter").Attribute("Value").Value, CultureInfo.InvariantCulture), float.Parse(currentSpecialEffect.Element("SixthParameter").Attribute("Value").Value), float.Parse(currentSpecialEffect.Element("SeventhParameter").Attribute("Value").Value), bool.Parse(currentSpecialEffect.Element("EighthParameter").Attribute("Value").Value) }));
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
