@@ -797,7 +797,11 @@ namespace NeonStarLibrary
                                     _soundEffectsToStop.Add(se);
                                 }
                                 else
-                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                {
+                                    SoundEffect sei = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if(sei != null)
+                                        sei.Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                }
                             }
                             break;
 

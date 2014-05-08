@@ -920,7 +920,7 @@ namespace NeonStarEditor
                         comboBox3.BindingContext = new BindingContext();
                         BindingSource bs2 = new BindingSource();
                         List<string> sounds = new List<string>();
-                        sounds.AddRange(SoundManager.sounds.Keys.OrderBy(k => k.ToString()));
+                        sounds.AddRange(SoundManager._sounds.Keys.OrderBy(k => k.ToString()));
 
                         bs2.DataSource = sounds;
                         comboBox3.DataSource = bs2;

@@ -14,10 +14,11 @@ namespace NeonEngine
     static public class SoundManager
     {
         #region fields
-        static Dictionary<string, SoundEffect> soundsList;
-        static public Dictionary<string, string> sounds;
-        static Dictionary<string, Song> songsList;
-        static public Dictionary<string, string> songs;
+        static Dictionary<string, SoundEffect> _soundsList;
+        static public Dictionary<string, string> _sounds;
+        
+        static Dictionary<string, Song> _songsList;
+        static public Dictionary<string, string> _songs;
 
         static public string CurrentTrackName = "";
         static public SoundEffectInstance CurrentTrack;
@@ -160,8 +161,8 @@ namespace NeonEngine
 
         static public void InitializeSounds()
         {
-            sounds = new Dictionary<string, string>();
-            songs = new Dictionary<string, string>();
+            _sounds = new Dictionary<string, string>();
+            _songs = new Dictionary<string, string>();
             /* use sounds.add("tag", "filePath") to load your sounds
              * the tag will be use in your entities to call your sounds
              * 
@@ -179,7 +180,7 @@ namespace NeonEngine
             {
                 foreach (string p in Directory.EnumerateFiles(@"Content/SFX"))
                 {
-                    sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
+                    _sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
 
@@ -188,7 +189,7 @@ namespace NeonEngine
                 foreach (string p in Directory.EnumerateFiles(@"Content/Soundtracks"))
                 {
                     if(Path.GetExtension(p) == ".xnb")
-                        sounds.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks/" + Path.GetFileNameWithoutExtension(p));
+                        _sounds.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
             
@@ -198,20 +199,71 @@ namespace NeonEngine
 
         static public void Load(ContentManager Content)
         {
-            soundsList = new Dictionary<string, SoundEffect>();
-            foreach (KeyValuePair<string, string> kvp in sounds)
-                soundsList.Add(kvp.Key, Content.Load<SoundEffect>(kvp.Value));
-            songsList = new Dictionary<string, Song>();
-            foreach (KeyValuePair<string, string> kvp in songs)
-                songsList.Add(kvp.Key, Content.Load<Song>(kvp.Value));
+            if (_soundsList == null)
+                _soundsList = new Dictionary<string, SoundEffect>();
+            foreach (KeyValuePair<string, SoundEffect> kvp in _soundsList)
+                kvp.Value.Dispose();
+            _sounds = new Dictionary<string, string>();
+            _soundsList = new Dictionary<string, SoundEffect>();
+
+            List<string> filesPath = DirectorySearch(@"../Data/Sounds/");
+
+            foreach (string s in filesPath)
+            {
+                string[] fileNameProcessing = s.Split('\\');
+                string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
+                
+                _sounds.Add(fileName, s);
+            }
+
+            foreach (KeyValuePair<string, string> kvp in _sounds)
+                LoadSound(kvp.Key, kvp.Value);
+            _songsList = new Dictionary<string, Song>();
+            foreach (KeyValuePair<string, string> kvp in _songs)
+                _songsList.Add(kvp.Key, Content.Load<Song>(kvp.Value));
+        }
+
+        static public void LoadSound(string name, string filePath)
+        {
+            SoundEffect soundEffect = null;
+            using (FileStream titleStream = File.OpenRead(filePath))
+            {
+                soundEffect = SoundEffect.FromStream(titleStream);
+                AudioEmitter ae = new AudioEmitter();
+            }
+            if (soundEffect != null)
+            {
+                _soundsList.Add(name, soundEffect);
+            }
         }
 
         static public SoundEffect GetSound(string tag)
         {
-            if (!soundsList.ContainsKey(tag))
+            if (!_soundsList.ContainsKey(tag))
                 return null;
 
-            return soundsList[tag];
+            return _soundsList[tag];
+        }
+
+        static List<string> DirectorySearch(string currentDirectory)
+        {
+            List<string> fileList = new List<string>();
+
+            if (!Directory.Exists(currentDirectory))
+                Directory.CreateDirectory(currentDirectory);
+
+            string[] directories = Directory.GetDirectories(currentDirectory);
+            foreach (string d in directories)
+            {
+                foreach (string f in Directory.GetFiles(d))
+                    fileList.Add(f);
+
+                List<string> subList = DirectorySearch(d);
+                foreach (string f in subList)
+                    fileList.Add(f);
+            }
+
+            return fileList;
         }
     }
 }
