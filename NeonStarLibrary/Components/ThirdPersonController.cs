@@ -203,7 +203,7 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 for (int i = _ignoredGeometry.Count - 1; i >= 0; i--)
                 {
-                    if (entity.transform.Position.Y + entity.hitboxes[0].Height / 2 > _ignoredGeometry[i].entity.transform.Position.Y + _ignoredGeometry[i].entity.hitboxes[0].Height / 2 || StartJumping)
+                    if (entity.transform.Position.Y + entity.hitboxes[0].Height / 2 > _ignoredGeometry[i].entity.transform.Position.Y + _ignoredGeometry[i].entity.hitboxes[0].Height / 2)
                     {
                         entity.rigidbody.body.RestoreCollisionWith(_ignoredGeometry[i].body);
                         _ignoredGeometry.RemoveAt(i);
@@ -338,7 +338,7 @@ namespace NeonStarLibrary.Components.Avatar
                             MustJumpAsSoonAsPossible = true;
                         }
 
-                        if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay)
+                        if (MustJumpAsSoonAsPossible && _jumpInputDelay < _maxJumpInputDelay && entity.rigidbody.GravityScale > 0.0f)
                         {
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
@@ -348,8 +348,6 @@ namespace NeonStarLibrary.Components.Avatar
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
                         }
-
-                        
                     }
                     else if (entity.rigidbody != null)
                     {
@@ -381,7 +379,7 @@ namespace NeonStarLibrary.Components.Avatar
                             MustJumpAsSoonAsPossible = true;
                         }
 
-                        if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && CanDoubleJump && NumberOfAirMove > 0)
+                        if (MustJumpAsSoonAsPossible && !_hasAlreadyAirJumped && CanDoubleJump && NumberOfAirMove > 0 && entity.rigidbody.GravityScale > 0.0f)
                         {
                             IsAirJumping = true;
                             entity.rigidbody.body.LinearVelocity = new Vector2(entity.rigidbody.body.LinearVelocity.X, 0);
