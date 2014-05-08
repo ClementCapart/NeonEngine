@@ -9,6 +9,8 @@ using NeonEngine.Private;
 using System.Xml.Linq;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Audio;
+using Microsoft.Xna.Framework.Audio;
 
 namespace NeonEngine
 {
@@ -30,6 +32,9 @@ namespace NeonEngine
 
         Vector2 _screenCenter;
         DebugViewXNA _debugView;
+
+        public List<AudioListener> AudioListeners;
+        public List<SoundEmitter> AudioEmitters;
 
         public Camera2D Camera;
         public List<Entity> Entities;
@@ -56,7 +61,6 @@ namespace NeonEngine
 
         public bool FirstUpdateWorld = true;
         public bool FirstUpdate = true;
-
 
         public Game game;
 
@@ -93,6 +97,9 @@ namespace NeonEngine
             NodeLists = new List<PathNodeList>();
             SpawnPoints = new List<SpawnPoint>();
             SpecialEffects = new List<AnimatedSpecialEffect>();
+
+            AudioEmitters = new List<SoundEmitter>();
+            AudioListeners = new List<AudioListener>();
 
             _polygonRenderer = new PolygonRenderer(Neon.GraphicsDevice, Vector2.Zero);
         }

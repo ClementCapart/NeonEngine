@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Media;
 using System.IO;
 using Microsoft.Xna.Framework;
 using System.Threading;
+using NeonEngine.Components.Audio;
 
 namespace NeonEngine
 {
@@ -114,6 +115,18 @@ namespace NeonEngine
             _fading = true;
         }
 
+        static public SoundEffectInstance SetEmitterSound(string name, AudioEmitter audioEmitter)
+        {
+            SoundEffectInstance sei = null;
+            SoundEffect se = GetSound(name);
+            if (se == null)
+                return null;
+
+            sei = se.CreateInstance();
+
+            return sei;
+        }
+
         static public void Update(GameTime gameTime)
         {
             if (_fading)
@@ -156,6 +169,16 @@ namespace NeonEngine
                     CurrentTrack.Play();
                 }
             }
+
+            foreach (SoundEmitter se in Neon.World.AudioEmitters)
+            {
+                foreach(SoundEffectInstance sei in se.SoundInstances)
+                    if (sei.State == SoundState.Playing)
+                    {
+                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
+                    }
+            }
+
             //MusicTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
