@@ -418,17 +418,17 @@
     </Attack>
     <Attack ID="0" Name="CasterDefense" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="-75" Width="200" Height="300" />
+        <Hitbox OffsetX="0" OffsetY="-50" Width="200" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>0.2</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>3</Duration>
+      <Duration>2.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -436,15 +436,48 @@
       <MultiHitDelay>0.2</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationFadeIn" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="0.47" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationLoop" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="0.47" />
+          <EighthParameter Value="True" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:300 Y:-300}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDurationFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="0.47" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterDefenseCast" Group="EnemyCaster" Type="Special">
       <Hitboxes />
@@ -453,7 +486,7 @@
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.6</Delay>
+      <Delay>1</Delay>
       <Cooldown>0.6</Cooldown>
       <LocalCooldown>4</LocalCooldown>
       <Duration>0.1</Duration>
@@ -464,7 +497,18 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterDefenceDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:-55}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="StartAttack">
           <Parameter Value="CasterDefense" />
@@ -478,7 +522,7 @@
     </Attack>
     <Attack ID="0" Name="CasterFloor" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="400" OffsetY="25" Width="600" Height="100" />
+        <Hitbox OffsetX="400" OffsetY="50" Width="600" Height="100" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -496,8 +540,30 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterFloorDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:400 Y:50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterFloorDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:400 Y:50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:0 Y:-550}" />
@@ -516,9 +582,9 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
-      <Cooldown>2</Cooldown>
+      <Cooldown>1.2</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.2</Duration>
+      <Duration>1</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -545,17 +611,17 @@
     </Attack>
     <Attack ID="0" Name="CasterPrisonL1" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="675" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="675" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>1</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -563,8 +629,40 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFXOneSecond" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:675 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:675 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:600 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -577,11 +675,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:675 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonL2" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="600" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="600" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -591,7 +699,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -600,7 +708,28 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:525 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:600 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -613,11 +742,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:600 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonL3" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="525" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="525" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -627,7 +766,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -636,7 +775,28 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:525 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:450 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -649,11 +809,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:525 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonL4" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="450" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="450" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -672,28 +842,50 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXOneSecond" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:450 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:450 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonR1" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="150" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="150" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0</Delay>
+      <Delay>1</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -701,8 +893,40 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFXOneSecond" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:225 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -715,11 +939,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonR2" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="225" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="225" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -729,7 +963,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -738,7 +972,28 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:225 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:300 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -751,11 +1006,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:300 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonR3" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="300" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="300" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -765,7 +1030,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.05</Duration>
+      <Duration>0.2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -774,7 +1039,28 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:300 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDelayFX" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:375 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
@@ -787,11 +1073,21 @@
           <SecondParameter Value="false" />
           <ThirdParameter Value="0" />
         </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:300 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="CasterPrisonR4" Group="EnemyCaster" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="375" OffsetY="-75" Width="75" Height="300" />
+        <Hitbox OffsetX="375" OffsetY="-50" Width="75" Height="300" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -810,14 +1106,36 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
-      <OnDurationSpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXOneSecond" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:375 Y:-75}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:250 Y:-250}" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="CrystalCasterPrisonDurationFXFadeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:375 Y:-50}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="ElectricRay250" Group="ElectricRay" Type="MeleeSpecial">
       <Hitboxes>
