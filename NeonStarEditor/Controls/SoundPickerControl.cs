@@ -159,6 +159,11 @@ namespace NeonStarEditor.Controls
                 PlayingSound.Play();
             }
         }
+
+        private void ClosePanel_Click(object sender, EventArgs e)
+        {
+            GameWorld.ToggleSoundPicker();
+        }
     }
 
 

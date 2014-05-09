@@ -175,7 +175,7 @@ namespace NeonEngine
                 if (!se.Is3DSound)
                     continue;
                 foreach(SoundEffectInstance sei in se.SoundInstances)
-                    if (sei != null && sei.State == SoundState.Playing)
+                    if (sei != null && !sei.IsDisposed && sei.State == SoundState.Playing)
                     {
                         sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
                     }

@@ -312,5 +312,11 @@ namespace NeonStarEditor.Controls.LeftDock
         {
             GameWorld.CurrentTool = new AreaSelection(GameWorld);
         }
+
+        private void ReloadSound_Click(object sender, EventArgs e)
+        {
+            SoundManager.InitializeSounds();
+            SoundManager.Load(Neon.Game.Content);
+        }
     }
 }

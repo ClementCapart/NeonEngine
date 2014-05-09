@@ -220,7 +220,7 @@ namespace NeonEngine.Components.Audio
                     float distance = Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position);
                     if (distance <= MaxDistance)
                     {
-                        _currentVolume = MathHelper.SmoothStep(_volume, 0.0f, distance / MaxDistance);
+                        _currentVolume = _volume * (float)Math.Cos(distance / MaxDistance * Math.PI / 2);
                     }
                     else
                     {
@@ -231,14 +231,32 @@ namespace NeonEngine.Components.Audio
             else
                 _currentVolume = _volume;
 
-            if (_currentSoundInstance != null)
+            if (_currentSoundInstance != null && !_currentSoundInstance.IsDisposed)
                 _currentSoundInstance.Volume = MathHelper.Clamp(_currentVolume, 0.0f, 1.0f);
+
+            if (_playingSoundEffect.IsDisposed)
+            {
+                _playingSoundEffect = SoundManager.GetSound(_playingSoundTag);
+                if (_playingSoundEffect != null)
+                    _currentSoundInstance = _playingSoundEffect.CreateInstance();
+
+                if (_currentSoundInstance != null)
+                {
+                    _currentSoundInstance.Volume = MathHelper.Clamp(_currentVolume, 0.0f, 1.0f);
+                    _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                    _currentSoundInstance.IsLooped = _isLooped;
+                    if (_is3DSound)
+                        _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                    _currentSoundInstance.Play();
+                }
+            }
+            
             base.Update(gameTime);
         }
 
         public override void OnChangeLevel()
         {
-            if (_currentSoundInstance != null)
+            if (_currentSoundInstance != null && !_currentSoundInstance.IsDisposed)
                 _currentSoundInstance.Stop();
             base.OnChangeLevel();
         }

@@ -38,6 +38,7 @@
             this.Length = new System.Windows.Forms.Label();
             this.SelectButton = new System.Windows.Forms.Button();
             this.PlayLoopButton = new System.Windows.Forms.Button();
+            this.ClosePanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EntityList
@@ -130,12 +131,25 @@
             this.PlayLoopButton.UseVisualStyleBackColor = true;
             this.PlayLoopButton.Click += new System.EventHandler(this.PlayLoopButton_Click);
             // 
+            // ClosePanel
+            // 
+            this.ClosePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClosePanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClosePanel.Location = new System.Drawing.Point(332, 3);
+            this.ClosePanel.Name = "ClosePanel";
+            this.ClosePanel.Size = new System.Drawing.Size(27, 26);
+            this.ClosePanel.TabIndex = 22;
+            this.ClosePanel.Text = "X";
+            this.ClosePanel.UseVisualStyleBackColor = true;
+            this.ClosePanel.Click += new System.EventHandler(this.ClosePanel_Click);
+            // 
             // SoundPickerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.ClosePanel);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.Length);
             this.Controls.Add(this.label1);
@@ -164,5 +178,6 @@
         private System.Windows.Forms.Label Length;
         private System.Windows.Forms.Button SelectButton;
         private System.Windows.Forms.Button PlayLoopButton;
+        private System.Windows.Forms.Button ClosePanel;
     }
 }
