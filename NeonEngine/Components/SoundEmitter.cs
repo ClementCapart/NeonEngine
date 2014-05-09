@@ -217,7 +217,7 @@ namespace NeonEngine.Components.Audio
                 {
                     if (Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position) <= MaxDistance)
                     {
-                        _currentVolume = _volume;
+                        _currentVolume = ((Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position) / MaxDistance) - 1) * -1;
                     }
                     else
                     {
@@ -229,7 +229,7 @@ namespace NeonEngine.Components.Audio
                 _currentVolume = _volume;
 
             if (_currentSoundInstance != null)
-                _currentSoundInstance.Volume = _currentVolume;
+                _currentSoundInstance.Volume = MathHelper.Clamp(_currentVolume, 0.0f, 1.0f);
             base.Update(gameTime);
         }
 

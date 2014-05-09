@@ -186,7 +186,7 @@ namespace NeonEngine
 
         static public void InitializeSounds()
         {
-            SoundEffect.DistanceScale = 70.0f;
+            SoundEffect.DistanceScale = 100.0f;
             Sounds = new Dictionary<string, string>();
             _songs = new Dictionary<string, string>();
             /* use sounds.add("tag", "filePath") to load your sounds
