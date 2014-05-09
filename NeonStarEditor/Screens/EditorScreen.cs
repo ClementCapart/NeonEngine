@@ -403,6 +403,8 @@ namespace NeonStarEditor
                 {
                     GameAsForm.Controls.Remove(SoundPicker);
                     SoundPicker.Dispose();
+                    if (SoundPicker.PlayingSound != null)
+                        SoundPicker.PlayingSound.Stop();
                     SoundPicker = null;
                     _isSoundPickerDisplayed = false;
                     return;

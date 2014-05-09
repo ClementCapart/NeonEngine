@@ -177,7 +177,7 @@ namespace NeonEngine
                 foreach(SoundEffectInstance sei in se.SoundInstances)
                     if (sei != null && sei.State == SoundState.Playing)
                     {
-                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);                       
+                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
                     }
             }
 
@@ -186,7 +186,7 @@ namespace NeonEngine
 
         static public void InitializeSounds()
         {
-            SoundEffect.DistanceScale = 100.0f;
+            SoundEffect.DistanceScale = 100f;
             Sounds = new Dictionary<string, string>();
             _songs = new Dictionary<string, string>();
             /* use sounds.add("tag", "filePath") to load your sounds

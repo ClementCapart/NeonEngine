@@ -194,7 +194,7 @@ namespace NeonEngine.Components.Audio
 
             SoundInstances.Add(_currentSoundInstance);
             entity.GameWorld.AudioEmitters.Add(this);
-            
+
             base.Init();
         }
 
@@ -202,6 +202,8 @@ namespace NeonEngine.Components.Audio
         {
             if (AudioEmitter != null)
                 entity.GameWorld.AudioEmitters.Remove(this);
+            if (_currentSoundInstance != null)
+                _currentSoundInstance.Stop();
             base.Remove();
         }
 
@@ -215,9 +217,10 @@ namespace NeonEngine.Components.Audio
             {
                 foreach (AudioListener al in entity.GameWorld.AudioListeners)
                 {
-                    if (Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position) <= MaxDistance)
+                    float distance = Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position);
+                    if (distance <= MaxDistance)
                     {
-                        _currentVolume = ((Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position) / MaxDistance) - 1) * -1;
+                        _currentVolume = MathHelper.SmoothStep(_volume, 0.0f, distance / MaxDistance);
                     }
                     else
                     {

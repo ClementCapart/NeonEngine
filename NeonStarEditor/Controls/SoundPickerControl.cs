@@ -20,7 +20,7 @@ namespace NeonStarEditor.Controls
         private NeonEngine.Component _component;
         private Label _label;
         private SoundEffect _selectedSound;
-        private SoundEffectInstance _playingSound;
+        public SoundEffectInstance PlayingSound;
 
         public SoundPickerControl(EditorScreen gameWorld, PropertyInfo pi, NeonEngine.Component c, Label l)
         {
@@ -135,28 +135,28 @@ namespace NeonStarEditor.Controls
         {
             if (_selectedSound != null)
             {
-                if (_playingSound != null)
-                    _playingSound.Stop();
-                _playingSound = _selectedSound.CreateInstance();
-                _playingSound.Play();
+                if (PlayingSound != null)
+                    PlayingSound.Stop();
+                PlayingSound = _selectedSound.CreateInstance();
+                PlayingSound.Play();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (_playingSound != null)
-                _playingSound.Stop();
+            if (PlayingSound != null)
+                PlayingSound.Stop();
         }
 
         private void PlayLoopButton_Click(object sender, EventArgs e)
         {
             if (_selectedSound != null)
             {
-                if (_playingSound != null)
-                    _playingSound.Stop();
-                _playingSound = _selectedSound.CreateInstance();
-                _playingSound.IsLooped = true;
-                _playingSound.Play();
+                if (PlayingSound != null)
+                    PlayingSound.Stop();
+                PlayingSound = _selectedSound.CreateInstance();
+                PlayingSound.IsLooped = true;
+                PlayingSound.Play();
             }
         }
     }
