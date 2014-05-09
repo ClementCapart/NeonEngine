@@ -38,6 +38,14 @@ namespace NeonEngine.Components.Audio
             if(_audioListener == null)
                 _audioListener = new AudioListener();
 
+            if (_audioListener != null)
+            {
+                if (_attachedOnCamera)
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.GameWorld.Camera.Position, _zDistance);
+                else
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position, _zDistance);
+            }
+
             entity.GameWorld.AudioListeners.Add(_audioListener);
             
             base.Init();

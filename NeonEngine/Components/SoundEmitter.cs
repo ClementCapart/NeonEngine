@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,14 @@ namespace NeonEngine.Components.Audio
     public class SoundEmitter : Component
     {
         #region Properties
+        private bool _debug = true;
+
+        public bool Debug
+        {
+            get { return _debug; }
+            set { _debug = value; }
+        }
+
         private float _zDistance = 0.0f;
 
         public float ZDistance
@@ -17,17 +26,139 @@ namespace NeonEngine.Components.Audio
             set { _zDistance = value; }
         }
 
-        public float DistanceScale
+        private string _playingSoundTag = "";
+
+        public string PlayingSoundTag
         {
-            get { return SoundEffect.DistanceScale; }
-            set { SoundEffect.DistanceScale = value; }
+            get { return _playingSoundTag; }
+            set 
+            { 
+                _playingSoundTag = value;
+                _playingSoundEffect = SoundManager.GetSound(_playingSoundTag);
+                if (_currentSoundInstance != null)
+                    _currentSoundInstance.Stop();
+                if (_playingSoundEffect != null && AudioEmitter != null)
+                {
+                    _currentSoundInstance = _playingSoundEffect.CreateInstance();
+                    _currentSoundInstance.IsLooped = _isLooped;
+                    if (_is3DSound) _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                    _currentSoundInstance.Volume = 0.0f;
+                    _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                    _currentSoundInstance.Play();
+                    SoundInstances.Add(_currentSoundInstance);
+
+                }
+            }
+        }
+
+        private bool _is3DSound = true;
+
+        public bool Is3DSound
+        {
+            get { return _is3DSound; }
+            set 
+            { 
+                _is3DSound = value;
+                if (_is3DSound && _currentSoundInstance != null && AudioEmitter != null)
+                {
+                    _currentSoundInstance.Stop();
+                    SoundInstances.Remove(_currentSoundInstance);
+                    if (_playingSoundEffect != null && AudioEmitter != null)
+                    {
+                        _currentSoundInstance = _playingSoundEffect.CreateInstance();
+                        _currentSoundInstance.IsLooped = _isLooped;
+                        _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                        _currentSoundInstance.Volume = 0.0f;
+                        _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                        _currentSoundInstance.Play();
+                        SoundInstances.Add(_currentSoundInstance);
+                    }
+                }
+                else if (!_is3DSound)
+                {
+                    if (_currentSoundInstance != null)
+                    {
+                        _currentSoundInstance.Stop();
+                        SoundInstances.Remove(_currentSoundInstance);
+                    }
+                    if (_playingSoundEffect != null && AudioEmitter != null)
+                    {
+                        _currentSoundInstance = _playingSoundEffect.CreateInstance();
+                        _currentSoundInstance.IsLooped = _isLooped;
+                        _currentSoundInstance.Volume = 0.0f;
+                        _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                        _currentSoundInstance.Play();
+                        SoundInstances.Add(_currentSoundInstance);
+                    }
+                }
+            }
+        }
+
+        private bool _isLooped = true;
+
+        public bool IsLooped
+        {
+            get { return _isLooped; }
+            set
+            { 
+                _isLooped = value;
+                if (_currentSoundInstance != null)
+                {
+                    _currentSoundInstance.Stop();
+                    SoundInstances.Remove(_currentSoundInstance);
+                    if (_playingSoundEffect != null && AudioEmitter != null)
+                    {
+                        _currentSoundInstance = _playingSoundEffect.CreateInstance();
+                        _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                        _currentSoundInstance.IsLooped = _isLooped;
+                        _currentSoundInstance.Volume = 0.0f;
+                        _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                        _currentSoundInstance.Play();
+                        SoundInstances.Add(_currentSoundInstance);
+                    }
+                }
+            }
+        }
+
+        private float _volume = 1.0f;
+
+        public float Volume
+        {
+            get { return _volume; }
+            set 
+            { 
+                _volume = value;
+            }
+        }
+
+        private float _pitch = 0.0f;
+
+        public float Pitch
+        {
+            get { return _pitch; }
+            set 
+            { 
+                _pitch = value;
+                if (_currentSoundInstance != null)
+                    _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+            }
+        }
+
+        private float _maxDistance = 0.0f;
+
+        public float MaxDistance
+        {
+            get { return _maxDistance; }
+            set { _maxDistance = value; }
         }
         #endregion
 
         public AudioEmitter AudioEmitter;
 
         public List<SoundEffectInstance> SoundInstances;
-        private SoundEffectInstance sei;
+        private SoundEffect _playingSoundEffect;
+        private SoundEffectInstance _currentSoundInstance;
+        private float _currentVolume = 0.0f;
 
         public SoundEmitter(Entity entity)
             :base(entity, "SoundEmitter")
@@ -37,15 +168,31 @@ namespace NeonEngine.Components.Audio
         public override void Init()
         {
             SoundInstances = new List<SoundEffectInstance>();
-            sei = SoundManager.GetSound("DoubleJump").CreateInstance();
-            sei.IsLooped = true;
-            
-            SoundInstances.Add(sei);
+            if (_currentSoundInstance != null)
+                _currentSoundInstance.Stop();
+            _playingSoundEffect = SoundManager.GetSound(_playingSoundTag);
+            if (_playingSoundEffect != null)
+                _currentSoundInstance = _playingSoundEffect.CreateInstance();
+
             if (AudioEmitter == null)
                 AudioEmitter = new AudioEmitter();
 
-            sei.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
-            sei.Play();
+            if (AudioEmitter != null)
+            {
+                AudioEmitter.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position, _zDistance);
+            }
+
+            if (_currentSoundInstance != null)
+            {
+                _currentSoundInstance.Volume = MathHelper.Clamp(_currentVolume, 0.0f, 1.0f);
+                _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
+                _currentSoundInstance.IsLooped = _isLooped;
+                if(_is3DSound)
+                    _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                _currentSoundInstance.Play();
+            }
+
+            SoundInstances.Add(_currentSoundInstance);
             entity.GameWorld.AudioEmitters.Add(this);
             
             base.Init();
@@ -60,11 +207,37 @@ namespace NeonEngine.Components.Audio
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (AudioEmitter != null)
+            if (AudioEmitter != null && _is3DSound)
             {
                 AudioEmitter.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position, _zDistance);
             }
+            if (MaxDistance != 0.0f)
+            {
+                foreach (AudioListener al in entity.GameWorld.AudioListeners)
+                {
+                    if (Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position) <= MaxDistance)
+                    {
+                        _currentVolume = _volume;
+                    }
+                    else
+                    {
+                        _currentVolume = 0.0f;
+                    }
+                }
+            }
+            else
+                _currentVolume = _volume;
+
+            if (_currentSoundInstance != null)
+                _currentSoundInstance.Volume = _currentVolume;
             base.Update(gameTime);
+        }
+
+        public override void OnChangeLevel()
+        {
+            if (_currentSoundInstance != null)
+                _currentSoundInstance.Stop();
+            base.OnChangeLevel();
         }
     }
 }

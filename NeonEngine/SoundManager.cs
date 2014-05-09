@@ -16,7 +16,7 @@ namespace NeonEngine
     {
         #region fields
         static Dictionary<string, SoundEffect> _soundsList;
-        static public Dictionary<string, string> _sounds;
+        static public Dictionary<string, string> Sounds;
         
         static Dictionary<string, Song> _songsList;
         static public Dictionary<string, string> _songs;
@@ -172,10 +172,12 @@ namespace NeonEngine
 
             foreach (SoundEmitter se in Neon.World.AudioEmitters)
             {
+                if (!se.Is3DSound)
+                    continue;
                 foreach(SoundEffectInstance sei in se.SoundInstances)
-                    if (sei.State == SoundState.Playing)
+                    if (sei != null && sei.State == SoundState.Playing)
                     {
-                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
+                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);                       
                     }
             }
 
@@ -184,7 +186,8 @@ namespace NeonEngine
 
         static public void InitializeSounds()
         {
-            _sounds = new Dictionary<string, string>();
+            SoundEffect.DistanceScale = 70.0f;
+            Sounds = new Dictionary<string, string>();
             _songs = new Dictionary<string, string>();
             /* use sounds.add("tag", "filePath") to load your sounds
              * the tag will be use in your entities to call your sounds
@@ -203,7 +206,7 @@ namespace NeonEngine
             {
                 foreach (string p in Directory.EnumerateFiles(@"Content/SFX"))
                 {
-                    _sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
+                    Sounds.Add(Path.GetFileNameWithoutExtension(p), @"SFX/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
 
@@ -212,7 +215,7 @@ namespace NeonEngine
                 foreach (string p in Directory.EnumerateFiles(@"Content/Soundtracks"))
                 {
                     if(Path.GetExtension(p) == ".xnb")
-                        _sounds.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks/" + Path.GetFileNameWithoutExtension(p));
+                        Sounds.Add(Path.GetFileNameWithoutExtension(p), @"Soundtracks/" + Path.GetFileNameWithoutExtension(p));
                 }
             }
             
@@ -226,7 +229,7 @@ namespace NeonEngine
                 _soundsList = new Dictionary<string, SoundEffect>();
             foreach (KeyValuePair<string, SoundEffect> kvp in _soundsList)
                 kvp.Value.Dispose();
-            _sounds = new Dictionary<string, string>();
+            Sounds = new Dictionary<string, string>();
             _soundsList = new Dictionary<string, SoundEffect>();
 
             List<string> filesPath = DirectorySearch(@"../Data/Sounds/");
@@ -236,10 +239,10 @@ namespace NeonEngine
                 string[] fileNameProcessing = s.Split('\\');
                 string fileName = fileNameProcessing[fileNameProcessing.Length - 1].Split('.')[0];
                 
-                _sounds.Add(fileName, s);
+                Sounds.Add(fileName, s);
             }
 
-            foreach (KeyValuePair<string, string> kvp in _sounds)
+            foreach (KeyValuePair<string, string> kvp in Sounds)
                 LoadSound(kvp.Key, kvp.Value);
             _songsList = new Dictionary<string, Song>();
             foreach (KeyValuePair<string, string> kvp in _songs)

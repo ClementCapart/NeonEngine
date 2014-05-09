@@ -23,6 +23,7 @@ using NeonEngine.Components.CollisionDetection;
 using NeonStarEditor.Controls;
 using NeonStarLibrary.Components.EnergyObjects;
 using System.Globalization;
+using NeonEngine.Components.Audio;
 
 namespace NeonStarEditor
 {
@@ -50,6 +51,7 @@ namespace NeonStarEditor
 
         public GraphicPickerControl GraphicPicker;
         public SpritesheetPickerControl SpritesheetPicker;
+        public SoundPickerControl SoundPicker;
 
         public Tool CurrentTool;
         public Entity SelectedEntity;
@@ -72,6 +74,7 @@ namespace NeonStarEditor
         private Texture2D _boundTexture;
         private Texture2D _nodeTexture;
         private Texture2D _spawnTexture;
+        private Texture2D _soundTexture;
 
         public GraphicsDeviceManager graphics;
         public bool IsActiveForm = false;
@@ -82,6 +85,7 @@ namespace NeonStarEditor
         private bool _isAddComponentPanelDisplayed = false;
         private bool _isGraphicPickerDisplayed = false;
         private bool _isSpritesheetPickerDisplayed = false;
+        private bool _isSoundPickerDisplayed = false;
 
         public bool _lightGizmoToggled = false;
         public bool _boundsGizmoToggled = false;
@@ -110,6 +114,7 @@ namespace NeonStarEditor
             _boundTexture = AssetManager.GetTexture("BoundIcon");
             _nodeTexture = AssetManager.GetTexture("NodeIcon");
             _spawnTexture = AssetManager.GetTexture("SpawnPointIcon");
+            _soundTexture = AssetManager.GetTexture("SoundIcon");
 
             LeftDockControl = new LeftDock(this);
             BottomDockControl = new BottomDock(this);
@@ -214,7 +219,6 @@ namespace NeonStarEditor
                 _isAttackManagerDisplayed = true;
             }
         }
-
 
         public void ToggleElementPanel()
         {
@@ -331,6 +335,9 @@ namespace NeonStarEditor
             if (_isSpritesheetPickerDisplayed)
                 ToggleSpritesheetPicker();
 
+            if (_isSoundPickerDisplayed)
+                ToggleSoundPicker();
+
             if (_isElementManagerDisplayed)
                 ToggleElementPanel();
 
@@ -370,6 +377,9 @@ namespace NeonStarEditor
             if (_isSpritesheetPickerDisplayed)
                 ToggleSpritesheetPicker();
 
+            if (_isSoundPickerDisplayed)
+                ToggleSoundPicker();
+
             if (_isElementManagerDisplayed)
                 ToggleElementPanel();
 
@@ -383,6 +393,48 @@ namespace NeonStarEditor
             CurrentTool = new Selection(this);
             GameAsForm.Controls.Add(SpritesheetPicker);
             _isSpritesheetPickerDisplayed = true;
+        }
+
+        public void ToggleSoundPicker(PropertyInfo pi = null, NeonEngine.Component c = null, Label l = null)
+        {
+            if (pi == null || c == null || l == null)
+            {
+                if (_isSoundPickerDisplayed)
+                {
+                    GameAsForm.Controls.Remove(SoundPicker);
+                    SoundPicker.Dispose();
+                    SoundPicker = null;
+                    _isSoundPickerDisplayed = false;
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
+
+            if (_isSoundPickerDisplayed)
+                ToggleSoundPicker();
+
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
+
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SoundPicker = new SoundPickerControl(this, pi, c, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SoundPicker);
+            _isSoundPickerDisplayed = true;
         }
 
         public void ToggleSpritesheetPicker(SpritesheetInspector ssi, TextBox tb, Label l)
@@ -411,6 +463,9 @@ namespace NeonStarEditor
 
             if (_isElementManagerDisplayed)
                 ToggleElementPanel();
+
+            if (_isSoundPickerDisplayed)
+                ToggleSoundPicker();
 
             if (_isAttackManagerDisplayed)
                 ToggleAttackManager();
@@ -809,7 +864,18 @@ namespace NeonStarEditor
 
                                 spriteBatch.Draw(_boundTexture, entity.transform.Position, null, Color.White, angle, new Vector2(_boundTexture.Width / 2, _boundTexture.Height / 2), 1f, SpriteEffects.None, 0);
                             }
-                        }                      
+                        }
+
+                        SoundEmitter soundEmitter = entity.GetComponent<SoundEmitter>();
+                        if (soundEmitter != null && soundEmitter.Debug)
+                        {
+                            if (soundEmitter.MaxDistance != 0.0f)
+                            {
+                                float scale = soundEmitter.MaxDistance / _colorEmitterCircleTexture.Width * 2;
+                                spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+                                spriteBatch.Draw(_soundTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), Color.White);
+                            }
+                        }
                     }
                 }
             }

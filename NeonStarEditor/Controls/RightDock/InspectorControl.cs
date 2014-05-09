@@ -304,6 +304,32 @@ namespace NeonStarEditor
 
                         localY += comboBox.Height + 5;
                     }
+                    else if (pi.Name.EndsWith("SoundTag"))
+                    {
+                        Button openSoundPicker = new Button();
+                        openSoundPicker.FlatStyle = FlatStyle.Flat;
+                        openSoundPicker.Location = new Point(10, localY);
+                        openSoundPicker.AutoSize = true;
+                        openSoundPicker.Text = "Sound Picker";
+
+                        tp.Controls.Add(openSoundPicker);
+
+                        Label currentSound = new Label();
+                        currentSound.Location = new Point(openSoundPicker.Width + 35, localY);
+                        currentSound.AutoSize = false;
+                        currentSound.Width = 190;
+                        currentSound.Height = 30;
+                        currentSound.Text = (string)pi.GetValue(c, null);
+                        currentSound.Font = new Font("Calibri", 8.0f);
+                        tp.Controls.Add(currentSound);
+
+                        openSoundPicker.Click += delegate(object sender, EventArgs e)
+                        {
+                            GameWorld.ToggleSoundPicker(pi, c, currentSound);
+                        };
+
+                        localY += openSoundPicker.Height + 5;
+                    }
                     else if (pi.Name.EndsWith("GraphicTag"))
                     {
                         Button openGraphicPicker = new Button();
