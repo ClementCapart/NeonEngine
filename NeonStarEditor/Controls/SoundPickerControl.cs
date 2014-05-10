@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using NeonEngine;
 using System.Reflection;
 using Microsoft.Xna.Framework.Audio;
+using NeonEngine.Components.Audio;
 
 namespace NeonStarEditor.Controls
 {
@@ -21,6 +22,9 @@ namespace NeonStarEditor.Controls
         private Label _label;
         private SoundEffect _selectedSound;
         public SoundEffectInstance PlayingSound;
+
+        private SoundListInspector _soundListInspector;
+        private SoundInstanceInfo _soundInstanceInfo;
 
         public SoundPickerControl(EditorScreen gameWorld, PropertyInfo pi, NeonEngine.Component c, Label l)
         {
@@ -36,6 +40,25 @@ namespace NeonStarEditor.Controls
             else
                 GameWorld.ToggleSoundPicker();
             
+            this.Location = new System.Drawing.Point((int)(Neon.HalfScreen.X - this.Width / 2) - 150, (int)(Neon.HalfScreen.Y - this.Height / 2));
+
+            InitializeSoundList();
+        }
+
+        public SoundPickerControl(EditorScreen gameWorld, SoundListInspector sli, TextBox textBox, SoundInstanceInfo sii, Label l)
+        {
+            GameWorld = gameWorld;
+
+            _soundListInspector = sli;
+            _soundInstanceInfo = sii;
+            _label = l;
+
+            InitializeComponent();
+            if (GameWorld.SelectedEntity != null)
+                this.entityInfo.Text = GameWorld.SelectedEntity.Name + " - " + sli.Name + " - " + textBox.Text;
+            else
+                GameWorld.ToggleSoundPicker();
+
             this.Location = new System.Drawing.Point((int)(Neon.HalfScreen.X - this.Width / 2) - 150, (int)(Neon.HalfScreen.Y - this.Height / 2));
 
             InitializeSoundList();
@@ -102,6 +125,13 @@ namespace NeonStarEditor.Controls
                 _label.Text = soundList.SelectedNode.Name;
                 _propertyInfo.SetValue(_component, soundList.SelectedNode.Text, null);
                 GameWorld.ToggleSoundPicker();
+            }
+            else if(GameWorld.SelectedEntity != null && _soundInstanceInfo != null && _soundListInspector != null && _label != null && soundList.SelectedNode.Nodes.Count == 0)
+            {
+                _label.Text = soundList.SelectedNode.Name;
+
+                _soundInstanceInfo.Sound = SoundManager.GetSound(soundList.SelectedNode.Name);
+                GameWorld.ToggleSpritesheetPicker();
             }
             else
             {

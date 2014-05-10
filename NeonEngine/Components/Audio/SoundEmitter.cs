@@ -77,6 +77,14 @@ namespace NeonEngine.Components.Private
             get { return _maxDistance; }
             set { _maxDistance = value; }
         }
+
+        private float _distanceVolumeTreshold = 0.3f;
+
+        protected float DistanceVolumeTreshold
+        {
+            get { return _distanceVolumeTreshold; }
+            set { _distanceVolumeTreshold = value; }
+        }
         #endregion
 
         public AudioEmitter AudioEmitter;
@@ -125,7 +133,14 @@ namespace NeonEngine.Components.Private
                     float distance = Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position);
                     if (distance <= MaxDistance)
                     {
-                        _currentVolume = _volume * (float)Math.Cos(distance / MaxDistance * Math.PI / 2);
+                        if (_currentVolume > _distanceVolumeTreshold)
+                        {
+                            _currentVolume = _volume *( 1 - (distance / MaxDistance));
+                        }
+                        else
+                        {
+                            _currentVolume = _volume * (1 - (distance / MaxDistance * 2));
+                        }
                     }
                     else
                     {

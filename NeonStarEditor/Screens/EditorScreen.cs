@@ -482,6 +482,50 @@ namespace NeonStarEditor
             _isSpritesheetPickerDisplayed = true;
         }
 
+        public void ToggleSoundPicker(SoundListInspector sli, TextBox tb, SoundInstanceInfo sii, Label l)
+        {
+            if (sli == null || sii == null || l == null)
+            {
+                if (_isSoundPickerDisplayed)
+                {
+                    GameAsForm.Controls.Remove(SoundPicker);
+                    SoundPicker.Dispose();
+                    if (SoundPicker.PlayingSound != null)
+                        SoundPicker.PlayingSound.Stop();
+                    SoundPicker = null;
+                    _isSoundPickerDisplayed = false;
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_isGraphicPickerDisplayed)
+                ToggleGraphicPicker();
+
+            if (_isSpritesheetPickerDisplayed)
+                ToggleSpritesheetPicker();
+
+            if (_isSoundPickerDisplayed)
+                ToggleSoundPicker();
+
+            if (_isElementManagerDisplayed)
+                ToggleElementPanel();
+
+            if (_isAttackManagerDisplayed)
+                ToggleAttackManager();
+
+            if (_isAddComponentPanelDisplayed)
+                ToggleAddComponentPanel();
+
+            SoundPicker = new SoundPickerControl(this, sli, tb, sii, l);
+            CurrentTool = new Selection(this);
+            GameAsForm.Controls.Add(SoundPicker);
+            _isSoundPickerDisplayed = true;
+        }
+
         void GameAsForm_MouseLeave(object sender, EventArgs e)
         {
             MouseInGameWindow = false;

@@ -114,6 +114,12 @@
     <Compile Include="Controls\ElementEditor\WindPanel.Designer.cs">
       <DependentUpon>WindPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RightDock\SoundListInspector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RightDock\SoundListInspector.Designer.cs">
+      <DependentUpon>SoundListInspector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SoundPickerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ElementEditor\WindPanel.resx">
       <DependentUpon>WindPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RightDock\SoundListInspector.resx">
+      <DependentUpon>SoundListInspector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SoundPickerControl.resx">
       <DependentUpon>SoundPickerControl.cs</DependentUpon>
