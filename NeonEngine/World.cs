@@ -187,6 +187,10 @@ namespace NeonEngine
             {
                 if (Alpha >= 1.0f)
                     Neon.World = NextScreen;
+                foreach (Entity e in Entities)
+                {
+                    e.OnChangeLevel();
+                }
                 Alpha += 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }         
             
@@ -333,10 +337,6 @@ namespace NeonEngine
 
         public virtual void ChangeScreen(World nextScreen)
         {
-            foreach (Entity e in Entities)
-            {
-                e.OnChangeLevel();
-            }
             _change = true;
             this.NextScreen = nextScreen;
         }

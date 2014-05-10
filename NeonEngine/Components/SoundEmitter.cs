@@ -156,9 +156,9 @@ namespace NeonEngine.Components.Audio
         public AudioEmitter AudioEmitter;
 
         public List<SoundEffectInstance> SoundInstances;
-        private SoundEffect _playingSoundEffect;
-        private SoundEffectInstance _currentSoundInstance;
-        private float _currentVolume = 0.0f;
+        protected SoundEffect _playingSoundEffect;
+        protected SoundEffectInstance _currentSoundInstance;
+        protected float _currentVolume = 0.0f;
 
         public SoundEmitter(Entity entity)
             :base(entity, "SoundEmitter")
@@ -195,7 +195,8 @@ namespace NeonEngine.Components.Audio
             SoundInstances.Add(_currentSoundInstance);
             entity.GameWorld.AudioEmitters.Add(this);
 
-            base.Init();
+
+                base.Init();
         }
 
         public override void Remove()
@@ -234,7 +235,7 @@ namespace NeonEngine.Components.Audio
             if (_currentSoundInstance != null && !_currentSoundInstance.IsDisposed)
                 _currentSoundInstance.Volume = MathHelper.Clamp(_currentVolume, 0.0f, 1.0f);
 
-            if (_playingSoundEffect.IsDisposed)
+            if (_playingSoundEffect != null && _playingSoundEffect.IsDisposed)
             {
                 _playingSoundEffect = SoundManager.GetSound(_playingSoundTag);
                 if (_playingSoundEffect != null)

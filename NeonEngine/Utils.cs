@@ -140,5 +140,35 @@ namespace NeonEngine
             string[] firstPass = value.Remove(0, 1).Remove(value.Length - 2, 1).Split(' ');
             return new Color(int.Parse(firstPass[0].Remove(0, 2)), int.Parse(firstPass[1].Remove(0, 2)), int.Parse(firstPass[2].Remove(0, 2)), int.Parse(firstPass[3].Remove(0, 2)));
         }
+
+        public Vector2 LinearBezierCurve(Vector2 start, Vector2 end, float t)
+        {
+            return (1 - t) * start + t * end;
+        }
+
+        public float LinearBezierCurve(float start, float end, float t)
+        {
+            return (1 - t) * start + t * end;
+        }
+
+        public Vector2 QuadraticBezierCurve(Vector2 start, Vector2 end, Vector2 controlPointA, float t)
+        {
+            return LinearBezierCurve(LinearBezierCurve(start, controlPointA, t), LinearBezierCurve(controlPointA, end, t), t);
+        }
+
+        public float QuadraticBezierCurve(float start, float end, float controlPointA, float t)
+        {
+            return LinearBezierCurve(LinearBezierCurve(start, controlPointA, t), LinearBezierCurve(controlPointA, end, t), t);
+        }
+
+        public Vector2 CubicBezierCurve(Vector2 start, Vector2 end, Vector2 controlPointA, Vector2 controlPointB, float t)
+        {
+            return LinearBezierCurve(QuadraticBezierCurve(start, controlPointB, controlPointA, t), QuadraticBezierCurve(controlPointA, end, controlPointB, t), t);
+        }
+
+        public float CubicBezierCurve(float start, float end, float controlPointA, float controlPointB, float t)
+        {
+            return LinearBezierCurve(QuadraticBezierCurve(start, controlPointB, controlPointA, t), QuadraticBezierCurve(controlPointA, end, controlPointB, t), t);
+        }
     }
 }

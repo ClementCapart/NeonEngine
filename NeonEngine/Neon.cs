@@ -34,6 +34,8 @@ namespace NeonEngine
 
         static public void Start(Game game1, GraphicsDeviceManager graphics, SpriteBatch spriteBatch, int screenWidth, int screenheight)
         {
+            
+
             Console.Title = "Neon Engine Console";
 
             Console.WriteLine(@"");
