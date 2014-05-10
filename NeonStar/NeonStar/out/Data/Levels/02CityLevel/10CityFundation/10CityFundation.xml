@@ -33,7 +33,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="21.99995" />
+              <Mass Value="23.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -76,7 +76,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.99995" />
+              <Mass Value="2.99995" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -119,7 +119,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.99995" />
+              <Mass Value="4.99995" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -162,7 +162,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="3.99995" />
+              <Mass Value="5.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -205,7 +205,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="5.99995" />
+              <Mass Value="3.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -506,7 +506,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="3.99995" />
+              <Mass Value="5.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -592,7 +592,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="7.99995" />
+              <Mass Value="9.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1503,7 +1503,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="8.99995" />
+              <Mass Value="10.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1822,7 +1822,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.99995" />
+              <Mass Value="4.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -2138,7 +2138,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.99995" />
+              <Mass Value="4.999949" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -2224,8 +2224,389 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="5.99995" />
+              <Mass Value="6.99995" />
               <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="OneWay" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1950 Y:150}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:1950 Y:150}" />
+              <X Value="1850" />
+              <Y Value="100" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.99995" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="OneWay" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2200 Y:-200}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:2200 Y:-200}" />
+              <X Value="2150" />
+              <Y Value="-250" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.99995" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="EnemyTiger" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3409 Y:520}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:3409 Y:519}" />
+              <X Value="3369" />
+              <Y Value="439" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="80" />
+              <Height Value="160" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="400" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="True" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:5}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
+                <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
+                <Animation Name="Punch" SpritesheetTag="EnemyTigerPunch" />
+                <Animation Name="Hit" SpritesheetTag="EnemyTigerHit" />
+                <Animation Name="Idle" SpritesheetTag="EnemyTigerIdle" />
+                <Animation Name="Death" SpritesheetTag="Explosion" />
+              </Spritesheets>
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="50" />
+              <CoreElement Value="Thunder" />
+              <CurrentHealthPoints Value="50" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="Walk" />
+              <IdleAnim Value="Idle" />
+              <DyingAnim Value="Death" />
+              <HitAnim Value="Hit" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="False" />
+              <ImmuneToImpulse Value="False" />
+              <ImmuneToDeath Value="False" />
+              <ImmuneToDamage Value="False" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="0" />
+              <CurrentSide Value="Left" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
+            <Properties>
+              <CheckBothSide Value="True" />
+              <RaycastOffset Value="{X:0 Y:0}" />
+              <EntityToChaseName Value="LiOn" />
+              <DetectionDistance Value="450" />
+              <WaitStopDuration Value="1" />
+              <ChaseSpeed Value="3.5" />
+              <ChasePrecision Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </GroundChase>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
+            <Properties>
+              <CheckBothSide Value="True" />
+              <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
+              <RangeForAttackOne Value="325" />
+              <AttackToLaunchOne Value="EnemyTigerDash" />
+              <AttackOneDelayAnimation Value="Dash" />
+              <AttackOneDurationAnimation Value="" />
+              <AttackOneCooldownAnimation Value="" />
+              <RangeForAttackTwo Value="200" />
+              <AttackToLaunchTwo Value="Chase" />
+              <AttackTwoDelayAnimation Value="" />
+              <AttackTwoDurationAnimation Value="" />
+              <AttackTwoCooldownAnimation Value="" />
+              <RangeForAttackThree Value="120" />
+              <AttackToLaunchThree Value="EnemyTigerPunch" />
+              <AttackThreeDelayAnimation Value="Punch" />
+              <AttackThreeDurationAnimation Value="" />
+              <AttackThreeCooldownAnimation Value="" />
+              <RangeForAttackFour Value="120" />
+              <AttackToLaunchFour Value="BisonBackDash" />
+              <AttackFourDelayAnimation Value="" />
+              <AttackFourDurationAnimation Value="" />
+              <AttackFourCooldownAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
+              <NickName Value="" />
+            </Properties>
+          </GroundAttack>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
+            <Properties>
+              <CanChangeSide Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyAnimationManager>
+          <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="11">
+            <Properties>
+              <DrawLayer Value="0.99999" />
+              <Font Value="HUDFont" />
+              <FontColor Value="{R:211 G:211 B:211 A:255}" />
+              <IsOutlined Value="False" />
+              <OutlineWidth Value="2" />
+              <OutlineColor Value="{R:35 G:35 B:35 A:255}" />
+              <DisplayerDuration Value="0.3" />
+              <DamageDisplayLerp Value="1" />
+              <DamageMoveLerp Value="0.2" />
+              <StartingOffset Value="{X:0 Y:-70}" />
+              <TargetOffset Value="{X:0 Y:-140}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </DamageDisplayer>
+        </Components>
+      </Entity>
+      <Entity Name="OneWay" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:600 Y:-450}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:600 Y:-450}" />
+              <X Value="550" />
+              <Y Value="-500" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.99995" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:700 Y:-650}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:700 Y:-650}" />
+              <X Value="650" />
+              <Y Value="-700" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.99995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="OneWay" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:550 Y:-650}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:550 Y:-650}" />
+              <X Value="450" />
+              <Y Value="-700" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.99995" />
+              <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
               <Hitbox Value="1" />

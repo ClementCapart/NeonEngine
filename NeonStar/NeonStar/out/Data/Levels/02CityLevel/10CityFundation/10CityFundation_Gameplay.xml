@@ -235,239 +235,6 @@
           </TilableGraphic>
         </Components>
       </Entity>
-      <Entity Name="ExitDoor03" Layer="Gameplay">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2900 Y:-50}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Solid" />
-              <Center Value="{X:2900 Y:-50}" />
-              <X Value="2850" />
-              <Y Value="-200" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="300" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="2.99995" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:4}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="ArenaDoorBackClosed" />
-                <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
-                <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
-              </Spritesheets>
-              <DrawLayer Value="0.6" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-          <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="4">
-            <Properties>
-              <SignSpriteSheetTag Value="ArenaDoorFeedback" />
-              <DisplayGauge Value="True" />
-              <FirstEnemyToKill Value="ImportantRobot" />
-              <SecondEnemyToKill Value="ImportantRobot2" />
-              <ThirdEnemyToKill Value="ImportantRobot3" />
-              <FourthEnemyToKill Value="" />
-              <FifthEnemyToKill Value="" />
-              <AddSignOnTargets Value="False" />
-              <LockName Value="DoorLock" />
-              <GaugeName Value="Gauge" />
-              <GaugeMaxWidth Value="75" />
-              <State Value="Disabled" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyPoweredDevice>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
-            <Properties>
-              <GraphicTag Value="DoorBot" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-1 Y:143}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorFrontTop" />
-              <DrawLayer Value="0.9" />
-              <IsFinished Value="False" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-55}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="DoorTop" />
-            </Properties>
-          </Spritesheet>
-          <QuotaEnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.QuotaEnergyDoor" ID="10">
-            <Properties>
-              <DoorTopNickName Value="DoorTop" />
-              <DoorLockNickname Value="DoorLock" />
-              <GaugeBackName Value="GaugeBack" />
-              <GaugeGridName Value="GaugeGrid" />
-              <OpenWhenAnimationEnd Value="True" />
-              <ClosedIdleAnimation Value="Closed" />
-              <OpenedIdleAnimation Value="Opened" />
-              <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="True" />
-              <DoorClosingAnimation Value="" />
-              <FirstActivatingDeviceName Value="ExitDoor03" />
-              <FirstDeviceInSameLevel Value="True" />
-              <FirstActivatingDeviceLevelGroup Value="" />
-              <FirstActivatingDeviceLevelName Value="" />
-              <SecondActivatingDeviceName Value="" />
-              <SecondDeviceInSameLevel Value="True" />
-              <SecondActivatingDeviceLevelGroup Value="" />
-              <SecondActivatingDeviceLevelName Value="" />
-              <ThirdActivatingDeviceName Value="" />
-              <ThirdDeviceInSameLevel Value="True" />
-              <ThirdActivatingDeviceLevelGroup Value="" />
-              <ThirdActivatingDeviceLevelName Value="" />
-              <FourthActivatingDeviceName Value="" />
-              <FourthDeviceInSameLevel Value="True" />
-              <FourthActivatingDeviceLevelGroup Value="" />
-              <FourthActivatingDeviceLevelName Value="" />
-              <FifthActivatingDeviceName Value="" />
-              <FifthDeviceInSameLevel Value="True" />
-              <FifthActivatingDeviceLevelGroup Value="" />
-              <FifthActivatingDeviceLevelName Value="" />
-              <NickName Value="" />
-            </Properties>
-          </QuotaEnergyDoor>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="11">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorLockHighlight" />
-              <DrawLayer Value="0.7" />
-              <IsFinished Value="False" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:3}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="DoorLock" />
-            </Properties>
-          </Spritesheet>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
-            <Properties>
-              <GraphicTag Value="ArenaDoorGridFront" />
-              <DrawLayer Value="0.72" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:6}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="GaugeGrid" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
-            <Properties>
-              <GraphicTag Value="ArenaDoorGridBack" />
-              <DrawLayer Value="0.7" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:6}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="GaugeBack" />
-            </Properties>
-          </Graphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="0" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.71" />
-              <GraphicTag Value="ArenaDoorGauge" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-37.5 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="Gauge" />
-            </Properties>
-          </TilableGraphic>
-        </Components>
-      </Entity>
       <Entity Name="ExitDoor01" Layer="Gameplay">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -793,6 +560,327 @@
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="SwitchJumper01" Layer="Gameplay">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2000 Y:525}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:2000 Y:525}" />
+              <X Value="1980" />
+              <Y Value="450" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="40" />
+              <Height Value="150" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.59995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="3">
+            <Properties>
+              <TriggerFromAllElementsExceptNeutral Value="True" />
+              <TriggeringElement Value="Neutral" />
+              <ActivationDuration Value="0.5" />
+              <AttackAddingTimeFromStunLock Value="" />
+              <OffAnimation Value="Off" />
+              <OnAnimation Value="On" />
+              <State Value="Deactivated" />
+              <NickName Value="" />
+            </Properties>
+          </TemporaryEnergyDevice>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="10" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0.6" />
+              <HealthItemsToDrop Value="1" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="True" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="True" />
+              <ImmuneToDamage Value="True" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="True" />
+              <ComponentToTriggerName Value="TemporaryEnergyDevice" />
+              <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="Jumper01" Layer="Gameplay">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1700 Y:575}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Main" />
+              <Center Value="{X:1700 Y:575}" />
+              <X Value="1650" />
+              <Y Value="550" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <EnergyJumper Type="NeonStarLibrary.Components.EnergyObjects.EnergyJumper" ID="3">
+            <Properties>
+              <JumperImpulse Value="{X:0 Y:-900}" />
+              <AvatarName Value="LiOn" />
+              <JumperOffAnimation Value="Off" />
+              <JumperOnAnimation Value="On" />
+              <JumperImpulseAnimation Value="" />
+              <FirstActivatingDeviceName Value="SwitchJumper01" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </EnergyJumper>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-17}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets />
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="HealStation" Layer="Gameplay">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:300 Y:-715}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <HealStation Type="NeonStarLibrary.Components.EnergyObjects.HealStation" ID="2">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <OffAnimation Value="" />
+              <LightingAnimation Value="" />
+              <OnAnimation Value="" />
+              <FirstActivatingDeviceName Value="HealDevice" />
+              <FirstDeviceInSameLevel Value="False" />
+              <FirstActivatingDeviceLevelGroup Value="02CityLevel" />
+              <FirstActivatingDeviceLevelName Value="06CityDoubleRapidDoor" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </HealStation>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:300 Y:-715}" />
+              <X Value="250" />
+              <Y Value="-730" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="30" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-73 Y:-64}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="PillarOff" SpritesheetTag="HealStationCommandOff" />
+                <Animation Name="PillarLighting" SpritesheetTag="HealStationCommandLighting" />
+                <Animation Name="PillarOn" SpritesheetTag="HealStationCommandIdle" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:-28}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="BaseOff" SpritesheetTag="HealStationFrontOff" />
+                <Animation Name="BaseLighting" SpritesheetTag="HealStationFrontLighting" />
+                <Animation Name="BaseOn" SpritesheetTag="HealStationFrontOn" />
+                <Animation Name="BaseOnDisabled" SpritesheetTag="HealStationFrontActivationOnDisabled" />
+                <Animation Name="BaseUse" SpritesheetTag="HealStationFrontActivationActivation" />
+                <Animation Name="BaseDisabledOn" SpritesheetTag="HealStationFrontDisabledActivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+            <Properties>
+              <FadingSpeed Value="2.5" />
+              <AvatarName Value="LiOn" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="YbuttonPress" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:1 Y:-84}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+              <IsLooped Value="True" />
+            </Properties>
+          </FadingSpritesheet>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:-26}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="BasePillarOff" SpritesheetTag="HealStationBackOff" />
+                <Animation Name="BasePillarLighting" SpritesheetTag="HealStationBackLighting" />
+                <Animation Name="BasePillarOn" SpritesheetTag="HealStationBackOn" />
+                <Animation Name="BasePillarOnDisabled" SpritesheetTag="HealStationBackActivationOnDisabled" />
+                <Animation Name="BasePillarUse" SpritesheetTag="HealStationBackActivationActivation" />
+                <Animation Name="BasePillarDisabledOn" SpritesheetTag="HealStationBackDisabledActivation" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
