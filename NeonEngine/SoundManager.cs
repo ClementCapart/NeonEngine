@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using System.Threading;
 using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonEngine
 {

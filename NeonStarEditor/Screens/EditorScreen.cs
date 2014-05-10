@@ -24,6 +24,7 @@ using NeonStarEditor.Controls;
 using NeonStarLibrary.Components.EnergyObjects;
 using System.Globalization;
 using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonStarEditor
 {

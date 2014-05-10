@@ -11,6 +11,7 @@ using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.Audio;
 using Microsoft.Xna.Framework.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonEngine
 {
@@ -186,11 +187,14 @@ namespace NeonEngine
             else if(_change)
             {
                 if (Alpha >= 1.0f)
-                    Neon.World = NextScreen;
-                foreach (Entity e in Entities)
                 {
-                    e.OnChangeLevel();
+                    Neon.World = NextScreen;
+                    foreach (Entity e in Entities)
+                    {
+                        e.OnChangeLevel();
+                    }
                 }
+                
                 Alpha += 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }         
             
