@@ -78,9 +78,9 @@ namespace NeonEngine.Components.Private
             set { _maxDistance = value; }
         }
 
-        private float _distanceVolumeTreshold = 0.3f;
+        protected float _distanceVolumeTreshold = 0.3f;
 
-        protected float DistanceVolumeTreshold
+        public virtual float DistanceVolumeTreshold
         {
             get { return _distanceVolumeTreshold; }
             set { _distanceVolumeTreshold = value; }
@@ -133,11 +133,8 @@ namespace NeonEngine.Components.Private
                     float distance = Vector2.Distance(new Vector2(al.Position.X, al.Position.Y), entity.transform.Position);
                     if (distance <= MaxDistance)
                     {
-                        if (_currentVolume > _distanceVolumeTreshold)
-                        {
-                            _currentVolume = _volume *( 1 - (distance / MaxDistance));
-                        }
-                        else
+                        _currentVolume = _volume *( 1 - (distance / MaxDistance));
+                        if(_currentVolume <= _distanceVolumeTreshold)
                         {
                             _currentVolume = _volume * (1 - (distance / MaxDistance * 2));
                         }
