@@ -136,7 +136,7 @@ namespace NeonEngine.Components.Private
                         _currentVolume = _volume *( 1 - (distance / MaxDistance));
                         if(_currentVolume <= _distanceVolumeTreshold)
                         {
-                            _currentVolume = _volume * (1 - (distance / MaxDistance * 2));
+                            _currentVolume = _volume * (1 - (distance / MaxDistance * 1.1f));
                         }
                     }
                     else
