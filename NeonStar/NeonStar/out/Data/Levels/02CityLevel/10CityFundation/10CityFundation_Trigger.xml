@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2400 Y:132}" />
+              <InitialPosition Value="{X:2400 Y:90}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -16,9 +16,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:2400 Y:132}" />
+              <Center Value="{X:2400 Y:90}" />
               <X Value="2254" />
-              <Y Value="109" />
+              <Y Value="67" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="292" />
@@ -95,6 +95,50 @@
           <DamageOnTrigger Type="NeonStarLibrary.Components.Triggers.DamageOnTrigger" ID="3">
             <Properties>
               <EnemyToDamageName Value="GlassUp" />
+              <DamageToInflict Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </DamageOnTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="GlassEndTrigger" Layer="Trigger">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4400 Y:-112}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4400 Y:-112}" />
+              <X Value="4254" />
+              <Y Value="-135" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="292" />
+              <Height Value="47" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttack" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassEndTrigger" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+          <DamageOnTrigger Type="NeonStarLibrary.Components.Triggers.DamageOnTrigger" ID="3">
+            <Properties>
+              <EnemyToDamageName Value="GlassEnd" />
               <DamageToInflict Value="1" />
               <NickName Value="" />
             </Properties>
