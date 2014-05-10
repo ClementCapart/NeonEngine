@@ -50,7 +50,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:200 Y:850}" />
+              <InitialPosition Value="{X:300 Y:850}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -59,12 +59,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:200 Y:850}" />
+              <Center Value="{X:300 Y:850}" />
               <X Value="50" />
               <Y Value="800" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="300" />
+              <Width Value="500" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
@@ -76,7 +76,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.99995" />
+              <Mass Value="4.99995" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -2653,7 +2653,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2802 Y:1021}" />
+              <InitialPosition Value="{X:2802 Y:1000}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2680,12 +2680,56 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:2802 Y:1021}" />
+              <Center Value="{X:2802 Y:1000}" />
               <X Value="2652" />
-              <Y Value="971" />
+              <Y Value="950" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
+              <Height Value="100" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="ChangeLevelTo07" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:300 Y:1000}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="02CityLevel" />
+              <LevelName Value="07CityResidences" />
+              <SpawnPointIndex Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevelTo07" />
+              <TriggeredComponentName Value="ChangeLevel" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:300 Y:1000}" />
+              <X Value="50" />
+              <Y Value="950" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="500" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
