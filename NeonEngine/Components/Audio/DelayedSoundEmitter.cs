@@ -1,4 +1,5 @@
 ﻿using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace NeonEngine.Components.Audio
 {
-    public class DelayedSoundEmitter : SoundEmitter
+    public class DelayedSoundEmitter : SimpleSoundEmitter
     {
         #region Properties
         private float _startDelay = 0.0f;
