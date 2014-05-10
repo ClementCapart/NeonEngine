@@ -886,7 +886,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:5000 Y:-3578}" />
+              <InitialPosition Value="{X:5000 Y:-3778}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -947,8 +947,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:818 Y:-695}" />
-              <X Value="793" />
+              <Center Value="{X:378 Y:-695}" />
+              <X Value="353" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1113,8 +1113,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3338 Y:-695}" />
-              <X Value="3313" />
+              <Center Value="{X:2898 Y:-695}" />
+              <X Value="2873" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1280,6 +1280,31 @@
               <NickName Value="" />
             </Properties>
           </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundL" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3975 Y:-3170}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
+            <Properties>
+              <ReverseBound Value="False" />
+              <SoftBound Value="False" />
+              <BoundSide Value="Left" />
+              <BoundStrength Value="1" />
+              <SoftBoundStrength Value="1" />
+              <StrengtheningRate Value="0.5" />
+              <Enabled Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </CameraBound>
         </Components>
       </Entity>
     </Entities>
