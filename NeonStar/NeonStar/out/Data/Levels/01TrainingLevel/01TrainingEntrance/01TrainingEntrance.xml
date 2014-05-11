@@ -3066,6 +3066,33 @@
           </Graphic>
         </Components>
       </Entity>
+      <Entity Name="SaveRoomTease" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1843 Y:427}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
+            <Properties>
+              <PlayingSoundTag Value="BackgroundLoop" />
+              <Is3DSound Value="False" />
+              <IsLooped Value="True" />
+              <Volume Value="0.1" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="150" />
+              <MaxDistance Value="1000" />
+              <DistanceVolumeTreshold Value="0.3" />
+              <NickName Value="" />
+            </Properties>
+          </SimpleSoundEmitter>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
