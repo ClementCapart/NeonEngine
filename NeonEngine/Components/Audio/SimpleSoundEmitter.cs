@@ -30,7 +30,7 @@ namespace NeonEngine.Components.Audio
                     _currentSoundInstance.Volume = 0.0f;
                     _currentSoundInstance.Pitch = MathHelper.Clamp(Pitch, -1.0f, 1.0f);
                     _currentSoundInstance.Play();
-                    SoundInstances.Add(_currentSoundInstance);
+                    SoundInstances.Add(_currentSoundInstance, null);
 
                 }
             }
@@ -54,7 +54,7 @@ namespace NeonEngine.Components.Audio
                         _currentSoundInstance.Volume = 0.0f;
                         _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
                         _currentSoundInstance.Play();
-                        SoundInstances.Add(_currentSoundInstance);
+                        SoundInstances.Add(_currentSoundInstance, null);
                     }
                 }
                 else if (!_is3DSound)
@@ -71,7 +71,7 @@ namespace NeonEngine.Components.Audio
                         _currentSoundInstance.Volume = 0.0f;
                         _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
                         _currentSoundInstance.Play();
-                        SoundInstances.Add(_currentSoundInstance);
+                        SoundInstances.Add(_currentSoundInstance, null);
                     }
                 }
             }
@@ -95,7 +95,7 @@ namespace NeonEngine.Components.Audio
                         _currentSoundInstance.Volume = 0.0f;
                         _currentSoundInstance.Pitch = MathHelper.Clamp(_pitch, -1.0f, 1.0f);
                         _currentSoundInstance.Play();
-                        SoundInstances.Add(_currentSoundInstance);
+                        SoundInstances.Add(_currentSoundInstance, null);
                     }
                 }
             }
@@ -152,7 +152,7 @@ namespace NeonEngine.Components.Audio
                 _currentSoundInstance.Play();
             }
 
-            SoundInstances.Add(_currentSoundInstance);
+            SoundInstances.Add(_currentSoundInstance, null);
             
         }
 

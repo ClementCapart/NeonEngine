@@ -10,6 +10,7 @@ using NeonEngine;
 using System.Reflection;
 using Microsoft.Xna.Framework.Audio;
 using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonStarEditor.Controls
 {
@@ -131,7 +132,7 @@ namespace NeonStarEditor.Controls
                 _label.Text = soundList.SelectedNode.Name;
 
                 _soundInstanceInfo.Sound = SoundManager.GetSound(soundList.SelectedNode.Name);
-                GameWorld.ToggleSpritesheetPicker();
+                GameWorld.ToggleSoundPicker();
             }
             else
             {

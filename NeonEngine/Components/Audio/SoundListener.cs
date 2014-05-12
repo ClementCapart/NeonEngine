@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,14 @@ namespace NeonEngine.Components.Audio
             get { return _zDistance; }
             set { _zDistance = value; }
         }
+
+        private Vector2 _offset;
+
+        public Vector2 Offset
+        {
+            get { return _offset; }
+            set { _offset = value; }
+        }
         #endregion
 
         private AudioListener _audioListener;
@@ -41,9 +50,9 @@ namespace NeonEngine.Components.Audio
             if (_audioListener != null)
             {
                 if (_attachedOnCamera)
-                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.GameWorld.Camera.Position, _zDistance);
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.GameWorld.Camera.Position + Offset, _zDistance);
                 else
-                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position, _zDistance);
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position + Offset, _zDistance);
             }
 
             entity.GameWorld.AudioListeners.Add(_audioListener);
@@ -63,9 +72,9 @@ namespace NeonEngine.Components.Audio
             if (_audioListener != null)
             {
                 if (_attachedOnCamera)
-                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.GameWorld.Camera.Position, _zDistance);
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.GameWorld.Camera.Position + Offset, _zDistance);
                 else
-                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position, _zDistance);
+                    _audioListener.Position = new Microsoft.Xna.Framework.Vector3(entity.transform.Position + Offset, _zDistance);
             }
             base.Update(gameTime);
         }

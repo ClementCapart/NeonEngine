@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Globalization;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonEngine
 {
@@ -185,6 +187,23 @@ namespace NeonEngine
                                     spritesheetList.Add(Animation.Attribute("Name").Value, AssetManager.GetSpriteSheet(Animation.Attribute("SpritesheetTag").Value));
                                 }
                                 pi.SetValue(component, spritesheetList, null);
+                            }
+                            else if (Property.Name == "SoundList")
+                            {
+                                List<SoundInstanceInfo> soundsList = new List<SoundInstanceInfo>();
+                                foreach (XElement sound in Property.Elements("SoundInstanceInfo"))
+                                {
+                                    SoundInstanceInfo sii = new SoundInstanceInfo();
+                                    sii.Name = sound.Attribute("Name").Value;
+                                    sii.Sound = SoundManager.GetSound(sound.Attribute("Sound").Value);
+                                    sii.Is3DSound = bool.Parse(sound.Attribute("Is3DSound").Value);
+                                    sii.Volume = float.Parse(sound.Attribute("Volume").Value);
+                                    sii.Pitch = float.Parse(sound.Attribute("Pitch").Value);
+                                    sii.Offset = Neon.Utils.ParseVector2(sound.Attribute("Offset").Value);
+
+                                    soundsList.Add(sii);
+                                }
+                                pi.SetValue(component, soundsList, null);
                             }
                         }
                         entity.AddComponent(component);

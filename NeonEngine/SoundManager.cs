@@ -173,12 +173,15 @@ namespace NeonEngine
 
             foreach (SoundEmitter se in Neon.World.AudioEmitters)
             {
-                if (!se.Is3DSound)
-                    continue;
-                foreach(SoundEffectInstance sei in se.SoundInstances)
-                    if (sei != null && !sei.IsDisposed && sei.State == SoundState.Playing)
+                foreach(KeyValuePair<SoundEffectInstance, SoundInstanceInfo> sei in se.SoundInstances)
+                    if (sei.Key != null && !sei.Key.IsDisposed && sei.Key.State == SoundState.Playing && ((sei.Value != null && sei.Value.Is3DSound) || (sei.Value == null && se.Is3DSound)))
                     {
-                        sei.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
+                        if(sei.Value != null)
+                            se.AudioEmitter.Position += new Vector3(sei.Value.Offset, 0);
+                        sei.Key.Apply3D(Neon.World.AudioListeners.ToArray(), se.AudioEmitter);
+                        if (sei.Value != null)
+                            se.AudioEmitter.Position -= new Vector3(sei.Value.Offset, 0);
+                        
                     }
             }
 
@@ -256,10 +259,10 @@ namespace NeonEngine
             using (FileStream titleStream = File.OpenRead(filePath))
             {
                 soundEffect = SoundEffect.FromStream(titleStream);
-                AudioEmitter ae = new AudioEmitter();
             }
             if (soundEffect != null)
             {
+                soundEffect.Name = name;
                 _soundsList.Add(name, soundEffect);
             }
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using NeonEngine.Components.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,16 @@ using System.Text;
 
 namespace NeonEngine.Components.Private
 {
+    public class SoundInstanceInfo
+    {
+        public string Name = "";
+        public SoundEffect Sound;
+        public float Volume;
+        public float Pitch;
+        public bool Is3DSound;
+        public Vector2 Offset;
+    }
+
     public class SoundEmitter : Component
     {
         #region Properties
@@ -89,7 +100,7 @@ namespace NeonEngine.Components.Private
 
         public AudioEmitter AudioEmitter;
 
-        public List<SoundEffectInstance> SoundInstances;
+        public Dictionary<SoundEffectInstance, SoundInstanceInfo> SoundInstances;
         
         protected float _currentVolume = 0.0f;
 
@@ -100,7 +111,7 @@ namespace NeonEngine.Components.Private
 
         public override void Init()
         {
-            SoundInstances = new List<SoundEffectInstance>();
+            SoundInstances = new Dictionary<SoundEffectInstance, SoundInstanceInfo>();
             
             if (AudioEmitter == null)
                 AudioEmitter = new AudioEmitter();

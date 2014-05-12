@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeonEngine.Components.Audio;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Private;
 using NeonEngine.Private;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,7 @@ namespace NeonEngine
         public SpritesheetManager spritesheets;
         public Graphic graphic;
         public List<Hitbox> hitboxes = new List<Hitbox>();
+        public ManagedSoundEmitter soundEmitter;
 
         private string name = "Entity";
         public string Name
@@ -105,6 +108,8 @@ namespace NeonEngine
                 hitboxes.Add(component as Hitbox);
             else if (component is Graphic)
                 graphic = component as Graphic;
+            else if (component is ManagedSoundEmitter)
+                soundEmitter = component as ManagedSoundEmitter;
 
             if (component is DrawableComponent)
                 if((component  as DrawableComponent).IsHUD)

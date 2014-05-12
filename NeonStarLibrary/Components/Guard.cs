@@ -128,14 +128,27 @@ namespace NeonStarLibrary.Components.Avatar
             get { return _guardLockDuration; }
             set { _guardLockDuration = value; }
         }
+
+        private string _rollSound = "";
+
+        public string RollSound
+        {
+            get { return _rollSound; }
+            set { _rollSound = value; }
+        }
+
+        private string _airDashSound = "";
+
+        public string AirDashSound
+        {
+            get { return _airDashSound; }
+            set { _airDashSound = value; }
+        }
         #endregion       
 
         public AvatarCore AvatarComponent;
 
         private SpriteSheetInfo _dashEffectSpritesheet;
-
-        private SoundEffect _rollSound = SoundManager.GetSound("Roll");
-        private SoundEffect _dashSound = SoundManager.GetSound("Dash");
 
         private float _rollCooldownTimer = 0.0f;
         private float _guardCooldownTimer = 0.0f;
@@ -416,7 +429,7 @@ namespace NeonStarLibrary.Components.Avatar
             if (AvatarComponent.ElementSystem.CurrentElementEffect != null)
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration);
-            _rollSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+            if (entity.soundEmitter != null) entity.soundEmitter.PlaySound(_rollSound);
         }
 
         private void PerformGuard()
@@ -452,7 +465,7 @@ namespace NeonStarLibrary.Components.Avatar
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _dashDuration);
             EffectsManager.GetEffect(_dashEffectSpritesheet, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(50, 0), 2.0f, 0.90f);
-            _dashSound.Play(SoundManager.GlobalEffectsVolume -0.1f, SoundManager.GlobalPitch, 0.0f);
+            if (entity.soundEmitter != null) entity.soundEmitter.PlaySound(_airDashSound);
         }
     }
 }

@@ -145,6 +145,62 @@ namespace NeonStarLibrary.Components.Avatar
             get { return _airSlowRate; }
             set { _airSlowRate = value; }
         }
+
+        private string _leftFootStepSound = "";
+
+        public string LeftFootStepSound
+        {
+            get { return _leftFootStepSound; }
+            set { _leftFootStepSound = value; }
+        }
+
+        private float _leftFootStepFrame = 5.0f;
+
+        public float LeftFootStepFrame
+        {
+            get { return _leftFootStepFrame; }
+            set { _leftFootStepFrame = value; }
+        }
+
+        private string _rightFootStepSound = "";
+
+        public string RightFootStepSound
+        {
+            get { return _rightFootStepSound; }
+            set { _rightFootStepSound = value; }
+        }
+
+        private float _rightFootStepFrame = 1.0f;
+
+        public float RightFootStepFrame
+        {
+            get { return _rightFootStepFrame; }
+            set { _rightFootStepFrame = value; }
+        }
+
+        private string _jumpSound = "";
+
+        public string JumpSound
+        {
+            get { return _jumpSound; }
+            set { _jumpSound = value; }
+        }
+
+        private string _doubleJumpSound = "";
+
+        public string DoubleJumpSound
+        {
+            get { return _doubleJumpSound; }
+            set { _doubleJumpSound = value; }
+        }
+
+        private string _groundCollisionSound = "";
+
+        public string GroundCollisionSound
+        {
+            get { return _groundCollisionSound; }
+            set { _groundCollisionSound = value; }
+        }
         #endregion
 
         public float CurrentAirMaxSpeed;
@@ -157,12 +213,6 @@ namespace NeonStarLibrary.Components.Avatar
 
         private List<Rigidbody> _ignoredGeometry = new List<Rigidbody>();    
         private float _jumpInputDelay = 0.0f;
-
-        private SoundEffect _leftFootStepSound = SoundManager.GetSound("RunningLeft");
-        private SoundEffect _rightFootStepSound = SoundManager.GetSound("RunningRight");
-        private SoundEffect _jumpSound = SoundManager.GetSound("Jump");
-        private SoundEffect _doubleJumpSound = SoundManager.GetSound("DoubleJump");
-        private SoundEffect _groundCollisionSound = SoundManager.GetSound("GroundCollision");
 
         private bool _hasAlreadyAirJumped = false;
 
@@ -258,19 +308,21 @@ namespace NeonStarLibrary.Components.Avatar
                         {
                             if (entity.spritesheets.CurrentSpritesheetName == this.WalkAnimation)
                             {
-                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == 1)
+                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == _rightFootStepFrame)
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._rightFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                                        if (entity.soundEmitter != null)
+                                            entity.soundEmitter.PlaySound(_rightFootStepSound);
                                         _playedThisFrame = true;
                                     }
                                 }
-                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 5)
+                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == _leftFootStepFrame)
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._leftFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                                        if (entity.soundEmitter != null)
+                                            entity.soundEmitter.PlaySound(_leftFootStepSound);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -289,19 +341,21 @@ namespace NeonStarLibrary.Components.Avatar
                         {
                             if (entity.spritesheets.CurrentSpritesheetName == this.WalkAnimation)
                             {
-                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == 2)
+                                if (entity.spritesheets.CurrentSpritesheet.currentFrame == _rightFootStepFrame + 1)
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._rightFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                                        if (entity.soundEmitter != null)
+                                            entity.soundEmitter.PlaySound(_rightFootStepSound);
                                         _playedThisFrame = true;
                                     }
                                 }
-                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == 6)
+                                else if (entity.spritesheets.CurrentSpritesheet.currentFrame == _leftFootStepFrame + 1)
                                 {
                                     if (!_playedThisFrame)
                                     {
-                                        this._leftFootStepSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                                        if (entity.soundEmitter != null)
+                                            entity.soundEmitter.PlaySound(_leftFootStepSound);
                                         _playedThisFrame = true;
                                     }
                                 }
@@ -343,7 +397,8 @@ namespace NeonStarLibrary.Components.Avatar
                             entity.rigidbody.body.ApplyLinearImpulse(new Vector2(0, -(_jumpImpulseHeight)));
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
-                            _jumpSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                            if (entity.soundEmitter != null)
+                                entity.soundEmitter.PlaySound(_jumpSound);
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
@@ -387,7 +442,8 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.MeleeFight.CurrentComboHit = ComboSequence.None;
                             StartJumping = true;
                             EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpUP"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 22), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
-                            _doubleJumpSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                            if (entity.soundEmitter != null)
+                                entity.soundEmitter.PlaySound(_doubleJumpSound);
                             _jumpInputDelay = 0.0f;
                             MustJumpAsSoonAsPossible = false;
                             _hasAlreadyAirJumped = true;
@@ -402,7 +458,8 @@ namespace NeonStarLibrary.Components.Avatar
                 if (entity.rigidbody != null && entity.rigidbody.isGrounded && !entity.rigidbody.wasGrounded && entity.rigidbody.body.LinearVelocity.Y >= 0)
                 {
                     EffectsManager.GetEffect(AssetManager.GetSpriteSheet("FXJumpDOWN"), AvatarComponent.CurrentSide, entity.transform.Position, 0, new Vector2(0, 56), 2.0f, entity.spritesheets.DrawLayer + 0.001f);
-                    _groundCollisionSound.Play(SoundManager.GlobalEffectsVolume, SoundManager.GlobalPitch, 0.0f);
+                    if(entity.soundEmitter != null)
+                        entity.soundEmitter.PlaySound(_groundCollisionSound);
                 }
 
                 if (entity.rigidbody != null && entity.rigidbody.body.LinearVelocity.Y > _maxFallSpeed && entity.rigidbody.GravityScale != 0.0 && FallSpeedLimit)

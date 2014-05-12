@@ -16,6 +16,7 @@ using Component = NeonEngine.Component;
 using Point = System.Drawing.Point;
 using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonStarEditor
 {

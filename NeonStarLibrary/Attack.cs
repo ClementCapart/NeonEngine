@@ -633,7 +633,7 @@ namespace NeonStarLibrary
                         case SpecialEffect.PlaySound:
                             if(ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                             {
-                                if((bool)ae.Parameters[2])
+                                if ((bool)ae.Parameters[2])
                                 {
                                     SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
                                     se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
@@ -641,7 +641,11 @@ namespace NeonStarLibrary
                                     _soundEffectsToStop.Add(se);
                                 }
                                 else
-                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                {
+                                    SoundEffect sei = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if (sei != null)
+                                        sei.Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                }
                             }
                             break;
 
@@ -984,7 +988,11 @@ namespace NeonStarLibrary
                                             _soundEffectsToStop.Add(se);
                                         }
                                         else
-                                            SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                        {
+                                            SoundEffect sei = SoundManager.GetSound((string)ae.Parameters[0]);
+                                            if (sei != null)
+                                                sei.Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                        }
                                     }
                                     break;
                             }
@@ -1144,12 +1152,16 @@ namespace NeonStarLibrary
                                     if ((bool)ae.Parameters[2])
                                     {
                                         SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                    se.Play();
-                                    _soundEffectsToStop.Add(se);
+                                        se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                        se.Play();
+                                        _soundEffectsToStop.Add(se);
                                     }
                                     else
-                                        SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                    {
+                                        SoundEffect sei = SoundManager.GetSound((string)ae.Parameters[0]);
+                                        if (sei != null)
+                                            sei.Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                    }
                                 }
                                 break;
                         }
@@ -1363,7 +1375,11 @@ namespace NeonStarLibrary
                                     _soundEffectsToStop.Add(se);
                                 }
                                 else
-                                    SoundManager.GetSound((string)ae.Parameters[0]).Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                {
+                                    SoundEffect sei = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if (sei != null)
+                                        sei.Play(Math.Min((float)ae.Parameters[1], 1.0f), 0.0f, 0.0f);
+                                }
                             }
                             break;
                     }

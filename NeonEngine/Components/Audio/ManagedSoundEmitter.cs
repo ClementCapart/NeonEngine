@@ -9,20 +9,58 @@ using System.Text;
 
 namespace NeonEngine.Components.Audio
 {
-    public class SoundInstanceInfo
-    {
-        public string Name = "";
-        public SoundEffect Sound;
-        public float Volume;
-        public float Pitch;
-        public bool Is3DSound;
-        public Vector2 Offset;
-    }
-
     public class ManagedSoundEmitter : SoundEmitter
     {
         #region Properties
-        private List<SoundInstanceInfo> _soundList;
+        private new float Volume
+        {
+            get
+            {
+                return base.Volume;
+            }
+            set
+            {
+                base.Volume = value;
+            }
+        }
+
+        private new bool Is3DSound
+        {
+            get
+            {
+                return base.Is3DSound;
+            }
+            set
+            {
+                base.Is3DSound = value;
+            }
+        }
+
+        private new float Pitch
+        {
+            get
+            {
+                return base.Pitch;
+            }
+            set
+            {
+                base.Pitch = value;
+            }
+        }
+
+        private new bool IsLooped
+        {
+            get
+            {
+                return base.IsLooped;
+            }
+            set
+            {
+                base.IsLooped = value;
+            }
+        }
+
+        private List<SoundInstanceInfo> _soundList = new List<SoundInstanceInfo>();
 
         public List<SoundInstanceInfo> SoundList
         {
@@ -36,5 +74,45 @@ namespace NeonEngine.Components.Audio
         {
             Name = "ManagedSoundEmitter";
         }
+
+        public bool PlaySound(string name)
+        {
+            SoundEffectInstance sei = null;
+            for (int i = 0; i < _soundList.Count; i++)
+            {
+                if (_soundList[i].Name == name)
+                {
+                    SoundInstanceInfo info = _soundList[i];  
+                    if (info.Sound.IsDisposed)
+                        info.Sound = SoundManager.GetSound(info.Sound.Name);
+                    if (info.Sound == null)
+                        return false;       
+                    sei = info.Sound.CreateInstance();
+                    sei.Volume = info.Volume;
+                    sei.Pitch = info.Volume;
+                    if (info.Is3DSound)
+                    {
+                        AudioEmitter.Position += new Vector3(info.Offset, 0);
+                        sei.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
+                        AudioEmitter.Position -= new Vector3(info.Offset, 0);
+                    }
+                    sei.Play();
+                    SoundInstances.Add(sei, info);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override void PreUpdate(GameTime gameTime)
+        {
+            for (int i = SoundInstances.Count - 1; i >= 0; i--)
+            {
+                SoundEffectInstance sei = SoundInstances.ElementAt(i).Key;
+                if (sei.State == SoundState.Stopped)
+                    SoundInstances.Remove(sei);
+            }
+            base.PreUpdate(gameTime);
+        }         
     }
 }

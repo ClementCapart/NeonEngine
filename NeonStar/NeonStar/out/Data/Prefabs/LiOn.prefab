@@ -5,8 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:31.87273 Y:32.99248}" />
-          <InitialPosition Value="{X:31.87273 Y:32.99248}" />
+          <InitialPosition Value="{X:-5000 Y:682}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -15,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:31 Y:32}" />
-          <X Value="11" />
-          <Y Value="-36" />
+          <Center Value="{X:-5000 Y:681}" />
+          <X Value="-5020" />
+          <Y Value="613" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -139,6 +138,13 @@
           <MaxFallSpeed Value="12" />
           <CanDoubleJump Value="True" />
           <AirSlowRate Value="0.95" />
+          <LeftFootStepSound Value="LeftStep" />
+          <LeftFootStepFrame Value="5" />
+          <RightFootStepSound Value="RightStep" />
+          <RightFootStepFrame Value="1" />
+          <JumpSound Value="Jump" />
+          <DoubleJumpSound Value="DoubleJump" />
+          <GroundCollisionSound Value="GroundCollision" />
           <NickName Value="" />
         </Properties>
       </ThirdPersonController>
@@ -172,6 +178,8 @@
           <DashImpulse Value="650" />
           <GuardDamageReduce Value="116" />
           <GuardLockDuration Value="1" />
+          <RollSound Value="Roll" />
+          <AirDashSound Value="Dash" />
           <NickName Value="" />
         </Properties>
       </Guard>
@@ -240,9 +248,28 @@
         <Properties>
           <AttachedOnCamera Value="False" />
           <ZDistance Value="0" />
+          <Offset Value="{X:0 Y:0}" />
           <NickName Value="" />
         </Properties>
       </SoundListener>
+      <ManagedSoundEmitter Type="NeonEngine.Components.Audio.ManagedSoundEmitter" ID="14">
+        <Properties>
+          <SoundList>
+            <SoundInstanceInfo Name="LeftStep" Sound="RunningLeft" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="RightStep" Sound="RunningRight" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Jump" Sound="Jump" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="GroundCollision" Sound="GroundCollision" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Roll" Sound="Roll" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Dash" Sound="Dash" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="DoubleJump" Sound="DoubleJump" Is3DSound="False" Volume="1" Pitch="0" Offset="{X:0 Y:0}" />
+          </SoundList>
+          <Debug Value="True" />
+          <ZDistance Value="0" />
+          <MaxDistance Value="0" />
+          <DistanceVolumeTreshold Value="0.3" />
+          <NickName Value="" />
+        </Properties>
+      </ManagedSoundEmitter>
     </Components>
   </Entity>
 </Prefab>

@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonEngine
 {
@@ -260,73 +261,13 @@ namespace NeonEngine
                 XElement Components = new XElement("Components");
                 foreach (Component c in entity.Components)
                 {
-                    XElement Component = new XElement(c.Name, new XAttribute("Type", c.GetType().ToString()), new XAttribute("ID", c.ID.ToString()));
-                    XElement Properties = new XElement("Properties");
-                    foreach (PropertyInfo pi in c.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+                    if (c.HasToBeSaved)
                     {
-                        if (pi.PropertyType.Equals(typeof(Effect)))
+                        if (c.GetType().Equals(typeof(Hitbox)) && (c as Hitbox).Type == HitboxType.Hit)
                             continue;
-                        if (pi.PropertyType.IsSubclassOf(typeof(Component)))
-                        {
-                            Component comp = (Component)pi.GetValue(c, null);
-                            XElement Property = new XElement(pi.Name, new XAttribute("Value", comp != null ? comp.ID.ToString() : "None"));
-                            Properties.Add(Property);
-                        }
-                        else if (pi.Name == "Font")
-                        {
-                            XElement Property = new XElement(pi.Name, new XAttribute("Value", TextManager.FontList.Where(kvp => kvp.Value == (SpriteFont)pi.GetValue(c, null)).First().Key));
-                            Properties.Add(Property);
 
-                        }
-                        else if (pi.Name == "Spritesheets")
-                        {
-                            XElement Property = new XElement(pi.Name);
-                            Dictionary<string, SpriteSheetInfo> propertyDictionary = (Dictionary<string, SpriteSheetInfo>)pi.GetValue(c, null);
-                            foreach (KeyValuePair<string, SpriteSheetInfo> kvp in propertyDictionary)
-                            {
-                                XElement Animation = new XElement("Animation",
-                                                                    new XAttribute("Name", kvp.Key),
-                                                                    new XAttribute("SpritesheetTag", AssetManager.GetSpritesheetTag(kvp.Value))
-                                                                    );
-
-                                Property.Add(Animation);
-                            }
-
-                            Properties.Add(Property);
-                        }
-                        else if (pi.PropertyType.Equals(typeof(PathNodeList)))
-                        {
-                            PathNodeList pnl = (pi.GetValue(c, null) as PathNodeList);
-                            XElement Property;
-                            if (pnl != null)
-                            {
-                                Property = new XElement(pi.Name, new XAttribute("Value", pnl.Name));
-                                Properties.Add(Property);
-                            }
-                        }
-                        else if (pi.PropertyType.Equals(typeof(Vector2)))
-                        {
-                            XElement Property = null;
-                            Property = new XElement(pi.Name, new XAttribute("Value", Neon.Utils.Vector2ToString((Vector2)pi.GetValue(c, null))));
-                            Properties.Add(Property);
-                        }
-                        else
-                        {
-                            XElement Property = null;
-                            if (pi.PropertyType == typeof(Single))
-                            {
-                                Property = new XElement(pi.Name, new XAttribute("Value", ((float)pi.GetValue(c, null)).ToString("G", CultureInfo.InvariantCulture)));
-                            }
-                            else
-                            {
-                                Property = new XElement(pi.Name, new XAttribute("Value", pi.GetValue(c, null).ToString()));
-                            }
-                            Properties.Add(Property);
-                        }
+                        Components.Add(SaveComponentParameters(c));
                     }
-
-                    Component.Add(Properties);
-                    Components.Add(Component);
                 }
                 Entity.Add(Components);
 
@@ -426,6 +367,23 @@ namespace NeonEngine
                             }
                             pi.SetValue(component, spritesheetList, null);
                         }
+                        else if (Property.Name == "SoundList")
+                        {
+                            List<SoundInstanceInfo> soundsList = new List<SoundInstanceInfo>();
+                            foreach (XElement sound in Property.Elements("SoundInstanceInfo"))
+                            {
+                                SoundInstanceInfo sii = new SoundInstanceInfo();
+                                sii.Name = sound.Attribute("Name").Value;
+                                sii.Sound = SoundManager.GetSound(sound.Attribute("Sound").Value);
+                                sii.Is3DSound = bool.Parse(sound.Attribute("Is3DSound").Value);
+                                sii.Volume = float.Parse(sound.Attribute("Volume").Value);
+                                sii.Pitch = float.Parse(sound.Attribute("Pitch").Value);
+                                sii.Offset = Neon.Utils.ParseVector2(sound.Attribute("Offset").Value);
+
+                                soundsList.Add(sii);
+                            }
+                            pi.SetValue(component, soundsList, null);
+                        }
                     }
 
                     component.Init();
@@ -524,7 +482,7 @@ namespace NeonEngine
                         {
                             XElement SoundInstance = new XElement("SoundInstanceInfo", new XAttribute("Name", sii.Name),
                                                                                        new XAttribute("Sound", sii.Sound.Name),
-                                                                                       new XAttribute("3DSound", sii.Is3DSound.ToString()),
+                                                                                       new XAttribute("Is3DSound", sii.Is3DSound.ToString()),
                                                                                        new XAttribute("Volume", sii.Volume.ToString()),
                                                                                        new XAttribute("Pitch", sii.Pitch.ToString()),
                                                                                        new XAttribute("Offset", Neon.Utils.Vector2ToString(sii.Offset)));
@@ -532,6 +490,7 @@ namespace NeonEngine
                         }
                         
                     }
+                    Properties.Add(Property);
                 }
                 else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                 {
