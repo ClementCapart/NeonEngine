@@ -1516,6 +1516,11 @@
           <Parameter Value="NeutralBullet" />
           <SecondParameter Value="{X:0 Y:0}" />
         </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="TurretShoot" />
+          <SecondParameter Value="0.2" />
+          <ThirdParameter Value="False" />
+        </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
@@ -1539,11 +1544,22 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="TurretCharging" />
+          <SecondParameter Value="0.3" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="ShootBulletAtTarget">
           <Parameter Value="NeutralBullet" />
           <SecondParameter Value="{X:10 Y:0}" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="TurretShoot" />
+          <SecondParameter Value="0.4" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
