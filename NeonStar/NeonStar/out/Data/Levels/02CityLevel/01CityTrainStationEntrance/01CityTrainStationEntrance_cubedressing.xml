@@ -2,7 +2,7 @@
 <XnaContent>
   <Level Layer="cubedressing">
     <Entities>
-      <Entity Name="cube1" Layer="cubedressing">
+      <Entity Name="SquareTileCity" Layer="cubedressing">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -18,20 +18,20 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_2-{X:300 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_0-{X:650 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_0-{X:900 Y:0}_1-{X:950 Y:0}_2-{X:1050 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_1-{X:350 Y:0}_2-{X:450 Y:0}_2-{X:600 Y:0}_2-{X:750 Y:0}_2-{X:900 Y:0}_2-{X:1050 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:150}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_2-{X:0 Y:400}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:200}_2-{X:0 Y:250}_0-{X:0 Y:400}_1-{X:0 Y:450}_1-{X:0 Y:550}_0-{X:0 Y:650}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_1-{X:300 Y:0}_2-{X:400 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_0-{X:650 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_1-{X:850 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_0-{X:1200 Y:0}_0-{X:1250 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_0-{X:0 Y:300}_1-{X:0 Y:350}_1-{X:0 Y:450}_1-{X:0 Y:550}_0-{X:0 Y:650}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_1-{X:0 Y:300}_2-{X:0 Y:400}_0-{X:0 Y:550}_1-{X:0 Y:600}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeilling50" />
-              <SecondBottomTileGraphicTag Value="CityCeilling100" />
-              <ThirdBottomTileGraphicTag Value="CityCeilling150" />
-              <FirstTopTileGraphicTag Value="CityFloor50" />
-              <SecondTopTileGraphicTag Value="CityFloor100" />
-              <ThirdTopTileGraphicTag Value="CityFloor150" />
-              <FirstWallTileGraphicTag Value="CityWall50" />
-              <SecondWallTileGraphicTag Value="CityWall100" />
-              <ThirdWallTileGraphicTag Value="CityWall150" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -62,20 +62,20 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_2-{X:850 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_1-{X:900 Y:0}_2-{X:1000 Y:0}_0-{X:1100 Y:0}_2-{X:1150 Y:0}_0-{X:1250 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_1-{X:0 Y:300}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:550}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_2-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_2-{X:0 Y:350}_2-{X:0 Y:450}_0-{X:0 Y:550}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_0-{X:1050 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_BOT_1-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_1-{X:350 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_2-{X:900 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_0-{X:0 Y:500}_0-{X:0 Y:550}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_1-{X:0 Y:250}_0-{X:0 Y:350}_1-{X:0 Y:400}_1-{X:0 Y:500}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeillingSecond50" />
-              <SecondBottomTileGraphicTag Value="CityCeillingSecond100" />
-              <ThirdBottomTileGraphicTag Value="CityCeillingSecond100Second" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
               <FirstTopTileGraphicTag Value="CityFloorSecond50" />
               <SecondTopTileGraphicTag Value="CityFloorSecond100" />
-              <ThirdTopTileGraphicTag Value="CityFloorSecond100Second" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
               <FirstWallTileGraphicTag Value="CityWallSecond50" />
               <SecondWallTileGraphicTag Value="CityWallSecond100" />
-              <ThirdWallTileGraphicTag Value="CityWallSecond100Second" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -91,22 +91,22 @@
           <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
             <Properties>
               <GlobalOffset Value="100" />
-              <CenterOffset Value="{X:50 Y:50}" />
+              <CenterOffset Value="{X:100 Y:100}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_BOT_0-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:800 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_0-{X:950 Y:0}_1-{X:1000 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_2-{X:550 Y:0}_2-{X:700 Y:0}_0-{X:850 Y:0}_2-{X:900 Y:0}_0-{X:1050 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_2-{X:0 Y:200}_0-{X:0 Y:350}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeillingThird100" />
-              <SecondBottomTileGraphicTag Value="CityCeillingThird100Second" />
-              <ThirdBottomTileGraphicTag Value="NoGraphic" />
-              <FirstTopTileGraphicTag Value="CityFloorThird100" />
-              <SecondTopTileGraphicTag Value="CityFloorThird100Second" />
-              <ThirdTopTileGraphicTag Value="NoGraphic" />
-              <FirstWallTileGraphicTag Value="CityWallThird100" />
-              <SecondWallTileGraphicTag Value="NoGraphic" />
-              <ThirdWallTileGraphicTag Value="NoGraphic" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -116,126 +116,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SquaredRandomTiling>
-        </Components>
-      </Entity>
-      <Entity Name="cube1" Layer="cubedressing">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:263 Y:350}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
-            <Properties>
-              <GlobalOffset Value="0" />
-              <CenterOffset Value="{X:50 Y:50}" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_2-{X:350 Y:0}_1-{X:500 Y:0}_0-{X:600 Y:0}_2-{X:650 Y:0}_1-{X:800 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_0-{X:1050 Y:0}_1-{X:1100 Y:0}_0-{X:1200 Y:0}_2-{X:1250 Y:0}_BOT_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_2-{X:300 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_0-{X:650 Y:0}_2-{X:700 Y:0}_1-{X:850 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_1-{X:1250 Y:0}_0-{X:1350 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_2-{X:0 Y:250}_2-{X:0 Y:400}_1-{X:0 Y:550}_0-{X:0 Y:650}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_2-{X:0 Y:250}_0-{X:0 Y:400}_0-{X:0 Y:450}_2-{X:0 Y:500}_0-{X:0 Y:650}" />
-              <DrawLayer Value="0.9" />
-              <TopCornerGraphicTag Value="CityFloorCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeilling50" />
-              <SecondBottomTileGraphicTag Value="CityCeilling100" />
-              <ThirdBottomTileGraphicTag Value="CityCeilling150" />
-              <FirstTopTileGraphicTag Value="CityFloor50" />
-              <SecondTopTileGraphicTag Value="CityFloor100" />
-              <ThirdTopTileGraphicTag Value="CityFloor150" />
-              <FirstWallTileGraphicTag Value="CityWall50" />
-              <SecondWallTileGraphicTag Value="CityWall100" />
-              <ThirdWallTileGraphicTag Value="CityWall150" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SquaredRandomTiling>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="None" />
-              <Center Value="{X:263 Y:350}" />
-              <X Value="-487" />
-              <Y Value="-50" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="1500" />
-              <Height Value="800" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
-            <Properties>
-              <GlobalOffset Value="50" />
-              <CenterOffset Value="{X:50 Y:50}" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_2-{X:650 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_2-{X:850 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_2-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:900 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_0-{X:1100 Y:0}_2-{X:1150 Y:0}_0-{X:1250 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_2-{X:0 Y:300}_1-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:550}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_2-{X:0 Y:200}_2-{X:0 Y:300}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:550}" />
-              <DrawLayer Value="0.9" />
-              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeillingSecond50" />
-              <SecondBottomTileGraphicTag Value="CityCeillingSecond100" />
-              <ThirdBottomTileGraphicTag Value="CityCeillingSecond100Second" />
-              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
-              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
-              <ThirdTopTileGraphicTag Value="CityFloorSecond100Second" />
-              <FirstWallTileGraphicTag Value="CityWallSecond50" />
-              <SecondWallTileGraphicTag Value="CityWallSecond100" />
-              <ThirdWallTileGraphicTag Value="CityWallSecond100Second" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SquaredRandomTiling>
-          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
-            <Properties>
-              <GlobalOffset Value="100" />
-              <CenterOffset Value="{X:50 Y:50}" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_BOT_0-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
-              <DrawLayer Value="0.9" />
-              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
-              <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
-              <FirstBottomTileGraphicTag Value="CityCeillingThird100" />
-              <SecondBottomTileGraphicTag Value="CityCeillingThird100Second" />
-              <ThirdBottomTileGraphicTag Value="NoGraphic" />
-              <FirstTopTileGraphicTag Value="CityFloorThird100" />
-              <SecondTopTileGraphicTag Value="CityFloorThird100Second" />
-              <ThirdTopTileGraphicTag Value="NoGraphic" />
-              <FirstWallTileGraphicTag Value="CityWallThird100" />
-              <SecondWallTileGraphicTag Value="NoGraphic" />
-              <ThirdWallTileGraphicTag Value="NoGraphic" />
-              <CenterTileGraphicTag Value="CityCenterTile" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
+              <NickName Value="ThirdFloor" />
             </Properties>
           </SquaredRandomTiling>
         </Components>
@@ -256,7 +137,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:150 Y:0}_2-{X:300 Y:0}_2-{X:450 Y:0}_2-{X:600 Y:0}_2-{X:750 Y:0}_0-{X:900 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_0-{X:1050 Y:0}_0-{X:1100 Y:0}_2-{X:1150 Y:0}_1-{X:1300 Y:0}_1-{X:1400 Y:0}_1-{X:1500 Y:0}_0-{X:1600 Y:0}_0-{X:1650 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_1-{X:300 Y:0}_2-{X:400 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_2-{X:1000 Y:0}_2-{X:1150 Y:0}_2-{X:1300 Y:0}_1-{X:1450 Y:0}_1-{X:1550 Y:0}_0-{X:1650 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:300}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_1-{X:0 Y:400}_0-{X:0 Y:500}_2-{X:0 Y:550}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -300,7 +181,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_2-{X:650 Y:0}_2-{X:750 Y:0}_1-{X:850 Y:0}_0-{X:950 Y:0}_2-{X:1000 Y:0}_1-{X:1100 Y:0}_2-{X:1200 Y:0}_2-{X:1300 Y:0}_1-{X:1400 Y:0}_1-{X:1500 Y:0}_BOT_2-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_2-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_2-{X:850 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_2-{X:1150 Y:0}_1-{X:1250 Y:0}_0-{X:1350 Y:0}_2-{X:1400 Y:0}_0-{X:1500 Y:0}_0-{X:1550 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_0-{X:0 Y:450}_1-{X:0 Y:500}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_2-{X:0 Y:350}_2-{X:0 Y:450}_0-{X:0 Y:550}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_0-{X:450 Y:0}_0-{X:500 Y:0}_1-{X:550 Y:0}_0-{X:650 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_1-{X:1050 Y:0}_0-{X:1150 Y:0}_1-{X:1200 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_0-{X:1400 Y:0}_0-{X:1450 Y:0}_1-{X:1500 Y:0}_BOT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_1-{X:0 Y:350}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -331,7 +212,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_0-{X:1100 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_BOT_0-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_0-{X:1100 Y:0}_0-{X:1200 Y:0}_1-{X:1300 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_0-{X:1100 Y:0}_0-{X:1200 Y:0}_0-{X:1300 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -375,7 +256,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_2-{X:100 Y:0}_0-{X:250 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_2-{X:950 Y:0}_0-{X:1100 Y:0}_0-{X:1150 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_2-{X:1050 Y:0}_2-{X:1200 Y:0}_0-{X:1350 Y:0}_LEFT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_2-{X:0 Y:400}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:150}_2-{X:0 Y:200}_0-{X:0 Y:350}_2-{X:0 Y:400}_2-{X:0 Y:550}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -419,7 +300,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_2-{X:400 Y:0}_2-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_2-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_2-{X:450 Y:0}_2-{X:550 Y:0}_0-{X:650 Y:0}_1-{X:700 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:950 Y:0}_1-{X:1000 Y:0}_0-{X:1100 Y:0}_0-{X:1150 Y:0}_1-{X:1200 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:100}_0-{X:0 Y:200}_2-{X:0 Y:250}_1-{X:0 Y:350}_2-{X:0 Y:450}_0-{X:0 Y:550}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:550}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_1-{X:450 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_0-{X:650 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_1-{X:850 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_0-{X:0 Y:250}_0-{X:0 Y:300}_1-{X:0 Y:350}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_1-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:550}_0-{X:0 Y:600}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -450,7 +331,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -494,7 +375,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:250 Y:0}_BOT_1-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:250 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:150}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -538,7 +419,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_BOT_1-{X:0 Y:0}_LEFT_RIGHT" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_BOT_0-{X:0 Y:0}_RIGHT_0-{X:0 Y:0}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -582,7 +463,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_2-{X:750 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_BOT_1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:250 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:550 Y:0}_0-{X:650 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:250}_2-{X:0 Y:300}_1-{X:0 Y:450}_1-{X:0 Y:550}_0-{X:0 Y:650}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_0-{X:0 Y:250}_0-{X:0 Y:300}_1-{X:0 Y:350}_1-{X:0 Y:450}_2-{X:0 Y:550}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -626,7 +507,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_1-{X:750 Y:0}_0-{X:850 Y:0}_0-{X:900 Y:0}_BOT_2-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_0-{X:900 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_2-{X:0 Y:200}_2-{X:0 Y:300}_0-{X:0 Y:400}_1-{X:0 Y:450}_0-{X:0 Y:550}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:350}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:550}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:900 Y:0}_BOT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_0-{X:0 Y:500}_1-{X:0 Y:550}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_0-{X:0 Y:500}_0-{X:0 Y:550}_0-{X:0 Y:600}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -657,7 +538,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_BOT_0-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -701,7 +582,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_0-{X:250 Y:0}_2-{X:300 Y:0}_BOT_0-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:150}_1-{X:0 Y:250}_2-{X:0 Y:350}_2-{X:0 Y:500}_2-{X:0 Y:650}_2-{X:0 Y:800}_0-{X:0 Y:950}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_0-{X:0 Y:350}_2-{X:0 Y:400}_1-{X:0 Y:550}_0-{X:0 Y:650}_1-{X:0 Y:700}_0-{X:0 Y:800}_0-{X:0 Y:850}_2-{X:0 Y:900}_0-{X:0 Y:1050}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -745,7 +626,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_BOT_1-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:100}_1-{X:0 Y:200}_2-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_2-{X:0 Y:600}_1-{X:0 Y:700}_2-{X:0 Y:800}_1-{X:0 Y:900}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_2-{X:0 Y:200}_1-{X:0 Y:300}_2-{X:0 Y:400}_1-{X:0 Y:500}_1-{X:0 Y:600}_1-{X:0 Y:700}_1-{X:0 Y:800}_1-{X:0 Y:900}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_BOT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_0-{X:0 Y:500}_1-{X:0 Y:550}_0-{X:0 Y:650}_0-{X:0 Y:700}_1-{X:0 Y:750}_1-{X:0 Y:850}_0-{X:0 Y:950}_0-{X:0 Y:1000}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_1-{X:0 Y:250}_1-{X:0 Y:350}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_1-{X:0 Y:650}_0-{X:0 Y:750}_1-{X:0 Y:800}_1-{X:0 Y:900}_0-{X:0 Y:1000}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -776,7 +657,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_BOT_0-{X:0 Y:0}_0-{X:100 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -820,7 +701,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:200 Y:0}_0-{X:350 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_1-{X:0 Y:250}_2-{X:0 Y:350}_2-{X:0 Y:500}_1-{X:0 Y:650}_2-{X:0 Y:750}_2-{X:0 Y:900}_0-{X:0 Y:1050}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:150}_1-{X:0 Y:200}_2-{X:0 Y:300}_2-{X:0 Y:450}_1-{X:0 Y:600}_1-{X:0 Y:700}_2-{X:0 Y:800}_2-{X:0 Y:950}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -864,7 +745,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:150 Y:0}_0-{X:250 Y:0}_LEFT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:150}_2-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_0-{X:0 Y:450}_2-{X:0 Y:500}_1-{X:0 Y:600}_1-{X:0 Y:700}_1-{X:0 Y:800}_1-{X:0 Y:900}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:100}_2-{X:0 Y:200}_2-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:450}_1-{X:0 Y:500}_0-{X:0 Y:600}_1-{X:0 Y:650}_1-{X:0 Y:750}_0-{X:0 Y:850}_1-{X:0 Y:900}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_0-{X:0 Y:450}_1-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:650}_1-{X:0 Y:700}_0-{X:0 Y:800}_0-{X:0 Y:850}_1-{X:0 Y:900}_0-{X:0 Y:1000}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_1-{X:0 Y:200}_1-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:650}_1-{X:0 Y:700}_1-{X:0 Y:800}_0-{X:0 Y:900}_1-{X:0 Y:950}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -895,7 +776,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_BOT_1-{X:0 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}" />
               <DrawLayer Value="0.9" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -939,7 +820,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:150 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}_2-{X:650 Y:0}_0-{X:800 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:150}_1-{X:0 Y:250}_1-{X:0 Y:350}_0-{X:0 Y:450}_1-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:650}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_2-{X:0 Y:250}_2-{X:0 Y:400}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -983,7 +864,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_BOT_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_0-{X:700 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_1-{X:0 Y:250}_2-{X:0 Y:350}_0-{X:0 Y:450}_0-{X:0 Y:500}_0-{X:0 Y:550}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_1-{X:0 Y:350}_1-{X:0 Y:450}_0-{X:0 Y:550}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:650 Y:0}_0-{X:700 Y:0}_BOT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_1-{X:0 Y:300}_0-{X:0 Y:400}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -1014,7 +895,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_BOT_0-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -1058,7 +939,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_0-{X:700 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:150}_2-{X:0 Y:250}_0-{X:0 Y:400}_0-{X:0 Y:450}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_1-{X:0 Y:300}_1-{X:0 Y:400}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -1102,7 +983,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_2-{X:350 Y:0}_2-{X:450 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_1-{X:650 Y:0}_BOT_2-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_0-{X:700 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:250}_0-{X:0 Y:300}_0-{X:0 Y:350}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_1-{X:0 Y:150}_2-{X:0 Y:250}_0-{X:0 Y:350}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_0-{X:450 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_BOT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:350}_0-{X:0 Y:400}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -1133,7 +1014,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_BOT_0-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -1177,7 +1058,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_2-{X:100 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_1-{X:750 Y:0}_2-{X:850 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_2-{X:350 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_1-{X:1100 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_RIGHT_2-{X:0 Y:0}_1-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.898" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -1221,7 +1102,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_2-{X:650 Y:0}_2-{X:750 Y:0}_2-{X:850 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_BOT_0-{X:0 Y:0}_0-{X:50 Y:0}_2-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_2-{X:850 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_2-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_1-{X:0 Y:300}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_0-{X:650 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_0-{X:1050 Y:0}_BOT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_1-{X:0 Y:350}" />
               <DrawLayer Value="0.898" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -1252,7 +1133,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_1-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:800 Y:0}_BOT_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:800 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:800 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}" />
               <DrawLayer Value="0.898" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
@@ -1296,7 +1177,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_BOT_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:300}_0-{X:0 Y:450}_2-{X:0 Y:500}_2-{X:0 Y:650}_2-{X:0 Y:800}_2-{X:0 Y:950}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_2-{X:0 Y:400}_1-{X:0 Y:550}_0-{X:0 Y:650}_0-{X:0 Y:700}_0-{X:0 Y:750}_1-{X:0 Y:800}_1-{X:0 Y:900}_1-{X:0 Y:1000}" />
+              <TilingHash Value="" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorCorner" />
               <BottomCornerGraphicTag Value="CityCeillingCorner" />
@@ -1340,7 +1221,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:150 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_2-{X:0 Y:250}_1-{X:0 Y:350}_1-{X:0 Y:450}_2-{X:0 Y:550}_0-{X:0 Y:650}_0-{X:0 Y:700}_0-{X:0 Y:750}_0-{X:0 Y:800}_2-{X:0 Y:850}_0-{X:0 Y:950}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_1-{X:0 Y:250}_0-{X:0 Y:350}_2-{X:0 Y:400}_0-{X:0 Y:500}_2-{X:0 Y:550}_0-{X:0 Y:650}_1-{X:0 Y:700}_1-{X:0 Y:800}_0-{X:0 Y:900}_0-{X:0 Y:950}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_BOT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_0-{X:0 Y:500}_1-{X:0 Y:550}_1-{X:0 Y:650}_1-{X:0 Y:750}_0-{X:0 Y:850}_0-{X:0 Y:900}_0-{X:0 Y:950}_0-{X:0 Y:1000}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:350}_0-{X:0 Y:400}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}_0-{X:0 Y:700}_1-{X:0 Y:750}_1-{X:0 Y:850}_0-{X:0 Y:950}_0-{X:0 Y:1000}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorSecondCorner" />
               <BottomCornerGraphicTag Value="CityCeillingSecondCorner" />
@@ -1371,7 +1252,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_BOT_0-{X:0 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_BOT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:700}_0-{X:0 Y:800}" />
               <DrawLayer Value="0.899" />
               <TopCornerGraphicTag Value="CityFloorThirdCorner" />
               <BottomCornerGraphicTag Value="CityCeillingThirdCorner" />
