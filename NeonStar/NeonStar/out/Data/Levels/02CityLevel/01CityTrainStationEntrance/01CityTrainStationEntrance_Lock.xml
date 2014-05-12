@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1274 Y:-730}" />
+              <InitialPosition Value="{X:1460 Y:-730}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1276 Y:-730}" />
-              <X Value="1226" />
+              <Center Value="{X:1457 Y:-730}" />
+              <X Value="1407" />
               <Y Value="-810" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -45,7 +45,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -89,7 +89,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -183,7 +183,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1400 Y:-982}" />
+              <InitialPosition Value="{X:1400 Y:-1000}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -192,9 +192,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1400 Y:-982}" />
+              <Center Value="{X:1400 Y:-1000}" />
               <X Value="1350" />
-              <Y Value="-1032" />
+              <Y Value="-1050" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -250,7 +250,7 @@
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="Idle" />
-              <DyingAnim Value="" />
+              <DyingAnim Value="Death" />
               <HitAnim Value="" />
               <StunlockAnim Value="" />
               <ImmuneToStunLock Value="True" />
@@ -295,7 +295,7 @@
           </EnemyAnimationManager>
           <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="12">
             <Properties>
-              <MaximumAngleDifference Value="360" />
+              <MaximumAngleDifference Value="180" />
               <CanTurn Value="True" />
               <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="500" />
@@ -329,7 +329,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3153 Y:-130}" />
+              <InitialPosition Value="{X:3184 Y:-130}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -338,8 +338,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3150 Y:-130}" />
-              <X Value="3100" />
+              <Center Value="{X:3186 Y:-130}" />
+              <X Value="3136" />
               <Y Value="-210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -367,7 +367,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -411,7 +411,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -505,7 +505,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1214 Y:-130}" />
+              <InitialPosition Value="{X:1260 Y:-130}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -514,8 +514,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1216 Y:-130}" />
-              <X Value="1176" />
+              <Center Value="{X:1262 Y:-130}" />
+              <X Value="1222" />
               <Y Value="-210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -681,7 +681,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1051 Y:-605}" />
+              <InitialPosition Value="{X:-1366 Y:-605}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -690,8 +690,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-1048 Y:-615}" />
-              <X Value="-1098" />
+              <Center Value="{X:-1369 Y:-615}" />
+              <X Value="-1419" />
               <Y Value="-650" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -719,7 +719,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -762,7 +762,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.4" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -836,7 +836,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2580 Y:-597}" />
+              <InitialPosition Value="{X:2604 Y:-597}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -845,8 +845,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2582 Y:-607}" />
-              <X Value="2532" />
+              <Center Value="{X:2607 Y:-607}" />
+              <X Value="2557" />
               <Y Value="-642" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -991,7 +991,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2491 Y:-130}" />
+              <InitialPosition Value="{X:2518 Y:-130}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1000,8 +1000,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2488 Y:-130}" />
-              <X Value="2438" />
+              <Center Value="{X:2520 Y:-130}" />
+              <X Value="2470" />
               <Y Value="-210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1029,7 +1029,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1073,7 +1073,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -1167,7 +1167,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3861 Y:-1180}" />
+              <InitialPosition Value="{X:3861 Y:-1201}" />
               <Rotation Value="180" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1176,9 +1176,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3861 Y:-1180}" />
+              <Center Value="{X:3861 Y:-1200}" />
               <X Value="3811" />
-              <Y Value="-1230" />
+              <Y Value="-1250" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="100" />
@@ -1234,7 +1234,7 @@
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="" />
               <IdleAnim Value="Idle" />
-              <DyingAnim Value="" />
+              <DyingAnim Value="Death" />
               <HitAnim Value="" />
               <StunlockAnim Value="" />
               <ImmuneToStunLock Value="True" />
@@ -1279,7 +1279,7 @@
           </EnemyAnimationManager>
           <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="12">
             <Properties>
-              <MaximumAngleDifference Value="360" />
+              <MaximumAngleDifference Value="180" />
               <CanTurn Value="True" />
               <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="500" />
