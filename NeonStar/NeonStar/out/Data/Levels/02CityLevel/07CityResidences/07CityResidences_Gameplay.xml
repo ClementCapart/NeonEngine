@@ -289,7 +289,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2250 Y:-1025}" />
+              <InitialPosition Value="{X:2700 Y:-1025}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -298,8 +298,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2250 Y:-1025}" />
-              <X Value="2200" />
+              <Center Value="{X:2700 Y:-1025}" />
+              <X Value="2650" />
               <Y Value="-1175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1641,6 +1641,101 @@
               <NickName Value="Gauge" />
             </Properties>
           </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="DoorE" Layer="Gameplay">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2300 Y:-1025}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:2300 Y:-1025}" />
+              <X Value="2250" />
+              <Y Value="-1175" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="300" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="2.99995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="BigEnergyDoorClosed" />
+                <Animation Name="Opened" SpritesheetTag="BigEnergyDoorOpened" />
+                <Animation Name="Closing" SpritesheetTag="BigEnergyDoorClosing" />
+                <Animation Name="Opening" SpritesheetTag="BigEnergyDoorOpening" />
+              </Spritesheets>
+              <DrawLayer Value="0" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="4">
+            <Properties>
+              <OpenWhenAnimationEnd Value="True" />
+              <ClosedIdleAnimation Value="Closed" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="True" />
+              <DoorClosingAnimation Value="Closing" />
+              <FirstActivatingDeviceName Value="EnergyDeviceE" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </EnergyDoor>
         </Components>
       </Entity>
     </Entities>
