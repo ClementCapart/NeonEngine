@@ -664,7 +664,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2800 Y:150}" />
+              <InitialPosition Value="{X:2950 Y:150}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -673,12 +673,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2800 Y:150}" />
-              <X Value="2550" />
+              <Center Value="{X:2950 Y:150}" />
+              <X Value="2850" />
               <Y Value="100" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="500" />
+              <Width Value="200" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
@@ -690,7 +690,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="4.99995" />
+              <Mass Value="1.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -700,12 +700,6 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
-          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
-            <Properties>
-              <LinkedPathNodeList Value="PathRobot01" />
-              <NickName Value="" />
-            </Properties>
-          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="Glass" Layer="">
@@ -713,7 +707,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2400 Y:110}" />
+              <InitialPosition Value="{X:2700 Y:110}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -722,8 +716,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2400 Y:110}" />
-              <X Value="2250" />
+              <Center Value="{X:2700 Y:110}" />
+              <X Value="2550" />
               <Y Value="100" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -808,7 +802,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2404 Y:186}" />
+              <InitialPosition Value="{X:2704 Y:186}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -846,7 +840,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2150 Y:150}" />
+              <InitialPosition Value="{X:2300 Y:150}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -855,12 +849,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2150 Y:150}" />
+              <Center Value="{X:2300 Y:150}" />
               <X Value="2050" />
               <Y Value="100" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="200" />
+              <Width Value="500" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
@@ -872,7 +866,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.99995" />
+              <Mass Value="4.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -882,6 +876,12 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
+          <LinkedToPath Type="NeonEngine.Components.Utils.LinkedToPath" ID="3">
+            <Properties>
+              <LinkedPathNodeList Value="PathRobot01" />
+              <NickName Value="" />
+            </Properties>
+          </LinkedToPath>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="">
