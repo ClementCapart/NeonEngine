@@ -5,22 +5,24 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <Position Value="{X:-424 Y:-120.4499}" />
-          <InitialPosition Value="{X:-424 Y:-120.4499}" />
+          <Position Value="{X:45.11115 Y:102.9925}" />
+          <InitialPosition Value="{X:45.11115 Y:102.9925}" />
           <Rotation Value="0" />
           <Scale Value="2" />
+          <NickName Value="" />
         </Properties>
       </Transform>
       <BombAttack Type="NeonStarLibrary.Components.Enemies.BombAttack" ID="2">
         <Properties>
           <StartTimerOnGround Value="True" />
-          <InitialTimerDuration Value="2" />
+          <InitialTimerDuration Value="1.9" />
           <LaunchedTimerDuration Value="1" />
           <EffectiveAttackName Value="LiOnUppercut" />
           <ExplosionAttack Value="EnemyBomb" />
           <IdleAnimation Value="IdleExplosion" />
           <FirstExplosionAnimation Value="FirstExplosion" />
           <NextExplosionAnimation Value="SecondExplosion" />
+          <NickName Value="" />
         </Properties>
       </BombAttack>
       <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
@@ -37,18 +39,20 @@
           <Hitbox Value="1" />
           <Sensors Value="True" />
           <FixedRotation Value="True" />
+          <NickName Value="" />
         </Properties>
       </Rigidbody>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-423 Y:-120}" />
-          <X Value="-448" />
-          <Y Value="-145" />
+          <Center Value="{X:45 Y:102}" />
+          <X Value="20" />
+          <Y Value="77" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="50" />
           <Height Value="50" />
+          <NickName Value="" />
         </Properties>
       </Hitbox>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="1">
@@ -57,11 +61,14 @@
           <StartingHealthPoints Value="10" />
           <CoreElement Value="Neutral" />
           <CurrentHealthPoints Value="10" />
+          <ChanceToDropHealth Value="0.6" />
+          <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
           <RunAnim Value="" />
           <IdleAnim Value="" />
           <DyingAnim Value="" />
           <HitAnim Value="" />
+          <StunlockAnim Value="" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
           <ImmuneToDeath Value="False" />
@@ -71,11 +78,14 @@
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="1" />
+          <CurrentSide Value="Right" />
+          <NickName Value="" />
         </Properties>
       </EnemyCore>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
           <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="False" />
@@ -88,7 +98,8 @@
           </Spritesheets>
           <DrawLayer Value="0.4" />
           <IsHUD Value="False" />
-          <ParallaxForce Value="{X:0 Y:0}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <NickName Value="" />
         </Properties>
       </SpritesheetManager>
     </Components>
