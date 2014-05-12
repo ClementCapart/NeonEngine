@@ -15,6 +15,7 @@ using Color = System.Drawing.Color;
 using Component = NeonEngine.Component;
 using Point = System.Drawing.Point;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Audio;
 
 namespace NeonStarEditor
 {
@@ -304,6 +305,32 @@ namespace NeonStarEditor
 
                         localY += comboBox.Height + 5;
                     }
+                    else if (pi.Name.EndsWith("SoundTag"))
+                    {
+                        Button openSoundPicker = new Button();
+                        openSoundPicker.FlatStyle = FlatStyle.Flat;
+                        openSoundPicker.Location = new Point(10, localY);
+                        openSoundPicker.AutoSize = true;
+                        openSoundPicker.Text = "Sound Picker";
+
+                        tp.Controls.Add(openSoundPicker);
+
+                        Label currentSound = new Label();
+                        currentSound.Location = new Point(openSoundPicker.Width + 35, localY);
+                        currentSound.AutoSize = false;
+                        currentSound.Width = 190;
+                        currentSound.Height = 30;
+                        currentSound.Text = (string)pi.GetValue(c, null);
+                        currentSound.Font = new Font("Calibri", 8.0f);
+                        tp.Controls.Add(currentSound);
+
+                        openSoundPicker.Click += delegate(object sender, EventArgs e)
+                        {
+                            GameWorld.ToggleSoundPicker(pi, c, currentSound);
+                        };
+
+                        localY += openSoundPicker.Height + 5;
+                    }
                     else if (pi.Name.EndsWith("GraphicTag"))
                     {
                         Button openGraphicPicker = new Button();
@@ -416,6 +443,14 @@ namespace NeonStarEditor
                         tp.Controls.Add(ssinspector);
                         ssinspector.RefreshData();
                         localY += ssinspector.Height + 5;
+                    }
+                    else if (pi.PropertyType.Equals(typeof(List<SoundInstanceInfo>)))
+                    {
+                        SoundListInspector sli = new SoundListInspector((List<SoundInstanceInfo>)pi.GetValue(c, null), GameWorld);
+                        sli.Location = new Point(10, localY);
+                        tp.Controls.Add(sli);
+                        sli.RefreshData();
+                        localY += sli.Height + 5;
                     }
                     else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                     {

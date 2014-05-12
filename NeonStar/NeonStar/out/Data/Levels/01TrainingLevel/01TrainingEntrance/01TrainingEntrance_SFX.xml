@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="SFX">
+    <Entities>
+      <Entity Name="Fire" Layer="SFX">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-5224 Y:667}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
+            <Properties>
+              <PlayingSoundTag Value="FireLoop" />
+              <Is3DSound Value="True" />
+              <IsLooped Value="True" />
+              <Volume Value="1" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="150" />
+              <MaxDistance Value="800" />
+              <DistanceVolumeTreshold Value="0.3" />
+              <NickName Value="" />
+            </Properties>
+          </SimpleSoundEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="Fire" Layer="SFX">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-4529 Y:696}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
+            <Properties>
+              <PlayingSoundTag Value="FireLoop" />
+              <Is3DSound Value="True" />
+              <IsLooped Value="True" />
+              <Volume Value="1" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="150" />
+              <MaxDistance Value="800" />
+              <DistanceVolumeTreshold Value="0.3" />
+              <NickName Value="" />
+            </Properties>
+          </SimpleSoundEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="AmbientDrone" Layer="SFX">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-3034 Y:584}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
+            <Properties>
+              <PlayingSoundTag Value="Drone1Loop" />
+              <Is3DSound Value="False" />
+              <IsLooped Value="True" />
+              <Volume Value="0.2" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="0" />
+              <MaxDistance Value="3000" />
+              <DistanceVolumeTreshold Value="0.3" />
+              <NickName Value="" />
+            </Properties>
+          </SimpleSoundEmitter>
+        </Components>
+      </Entity>
+      <Entity Name="AmbientDrone" Layer="SFX">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1191 Y:151}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
+            <Properties>
+              <PlayingSoundTag Value="Drone2Loop" />
+              <Is3DSound Value="False" />
+              <IsLooped Value="True" />
+              <Volume Value="0.15" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="0" />
+              <MaxDistance Value="3000" />
+              <DistanceVolumeTreshold Value="0.3" />
+              <NickName Value="" />
+            </Properties>
+          </SimpleSoundEmitter>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>

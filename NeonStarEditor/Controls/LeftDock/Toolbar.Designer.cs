@@ -50,6 +50,7 @@
             this.SaveLockLayer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.AreaSelection = new System.Windows.Forms.Button();
+            this.ReloadSound = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             this.ReloadAssetsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadAssetsButton.BackgroundImage")));
             this.ReloadAssetsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ReloadAssetsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReloadAssetsButton.Location = new System.Drawing.Point(4, 553);
+            this.ReloadAssetsButton.Location = new System.Drawing.Point(3, 553);
             this.ReloadAssetsButton.Name = "ReloadAssetsButton";
             this.ReloadAssetsButton.Size = new System.Drawing.Size(30, 30);
             this.ReloadAssetsButton.TabIndex = 4;
@@ -93,7 +94,7 @@
             this.AttackManagerButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AttackManagerButton.BackgroundImage")));
             this.AttackManagerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.AttackManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AttackManagerButton.Location = new System.Drawing.Point(3, 517);
+            this.AttackManagerButton.Location = new System.Drawing.Point(2, 517);
             this.AttackManagerButton.Name = "AttackManagerButton";
             this.AttackManagerButton.Size = new System.Drawing.Size(30, 30);
             this.AttackManagerButton.TabIndex = 4;
@@ -296,12 +297,24 @@
             this.AreaSelection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AreaSelection.BackgroundImage")));
             this.AreaSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AreaSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AreaSelection.Location = new System.Drawing.Point(40, 179);
+            this.AreaSelection.Location = new System.Drawing.Point(39, 179);
             this.AreaSelection.Name = "AreaSelection";
             this.AreaSelection.Size = new System.Drawing.Size(30, 30);
             this.AreaSelection.TabIndex = 5;
             this.AreaSelection.UseVisualStyleBackColor = true;
             this.AreaSelection.Click += new System.EventHandler(this.AreaSelection_Click);
+            // 
+            // ReloadSound
+            // 
+            this.ReloadSound.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReloadSound.BackgroundImage")));
+            this.ReloadSound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReloadSound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReloadSound.Location = new System.Drawing.Point(39, 553);
+            this.ReloadSound.Name = "ReloadSound";
+            this.ReloadSound.Size = new System.Drawing.Size(30, 30);
+            this.ReloadSound.TabIndex = 4;
+            this.ReloadSound.UseVisualStyleBackColor = true;
+            this.ReloadSound.Click += new System.EventHandler(this.ReloadSound_Click);
             // 
             // Toolbar
             // 
@@ -319,6 +332,7 @@
             this.Controls.Add(this.ToggleLightButton);
             this.Controls.Add(this.CameraPanel);
             this.Controls.Add(this.AttackManagerButton);
+            this.Controls.Add(this.ReloadSound);
             this.Controls.Add(this.ReloadAssetsButton);
             this.Controls.Add(this.ReloadScript);
             this.Controls.Add(this.CreateRectangle);
@@ -361,5 +375,6 @@
         private System.Windows.Forms.Button SaveLockLayer;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AreaSelection;
+        private System.Windows.Forms.Button ReloadSound;
     }
 }

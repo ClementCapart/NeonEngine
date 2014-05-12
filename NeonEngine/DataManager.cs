@@ -11,6 +11,7 @@ using System.Text;
 using System.Xml.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Audio;
 
 namespace NeonEngine
 {
@@ -512,6 +513,25 @@ namespace NeonEngine
                     }
 
                     Properties.Add(Property);
+                }
+                else if (pi.PropertyType.Equals(typeof(List<SoundInstanceInfo>)))
+                {
+                    XElement Property = new XElement(pi.Name);
+                    List<SoundInstanceInfo> propertyList = (List<SoundInstanceInfo>)pi.GetValue(c, null);
+                    foreach (SoundInstanceInfo sii in propertyList)
+                    {
+                        if(sii.Sound != null)
+                        {
+                            XElement SoundInstance = new XElement("SoundInstanceInfo", new XAttribute("Name", sii.Name),
+                                                                                       new XAttribute("Sound", sii.Sound.Name),
+                                                                                       new XAttribute("3DSound", sii.Is3DSound.ToString()),
+                                                                                       new XAttribute("Volume", sii.Volume.ToString()),
+                                                                                       new XAttribute("Pitch", sii.Pitch.ToString()),
+                                                                                       new XAttribute("Offset", Neon.Utils.Vector2ToString(sii.Offset)));
+                            Property.Add(SoundInstance);
+                        }
+                        
+                    }
                 }
                 else if (pi.PropertyType.Equals(typeof(PathNodeList)))
                 {

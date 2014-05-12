@@ -9,6 +9,9 @@ using NeonEngine.Private;
 using System.Xml.Linq;
 using NeonEngine.Components.CollisionDetection;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Audio;
+using Microsoft.Xna.Framework.Audio;
+using NeonEngine.Components.Private;
 
 namespace NeonEngine
 {
@@ -30,6 +33,9 @@ namespace NeonEngine
 
         Vector2 _screenCenter;
         DebugViewXNA _debugView;
+
+        public List<AudioListener> AudioListeners;
+        public List<SoundEmitter> AudioEmitters;
 
         public Camera2D Camera;
         public List<Entity> Entities;
@@ -56,7 +62,6 @@ namespace NeonEngine
 
         public bool FirstUpdateWorld = true;
         public bool FirstUpdate = true;
-
 
         public Game game;
 
@@ -93,6 +98,9 @@ namespace NeonEngine
             NodeLists = new List<PathNodeList>();
             SpawnPoints = new List<SpawnPoint>();
             SpecialEffects = new List<AnimatedSpecialEffect>();
+
+            AudioEmitters = new List<SoundEmitter>();
+            AudioListeners = new List<AudioListener>();
 
             _polygonRenderer = new PolygonRenderer(Neon.GraphicsDevice, Vector2.Zero);
         }
@@ -179,7 +187,14 @@ namespace NeonEngine
             else if(_change)
             {
                 if (Alpha >= 1.0f)
+                {
                     Neon.World = NextScreen;
+                    foreach (Entity e in Entities)
+                    {
+                        e.OnChangeLevel();
+                    }
+                }
+                
                 Alpha += 3.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }         
             
@@ -326,10 +341,6 @@ namespace NeonEngine
 
         public virtual void ChangeScreen(World nextScreen)
         {
-            foreach (Entity e in Entities)
-            {
-                e.OnChangeLevel();
-            }
             _change = true;
             this.NextScreen = nextScreen;
         }

@@ -1419,118 +1419,6 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="EnemyPlasmaTurret" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-845 Y:24}" />
-              <Rotation Value="180" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:-845 Y:24}" />
-              <X Value="-895" />
-              <Y Value="-26" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="100" />
-              <Height Value="100" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="0.99995" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:15 Y:-12}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="7.1" />
-              <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="EnemyPlasmaTurretIdle" />
-                <Animation Name="Attack" SpritesheetTag="EnemyPlasmaTurretAttack" />
-                <Animation Name="Death" SpritesheetTag="Explosion" />
-              </Spritesheets>
-              <DrawLayer Value="0.49" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="20" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="20" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Idle" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
-            <Properties>
-              <GraphicTag Value="EnemyPlasmaTurretBot" />
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-22}" />
-              <RotationOffset Value="-1.571" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
-            <Properties>
-              <CanChangeSide Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyAnimationManager>
-        </Components>
-      </Entity>
       <Entity Name="VentVertical" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -2751,7 +2639,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2100 Y:-100}" />
+              <InitialPosition Value="{X:-2100 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2780,13 +2668,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-2100 Y:-100}" />
+              <Center Value="{X:-2100 Y:-500}" />
               <X Value="-2102" />
-              <Y Value="-700" />
+              <Y Value="-1500" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="5" />
-              <Height Value="1200" />
+              <Height Value="2000" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -2797,7 +2685,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2150 Y:-100}" />
+              <InitialPosition Value="{X:-2150 Y:-500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2826,13 +2714,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-2150 Y:-100}" />
+              <Center Value="{X:-2150 Y:-500}" />
               <X Value="-2152" />
-              <Y Value="-700" />
+              <Y Value="-1500" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="5" />
-              <Height Value="1200" />
+              <Height Value="2000" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -3178,158 +3066,31 @@
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="EnemySupervisor" Layer="">
+      <Entity Name="SaveRoomTease" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:35 Y:82}" />
+              <InitialPosition Value="{X:1843 Y:427}" />
               <Rotation Value="0" />
-              <Scale Value="2" />
+              <Scale Value="1" />
               <NickName Value="" />
             </Properties>
           </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+          <SimpleSoundEmitter Type="NeonEngine.Components.Audio.SimpleSoundEmitter" ID="1">
             <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:36 Y:72}" />
-              <X Value="-14" />
-              <Y Value="37" />
-              <OffsetX Value="0" />
-              <OffsetY Value="-10" />
-              <Width Value="100" />
-              <Height Value="70" />
+              <PlayingSoundTag Value="BackgroundLoop" />
+              <Is3DSound Value="False" />
+              <IsLooped Value="True" />
+              <Volume Value="0.1" />
+              <Pitch Value="0" />
+              <Debug Value="True" />
+              <ZDistance Value="150" />
+              <MaxDistance Value="1000" />
+              <DistanceVolumeTreshold Value="0.3" />
               <NickName Value="" />
             </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Dynamic" />
-              <GravityScale Value="0" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="400" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="True" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
-            <Properties>
-              <CurrentSide Value="Left" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Walk" SpritesheetTag="EnemySupervisorWalk" />
-                <Animation Name="AlertWalk" SpritesheetTag="EnemySupervisorAlertWalk" />
-                <Animation Name="Attack" SpritesheetTag="EnemySupervisorAttack" />
-                <Animation Name="Alert" SpritesheetTag="EnemySupervisorAlertOn" />
-              </Spritesheets>
-              <DrawLayer Value="0.5" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
-              <ChanceToDropHealth Value="0.6" />
-              <HealthItemsToDrop Value="1" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="Walk" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Flying" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="0.4" />
-              <CurrentSide Value="Left" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-          <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
-            <Properties>
-              <CurrentNodeList Value="SupervisorPatrol" />
-              <Speed Value="1" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="10" />
-              <NickName Value="" />
-            </Properties>
-          </FollowNodes>
-          <SupervisorChase Type="NeonStarLibrary.Components.Enemies.SupervisorChase" ID="6">
-            <Properties>
-              <DetectionWidth Value="800" />
-              <DetectionHeight Value="1000" />
-              <DetectionBoxOffset Value="{X:0 Y:0}" />
-              <AlertAnimation Value="Alert" />
-              <AlertPatrolAnimation Value="AlertWalk" />
-              <NormalPatrolAnimation Value="Walk" />
-              <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="1" />
-              <WaitStopDuration Value="1" />
-              <ChaseSpeed Value="3" />
-              <ChasePrecision Value="10" />
-              <NickName Value="" />
-            </Properties>
-          </SupervisorChase>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
-            <Properties>
-              <CanChangeSide Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyAnimationManager>
-          <SupervisorAttack Type="NeonStarLibrary.Components.Enemies.SupervisorAttack" ID="1">
-            <Properties>
-              <AttackRangeWidth Value="100" />
-              <AttackRangeHeight Value="1000" />
-              <AttackRangeOffset Value="{X:0 Y:0}" />
-              <CanTurn Value="True" />
-              <RandomBalanceRate Value="0" />
-              <RangeForAttackOne Value="0" />
-              <AttackToLaunchOne Value="EnemySupervisorBombs" />
-              <AttackOneDelayAnimation Value="Attack" />
-              <AttackOneDurationAnimation Value="" />
-              <AttackOneCooldownAnimation Value="" />
-              <RangeForAttackTwo Value="0" />
-              <AttackToLaunchTwo Value="" />
-              <AttackTwoDelayAnimation Value="" />
-              <AttackTwoDurationAnimation Value="" />
-              <AttackTwoCooldownAnimation Value="" />
-              <RangeForAttackThree Value="0" />
-              <AttackToLaunchThree Value="" />
-              <AttackThreeDelayAnimation Value="" />
-              <AttackThreeDurationAnimation Value="" />
-              <AttackThreeCooldownAnimation Value="" />
-              <RangeForAttackFour Value="0" />
-              <AttackToLaunchFour Value="" />
-              <AttackFourDelayAnimation Value="" />
-              <AttackFourDurationAnimation Value="" />
-              <AttackFourCooldownAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
-              <NickName Value="" />
-            </Properties>
-          </SupervisorAttack>
+          </SimpleSoundEmitter>
         </Components>
       </Entity>
     </Entities>

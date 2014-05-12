@@ -1539,11 +1539,22 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects />
+      <OnDelaySpecialEffects>
+        <Effect Type="PlaySound">
+          <Parameter Value="_FXEnemyAttackFeedback" />
+          <SecondParameter Value="1" />
+          <ThirdParameter Value="False" />
+        </Effect>
+      </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="ShootBulletAtTarget">
           <Parameter Value="NeutralBullet" />
           <SecondParameter Value="{X:10 Y:0}" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="Jump" />
+          <SecondParameter Value="1" />
+          <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -1634,12 +1645,22 @@
           <SeventhParameter Value="1" />
           <EighthParameter Value="False" />
         </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="_FXEnemyAttackFeedback" />
+          <SecondParameter Value="0.1" />
+          <ThirdParameter Value="False" />
+        </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="PlaySound">
+          <Parameter Value="RobotPunch" />
+          <SecondParameter Value="0.3" />
+          <ThirdParameter Value="True" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2124,11 +2145,6 @@
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
-        <Effect Type="Impulse">
-          <Parameter Value="{X:0 Y:-1700}" />
-          <SecondParameter Value="False" />
-          <ThirdParameter Value="False" />
-        </Effect>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:1000 Y:0}" />
         </Effect>
