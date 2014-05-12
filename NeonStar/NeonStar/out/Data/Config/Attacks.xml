@@ -530,7 +530,7 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>1</Delay>
-      <Cooldown>1</Cooldown>
+      <Cooldown>0.6</Cooldown>
       <LocalCooldown>0</LocalCooldown>
       <Duration>0.8</Duration>
       <AirLock>0</AirLock>
@@ -1539,22 +1539,11 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects>
-        <Effect Type="PlaySound">
-          <Parameter Value="_FXEnemyAttackFeedback" />
-          <SecondParameter Value="1" />
-          <ThirdParameter Value="False" />
-        </Effect>
-      </OnDelaySpecialEffects>
+      <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="ShootBulletAtTarget">
           <Parameter Value="NeutralBullet" />
           <SecondParameter Value="{X:10 Y:0}" />
-        </Effect>
-        <Effect Type="PlaySound">
-          <Parameter Value="Jump" />
-          <SecondParameter Value="1" />
-          <ThirdParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
@@ -1645,22 +1634,12 @@
           <SeventhParameter Value="1" />
           <EighthParameter Value="False" />
         </Effect>
-        <Effect Type="PlaySound">
-          <Parameter Value="_FXEnemyAttackFeedback" />
-          <SecondParameter Value="0.1" />
-          <ThirdParameter Value="False" />
-        </Effect>
       </OnDelaySpecialEffects>
       <OnDurationSpecialEffects>
         <Effect Type="Impulse">
           <Parameter Value="{X:3500 Y:0}" />
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
-        </Effect>
-        <Effect Type="PlaySound">
-          <Parameter Value="RobotPunch" />
-          <SecondParameter Value="0.3" />
-          <ThirdParameter Value="True" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -2145,6 +2124,11 @@
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
+        <Effect Type="Impulse">
+          <Parameter Value="{X:0 Y:-1700}" />
+          <SecondParameter Value="False" />
+          <ThirdParameter Value="False" />
+        </Effect>
         <Effect Type="PositionalPulse">
           <Parameter Value="{X:1000 Y:0}" />
         </Effect>
@@ -2390,7 +2374,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0.6</StunLock>
+      <StunLock>1</StunLock>
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>True</AlwaysStunlock>
