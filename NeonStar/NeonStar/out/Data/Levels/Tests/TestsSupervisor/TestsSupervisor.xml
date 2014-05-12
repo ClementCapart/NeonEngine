@@ -222,7 +222,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:823 Y:-240}" />
+              <InitialPosition Value="{X:686 Y:-240}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -231,8 +231,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:819 Y:-249}" />
-              <X Value="769" />
+              <Center Value="{X:689 Y:-249}" />
+              <X Value="639" />
               <Y Value="-284" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -260,7 +260,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -302,7 +302,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.4" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -478,6 +478,8 @@
             <Properties>
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="" />
@@ -493,14 +495,12 @@
               <AttackThreeDelayAnimation Value="" />
               <AttackThreeDurationAnimation Value="" />
               <AttackThreeCooldownAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
-              <RandomBalanceRate Value="0" />
               <RangeForAttackFour Value="0" />
               <AttackToLaunchFour Value="" />
               <AttackFourDelayAnimation Value="" />
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
               <NickName Value="" />
             </Properties>
           </GroundAttack>
