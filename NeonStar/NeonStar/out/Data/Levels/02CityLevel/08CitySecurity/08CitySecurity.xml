@@ -377,7 +377,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="1.99995" />
+              <Mass Value="2.99995" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1378,405 +1378,6 @@
           </Rigidbody>
         </Components>
       </Entity>
-      <Entity Name="Glass" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4650 Y:-1040}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:4650 Y:-1040}" />
-              <X Value="4500" />
-              <Y Value="-1050" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="20" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.5999499" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="1" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Solid" />
-              <DyingAnim Value="Breaking" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
-            <Properties>
-              <CanChangeSide Value="False" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyAnimationManager>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:2 Y:38}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Solid" SpritesheetTag="GlassBreak03Solid" />
-                <Animation Name="Breaking" SpritesheetTag="GlassBreak03Breaking" />
-              </Spritesheets>
-              <DrawLayer Value="0.55" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="GlassBroken" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4654 Y:-964}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="GlassBreak03Broken" />
-              <DrawLayer Value="0.54" />
-              <IsFinished Value="True" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Spritesheet>
-        </Components>
-      </Entity>
-      <Entity Name="Glass2" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4650 Y:-540}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:4650 Y:-540}" />
-              <X Value="4500" />
-              <Y Value="-550" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="20" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.5999499" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="1" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Solid" />
-              <DyingAnim Value="Breaking" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
-            <Properties>
-              <CanChangeSide Value="False" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyAnimationManager>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:2 Y:38}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Solid" SpritesheetTag="GlassBreak03Solid" />
-                <Animation Name="Breaking" SpritesheetTag="GlassBreak03Breaking" />
-              </Spritesheets>
-              <DrawLayer Value="0.55" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="GlassBroken2" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4654 Y:-464}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="GlassBreak03Broken" />
-              <DrawLayer Value="0.54" />
-              <IsFinished Value="True" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Spritesheet>
-        </Components>
-      </Entity>
-      <Entity Name="Glass3" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4650 Y:-40}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Main" />
-              <Center Value="{X:4650 Y:-39}" />
-              <X Value="4500" />
-              <Y Value="-49" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="300" />
-              <Height Value="20" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="0.3" />
-              <Mass Value="0.5999499" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="1" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Solid" />
-              <DyingAnim Value="Breaking" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="6">
-            <Properties>
-              <CanChangeSide Value="False" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyAnimationManager>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
-            <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:2 Y:38}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Solid" SpritesheetTag="GlassBreak03Solid" />
-                <Animation Name="Breaking" SpritesheetTag="GlassBreak03Breaking" />
-              </Spritesheets>
-              <DrawLayer Value="0.55" />
-              <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </SpritesheetManager>
-        </Components>
-      </Entity>
-      <Entity Name="GlassBroken2" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4654 Y:36}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="GlassBreak03Broken" />
-              <DrawLayer Value="0.54" />
-              <IsFinished Value="True" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Spritesheet>
-        </Components>
-      </Entity>
       <Entity Name="LevelGeometry" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -2476,6 +2077,624 @@
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="GlassB" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-540}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="1">
+            <Properties>
+              <OpenWhenAnimationEnd Value="False" />
+              <ClosedIdleAnimation Value="Closed" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="True" />
+              <DoorClosingAnimation Value="" />
+              <FirstActivatingDeviceName Value="GlassB" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </EnergyDoor>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.5999499" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="True" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:4650 Y:-540}" />
+              <X Value="4500" />
+              <Y Value="-550" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="300" />
+              <Height Value="20" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:2 Y:38}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="GlassBreak03Solid" />
+                <Animation Name="Opening" SpritesheetTag="GlassBreak03Breaking" />
+                <Animation Name="Opened" SpritesheetTag="GlassBreak03Broken" />
+              </Spritesheets>
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
+            <Properties>
+              <SignSpriteSheetTag Value="" />
+              <DisplayGauge Value="False" />
+              <FirstEnemyToKill Value="GlassEnemyB" />
+              <SecondEnemyToKill Value="" />
+              <ThirdEnemyToKill Value="" />
+              <FourthEnemyToKill Value="" />
+              <FifthEnemyToKill Value="" />
+              <AddSignOnTargets Value="False" />
+              <LockName Value="DoorLock" />
+              <GaugeName Value="Gauge" />
+              <GaugeMaxWidth Value="100" />
+              <State Value="Deactivated" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyPoweredDevice>
+        </Components>
+      </Entity>
+      <Entity Name="GlassA" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-1040}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="1">
+            <Properties>
+              <OpenWhenAnimationEnd Value="False" />
+              <ClosedIdleAnimation Value="Closed" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="True" />
+              <DoorClosingAnimation Value="" />
+              <FirstActivatingDeviceName Value="GlassA" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </EnergyDoor>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.5999499" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="True" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:4650 Y:-1040}" />
+              <X Value="4500" />
+              <Y Value="-1050" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="300" />
+              <Height Value="20" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:2 Y:38}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="GlassBreak03Solid" />
+                <Animation Name="Opening" SpritesheetTag="GlassBreak03Breaking" />
+                <Animation Name="Opened" SpritesheetTag="GlassBreak03Broken" />
+              </Spritesheets>
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
+            <Properties>
+              <SignSpriteSheetTag Value="" />
+              <DisplayGauge Value="False" />
+              <FirstEnemyToKill Value="GlassEnemyA" />
+              <SecondEnemyToKill Value="" />
+              <ThirdEnemyToKill Value="" />
+              <FourthEnemyToKill Value="" />
+              <FifthEnemyToKill Value="" />
+              <AddSignOnTargets Value="False" />
+              <LockName Value="DoorLock" />
+              <GaugeName Value="Gauge" />
+              <GaugeMaxWidth Value="100" />
+              <State Value="Deactivated" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyPoweredDevice>
+        </Components>
+      </Entity>
+      <Entity Name="GlassC" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-40}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="1">
+            <Properties>
+              <OpenWhenAnimationEnd Value="False" />
+              <ClosedIdleAnimation Value="Closed" />
+              <OpenedIdleAnimation Value="Opened" />
+              <DoorOpeningAnimation Value="Opening" />
+              <ClosingIsReverseOpening Value="True" />
+              <DoorClosingAnimation Value="" />
+              <FirstActivatingDeviceName Value="GlassC" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </EnergyDoor>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="0.5999499" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="False" />
+              <IsGround Value="True" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:4650 Y:-39}" />
+              <X Value="4500" />
+              <Y Value="-49" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="300" />
+              <Height Value="20" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:2 Y:38}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="GlassBreak03Solid" />
+                <Animation Name="Opening" SpritesheetTag="GlassBreak03Breaking" />
+                <Animation Name="Opened" SpritesheetTag="GlassBreak03Broken" />
+              </Spritesheets>
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
+            <Properties>
+              <SignSpriteSheetTag Value="" />
+              <DisplayGauge Value="False" />
+              <FirstEnemyToKill Value="GlassEnemyC" />
+              <SecondEnemyToKill Value="" />
+              <ThirdEnemyToKill Value="" />
+              <FourthEnemyToKill Value="" />
+              <FifthEnemyToKill Value="" />
+              <AddSignOnTargets Value="False" />
+              <LockName Value="DoorLock" />
+              <GaugeName Value="Gauge" />
+              <GaugeMaxWidth Value="100" />
+              <State Value="Deactivated" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyPoweredDevice>
+        </Components>
+      </Entity>
+      <Entity Name="GlassEnemyC" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4837 Y:-32}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="1" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="1" />
+              <ChanceToDropHealth Value="0" />
+              <HealthItemsToDrop Value="0" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="True" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="False" />
+              <ImmuneToDamage Value="False" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+        </Components>
+      </Entity>
+      <Entity Name="GlassEnemyB" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4839 Y:-537}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="1" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="1" />
+              <ChanceToDropHealth Value="0" />
+              <HealthItemsToDrop Value="0" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="True" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="False" />
+              <ImmuneToDamage Value="False" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+        </Components>
+      </Entity>
+      <Entity Name="GlassEnemyA" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4840 Y:-1039}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
+            <Properties>
+              <Debug Value="False" />
+              <StartingHealthPoints Value="1" />
+              <CoreElement Value="Neutral" />
+              <CurrentHealthPoints Value="1" />
+              <ChanceToDropHealth Value="0" />
+              <HealthItemsToDrop Value="0" />
+              <InvincibilityDuration Value="0.5" />
+              <RunAnim Value="" />
+              <IdleAnim Value="" />
+              <DyingAnim Value="" />
+              <HitAnim Value="" />
+              <StunlockAnim Value="" />
+              <ImmuneToStunLock Value="True" />
+              <ImmuneToImpulse Value="True" />
+              <ImmuneToDeath Value="False" />
+              <ImmuneToDamage Value="False" />
+              <AlwaysTakeUppercut Value="False" />
+              <Type Value="Ground" />
+              <TriggerOnDamage Value="False" />
+              <ComponentToTriggerName Value="" />
+              <WaitThreatDuration Value="1" />
+              <CurrentSide Value="Right" />
+              <NickName Value="" />
+            </Properties>
+          </EnemyCore>
+        </Components>
+      </Entity>
+      <Entity Name="GlassTriggerA" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-1075}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4650 Y:-1075}" />
+              <X Value="4540" />
+              <Y Value="-1098" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="220" />
+              <Height Value="47" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttack" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerA" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+          <DamageOnTrigger Type="NeonStarLibrary.Components.Triggers.DamageOnTrigger" ID="3">
+            <Properties>
+              <EnemyToDamageName Value="GlassEnemyA" />
+              <DamageToInflict Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </DamageOnTrigger>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttackLevelTwo" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerA" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="GlassTriggerB" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-575}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4650 Y:-575}" />
+              <X Value="4540" />
+              <Y Value="-598" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="220" />
+              <Height Value="47" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttack" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerB" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+          <DamageOnTrigger Type="NeonStarLibrary.Components.Triggers.DamageOnTrigger" ID="3">
+            <Properties>
+              <EnemyToDamageName Value="GlassEnemyB" />
+              <DamageToInflict Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </DamageOnTrigger>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttackLevelTwo" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerB" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="GlassTriggerC" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4650 Y:-75}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:4650 Y:-75}" />
+              <X Value="4540" />
+              <Y Value="-98" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="220" />
+              <Height Value="47" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttack" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerC" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
+          <DamageOnTrigger Type="NeonStarLibrary.Components.Triggers.DamageOnTrigger" ID="3">
+            <Properties>
+              <EnemyToDamageName Value="GlassEnemyC" />
+              <DamageToInflict Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </DamageOnTrigger>
+          <AttackOnTrigger Type="NeonStarLibrary.Components.Triggers.AttackOnTrigger" ID="2">
+            <Properties>
+              <TriggeringAttack Value="LiOnDiveAttackLevelTwo" />
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="GlassTriggerC" />
+              <TriggeredComponentName Value="DamageOnTrigger" />
+              <NickName Value="" />
+            </Properties>
+          </AttackOnTrigger>
         </Components>
       </Entity>
     </Entities>
