@@ -2652,5 +2652,34 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
+    <Attack ID="0" Name="TigerBackDash" Group="EnemyTiger" Type="MeleeSpecial">
+      <Hitboxes />
+      <AttackElement>Neutral</AttackElement>
+      <DamageOnHit>0</DamageOnHit>
+      <AirOnly>False</AirOnly>
+      <GroundCancel>False</GroundCancel>
+      <OnlyOnceInAir>False</OnlyOnceInAir>
+      <Delay>0</Delay>
+      <Cooldown>0.2</Cooldown>
+      <LocalCooldown>0</LocalCooldown>
+      <Duration>0.3</Duration>
+      <AirLock>0</AirLock>
+      <TargetAirLock>0</TargetAirLock>
+      <AirFactor>1</AirFactor>
+      <StunLock>0</StunLock>
+      <MultiHitDelay>0</MultiHitDelay>
+      <AirImpulse>{X:0 Y:0}</AirImpulse>
+      <AlwaysStunlock>False</AlwaysStunlock>
+      <OnDelaySpecialEffects />
+      <OnDurationSpecialEffects>
+        <Effect Type="MoveWhileAttacking">
+          <Parameter Value="-7" />
+          <SecondParameter Value="False" />
+        </Effect>
+      </OnDurationSpecialEffects>
+      <OnHitSpecialEffects />
+      <OnGroundCancelSpecialEffects />
+      <OnFinishSpecialEffects />
+    </Attack>
   </Attacks>
 </XnaContent>

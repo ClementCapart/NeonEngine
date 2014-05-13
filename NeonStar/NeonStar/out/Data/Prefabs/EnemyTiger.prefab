@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyTiger" Layer="Lock">
+  <Entity Name="EnemyTiger" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:170 Y:-191}" />
+          <InitialPosition Value="{X:310 Y:203}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:170 Y:-191}" />
-          <X Value="130" />
-          <Y Value="-271" />
+          <Center Value="{X:309 Y:202}" />
+          <X Value="269" />
+          <Y Value="122" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
@@ -67,9 +67,9 @@
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="40" />
+          <StartingHealthPoints Value="50" />
           <CoreElement Value="Thunder" />
-          <CurrentHealthPoints Value="40" />
+          <CurrentHealthPoints Value="50" />
           <ChanceToDropHealth Value="0.7" />
           <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
@@ -123,7 +123,7 @@
           <AttackThreeDurationAnimation Value="" />
           <AttackThreeCooldownAnimation Value="" />
           <RangeForAttackFour Value="120" />
-          <AttackToLaunchFour Value="BisonBackDash" />
+          <AttackToLaunchFour Value="TigerBackDash" />
           <AttackFourDelayAnimation Value="" />
           <AttackFourDurationAnimation Value="" />
           <AttackFourCooldownAnimation Value="" />
