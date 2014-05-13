@@ -65,6 +65,8 @@ namespace NeonStarLibrary.Components.Scripts
             _graphicToFadeOut = entity.GetComponent<Graphic>();
             if (_buttonToPressSpritesheet != null)
                 _buttonToPressSpritesheet.ChangeAnimation("GreenIdle");
+			SoundManager.GetSound("DroneElevatorLoop").Play();		//Lower volume, may even not use it if too much (loop)
+			SoundManager.GetSound("MecanicsLoop").Play();			//Lower volume (loop)
             base.Init();
         }
 
@@ -83,6 +85,9 @@ namespace NeonStarLibrary.Components.Scripts
                 _firstSpritesheet.isPlaying = true;
                 _secondSpritesheet.isPlaying = true;
                 _stopped = true;
+																//Stop MecanicsLoop here
+				SoundManager.GetSound("AlarmLoop").Play();		// Alarm (loop)
+				SoundManager.GetSound("ElevatorBreak").Play();		// Break sfx
                 if(_buttonToPressSpritesheet != null)
                 {
                     _buttonToPressSpritesheet.ChangeAnimation("RedIdle", true, 0, true, false, true);
@@ -112,6 +117,7 @@ namespace NeonStarLibrary.Components.Scripts
         {
             if (trigger.Name == "ElevatorButton")
             {
+				SoundManager.GetSound("ButtonInteraction").Play();
                 _buttonPressed = true;
                 _arrowDown.Active = true;
                 if (_firstSpritesheet.SpriteSheetTag == "ElevatorBack")
@@ -161,8 +167,9 @@ namespace NeonStarLibrary.Components.Scripts
                 this.entity.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
                 this.entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                 this.entity.rigidbody.IsGround = false;
+				SoundManager.GetSound("ElevatorEnd").Play();		//End, should lower volume
                 this.entity.rigidbody.Init();
-                
+
                 _falling = true;
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
