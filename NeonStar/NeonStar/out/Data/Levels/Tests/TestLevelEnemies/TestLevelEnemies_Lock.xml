@@ -2,12 +2,12 @@
 <XnaContent>
   <Level Layer="Lock">
     <Entities>
-      <Entity Name="EnemySupervisor" Layer="Lock">
+      <Entity Name="EnemyTiger" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:103 Y:-586}" />
+              <InitialPosition Value="{X:170 Y:-191}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,20 +16,20 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:103 Y:-595}" />
-              <X Value="53" />
-              <Y Value="-630" />
+              <Center Value="{X:170 Y:-191}" />
+              <X Value="130" />
+              <Y Value="-271" />
               <OffsetX Value="0" />
-              <OffsetY Value="-10" />
-              <Width Value="100" />
-              <Height Value="70" />
+              <OffsetY Value="0" />
+              <Width Value="80" />
+              <Height Value="160" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
               <BodyType Value="Dynamic" />
-              <GravityScale Value="0" />
+              <GravityScale Value="2" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="10" />
@@ -45,18 +45,19 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationCenter Value="{X:0 Y:5}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Walk" SpritesheetTag="EnemySupervisorWalk" />
-                <Animation Name="AlertWalk" SpritesheetTag="EnemySupervisorAlertWalk" />
-                <Animation Name="Attack" SpritesheetTag="EnemySupervisorAttack" />
-                <Animation Name="Alert" SpritesheetTag="EnemySupervisorAlertOn" />
+                <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
+                <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
+                <Animation Name="Punch" SpritesheetTag="EnemyTigerPunch" />
+                <Animation Name="Hit" SpritesheetTag="EnemyTigerHit" />
+                <Animation Name="Idle" SpritesheetTag="EnemyTigerIdle" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
@@ -68,98 +69,84 @@
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
-              <ChanceToDropHealth Value="0" />
+              <StartingHealthPoints Value="40" />
+              <CoreElement Value="Thunder" />
+              <CurrentHealthPoints Value="40" />
+              <ChanceToDropHealth Value="0.7" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
               <RunAnim Value="Walk" />
-              <IdleAnim Value="" />
+              <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
-              <HitAnim Value="" />
+              <HitAnim Value="Hit" />
               <StunlockAnim Value="" />
               <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="True" />
+              <ImmuneToImpulse Value="False" />
               <ImmuneToDeath Value="False" />
               <ImmuneToDamage Value="False" />
               <AlwaysTakeUppercut Value="False" />
-              <Type Value="Flying" />
+              <Type Value="Ground" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Right" />
+              <WaitThreatDuration Value="0" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
-          <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
+          <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
             <Properties>
-              <Speed Value="2" />
-              <Roundtrip Value="True" />
-              <ReverseStart Value="False" />
-              <PathPrecisionTreshold Value="10" />
-              <NickName Value="" />
-            </Properties>
-          </FollowNodes>
-          <SupervisorChase Type="NeonStarLibrary.Components.Enemies.SupervisorChase" ID="6">
-            <Properties>
-              <DetectionWidth Value="800" />
-              <DetectionHeight Value="1000" />
-              <DetectionBoxOffset Value="{X:0 Y:0}" />
-              <AlertAnimation Value="Alert" />
-              <AlertPatrolAnimation Value="AlertWalk" />
-              <NormalPatrolAnimation Value="Walk" />
+              <CheckBothSide Value="True" />
+              <RaycastOffset Value="{X:0 Y:0}" />
               <EntityToChaseName Value="LiOn" />
-              <DetectionDistance Value="1" />
-              <WaitStopDuration Value="0" />
-              <ChaseSpeed Value="3" />
+              <DetectionDistance Value="450" />
+              <WaitStopDuration Value="1" />
+              <ChaseSpeed Value="3.5" />
               <ChasePrecision Value="10" />
               <NickName Value="" />
             </Properties>
-          </SupervisorChase>
+          </GroundChase>
+          <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
+            <Properties>
+              <CheckBothSide Value="True" />
+              <DetectionOffset Value="{X:0 Y:0}" />
+              <RangeForAttackOne Value="325" />
+              <AttackToLaunchOne Value="EnemyTigerDash" />
+              <AttackOneDelayAnimation Value="Dash" />
+              <AttackOneDurationAnimation Value="" />
+              <AttackOneCooldownAnimation Value="" />
+              <RangeForAttackTwo Value="200" />
+              <AttackToLaunchTwo Value="Chase" />
+              <AttackTwoDelayAnimation Value="" />
+              <AttackTwoDurationAnimation Value="" />
+              <AttackTwoCooldownAnimation Value="" />
+              <RangeForAttackThree Value="120" />
+              <AttackToLaunchThree Value="EnemyTigerPunch" />
+              <AttackThreeDelayAnimation Value="Punch" />
+              <AttackThreeDurationAnimation Value="" />
+              <AttackThreeCooldownAnimation Value="" />
+              <RangeForAttackFour Value="120" />
+              <AttackToLaunchFour Value="BisonBackDash" />
+              <AttackFourDelayAnimation Value="" />
+              <AttackFourDurationAnimation Value="" />
+              <AttackFourCooldownAnimation Value="" />
+              <EntityToAttackName Value="LiOn" />
+              <CanTurn Value="True" />
+              <NickName Value="" />
+              <RandomBalanceRate Value="0" />
+            </Properties>
+          </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties>
               <CanChangeSide Value="True" />
               <NickName Value="" />
             </Properties>
           </EnemyAnimationManager>
-          <SupervisorAttack Type="NeonStarLibrary.Components.Enemies.SupervisorAttack" ID="1">
-            <Properties>
-              <AttackRangeWidth Value="100" />
-              <AttackRangeHeight Value="1000" />
-              <AttackRangeOffset Value="{X:0 Y:0}" />
-              <CanTurn Value="True" />
-              <RandomBalanceRate Value="0" />
-              <RangeForAttackOne Value="0" />
-              <AttackToLaunchOne Value="EnemySupervisorBombs" />
-              <AttackOneDelayAnimation Value="Attack" />
-              <AttackOneDurationAnimation Value="" />
-              <AttackOneCooldownAnimation Value="" />
-              <RangeForAttackTwo Value="0" />
-              <AttackToLaunchTwo Value="" />
-              <AttackTwoDelayAnimation Value="" />
-              <AttackTwoDurationAnimation Value="" />
-              <AttackTwoCooldownAnimation Value="" />
-              <RangeForAttackThree Value="0" />
-              <AttackToLaunchThree Value="" />
-              <AttackThreeDelayAnimation Value="" />
-              <AttackThreeDurationAnimation Value="" />
-              <AttackThreeCooldownAnimation Value="" />
-              <RangeForAttackFour Value="0" />
-              <AttackToLaunchFour Value="" />
-              <AttackFourDelayAnimation Value="" />
-              <AttackFourDurationAnimation Value="" />
-              <AttackFourCooldownAnimation Value="" />
-              <EntityToAttackName Value="LiOn" />
-              <NickName Value="" />
-            </Properties>
-          </SupervisorAttack>
-          <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="9">
+          <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="11">
             <Properties>
               <DrawLayer Value="0.99999" />
               <Font Value="HUDFont" />
               <FontColor Value="{R:211 G:211 B:211 A:255}" />
-              <IsOutlined Value="True" />
+              <IsOutlined Value="False" />
               <OutlineWidth Value="2" />
               <OutlineColor Value="{R:35 G:35 B:35 A:255}" />
               <DisplayerDuration Value="0.3" />
