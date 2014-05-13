@@ -89,7 +89,7 @@ namespace NeonEngine.Components.Audio
                         return false;       
                     sei = info.Sound.CreateInstance();
                     sei.Volume = info.Volume;
-                    sei.Pitch = info.Volume;
+                    sei.Pitch = info.Pitch;
                     if (info.Is3DSound)
                     {
                         AudioEmitter.Position += new Vector3(info.Offset, 0);
