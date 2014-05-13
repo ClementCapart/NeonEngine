@@ -123,10 +123,12 @@ namespace NeonStarLibrary.Components.Menu
                     if (Neon.Input.Pressed(NeonStarInput.MoveDown))
                     {
                         _currentSelection = (_currentSelection + 1) % 2;
+						SoundManager.GetSound("menuTemp").Play();					//UP Sfx
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.MoveUp))
                     {
                         _currentSelection = Math.Abs((_currentSelection - 1)) % 2;
+						SoundManager.GetSound("menuTemp").Play();					//DOWN Sfx
                     }
 
                     if (_currentSelection == 0)
