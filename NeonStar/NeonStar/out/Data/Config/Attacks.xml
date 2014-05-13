@@ -2288,17 +2288,17 @@
     </Attack>
     <Attack ID="0" Name="LiOnElementFire1" Group="LiOnElement" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="170" OffsetY="20" Width="300" Height="70" />
+        <Hitbox OffsetX="170" OffsetY="20" Width="250" Height="70" />
       </Hitboxes>
       <AttackElement>Fire</AttackElement>
       <DamageOnHit>-7</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.2</Delay>
-      <Cooldown>1</Cooldown>
+      <Delay>0.1</Delay>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.7</Duration>
+      <Duration>1</Duration>
       <AirLock>1</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -2309,19 +2309,19 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
-          <Parameter Value="ElementCrystalLvlThreeThirdStage" />
+          <Parameter Value="ElementCrystalLvlThreeThird" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
-          <SixthParameter Value="0.3" />
+          <SixthParameter Value="0.2" />
           <SeventhParameter Value="1" />
           <EighthParameter Value="False" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
@@ -2337,21 +2337,32 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="ElementCrystalLvlThreeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:19}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="LiOnElementFire2" Group="LiOnElement" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="170" OffsetY="20" Width="300" Height="70" />
+        <Hitbox OffsetX="170" OffsetY="20" Width="250" Height="70" />
       </Hitboxes>
       <AttackElement>Fire</AttackElement>
       <DamageOnHit>-7</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.2</Delay>
-      <Cooldown>1</Cooldown>
+      <Delay>0.1</Delay>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1.3</Duration>
+      <Duration>1.6</Duration>
       <AirLock>1</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -2362,19 +2373,19 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
-          <Parameter Value="ElementCrystalLvlThreeSecondStage" />
+          <Parameter Value="ElementCrystalLvlThreeSecond" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
-          <SixthParameter Value="0.3" />
+          <SixthParameter Value="0.2" />
           <SeventhParameter Value="1" />
           <EighthParameter Value="False" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
@@ -2390,21 +2401,32 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="ElementCrystalLvlThreeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:19}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="LiOnElementFire3" Group="LiOnElement" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="170" OffsetY="20" Width="300" Height="70" />
+        <Hitbox OffsetX="170" OffsetY="20" Width="250" Height="70" />
       </Hitboxes>
       <AttackElement>Fire</AttackElement>
       <DamageOnHit>-7</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
-      <Delay>0.2</Delay>
-      <Cooldown>1</Cooldown>
+      <Delay>0.1</Delay>
+      <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>2.2</Duration>
+      <Duration>2.5</Duration>
       <AirLock>1</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -2415,19 +2437,19 @@
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
         <Effect Type="EffectAnimation">
-          <Parameter Value="ElementCrystalLvlThreeFirstStage" />
+          <Parameter Value="ElementCrystalLvlThreeFirst" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
-          <SixthParameter Value="0.3" />
+          <SixthParameter Value="0.2" />
           <SeventhParameter Value="1" />
           <EighthParameter Value="False" />
         </Effect>
         <Effect Type="EffectAnimation">
           <Parameter Value="ElementCrystalLvlThreeExplosion" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:170 Y:10}" />
+          <ThirdParameter Value="{X:150 Y:19}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
@@ -2443,7 +2465,18 @@
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
-      <OnFinishSpecialEffects />
+      <OnFinishSpecialEffects>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="ElementCrystalLvlThreeOut" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:150 Y:19}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="2" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+        </Effect>
+      </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="LiOnElementThunder1" Group="LiOnElement" Type="Special">
       <Hitboxes>
