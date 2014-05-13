@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using NeonEngine;
 using NeonEngine.Components.Audio;
 using NeonEngine.Components.Private;
+using Microsoft.Xna.Framework;
 
 namespace NeonStarEditor
 {
@@ -39,15 +40,14 @@ namespace NeonStarEditor
                 TextBox tb = new TextBox();
 
                 tb.Text = sii.Name;
-                tb.Location = new Point(10, (int)NextItemHeight);
+                tb.Location = new System.Drawing.Point(10, (int)NextItemHeight);
                 tb.Width = 60;
                 tb.GotFocus += tb_GotFocus;
                 tb.LostFocus += tb_LostFocus;
                 this.Controls.Add(tb);
 
-
                 Label currentSound = new Label();
-                currentSound.Location = new Point(75, (int)NextItemHeight);
+                currentSound.Location = new System.Drawing.Point(75, (int)NextItemHeight);
                 currentSound.AutoSize = false;
                 currentSound.Width = 190;
                 currentSound.Height = 20;
@@ -60,7 +60,7 @@ namespace NeonStarEditor
 
                 Button openSoundPicker = new Button();
                 openSoundPicker.FlatStyle = FlatStyle.Flat;
-                openSoundPicker.Location = new Point(10, (int)NextItemHeight + tb.Height + 5);
+                openSoundPicker.Location = new System.Drawing.Point(10, (int)NextItemHeight + tb.Height + 5);
                 openSoundPicker.Width = 200;
                 openSoundPicker.Height = 20;
                 openSoundPicker.AutoSize = false;
@@ -79,7 +79,7 @@ namespace NeonStarEditor
                 is3DSound.Tag = sii;
                 is3DSound.Text = "Is3DSound";
                 is3DSound.Font = new Font("Calibri", 8.0f);
-                is3DSound.Location = new Point(10, (int)NextItemHeight);
+                is3DSound.Location = new System.Drawing.Point(10, (int)NextItemHeight);
                 is3DSound.CheckedChanged += is3DSound_CheckedChanged;
                 this.Controls.Add(is3DSound);
                 NextItemHeight += is3DSound.Height + 8;
@@ -89,7 +89,7 @@ namespace NeonStarEditor
                 volumeLabel.Width = 40;
                 volumeLabel.Height = 10;
                 volumeLabel.Font = new Font("Calibri", 8.0f);
-                volumeLabel.Location = new Point(10, (int)NextItemHeight);
+                volumeLabel.Location = new System.Drawing.Point(10, (int)NextItemHeight);
                 this.Controls.Add(volumeLabel);
 
                 NumericUpDown volume = new NumericUpDown();
@@ -97,11 +97,12 @@ namespace NeonStarEditor
                 volume.Value = (decimal)sii.Volume;
                 volume.Tag = sii;
                 volume.DecimalPlaces = 2;
+                volume.Increment = 0.1m;
                 volume.Width = 50;
                 volume.Enter += NU_Enter;
                 volume.ValueChanged += NU_ValueChanged;
                 volume.Leave += NU_Leave;
-                volume.Location = new Point(55, (int)NextItemHeight - 5);
+                volume.Location = new System.Drawing.Point(55, (int)NextItemHeight - 5);
                 this.Controls.Add(volume);
 
                 Label pitchLabel = new Label();
@@ -109,19 +110,20 @@ namespace NeonStarEditor
                 pitchLabel.Width = 33;
                 pitchLabel.Height = 10;
                 pitchLabel.Font = new Font("Calibri", 8.0f);
-                pitchLabel.Location = new Point(10 + volume.Location.X + volume.Width, (int)NextItemHeight);
+                pitchLabel.Location = new System.Drawing.Point(10 + volume.Location.X + volume.Width, (int)NextItemHeight);
                 this.Controls.Add(pitchLabel);
 
                 NumericUpDown pitch = new NumericUpDown();
                 pitch.Name = "Pitch";
                 pitch.Value = (decimal)sii.Pitch;
                 pitch.Tag = sii;
+                pitch.Increment = 0.1m;
                 pitch.DecimalPlaces = 2;
                 pitch.Width = 50;
                 pitch.Enter += NU_Enter;
                 pitch.ValueChanged += NU_ValueChanged;
                 pitch.Leave += NU_Leave;
-                pitch.Location = new Point(45 + volume.Location.X + volume.Width, (int)NextItemHeight - 5);
+                pitch.Location = new System.Drawing.Point(45 + volume.Location.X + volume.Width, (int)NextItemHeight - 5);
                 this.Controls.Add(pitch);
 
                 NextItemHeight += volume.Height;
@@ -131,31 +133,37 @@ namespace NeonStarEditor
                 offsetLabel.Width = 40;
                 offsetLabel.Height = 10;
                 offsetLabel.Font = new Font("Calibri", 8.0f);
-                offsetLabel.Location = new Point(10, (int)NextItemHeight);
+                offsetLabel.Location = new System.Drawing.Point(10, (int)NextItemHeight);
                 this.Controls.Add(offsetLabel);
 
                 NumericUpDown offsetX = new NumericUpDown();
                 offsetX.Name = "OffsetX";
                 offsetX.Value = (decimal)sii.Offset.X;
                 offsetX.Tag = sii;
+                offsetX.Increment = 1m;
                 offsetX.DecimalPlaces = 2;
                 offsetX.Width = 70;
-                offsetX.Location = new Point(10, (int)NextItemHeight + offsetLabel.Height + 5);
+                offsetX.Location = new System.Drawing.Point(10, (int)NextItemHeight + offsetLabel.Height + 5);
                 offsetX.Enter += NU_Enter;
                 offsetX.ValueChanged += NU_ValueChanged;
                 offsetX.Leave += NU_Leave;
+                offsetX.Minimum = -1000m;
+                offsetX.Maximum = 1000m;
                 this.Controls.Add(offsetX);
 
                 NumericUpDown offsetY = new NumericUpDown();
                 offsetY.Name = "OffsetY";
                 offsetY.Value = (decimal)sii.Offset.Y;
                 offsetY.Tag = sii;
+                offsetY.Increment = 1m;
                 offsetY.DecimalPlaces = 2;
                 offsetY.Width = 70;
                 offsetY.Enter += NU_Enter;
                 offsetY.ValueChanged += NU_ValueChanged;
                 offsetY.Leave += NU_Leave;
-                offsetY.Location = new Point(offsetX.Location.X + offsetX.Width + 5, (int)NextItemHeight + offsetLabel.Height + 5);
+                offsetY.Minimum = -1000m;
+                offsetY.Maximum = 1000m;
+                offsetY.Location = new System.Drawing.Point(offsetX.Location.X + offsetX.Width + 5, (int)NextItemHeight + offsetLabel.Height + 5);
                 this.Controls.Add(offsetY);
 
                 NextItemHeight += offsetLabel.Height + offsetX.Height + 20;
@@ -164,7 +172,7 @@ namespace NeonStarEditor
             Button button = new Button();
             button.Text = "Add";
             button.Click += button_Click;
-            button.Location = new Point(100, (int)NextItemHeight);
+            button.Location = new System.Drawing.Point(100, (int)NextItemHeight);
             this.Controls.Add(button);
 
             if (SoundsList.Count > 0)
@@ -172,7 +180,7 @@ namespace NeonStarEditor
                 Button button2 = new Button();
                 button2.Text = "Remove";
                 button2.Click += button2_Click;
-                button2.Location = new Point(10, (int)NextItemHeight);
+                button2.Location = new System.Drawing.Point(10, (int)NextItemHeight);
                 this.Controls.Add(button2);
             }
         }
@@ -187,11 +195,11 @@ namespace NeonStarEditor
             switch((sender as NumericUpDown).Name)
             {
                 case "Volume":
-                    ((sender as NumericUpDown).Tag as SoundInstanceInfo).Volume = (float)(sender as NumericUpDown).Value;
+                    ((sender as NumericUpDown).Tag as SoundInstanceInfo).Volume = MathHelper.Clamp((float)(sender as NumericUpDown).Value, 0, 1);
                     break;
 
                 case "Pitch":
-                    ((sender as NumericUpDown).Tag as SoundInstanceInfo).Pitch = (float)(sender as NumericUpDown).Value;
+                    ((sender as NumericUpDown).Tag as SoundInstanceInfo).Pitch = MathHelper.Clamp((float)(sender as NumericUpDown).Value, 0, 1);
                     break;
 
                 case "OffsetX":

@@ -12,9 +12,9 @@ namespace NeonEngine.Components.Private
     {
         public string Name = "";
         public SoundEffect Sound;
-        public float Volume;
+        public float Volume = 1.0f;
         public float Pitch;
-        public bool Is3DSound;
+        public bool Is3DSound = true;
         public Vector2 Offset;
     }
 
