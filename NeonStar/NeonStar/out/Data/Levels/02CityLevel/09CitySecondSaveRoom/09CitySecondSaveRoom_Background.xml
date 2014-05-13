@@ -51,7 +51,11 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveRoomWarmUpOff" />
+                <Animation Name="Lighting" SpritesheetTag="SaveRoomWarmUpWarmingUp" />
+                <Animation Name="On" SpritesheetTag="SaveRoomWarmUpOn" />
+              </Spritesheets>
               <DrawLayer Value="0.1" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -138,7 +142,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveCabineOpeningClosed" />
+                <Animation Name="StartOpening" SpritesheetTag="SaveCabineOpeningOpening" />
+                <Animation Name="StartClosing" SpritesheetTag="SaveCabineOpeningClosing" />
+                <Animation Name="Scanning" SpritesheetTag="SaveCabineOpeningScan" />
+                <Animation Name="EndOpening" SpritesheetTag="SaveCabineClosingEndOpening" />
+                <Animation Name="EndClosing" SpritesheetTag="SaveCabineClosingEndClosing" />
+              </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -167,7 +178,11 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveRoomPipesOff" />
+                <Animation Name="Lighting" SpritesheetTag="SaveRoomPipesLighting" />
+                <Animation Name="On" SpritesheetTag="SaveRoomPipesOn" />
+              </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -234,7 +249,10 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Fade" SpritesheetTag="SaveRoomScreensFade" />
+                <Animation Name="Load" SpritesheetTag="SaveRoomScreens" />
+              </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -263,7 +281,10 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Fade" SpritesheetTag="SaveRoomScreensFade" />
+                <Animation Name="Load" SpritesheetTag="SaveRoomScreens" />
+              </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />

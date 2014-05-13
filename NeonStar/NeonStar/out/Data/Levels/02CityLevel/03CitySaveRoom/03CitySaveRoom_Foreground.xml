@@ -84,12 +84,16 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-2 Y:0}" />
+              <Offset Value="{X:-5 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveRoomLightingOff" />
+                <Animation Name="Lighting" SpritesheetTag="SaveRoomLightingLighting" />
+                <Animation Name="On" SpritesheetTag="SaveRoomLightingIdle" />
+              </Spritesheets>
               <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -118,7 +122,11 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveRoomLightingOff" />
+                <Animation Name="Lighting" SpritesheetTag="SaveRoomLightingLighting" />
+                <Animation Name="On" SpritesheetTag="SaveRoomLightingIdle" />
+              </Spritesheets>
               <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -214,7 +222,11 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SaveRoomFloorOff" />
+                <Animation Name="Lighting" SpritesheetTag="SaveRoomFloorLighting" />
+                <Animation Name="On" SpritesheetTag="SaveRoomFloorOn" />
+              </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
