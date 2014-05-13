@@ -188,12 +188,12 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace2" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.15" />
+          <ThirdParameter Value="0.14" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace3" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.3" />
+          <ThirdParameter Value="0.24" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -340,10 +340,10 @@
     </Attack>
     <Attack ID="0" Name="BisonTrace1" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="100" Width="200" Height="50" />
+        <Hitbox OffsetX="0" OffsetY="100" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>0</DamageOnHit>
+      <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
@@ -366,17 +366,17 @@
     </Attack>
     <Attack ID="0" Name="BisonTrace2" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="25" OffsetY="100" Width="200" Height="50" />
+        <Hitbox OffsetX="25" OffsetY="100" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>0</DamageOnHit>
+      <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.7</Duration>
+      <Duration>0.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
@@ -392,22 +392,22 @@
     </Attack>
     <Attack ID="0" Name="BisonTrace3" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="100" OffsetY="100" Width="200" Height="50" />
+        <Hitbox OffsetX="100" OffsetY="100" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
-      <DamageOnHit>0</DamageOnHit>
+      <DamageOnHit>-1</DamageOnHit>
       <AirOnly>False</AirOnly>
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.6</Duration>
+      <Duration>0.8</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.1</StunLock>
-      <MultiHitDelay>0.2</MultiHitDelay>
+      <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
