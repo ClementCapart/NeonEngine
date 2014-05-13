@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyRobot" Layer="Lock">
+  <Entity Name="EnemyRobot" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:843 Y:-191}" />
+          <InitialPosition Value="{X:-662 Y:132}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:842 Y:-191}" />
-          <X Value="792" />
-          <Y Value="-271" />
+          <Center Value="{X:-396 Y:120}" />
+          <X Value="-446" />
+          <Y Value="40" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -70,8 +70,8 @@
           <StartingHealthPoints Value="35" />
           <CoreElement Value="Neutral" />
           <CurrentHealthPoints Value="35" />
-          <ChanceToDropHealth Value="0.6" />
-          <HealthItemsToDrop Value="1" />
+          <ChanceToDropHealth Value="0.8" />
+          <HealthItemsToDrop Value="2" />
           <InvincibilityDuration Value="0.5" />
           <RunAnim Value="Run" />
           <IdleAnim Value="Idle" />

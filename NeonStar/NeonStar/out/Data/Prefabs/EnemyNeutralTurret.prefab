@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyNeutralTurret" Layer="Lock">
+  <Entity Name="EnemyNeutralTurret" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:634 Y:-192}" />
+          <InitialPosition Value="{X:-5 Y:132}" />
           <Rotation Value="90" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:633 Y:-192}" />
-          <X Value="583" />
-          <Y Value="-242" />
+          <Center Value="{X:-4 Y:131}" />
+          <X Value="-54" />
+          <Y Value="81" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="100" />
@@ -45,11 +45,11 @@
         <Properties>
           <CurrentSide Value="Right" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:4 Y:2}" />
+          <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <Tint Value="False" />
           <RotationCenter Value="{X:0 Y:0}" />
-          <RotationOffset Value="0" />
+          <RotationOffset Value="-3.141593" />
           <Spritesheets>
             <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
             <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -64,10 +64,10 @@
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="20" />
+          <StartingHealthPoints Value="15" />
           <CoreElement Value="Neutral" />
-          <CurrentHealthPoints Value="20" />
-          <ChanceToDropHealth Value="0.6" />
+          <CurrentHealthPoints Value="15" />
+          <ChanceToDropHealth Value="0.8" />
           <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
           <RunAnim Value="" />
@@ -75,8 +75,8 @@
           <DyingAnim Value="Death" />
           <HitAnim Value="" />
           <StunlockAnim Value="" />
-          <ImmuneToStunLock Value="False" />
-          <ImmuneToImpulse Value="False" />
+          <ImmuneToStunLock Value="True" />
+          <ImmuneToImpulse Value="True" />
           <ImmuneToDeath Value="False" />
           <ImmuneToDamage Value="False" />
           <AlwaysTakeUppercut Value="False" />
@@ -84,7 +84,7 @@
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
-          <CurrentSide Value="Right" />
+          <CurrentSide Value="Left" />
           <NickName Value="" />
         </Properties>
       </EnemyCore>
@@ -101,7 +101,7 @@
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:-28 Y:7}" />
+          <Offset Value="{X:-30 Y:0}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -111,7 +111,7 @@
       </Graphic>
       <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
         <Properties>
-          <CanChangeSide Value="True" />
+          <CanChangeSide Value="False" />
           <NickName Value="" />
         </Properties>
       </EnemyAnimationManager>
