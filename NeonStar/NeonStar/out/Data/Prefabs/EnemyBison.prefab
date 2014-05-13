@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyBison" Layer="">
+  <Entity Name="EnemyBison" Layer="Lock">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:776 Y:-199}" />
+          <InitialPosition Value="{X:884 Y:-199}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -31,8 +31,8 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:776 Y:-198}" />
-          <X Value="701" />
+          <Center Value="{X:884 Y:-198}" />
+          <X Value="809" />
           <Y Value="-285" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -133,7 +133,7 @@
             <Animation Name="BisonStunlock" SpritesheetTag="ChargerStunned" />
             <Animation Name="Death" SpritesheetTag="Explosion" />
           </Spritesheets>
-          <DrawLayer Value="0" />
+          <DrawLayer Value="0.48" />
           <IsHUD Value="False" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
           <NickName Value="" />
