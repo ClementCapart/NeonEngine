@@ -183,17 +183,17 @@
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace1" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0" />
+          <ThirdParameter Value="0.05" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace2" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.14" />
+          <ThirdParameter Value="0.2" />
         </Effect>
         <Effect Type="StartAttack">
           <Parameter Value="BisonTrace3" />
           <SecondParameter Value="false" />
-          <ThirdParameter Value="0.24" />
+          <ThirdParameter Value="0.35" />
         </Effect>
       </OnDurationSpecialEffects>
       <OnHitSpecialEffects>
@@ -340,7 +340,7 @@
     </Attack>
     <Attack ID="0" Name="BisonTrace1" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="70" Width="160" Height="50" />
+        <Hitbox OffsetX="-50" OffsetY="70" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-10</DamageOnHit>
@@ -363,11 +363,11 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceDuration" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:0 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
@@ -377,18 +377,18 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceFadeOut" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:0 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="BisonTrace2" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="25" OffsetY="70" Width="160" Height="50" />
+        <Hitbox OffsetX="-50" OffsetY="70" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-10</DamageOnHit>
@@ -411,11 +411,11 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceDuration" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:25 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
@@ -425,18 +425,18 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceFadeOut" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:25 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnFinishSpecialEffects>
     </Attack>
     <Attack ID="0" Name="BisonTrace3" Group="EnemyBison" Type="Special">
       <Hitboxes>
-        <Hitbox OffsetX="100" OffsetY="70" Width="160" Height="50" />
+        <Hitbox OffsetX="-50" OffsetY="70" Width="160" Height="50" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-10</DamageOnHit>
@@ -459,11 +459,11 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceDuration" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:100 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnDurationSpecialEffects>
@@ -473,11 +473,11 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="ChargerTraceFadeOut" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:100 Y:70}" />
+          <ThirdParameter Value="{X:-50 Y:70}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
+          <SeventhParameter Value="0.47" />
           <EighthParameter Value="False" />
         </Effect>
       </OnFinishSpecialEffects>
