@@ -2,13 +2,13 @@
 <XnaContent>
   <Level Layer="Lock">
     <Entities>
-      <Entity Name="EnemyNeutralTurret" Layer="Lock">
+      <Entity Name="EnemySupervisor" Layer="Lock">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:634 Y:-192}" />
-              <Rotation Value="90" />
+              <InitialPosition Value="{X:103 Y:-586}" />
+              <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
             </Properties>
@@ -16,24 +16,24 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:633 Y:-192}" />
-              <X Value="583" />
-              <Y Value="-242" />
+              <Center Value="{X:103 Y:-595}" />
+              <X Value="53" />
+              <Y Value="-630" />
               <OffsetX Value="0" />
-              <OffsetY Value="0" />
+              <OffsetY Value="-10" />
               <Width Value="100" />
-              <Height Value="100" />
+              <Height Value="70" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
             <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
+              <BodyType Value="Dynamic" />
+              <GravityScale Value="0" />
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="10" />
-              <Mass Value="0.99995" />
+              <Mass Value="400" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
               <IsGround Value="False" />
@@ -47,14 +47,16 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:4 Y:2}" />
+              <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
-                <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
+                <Animation Name="Walk" SpritesheetTag="EnemySupervisorWalk" />
+                <Animation Name="AlertWalk" SpritesheetTag="EnemySupervisorAlertWalk" />
+                <Animation Name="Attack" SpritesheetTag="EnemySupervisorAttack" />
+                <Animation Name="Alert" SpritesheetTag="EnemySupervisorAlertOn" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
@@ -66,64 +68,70 @@
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="20" />
+              <StartingHealthPoints Value="10" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="20" />
-              <ChanceToDropHealth Value="0.6" />
+              <CurrentHealthPoints Value="10" />
+              <ChanceToDropHealth Value="0" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="Idle" />
+              <RunAnim Value="Walk" />
+              <IdleAnim Value="" />
               <DyingAnim Value="Death" />
               <HitAnim Value="" />
               <StunlockAnim Value="" />
               <ImmuneToStunLock Value="False" />
-              <ImmuneToImpulse Value="False" />
+              <ImmuneToImpulse Value="True" />
               <ImmuneToDeath Value="False" />
               <ImmuneToDamage Value="False" />
               <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
+              <Type Value="Flying" />
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="0" />
+              <WaitThreatDuration Value="0.48" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
-          <RotateSpritesheet Type="NeonStarLibrary.Components.Utils.RotateSpritesheet" ID="8">
+          <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
             <Properties>
+              <Speed Value="2" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="10" />
               <NickName Value="" />
             </Properties>
-          </RotateSpritesheet>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="9">
+          </FollowNodes>
+          <SupervisorChase Type="NeonStarLibrary.Components.Enemies.SupervisorChase" ID="6">
             <Properties>
-              <GraphicTag Value="EnemyNeutralTurretBot" />
-              <DrawLayer Value="0.4" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-28 Y:7}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <DetectionWidth Value="800" />
+              <DetectionHeight Value="1000" />
+              <DetectionBoxOffset Value="{X:0 Y:0}" />
+              <AlertAnimation Value="Alert" />
+              <AlertPatrolAnimation Value="AlertWalk" />
+              <NormalPatrolAnimation Value="Walk" />
+              <EntityToChaseName Value="LiOn" />
+              <DetectionDistance Value="1" />
+              <WaitStopDuration Value="0" />
+              <ChaseSpeed Value="3" />
+              <ChasePrecision Value="10" />
               <NickName Value="" />
             </Properties>
-          </Graphic>
-          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
+          </SupervisorChase>
+          <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
             <Properties>
               <CanChangeSide Value="True" />
               <NickName Value="" />
             </Properties>
           </EnemyAnimationManager>
-          <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="12">
+          <SupervisorAttack Type="NeonStarLibrary.Components.Enemies.SupervisorAttack" ID="1">
             <Properties>
-              <MaximumAngleDifference Value="360" />
+              <AttackRangeWidth Value="100" />
+              <AttackRangeHeight Value="1000" />
+              <AttackRangeOffset Value="{X:0 Y:0}" />
               <CanTurn Value="True" />
               <RandomBalanceRate Value="0" />
-              <RangeForAttackOne Value="400" />
-              <AttackToLaunchOne Value="EnemyFTurretShot" />
+              <RangeForAttackOne Value="0" />
+              <AttackToLaunchOne Value="EnemySupervisorBombs" />
               <AttackOneDelayAnimation Value="Attack" />
               <AttackOneDurationAnimation Value="" />
               <AttackOneCooldownAnimation Value="" />
@@ -145,7 +153,7 @@
               <EntityToAttackName Value="LiOn" />
               <NickName Value="" />
             </Properties>
-          </AreaAttack>
+          </SupervisorAttack>
           <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="9">
             <Properties>
               <DrawLayer Value="0.99999" />
