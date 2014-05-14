@@ -16,6 +16,12 @@ namespace NeonStarLibrary.Components.Avatar
         Wind
     }
 
+    public class ElementSlot
+    {
+        public Element Type;
+        public float Cooldown;
+    }
+
     public class ElementSystem : Component
     {
         #region Properties
@@ -115,48 +121,141 @@ namespace NeonStarLibrary.Components.Avatar
             set { _windImpulseAnimation = value; }
         }
 
-        private Element _leftSlotElement = Element.Neutral;
-
-        public Element LeftSlotElement
+        public Element LeftSlotElementFirst
         {
-            get { return _leftSlotElement; }
-            set { _leftSlotElement = value; }
+            get 
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 1)
+                        return ElementSlots[0][0].Type;
+                }
+                return Element.Neutral;
+            }
+            set 
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 1)
+                        ElementSlots[0][0].Type = value;
+                } 
+            }
         }
 
-        private float _leftSlotLevel = 1;
-
-        public float LeftSlotLevel
+        public Element LeftSlotElementSecond
         {
-            get { return _leftSlotLevel; }
-            set { _leftSlotLevel = value; }
+            get
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 2)
+                        return ElementSlots[0][1].Type;
+                }
+                return Element.Neutral;
+            }
+            set
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 2)
+                        ElementSlots[0][1].Type = value;
+                }
+            }
         }
 
-        public float LeftSlotEnergy = 100.0f;
-
-        private Element _rightSlotElement = Element.Neutral;
-
-        public Element RightSlotElement
+        public Element LeftSlotElementThird
         {
-            get { return _rightSlotElement; }
-            set { _rightSlotElement = value; }
+            get
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 3)
+                        return ElementSlots[0][2].Type;
+                }
+                return Element.Neutral;
+            }
+            set
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[0].Length >= 3)
+                        ElementSlots[0][2].Type = value;
+                }
+            }
         }
 
-        private float _rightSlotLevel = 1;
-
-        public float RightSlotLevel
+        public Element RightSlotElementFirst
         {
-            get { return _rightSlotLevel; }
-            set { _rightSlotLevel = value; }
+            get
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 1)
+                        return ElementSlots[1][0].Type;
+                }
+                return Element.Neutral;
+            }
+            set
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 1)
+                        ElementSlots[1][0].Type = value;
+                }
+            }
         }
 
-        public float RightSlotEnergy = 100.0f;      
+        public Element RightSlotElementSecond
+        {
+            get
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 2)
+                        return ElementSlots[1][1].Type;
+                }
+                return Element.Neutral;
+            }
+            set
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 2)
+                        ElementSlots[1][1].Type = value;
+                }
+            }
+        }
 
-        private float _maxLevel = 3;
+        public Element RightSlotElementThird
+        {
+            get
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 3)
+                        return ElementSlots[1][2].Type;
+                }
+                return Element.Neutral;
+            }
+            set
+            {
+                if (ElementSlots != null && ElementSlots.Length == 2)
+                {
+                    if (ElementSlots[1].Length >= 3)
+                        ElementSlots[1][2].Type = value;
+                }
+            }
+        } 
+
+        private float _maxLevel = 1.0f;
 
         public float MaxLevel
         {
             get { return _maxLevel; }
-            set { _maxLevel = value; }
+            set 
+            { 
+                ChangeMaxLevel((int)value);
+            }
         }
 
         private string _thunderGatheringFX = "";
@@ -183,11 +282,12 @@ namespace NeonStarLibrary.Components.Avatar
             set { _getElementColorDelay = value; }
         }
 
-        private float _energyRegenerationRate = 20.0f;
-        public float EnergyRegenerationRate
+        private float _elementSlotCooldownDuration;
+
+        public float ElementSlotCooldownDuration
         {
-            get { return _energyRegenerationRate; }
-            set { _energyRegenerationRate = value; }
+            get { return _elementSlotCooldownDuration; }
+            set { _elementSlotCooldownDuration = value; }
         }
         #endregion     
 
@@ -206,6 +306,8 @@ namespace NeonStarLibrary.Components.Avatar
         private float _getElementColorTimer = 0.0f;
         private Color _nextColorToTint;
 
+        public ElementSlot[][] ElementSlots;
+
         public ElementSystem(Entity entity)
             :base(entity, "ElementSystem")
         {
@@ -219,6 +321,7 @@ namespace NeonStarLibrary.Components.Avatar
             FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             BackThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             AvatarComponent = entity.GetComponent<AvatarCore>();
+            ChangeMaxLevel((int)_maxLevel);        
             base.Init();
         }
 
@@ -231,7 +334,6 @@ namespace NeonStarLibrary.Components.Avatar
                     Fire.FirePlatforms.Remove(rg);
             }
                 
-
             if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 if (CurrentElementEffect != null)
@@ -242,20 +344,39 @@ namespace NeonStarLibrary.Components.Avatar
                 }
                 else
                 {
-                    if (LeftSlotEnergy < 100.0f)
+                    for (int i = 0; i < ElementSlots.Length; i++)
                     {
-                        LeftSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                        if (LeftSlotEnergy > 100.0f)
-                            LeftSlotEnergy = 100.0f;
+                        ElementSlot higherCooldown = null;
+                        for (int j = 0; j < ElementSlots[i].Length; j++)
+                        {
+                            if (ElementSlots[i][j].Type == Element.Neutral)
+                                ElementSlots[i][j].Cooldown = 0.0f;
+                            else if (ElementSlots[i][j].Cooldown > 0.0f)
+                            {
+                                if(higherCooldown == null || higherCooldown.Cooldown > ElementSlots[i][j].Cooldown)
+                                    higherCooldown = ElementSlots[i][j];
+                                if (ElementSlots[i][j].Cooldown < 0.0f)
+                                    ElementSlots[i][j].Cooldown = 0.0f;
+                            }
+                        }
+                        if (higherCooldown != null)
+                        {
+                            higherCooldown.Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (higherCooldown.Cooldown < 0.0f)
+                                higherCooldown.Cooldown = 0.0f;
+                        }
+
+
+
                     }
 
-                    if (RightSlotEnergy < 100.0f)
-                    {
-                        RightSlotEnergy += (float)gameTime.ElapsedGameTime.TotalSeconds * EnergyRegenerationRate;
-                        if (RightSlotEnergy > 100.0f)
-                            RightSlotEnergy = 100.0f;
-                    }
                 }
+
+                ElementSlots[0] = ElementSlots[0].OrderBy(e => e.Cooldown).ToArray();
+                ElementSlots[0] = ElementSlots[0].OrderByDescending(e => e.Type).ToArray();
+
+                ElementSlots[1] = ElementSlots[1].OrderBy(e => e.Cooldown).ToArray();
+                ElementSlots[1] = ElementSlots[1].OrderByDescending(e => e.Type).ToArray();
             }             
             base.PreUpdate(gameTime);
         }
@@ -268,38 +389,34 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     if (Neon.Input.Pressed(NeonStarInput.UseLeftSlotElement))
                     {
-                        if (_leftSlotElement != Element.Neutral)
+                        for (int i = ElementSlots[0].Length - 1; i >= 0; i--)
                         {
-                            Console.WriteLine("Use Element -> " + LeftSlotElement);
-                            UseElement(_leftSlotElement, (int)_leftSlotLevel, NeonStarInput.UseLeftSlotElement);
+                            if (ElementSlots[0][i].Type != Element.Neutral && ElementSlots[0][i].Cooldown <= 0.0f)
+                            {
+                                Console.WriteLine("Use Element -> " + ElementSlots[0][i].Type.ToString() + " at position: " + i + ".");
+                                UseElement(ElementSlots[0][i], NeonStarInput.UseLeftSlotElement);
+                                break;
+                            }
                         }
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.UseRightSlotElement))
                     {
-                        if (_rightSlotElement != Element.Neutral)
+                        for(int i = ElementSlots[1].Length - 1; i >= 0; i --)
                         {
-                            Console.WriteLine("Use Element -> " + RightSlotElement);
-                            UseElement(_rightSlotElement, (int)_rightSlotLevel, NeonStarInput.UseRightSlotElement);
+                            if(ElementSlots[1][i].Type != Element.Neutral && ElementSlots[1][i].Cooldown <= 0.0f)
+                            {
+                                Console.WriteLine("Use Element -> " + ElementSlots[1][i].Type.ToString() + " at position: " + i + ".");
+                                UseElement(ElementSlots[1][i], NeonStarInput.UseRightSlotElement);
+                                break;
+                            }
                         }
                     }
-
-                   /* if (Neon.Input.Pressed(NeonStarInput.DropLeftSlotElement))
-                    {
-                        if (_leftSlotElement != Element.Neutral)
-                            DropElement(Side.Left);
-                    }
-                    if (Neon.Input.Pressed(NeonStarInput.DropRightSlotElement))
-                    {
-                        if (_rightSlotElement != Element.Neutral)
-                            DropElement(Side.Right);
-                    }*/
                 }
                 else if (CurrentElementEffect != null)
                 {
                    CurrentElementEffect.Update(gameTime);
                 }
-            }
-            
+            }          
         }
 
         public override void PostUpdate(Microsoft.Xna.Framework.GameTime gameTime)
@@ -346,98 +463,47 @@ namespace NeonStarLibrary.Components.Avatar
             base.PostUpdate(gameTime);
         }
 
-        public void UseElement(Element element, int level, NeonStarInput input)
+        public void UseElement(ElementSlot elementSlot, NeonStarInput input)
         {
-            switch (element)
+            switch (elementSlot.Type)
             {
                 case Element.Fire:
-                    float fireGaugeCost = 0.0f;
-                    switch (level)
-                    {
-                        case 1:
-                            fireGaugeCost = (float)ElementManager.FireParameters[1][0];
-                            break;
-
-                        case 2:
-                            fireGaugeCost = (float)ElementManager.FireParameters[2][0];
-                            break;
-
-                        case 3:
-                            fireGaugeCost = (float)ElementManager.FireParameters[3][0];
-                            break;
-                    }
-
                     switch (input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            if (fireGaugeCost <= LeftSlotEnergy)
-                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                                CurrentElementEffect = new Fire(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            if (fireGaugeCost <= RightSlotEnergy)
-                                CurrentElementEffect = new Fire(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                                CurrentElementEffect = new Fire(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
                     }
 
                     break;
 
                 case Element.Thunder:
-                    float thunderGaugeCost = 0.0f;
-                    switch (level)
-                    {
-                        case 1:
-                            thunderGaugeCost = (float)ElementManager.ThunderParameters[0][0];
-                            break;
-
-                        case 2:
-                            thunderGaugeCost = (float)ElementManager.ThunderParameters[1][0];
-                            break;
-
-                        case 3:
-                            thunderGaugeCost = (float)ElementManager.ThunderParameters[2][0];
-                            break;
-                    }
-
                     switch (input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            if (thunderGaugeCost <= LeftSlotEnergy)
-                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                                CurrentElementEffect = new Thunder(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            if(thunderGaugeCost <= RightSlotEnergy)
-                                CurrentElementEffect = new Thunder(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                            CurrentElementEffect = new Thunder(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
                     }
 
                     break;
 
-                case Element.Wind:
-                    float windGaugeCost = 30.0f;                  
+                case Element.Wind:                 
                     switch (input)
                     {
                         case NeonStarInput.UseLeftSlotElement:
-                            if (windGaugeCost <= LeftSlotEnergy)
-                                CurrentElementEffect = new Wind(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                                CurrentElementEffect = new Wind(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
 
                         case NeonStarInput.UseRightSlotElement:
-                            if(windGaugeCost <= RightSlotEnergy)
-                                CurrentElementEffect = new Wind(this, level, entity, input, (GameScreen)entity.GameWorld);
-                            else
-                                Console.WriteLine("Not enough energy");
+                                CurrentElementEffect = new Wind(this, elementSlot, entity, input, (GameScreen)entity.GameWorld);
                             break;
                     }
                     break;
@@ -446,7 +512,7 @@ namespace NeonStarLibrary.Components.Avatar
 
         public void DropElement(Side side)
         {
-            if (side == Side.Left)
+            /*if (side == Side.Left)
             {
                 if (_leftSlotElement != Element.Neutral)
                 {
@@ -542,46 +608,43 @@ namespace NeonStarLibrary.Components.Avatar
                     _rightSlotElement = Element.Neutral;
                     _rightSlotLevel = 1;
                 }
-            }
+            }*/
             
         }
 
         public void GetElement(Element element)
         {
-            if (_leftSlotElement == element)
+            bool checkRightSlot = false;
+
+            for (int i = 0; i < ElementSlots[0].Length; i++)
             {
-                if (_leftSlotLevel < _maxLevel)
+                if (ElementSlots[0][i].Type == Element.Neutral)
                 {
-                    ElementFeedback(element);
-                    _leftSlotLevel++;
+                    ElementSlots[0][i].Type = element;
+                    ElementSlots[0][i].Cooldown = 0.0f;
+                    return;
                 }
-                Console.WriteLine("Left Slot Level Up -> " + _leftSlotLevel);
-            }
-            else if (_rightSlotElement == element)
-            {
-                if (_rightSlotLevel < _maxLevel)
+                else if (ElementSlots[0][i].Type != element)
                 {
-                    ElementFeedback(element);
-                    _rightSlotLevel++;
+                    checkRightSlot = true;
+                    break;
                 }
-                Console.WriteLine("Right Slot Level Up -> " + _rightSlotLevel);
             }
-            else if (_leftSlotElement == Element.Neutral)
+
+            if (checkRightSlot)
             {
-                ElementFeedback(element);
-                _leftSlotElement = element;
-                Console.WriteLine("Got " + element + " in Left Slot");
-            }
-            else if (_rightSlotElement == Element.Neutral)
-            {
-                ElementFeedback(element);
-                _rightSlotElement = element;
-                Console.WriteLine("Got " + element + " in Right Slot");
-            }
-            else
-            {
-                Console.WriteLine("Fizzle");
-            }
+                for (int i = 0; i < ElementSlots[1].Length; i++)
+                {
+                    if (ElementSlots[1][i].Type == Element.Neutral)
+                    {
+                        ElementSlots[1][i].Type = element;
+                        ElementSlots[1][i].Cooldown = 0.0f;
+                        return;
+                    }
+                    else if (ElementSlots[1][i].Type != element)
+                        break;
+                }
+            }           
         }
 
         private void ElementFeedback(Element element)
@@ -600,6 +663,40 @@ namespace NeonStarLibrary.Components.Avatar
                         _nextColorToTint = Color.FromNonPremultiplied(255, 230, 100, 255);
                         break;
                 }
+        }
+
+        public void ChangeMaxLevel(int newMaxLevel)
+        {
+            _maxLevel = newMaxLevel;
+
+            ElementSlot[] leftSlotElements = null;
+            ElementSlot[] rightSlotElements = null;
+
+            if (ElementSlots != null && ElementSlots.Length == 2)
+            {
+                leftSlotElements = ElementSlots[0];
+                rightSlotElements = ElementSlots[1];
+            }
+            ElementSlots = new ElementSlot[2][];
+            ElementSlots[0] = new ElementSlot[(int)MaxLevel];
+            ElementSlots[1] = new ElementSlot[(int)MaxLevel];
+            for (int i = 0; i < MaxLevel; i++)
+            {
+                ElementSlots[0][i] = new ElementSlot();
+                ElementSlots[1][i] = new ElementSlot();
+            }
+
+            if (leftSlotElements != null)
+            {
+                for (int i = 0; i < leftSlotElements.Length; i++)
+                {
+                    if (ElementSlots[0].Length > i)
+                    {
+                        ElementSlots[0][i] = leftSlotElements[i];
+                        ElementSlots[1][i] = rightSlotElements[i];
+                    }
+                }
+            }
         }
     }
 }

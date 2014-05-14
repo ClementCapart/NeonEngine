@@ -22,8 +22,8 @@ namespace NeonStarLibrary
 
         private Attack _airAttack;
 
-        public Wind(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
-            :base(elementSystem, elementLevel, entity, input, world)
+        public Wind(ElementSystem elementSystem, ElementSlot elementSlot, Entity entity, NeonStarInput input, GameScreen world)
+            : base(elementSystem, elementSlot, entity, input, world)
         {           
         }
 
@@ -31,7 +31,6 @@ namespace NeonStarLibrary
         {           
             this.EffectElement = Element.Wind;
 
-            _gaugeCost = (float)ElementManager.WindParameters[0][0];
             _windImpulse = new Vector2(0, (float)ElementManager.WindParameters[0][1]);
             _impulseDuration = (float)ElementManager.WindParameters[0][2];
             _attackName = (string)ElementManager.WindParameters[0][3];
@@ -76,16 +75,7 @@ namespace NeonStarLibrary
                         if (_entity.spritesheets != null && _entity.spritesheets.CurrentSpritesheetName != _elementSystem.WindStartAnimation)
                         {
                             _entity.spritesheets.ChangeAnimation(this._elementSystem.WindStartAnimation, 0, true, false, false);
-                            switch (_input)
-                            {
-                                case NeonStarInput.UseLeftSlotElement:
-                                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                                    break;
-
-                                case NeonStarInput.UseRightSlotElement:
-                                    _elementSystem.RightSlotEnergy -= _gaugeCost;
-                                    break;
-                            }
+                            _elementSlot.Cooldown = _elementSystem.ElementSlotCooldownDuration;
 
                             _entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                         }
@@ -127,10 +117,10 @@ namespace NeonStarLibrary
                     {
                         bool stillFloating = false;
 
-                        switch (_input)
+                        /*switch (_input)
                         {
                             case NeonStarInput.UseLeftSlotElement:
-                                if (_elementSystem.LeftSlotEnergy > _timedGaugeConsumption * (float)gameTime.ElapsedGameTime.TotalSeconds)
+                                 if (_elementSystem.LeftSlotEnergy > _timedGaugeConsumption * (float)gameTime.ElapsedGameTime.TotalSeconds)
                                 {
                                     _elementSystem.LeftSlotEnergy -= _timedGaugeConsumption * (float)gameTime.ElapsedGameTime.TotalSeconds;
                                     if (_elementSystem.LeftSlotEnergy < 0.0f)
@@ -151,8 +141,9 @@ namespace NeonStarLibrary
                                 }
                                 else
                                     State = ElementState.End;
+                                 
                                 break;
-                        }
+                        }*/
 
                         if (_entity.rigidbody != null && stillFloating)
                         {

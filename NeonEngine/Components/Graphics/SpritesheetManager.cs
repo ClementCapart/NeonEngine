@@ -184,7 +184,7 @@ namespace NeonEngine.Components.Graphics2D
             if (!forceSwitch && !CurrentSpritesheet.IsLooped && !CurrentSpritesheet.IsFinished)
                 return;
             
-            if (CurrentPriority > priority)
+            if (CurrentPriority > priority && !CurrentSpritesheet.IsLooped && !CurrentSpritesheet.IsFinished)
                 return;
 
             if (spriteSheetName == null || spriteSheetName == "")

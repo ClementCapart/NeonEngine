@@ -162,12 +162,25 @@ namespace NeonStarLibrary
                 if (!respawning)
                 {
                     avatarComponent.CurrentHealthPoints = float.Parse(liOn.Element("HealthPoints").Value);
-                    if (avatarComponent.ElementSystem != null)
+                }
+
+                if (avatarComponent.ElementSystem != null)
+                {
+                    avatarComponent.ElementSystem.MaxLevel = float.Parse(liOn.Element("MaxLevel").Value);
+
+                    avatarComponent.ElementSystem.LeftSlotElementFirst = (Element)Enum.Parse(typeof(Element), liOn.Element("FirstLeftElement").Value);
+                    avatarComponent.ElementSystem.RightSlotElementFirst = (Element)Enum.Parse(typeof(Element), liOn.Element("FirstRightElement").Value);
+
+                    if (avatarComponent.ElementSystem.MaxLevel > 1)
                     {
-                        avatarComponent.ElementSystem.LeftSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("LeftElement").Value);
-                        avatarComponent.ElementSystem.LeftSlotLevel = float.Parse(liOn.Element("LeftElement").Attribute("Level").Value);
-                        avatarComponent.ElementSystem.RightSlotElement = (Element)Enum.Parse(typeof(Element), liOn.Element("RightElement").Value);
-                        avatarComponent.ElementSystem.RightSlotLevel = float.Parse(liOn.Element("RightElement").Attribute("Level").Value);
+                        avatarComponent.ElementSystem.LeftSlotElementSecond = (Element)Enum.Parse(typeof(Element), liOn.Element("SecondLeftElement").Value);
+                        avatarComponent.ElementSystem.RightSlotElementSecond = (Element)Enum.Parse(typeof(Element), liOn.Element("SecondRightElement").Value);
+                    }
+
+                    if (avatarComponent.ElementSystem.MaxLevel > 2)
+                    {
+                        avatarComponent.ElementSystem.LeftSlotElementThird = (Element)Enum.Parse(typeof(Element), liOn.Element("ThirdLeftElement").Value);
+                        avatarComponent.ElementSystem.RightSlotElementThird = (Element)Enum.Parse(typeof(Element), liOn.Element("ThirdRightElement").Value);
                     }
                 }
 
@@ -377,10 +390,21 @@ namespace NeonStarLibrary
 
                 if (avatarComponent.ElementSystem != null)
                 {
-                    XElement currentLeftElement = new XElement("LeftElement", new XAttribute("Level", avatarComponent.ElementSystem.LeftSlotLevel), avatarComponent.ElementSystem.LeftSlotElement.ToString());
-                    XElement currentRightElement = new XElement("RightElement", new XAttribute("Level", avatarComponent.ElementSystem.RightSlotLevel), avatarComponent.ElementSystem.RightSlotElement.ToString());
-                    liOn.Add(currentLeftElement);
-                    liOn.Add(currentRightElement);
+                    XElement currentFirstLeftElement = new XElement("FirstLeftElement", avatarComponent.ElementSystem.LeftSlotElementFirst.ToString());
+                    XElement currentFirstRightElement = new XElement("FirstRightElement", avatarComponent.ElementSystem.RightSlotElementFirst.ToString());
+                    XElement currentSecondLeftElement = new XElement("SecondLeftElement", avatarComponent.ElementSystem.LeftSlotElementSecond.ToString());
+                    XElement currentSecondRightElement = new XElement("SecondRightElement", avatarComponent.ElementSystem.RightSlotElementSecond.ToString());
+                    XElement currentThirdLeftElement = new XElement("ThirdLeftElement", avatarComponent.ElementSystem.LeftSlotElementThird.ToString());
+                    XElement currentThirdRightElement = new XElement("ThirdRightElement", avatarComponent.ElementSystem.RightSlotElementThird.ToString());                   
+                    
+                    XElement maxLevel = new XElement("MaxLevel", avatarComponent.ElementSystem.MaxLevel.ToString());
+                    liOn.Add(currentFirstLeftElement);
+                    liOn.Add(currentFirstRightElement);
+                    liOn.Add(currentSecondLeftElement);
+                    liOn.Add(currentSecondRightElement);
+                    liOn.Add(currentThirdLeftElement);
+                    liOn.Add(currentThirdRightElement);
+                    liOn.Add(maxLevel);
                 }
 
                 playerStatus.Add(liOn);

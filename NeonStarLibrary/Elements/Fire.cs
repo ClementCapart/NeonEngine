@@ -32,12 +32,11 @@ namespace NeonStarLibrary
         public string StageOneAttack;
         public string StageTwoAttack;
         public string StageThreeAttack;
-        public string StageFourAttack;
 
         private Entity _firePlatform;
 
-        public Fire(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
-            :base(elementSystem, elementLevel, entity, input, world)
+        public Fire(ElementSystem elementSystem, ElementSlot elementSlot, Entity entity, NeonStarInput input, GameScreen world)
+            :base(elementSystem, elementSlot, entity, input, world)
         {
             EffectElement = Element.Fire;
         }
@@ -47,51 +46,12 @@ namespace NeonStarLibrary
             _chargeSpeed = (float)ElementManager.FireParameters[0][0];
             _maxChargeTimer = (float)ElementManager.FireParameters[0][1];
 
-            switch(this.ElementLevel)
-            {
-                case 1:
-                    _gaugeCost = (float)ElementManager.FireParameters[1][0];
+            StageOneAttack = (string)ElementManager.FireParameters[1][1];
+            StageTwoAttack = (string)ElementManager.FireParameters[1][2];
+            StageThreeAttack = (string)ElementManager.FireParameters[1][3];
 
-                    StageOneAttack = (string)ElementManager.FireParameters[1][1];
-                    StageTwoAttack = (string)ElementManager.FireParameters[1][2];
-                    StageThreeAttack = (string)ElementManager.FireParameters[1][3];
-
-                    StageTwoThreshold = (float)ElementManager.FireParameters[1][4];
-                    StageThreeThreshold = (float)ElementManager.FireParameters[1][5];
-
-                    StageFourAttack = "";
-                    StageFourThreshold = (float)_maxCharge + 1;
-                    break;
-
-                case 2:
-                    _gaugeCost = (float)ElementManager.FireParameters[2][0];
-
-                    StageOneAttack = (string)ElementManager.FireParameters[2][1];
-                    StageTwoAttack = (string)ElementManager.FireParameters[2][2];
-                    StageThreeAttack = (string)ElementManager.FireParameters[2][3];
-
-                    StageTwoThreshold = (float)ElementManager.FireParameters[2][4];
-                    StageThreeThreshold = (float)ElementManager.FireParameters[2][5];
-
-                    StageFourAttack = (string)ElementManager.FireParameters[2][6];
-                    StageFourThreshold = (float)ElementManager.FireParameters[2][7];
-                    break;
-
-                case 3:
-                    _gaugeCost = (float)ElementManager.FireParameters[3][0];
-
-                    StageOneAttack = (string)ElementManager.FireParameters[3][1];
-                    StageTwoAttack = (string)ElementManager.FireParameters[3][2];
-                    StageThreeAttack = (string)ElementManager.FireParameters[3][3];
-
-                    StageTwoThreshold = (float)ElementManager.FireParameters[3][4];
-                    StageThreeThreshold = (float)ElementManager.FireParameters[3][5];
-
-                    StageFourAttack = (string)ElementManager.FireParameters[3][6];
-                    StageFourThreshold = (float)ElementManager.FireParameters[3][7];
-                    break;
-            }
-
+            StageTwoThreshold = (float)ElementManager.FireParameters[1][4];
+            StageThreeThreshold = (float)ElementManager.FireParameters[1][5];
             
             base.InitializeLevelParameters();
         }
@@ -162,13 +122,7 @@ namespace NeonStarLibrary
 
                     Attack a = null;
 
-                    if (CurrentCharge > StageFourThreshold)
-                    {
-                        a = AttacksManager.StartFreeAttack(StageFourAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
-                        a.Launcher = _entity;
-                        
-                    }
-                    else if (CurrentCharge > StageThreeThreshold)
+                    if (CurrentCharge > StageThreeThreshold)
                     {
                         a = AttacksManager.StartFreeAttack(StageThreeAttack, _entity.spritesheets.CurrentSide, _entity.transform.Position, false);
                         a.Launcher = _entity;
@@ -217,20 +171,11 @@ namespace NeonStarLibrary
                         _entity.GameWorld.AddEntity(e);
 
                         FirePlatforms.Add(e.rigidbody);
-                        _firePlatform = e;
-                        
+                        _firePlatform = e;                       
                     }
-                    
-                    switch(_input)
-                    {
-                        case NeonStarInput.UseLeftSlotElement:
-                            _elementSystem.LeftSlotEnergy -= this._gaugeCost;
-                            break;
 
-                        case NeonStarInput.UseRightSlotElement:
-                            _elementSystem.RightSlotEnergy -= this._gaugeCost;
-                            break;
-                    }
+                    _elementSlot.Cooldown = _elementSystem.ElementSlotCooldownDuration;
+
                     State = ElementState.End;
                     break;
 

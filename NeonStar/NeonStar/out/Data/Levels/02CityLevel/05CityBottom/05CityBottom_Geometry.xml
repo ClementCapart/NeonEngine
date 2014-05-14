@@ -49,7 +49,7 @@
               <TilingWidth Value="400" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -327,7 +327,7 @@
               <TilingWidth Value="400" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -519,7 +519,7 @@
               <TilingWidth Value="150" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -582,7 +582,7 @@
               <TilingWidth Value="400" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -688,7 +688,7 @@
               <TilingWidth Value="200" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -751,7 +751,7 @@
               <TilingWidth Value="450" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1120,7 +1120,7 @@
               <TilingWidth Value="400" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1355,7 +1355,7 @@
               <TilingWidth Value="150" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1547,7 +1547,7 @@
               <TilingWidth Value="200" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1611,7 +1611,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2650 Y:675}" />
+              <InitialPosition Value="{X:2650 Y:700}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1620,13 +1620,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2650 Y:675}" />
+              <Center Value="{X:2650 Y:700}" />
               <X Value="2550" />
               <Y Value="525" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
-              <Height Value="300" />
+              <Height Value="350" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -1637,7 +1637,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="5.99995" />
+              <Mass Value="6.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1654,21 +1654,21 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2400 Y:350}" />
+              <InitialPosition Value="{X:2350 Y:350}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:2400 Y:350}" />
-              <X Value="2325" />
+              <Center Value="{X:2350 Y:350}" />
+              <X Value="2250" />
               <Y Value="325" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="150" />
+              <Width Value="200" />
               <Height Value="50" />
               <NickName Value="" />
             </Properties>
@@ -1680,7 +1680,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="0.7499499" />
+              <Mass Value="0.9999501" />
               <OneWayPlatform Value="True" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1690,6 +1690,22 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityOneWay3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:74}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="Geometry">
@@ -1697,7 +1713,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2625 Y:150}" />
+              <InitialPosition Value="{X:2600 Y:150}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1706,8 +1722,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="OneWay" />
-              <Center Value="{X:2625 Y:150}" />
-              <X Value="2550" />
+              <Center Value="{X:2600 Y:150}" />
+              <X Value="2525" />
               <Y Value="125" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1739,7 +1755,7 @@
               <TilingWidth Value="200" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1760,7 +1776,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2925 Y:175}" />
+              <InitialPosition Value="{X:2900 Y:175}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1769,12 +1785,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2925 Y:175}" />
-              <X Value="2700" />
+              <Center Value="{X:2900 Y:175}" />
+              <X Value="2650" />
               <Y Value="125" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="450" />
+              <Width Value="500" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
@@ -1786,7 +1802,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="4.49995" />
+              <Mass Value="4.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1803,7 +1819,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3300 Y:475}" />
+              <InitialPosition Value="{X:3300 Y:500}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1812,13 +1828,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:3300 Y:475}" />
+              <Center Value="{X:3300 Y:500}" />
               <X Value="3150" />
               <Y Value="125" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="300" />
-              <Height Value="700" />
+              <Height Value="750" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -1829,7 +1845,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="20.99995" />
+              <Mass Value="22.49995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -1931,7 +1947,7 @@
               <TilingWidth Value="450" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2099,7 +2115,7 @@
               <AutoChangeInitialPosition Value="True" />
               <InitialPosition Value="{X:1200 Y:1850}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
@@ -2133,6 +2149,22 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityOneWay3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:74}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
       <Entity Name="LevelGeometry" Layer="Geometry">
@@ -2182,7 +2214,7 @@
               <TilingWidth Value="200" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2723,7 +2755,7 @@
               <TilingWidth Value="450" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -2744,7 +2776,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1075 Y:-425}" />
+              <InitialPosition Value="{X:1100 Y:-425}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2753,12 +2785,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:1075 Y:-425}" />
+              <Center Value="{X:1100 Y:-425}" />
               <X Value="950" />
               <Y Value="-475" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="250" />
+              <Width Value="300" />
               <Height Value="100" />
               <NickName Value="" />
             </Properties>
@@ -2770,7 +2802,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="2.49995" />
+              <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="True" />
@@ -2829,7 +2861,7 @@
               <TilingWidth Value="200" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -3037,7 +3069,7 @@
               <TilingWidth Value="400" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -3100,7 +3132,7 @@
               <TilingWidth Value="250" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityCosmeticsOneWay1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />

@@ -22,21 +22,20 @@ namespace NeonStarLibrary
         protected Entity _entity;
         protected ElementSystem _elementSystem;
         protected NeonStarInput _input;
-        public int ElementLevel = 1;
 
         public Element EffectElement;
 
-        protected float _gaugeCost = 20.0f;
+        protected ElementSlot _elementSlot;
 
         public ElementState State;
 
-        public ElementEffect(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
+        public ElementEffect(ElementSystem elementSystem, ElementSlot slot, Entity entity, NeonStarInput input, GameScreen world)
         {
             _world = world;
             _entity = entity;
             _elementSystem = elementSystem;
             _input = input;
-            ElementLevel = elementLevel;
+            _elementSlot = slot;
 
             InitializeLevelParameters();
         }

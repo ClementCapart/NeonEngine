@@ -22,8 +22,8 @@ namespace NeonStarLibrary
         private string _attackToLaunch = "";
         private Attack ThunderAttack;
 
-        public Thunder(ElementSystem elementSystem, int elementLevel, Entity entity, NeonStarInput input, GameScreen world)
-            :base(elementSystem, elementLevel, entity, input, world)
+        public Thunder(ElementSystem elementSystem, ElementSlot elementSlot, Entity entity, NeonStarInput input, GameScreen world)
+            :base(elementSystem, elementSlot, entity, input, world)
         {           
         }
 
@@ -33,50 +33,11 @@ namespace NeonStarLibrary
             _thunderFinishSpritesheetInfo = AssetManager.GetSpriteSheet("LiOnThunderDashFinish");
             
             this.EffectElement = Element.Thunder;
-            switch (ElementLevel)
-            {
-                case 1:
-                    _gaugeCost = (float)ElementManager.ThunderParameters[0][0];
-                    _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[0][1] : -(float)ElementManager.ThunderParameters[0][1], 0);
-                    _dashDuration = (float)ElementManager.ThunderParameters[0][2];
-                    _attackToLaunch = (string)ElementManager.ThunderParameters[0][3];
-                    break;
+            _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[0][1] : -(float)ElementManager.ThunderParameters[0][1], 0);
+            _dashDuration = (float)ElementManager.ThunderParameters[0][2];
+            _attackToLaunch = (string)ElementManager.ThunderParameters[0][3];
 
-                case 2:
-                    _gaugeCost = (float)ElementManager.ThunderParameters[1][0];
-                    /*if (Neon.Input.Check(NeonStarInput.MoveUp))
-                        _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[1][4]);
-                    else if (Neon.Input.Check(NeonStarInput.MoveDown))
-                        _dashImpulse = new Vector2(0, (float)ElementManager.ThunderParameters[1][5]);
-                    else*/
-                        _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[1][1] : -(float)ElementManager.ThunderParameters[1][1], 0);
-                    _dashDuration = (float)ElementManager.ThunderParameters[1][2];
-                    _attackToLaunch = (string)ElementManager.ThunderParameters[1][3];
-                    break;
-
-                case 3:
-                    _gaugeCost = (float)ElementManager.ThunderParameters[2][0];
-                    /*if (Neon.Input.Check(NeonStarInput.MoveUp))
-                        _dashImpulse = new Vector2(0, -(float)ElementManager.ThunderParameters[2][4]);
-                    else if (Neon.Input.Check(NeonStarInput.MoveDown))
-                        _dashImpulse = new Vector2(0, (float)ElementManager.ThunderParameters[2][5]);
-                    else*/
-                        _dashImpulse = new Vector2(_entity.spritesheets.CurrentSide == Side.Right ? (float)ElementManager.ThunderParameters[2][1] : -(float)ElementManager.ThunderParameters[2][1], 0);
-                    _dashDuration = (float)ElementManager.ThunderParameters[2][2];
-                    _attackToLaunch = (string)ElementManager.ThunderParameters[2][3];
-                    break;
-            }
-
-            switch (_input)
-            {
-                case NeonStarInput.UseLeftSlotElement:
-                    _elementSystem.LeftSlotEnergy -= _gaugeCost;
-                    break;
-
-                case NeonStarInput.UseRightSlotElement:
-                    _elementSystem.RightSlotEnergy -= _gaugeCost;
-                    break;
-            }
+            _elementSlot.Cooldown = _elementSystem.ElementSlotCooldownDuration;
 
             _elementSystem.AvatarComponent.CanMove = false;
             _elementSystem.AvatarComponent.CanTurn = false;

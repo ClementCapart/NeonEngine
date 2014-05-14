@@ -148,6 +148,7 @@ namespace NeonEngine
                             continue;
 
                         Component component = (Component)Activator.CreateInstance(t, entity);
+                        
                         component.ID = int.Parse(Comp.Attribute("ID").Value);
                         foreach (XElement Property in Comp.Element("Properties").Elements())
                         {

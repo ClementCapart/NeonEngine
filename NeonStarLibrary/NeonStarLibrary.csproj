@@ -29,6 +29,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -82,6 +83,7 @@
     <Compile Include="BulletsManager.cs" />
     <Compile Include="Components\AttackOnTrigger.cs" />
     <Compile Include="Components\DeviceActivatedComponent.cs" />
+    <Compile Include="Components\SlotCollectible.cs" />
     <Compile Include="Scripts\AnimatedScreen.cs" />
     <Compile Include="Components\ApplyMovementOnEntity.cs" />
     <Compile Include="Components\DamagingArea.cs" />

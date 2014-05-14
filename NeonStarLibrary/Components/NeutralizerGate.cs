@@ -41,28 +41,40 @@ namespace NeonStarLibrary.Components.GameplayElements
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
         {
             AvatarCore _avatar = triggeringEntity.GetComponent<AvatarCore>();
-            if(_avatar != null && _avatar.ElementSystem != null && (_avatar.ElementSystem.LeftSlotElement != Element.Neutral || _avatar.ElementSystem.RightSlotElement != Element.Neutral))
+            if(_avatar != null && _avatar.ElementSystem != null)
             {
+                bool removedElement = false;
 
-                _avatar.ElementSystem.LeftSlotLevel = 1;
-                _avatar.ElementSystem.LeftSlotElement = Element.Neutral;
-
-                _avatar.ElementSystem.RightSlotLevel = 1;
-                _avatar.ElementSystem.RightSlotElement = Element.Neutral;
-
-                Vector2 effectPosition;
-
-                if (_verticalGate)
+                for (int i = 0; i < _avatar.ElementSystem.ElementSlots[0].Length; i++)
                 {
-                    effectPosition = new Vector2(entity.transform.Position.X, _avatar.entity.transform.Position.Y);
+                    if (!removedElement && _avatar.ElementSystem.ElementSlots[0][i].Type != Element.Neutral)
+                        removedElement = true;
+                    _avatar.ElementSystem.ElementSlots[0][i].Type = Element.Neutral;
+
                 }
-                else
+                for (int i = 0; i < _avatar.ElementSystem.ElementSlots[1].Length; i++)
                 {
-                    effectPosition = new Vector2(_avatar.entity.transform.Position.X, entity.transform.Position.Y);
+                    if (!removedElement && _avatar.ElementSystem.ElementSlots[1][i].Type != Element.Neutral)
+                        removedElement = true;
+                    _avatar.ElementSystem.ElementSlots[1][i].Type = Element.Neutral;
                 }
 
-                if(_effect != null)
-                    EffectsManager.GetEffect(_effect, Side.Right, effectPosition, 0.0f, Vector2.Zero, 2.0f, 0.99f);
+                if (removedElement)
+                {
+                    Vector2 effectPosition;
+
+                    if (_verticalGate)
+                    {
+                        effectPosition = new Vector2(entity.transform.Position.X, _avatar.entity.transform.Position.Y);
+                    }
+                    else
+                    {
+                        effectPosition = new Vector2(_avatar.entity.transform.Position.X, entity.transform.Position.Y);
+                    }
+
+                    if (_effect != null)
+                        EffectsManager.GetEffect(_effect, Side.Right, effectPosition, 0.0f, Vector2.Zero, 2.0f, 0.99f);
+                }
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }
