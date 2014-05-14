@@ -10,6 +10,14 @@ namespace NeonStarLibrary.Components.Enemies
     public class GroundAttack : EnemyAttack
     {
         #region Properties
+        private bool _cantAttackInAir = true;
+
+        public bool CantAttackInAir
+        {
+            get { return _cantAttackInAir; }
+            set { _cantAttackInAir = value; }
+        }
+
         private bool _checkBothSide = true;
 
         public bool CheckBothSide
@@ -35,7 +43,7 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         { 
-            if(EntityToAttack != null && entity.rigidbody.isGrounded)
+            if(EntityToAttack != null && (entity.rigidbody.isGrounded || !CantAttackInAir))
             {
                 switch (EnemyComponent.State)
                 {
