@@ -83,6 +83,8 @@ namespace NeonStarLibrary.Components.Enemies
         private bool _touchedGround;
         private bool _hasBeenLaunched = false;
 
+        private Attack _attack;
+
         public BombAttack(Entity entity)
             :base(entity, "BombAttack")
         {
@@ -135,6 +137,9 @@ namespace NeonStarLibrary.Components.Enemies
                     }
                 }
             }
+
+            if (_attack != null && _attack.CooldownFinished && entity.spritesheets.CurrentSpritesheet.IsFinished)
+                entity.Destroy();
             base.Update(gameTime);
         }
 
@@ -144,7 +149,7 @@ namespace NeonStarLibrary.Components.Enemies
             {
                 if (_explosionAttack != "")
                 {
-                    AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, false);
+                    _attack = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, false);
                 }
                 
             }
@@ -152,12 +157,10 @@ namespace NeonStarLibrary.Components.Enemies
             {
                 if (_explosionAttack != "")
                 {
-                    AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, true);
+                    _attack = AttacksManager.StartFreeAttack(_explosionAttack, Side.Right, entity.transform.Position, true);
                 }
                 
             }
-
-            entity.Destroy();
         }
 
 
