@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1270 Y:-2350}" />
+              <InitialPosition Value="{X:1750 Y:-2350}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1272 Y:-2360}" />
-              <X Value="1222" />
+              <Center Value="{X:1747 Y:-2360}" />
+              <X Value="1697" />
               <Y Value="-2395" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -45,7 +45,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -87,7 +87,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.4" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -475,7 +475,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <FrameToActivate Value="32" />
-              <State Value="Deactivated" />
+              <State Value="Disabled" />
               <NickName Value="" />
             </Properties>
           </StableEnergyDevice>
@@ -558,6 +558,79 @@
               <NickName Value="" />
             </Properties>
           </FadingSpritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="SlotCollectible" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1493 Y:805}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:1493 Y:825}" />
+              <X Value="1453" />
+              <Y Value="785" />
+              <OffsetX Value="0" />
+              <OffsetY Value="20" />
+              <Width Value="80" />
+              <Height Value="80" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Idle" SpritesheetTag="EnergyCellRed" />
+                <Animation Name="Out" SpritesheetTag="EnergyCellRedOut" />
+              </Spritesheets>
+              <DrawLayer Value="0.51" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SlotCollectible Type="NeonStarLibrary.Components.GameplayElements.SlotCollectible" ID="4">
+            <Properties>
+              <IdleAnimation Value="Idle" />
+              <OutAnimation Value="Out" />
+              <AvatarName Value="LiOn" />
+              <NickName Value="" />
+            </Properties>
+          </SlotCollectible>
+          <ResidencesSlotScript Type="NeonStarLibrary.Components.ResidencesSlotScript" ID="5">
+            <Properties>
+              <LanternName Value="EnemyRobot22" />
+              <LanternSpawnPosition Value="{X:1500 Y:700}" />
+              <FirstRobotName Value="" />
+              <FirstRobotSpawnPosition Value="{X:0 Y:0}" />
+              <SecondRobotName Value="" />
+              <SecondRobotSpawnPosition Value="{X:0 Y:0}" />
+              <ThirdRobotName Value="" />
+              <ThirdRobotSpawnPosition Value="{X:0 Y:0}" />
+              <FourthRobotName Value="" />
+              <FourthRobotSpawnPosition Value="{X:0 Y:0}" />
+              <FifthRobotName Value="" />
+              <FifthRobotSpawnPosition Value="{X:0 Y:0}" />
+              <SixthRobotName Value="" />
+              <SixthRobotSpawnPosition Value="{X:0 Y:0}" />
+              <CollectibleToCheckName Value="SlotCollectible" />
+              <NickName Value="" />
+            </Properties>
+          </ResidencesSlotScript>
         </Components>
       </Entity>
     </Entities>

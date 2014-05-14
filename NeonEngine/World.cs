@@ -132,7 +132,6 @@ namespace NeonEngine
             if (FirstUpdateWorld)
             {
                 Alpha = 1.0f;
-                FirstUpdateWorld = false;
                 Console.WriteLine("");
                 Console.WriteLine(GetType().Name + " (World) loaded !");
                 Console.WriteLine("");
@@ -202,6 +201,7 @@ namespace NeonEngine
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
             Camera.MovedLastFrame = false;
+            if (FirstUpdateWorld) FirstUpdateWorld = false;
         }
 
         public virtual void PostUpdate(GameTime gameTime)

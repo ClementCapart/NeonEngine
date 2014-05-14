@@ -14,7 +14,6 @@ namespace NeonEngine
 
     public abstract class Component
     {
-
         public bool ComponentEnabled = true;
 
         public Entity entity;
