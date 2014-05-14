@@ -552,7 +552,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:-2 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -653,7 +653,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:1}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -728,12 +728,15 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-17}" />
+              <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
+                <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
+              </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1073,6 +1076,56 @@
               <NickName Value="" />
             </Properties>
           </DamagingArea>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ElectricFloorCornerReverse" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-84 Y:-1}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ElectricFloorCornerReverse" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-83 Y:-1}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="ElectricFloor" Layer="Gameplay">
@@ -1258,6 +1311,56 @@
               <NickName Value="" />
             </Properties>
           </DamagingArea>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ElectricFloorCornerReverse" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-84 Y:-1}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ElectricFloorCornerReverse" />
+              <DrawLayer Value="0.5" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-83 Y:-1}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
     </Entities>
