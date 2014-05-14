@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -158,8 +159,10 @@ namespace NeonStarLibrary.Components.EnergyObjects
                             _opening = false;
                             if (entity.rigidbody != null)
                             {
+                                Vector2 position = entity.transform.Position;
                                 entity.rigidbody.IsGround = false;
                                 entity.rigidbody.Init();
+                                entity.transform.Position = position;
                             }
                         }    
                         else
@@ -212,12 +215,12 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
                         if (entity.rigidbody != null)
                         {
+                            Vector2 position = entity.transform.Position;
                             entity.rigidbody.IsGround = false;
                             entity.rigidbody.Init();
+                            entity.transform.Position = position;
                         }
                     }
-
-
                 }
             }
         }
