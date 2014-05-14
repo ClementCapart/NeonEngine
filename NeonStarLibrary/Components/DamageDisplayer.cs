@@ -160,7 +160,7 @@ namespace NeonStarLibrary.Components.Graphics2D
                 td.OutlineDisplacement = OutlineWidth;
                 td.OutlineColor = OutlineColor;
                 td.Outline = IsOutlined;
-
+                td.HasToBeSaved = false;
 
                 DamageDisplayInformation ddi = new DamageDisplayInformation();
                 ddi.TextDisplayer = td;
