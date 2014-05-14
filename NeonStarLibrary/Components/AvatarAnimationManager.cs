@@ -225,41 +225,20 @@ namespace NeonStarLibrary.Components.Avatar
                             string fireLaunchLoopAnim = "";
                             string fireReleaseAnim = "";
 
-                            switch(AvatarComponent.ElementSystem.CurrentElementEffect.ElementLevel)
-                            {
-                                case 1:
-                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelOne;
-                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelOne;
-                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelOne;
-                                    break;
-
-                                case 2:
-                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelTwo;
-                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelTwo;
-                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelTwo;
-                                    break;
-
-                                case 3:
-                                    fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelThree;
-                                    fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelThree;
-                                    fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelThree;
-                                    break;
-                            }
+                            fireLaunchAnim = AvatarComponent.ElementSystem.FireLaunchAnimationLevelOne;
+                            fireLaunchLoopAnim = AvatarComponent.ElementSystem.FireLaunchLoopAnimationLevelOne;
+                            fireReleaseAnim = AvatarComponent.ElementSystem.FireReleaseAnimationLevelOne;
 
                             switch (AvatarComponent.ElementSystem.CurrentElementEffect.State)
                             {
                                 case ElementState.Charge:
-                                    if (entity.spritesheets.CurrentSpritesheetName == fireLaunchAnim && entity.spritesheets.IsFinished())
-                                    {
-                                        entity.spritesheets.ChangeAnimation(fireLaunchLoopAnim, true, 0, true, false, true);
-                                    }
-                                    else if (entity.spritesheets.CurrentSpritesheetName != fireLaunchLoopAnim)
+                                    if (entity.spritesheets.CurrentSpritesheetName != fireLaunchLoopAnim)
                                         entity.spritesheets.ChangeAnimation(fireLaunchAnim, true, 0, true, false, false);
                                     break;
 
                                 case ElementState.Effect:
                                     if (entity.spritesheets.CurrentSpritesheetName != fireReleaseAnim)
-                                        entity.spritesheets.ChangeAnimation(fireReleaseAnim, true, 0, true, false, false);
+                                        entity.spritesheets.ChangeAnimation(fireReleaseAnim, true, 1, true, false, false);
                                     break;
                             }
                         }

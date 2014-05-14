@@ -147,10 +147,10 @@ namespace NeonStarLibrary.Components.GameplayElements
 
                 if (_avatarComponent.ElementSystem != null)
                 {
-                    if (_avatarComponent.ElementSystem.RightSlotElement == _elementToCheck)
+                   /* if (_avatarComponent.ElementSystem.RightSlotElement == _elementToCheck)
                         elementCount += (int)_avatarComponent.ElementSystem.RightSlotLevel;
                     if (_avatarComponent.ElementSystem.LeftSlotElement == _elementToCheck)
-                        elementCount += (int)_avatarComponent.ElementSystem.LeftSlotLevel;
+                        elementCount += (int)_avatarComponent.ElementSystem.LeftSlotLevel;*/
                 }
 
                 if (_elementLevelNeeded > elementCount)
