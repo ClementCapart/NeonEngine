@@ -32,7 +32,7 @@
               <AvatarName Value="LiOn" />
               <JumperOffAnimation Value="Off" />
               <JumperOnAnimation Value="On" />
-              <JumperImpulseAnimation Value="" />
+              <JumperImpulseAnimation Value="Impulse" />
               <FirstActivatingDeviceName Value="SwitchJumper01" />
               <FirstDeviceInSameLevel Value="True" />
               <FirstActivatingDeviceLevelGroup Value="" />
@@ -60,12 +60,16 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-17}" />
+              <Offset Value="{X:0 Y:-2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
+                <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
+                <Animation Name="Impulse" SpritesheetTag="EnergyJumperActivation" />
+              </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
