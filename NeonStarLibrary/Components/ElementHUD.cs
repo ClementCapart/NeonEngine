@@ -116,9 +116,9 @@ namespace NeonStarLibrary.Components.HUD
                 }
 
                 if (_leftCharacterHUD != null)
-                    spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width, (_elementSystem.MaxLevel + 1) * (leftTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width, (_elementSystem.MaxLevel) * (leftTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                 if (_rightCharacterHUD != null)
-                    spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + rightTextureToUse.Width / 2 * entity.transform.Scale + 10 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel + 1) * (rightTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + rightTextureToUse.Width / 2 * entity.transform.Scale + 10 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (rightTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
             }
             base.Draw(spriteBatch);
         }
