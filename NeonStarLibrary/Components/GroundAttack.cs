@@ -63,7 +63,6 @@ namespace NeonStarLibrary.Components.Enemies
                                 hitEntities = EnemyComponent.UniqueRaycast(_detectionOffset, Attacks.Keys.Last(), true);
                             }
 
-
                             if (hitEntities[0] == EntityToAttack && Math.Abs(EntityToAttack.transform.Position.X - entity.transform.Position.X) <= Attacks.Keys.Last())
                             {
                                 EnemyComponent.State = EnemyState.Attacking;

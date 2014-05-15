@@ -350,35 +350,45 @@ namespace NeonEngine.Components.Private
 
         public Entity Raycast(Vector2 StartPosition, Vector2 EndPosition, Body body = null)
         {
-            Entity hitEntity = null;
+            Entity closestEntity = null;
+            float closestDistanceSquared = float.MaxValue;
+
 
             PhysicWorld.RayCast((fixture, hitPosition, normal, fraction) =>
             {
                 if (fixture.Body != body)
                 {
-                    hitEntity = Neon.Utils.GetEntityByBody(fixture.Body);
-                    if (hitEntity != null)
+                    Entity currentEntity = Neon.Utils.GetEntityByBody(fixture.Body);
+                    if (currentEntity != null)
                     {
-                        if (hitEntity.rigidbody.OneWayPlatform)
-                        {
-                            hitEntity = null;
+                        if (currentEntity.rigidbody.OneWayPlatform)
                             return -1;
+
+                        if (closestEntity == null)
+                        {
+                            closestEntity = currentEntity;
+                            closestDistanceSquared = Vector2.DistanceSquared(CoordinateConversion.worldToScreen(hitPosition), StartPosition);
+                        }
+                        else
+                        {
+                            float distanceSquared = Vector2.DistanceSquared(CoordinateConversion.worldToScreen(hitPosition), StartPosition);
+                            if (distanceSquared < closestDistanceSquared)
+                            {
+                                closestEntity = currentEntity;
+                                closestDistanceSquared = distanceSquared;
+                            }
                         }
 
-                        if (hitEntity.rigidbody.IsGround && hitEntity.rigidbody.BodyType == BodyType.Static)
-                            return -1;
-                        
-                        return 0;
+                        return -1;
                     }
                     return -1;
-
                 }
                 return -1;
             },
                 CoordinateConversion.screenToWorld(StartPosition),
                 CoordinateConversion.screenToWorld(EndPosition));
 
-            return hitEntity;
+            return closestEntity;
         }
 
     }

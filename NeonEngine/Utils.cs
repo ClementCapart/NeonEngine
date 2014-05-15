@@ -93,11 +93,7 @@ namespace NeonEngine
 
         public Entity GetEntityByBody(Body body)
         {
-            foreach (Entity e in Neon.World.Entities.Where(e => e.GetComponent<Rigidbody>() != null))
-                if (e.GetComponent<Rigidbody>().body == body)
-                    return e;
-
-            return null;
+            return (Entity)(body.FixtureList[0].UserData);
         }
 
         public Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
