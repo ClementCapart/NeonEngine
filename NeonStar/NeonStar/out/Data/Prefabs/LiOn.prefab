@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:445 Y:132}" />
+          <InitialPosition Value="{X:-800 Y:307}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:444 Y:131}" />
-          <X Value="424" />
-          <Y Value="63" />
+          <Center Value="{X:-800 Y:306}" />
+          <X Value="-820" />
+          <Y Value="238" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -178,7 +178,7 @@
       </Guard>
       <ElementSystem Type="NeonStarLibrary.Components.Avatar.ElementSystem" ID="8">
         <Properties>
-          <FireLaunchAnimationLevelOne Value="CrystalLauch" />
+          <FireLaunchAnimationLevelOne Value="CrystalLaunch" />
           <FireLaunchLoopAnimationLevelOne Value="" />
           <FireReleaseAnimationLevelOne Value="CrystalRelease" />
           <FireLaunchAnimationLevelTwo Value="CrystalLaunch" />
@@ -190,15 +190,17 @@
           <ThunderLaunchAnimation Value="ThunderLaunch" />
           <WindStartAnimation Value="WindStart" />
           <WindImpulseAnimation Value="WindImpulse" />
-          <LeftSlotElement Value="Neutral" />
-          <LeftSlotLevel Value="1" />
-          <RightSlotElement Value="Neutral" />
-          <RightSlotLevel Value="1" />
+          <LeftSlotElementFirst Value="Neutral" />
+          <LeftSlotElementSecond Value="Neutral" />
+          <LeftSlotElementThird Value="Neutral" />
+          <RightSlotElementFirst Value="Neutral" />
+          <RightSlotElementSecond Value="Neutral" />
+          <RightSlotElementThird Value="Neutral" />
           <MaxLevel Value="1" />
           <ThunderGatheringFX Value="FeedbackThunderGathering" />
           <FireGatheringFX Value="FeedbackFireGathering" />
           <GetElementColorDelay Value="0.15" />
-          <EnergyRegenerationRate Value="20" />
+          <ElementSlotCooldownDuration Value="3" />
           <NickName Value="" />
         </Properties>
       </ElementSystem>
