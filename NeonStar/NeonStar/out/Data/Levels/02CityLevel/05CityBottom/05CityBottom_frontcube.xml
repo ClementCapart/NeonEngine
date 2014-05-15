@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="frontcube">
+    <Entities>
+      <Entity Name="frontcube1" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-7446 Y:6093}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_0-{X:1100 Y:0}_0-{X:1150 Y:0}_1-{X:1200 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_2-{X:500 Y:0}_1-{X:650 Y:0}_2-{X:750 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_2-{X:1200 Y:0}_0-{X:1350 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_2-{X:0 Y:400}_1-{X:0 Y:550}_0-{X:0 Y:650}_0-{X:0 Y:700}_1-{X:0 Y:750}_2-{X:0 Y:850}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_1-{X:0 Y:1100}_2-{X:0 Y:1200}_0-{X:0 Y:1350}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_0-{X:0 Y:250}_1-{X:0 Y:300}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:600}_0-{X:0 Y:650}_0-{X:0 Y:700}_2-{X:0 Y:750}_0-{X:0 Y:900}_1-{X:0 Y:950}_0-{X:0 Y:1050}_1-{X:0 Y:1100}_0-{X:0 Y:1200}_1-{X:0 Y:1250}_0-{X:0 Y:1350}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-7446 Y:6093}" />
+              <X Value="-8196" />
+              <Y Value="5343" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1500" />
+              <Height Value="1500" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_2-{X:650 Y:0}_1-{X:800 Y:0}_2-{X:900 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_2-{X:500 Y:0}_2-{X:650 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_2-{X:900 Y:0}_2-{X:1050 Y:0}_0-{X:1200 Y:0}_0-{X:1250 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:150}_2-{X:0 Y:200}_1-{X:0 Y:350}_1-{X:0 Y:450}_2-{X:0 Y:550}_0-{X:0 Y:700}_1-{X:0 Y:750}_0-{X:0 Y:850}_1-{X:0 Y:900}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_1-{X:0 Y:1100}_0-{X:0 Y:1200}_0-{X:0 Y:1250}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:150}_2-{X:0 Y:300}_2-{X:0 Y:450}_2-{X:0 Y:600}_0-{X:0 Y:750}_0-{X:0 Y:800}_0-{X:0 Y:850}_0-{X:0 Y:900}_2-{X:0 Y:950}_1-{X:0 Y:1100}_0-{X:0 Y:1200}_0-{X:0 Y:1250}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:200 Y:0}_0-{X:300 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_2-{X:950 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_2-{X:0 Y:300}_0-{X:0 Y:450}_1-{X:0 Y:500}_2-{X:0 Y:600}_2-{X:0 Y:750}_1-{X:0 Y:900}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_2-{X:0 Y:350}_1-{X:0 Y:500}_0-{X:0 Y:600}_0-{X:0 Y:650}_2-{X:0 Y:700}_1-{X:0 Y:850}_2-{X:0 Y:950}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="frontcube2" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-9764 Y:6399}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_2-{X:1150 Y:0}_1-{X:1300 Y:0}_2-{X:1400 Y:0}_0-{X:1550 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_2-{X:500 Y:0}_0-{X:650 Y:0}_2-{X:700 Y:0}_2-{X:850 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_0-{X:1300 Y:0}_2-{X:1350 Y:0}_0-{X:1500 Y:0}_0-{X:1550 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:250}_2-{X:0 Y:300}_2-{X:0 Y:450}_2-{X:0 Y:600}_2-{X:0 Y:750}_0-{X:0 Y:900}_2-{X:0 Y:950}_0-{X:0 Y:1100}_0-{X:0 Y:1150}_0-{X:0 Y:1200}_1-{X:0 Y:1250}_0-{X:0 Y:1350}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_2-{X:0 Y:200}_1-{X:0 Y:350}_2-{X:0 Y:450}_2-{X:0 Y:600}_0-{X:0 Y:750}_0-{X:0 Y:800}_2-{X:0 Y:850}_1-{X:0 Y:1000}_1-{X:0 Y:1100}_0-{X:0 Y:1200}_2-{X:0 Y:1250}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-9764 Y:6399}" />
+              <X Value="-10614" />
+              <Y Value="5649" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1700" />
+              <Height Value="1500" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:400 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_2-{X:700 Y:0}_2-{X:850 Y:0}_1-{X:1000 Y:0}_1-{X:1100 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_0-{X:1400 Y:0}_0-{X:1450 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_1-{X:1250 Y:0}_1-{X:1350 Y:0}_0-{X:1450 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_1-{X:0 Y:300}_1-{X:0 Y:400}_2-{X:0 Y:500}_2-{X:0 Y:650}_1-{X:0 Y:800}_2-{X:0 Y:900}_2-{X:0 Y:1050}_1-{X:0 Y:1200}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:150}_2-{X:0 Y:200}_2-{X:0 Y:350}_1-{X:0 Y:500}_1-{X:0 Y:600}_2-{X:0 Y:700}_0-{X:0 Y:850}_2-{X:0 Y:900}_0-{X:0 Y:1050}_2-{X:0 Y:1100}_0-{X:0 Y:1250}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:250 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_2-{X:850 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_2-{X:350 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_1-{X:650 Y:0}_2-{X:750 Y:0}_2-{X:900 Y:0}_2-{X:1050 Y:0}_0-{X:1200 Y:0}_0-{X:1250 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:150}_2-{X:0 Y:250}_2-{X:0 Y:400}_2-{X:0 Y:550}_2-{X:0 Y:700}_1-{X:0 Y:850}_0-{X:0 Y:950}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_0-{X:0 Y:200}_2-{X:0 Y:250}_2-{X:0 Y:400}_0-{X:0 Y:550}_0-{X:0 Y:600}_1-{X:0 Y:650}_1-{X:0 Y:750}_2-{X:0 Y:850}_0-{X:0 Y:1000}_0-{X:0 Y:1050}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="frontcube3" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-11189 Y:4405}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_1-{X:750 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_0-{X:1200 Y:0}_2-{X:1250 Y:0}_2-{X:1400 Y:0}_0-{X:1550 Y:0}_2-{X:1600 Y:0}_2-{X:1750 Y:0}_1-{X:1900 Y:0}_1-{X:2000 Y:0}_1-{X:2100 Y:0}_0-{X:2200 Y:0}_1-{X:2250 Y:0}_2-{X:2350 Y:0}_0-{X:2500 Y:0}_0-{X:2550 Y:0}_2-{X:2600 Y:0}_2-{X:2750 Y:0}_0-{X:2900 Y:0}_1-{X:2950 Y:0}_2-{X:3050 Y:0}_2-{X:3200 Y:0}_1-{X:3350 Y:0}_2-{X:3450 Y:0}_0-{X:3600 Y:0}_1-{X:3650 Y:0}_0-{X:3750 Y:0}_2-{X:3800 Y:0}_1-{X:3950 Y:0}_1-{X:4050 Y:0}_0-{X:4150 Y:0}_2-{X:4200 Y:0}_0-{X:4350 Y:0}_2-{X:4400 Y:0}_0-{X:4550 Y:0}_1-{X:4600 Y:0}_1-{X:4700 Y:0}_0-{X:4800 Y:0}_0-{X:4850 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_0-{X:850 Y:0}_0-{X:900 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_0-{X:1150 Y:0}_0-{X:1200 Y:0}_2-{X:1250 Y:0}_2-{X:1400 Y:0}_0-{X:1550 Y:0}_1-{X:1600 Y:0}_0-{X:1700 Y:0}_1-{X:1750 Y:0}_0-{X:1850 Y:0}_0-{X:1900 Y:0}_0-{X:1950 Y:0}_1-{X:2000 Y:0}_2-{X:2100 Y:0}_1-{X:2250 Y:0}_1-{X:2350 Y:0}_0-{X:2450 Y:0}_2-{X:2500 Y:0}_1-{X:2650 Y:0}_1-{X:2750 Y:0}_2-{X:2850 Y:0}_0-{X:3000 Y:0}_1-{X:3050 Y:0}_1-{X:3150 Y:0}_1-{X:3250 Y:0}_1-{X:3350 Y:0}_1-{X:3450 Y:0}_2-{X:3550 Y:0}_2-{X:3700 Y:0}_2-{X:3850 Y:0}_2-{X:4000 Y:0}_0-{X:4150 Y:0}_1-{X:4200 Y:0}_2-{X:4300 Y:0}_2-{X:4450 Y:0}_2-{X:4600 Y:0}_1-{X:4750 Y:0}_0-{X:4850 Y:0}_LEFT_2-{X:0 Y:0}_0-{X:0 Y:150}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_2-{X:0 Y:450}_2-{X:0 Y:600}_2-{X:0 Y:750}_1-{X:0 Y:900}_0-{X:0 Y:1000}_1-{X:0 Y:1050}_0-{X:0 Y:1150}_2-{X:0 Y:1200}_0-{X:0 Y:1350}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_1-{X:0 Y:400}_2-{X:0 Y:500}_0-{X:0 Y:650}_0-{X:0 Y:700}_2-{X:0 Y:750}_1-{X:0 Y:900}_0-{X:0 Y:1000}_2-{X:0 Y:1050}_1-{X:0 Y:1200}_0-{X:0 Y:1300}_0-{X:0 Y:1350}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-11189 Y:4405}" />
+              <X Value="-13689" />
+              <Y Value="3655" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="5000" />
+              <Height Value="1500" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}_2-{X:400 Y:0}_2-{X:550 Y:0}_2-{X:700 Y:0}_2-{X:850 Y:0}_1-{X:1000 Y:0}_1-{X:1100 Y:0}_1-{X:1200 Y:0}_1-{X:1300 Y:0}_2-{X:1400 Y:0}_2-{X:1550 Y:0}_1-{X:1700 Y:0}_0-{X:1800 Y:0}_0-{X:1850 Y:0}_1-{X:1900 Y:0}_0-{X:2000 Y:0}_0-{X:2050 Y:0}_0-{X:2100 Y:0}_1-{X:2150 Y:0}_1-{X:2250 Y:0}_0-{X:2350 Y:0}_1-{X:2400 Y:0}_2-{X:2500 Y:0}_2-{X:2650 Y:0}_0-{X:2800 Y:0}_2-{X:2850 Y:0}_0-{X:3000 Y:0}_0-{X:3050 Y:0}_0-{X:3100 Y:0}_0-{X:3150 Y:0}_1-{X:3200 Y:0}_2-{X:3300 Y:0}_2-{X:3450 Y:0}_1-{X:3600 Y:0}_1-{X:3700 Y:0}_2-{X:3800 Y:0}_2-{X:3950 Y:0}_2-{X:4100 Y:0}_2-{X:4250 Y:0}_0-{X:4400 Y:0}_1-{X:4450 Y:0}_2-{X:4550 Y:0}_0-{X:4700 Y:0}_0-{X:4750 Y:0}_BOT_2-{X:0 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_2-{X:350 Y:0}_2-{X:500 Y:0}_1-{X:650 Y:0}_2-{X:750 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_1-{X:1100 Y:0}_0-{X:1200 Y:0}_0-{X:1250 Y:0}_2-{X:1300 Y:0}_2-{X:1450 Y:0}_1-{X:1600 Y:0}_0-{X:1700 Y:0}_1-{X:1750 Y:0}_0-{X:1850 Y:0}_0-{X:1900 Y:0}_0-{X:1950 Y:0}_0-{X:2000 Y:0}_0-{X:2050 Y:0}_1-{X:2100 Y:0}_1-{X:2200 Y:0}_2-{X:2300 Y:0}_2-{X:2450 Y:0}_1-{X:2600 Y:0}_1-{X:2700 Y:0}_0-{X:2800 Y:0}_0-{X:2850 Y:0}_0-{X:2900 Y:0}_1-{X:2950 Y:0}_1-{X:3050 Y:0}_2-{X:3150 Y:0}_2-{X:3300 Y:0}_2-{X:3450 Y:0}_0-{X:3600 Y:0}_1-{X:3650 Y:0}_1-{X:3750 Y:0}_1-{X:3850 Y:0}_1-{X:3950 Y:0}_2-{X:4050 Y:0}_0-{X:4200 Y:0}_1-{X:4250 Y:0}_1-{X:4350 Y:0}_1-{X:4450 Y:0}_2-{X:4550 Y:0}_0-{X:4700 Y:0}_0-{X:4750 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:150}_0-{X:0 Y:300}_1-{X:0 Y:350}_2-{X:0 Y:450}_2-{X:0 Y:600}_2-{X:0 Y:750}_2-{X:0 Y:900}_0-{X:0 Y:1050}_2-{X:0 Y:1100}_0-{X:0 Y:1250}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_1-{X:0 Y:150}_1-{X:0 Y:250}_1-{X:0 Y:350}_1-{X:0 Y:450}_0-{X:0 Y:550}_2-{X:0 Y:600}_2-{X:0 Y:750}_0-{X:0 Y:900}_2-{X:0 Y:950}_2-{X:0 Y:1100}_0-{X:0 Y:1250}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_2-{X:450 Y:0}_0-{X:600 Y:0}_2-{X:650 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_2-{X:950 Y:0}_2-{X:1100 Y:0}_2-{X:1250 Y:0}_0-{X:1400 Y:0}_1-{X:1450 Y:0}_1-{X:1550 Y:0}_0-{X:1650 Y:0}_2-{X:1700 Y:0}_2-{X:1850 Y:0}_2-{X:2000 Y:0}_0-{X:2150 Y:0}_1-{X:2200 Y:0}_0-{X:2300 Y:0}_0-{X:2350 Y:0}_0-{X:2400 Y:0}_1-{X:2450 Y:0}_2-{X:2550 Y:0}_1-{X:2700 Y:0}_1-{X:2800 Y:0}_2-{X:2900 Y:0}_1-{X:3050 Y:0}_1-{X:3150 Y:0}_1-{X:3250 Y:0}_1-{X:3350 Y:0}_2-{X:3450 Y:0}_0-{X:3600 Y:0}_0-{X:3650 Y:0}_0-{X:3700 Y:0}_1-{X:3750 Y:0}_0-{X:3850 Y:0}_2-{X:3900 Y:0}_2-{X:4050 Y:0}_2-{X:4200 Y:0}_2-{X:4350 Y:0}_0-{X:4500 Y:0}_0-{X:4550 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_2-{X:700 Y:0}_1-{X:850 Y:0}_0-{X:950 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_2-{X:1250 Y:0}_1-{X:1400 Y:0}_1-{X:1500 Y:0}_2-{X:1600 Y:0}_2-{X:1750 Y:0}_0-{X:1900 Y:0}_2-{X:1950 Y:0}_2-{X:2100 Y:0}_0-{X:2250 Y:0}_1-{X:2300 Y:0}_0-{X:2400 Y:0}_0-{X:2450 Y:0}_1-{X:2500 Y:0}_1-{X:2600 Y:0}_0-{X:2700 Y:0}_1-{X:2750 Y:0}_1-{X:2850 Y:0}_2-{X:2950 Y:0}_1-{X:3100 Y:0}_1-{X:3200 Y:0}_0-{X:3300 Y:0}_0-{X:3350 Y:0}_0-{X:3400 Y:0}_1-{X:3450 Y:0}_2-{X:3550 Y:0}_0-{X:3700 Y:0}_0-{X:3750 Y:0}_2-{X:3800 Y:0}_1-{X:3950 Y:0}_2-{X:4050 Y:0}_2-{X:4200 Y:0}_1-{X:4350 Y:0}_0-{X:4450 Y:0}_1-{X:4500 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:250}_1-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:450}_2-{X:0 Y:500}_1-{X:0 Y:650}_1-{X:0 Y:750}_2-{X:0 Y:850}_0-{X:0 Y:1000}_0-{X:0 Y:1050}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:100}_2-{X:0 Y:150}_2-{X:0 Y:300}_0-{X:0 Y:450}_1-{X:0 Y:500}_2-{X:0 Y:600}_1-{X:0 Y:750}_2-{X:0 Y:850}_0-{X:0 Y:1000}_0-{X:0 Y:1050}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="frontcube1" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-6502 Y:5277}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_0-{X:600 Y:0}_2-{X:650 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_2-{X:1050 Y:0}_1-{X:1200 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_2-{X:300 Y:0}_2-{X:450 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_0-{X:850 Y:0}_1-{X:900 Y:0}_2-{X:1000 Y:0}_2-{X:1150 Y:0}_1-{X:1300 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_2-{X:0 Y:600}_1-{X:0 Y:750}_0-{X:0 Y:850}_1-{X:0 Y:900}_1-{X:0 Y:1000}_0-{X:0 Y:1100}_0-{X:0 Y:1150}_1-{X:0 Y:1200}_0-{X:0 Y:1300}_0-{X:0 Y:1350}_RIGHT_2-{X:0 Y:0}_1-{X:0 Y:150}_0-{X:0 Y:250}_0-{X:0 Y:300}_2-{X:0 Y:350}_1-{X:0 Y:500}_2-{X:0 Y:600}_1-{X:0 Y:750}_1-{X:0 Y:850}_2-{X:0 Y:950}_1-{X:0 Y:1100}_0-{X:0 Y:1200}_1-{X:0 Y:1250}_0-{X:0 Y:1350}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-6502 Y:5277}" />
+              <X Value="-7252" />
+              <Y Value="4527" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1500" />
+              <Height Value="1500" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_0-{X:1100 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:150 Y:0}_0-{X:300 Y:0}_1-{X:350 Y:0}_2-{X:450 Y:0}_0-{X:600 Y:0}_1-{X:650 Y:0}_1-{X:750 Y:0}_2-{X:850 Y:0}_1-{X:1000 Y:0}_1-{X:1100 Y:0}_0-{X:1200 Y:0}_0-{X:1250 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_0-{X:0 Y:350}_0-{X:0 Y:400}_1-{X:0 Y:450}_2-{X:0 Y:550}_1-{X:0 Y:700}_2-{X:0 Y:800}_2-{X:0 Y:950}_0-{X:0 Y:1100}_1-{X:0 Y:1150}_0-{X:0 Y:1250}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}_2-{X:0 Y:150}_1-{X:0 Y:300}_1-{X:0 Y:400}_0-{X:0 Y:500}_1-{X:0 Y:550}_0-{X:0 Y:650}_1-{X:0 Y:700}_0-{X:0 Y:800}_0-{X:0 Y:850}_2-{X:0 Y:900}_0-{X:0 Y:1050}_0-{X:0 Y:1100}_0-{X:0 Y:1150}_0-{X:0 Y:1200}_0-{X:0 Y:1250}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_1-{X:250 Y:0}_2-{X:350 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_1-{X:950 Y:0}_0-{X:1050 Y:0}_BOT_1-{X:0 Y:0}_2-{X:100 Y:0}_1-{X:250 Y:0}_2-{X:350 Y:0}_2-{X:500 Y:0}_2-{X:650 Y:0}_0-{X:800 Y:0}_1-{X:850 Y:0}_2-{X:950 Y:0}_LEFT_1-{X:0 Y:0}_2-{X:0 Y:100}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}_2-{X:0 Y:650}_0-{X:0 Y:800}_1-{X:0 Y:850}_0-{X:0 Y:950}_1-{X:0 Y:1000}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_0-{X:0 Y:250}_0-{X:0 Y:300}_2-{X:0 Y:350}_1-{X:0 Y:500}_2-{X:0 Y:600}_2-{X:0 Y:750}_0-{X:0 Y:900}_0-{X:0 Y:950}_0-{X:0 Y:1000}_0-{X:0 Y:1050}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="frontcube5" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-3767 Y:2293}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_0-{X:750 Y:0}_2-{X:800 Y:0}_0-{X:950 Y:0}_1-{X:1000 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_0-{X:1300 Y:0}_0-{X:1350 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:350 Y:0}_2-{X:400 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_1-{X:950 Y:0}_1-{X:1050 Y:0}_2-{X:1150 Y:0}_1-{X:1300 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:50}_2-{X:0 Y:100}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_1-{X:0 Y:500}_2-{X:0 Y:600}_1-{X:0 Y:750}_1-{X:0 Y:850}_1-{X:0 Y:950}_1-{X:0 Y:1050}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_1-{X:0 Y:150}_0-{X:0 Y:250}_1-{X:0 Y:300}_0-{X:0 Y:400}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_0-{X:0 Y:650}_2-{X:0 Y:700}_1-{X:0 Y:850}_1-{X:0 Y:950}_0-{X:0 Y:1050}_0-{X:0 Y:1100}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-3767 Y:2293}" />
+              <X Value="-4517" />
+              <Y Value="1668" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1500" />
+              <Height Value="1250" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_1-{X:900 Y:0}_1-{X:1000 Y:0}_0-{X:1100 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_2-{X:550 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_2-{X:950 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_LEFT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:200}_1-{X:0 Y:250}_0-{X:0 Y:350}_0-{X:0 Y:400}_0-{X:0 Y:450}_2-{X:0 Y:500}_0-{X:0 Y:650}_1-{X:0 Y:700}_1-{X:0 Y:800}_2-{X:0 Y:900}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_0-{X:0 Y:400}_0-{X:0 Y:450}_1-{X:0 Y:500}_0-{X:0 Y:600}_1-{X:0 Y:650}_1-{X:0 Y:750}_0-{X:0 Y:850}_0-{X:0 Y:900}_0-{X:0 Y:950}_0-{X:0 Y:1000}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:350 Y:0}_1-{X:400 Y:0}_2-{X:500 Y:0}_2-{X:650 Y:0}_2-{X:800 Y:0}_0-{X:950 Y:0}_0-{X:1000 Y:0}_0-{X:1050 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_2-{X:950 Y:0}_LEFT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:200}_1-{X:0 Y:250}_2-{X:0 Y:350}_0-{X:0 Y:500}_1-{X:0 Y:550}_2-{X:0 Y:650}_0-{X:0 Y:800}_RIGHT_2-{X:0 Y:0}_1-{X:0 Y:150}_2-{X:0 Y:250}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}_2-{X:0 Y:650}_0-{X:0 Y:800}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="frontcube5" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-6631 Y:1415}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_2-{X:850 Y:0}_2-{X:1000 Y:0}_0-{X:1150 Y:0}_0-{X:1200 Y:0}_2-{X:1250 Y:0}_1-{X:1400 Y:0}_1-{X:1500 Y:0}_2-{X:1600 Y:0}_0-{X:1750 Y:0}_2-{X:1800 Y:0}_2-{X:1950 Y:0}_1-{X:2100 Y:0}_0-{X:2200 Y:0}_1-{X:2250 Y:0}_0-{X:2350 Y:0}_2-{X:2400 Y:0}_2-{X:2550 Y:0}_2-{X:2700 Y:0}_0-{X:2850 Y:0}_BOT_2-{X:0 Y:0}_2-{X:150 Y:0}_2-{X:300 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_0-{X:750 Y:0}_1-{X:800 Y:0}_1-{X:900 Y:0}_2-{X:1000 Y:0}_1-{X:1150 Y:0}_0-{X:1250 Y:0}_2-{X:1300 Y:0}_1-{X:1450 Y:0}_2-{X:1550 Y:0}_1-{X:1700 Y:0}_1-{X:1800 Y:0}_1-{X:1900 Y:0}_0-{X:2000 Y:0}_1-{X:2050 Y:0}_0-{X:2150 Y:0}_2-{X:2200 Y:0}_1-{X:2350 Y:0}_2-{X:2450 Y:0}_1-{X:2600 Y:0}_1-{X:2700 Y:0}_1-{X:2800 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:50}_0-{X:0 Y:150}_2-{X:0 Y:200}_2-{X:0 Y:350}_2-{X:0 Y:500}_1-{X:0 Y:650}_0-{X:0 Y:750}_2-{X:0 Y:800}_2-{X:0 Y:950}_1-{X:0 Y:1100}_2-{X:0 Y:1200}_1-{X:0 Y:1350}_1-{X:0 Y:1450}_2-{X:0 Y:1550}_0-{X:0 Y:1700}_2-{X:0 Y:1750}_2-{X:0 Y:1900}_1-{X:0 Y:2050}_0-{X:0 Y:2150}_2-{X:0 Y:2200}_1-{X:0 Y:2350}_2-{X:0 Y:2450}_1-{X:0 Y:2600}_0-{X:0 Y:2700}_2-{X:0 Y:2750}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:200}_0-{X:0 Y:250}_2-{X:0 Y:300}_2-{X:0 Y:450}_2-{X:0 Y:600}_0-{X:0 Y:750}_0-{X:0 Y:800}_0-{X:0 Y:850}_0-{X:0 Y:900}_0-{X:0 Y:950}_1-{X:0 Y:1000}_0-{X:0 Y:1100}_0-{X:0 Y:1150}_1-{X:0 Y:1200}_0-{X:0 Y:1300}_1-{X:0 Y:1350}_0-{X:0 Y:1450}_2-{X:0 Y:1500}_1-{X:0 Y:1650}_0-{X:0 Y:1750}_0-{X:0 Y:1800}_1-{X:0 Y:1850}_1-{X:0 Y:1950}_2-{X:0 Y:2050}_2-{X:0 Y:2200}_1-{X:0 Y:2350}_1-{X:0 Y:2450}_1-{X:0 Y:2550}_1-{X:0 Y:2650}_2-{X:0 Y:2750}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-6631 Y:1415}" />
+              <X Value="-8131" />
+              <Y Value="-85" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="3000" />
+              <Height Value="3000" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_2-{X:500 Y:0}_0-{X:650 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_2-{X:900 Y:0}_0-{X:1050 Y:0}_1-{X:1100 Y:0}_2-{X:1200 Y:0}_0-{X:1350 Y:0}_2-{X:1400 Y:0}_0-{X:1550 Y:0}_2-{X:1600 Y:0}_2-{X:1750 Y:0}_0-{X:1900 Y:0}_1-{X:1950 Y:0}_0-{X:2050 Y:0}_2-{X:2100 Y:0}_1-{X:2250 Y:0}_0-{X:2350 Y:0}_2-{X:2400 Y:0}_2-{X:2550 Y:0}_0-{X:2700 Y:0}_0-{X:2750 Y:0}_BOT_0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:250 Y:0}_0-{X:300 Y:0}_2-{X:350 Y:0}_0-{X:500 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_2-{X:650 Y:0}_0-{X:800 Y:0}_2-{X:850 Y:0}_0-{X:1000 Y:0}_2-{X:1050 Y:0}_1-{X:1200 Y:0}_0-{X:1300 Y:0}_1-{X:1350 Y:0}_0-{X:1450 Y:0}_1-{X:1500 Y:0}_1-{X:1600 Y:0}_2-{X:1700 Y:0}_0-{X:1850 Y:0}_1-{X:1900 Y:0}_1-{X:2000 Y:0}_2-{X:2100 Y:0}_0-{X:2250 Y:0}_0-{X:2300 Y:0}_0-{X:2350 Y:0}_1-{X:2400 Y:0}_1-{X:2500 Y:0}_0-{X:2600 Y:0}_1-{X:2650 Y:0}_0-{X:2750 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:150}_1-{X:0 Y:300}_2-{X:0 Y:400}_1-{X:0 Y:550}_1-{X:0 Y:650}_1-{X:0 Y:750}_2-{X:0 Y:850}_2-{X:0 Y:1000}_2-{X:0 Y:1150}_0-{X:0 Y:1300}_0-{X:0 Y:1350}_1-{X:0 Y:1400}_2-{X:0 Y:1500}_0-{X:0 Y:1650}_2-{X:0 Y:1700}_0-{X:0 Y:1850}_1-{X:0 Y:1900}_2-{X:0 Y:2000}_1-{X:0 Y:2150}_2-{X:0 Y:2250}_1-{X:0 Y:2400}_0-{X:0 Y:2500}_2-{X:0 Y:2550}_1-{X:0 Y:2700}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_2-{X:0 Y:100}_2-{X:0 Y:250}_2-{X:0 Y:400}_1-{X:0 Y:550}_1-{X:0 Y:650}_1-{X:0 Y:750}_2-{X:0 Y:850}_0-{X:0 Y:1000}_2-{X:0 Y:1050}_2-{X:0 Y:1200}_0-{X:0 Y:1350}_2-{X:0 Y:1400}_1-{X:0 Y:1550}_0-{X:0 Y:1650}_1-{X:0 Y:1700}_2-{X:0 Y:1800}_0-{X:0 Y:1950}_0-{X:0 Y:2000}_1-{X:0 Y:2050}_1-{X:0 Y:2150}_0-{X:0 Y:2250}_2-{X:0 Y:2300}_1-{X:0 Y:2450}_1-{X:0 Y:2550}_2-{X:0 Y:2650}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:10 G:10 B:10 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_2-{X:150 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_0-{X:600 Y:0}_1-{X:650 Y:0}_1-{X:750 Y:0}_0-{X:850 Y:0}_2-{X:900 Y:0}_1-{X:1050 Y:0}_1-{X:1150 Y:0}_1-{X:1250 Y:0}_1-{X:1350 Y:0}_1-{X:1450 Y:0}_2-{X:1550 Y:0}_2-{X:1700 Y:0}_1-{X:1850 Y:0}_1-{X:1950 Y:0}_0-{X:2050 Y:0}_2-{X:2100 Y:0}_1-{X:2250 Y:0}_1-{X:2350 Y:0}_2-{X:2450 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_0-{X:350 Y:0}_0-{X:400 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_1-{X:700 Y:0}_2-{X:800 Y:0}_2-{X:950 Y:0}_2-{X:1100 Y:0}_0-{X:1250 Y:0}_0-{X:1300 Y:0}_1-{X:1350 Y:0}_1-{X:1450 Y:0}_0-{X:1550 Y:0}_2-{X:1600 Y:0}_0-{X:1750 Y:0}_1-{X:1800 Y:0}_0-{X:1900 Y:0}_1-{X:1950 Y:0}_2-{X:2050 Y:0}_2-{X:2200 Y:0}_1-{X:2350 Y:0}_1-{X:2450 Y:0}_0-{X:2550 Y:0}_LEFT_0-{X:0 Y:0}_0-{X:0 Y:50}_2-{X:0 Y:100}_1-{X:0 Y:250}_1-{X:0 Y:350}_0-{X:0 Y:450}_1-{X:0 Y:500}_2-{X:0 Y:600}_2-{X:0 Y:750}_1-{X:0 Y:900}_0-{X:0 Y:1000}_1-{X:0 Y:1050}_0-{X:0 Y:1150}_0-{X:0 Y:1200}_2-{X:0 Y:1250}_2-{X:0 Y:1400}_2-{X:0 Y:1550}_1-{X:0 Y:1700}_1-{X:0 Y:1800}_2-{X:0 Y:1900}_1-{X:0 Y:2050}_2-{X:0 Y:2150}_2-{X:0 Y:2300}_0-{X:0 Y:2450}_0-{X:0 Y:2500}_0-{X:0 Y:2550}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_2-{X:0 Y:200}_0-{X:0 Y:350}_1-{X:0 Y:400}_2-{X:0 Y:500}_2-{X:0 Y:650}_2-{X:0 Y:800}_1-{X:0 Y:950}_2-{X:0 Y:1050}_2-{X:0 Y:1200}_0-{X:0 Y:1350}_1-{X:0 Y:1400}_2-{X:0 Y:1500}_1-{X:0 Y:1650}_0-{X:0 Y:1750}_2-{X:0 Y:1800}_0-{X:0 Y:1950}_2-{X:0 Y:2000}_0-{X:0 Y:2150}_2-{X:0 Y:2200}_0-{X:0 Y:2350}_1-{X:0 Y:2400}_0-{X:0 Y:2500}_0-{X:0 Y:2550}" />
+              <DrawLayer Value="0.99" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:-0.4 Y:-0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:15 G:15 B:15 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+      <Entity Name="h" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-8903 Y:5572}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:50 Y:0}_1-{X:125 Y:0}_0-{X:175 Y:0}_1-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:325 Y:0}_2-{X:350 Y:0}_2-{X:425 Y:0}_0-{X:500 Y:0}_0-{X:525 Y:0}_BOT_1-{X:0 Y:0}_2-{X:50 Y:0}_1-{X:125 Y:0}_1-{X:175 Y:0}_2-{X:225 Y:0}_2-{X:300 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_0-{X:450 Y:0}_2-{X:475 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:75}_1-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:225}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:75}_1-{X:0 Y:100}_2-{X:0 Y:150}_0-{X:0 Y:225}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:83 G:83 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-8903 Y:5572}" />
+              <X Value="-9203" />
+              <Y Value="5422" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="600" />
+              <Height Value="300" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="25" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:50 Y:0}_2-{X:100 Y:0}_2-{X:175 Y:0}_0-{X:250 Y:0}_2-{X:275 Y:0}_1-{X:350 Y:0}_1-{X:400 Y:0}_1-{X:450 Y:0}_BOT_1-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:175 Y:0}_1-{X:200 Y:0}_1-{X:250 Y:0}_1-{X:300 Y:0}_1-{X:350 Y:0}_0-{X:400 Y:0}_2-{X:425 Y:0}_LEFT_0-{X:0 Y:0}_1-{X:0 Y:25}_2-{X:0 Y:75}_0-{X:0 Y:150}_0-{X:0 Y:175}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:50}_1-{X:0 Y:125}_0-{X:0 Y:175}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:92 G:92 B:92 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:50 Y:0}_2-{X:75 Y:0}_2-{X:150 Y:0}_0-{X:225 Y:0}_1-{X:250 Y:0}_0-{X:300 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_BOT_0-{X:0 Y:0}_0-{X:25 Y:0}_2-{X:50 Y:0}_0-{X:125 Y:0}_2-{X:150 Y:0}_0-{X:225 Y:0}_0-{X:250 Y:0}_0-{X:275 Y:0}_1-{X:300 Y:0}_0-{X:350 Y:0}_0-{X:375 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:50}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:25}_1-{X:0 Y:50}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:102 G:102 B:102 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-249 Y:-165}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:69 G:69 B:69 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-177 Y:-165}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:69 G:69 B:69 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:249 Y:-165}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:69 G:69 B:69 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-901 Y:-255}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:69 G:69 B:69 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:-976 Y:-255}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:69 G:69 B:69 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="h" Layer="frontcube">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-10052 Y:5481}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_1-{X:25 Y:0}_1-{X:75 Y:0}_0-{X:125 Y:0}_0-{X:150 Y:0}_1-{X:175 Y:0}_0-{X:225 Y:0}_2-{X:250 Y:0}_1-{X:325 Y:0}_0-{X:375 Y:0}_1-{X:400 Y:0}_0-{X:450 Y:0}_2-{X:475 Y:0}_BOT_2-{X:0 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_1-{X:150 Y:0}_1-{X:200 Y:0}_1-{X:250 Y:0}_2-{X:300 Y:0}_2-{X:375 Y:0}_2-{X:450 Y:0}_0-{X:525 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:75}_0-{X:0 Y:125}_0-{X:0 Y:150}_2-{X:0 Y:175}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:75}_1-{X:0 Y:150}_0-{X:0 Y:200}_0-{X:0 Y:225}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:79 G:79 B:79 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-10052 Y:5481}" />
+              <X Value="-10352" />
+              <Y Value="5331" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="600" />
+              <Height Value="300" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="25" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:175 Y:0}_0-{X:250 Y:0}_2-{X:275 Y:0}_0-{X:350 Y:0}_0-{X:375 Y:0}_2-{X:400 Y:0}_0-{X:475 Y:0}_BOT_2-{X:0 Y:0}_0-{X:75 Y:0}_1-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:200 Y:0}_2-{X:275 Y:0}_2-{X:350 Y:0}_2-{X:425 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:75}_2-{X:0 Y:125}_RIGHT_2-{X:0 Y:0}_0-{X:0 Y:75}_0-{X:0 Y:100}_2-{X:0 Y:125}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:92 G:92 B:92 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:25 Y:0}_0-{X:50 Y:0}_1-{X:75 Y:0}_2-{X:125 Y:0}_2-{X:200 Y:0}_0-{X:275 Y:0}_2-{X:300 Y:0}_0-{X:375 Y:0}_BOT_0-{X:0 Y:0}_2-{X:25 Y:0}_2-{X:100 Y:0}_2-{X:175 Y:0}_0-{X:250 Y:0}_2-{X:275 Y:0}_1-{X:350 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:50}_0-{X:0 Y:75}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:50}" />
+              <DrawLayer Value="0.1" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0.4 Y:0.4}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:98 G:98 B:98 A:255}" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
