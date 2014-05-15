@@ -361,7 +361,7 @@ namespace NeonEngine.Components.Private
                     Entity currentEntity = Neon.Utils.GetEntityByBody(fixture.Body);
                     if (currentEntity != null)
                     {
-                        if (currentEntity.rigidbody.OneWayPlatform)
+                        if (currentEntity.rigidbody.OneWayPlatform || (!currentEntity.rigidbody.IsGround && currentEntity != entity.GameWorld.Avatar))
                             return -1;
 
                         if (closestEntity == null)
