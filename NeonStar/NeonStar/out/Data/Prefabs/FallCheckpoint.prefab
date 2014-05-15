@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="FallCheckpoint" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <InitialPosition Value="{X:-975 Y:125}" />
+          <Rotation Value="0" />
+          <Scale Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Trigger" />
+          <Center Value="{X:-975 Y:125}" />
+          <X Value="-1000" />
+          <Y Value="25" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="50" />
+          <Height Value="200" />
+          <NickName Value="" />
+        </Properties>
+      </Hitbox>
+      <InstantRespawnPoint Type="NeonStarLibrary.Components.GameplayElements.InstantRespawnPoint" ID="3">
+        <Properties>
+          <AvatarName Value="LiOn" />
+          <SpawnPointIndex Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </InstantRespawnPoint>
+      <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+        <Properties>
+          <OneShot Value="False" />
+          <TriggerEveryFrame Value="False" />
+          <TriggeringEntityName Value="LiOn" />
+          <TriggeredEntityName Value="FallCheckpoint" />
+          <TriggeredComponentName Value="InstantRespawnPoint" />
+          <NickName Value="" />
+        </Properties>
+      </HitboxTrigger>
+    </Components>
+  </Entity>
+</Prefab>

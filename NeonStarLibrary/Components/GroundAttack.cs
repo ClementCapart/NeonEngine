@@ -339,7 +339,7 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (EnemyComponent.State != EnemyState.Dying && EnemyComponent.State != EnemyState.Dead)
             {
-                if ((CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking) || !entity.rigidbody.isGrounded)
+                if ((CurrentAttack == null && EnemyComponent.State == EnemyState.Attacking) || (!entity.rigidbody.isGrounded && CantAttackInAir))
                     EnemyComponent.State = EnemyState.Wait;
 
                 if (EnemyComponent.State != EnemyState.Attacking && CurrentAttack != null)
