@@ -675,7 +675,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:422 Y:804}" />
+              <InitialPosition Value="{X:587 Y:814}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -684,9 +684,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:421 Y:804}" />
-              <X Value="346" />
-              <Y Value="784" />
+              <Center Value="{X:587 Y:813}" />
+              <X Value="512" />
+              <Y Value="793" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="150" />
@@ -822,9 +822,9 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="ArenaDoorBackClosed" />
-                <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
-                <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
+                <Animation Name="Closed" SpritesheetTag="ArenaDoorCityClosed" />
+                <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
@@ -851,7 +851,7 @@
           </EnemyPoweredDevice>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
-              <GraphicTag Value="DoorBot" />
+              <GraphicTag Value="DoorBotCity" />
               <DrawLayer Value="0.9" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -875,7 +875,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorFrontTop" />
+              <SpriteSheetTag Value="ArenaDoorCityFrontTop" />
               <DrawLayer Value="0.9" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -935,7 +935,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorLockHighlight" />
+              <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.7" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -952,7 +952,7 @@
           </Spritesheet>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
             <Properties>
-              <GraphicTag Value="ArenaDoorGridFront" />
+              <GraphicTag Value="ArenaDoorGridFrontCity" />
               <DrawLayer Value="0.72" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -968,7 +968,7 @@
           </Graphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
             <Properties>
-              <GraphicTag Value="ArenaDoorGridBack" />
+              <GraphicTag Value="ArenaDoorGridBackCity" />
               <DrawLayer Value="0.7" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -989,7 +989,7 @@
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
-              <GraphicTag Value="ArenaDoorGauge" />
+              <GraphicTag Value="ArenaDoorGaugeCity" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1228,9 +1228,9 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="ArenaDoorBackClosed" />
-                <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
-                <Animation Name="Opened" SpritesheetTag="ArenaDoorBackOpened" />
+                <Animation Name="Closed" SpritesheetTag="ArenaDoorCityClosed" />
+                <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
@@ -1257,7 +1257,7 @@
           </EnemyPoweredDevice>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
-              <GraphicTag Value="DoorBot" />
+              <GraphicTag Value="DoorBotCity" />
               <DrawLayer Value="0.9" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1281,7 +1281,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorFrontTop" />
+              <SpriteSheetTag Value="ArenaDoorCityFrontTop" />
               <DrawLayer Value="0.9" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -1341,7 +1341,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorLockHighlight" />
+              <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.7" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -1358,7 +1358,7 @@
           </Spritesheet>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
             <Properties>
-              <GraphicTag Value="ArenaDoorGridFront" />
+              <GraphicTag Value="ArenaDoorGridFrontCity" />
               <DrawLayer Value="0.72" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1374,7 +1374,7 @@
           </Graphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
             <Properties>
-              <GraphicTag Value="ArenaDoorGridBack" />
+              <GraphicTag Value="ArenaDoorGridBackCity" />
               <DrawLayer Value="0.7" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1395,7 +1395,7 @@
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
-              <GraphicTag Value="ArenaDoorGauge" />
+              <GraphicTag Value="ArenaDoorGaugeCity" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
