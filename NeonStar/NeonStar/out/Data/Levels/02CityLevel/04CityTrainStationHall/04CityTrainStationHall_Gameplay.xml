@@ -107,50 +107,10 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Deactivated" />
+              <State Value="Disabled" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
-        </Components>
-      </Entity>
-      <Entity Name="GlassEnemy" Layer="Gameplay">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1395 Y:-1151}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="0" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
         </Components>
       </Entity>
       <Entity Name="GlassTrigger" Layer="Gameplay">
@@ -807,7 +767,7 @@
                 <Animation Name="Closing" SpritesheetTag="BigEnergyDoorClosing" />
                 <Animation Name="Opening" SpritesheetTag="BigEnergyDoorOpening" />
               </Spritesheets>
-              <DrawLayer Value="0" />
+              <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
