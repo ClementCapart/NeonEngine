@@ -108,6 +108,7 @@ namespace NeonStarLibrary
                                 offset = new Vector2(189, 12);
                             }
                             effect = EffectsManager.GetEffect(_thunderEffectSpritesheetInfo, _dashImpulse.X != 0 ? _elementSystem.AvatarComponent.CurrentSide : Side.Right, _elementSystem.entity.transform.Position, angle, offset, 2.0f, 0.7f);
+                            ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);
                         }
                         
                     }
@@ -118,7 +119,6 @@ namespace NeonStarLibrary
                     _entity.rigidbody.GravityScale = 0.0f;                                   
                     State = ElementState.Effect;                 
                     _entity.rigidbody.body.ApplyLinearImpulse(_dashImpulse);
-                    ThunderAttack = AttacksManager.GetAttack(_attackToLaunch, _elementSystem.AvatarComponent.CurrentSide, _entity);
                     break;
 
                 case ElementState.Effect:
