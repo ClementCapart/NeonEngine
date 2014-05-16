@@ -2482,7 +2482,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:301 Y:-251}" />
+              <InitialPosition Value="{X:301 Y:-201}" />
               <Rotation Value="0" />
               <Scale Value="0.8" />
               <NickName Value="" />
@@ -4435,7 +4435,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:167 Y:-332}" />
+              <InitialPosition Value="{X:172 Y:-274}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -7314,6 +7314,39 @@
               <NickName Value="" />
             </Properties>
           </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="blackgradient" Layer="cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:233 Y:-346}" />
+              <Rotation Value="0" />
+              <Scale Value="0.8" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="400" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.22" />
+              <GraphicTag Value="CityBlackGradient" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
         </Components>
       </Entity>
     </Entities>
