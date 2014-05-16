@@ -3016,7 +3016,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3070,7 +3070,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3240,7 +3240,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3294,7 +3294,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3470,7 +3470,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2748 Y:-836}" />
+              <InitialPosition Value="{X:2709 Y:-836}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3479,8 +3479,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2744 Y:-845}" />
-              <X Value="2694" />
+              <Center Value="{X:2707 Y:-845}" />
+              <X Value="2657" />
               <Y Value="-880" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -3559,7 +3559,7 @@
           <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
             <Properties>
               <CurrentNodeList Value="PathSupervisor02" />
-              <Speed Value="2" />
+              <Speed Value="1" />
               <Roundtrip Value="True" />
               <ReverseStart Value="False" />
               <PathPrecisionTreshold Value="10" />
