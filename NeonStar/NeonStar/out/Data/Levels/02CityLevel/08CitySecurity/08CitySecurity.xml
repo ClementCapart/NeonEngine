@@ -1568,7 +1568,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2100 Y:-1000}" />
+              <InitialPosition Value="{X:2100 Y:-1003}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -1577,9 +1577,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:2100 Y:-1000}" />
+              <Center Value="{X:2100 Y:-1003}" />
               <X Value="850" />
-              <Y Value="-1050" />
+              <Y Value="-1053" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="2500" />
@@ -3032,7 +3032,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3085,7 +3085,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3143,7 +3143,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3196,7 +3196,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3207,7 +3207,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4650 Y:-40}" />
+              <InitialPosition Value="{X:4650 Y:-39}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3254,7 +3254,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3307,130 +3307,10 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
-        </Components>
-      </Entity>
-      <Entity Name="GlassEnemyC" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4837 Y:-32}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="0" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-        </Components>
-      </Entity>
-      <Entity Name="GlassEnemyB" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4839 Y:-537}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="0" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
-        </Components>
-      </Entity>
-      <Entity Name="GlassEnemyA" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4840 Y:-1039}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="0" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
         </Components>
       </Entity>
       <Entity Name="GlassTriggerA" Layer="">
@@ -3603,7 +3483,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3039 Y:-836}" />
+              <InitialPosition Value="{X:2754 Y:-836}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3612,8 +3492,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3042 Y:-845}" />
-              <X Value="2992" />
+              <Center Value="{X:2751 Y:-845}" />
+              <X Value="2701" />
               <Y Value="-880" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -3641,7 +3521,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -3684,7 +3564,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
