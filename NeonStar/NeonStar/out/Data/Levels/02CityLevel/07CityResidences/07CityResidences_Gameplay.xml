@@ -58,9 +58,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="3">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:-700 Y:-675}" />
-              <X Value="-900" />
-              <Y Value="-685" />
+              <Center Value="{X:-678 Y:-664}" />
+              <X Value="-878" />
+              <Y Value="-674" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="400" />
@@ -316,7 +316,7 @@
           </FadingSpritesheet>
         </Components>
       </Entity>
-      <Entity Name="Door2" Layer="Gameplay">
+      <Entity Name="Door" Layer="Gameplay">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -357,58 +357,31 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
-          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <Tint Value="False" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="BigEnergyDoorCityClosed" />
-                <Animation Name="Opened" SpritesheetTag="BigEnergyDoorCityOpened" />
-                <Animation Name="Closing" SpritesheetTag="BigEnergyDoorCityClosing" />
-                <Animation Name="Opening" SpritesheetTag="BigEnergyDoorCityOpening" />
-              </Spritesheets>
-              <DrawLayer Value="0.8" />
+              <IsLooped Value="False" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ScannerDoorCityClosed" />
+              <DrawLayer Value="0.9" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-56}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
-          </SpritesheetManager>
-          <EnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.EnergyDoor" ID="4">
-            <Properties>
-              <OpenWhenAnimationEnd Value="True" />
-              <ClosedIdleAnimation Value="Closed" />
-              <OpenedIdleAnimation Value="Opened" />
-              <DoorOpeningAnimation Value="Opening" />
-              <ClosingIsReverseOpening Value="True" />
-              <DoorClosingAnimation Value="Closing" />
-              <FirstActivatingDeviceName Value="SwitchA" />
-              <FirstDeviceInSameLevel Value="True" />
-              <FirstActivatingDeviceLevelGroup Value="" />
-              <FirstActivatingDeviceLevelName Value="" />
-              <SecondActivatingDeviceName Value="" />
-              <SecondDeviceInSameLevel Value="True" />
-              <SecondActivatingDeviceLevelGroup Value="" />
-              <SecondActivatingDeviceLevelName Value="" />
-              <ThirdActivatingDeviceName Value="" />
-              <ThirdDeviceInSameLevel Value="True" />
-              <ThirdActivatingDeviceLevelGroup Value="" />
-              <ThirdActivatingDeviceLevelName Value="" />
-              <FourthActivatingDeviceName Value="" />
-              <FourthDeviceInSameLevel Value="True" />
-              <FourthActivatingDeviceLevelGroup Value="" />
-              <FourthActivatingDeviceLevelName Value="" />
-              <FifthActivatingDeviceName Value="" />
-              <FifthDeviceInSameLevel Value="True" />
-              <FifthActivatingDeviceLevelGroup Value="" />
-              <FifthActivatingDeviceLevelName Value="" />
-              <NickName Value="" />
-            </Properties>
-          </EnergyDoor>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="DoorC" Layer="Gameplay">

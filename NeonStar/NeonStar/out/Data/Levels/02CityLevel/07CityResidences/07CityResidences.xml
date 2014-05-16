@@ -320,7 +320,7 @@
               <ActivationAnimation Value="Activation" />
               <DeactivationAnimation Value="Deactivation" />
               <FrameToActivate Value="32" />
-              <State Value="Disabled" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </StableEnergyDevice>
@@ -334,10 +334,10 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Activated" SpritesheetTag="EnergyDeviceIdle" />
-                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
-                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceDeactivated" />
-                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+                <Animation Name="Activated" SpritesheetTag="EnergyDeviceCityIdle" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceCityActivation" />
+                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceCityDeactivated" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceCityDeactivation" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -368,7 +368,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-19 Y:-55}" />
+              <Offset Value="{X:-19 Y:-75}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
