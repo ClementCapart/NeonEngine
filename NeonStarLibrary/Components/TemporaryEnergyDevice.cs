@@ -113,8 +113,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if ((a.AttackElement != Element.Neutral && _triggerFromAllElementsExceptNeutral) || (a.AttackElement == _triggeringElement && !_triggerFromAllElementsExceptNeutral))
                 {
                     _activationTimer = _activationDuration;
-                    if (a.Name == _attackAddingTimeFromStunLock)
-                        _activationTimer += a.StunLock;
+                    /*if (a.Name == _attackAddingTimeFromStunLock)
+                        _activationTimer += a.StunLock;*/
                 }
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
