@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-800 Y:307}" />
+          <InitialPosition Value="{X:828 Y:-843}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-800 Y:306}" />
-          <X Value="-820" />
-          <Y Value="238" />
+          <Center Value="{X:827 Y:-843}" />
+          <X Value="807" />
+          <Y Value="-911" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -84,6 +84,7 @@
           <DrawLayer Value="0.5" />
           <IsHUD Value="False" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </SpritesheetManager>
@@ -200,7 +201,7 @@
           <ThunderGatheringFX Value="FeedbackThunderGathering" />
           <FireGatheringFX Value="FeedbackFireGathering" />
           <GetElementColorDelay Value="0.15" />
-          <ElementSlotCooldownDuration Value="3" />
+          <ElementSlotCooldownDuration Value="5" />
           <NickName Value="" />
         </Properties>
       </ElementSystem>
@@ -212,7 +213,7 @@
       <EnergySystem Type="NeonStarLibrary.Components.Avatar.EnergySystem" ID="11">
         <Properties>
           <MaxEnergyStock Value="1000" />
-          <CurrentEnergyStock Value="0" />
+          <CurrentEnergyStock Value="10" />
           <NickName Value="Blabla" />
         </Properties>
       </EnergySystem>
@@ -227,6 +228,7 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </FireGauge>
