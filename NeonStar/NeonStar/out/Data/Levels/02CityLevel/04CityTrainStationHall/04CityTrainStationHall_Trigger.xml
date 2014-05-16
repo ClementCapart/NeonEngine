@@ -9,7 +9,7 @@
               <AutoChangeInitialPosition Value="True" />
               <InitialPosition Value="{X:-1350 Y:-200}" />
               <Rotation Value="0" />
-              <Scale Value="1" />
+              <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
@@ -44,6 +44,28 @@
               <NickName Value="" />
             </Properties>
           </HitboxTrigger>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:121 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Opening" SpritesheetTag="TransitionDoorCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="TransitionDoorCityOpened" />
+                <Animation Name="Closing" SpritesheetTag="TransitionDoorCityClosing" />
+                <Animation Name="Closed" SpritesheetTag="TransitionDoorCityClosed" />
+              </Spritesheets>
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="ChangeLevel02" Layer="Trigger">
