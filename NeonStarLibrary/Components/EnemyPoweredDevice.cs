@@ -27,6 +27,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
             set { _displayGauge = value; }
         }
 
+        private bool _verticalGauge = false;
+
+        public bool VerticalGauge
+        {
+            get { return _verticalGauge; }
+            set { _verticalGauge = value; }
+        }
+
         private string _firstEnemyToKill = "";
 
         public string FirstEnemyToKill
@@ -128,7 +136,12 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _gauge = tg.First();
 
                 if (_gauge != null)
-                    _gauge.TilingWidth = 0.0f;
+                {
+                    if (!_verticalGauge)
+                        _gauge.TilingWidth = 0.0f;
+                    else
+                        _gauge.TilingHeight = 0.0f;
+                }
                 
                 List<SpriteSheet> ss = entity.GetComponentsByInheritance<SpriteSheet>();
                 if (ss != null && ss.Count > 0)
@@ -233,9 +246,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 else
                     _gaugeTargetWidth = _currentEnemiesKilled / _totalEnemiesToKill * GaugeMaxWidth;
                 if (_gauge != null)
-                    _gauge.TilingWidth = _gaugeTargetWidth;
+                {
+                    if (!_verticalGauge)
+                        _gauge.TilingWidth = _gaugeTargetWidth;
+                    else
+                        _gauge.TilingHeight = _gaugeTargetWidth;
+                }
 
-                _gauge.Offset = new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y);
+                _gauge.Offset = _verticalGauge == false ? new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y) : new Microsoft.Xna.Framework.Vector2(_gauge.Offset.X, -GaugeMaxWidth / 2 + _gaugeTargetWidth / 2);
             }
             if (_currentEnemiesKilled >= _totalEnemiesToKill)
             {
