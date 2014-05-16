@@ -104,6 +104,14 @@ namespace NeonEngine.Components.Graphics2D
             set { _mainColor = value; }
         }
 
+        private float _opacity = 1.0f;
+
+        public float Opacity
+        {
+            get { return _opacity; }
+            set { _opacity = value; }
+        }
+
         public DrawableComponent(float Layer, Entity entity, string Name)
             :base(entity, Name)
         {

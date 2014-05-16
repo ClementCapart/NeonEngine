@@ -128,10 +128,10 @@ namespace NeonStarLibrary
 
 
                     if (!_discoveredMap[CurrentGameScreen.LevelGroupName].Contains(g.GraphicTag))
-                        g.opacity = 0.0f;
+                        g.Opacity = 0.0f;
                     else
                     {
-                        g.opacity = 1.0f;
+                        g.Opacity = 1.0f;
                         if (g.Offset.X + g.texture.Width > _rightBound)
                             _rightBound = g.Offset.X + g.texture.Width;
                         if (g.Offset.X - g.texture.Width < _leftBound)

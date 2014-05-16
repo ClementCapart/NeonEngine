@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using NeonEngine;
+using NeonEngine.Components.Graphics2D;
 using NeonEngine.Private;
 using NeonStarLibrary.Components.Enemies;
 using NeonStarLibrary.Components.EnergyObjects;
@@ -49,6 +50,10 @@ namespace NeonStarLibrary.Components.Scripts
         private Entity _thirdImportantRobot;
         private EnemyCore _importantRobotEnemyCore;
 
+        private List<DrawableComponent> _guardTutorialComponents;
+        private List<DrawableComponent> _comboTutorialComponents;
+        private bool _fadingTutorials = false;
+
         private QuotaEnergyDoor _arenaDoor;
 
         public TrainingScanAlarmScript(Entity entity)
@@ -79,6 +84,18 @@ namespace NeonStarLibrary.Components.Scripts
 
             _secondImportantRobot = entity.GameWorld.GetEntityByName(_secondImportantRobotName);
             _thirdImportantRobot = entity.GameWorld.GetEntityByName(_thirdImportantRobotName);
+
+            e = entity.GameWorld.GetEntityByName("GuardTutorial");
+            if (e != null)
+                _guardTutorialComponents = e.GetComponentsByInheritance<DrawableComponent>();
+
+            e = entity.GameWorld.GetEntityByName("ComboTutorial");
+            if (e != null)
+                _comboTutorialComponents = e.GetComponentsByInheritance<DrawableComponent>();
+
+            if (_comboTutorialComponents != null)
+                foreach (DrawableComponent dc in _comboTutorialComponents)
+                    dc.Opacity = 0.0f;
 
             base.Init();
         }
@@ -122,6 +139,28 @@ namespace NeonStarLibrary.Components.Scripts
                     _thirdImportantRobot.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic;
                     _thirdImportantRobot.rigidbody.Mass = 500.0f;
                     _thirdImportantRobot.rigidbody.Init();
+                    _fadingTutorials = true;
+                }
+            }
+
+            if (_fadingTutorials)
+            {
+                if (_comboTutorialComponents != null && _guardTutorialComponents != null)
+                {
+                    foreach (DrawableComponent dc in _guardTutorialComponents)
+                    {
+                        dc.Opacity -= 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (dc.Opacity < 0.05f) dc.Opacity = 0.0f;
+                    }
+
+                    foreach (DrawableComponent dc in _comboTutorialComponents)
+                    {
+                        dc.Opacity += 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (dc.Opacity > 0.95)
+                        {
+                            dc.Opacity = 1.0f;
+                        }
+                    }
                 }
             }
 

@@ -99,7 +99,7 @@ namespace NeonEngine
                 if (spriteSheet != null)
                 {
                     spriteSheet.Update(gameTime);
-                    spriteSheet.opacity = _opacity;
+                    spriteSheet.Opacity = _opacity;
                     spriteSheet.TintColor = this.TintColor;
                     spriteSheet.scale = Scale;
                     spriteSheet.TintColor = Color.Lerp(Color.White, TintColor, _brightness);

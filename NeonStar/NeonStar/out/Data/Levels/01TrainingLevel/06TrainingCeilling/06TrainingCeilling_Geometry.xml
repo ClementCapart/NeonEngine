@@ -3053,7 +3053,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="2-{X:0 Y:0}_0-{X:0 Y:100}" />
+              <TilingHash Value="0-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:75}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -3090,7 +3090,7 @@
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_1-{X:0 Y:25}_1-{X:0 Y:75}" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:0 Y:100}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -4695,7 +4695,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="_BOT_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_0-{X:0 Y:150}_1-{X:0 Y:200}_0-{X:0 Y:300}_0-{X:0 Y:350}_2-{X:0 Y:400}_2-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_1-{X:0 Y:300}_2-{X:0 Y:400}_2-{X:0 Y:600}" />
+              <TilingHash Value="_BOT_LEFT_2-{X:0 Y:0}_1-{X:0 Y:200}_0-{X:0 Y:300}_2-{X:0 Y:350}_1-{X:0 Y:550}_1-{X:0 Y:650}_0-{X:0 Y:750}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:200}_2-{X:0 Y:400}_0-{X:0 Y:600}_0-{X:0 Y:650}_0-{X:0 Y:700}_0-{X:0 Y:750}" />
               <DrawLayer Value="0.91" />
               <TopCornerGraphicTag Value="FloorCorner" />
               <BottomCornerGraphicTag Value="CeilingCorner" />
@@ -6262,6 +6262,65 @@
               <NickName Value="" />
             </Properties>
           </LinkedToPath>
+        </Components>
+      </Entity>
+      <Entity Name="LevelGeometry" Layer="Geometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-550 Y:-2000}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="OneWay" />
+              <Center Value="{X:-550 Y:-2000}" />
+              <X Value="-750" />
+              <Y Value="-2025" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="400" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="1.99995" />
+              <OneWayPlatform Value="True" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="NewTrainingVentsLedge2" />
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:1 Y:-8}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
     </Entities>

@@ -105,9 +105,9 @@ namespace NeonStarLibrary.Components.Scripts
 
             if (this.entity.transform.Position.Y > -14500)
             {
-                if (_graphicToFadeOut != null && _graphicToFadeOut.opacity > 0.0f)
+                if (_graphicToFadeOut != null && _graphicToFadeOut.Opacity > 0.0f)
                 {
-                    _graphicToFadeOut.opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 5.0f;
+                    _graphicToFadeOut.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 5.0f;
                 }
             }
             base.Update(gameTime);

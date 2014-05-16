@@ -207,7 +207,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             else if (_fadingSpritesheet != null)
             {
                 if (!_fadingSpritesheet.Active)
-                    _fadingSpritesheet.opacity = 0.0f;
+                    _fadingSpritesheet.Opacity = 0.0f;
                 _fadingSpritesheet.Active = true;
             }
             

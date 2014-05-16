@@ -34,7 +34,7 @@ namespace NeonEngine
             }
             if (opacity != 1f)
             {
-                animation.opacity = opacity;
+                animation.Opacity = opacity;
             }
             
 

@@ -39,7 +39,7 @@ namespace NeonStarLibrary.Components.Graphics2D
 
         public override void Init()
         {
-            this.opacity = 0.0f;
+            this.Opacity = 0.0f;
             _avatarEntity = entity.GameWorld.GetEntityByName(_avatarName);
             base.Init();
         }
@@ -49,9 +49,9 @@ namespace NeonStarLibrary.Components.Graphics2D
             if (_avatarEntity != null && _avatarEntity.hitboxes.Count > 0)
             {
                 if (_avatarEntity.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
-                    this.opacity = Math.Min(1.0f, opacity + (float)gameTime.ElapsedGameTime.TotalSeconds * _fadingSpeed);
+                    this.Opacity = Math.Min(1.0f, Opacity + (float)gameTime.ElapsedGameTime.TotalSeconds * _fadingSpeed);
                 else
-                    this.opacity = Math.Max(0.0f, opacity - (float)gameTime.ElapsedGameTime.TotalSeconds * _fadingSpeed);
+                    this.Opacity = Math.Max(0.0f, Opacity - (float)gameTime.ElapsedGameTime.TotalSeconds * _fadingSpeed);
             }
             base.Update(gameTime);
         }

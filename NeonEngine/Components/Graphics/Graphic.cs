@@ -10,7 +10,6 @@ namespace NeonEngine.Components.Graphics2D
     public class Graphic : DrawableComponent
     {
         public Texture2D texture;
-        public float opacity = 1f;
 
         public string graphicTag = "";
         public string GraphicTag
@@ -57,7 +56,7 @@ namespace NeonEngine.Components.Graphics2D
             if (entity != null && texture != null && Active)
             {
                 CurrentEffect.CurrentTechnique.Passes[0].Apply();
-                spriteBatch.Draw(texture, entity.transform.Position + this._parallaxPosition + Offset, null, Color.Lerp(Color.Transparent, MainColor, opacity), entity.transform.rotation + RotationOffset, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, _currentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
+                spriteBatch.Draw(texture, entity.transform.Position + this._parallaxPosition + Offset, null, Color.Lerp(Color.Transparent, MainColor, Opacity), entity.transform.rotation + RotationOffset, new Vector2(texture.Width / 2, texture.Height / 2), entity.transform.Scale, _currentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
             }
         }
     }

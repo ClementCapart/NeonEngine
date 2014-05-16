@@ -336,7 +336,7 @@ namespace NeonStarLibrary.Components.GameplayElements
                     if (_avatar != null)
                         _avatar.transform.Position = new Vector2(MathHelper.Lerp(_avatar.transform.Position.X, this.entity.transform.Position.X, 0.1f), _avatar.transform.Position.Y);
 
-                    if (_avatar != null && _avatar.spritesheets != null && _avatar.spritesheets.CurrentSpritesheet.opacity <= 0.0f)
+                    if (_avatar != null && _avatar.spritesheets != null && _avatar.spritesheets.CurrentSpritesheet.Opacity <= 0.0f)
                     {
                         if(!_wasRespawning) SaveCheckPoint();
                         if (_cabin != null && _cabin.spritesheets != null)
@@ -404,16 +404,16 @@ namespace NeonStarLibrary.Components.GameplayElements
                         {
                             if (_avatarComponent != null && _avatarComponent.State != AvatarState.FinishSaving)
                             {
-                                _avatar.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                                _avatar.spritesheets.CurrentSpritesheet.Opacity = 0.0f;
                                 _avatarComponent.State = AvatarState.FinishSaving;
                             }
 
                         }
                     }
 
-                    if (_avatarComponent != null && _avatarComponent.State == AvatarState.FinishSaving && _avatar != null && _avatar.spritesheets.CurrentSpritesheet.opacity >= 1.0f)
+                    if (_avatarComponent != null && _avatarComponent.State == AvatarState.FinishSaving && _avatar != null && _avatar.spritesheets.CurrentSpritesheet.Opacity >= 1.0f)
                     {
-                        _avatar.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                        _avatar.spritesheets.CurrentSpritesheet.Opacity = 1.0f;
                         if (_cabin != null && _cabin.spritesheets != null)
                             _cabin.spritesheets.ChangeAnimation("EndClosing", 0, true, false, false);
                         if (_roomLighting != null)

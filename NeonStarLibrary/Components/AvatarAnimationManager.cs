@@ -37,7 +37,7 @@ namespace NeonStarLibrary.Components.Avatar
                         if (entity.spritesheets != null)
                         {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation);
-                            entity.spritesheets.CurrentSpritesheet.opacity -= 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            entity.spritesheets.CurrentSpritesheet.Opacity -= 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         break;
 
@@ -45,7 +45,7 @@ namespace NeonStarLibrary.Components.Avatar
                         if (entity.spritesheets != null)
                         {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation);
-                            entity.spritesheets.CurrentSpritesheet.opacity += 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            entity.spritesheets.CurrentSpritesheet.Opacity += 1.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         break;
 
@@ -53,7 +53,7 @@ namespace NeonStarLibrary.Components.Avatar
                         if (entity.spritesheets != null)
                         {
                             entity.spritesheets.ChangeAnimation(AvatarComponent.ThirdPersonController.IdleAnimation);
-                            entity.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                            entity.spritesheets.CurrentSpritesheet.Opacity = 0.0f;
                         }
                         break;
 

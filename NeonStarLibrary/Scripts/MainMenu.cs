@@ -54,7 +54,7 @@ namespace NeonStarLibrary.Components.Menu
         public override void Init()
         {
             ChangeState(MenuState.PressStart);
-            this.opacity = 1.0f;
+            this.Opacity = 1.0f;
             _firstChapterEntity = entity.GameWorld.GetEntityByName("FirstChapter");
             _secondChapterEntity = entity.GameWorld.GetEntityByName("SecondChapter");
             if (_firstChapterEntity != null)
@@ -88,31 +88,31 @@ namespace NeonStarLibrary.Components.Menu
                     
                     if (_opacityGoingDown)
                     {
-                        if (opacity > 0)
+                        if (Opacity > 0)
                         {
-                            opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            Opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         else
                         {
                             _opacityGoingDown = false;
-                            opacity = 0.0f;
+                            Opacity = 0.0f;
                         }
                     }
                     else
                     {
-                        if (opacity < 1)
+                        if (Opacity < 1)
                         {
-                            opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            Opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         }
                         else
                         {
                             _opacityGoingDown = true;
-                            opacity = 1.0f;
+                            Opacity = 1.0f;
                         }
                     }
 
                     foreach (DrawableComponent dc in _drawableComponents)
-                        (dc as Graphic).opacity = opacity;                 
+                        (dc as Graphic).Opacity = Opacity;                 
 
                     if (Neon.Input.Pressed(Buttons.Start))
                         ChangeState(MenuState.ModeSelect);
@@ -163,26 +163,26 @@ namespace NeonStarLibrary.Components.Menu
                     {
                         if (_opacityGoingDown)
                         {
-                            if (this._selectBar.opacity > 0)
+                            if (this._selectBar.Opacity > 0)
                             {
-                                this._selectBar.opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                this._selectBar.Opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
                             }
                             else
                             {
                                 _opacityGoingDown = false;
-                                this._selectBar.opacity = 0.0f;
+                                this._selectBar.Opacity = 0.0f;
                             }
                         }
                         else
                         {
-                            if (this._selectBar.opacity < 1)
+                            if (this._selectBar.Opacity < 1)
                             {
-                                this._selectBar.opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                this._selectBar.Opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
                             }
                             else
                             {
                                 _opacityGoingDown = true;
-                                this._selectBar.opacity = 1.0f;
+                                this._selectBar.Opacity = 1.0f;
                             }
                         }
 

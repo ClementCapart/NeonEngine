@@ -138,26 +138,13 @@ namespace NeonStarLibrary.Components.Scripts
                 }
                 else if (_startUsingThunder && !_usedThunder)
                 {
-                    if (_tigerComponent != null && _robotEntity != null)
+                    if (_tigerComponent != null)
                     {
                         _tigerComponent.State = EnemyState.Attacking;
-                        _tigerComponent.Attack.CurrentAttack = AttacksManager.GetAttack("EnemyTigerDash", Side.Left, _tigerEntity, _robotEntity);
+                        _tigerComponent.Attack.CurrentAttack = AttacksManager.GetAttack("EnemyTigerDash", Side.Left, _tigerEntity, entity.GameWorld.Avatar);
                         _usedThunder = true;
                     }
-                }
-                else if(_usedThunder)
-                {
-                    if(_robotEntity != null)
-                    {
-                        if (!_robotEntity.GameWorld.Entities.Contains(_robotEntity))
-                        {
-                            _tigerComponent.State = EnemyState.Idle;
-                            _finishedSequence = true;
-                            entity.GameWorld.Camera.ChaseStrength = 0.05f;
-                            (entity.GameWorld as GameScreen).MustFollowAvatar = true;
-                        }
-                    }
-                }          
+                }        
             }
             base.Update(gameTime);
         }

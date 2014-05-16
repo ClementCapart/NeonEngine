@@ -575,7 +575,7 @@ namespace NeonStarLibrary.Components.Enemies
                     else
                     {
                         _invincibilityTimer = 0.0f;
-                        entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                        entity.spritesheets.CurrentSpritesheet.Opacity = 1.0f;
                     }
                 }           
 
@@ -671,26 +671,26 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (_opacityGoingDown)
             {
-                if (entity.spritesheets.CurrentSpritesheet.opacity > 0)
+                if (entity.spritesheets.CurrentSpritesheet.Opacity > 0)
                 {
                     entity.spritesheets.ChangeOpacity(-value);
                 }
                 else
                 {
                     _opacityGoingDown = false;
-                    entity.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                    entity.spritesheets.CurrentSpritesheet.Opacity = 0.0f;
                 }
             }
             else
             {
-                if (entity.spritesheets.CurrentSpritesheet.opacity < 1)
+                if (entity.spritesheets.CurrentSpritesheet.Opacity < 1)
                 {
                     entity.spritesheets.ChangeOpacity(value);
                 }
                 else
                 {
                     _opacityGoingDown = true;
-                    entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                    entity.spritesheets.CurrentSpritesheet.Opacity = 1.0f;
                 }
             }
         }

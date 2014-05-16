@@ -201,7 +201,7 @@ namespace NeonEngine.Components.Graphics2D
                 return;
             }
             CurrentSpritesheetName = spriteSheetName;
-            CurrentSpritesheet.opacity = 1.0f;
+            CurrentSpritesheet.Opacity = 1.0f;
             CurrentSpritesheet.spriteSheetInfo = SpritesheetList[spriteSheetName];
             CurrentPriority = priority;
             CurrentSpritesheet.ReverseLoop = false;
@@ -231,7 +231,7 @@ namespace NeonEngine.Components.Graphics2D
 
         public void ChangeOpacity(float value)
         {
-            CurrentSpritesheet.opacity += value;
+            CurrentSpritesheet.Opacity += value;
         }          
     }
 

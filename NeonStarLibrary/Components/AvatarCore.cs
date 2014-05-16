@@ -367,7 +367,7 @@ namespace NeonStarLibrary.Components.Avatar
                     IsInvincible = false;
                     _invincibilityTimer = 0.0f;
                     if (entity.spritesheets != null)
-                        entity.spritesheets.CurrentSpritesheet.opacity = 1f;
+                        entity.spritesheets.CurrentSpritesheet.Opacity = 1f;
                 }
             }
             base.Update(gameTime);
@@ -388,26 +388,26 @@ namespace NeonStarLibrary.Components.Avatar
         {
             if (_opacityGoingDown)
             {
-                if (entity.spritesheets.CurrentSpritesheet.opacity > 0)
+                if (entity.spritesheets.CurrentSpritesheet.Opacity > 0)
                 {
                     entity.spritesheets.ChangeOpacity(-value);
                 }
                 else
                 {
                     _opacityGoingDown = false;
-                    entity.spritesheets.CurrentSpritesheet.opacity = 0.0f;
+                    entity.spritesheets.CurrentSpritesheet.Opacity = 0.0f;
                 }                  
             }
             else
             {
-                if (entity.spritesheets.CurrentSpritesheet.opacity < 1)
+                if (entity.spritesheets.CurrentSpritesheet.Opacity < 1)
                 {
                     entity.spritesheets.ChangeOpacity(value);
                 }
                 else
                 {
                     _opacityGoingDown = true;
-                    entity.spritesheets.CurrentSpritesheet.opacity = 1.0f;
+                    entity.spritesheets.CurrentSpritesheet.Opacity = 1.0f;
                 }
             }
         }
