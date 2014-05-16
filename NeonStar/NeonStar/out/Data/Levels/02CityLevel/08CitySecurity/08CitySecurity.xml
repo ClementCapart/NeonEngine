@@ -2958,8 +2958,8 @@
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
         </Components>
@@ -3016,7 +3016,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3053,8 +3053,8 @@
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
@@ -3070,7 +3070,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3128,7 +3128,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3165,8 +3165,8 @@
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
@@ -3182,7 +3182,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3240,7 +3240,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3277,8 +3277,8 @@
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
@@ -3294,7 +3294,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Activated" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -3470,7 +3470,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2987 Y:-836}" />
+              <InitialPosition Value="{X:2869 Y:-836}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3479,8 +3479,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2980 Y:-845}" />
-              <X Value="2930" />
+              <Center Value="{X:2874 Y:-845}" />
+              <X Value="2824" />
               <Y Value="-880" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -3508,7 +3508,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -3525,16 +3525,16 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
           <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
             <Properties>
               <Debug Value="False" />
-              <StartingHealthPoints Value="10" />
+              <StartingHealthPoints Value="20" />
               <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="10" />
+              <CurrentHealthPoints Value="20" />
               <ChanceToDropHealth Value="0" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
@@ -3552,7 +3552,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -3700,7 +3700,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="False" />
+              <IsGround Value="True" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -3737,8 +3737,8 @@
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </SpritesheetManager>
           <EnemyPoweredDevice Type="NeonStarLibrary.Components.EnergyObjects.EnemyPoweredDevice" ID="5">
