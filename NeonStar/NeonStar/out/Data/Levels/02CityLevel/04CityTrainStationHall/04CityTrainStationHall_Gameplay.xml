@@ -107,7 +107,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="100" />
-              <State Value="Disabled" />
+              <State Value="Deactivated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -216,10 +216,10 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Activated" SpritesheetTag="EnergyDeviceIdle" />
-                <Animation Name="Activation" SpritesheetTag="EnergyDeviceActivation" />
-                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceDeactivated" />
-                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceDeactivation" />
+                <Animation Name="Activated" SpritesheetTag="EnergyDeviceCityIdle" />
+                <Animation Name="Activation" SpritesheetTag="EnergyDeviceCityActivation" />
+                <Animation Name="Deactivated" SpritesheetTag="EnergyDeviceCityDeactivated" />
+                <Animation Name="Deactivation" SpritesheetTag="EnergyDeviceCityDeactivation" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -437,7 +437,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="1" />
+              <ActivationDuration Value="0.2" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -449,7 +449,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -458,7 +458,7 @@
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
-              <DrawLayer Value="0" />
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -524,13 +524,17 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-17}" />
+              <Offset Value="{X:0 Y:-2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
-              <DrawLayer Value="0.6" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
+                <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
+                <Animation Name="Pulse" SpritesheetTag="EnergyJumperActivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -583,7 +587,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.5" />
+              <ActivationDuration Value="0.2" />
               <AttackAddingTimeFromStunLock Value="" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -707,7 +711,7 @@
                 <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
                 <Animation Name="Pulse" SpritesheetTag="EnergyJumperActivation" />
               </Spritesheets>
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
@@ -760,16 +764,16 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-2}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Closed" SpritesheetTag="BigEnergyDoorClosed" />
-                <Animation Name="Opened" SpritesheetTag="BigEnergyDoorOpened" />
-                <Animation Name="Closing" SpritesheetTag="BigEnergyDoorClosing" />
-                <Animation Name="Opening" SpritesheetTag="BigEnergyDoorOpening" />
+                <Animation Name="Closed" SpritesheetTag="BigEnergyDoorCityClosed" />
+                <Animation Name="Opened" SpritesheetTag="BigEnergyDoorCityOpened" />
+                <Animation Name="Closing" SpritesheetTag="BigEnergyDoorCityClosing" />
+                <Animation Name="Opening" SpritesheetTag="BigEnergyDoorCityOpening" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
