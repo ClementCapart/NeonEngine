@@ -409,12 +409,12 @@
           </RandomTilableGraphic>
         </Components>
       </Entity>
-      <Entity Name="DoubleJumpTutorial" Layer="">
+      <Entity Name="ElementTutorial" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-86 Y:-2250}" />
+              <InitialPosition Value="{X:-383 Y:-2249}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -518,6 +518,13 @@
               <NickName Value="" />
             </Properties>
           </TextDisplay>
+          <TutorialDisplay Type="NeonStarLibrary.Scripts.TutorialDisplay" ID="3">
+            <Properties>
+              <EnemyToCheck Value="ScriptedTiger" />
+              <TutorialPanel Value="ElementTutorial" />
+              <NickName Value="" />
+            </Properties>
+          </TutorialDisplay>
         </Components>
       </Entity>
       <Entity Name="ExitDoor" Layer="">

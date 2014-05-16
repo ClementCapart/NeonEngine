@@ -144,7 +144,21 @@ namespace NeonStarLibrary.Components.Scripts
                         _tigerComponent.Attack.CurrentAttack = AttacksManager.GetAttack("EnemyTigerDash", Side.Left, _tigerEntity, entity.GameWorld.Avatar);
                         _usedThunder = true;
                     }
-                }        
+                }
+                else if (_usedThunder)
+                {
+                    if (_tigerComponent != null)
+                    {
+                        if (_tigerComponent.Attack.CurrentAttack == null)
+                        {
+                            _tigerComponent.State = EnemyState.Idle;
+                            _finishedSequence = true;
+                            entity.GameWorld.Camera.ChaseStrength = 0.05f;
+                            (entity.GameWorld as GameScreen).MustFollowAvatar = true;
+
+                        }
+                    }
+                }
             }
             base.Update(gameTime);
         }
