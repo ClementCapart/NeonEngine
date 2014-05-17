@@ -2,142 +2,12 @@
 <XnaContent>
   <Level Layer="Backplate">
     <Entities>
-      <Entity Name="BackPlateConduit" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-50 Y:1124}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="1400" />
-              <DrawLayer Value="0.2" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityConduitTile1" />
-              <SecondTileGraphicTag Value="CityConduitTile2" />
-              <ThirdTileGraphicTag Value="CityConduitTileLight1" />
-              <FourthTileGraphicTag Value="CityConduitTileLight2" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="True" />
-              <TilingHash Value="1-{X:0 Y:0}_3-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:300 Y:0}_0-{X:400 Y:0}_2-{X:500 Y:0}_1-{X:600 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-100 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="340" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-550 Y:70}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="340" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-350 Y:70}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="340" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-150 Y:70}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="400" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="340" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:800 Y:-50}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-        </Components>
-      </Entity>
       <Entity Name="BackplateIndoor" Layer="Backplate">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:746 Y:1324}" />
+              <InitialPosition Value="{X:1655 Y:778}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -146,8 +16,8 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="400" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="2400" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
@@ -156,16 +26,16 @@
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
               <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="4-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:300 Y:0}_3-{X:400 Y:0}_4-{X:500 Y:0}_3-{X:600 Y:0}_0-{X:700 Y:0}_4-{X:800 Y:0}_3-{X:900 Y:0}_5-{X:1000 Y:0}_1-{X:1100 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -177,14 +47,15 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="400" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="2400" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
@@ -193,16 +64,16 @@
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
               <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="5-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_3-{X:300 Y:0}_2-{X:400 Y:0}_0-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:700 Y:0}_1-{X:800 Y:0}_0-{X:900 Y:0}_0-{X:1000 Y:0}_2-{X:1100 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -214,14 +85,15 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="400" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="2400" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
@@ -230,16 +102,16 @@
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
               <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}" />
+              <TilingHash Value="0-{X:0 Y:0}_4-{X:100 Y:0}_4-{X:200 Y:0}_5-{X:300 Y:0}_4-{X:400 Y:0}_3-{X:500 Y:0}_5-{X:600 Y:0}_2-{X:700 Y:0}_5-{X:800 Y:0}_0-{X:900 Y:0}_4-{X:1000 Y:0}_0-{X:1100 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -251,65 +123,242 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="2400" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="2-{X:0 Y:0}_1-{X:100 Y:0}_5-{X:200 Y:0}_4-{X:300 Y:0}_5-{X:400 Y:0}_2-{X:500 Y:0}_4-{X:600 Y:0}_5-{X:700 Y:0}_0-{X:800 Y:0}_4-{X:900 Y:0}_4-{X:1000 Y:0}_4-{X:1100 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-600}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:200 Y:0}_4-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:800 Y:-800}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_3-{X:100 Y:0}_5-{X:200 Y:0}_2-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:800 Y:-1000}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="5-{X:0 Y:0}_3-{X:100 Y:0}_1-{X:200 Y:0}_5-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:800 Y:-1200}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="5-{X:0 Y:0}_2-{X:100 Y:0}_4-{X:200 Y:0}_3-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:800 Y:-1400}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
             <Properties>
               <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
+              <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:218 Y:20}" />
-              <RotationOffset Value="3.141593" />
+              <Offset Value="{X:389 Y:-802}" />
+              <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
             <Properties>
               <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
+              <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:218 Y:-180}" />
-              <RotationOffset Value="3.141593" />
+              <Offset Value="{X:389 Y:-991}" />
+              <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:218 Y:-361}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="BackPlateConduit" Layer="Backplate">
+      <Entity Name="BackplateIndoor" Layer="Backplate">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2498 Y:674}" />
+              <InitialPosition Value="{X:3100 Y:-962}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -318,7 +367,7 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="1000" />
+              <TilingSize Value="800" />
               <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
@@ -326,145 +375,33 @@
               <SecondCloserGraphicTag Value="" />
               <SecondCloserBasicSide Value="Left" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityConduitTile1" />
-              <SecondTileGraphicTag Value="CityConduitTile2" />
-              <ThirdTileGraphicTag Value="CityConduitTileLight1" />
-              <FourthTileGraphicTag Value="CityConduitTileLight2" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="True" />
-              <TilingHash Value="3-{X:0 Y:0}_0-{X:100 Y:0}_3-{X:200 Y:0}_1-{X:300 Y:0}_1-{X:400 Y:0}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:200 Y:0}_5-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-300 Y:0}" />
+              <Offset Value="{X:0 Y:-400}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="40" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-550 Y:-80}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="40" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-350 Y:-80}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="40" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-150 Y:-80}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-150 Y:150}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="100" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:50 Y:150}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackPlateConduit" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:435 Y:-1076}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
@@ -476,18 +413,378 @@
               <SecondCloserGraphicTag Value="" />
               <SecondCloserBasicSide Value="Left" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityConduitTile1" />
-              <SecondTileGraphicTag Value="CityConduitTile2" />
-              <ThirdTileGraphicTag Value="CityConduitTileLight1" />
-              <FourthTileGraphicTag Value="CityConduitTileLight2" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="True" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_1-{X:300 Y:0}_2-{X:400 Y:0}_0-{X:500 Y:0}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="4-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_4-{X:300 Y:0}_4-{X:400 Y:0}_4-{X:500 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-200 Y:-200}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1200" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="5-{X:0 Y:0}_0-{X:100 Y:0}_4-{X:200 Y:0}_2-{X:300 Y:0}_2-{X:400 Y:0}_0-{X:500 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-200 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-803 Y:-2}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-803 Y:-175}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="BackplateIndoor" Layer="Backplate">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3050 Y:-1772}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="2-{X:0 Y:0}_3-{X:100 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-400}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1200" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="0-{X:0 Y:0}_3-{X:100 Y:0}_3-{X:200 Y:0}_3-{X:300 Y:0}_4-{X:400 Y:0}_1-{X:500 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-200 Y:-204}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1200" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="4-{X:0 Y:0}_3-{X:100 Y:0}_2-{X:200 Y:0}_5-{X:300 Y:0}_3-{X:400 Y:0}_1-{X:500 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-200 Y:-4}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-803 Y:-6}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-803 Y:-184}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="BackplateIndoor" Layer="Backplate">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:900 Y:-3175}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="2-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_0-{X:300 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-400}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1000" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_3-{X:200 Y:0}_1-{X:300 Y:0}_4-{X:400 Y:0}" />
+              <CloserOffset Value="{X:0 Y:0}" />
+              <SecondCloserOffset Value="{X:0 Y:0}" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-100 Y:-200}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </RandomTilableGraphic>
+          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
+            <Properties>
+              <VerticalTiling Value="False" />
+              <TilingSize Value="1000" />
+              <DrawLayer Value="0.2" />
+              <CloserGraphicTag Value="" />
+              <CloserBasicSide Value="Right" />
+              <CloserRotation Value="0" />
+              <SecondCloserGraphicTag Value="" />
+              <SecondCloserBasicSide Value="Left" />
+              <SecondCloserRotation Value="0" />
+              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
+              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
+              <SeventhTileGraphicTag Value="" />
+              <EighthTileGraphicTag Value="" />
+              <NinthTileGraphicTag Value="" />
+              <TenthTileGraphicTag Value="" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="2-{X:0 Y:0}_4-{X:100 Y:0}_5-{X:200 Y:0}_5-{X:300 Y:0}_2-{X:400 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -499,60 +796,15 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackPlateConduit" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1075 Y:74}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="True" />
-              <TilingWidth Value="100" />
-              <UseTextureHeight Value="False" />
-              <TilingHeight Value="300" />
-              <DrawLayer Value="0.211" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:150 Y:300}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackplateIndoor" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-100 Y:30}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="600" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
@@ -561,35 +813,36 @@
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
               <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}" />
+              <TilingHash Value="2-{X:0 Y:0}_3-{X:100 Y:0}_4-{X:200 Y:0}_1-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-600}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="600" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
@@ -598,59 +851,62 @@
               <SecondCloserRotation Value="0" />
               <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
               <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <ThirdTileGraphicTag Value="CityCosmeticsBackplate3" />
+              <FourthTileGraphicTag Value="CityCosmeticsBackplate4" />
+              <FifthTileGraphicTag Value="CityCosmeticsBackplate5" />
+              <SixthTileGraphicTag Value="CityCosmeticsBackplate6" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}" />
+              <TilingHash Value="1-{X:0 Y:0}_5-{X:100 Y:0}_3-{X:200 Y:0}_2-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-200}" />
+              <Offset Value="{X:0 Y:-800}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
             <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserBottom" />
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-53 Y:118}" />
+              <Offset Value="{X:-600 Y:-2}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
             <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserBottom" />
-              <DrawLayer Value="0.2" />
+              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
+              <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:131 Y:118}" />
+              <Offset Value="{X:-600 Y:-176}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -661,7 +917,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:530 Y:1950}" />
+              <InitialPosition Value="{X:-1515 Y:-2626}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -670,26 +926,26 @@
           <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
             <Properties>
               <VerticalTiling Value="False" />
-              <TilingSize Value="400" />
-              <DrawLayer Value="0.201" />
+              <TilingSize Value="800" />
+              <DrawLayer Value="0.2" />
               <CloserGraphicTag Value="" />
               <CloserBasicSide Value="Right" />
               <CloserRotation Value="0" />
               <SecondCloserGraphicTag Value="" />
               <SecondCloserBasicSide Value="Left" />
               <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
+              <FirstTileGraphicTag Value="CityConduitTile1" />
+              <SecondTileGraphicTag Value="CityConduitTile2" />
+              <ThirdTileGraphicTag Value="CityConduitTileLight1" />
+              <FourthTileGraphicTag Value="CityConduitTileLight2" />
+              <FifthTileGraphicTag Value="NoGraphic" />
+              <SixthTileGraphicTag Value="NoGraphic" />
               <SeventhTileGraphicTag Value="" />
               <EighthTileGraphicTag Value="" />
               <NinthTileGraphicTag Value="" />
               <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="2-{X:0 Y:0}_2-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:300 Y:0}" />
               <CloserOffset Value="{X:0 Y:0}" />
               <SecondCloserOffset Value="{X:0 Y:0}" />
               <IsHUD Value="False" />
@@ -701,381 +957,10 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </RandomTilableGraphic>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="400" />
-              <DrawLayer Value="0.201" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-200}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:218 Y:18}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserExtension" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:317 Y:-216}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackPlateConduit" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1686 Y:75}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
-            <Properties>
-              <UseTextureWidth Value="False" />
-              <TilingWidth Value="400" />
-              <UseTextureHeight Value="True" />
-              <TilingHeight Value="340" />
-              <DrawLayer Value="0.2" />
-              <GraphicTag Value="CityConduitTile1" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:400 Y:150}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </TilableGraphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackplateIndoor" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1270 Y:-150}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="600" />
-              <DrawLayer Value="0.201" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="600" />
-              <DrawLayer Value="0.201" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-200}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-318 Y:-2}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-318 Y:-190}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserTop" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:80 Y:-318}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="BackplateIndoor" Layer="Backplate">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1210 Y:430}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="800" />
-              <DrawLayer Value="0.201" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:200 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <RandomTilableGraphic Type="NeonEngine.Components.Graphics2D.RandomTilableGraphic" ID="1">
-            <Properties>
-              <VerticalTiling Value="False" />
-              <TilingSize Value="800" />
-              <DrawLayer Value="0.201" />
-              <CloserGraphicTag Value="" />
-              <CloserBasicSide Value="Right" />
-              <CloserRotation Value="0" />
-              <SecondCloserGraphicTag Value="" />
-              <SecondCloserBasicSide Value="Left" />
-              <SecondCloserRotation Value="0" />
-              <FirstTileGraphicTag Value="CityCosmeticsBackplate1" />
-              <SecondTileGraphicTag Value="CityCosmeticsBackplate2" />
-              <ThirdTileGraphicTag Value="" />
-              <FourthTileGraphicTag Value="" />
-              <FifthTileGraphicTag Value="" />
-              <SixthTileGraphicTag Value="" />
-              <SeventhTileGraphicTag Value="" />
-              <EighthTileGraphicTag Value="" />
-              <NinthTileGraphicTag Value="" />
-              <TenthTileGraphicTag Value="" />
-              <KeepTilingHash Value="False" />
-              <TilingHash Value="0-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:200 Y:0}_1-{X:300 Y:0}" />
-              <CloserOffset Value="{X:0 Y:0}" />
-              <SecondCloserOffset Value="{X:0 Y:0}" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:200 Y:-200}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </RandomTilableGraphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:618 Y:20}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserExtension" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-220 Y:-150}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsBackplateCloserSide" />
-              <DrawLayer Value="0.201" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:618 Y:-169}" />
-              <RotationOffset Value="3.141593" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
         </Components>
       </Entity>
     </Entities>

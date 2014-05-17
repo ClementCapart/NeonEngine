@@ -148,9 +148,6 @@ namespace NeonStarLibrary
                 }
             }
 
-            if (LevelName == "01CityTrainStationEntrance")
-                CheckPointsData.Clear();
-
             if (CheckPointsData.Count == 0 && _avatarComponent != null)
                 GameScreen.CheckPointsData.Add(SaveStatus());
         } 
@@ -295,7 +292,7 @@ namespace NeonStarLibrary
             }
 
 
-            if (Neon.Input.Pressed(NeonStarInput.Start) && PauseAllowed)
+            if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
             {
                 Pause = !Pause;
                 if (Pause)

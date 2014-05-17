@@ -114,7 +114,7 @@ namespace NeonStarLibrary.Components.Menu
                     foreach (DrawableComponent dc in _drawableComponents)
                         (dc as Graphic).Opacity = Opacity;                 
 
-                    if (Neon.Input.Pressed(NeonStarInput.Start))
+                    if (Neon.Input.Pressed(Buttons.Start))
                         ChangeState(MenuState.ModeSelect);
                     break;    
 

@@ -614,7 +614,7 @@ namespace NeonStarEditor
                 }
             }
 
-            if (Neon.Input.Pressed(NeonStarInput.Start))
+            if (Neon.Input.Pressed(Buttons.Start))
             {
                 UnpauseTillNextFrame = false;
             }
