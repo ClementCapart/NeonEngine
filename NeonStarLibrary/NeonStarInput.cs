@@ -23,5 +23,6 @@ namespace NeonStarLibrary
         CameraRight,
         CameraUp,
         CameraDown,
+        Start,
     }
 }

@@ -39,14 +39,14 @@ namespace NeonStarLibrary
                     }
 
                 }
-                if (Neon.Input.Pressed(Buttons.Start))
+                if (Neon.Input.Pressed(NeonStarInput.Start))
                 {
                     if (Loop == 1)
                         videoPlayer.Stop();
                 }
             }
             else
-                if (Neon.Input.Pressed(Buttons.Start))
+                if (Neon.Input.Pressed(NeonStarInput.Start))
                 {
                     if(!Started)
                         Started = true;
