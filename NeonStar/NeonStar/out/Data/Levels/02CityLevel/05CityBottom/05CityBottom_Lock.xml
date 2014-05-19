@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-275 Y:-800}" />
+              <InitialPosition Value="{X:-561 Y:-800}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,8 +16,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-276 Y:-810}" />
-              <X Value="-326" />
+              <Center Value="{X:-559 Y:-810}" />
+              <X Value="-609" />
               <Y Value="-845" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -45,7 +45,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -62,6 +62,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -88,7 +89,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -178,6 +179,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -188,7 +190,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1983 Y:1945}" />
+              <InitialPosition Value="{X:1752 Y:1945}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -197,8 +199,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1982 Y:1944}" />
-              <X Value="1942" />
+              <Center Value="{X:1754 Y:1944}" />
+              <X Value="1714" />
               <Y Value="1864" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -226,7 +228,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -235,15 +237,17 @@
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
-                <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
+                <Animation Name="DashDelay" SpritesheetTag="EnemyTigerDashdelay" />
                 <Animation Name="Punch" SpritesheetTag="EnemyTigerPunch" />
                 <Animation Name="Hit" SpritesheetTag="EnemyTigerHit" />
                 <Animation Name="Idle" SpritesheetTag="EnemyTigerIdle" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
+                <Animation Name="DashDuration" SpritesheetTag="EnemyTigerDashduration" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -270,7 +274,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -288,12 +292,15 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="325" />
               <AttackToLaunchOne Value="EnemyTigerDash" />
-              <AttackOneDelayAnimation Value="Dash" />
-              <AttackOneDurationAnimation Value="" />
+              <AttackOneDelayAnimation Value="DashDelay" />
+              <AttackOneDurationAnimation Value="DashDuration" />
               <AttackOneCooldownAnimation Value="" />
               <RangeForAttackTwo Value="200" />
               <AttackToLaunchTwo Value="Chase" />
@@ -311,10 +318,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
@@ -345,6 +349,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -365,7 +370,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2287 Y:1295}" />
+              <InitialPosition Value="{X:2061 Y:1295}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -374,8 +379,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2288 Y:1294}" />
-              <X Value="2238" />
+              <Center Value="{X:2059 Y:1294}" />
+              <X Value="2009" />
               <Y Value="1214" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -403,7 +408,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -421,6 +426,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -447,7 +453,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -465,8 +471,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -488,10 +497,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -522,6 +528,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -542,7 +549,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1877 Y:1295}" />
+              <InitialPosition Value="{X:1775 Y:1295}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -551,8 +558,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1874 Y:1294}" />
-              <X Value="1834" />
+              <Center Value="{X:1775 Y:1294}" />
+              <X Value="1735" />
               <Y Value="1214" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -580,7 +587,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -589,15 +596,17 @@
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
-                <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
                 <Animation Name="Punch" SpritesheetTag="EnemyTigerPunch" />
                 <Animation Name="Hit" SpritesheetTag="EnemyTigerHit" />
                 <Animation Name="Idle" SpritesheetTag="EnemyTigerIdle" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
+                <Animation Name="DashDelay" SpritesheetTag="EnemyTigerDashdelay" />
+                <Animation Name="DashDuration" SpritesheetTag="EnemyTigerDashduration" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -624,7 +633,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -642,12 +651,15 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="325" />
               <AttackToLaunchOne Value="EnemyTigerDash" />
-              <AttackOneDelayAnimation Value="Dash" />
-              <AttackOneDurationAnimation Value="" />
+              <AttackOneDelayAnimation Value="DashDelay" />
+              <AttackOneDurationAnimation Value="DashDuration" />
               <AttackOneCooldownAnimation Value="" />
               <RangeForAttackTwo Value="200" />
               <AttackToLaunchTwo Value="Chase" />
@@ -665,10 +677,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
@@ -699,6 +708,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -775,6 +785,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -819,8 +830,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -842,10 +856,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -876,6 +887,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -886,7 +898,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1044 Y:445}" />
+              <InitialPosition Value="{X:1043 Y:445}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -942,6 +954,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -986,8 +999,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1009,10 +1025,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1043,6 +1056,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -1063,7 +1077,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:78 Y:595}" />
+              <InitialPosition Value="{X:227 Y:595}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1072,8 +1086,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:79 Y:594}" />
-              <X Value="29" />
+              <Center Value="{X:225 Y:594}" />
+              <X Value="175" />
               <Y Value="514" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1101,7 +1115,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1119,6 +1133,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1145,7 +1160,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -1163,8 +1178,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1186,10 +1204,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1220,6 +1235,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -1240,7 +1256,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:657 Y:595}" />
+              <InitialPosition Value="{X:213 Y:595}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1249,8 +1265,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:656 Y:594}" />
-              <X Value="616" />
+              <Center Value="{X:210 Y:594}" />
+              <X Value="170" />
               <Y Value="514" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1287,15 +1303,17 @@
               <RotationOffset Value="0" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
-                <Animation Name="Dash" SpritesheetTag="EnemyTigerDash" />
+                <Animation Name="DashDelay" SpritesheetTag="EnemyTigerDashdelay" />
                 <Animation Name="Punch" SpritesheetTag="EnemyTigerPunch" />
                 <Animation Name="Hit" SpritesheetTag="EnemyTigerHit" />
                 <Animation Name="Idle" SpritesheetTag="EnemyTigerIdle" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
+                <Animation Name="DashDuration" SpritesheetTag="EnemyTigerDashduration" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1340,12 +1358,15 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="10">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="325" />
               <AttackToLaunchOne Value="EnemyTigerDash" />
-              <AttackOneDelayAnimation Value="Dash" />
-              <AttackOneDurationAnimation Value="" />
+              <AttackOneDelayAnimation Value="DashDelay" />
+              <AttackOneDurationAnimation Value="DashDuration" />
               <AttackOneCooldownAnimation Value="" />
               <RangeForAttackTwo Value="200" />
               <AttackToLaunchTwo Value="Chase" />
@@ -1363,10 +1384,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="1">
@@ -1397,6 +1415,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -1473,6 +1492,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1517,8 +1537,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1540,10 +1563,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1574,6 +1594,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
@@ -1584,7 +1605,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-681 Y:-355}" />
+              <InitialPosition Value="{X:-83 Y:-355}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1593,8 +1614,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-680 Y:-355}" />
-              <X Value="-730" />
+              <Center Value="{X:-81 Y:-355}" />
+              <X Value="-131" />
               <Y Value="-435" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1640,6 +1661,7 @@
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1684,8 +1706,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1707,10 +1732,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1741,6 +1763,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </DamageDisplayer>
