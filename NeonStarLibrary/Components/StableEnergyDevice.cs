@@ -125,47 +125,30 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 {
                     if (Neon.Input.Pressed(NeonStarInput.Interact) && !_isFilling)
                     {
-                        _isFilling = true;
-                    }
-                    else if (Neon.Input.Check(NeonStarInput.Interact))
-                    {
-                        if (_isFilling)
+                        if (State == DeviceState.Activated)
                         {
-                            _fillingTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                            if (_fillingTimer >= _fillingDuration)
+                            _deactivatingDevice = true;
+                            _isFilling = false;
+                            if (_avatar.EnergySystem != null)
+                                _avatar.EnergySystem.CurrentEnergyStock += EnergyCost;
+                        }
+                        else
+                        {
+                            if (_avatar.EnergySystem != null)
                             {
-                                if (State == DeviceState.Activated)
+                                if (_avatar.EnergySystem.CurrentEnergyStock >= EnergyCost)
                                 {
-                                    _deactivatingDevice = true;
+                                    _isFilled = true;
                                     _isFilling = false;
-                                    if (_avatar.EnergySystem != null)
-                                        _avatar.EnergySystem.CurrentEnergyStock += EnergyCost;
-                                }
-                                else
-                                {
-                                    if (_avatar.EnergySystem != null)
-                                    {
-                                        if (_avatar.EnergySystem.CurrentEnergyStock >= EnergyCost)
-                                        {
-                                            _isFilled = true;
-                                            _isFilling = false;
-                                            _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
-                                            if (entity.spritesheets != null)
-                                                entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
-                                            if (_textDisplay != null)
-                                                _textDisplay.Active = false;
-                                           
-                                        }
-                                    }
+                                    _avatar.EnergySystem.CurrentEnergyStock -= EnergyCost;
+                                    if (entity.spritesheets != null)
+                                        entity.spritesheets.ChangeAnimation(_activationAnimation, true, 0, true, false, false);
+                                    if (_textDisplay != null)
+                                        _textDisplay.Active = false;
+
                                 }
                             }
                         }
-                    }
-
-                    if (Neon.Input.Released(NeonStarInput.Interact))
-                    {
-                        _isFilling = false;
-                        _fillingTimer = 0.0f;
                     }
                 }
             }
