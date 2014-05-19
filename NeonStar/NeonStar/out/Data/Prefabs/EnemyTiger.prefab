@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Prefab>
-  <Entity Name="EnemyTiger" Layer="Lock">
+  <Entity Name="EnemyTiger" Layer="">
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:24 Y:-130}" />
+          <InitialPosition Value="{X:1504 Y:-130}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,8 +14,8 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:21 Y:-130}" />
-          <X Value="-19" />
+          <Center Value="{X:1504 Y:-130}" />
+          <X Value="1464" />
           <Y Value="-210" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
@@ -92,6 +92,7 @@
           <WaitThreatDuration Value="0" />
           <CurrentSide Value="Right" />
           <NickName Value="" />
+          <AirImpulsedInAir Value="True" />
         </Properties>
       </EnemyCore>
       <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
@@ -169,16 +170,6 @@
           <NickName Value="" />
         </Properties>
       </DamageDisplayer>
-      <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="12">
-        <Properties>
-          <CurrentNodeList Value="PathTiger01" />
-          <Speed Value="2" />
-          <Roundtrip Value="True" />
-          <ReverseStart Value="False" />
-          <PathPrecisionTreshold Value="50" />
-          <NickName Value="" />
-        </Properties>
-      </FollowNodes>
     </Components>
   </Entity>
 </Prefab>
