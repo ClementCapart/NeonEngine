@@ -5737,7 +5737,7 @@
               <Mass Value="0.5999499" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="False" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="2" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -5909,46 +5909,6 @@
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
-        </Components>
-      </Entity>
-      <Entity Name="GlassEnemyA" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2599 Y:-551}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="2">
-            <Properties>
-              <Debug Value="False" />
-              <StartingHealthPoints Value="1" />
-              <CoreElement Value="Neutral" />
-              <CurrentHealthPoints Value="1" />
-              <ChanceToDropHealth Value="0" />
-              <HealthItemsToDrop Value="0" />
-              <InvincibilityDuration Value="0.5" />
-              <RunAnim Value="" />
-              <IdleAnim Value="" />
-              <DyingAnim Value="" />
-              <HitAnim Value="" />
-              <StunlockAnim Value="" />
-              <ImmuneToStunLock Value="True" />
-              <ImmuneToImpulse Value="True" />
-              <ImmuneToDeath Value="False" />
-              <ImmuneToDamage Value="False" />
-              <AlwaysTakeUppercut Value="False" />
-              <Type Value="Ground" />
-              <TriggerOnDamage Value="False" />
-              <ComponentToTriggerName Value="" />
-              <WaitThreatDuration Value="1" />
-              <CurrentSide Value="Right" />
-              <NickName Value="" />
-            </Properties>
-          </EnemyCore>
         </Components>
       </Entity>
       <Entity Name="GlassEnemyB" Layer="">
