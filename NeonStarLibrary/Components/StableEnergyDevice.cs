@@ -81,7 +81,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public AvatarCore _avatar;
         private bool _isFilling = false;
-        private float _fillingTimer = 0.0f;
         private TextDisplay _textDisplay;
         private bool _isFilled = false;
         private bool _deactivatingDevice = false;
@@ -155,7 +154,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
             else
             {
                 _isFilling = false;
-                _fillingTimer = 0.0f;
             }
 
             if (entity.spritesheets != null)

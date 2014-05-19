@@ -1393,8 +1393,8 @@ namespace NeonStarLibrary
                         {
                             if (!velocityReset)
                                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-
-                            entity.rigidbody.body.ApplyLinearImpulse(CurrentSide == Side.Right ? AirImpulse : new Vector2(-AirImpulse.X, AirImpulse.Y));
+                            if(enemy != null && enemy.AirImpulsedInAir)
+                                entity.rigidbody.body.ApplyLinearImpulse(CurrentSide == Side.Right ? AirImpulse : new Vector2(-AirImpulse.X, AirImpulse.Y));
                         }
                     }
                 }

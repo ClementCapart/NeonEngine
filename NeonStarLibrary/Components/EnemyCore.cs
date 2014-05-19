@@ -94,6 +94,15 @@ namespace NeonStarLibrary.Components.Enemies
             set { _invincibilityDuration = value; }
         }
 
+        private bool _airImpulsedInAir = true;
+
+        public bool AirImpulsedInAir
+        {
+            get { return _airImpulsedInAir; }
+            set { _airImpulsedInAir = value; }
+        }
+
+
         private string _runAnim = "";
 
         public string RunAnim
