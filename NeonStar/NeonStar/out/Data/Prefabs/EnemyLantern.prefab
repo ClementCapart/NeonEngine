@@ -4,104 +4,128 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <Position Value="{X:-1210 Y:-68.49998}" />
-          <InitialPosition Value="{X:-1210 Y:-68.49998}" />
-          <Rotation Value="0" />
-          <Scale Value="1" />
           <AutoChangeInitialPosition Value="True" />
+          <InitialPosition Value="{X:-1489 Y:132}" />
+          <Rotation Value="0" />
+          <Scale Value="2" />
+          <NickName Value="" />
         </Properties>
       </Transform>
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-1210 Y:-68}" />
-          <X Value="-1250" />
-          <Y Value="-108" />
+          <Center Value="{X:-1489 Y:131}" />
+          <X Value="-1529" />
+          <Y Value="91" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="80" />
           <Height Value="80" />
+          <NickName Value="" />
         </Properties>
       </Hitbox>
       <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
         <Properties>
-          <BodyType Value="Dynamic" />
+          <BodyType Value="Kinematic" />
           <GravityScale Value="2" />
           <UseGravity Value="True" />
           <Restitution Value="0" />
           <Friction Value="10" />
-          <Mass Value="400" />
+          <Mass Value="0" />
           <OneWayPlatform Value="False" />
           <SleepingAllowed Value="False" />
           <IsGround Value="False" />
           <Hitbox Value="1" />
           <Sensors Value="True" />
           <FixedRotation Value="True" />
+          <NickName Value="" />
         </Properties>
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <TintColor Value="{R:255 G:255 B:255 A:255}" />
-          <Spritesheets />
-          <DrawLayer Value="0" />
-          <Tint Value="False" />
-          <ParallaxForce Value="{X:0 Y:0}" />
           <CurrentSide Value="Right" />
+          <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="False" />
           <RotationCenter Value="{X:0 Y:0}" />
           <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="Idle" SpritesheetTag="EnemyLanternIdle" />
+          </Spritesheets>
+          <DrawLayer Value="0.48" />
           <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
           <StartingHealthPoints Value="10" />
-          <RunAnim Value="" />
-          <IdleAnim Value="" />
-          <Type Value="Flying" />
           <CoreElement Value="Fire" />
           <CurrentHealthPoints Value="10" />
+          <ChanceToDropHealth Value="0.6" />
+          <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
+          <RunAnim Value="" />
+          <IdleAnim Value="Idle" />
           <DyingAnim Value="" />
           <HitAnim Value="" />
+          <StunlockAnim Value="" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
           <ImmuneToDeath Value="False" />
+          <ImmuneToDamage Value="False" />
+          <AlwaysTakeUppercut Value="False" />
+          <Type Value="Flying" />
           <TriggerOnDamage Value="False" />
           <ComponentToTriggerName Value="" />
           <WaitThreatDuration Value="0" />
+          <CurrentSide Value="Left" />
+          <NickName Value="" />
         </Properties>
       </EnemyCore>
-      <FollowPlatformNodes Type="NeonStarLibrary.Components.Enemies.FollowPlatformNodes" ID="8">
-        <Properties>
-          <Speed Value="1.5" />
-          <Roundtrip Value="True" />
-          <ReverseStart Value="True" />
-          <PathPrecisionTreshold Value="50" />
-        </Properties>
-      </FollowPlatformNodes>
       <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="1">
         <Properties>
           <MaximumAngleDifference Value="360" />
-          <RangeForAttackOne Value="700" />
+          <RangeForAttackOne Value="80" />
           <AttackToLaunchOne Value="EnemyLanternCrystalMane" />
-          <AttackOneAnimation Value="" />
           <RangeForAttackTwo Value="0" />
           <AttackToLaunchTwo Value="" />
-          <AttackTwoAnimation Value="" />
           <RangeForAttackThree Value="0" />
           <AttackToLaunchThree Value="" />
-          <AttackThreeAnimation Value="" />
           <RangeForAttackFour Value="0" />
           <AttackToLaunchFour Value="" />
-          <AttackFourAnimation Value="" />
-          <RangeForAttackFive Value="0" />
-          <AttackToLaunchFive Value="" />
-          <AttackFiveAnimation Value="" />
           <EntityToAttackName Value="LiOn" />
+          <CanTurn Value="True" />
+          <RandomBalanceRate Value="0" />
+          <AttackOneDelayAnimation Value="" />
+          <AttackOneDurationAnimation Value="" />
+          <AttackOneCooldownAnimation Value="" />
+          <AttackTwoDelayAnimation Value="" />
+          <AttackTwoDurationAnimation Value="" />
+          <AttackTwoCooldownAnimation Value="" />
+          <AttackThreeDelayAnimation Value="" />
+          <AttackThreeDurationAnimation Value="" />
+          <AttackThreeCooldownAnimation Value="" />
+          <AttackFourDelayAnimation Value="" />
+          <AttackFourDurationAnimation Value="" />
+          <AttackFourCooldownAnimation Value="" />
+          <NickName Value="" />
         </Properties>
       </AreaAttack>
+      <FlyingChase Type="NeonStarLibrary.Components.Enemies.FlyingChase" ID="9">
+        <Properties>
+          <EntityToChaseName Value="LiOn" />
+          <DetectionDistance Value="1000" />
+          <WaitStopDuration Value="1" />
+          <ChaseSpeed Value="5" />
+          <ChasePrecision Value="10" />
+          <NickName Value="" />
+        </Properties>
+      </FlyingChase>
     </Components>
   </Entity>
 </Prefab>
