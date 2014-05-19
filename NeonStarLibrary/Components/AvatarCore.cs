@@ -209,7 +209,7 @@ namespace NeonStarLibrary.Components.Avatar
             if (IsInvincible)
                 return DamageResult.Missed;
 
-            if (State == AvatarState.Guarding && CurrentSide != side && attackType != AttackType.Special)
+            if (State == AvatarState.Guarding && attackType != AttackType.Special)
             {
                 damageValue = 0;
                 if (damageValue >= 0.0f)
@@ -221,7 +221,8 @@ namespace NeonStarLibrary.Components.Avatar
             }     
 
             _currentHealthPoints += damageValue;
-            entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, true, false);
+            if(damageValue < 0)
+                entity.spritesheets.ChangeAnimation(this._hitAnim, true, 0, true, true, false);
 
             if (Debug)
             {
