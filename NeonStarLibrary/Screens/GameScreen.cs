@@ -148,6 +148,11 @@ namespace NeonStarLibrary
                 }
             }
 
+            if (LevelName == "01CityTrainStationEntrance" && (CheckPointsData.Count == 0 || CheckPointsData.Last().Element("CurrentLevel").Element("GroupName").Value == "01TrainingLevel"))
+            {
+                CheckPointsData.Add(SaveStatus());
+            }
+
             if (CheckPointsData.Count == 0 && _avatarComponent != null)
                 GameScreen.CheckPointsData.Add(SaveStatus());
         } 
