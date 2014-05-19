@@ -114,8 +114,11 @@ namespace NeonStarLibrary.Components.Enemies
             }
             else if(!_startTimerOnGround || _touchedGround)
             {
-                if (entity.spritesheets != null)
+                if (entity.spritesheets != null && !_hasBeenLaunched)
+                {
                     entity.spritesheets.ChangeAnimation(_firstExplosionAnimation, false, 0, true, false, false);
+                    Console.WriteLine("Hey!");
+                }
                 if (_currentTimer > 0.0f)
                 {
                     if (!_hasBeenLaunched)
@@ -138,7 +141,7 @@ namespace NeonStarLibrary.Components.Enemies
                 }
             }
 
-            if (_attack != null && _attack.CooldownFinished && entity.spritesheets.CurrentSpritesheet.IsFinished)
+            if (_attack != null && entity.spritesheets.CurrentSpritesheet.IsFinished)
                 entity.Destroy();
             base.Update(gameTime);
         }
