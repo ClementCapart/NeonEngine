@@ -1634,7 +1634,11 @@
     </Attack>
     <Attack ID="0" Name="EnemyLanternCrystalMane" Group="EnemyLantern" Type="MeleeSpecial">
       <Hitboxes>
-        <Hitbox OffsetX="0" OffsetY="0" Width="250" Height="250" />
+        <Hitbox OffsetX="0" OffsetY="0" Width="170" Height="170" />
+        <Hitbox OffsetX="0" OffsetY="-100" Width="120" Height="32" />
+        <Hitbox OffsetX="0" OffsetY="100" Width="120" Height="32" />
+        <Hitbox OffsetX="100" OffsetY="0" Width="32" Height="120" />
+        <Hitbox OffsetX="-100" OffsetY="0" Width="32" Height="120" />
       </Hitboxes>
       <AttackElement>Neutral</AttackElement>
       <DamageOnHit>-1</DamageOnHit>
@@ -1642,14 +1646,14 @@
       <GroundCancel>False</GroundCancel>
       <OnlyOnceInAir>False</OnlyOnceInAir>
       <Delay>0.6</Delay>
-      <Cooldown>1.2</Cooldown>
+      <Cooldown>0.5</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>1.4</Duration>
+      <Duration>2</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0</StunLock>
-      <MultiHitDelay>0</MultiHitDelay>
+      <MultiHitDelay>0.2</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects>
@@ -2068,7 +2072,7 @@
       <Delay>0</Delay>
       <Cooldown>0</Cooldown>
       <LocalCooldown>0</LocalCooldown>
-      <Duration>0.8</Duration>
+      <Duration>0.4</Duration>
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
