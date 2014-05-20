@@ -45,6 +45,7 @@ namespace NeonStarLibrary.Components.GameplayElements
         private AvatarCore _avatar;
 
         private SpriteSheetInfo _healingFeedback;
+        private float _targetY;
 
         public HealthCollectible(Entity entity)
             :base(entity, "HealthCollectible")
@@ -58,6 +59,8 @@ namespace NeonStarLibrary.Components.GameplayElements
             {
                 Entity e = entity.GameWorld.GetEntityByName(_avatarName);
                 if (e != null)
+                    _targetY = e.transform.Position.Y;
+                if (e != null)
                     _avatar = e.GetComponent<AvatarCore>();
             }
 
@@ -68,7 +71,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (entity.hitboxes.Count > 0 && _avatar != null && _avatar.entity.hitboxes[0] != null && State == CollectibleState.Available)
+            if (entity.hitboxes.Count > 0 && _avatar != null && _avatar.entity.hitboxes[0] != null && State == CollectibleState.Available && _noGravity)
             {
                 if (entity.hitboxes[0].hitboxRectangle.Intersects(_avatar.entity.hitboxes[0].hitboxRectangle))
                 {
@@ -79,9 +82,9 @@ namespace NeonStarLibrary.Components.GameplayElements
                     this.entity.Destroy();
                 }
             }
-            if (entity.rigidbody != null && (entity.rigidbody.body.LinearVelocity.Y >= 3.0f || _noGravity))
+            if (entity.rigidbody != null && (entity.rigidbody.body.LinearVelocity.Y >= 3.0f && entity.transform.Position.Y > _targetY) || _noGravity)
             {
-                _noGravity = true; ;
+                _noGravity = true;
                 entity.rigidbody.body.GravityScale = 0.0f;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
