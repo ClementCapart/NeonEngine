@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonStarLibrary;
 using System;
 using System.Collections.Generic;
@@ -108,6 +109,7 @@ namespace NeonStarLibrary.Components.Enemies
                     switch (EnemyComponent.State)
                     {
                         case EnemyState.WaitNode:
+                            entity.rigidbody.body.LinearVelocity = Vector2.Zero;
                             _currentNodeDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                             if (_currentNodeDelay <= 0.0f)
                             {
