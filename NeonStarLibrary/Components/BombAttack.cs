@@ -102,11 +102,6 @@ namespace NeonStarLibrary.Components.Enemies
             base.Init();
         }
 
-        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            base.PreUpdate(gameTime);
-        }
-
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (!_touchedGround && _startTimerOnGround)
