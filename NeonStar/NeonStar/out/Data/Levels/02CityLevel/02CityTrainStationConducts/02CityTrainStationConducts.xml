@@ -704,6 +704,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -725,8 +726,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3458 Y:-695}" />
-              <X Value="3433" />
+              <Center Value="{X:618 Y:-695}" />
+              <X Value="593" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -872,6 +873,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -893,8 +895,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1258 Y:-695}" />
-              <X Value="1233" />
+              <Center Value="{X:2957 Y:-695}" />
+              <X Value="2932" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1360,6 +1362,131 @@
               <NickName Value="" />
             </Properties>
           </CameraBound>
+        </Components>
+      </Entity>
+      <Entity Name="DiveTutorial" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:173 Y:-631}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="AbuttonPress" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="HUDArrowButton" />
+              <DrawLayer Value="0.49" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:36 Y:-38}" />
+              <RotationOffset Value="5.7" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="StickSide" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:38 Y:-24}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="BbuttonPress" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:74 Y:-22}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="2">
+            <Properties>
+              <GraphicTag Value="HUDPlus" />
+              <DrawLayer Value="0.49" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:113 Y:-53}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
     </Entities>

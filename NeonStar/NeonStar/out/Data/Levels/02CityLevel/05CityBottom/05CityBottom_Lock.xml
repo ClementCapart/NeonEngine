@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-374 Y:-800}" />
+              <InitialPosition Value="{X:-163 Y:-800}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -16,12 +16,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-375 Y:-810}" />
-              <X Value="-425" />
+              <Center Value="{X:-161 Y:-810}" />
+              <X Value="-223" />
               <Y Value="-845" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
-              <Width Value="100" />
+              <Width Value="125" />
               <Height Value="70" />
               <NickName Value="" />
             </Properties>
@@ -45,7 +45,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -75,6 +75,7 @@
               <ChanceToDropHealth Value="0" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Walk" />
               <IdleAnim Value="" />
               <DyingAnim Value="Death" />
@@ -89,9 +90,8 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
@@ -191,7 +191,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1850 Y:1295}" />
+              <InitialPosition Value="{X:2053 Y:1295}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -200,8 +200,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1847 Y:1294}" />
-              <X Value="1797" />
+              <Center Value="{X:2051 Y:1294}" />
+              <X Value="2001" />
               <Y Value="1214" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -260,6 +260,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -276,7 +277,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -440,6 +440,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -456,7 +457,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -610,6 +610,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -626,7 +627,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -711,7 +711,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:278 Y:595}" />
+              <InitialPosition Value="{X:628 Y:595}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -720,8 +720,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:276 Y:594}" />
-              <X Value="226" />
+              <Center Value="{X:626 Y:594}" />
+              <X Value="576" />
               <Y Value="514" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -780,6 +780,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -796,7 +797,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -960,6 +960,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -976,7 +977,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -1061,7 +1061,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-607 Y:-355}" />
+              <InitialPosition Value="{X:-151 Y:-355}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1070,8 +1070,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-608 Y:-355}" />
-              <X Value="-658" />
+              <Center Value="{X:-149 Y:-355}" />
+              <X Value="-199" />
               <Y Value="-435" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1099,7 +1099,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1130,6 +1130,7 @@
               <ChanceToDropHealth Value="0.8" />
               <HealthItemsToDrop Value="2" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Run" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -1144,9 +1145,8 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="5">
@@ -1241,7 +1241,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1616 Y:1945}" />
+              <InitialPosition Value="{X:1784 Y:1945}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1250,8 +1250,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1613 Y:1944}" />
-              <X Value="1573" />
+              <Center Value="{X:1781 Y:1944}" />
+              <X Value="1741" />
               <Y Value="1864" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1312,6 +1312,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="3" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Walk" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -1328,7 +1329,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
@@ -1423,7 +1423,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2615 Y:1295}" />
+              <InitialPosition Value="{X:2203 Y:1295}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1432,8 +1432,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2614 Y:1294}" />
-              <X Value="2574" />
+              <Center Value="{X:2200 Y:1294}" />
+              <X Value="2160" />
               <Y Value="1214" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1494,6 +1494,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="3" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Walk" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -1510,7 +1511,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
@@ -1605,7 +1605,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:464 Y:595}" />
+              <InitialPosition Value="{X:368 Y:595}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1614,8 +1614,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:466 Y:594}" />
-              <X Value="426" />
+              <Center Value="{X:369 Y:594}" />
+              <X Value="329" />
               <Y Value="514" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1676,6 +1676,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="3" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="Walk" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
@@ -1692,7 +1693,6 @@
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
               <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
             </Properties>
           </EnemyCore>
           <GroundChase Type="NeonStarLibrary.Components.Enemies.GroundChase" ID="9">
