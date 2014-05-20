@@ -550,6 +550,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -748,6 +749,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -822,7 +824,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -843,7 +845,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.6" />
+              <DrawLayer Value="0.35" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
@@ -855,16 +857,16 @@
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
               <VerticalGauge Value="False" />
-              <FirstEnemyToKill Value="EnemyCasterC" />
-              <SecondEnemyToKill Value="" />
-              <ThirdEnemyToKill Value="" />
-              <FourthEnemyToKill Value="" />
-              <FifthEnemyToKill Value="" />
+              <FirstEnemyToKill Value="SlotLantern" />
+              <SecondEnemyToKill Value="SlotRobot1" />
+              <ThirdEnemyToKill Value="SlotRobot2" />
+              <FourthEnemyToKill Value="SlotRobot3" />
+              <FifthEnemyToKill Value="SlotRobot4" />
               <AddSignOnTargets Value="False" />
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="75" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -897,7 +899,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorCityFrontTop" />
               <DrawLayer Value="0.9" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1164,6 +1166,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
