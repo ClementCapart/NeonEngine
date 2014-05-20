@@ -2,36 +2,6 @@
 <XnaContent>
   <Level Layer="Cosmetics">
     <Entities>
-      <Entity Name="Screen" Layer="Cosmetics">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1873 Y:-1065}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsScreenOn" />
-              <DrawLayer Value="0.9" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
       <Entity Name="Conduit" Layer="Cosmetics">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -56,7 +26,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -73,7 +42,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -90,7 +58,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -120,7 +87,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -137,7 +103,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -167,18 +132,17 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
         </Components>
       </Entity>
-      <Entity Name="Entity" Layer="Cosmetics">
+      <Entity Name="Sign" Layer="Cosmetics">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4216 Y:347}" />
+              <InitialPosition Value="{X:4115 Y:422}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -186,8 +150,8 @@
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="CityCosmeticsBackGeneratorsBig" />
-              <DrawLayer Value="0.3" />
+              <GraphicTag Value="CityCosmeticsBackplateSign" />
+              <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -196,8 +160,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
+              <MainColor Value="{R:114 G:114 B:114 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -227,7 +190,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -244,7 +206,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -274,7 +235,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:224 G:44 B:44 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -285,7 +245,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1728 Y:-1145}" />
+              <InitialPosition Value="{X:1792 Y:-1162}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -294,7 +254,7 @@
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
               <GraphicTag Value="CityCosmeticsAtmoblur" />
-              <DrawLayer Value="0.8" />
+              <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
               <Tint Value="False" />
@@ -303,8 +263,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:224 G:44 B:44 A:255}" />
-              <Opacity Value="1" />
+              <MainColor Value="{R:188 G:120 B:120 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -334,37 +293,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:224 G:44 B:44 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Pilar" Layer="Cosmetics">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3399 Y:378}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="CityCosmeticsPillarBroken" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -393,8 +321,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
+              <MainColor Value="{R:96 G:96 B:96 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -424,7 +351,35 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Stairs" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:251 Y:-718}" />
+              <Rotation Value="0" />
+              <Scale Value="1.3" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsStairs" />
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:112 G:112 B:112 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -435,7 +390,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:237 Y:-1152}" />
+              <InitialPosition Value="{X:183 Y:-1137}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -454,7 +409,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:224 G:44 B:44 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -493,7 +447,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Spritesheet>
@@ -532,7 +485,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Spritesheet>
@@ -543,7 +495,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:657 Y:-1148}" />
+              <InitialPosition Value="{X:647 Y:-1127}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -562,7 +514,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:224 G:44 B:44 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -592,7 +543,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -609,7 +559,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -626,101 +575,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Conduit" Layer="Cosmetics">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:800 Y:-291}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
-              <DrawLayer Value="0.3" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-192 Y:87}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
-              <DrawLayer Value="0.3" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:33 Y:60}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="Conduit" Layer="Cosmetics">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:800 Y:426}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
-              <DrawLayer Value="0.2" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-192 Y:87}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
-              <DrawLayer Value="0.3" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:33 Y:60}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -754,7 +608,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -765,7 +618,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:915 Y:-1161}" />
+              <InitialPosition Value="{X:915 Y:-1224}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -788,7 +641,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -818,7 +670,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:64 G:0 B:0 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -829,7 +680,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:806 Y:-1099}" />
+              <InitialPosition Value="{X:878 Y:-1134}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -837,7 +688,7 @@
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable2" />
               <DrawLayer Value="0.5" />
               <IsHUD Value="False" />
               <CurrentSide Value="Left" />
@@ -848,7 +699,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:64 G:0 B:0 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -878,7 +728,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:64 G:0 B:0 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -908,7 +757,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -938,7 +786,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -968,7 +815,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -998,7 +844,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1028,7 +873,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1057,8 +901,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
+              <MainColor Value="{R:117 G:79 B:79 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1087,8 +930,7 @@
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:98 G:98 B:98 A:255}" />
-              <Opacity Value="1" />
+              <MainColor Value="{R:116 G:80 B:80 A:255}" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1099,7 +941,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2361 Y:-666}" />
+              <InitialPosition Value="{X:2361 Y:-667}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1118,7 +960,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1148,7 +989,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:249 G:166 B:91 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1182,7 +1022,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1216,7 +1055,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1250,7 +1088,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1261,7 +1098,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:250 Y:218}" />
+              <InitialPosition Value="{X:250 Y:215}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1284,7 +1121,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1295,7 +1131,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1002 Y:427}" />
+              <InitialPosition Value="{X:1002 Y:433}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1307,7 +1143,7 @@
               <TilingWidth Value="300" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.399" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityBlackGradientSmall" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1318,7 +1154,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1348,7 +1183,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:64 G:0 B:0 A:255}" />
               <MainColor Value="{R:108 G:94 B:83 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1378,7 +1212,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:64 G:0 B:0 A:255}" />
               <MainColor Value="{R:108 G:94 B:83 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </Graphic>
@@ -1401,7 +1234,7 @@
               <TilingWidth Value="300" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.399" />
+              <DrawLayer Value="0.45" />
               <GraphicTag Value="CityBlackGradientSmall" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1412,7 +1245,6 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
@@ -1435,7 +1267,7 @@
               <TilingWidth Value="100" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
-              <DrawLayer Value="0.399" />
+              <DrawLayer Value="0.4" />
               <GraphicTag Value="CityBlackGradientSmall" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -1446,10 +1278,4055 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:500 Y:-205}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="500" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:331 Y:625}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="800" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:361 Y:829}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="800" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Atmoblur" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1378 Y:-627}" />
+              <Rotation Value="0" />
+              <Scale Value="0.7" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsAtmoblur" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:224 G:44 B:44 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Atmoblur" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1232 Y:-603}" />
+              <Rotation Value="0" />
+              <Scale Value="0.7" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsAtmoblur" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:224 G:44 B:44 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:80 Y:268}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:76 Y:233}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:332 Y:233}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:533 Y:256}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable2" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3675 Y:-547}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="2000" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="CryoTube" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1519 Y:-873}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCryotube" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:53 G:53 B:53 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Generator" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1511 Y:-1151}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackGenerators2" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:31 G:31 B:31 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:614 Y:-643}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Atmoblur" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:551 Y:-147}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsAtmoblur" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:96 Y:-575}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:237 Y:-587}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:156 Y:-578}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable2" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:302 Y:-23}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsPillarDown" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1637 Y:-1005}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.25" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:0 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1721 Y:-995}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.35" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:0 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1350 Y:-965}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <DrawLayer Value="0.35" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:0 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3263 Y:-227}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Conduit" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4538 Y:220}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-192 Y:57}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:120 G:68 B:37 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:33 Y:60}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:120 G:68 B:37 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3883 Y:-182}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3264 Y:493}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3883 Y:538}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Conduit" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4538 Y:-507}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-192 Y:57}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:120 G:68 B:37 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:33 Y:60}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:120 G:68 B:37 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4850 Y:-475}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="2800" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradient" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4137 Y:278}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4110 Y:-439}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3656 Y:-404}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3151 Y:237}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="200" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3151 Y:428}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="200" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Sign" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4203 Y:400}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateSign" />
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Sign" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4291 Y:422}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateSign" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:114 G:114 B:114 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2785 Y:640}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="400" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2951 Y:833}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="400" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4408 Y:-65}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="400" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3089 Y:273}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3073 Y:463}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3212 Y:441}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4556 Y:-44}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:95 B:85 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4286 Y:-43}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4523 Y:-15}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3513 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Lamp" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4198 Y:144}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsLampOn2" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-45}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="10" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:12 Y:-15}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="5" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:15 Y:9}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3761 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3882 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4003 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4124 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4245 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4365 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4486 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4159 Y:587}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleFront1" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4295 Y:589}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleFront2" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2636 Y:-424}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:720}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4320 Y:589}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleBack1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4138 Y:589}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleBack1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3639 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Atmoblur" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2347 Y:227}" />
+              <Rotation Value="0" />
+              <Scale Value="0.8" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsAtmoblur" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:834 Y:-258}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="300" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2992 Y:861}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2809 Y:866}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable2" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:87 G:77 B:68 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2727 Y:676}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:0 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2885 Y:845}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable2" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:0 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1302 Y:44}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsScreenBroken" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="250" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.95" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:84}" />
+              <RotationOffset Value="-1.57" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2682 Y:652}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:87 G:77 B:68 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1302 Y:262}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsScreenOn" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="250" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.95" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:84}" />
+              <RotationOffset Value="-1.57" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Screen" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1302 Y:480}" />
+              <Rotation Value="90" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsScreenBroken" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="2">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="250" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.95" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:84}" />
+              <RotationOffset Value="-1.57" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:160 Y:-1126}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:64 G:0 B:0 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2929 Y:-362}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2357 Y:-362}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1828 Y:-185}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.2" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1301 Y:130}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.94" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1348 Y:359}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.94" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1256 Y:303}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable1" />
+              <DrawLayer Value="0.94" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1298 Y:607}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <DrawLayer Value="0.94" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1267 Y:378}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsCable1" />
+              <DrawLayer Value="0.94" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2082 Y:-360}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:720}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Shadow" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2075 Y:653}" />
+              <Rotation Value="180" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="1">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="2000" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="0.4" />
+              <GraphicTag Value="CityBlackGradientSmall" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:608 Y:-629}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:401 Y:-651}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.4" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:108 G:94 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1154 Y:-292}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsPillar" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1443 Y:-292}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsPillar" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Atmoblur" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1295 Y:-248}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsAtmoblur" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:224 G:44 B:44 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:798 Y:-392}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.05" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.05" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:720}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1053 Y:-248}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.04" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.04" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:508 Y:-301}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.04" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.04" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:721}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:60 G:36 B:21 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Pilar" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:205 Y:-235}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.05" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="TrainingBackgroundCosmeticsPipe1" />
+              <DrawLayer Value="0.05" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:720}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2576 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2454 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2332 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2213 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2091 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1969 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1847 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1728 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1609 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3412 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3290 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3168 Y:577}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence2" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1131 Y:-118}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1252 Y:-119}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1370 Y:-114}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence1" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1482 Y:-121}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsFence4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2031 Y:142}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2167 Y:-199}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2035 Y:-491}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2120 Y:-485}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2884 Y:-488}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2954 Y:-511}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2770 Y:-499}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3036 Y:-503}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable4" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2665 Y:-521}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Cable" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3158 Y:-528}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCable3" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:165 G:151 B:141 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Lamp" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3447 Y:144}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsLampOn2" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-45}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="10" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:12 Y:-15}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="5" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="EnvFXBackLightParticleFull" />
+              <DrawLayer Value="1" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:15 Y:9}" />
+              <RotationOffset Value="3.141593" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2942 Y:89}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleFront2" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2257 Y:87}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleFront1" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2161 Y:-263}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleFront1" />
+              <DrawLayer Value="0.7" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Candles" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2980 Y:91}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsCandleBack2" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Conduit" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3470 Y:-268}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewTrainingCosmeticsConduit" />
+              <DrawLayer Value="0.7" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-69 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:249 G:166 B:91 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Fence" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4186 Y:474}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackGeneratorsBigOff" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:64 G:0 B:0 A:255}" />
+              <MainColor Value="{R:91 G:81 B:72 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Sign" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4034 Y:449}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateSign" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:83 G:83 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Sign" Layer="Cosmetics">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:4374 Y:449}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="CityCosmeticsBackplateSign" />
+              <DrawLayer Value="0.3" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:83 G:83 B:83 A:255}" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
         </Components>
       </Entity>
     </Entities>
