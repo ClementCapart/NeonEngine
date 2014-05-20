@@ -25,12 +25,12 @@ namespace NeonStarLibrary
         private Entity _mapEntity;
         private float k = 0.2f;
         private float kcube = 0.3f;
-        private float _leftBound = float.MaxValue;
-        private float _rightBound = float.MinValue;
-        private float _topBound = float.MaxValue;
-        private float _bottomBound = float.MinValue;
+        private float _leftSide = float.MaxValue;
+        private float _rightSide = float.MinValue;
+        private float _topSide = float.MaxValue;
+        private float _bottomSide = float.MinValue;
 
-        private float _border = 100.0f;
+        private float _border = 200.0f;
 
         public MapScreen(Game game)
             :base(game)
@@ -49,26 +49,27 @@ namespace NeonStarLibrary
                 Neon.World = CurrentGameScreen;
             }
 
-            if (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.CameraLeft))
+            if (Neon.Input.Check(NeonStarInput.MoveRight) || Neon.Input.Check(NeonStarInput.CameraRight))
             {
-                if (!((Camera.Position + new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0) + Neon.HalfScreen).X > _rightBound + _border))
+                if (((Camera.Position + new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0) - Neon.HalfScreen).X < _rightSide - _border))
                     Camera.Position += new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
             }
-            else if (Neon.Input.Check(NeonStarInput.MoveRight) || Neon.Input.Check(NeonStarInput.CameraRight))
+            else if (Neon.Input.Check(NeonStarInput.MoveLeft) || Neon.Input.Check(NeonStarInput.CameraLeft))
             {
-                if (!((Camera.Position - new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0) - Neon.HalfScreen).X < _leftBound - _border))
+                if (((Camera.Position - new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0) + Neon.HalfScreen).X > _leftSide + _border))
                     Camera.Position -= new Vector2(_cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds, 0);
             }
 
-            if (Neon.Input.Check(NeonStarInput.MoveUp) || Neon.Input.Check(NeonStarInput.CameraUp))
+            if (Neon.Input.Check(NeonStarInput.MoveDown) || Neon.Input.Check(NeonStarInput.CameraDown))
             {
-                if (!((Camera.Position + new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds) + Neon.HalfScreen).Y > _bottomBound + _border))
+                if (((Camera.Position + new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds) - Neon.HalfScreen).Y < _bottomSide - _border))
                     Camera.Position += new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
             }
-            else if (Neon.Input.Check(NeonStarInput.MoveDown) || Neon.Input.Check(NeonStarInput.CameraDown))
+            else if (Neon.Input.Check(NeonStarInput.MoveUp) || Neon.Input.Check(NeonStarInput.CameraUp))
             {
-                if (!((Camera.Position - new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds) - Neon.HalfScreen).Y < _topBound - _border))
+                if (((Camera.Position - new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds) + Neon.HalfScreen).Y > _topSide+ _border))
                     Camera.Position -= new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                
             }
             base.Update(gameTime);
         }
@@ -122,7 +123,7 @@ namespace NeonStarLibrary
                     {
                         Camera.Position = _mapEntity.transform.Position + g.Offset;
                         if (_liOnPositionToken != null)
-                            _liOnPositionToken.Offset = g.Offset / _mapEntity.transform.Scale;
+                            _liOnPositionToken.Offset = g.Offset / _mapEntity.transform.Scale + new Vector2(0, -_liOnPositionToken.spriteSheetInfo.FrameHeight / 2);
                         //g.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
                     }
 
@@ -132,14 +133,14 @@ namespace NeonStarLibrary
                     else
                     {
                         g.Opacity = 1.0f;
-                        if (g.Offset.X + g.texture.Width > _rightBound)
-                            _rightBound = g.Offset.X + g.texture.Width;
-                        if (g.Offset.X - g.texture.Width < _leftBound)
-                            _leftBound = g.Offset.X - g.texture.Width;
-                        if (g.Offset.Y + g.texture.Height > _bottomBound)
-                            _bottomBound = g.Offset.Y + g.texture.Height;
-                        if (g.Offset.Y - g.texture.Height < _topBound)
-                            _topBound = g.Offset.Y - g.texture.Height;
+                        if (g.Offset.X + g.texture.Width > _rightSide)
+                            _rightSide = g.Offset.X + g.texture.Width;
+                        if (g.Offset.X - g.texture.Width < _leftSide)
+                            _leftSide = g.Offset.X - g.texture.Width;
+                        if (g.Offset.Y + g.texture.Height > _bottomSide)
+                            _bottomSide = g.Offset.Y + g.texture.Height;
+                        if (g.Offset.Y - g.texture.Height < _topSide)
+                            _topSide = g.Offset.Y - g.texture.Height;
 
                     }
                 }
@@ -169,7 +170,6 @@ namespace NeonStarLibrary
 
                 mapStatus.Add(groupStatus);
             }
-
             return mapStatus;
         }
     }
