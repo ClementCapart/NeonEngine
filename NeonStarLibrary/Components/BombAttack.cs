@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
 using NeonStarLibrary.Components.Avatar;
 using System;
@@ -101,6 +102,11 @@ namespace NeonStarLibrary.Components.Enemies
             base.Init();
         }
 
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            base.PreUpdate(gameTime);
+        }
+
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             if (!_touchedGround && _startTimerOnGround)
@@ -117,7 +123,6 @@ namespace NeonStarLibrary.Components.Enemies
                 if (entity.spritesheets != null && !_hasBeenLaunched)
                 {
                     entity.spritesheets.ChangeAnimation(_firstExplosionAnimation, false, 0, true, false, false);
-                    Console.WriteLine("Hey!");
                 }
                 if (_currentTimer > 0.0f)
                 {
@@ -143,11 +148,13 @@ namespace NeonStarLibrary.Components.Enemies
 
             if (_attack != null && entity.spritesheets.CurrentSpritesheet.IsFinished)
                 entity.Destroy();
+
             base.Update(gameTime);
         }
 
         private void Explode()
         {
+            entity.rigidbody.Remove();
             if (_hasBeenLaunched)
             {
                 if (_explosionAttack != "")
