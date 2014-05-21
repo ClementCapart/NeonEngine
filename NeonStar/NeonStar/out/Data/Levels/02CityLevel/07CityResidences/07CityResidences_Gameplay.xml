@@ -692,7 +692,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:587 Y:814}" />
+              <InitialPosition Value="{X:573 Y:795}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -701,9 +701,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:587 Y:813}" />
-              <X Value="512" />
-              <Y Value="793" />
+              <Center Value="{X:572 Y:794}" />
+              <X Value="497" />
+              <Y Value="774" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="150" />
@@ -1036,7 +1036,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2600 Y:850}" />
+              <InitialPosition Value="{X:2545 Y:850}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1045,8 +1045,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2600 Y:850}" />
-              <X Value="2550" />
+              <Center Value="{X:2545 Y:850}" />
+              <X Value="2495" />
               <Y Value="825" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1061,7 +1061,7 @@
               <AvatarName Value="LiOn" />
               <JumperOffAnimation Value="Off" />
               <JumperOnAnimation Value="On" />
-              <JumperImpulseAnimation Value="" />
+              <JumperImpulseAnimation Value="Pulse" />
               <FirstActivatingDeviceName Value="SwitchB" />
               <FirstDeviceInSameLevel Value="True" />
               <FirstActivatingDeviceLevelGroup Value="" />
@@ -1089,13 +1089,17 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-17}" />
+              <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
-              <Spritesheets />
-              <DrawLayer Value="0.6" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
+                <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
+                <Animation Name="Pulse" SpritesheetTag="EnergyJumperActivation" />
+              </Spritesheets>
+              <DrawLayer Value="0.4" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
@@ -1109,7 +1113,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2830 Y:800}" />
+              <InitialPosition Value="{X:2678 Y:790}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1118,9 +1122,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2830 Y:800}" />
-              <X Value="2755" />
-              <Y Value="780" />
+              <Center Value="{X:2678 Y:789}" />
+              <X Value="2603" />
+              <Y Value="769" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="150" />
