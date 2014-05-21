@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Prefab>
+  <Entity Name="LiOn" Layer="">
+    <Components>
+      <Transform Type="NeonEngine.Private.Transform" ID="0">
+        <Properties>
+          <AutoChangeInitialPosition Value="True" />
+          <InitialPosition Value="{X:-281 Y:307}" />
+          <Rotation Value="0" />
+          <Scale Value="2" />
+          <NickName Value="" />
+        </Properties>
+      </Transform>
+      <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+        <Properties>
+          <Type Value="Main" />
+          <Center Value="{X:-281 Y:306}" />
+          <X Value="-301" />
+          <Y Value="238" />
+          <OffsetX Value="0" />
+          <OffsetY Value="0" />
+          <Width Value="40" />
+          <Height Value="136" />
+          <NickName Value="" />
+        </Properties>
+      </Hitbox>
+      <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+        <Properties>
+          <BodyType Value="Dynamic" />
+          <GravityScale Value="2" />
+          <UseGravity Value="False" />
+          <Restitution Value="0" />
+          <Friction Value="10" />
+          <Mass Value="54" />
+          <OneWayPlatform Value="False" />
+          <SleepingAllowed Value="False" />
+          <IsGround Value="False" />
+          <Hitbox Value="1" />
+          <Sensors Value="True" />
+          <FixedRotation Value="True" />
+          <NickName Value="" />
+        </Properties>
+      </Rigidbody>
+      <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
+        <Properties>
+          <CurrentSide Value="Left" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <Tint Value="True" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <Spritesheets>
+            <Animation Name="idle" SpritesheetTag="LiOnIdle" />
+            <Animation Name="run" SpritesheetTag="LiOnRun" />
+            <Animation Name="startJump" SpritesheetTag="LiOnJumpStart" />
+            <Animation Name="lightattackStarter" SpritesheetTag="LiOnLightAttackStarter" />
+            <Animation Name="uppercut" SpritesheetTag="LiOnUppercut" />
+            <Animation Name="rushattack" SpritesheetTag="LiOnRushAttack" />
+            <Animation Name="startFall" SpritesheetTag="LiOnJumpStartFall" />
+            <Animation Name="fallLoop" SpritesheetTag="LiOnJumpFall" />
+            <Animation Name="landing" SpritesheetTag="LiOnJumpLand" />
+            <Animation Name="lightattackLink" SpritesheetTag="LiOnLightAttackLink" />
+            <Animation Name="lightattackFinish" SpritesheetTag="LiOnLightAttackFinish" />
+            <Animation Name="DiveAttackStart" SpritesheetTag="LiOnDiveAttackStart" />
+            <Animation Name="DiveAttackLoopStart" SpritesheetTag="LiOnDiveAttackLvl1Fade" />
+            <Animation Name="DiveAttackLoop" SpritesheetTag="LiOnDiveAttackLvl1Loop" />
+            <Animation Name="Roll" SpritesheetTag="LiOnDodge" />
+            <Animation Name="Guard" SpritesheetTag="LiOnGuard" />
+            <Animation Name="AirDash" SpritesheetTag="LiOnAirDash" />
+            <Animation Name="Hit" SpritesheetTag="LiOnHit" />
+            <Animation Name="HitGuard" SpritesheetTag="LiOnGuardHit" />
+            <Animation Name="ThunderLaunch" SpritesheetTag="LiOnThunderDashStart" />
+            <Animation Name="Respawn" SpritesheetTag="LiOnSpawn" />
+            <Animation Name="WindStart" SpritesheetTag="LiOnGravityStart" />
+            <Animation Name="WindImpulse" SpritesheetTag="LiOnGravitySpin" />
+            <Animation Name="DoubleJump" SpritesheetTag="LiOnDoubleJump" />
+            <Animation Name="DiveAttackLoop2" SpritesheetTag="LiOnDiveAttackLvl2Fade" />
+            <Animation Name="DiveAttackStartLoop2" SpritesheetTag="LiOnDiveAttackLvl2Loop" />
+            <Animation Name="DiveAttackLand" SpritesheetTag="LiOnDiveLand" />
+            <Animation Name="CrystalRelease" SpritesheetTag="ElementCrystalLaunchOut" />
+            <Animation Name="CrystalLaunch" SpritesheetTag="ElementCrystalLaunchStart" />
+          </Spritesheets>
+          <DrawLayer Value="0.5" />
+          <IsHUD Value="False" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </SpritesheetManager>
+      <MeleeFight Type="NeonStarLibrary.Components.Avatar.MeleeFight" ID="4">
+        <Properties>
+          <Debug Value="True" />
+          <LightAttackName Value="LiOnLightAttack" />
+          <RushAttackName Value="LiOnRushAttack" />
+          <UppercutName Value="LiOnUppercut" />
+          <DiveAttackName Value="LiOnDiveAttack" />
+          <ComboDelayMax Value="0.5" />
+          <LightAttackAnimation Value="lightattack" />
+          <UppercutAnimation Value="uppercut" />
+          <RushAttackAnimation Value="rushattack" />
+          <DiveAttackStartAnimation Value="DiveAttackStart" />
+          <DiveAttackStartLoopAnimation Value="DiveAttackLoopStart" />
+          <DiveAttackLoopAnimation Value="DiveAttackLoop" />
+          <DiveAttackStartLoop2Animation Value="DiveAttackStartLoop2" />
+          <DiveAttackLoop2Animation Value="DiveAttackLoop2" />
+          <DiveAttackLandAnimation Value="DiveAttackLand" />
+          <DiveAttackLand2Animation Value="" />
+          <RushAttackSideDelay Value="0.09" />
+          <ChainDelay Value="0.15" />
+          <RushAttackStickDelay Value="0.08" />
+          <NickName Value="" />
+        </Properties>
+      </MeleeFight>
+      <ThirdPersonController Type="NeonStarLibrary.Components.Avatar.ThirdPersonController" ID="5">
+        <Properties>
+          <Debug Value="False" />
+          <JumpImpulseHeight Value="500" />
+          <DoubleJumpImpulseHeight Value="370" />
+          <GroundAccelerationSpeed Value="1" />
+          <AirAccelerationSpeed Value="1" />
+          <GroundMaxSpeed Value="6" />
+          <AirMaxSpeed Value="6" />
+          <IdleAnimation Value="idle" />
+          <WalkAnimation Value="run" />
+          <JumpAnimation Value="startJump" />
+          <StartFallAnimation Value="startFall" />
+          <FallLoopAnimation Value="fallLoop" />
+          <LandingAnimation Value="landing" />
+          <DoubleJumpAnimation Value="DoubleJump" />
+          <MaxJumpInputDelay Value="0.5" />
+          <MaxFallSpeed Value="12" />
+          <CanDoubleJump Value="True" />
+          <AirSlowRate Value="0.95" />
+          <LeftFootStepSound Value="LeftStep" />
+          <LeftFootStepFrame Value="5" />
+          <RightFootStepSound Value="RightStep" />
+          <RightFootStepFrame Value="1" />
+          <JumpSound Value="Jump" />
+          <DoubleJumpSound Value="DoubleJump" />
+          <GroundCollisionSound Value="GroundCollision" />
+          <NickName Value="" />
+        </Properties>
+      </ThirdPersonController>
+      <AvatarCore Type="NeonStarLibrary.Components.Avatar.AvatarCore" ID="6">
+        <Properties>
+          <Debug Value="False" />
+          <StartingHealthPoints Value="99" />
+          <CurrentHealthPoints Value="74" />
+          <InvincibilityDuration Value="1" />
+          <InvincibilityBlinkSpeed Value="15" />
+          <HitAnim Value="Hit" />
+          <HitGuardAnim Value="HitGuard" />
+          <HitGuardFX Value="LiOnGuardFX" />
+          <RespawnAnimation Value="Respawn" />
+          <NickName Value="" />
+        </Properties>
+      </AvatarCore>
+      <Guard Type="NeonStarLibrary.Components.Avatar.Guard" ID="7">
+        <Properties>
+          <RollAnimation Value="Roll" />
+          <DashAnimation Value="AirDash" />
+          <DashEffectSpriteSheetTag Value="FXAirDash" />
+          <GuardAnimation Value="Guard" />
+          <RollDuration Value="0.3" />
+          <DashDuration Value="0.2" />
+          <GuardDuration Value="0.3" />
+          <RollCooldown Value="0.1" />
+          <DashCooldown Value="0.3" />
+          <GuardCooldown Value="0.3" />
+          <RollImpulse Value="450" />
+          <DashImpulse Value="650" />
+          <GuardDamageReduce Value="116" />
+          <GuardLockDuration Value="1" />
+          <RollSound Value="Roll" />
+          <AirDashSound Value="Dash" />
+          <NickName Value="" />
+        </Properties>
+      </Guard>
+      <ElementSystem Type="NeonStarLibrary.Components.Avatar.ElementSystem" ID="8">
+        <Properties>
+          <FireLaunchAnimationLevelOne Value="CrystalLaunch" />
+          <FireLaunchLoopAnimationLevelOne Value="" />
+          <FireReleaseAnimationLevelOne Value="CrystalRelease" />
+          <FireLaunchAnimationLevelTwo Value="CrystalLaunch" />
+          <FireLaunchLoopAnimationLevelTwo Value="" />
+          <FireReleaseAnimationLevelTwo Value="CrystalRelease" />
+          <FireLaunchAnimationLevelThree Value="CrystalLaunch" />
+          <FireLaunchLoopAnimationLevelThree Value="" />
+          <FireReleaseAnimationLevelThree Value="CrystalRelease" />
+          <ThunderLaunchAnimation Value="ThunderLaunch" />
+          <WindStartAnimation Value="WindStart" />
+          <WindImpulseAnimation Value="WindImpulse" />
+          <LeftSlotElementFirst Value="Neutral" />
+          <LeftSlotElementSecond Value="Neutral" />
+          <LeftSlotElementThird Value="Neutral" />
+          <RightSlotElementFirst Value="Neutral" />
+          <RightSlotElementSecond Value="Neutral" />
+          <RightSlotElementThird Value="Neutral" />
+          <MaxLevel Value="1" />
+          <ThunderGatheringFX Value="FeedbackThunderGathering" />
+          <FireGatheringFX Value="FeedbackFireGathering" />
+          <GetElementColorDelay Value="0.15" />
+          <ElementSlotCooldownDuration Value="5" />
+          <NickName Value="" />
+        </Properties>
+      </ElementSystem>
+      <AvatarAnimationManager Type="NeonStarLibrary.Components.Avatar.AvatarAnimationManager" ID="10">
+        <Properties>
+          <NickName Value="" />
+        </Properties>
+      </AvatarAnimationManager>
+      <EnergySystem Type="NeonStarLibrary.Components.Avatar.EnergySystem" ID="11">
+        <Properties>
+          <MaxEnergyStock Value="1000" />
+          <CurrentEnergyStock Value="0" />
+          <NickName Value="Blabla" />
+        </Properties>
+      </EnergySystem>
+      <FireGauge Type="NeonStarLibrary.Components.HUD.FireGauge" ID="1">
+        <Properties>
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:-90}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </FireGauge>
+      <CameraFocus Type="NeonStarLibrary.Components.Camera.CameraFocus" ID="12">
+        <Properties>
+          <EightDirectionsMove Value="False" />
+          <DistanceX Value="350" />
+          <DistanceY Value="350" />
+          <SmoothingRate Value="0.05" />
+          <NickName Value="" />
+        </Properties>
+      </CameraFocus>
+      <SoundListener Type="NeonEngine.Components.Audio.SoundListener" ID="13">
+        <Properties>
+          <AttachedOnCamera Value="False" />
+          <ZDistance Value="0" />
+          <Offset Value="{X:0 Y:0}" />
+          <NickName Value="" />
+        </Properties>
+      </SoundListener>
+      <ManagedSoundEmitter Type="NeonEngine.Components.Audio.ManagedSoundEmitter" ID="14">
+        <Properties>
+          <SoundList>
+            <SoundInstanceInfo Name="LeftStep" Sound="RunningLeft" Is3DSound="False" Volume="0.3" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="RightStep" Sound="RunningRight" Is3DSound="False" Volume="0.3" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Jump" Sound="Jump" Is3DSound="False" Volume="0.2" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="GroundCollision" Sound="GroundCollision" Is3DSound="False" Volume="0.3" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Roll" Sound="Roll" Is3DSound="False" Volume="0.15" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="Dash" Sound="Dash" Is3DSound="False" Volume="0.15" Pitch="0" Offset="{X:0 Y:0}" />
+            <SoundInstanceInfo Name="DoubleJump" Sound="DoubleJump" Is3DSound="False" Volume="0.3" Pitch="0" Offset="{X:0 Y:0}" />
+          </SoundList>
+          <Debug Value="True" />
+          <ZDistance Value="0" />
+          <MaxDistance Value="0" />
+          <DistanceVolumeTreshold Value="0.3" />
+          <NickName Value="" />
+        </Properties>
+      </ManagedSoundEmitter>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="15">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0" />
+          <InvisibleDuringDelay Value="False" />
+          <DelayBeforeLoop Value="False" />
+          <SpriteSheetTag Value="ElecAuraPulse" />
+          <DrawLayer Value="0.499" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="0.4" />
+          <NickName Value="" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.392" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="ElectricAura01" />
+          <DrawLayer Value="0.501" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-11 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.53" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="ElectricAura02" />
+          <DrawLayer Value="0.501" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:10 Y:-27}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.363" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="ElectricAura01" />
+          <DrawLayer Value="0.501" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:13 Y:15}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.538" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="ElectricAura03" />
+          <DrawLayer Value="0.499" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:-2 Y:-50}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </Spritesheet>
+    </Components>
+  </Entity>
+</Prefab>
