@@ -444,8 +444,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Idle" SpritesheetTag="EnergyCellRed" />
-                <Animation Name="Out" SpritesheetTag="EnergyCellRedOut" />
+                <Animation Name="Idle" SpritesheetTag="SlotCollectibleIdle" />
+                <Animation Name="Out" SpritesheetTag="SlotCollectibleOut" />
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
@@ -823,8 +823,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -846,10 +849,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -880,8 +880,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </DamageDisplayer>
         </Components>
@@ -993,8 +993,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1016,10 +1019,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1050,8 +1050,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </DamageDisplayer>
         </Components>
@@ -1163,8 +1163,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1186,10 +1189,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1220,8 +1220,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </DamageDisplayer>
         </Components>
@@ -1333,8 +1333,11 @@
           </GroundChase>
           <GroundAttack Type="NeonStarLibrary.Components.Enemies.GroundAttack" ID="6">
             <Properties>
+              <CantAttackInAir Value="True" />
               <CheckBothSide Value="True" />
               <DetectionOffset Value="{X:0 Y:0}" />
+              <CanTurn Value="True" />
+              <RandomBalanceRate Value="0" />
               <RangeForAttackOne Value="110" />
               <AttackToLaunchOne Value="EnemyRobotPunch" />
               <AttackOneDelayAnimation Value="Attack" />
@@ -1356,10 +1359,7 @@
               <AttackFourDurationAnimation Value="" />
               <AttackFourCooldownAnimation Value="" />
               <EntityToAttackName Value="LiOn" />
-              <CanTurn Value="True" />
               <NickName Value="" />
-              <RandomBalanceRate Value="0" />
-              <CantAttackInAir Value="True" />
             </Properties>
           </GroundAttack>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="7">
@@ -1390,8 +1390,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <NickName Value="" />
               <Opacity Value="1" />
+              <NickName Value="" />
             </Properties>
           </DamageDisplayer>
         </Components>
