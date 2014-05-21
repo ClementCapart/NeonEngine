@@ -170,6 +170,42 @@
           </HitboxTrigger>
         </Components>
       </Entity>
+      <Entity Name="TriggerScanDoor" Layer="Trigger">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2150 Y:-200}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2150 Y:-200}" />
+              <X Value="2100" />
+              <Y Value="-350" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="300" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ScanFundation" />
+              <TriggeredComponentName Value="CityTrainStationEntranceScanScript" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
