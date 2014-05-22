@@ -145,6 +145,20 @@ namespace NeonEngine
             return component;
         }
 
+        public Component GetComponentByNickname(string nickname)
+        {
+            Component c = null;
+
+            foreach (Component comp in Components)
+                if (comp.NickName == nickname)
+                {
+                    c = comp;
+                    break;
+                }
+
+            return c;
+        }
+
         public Component GetComponentByTypeName(string typeName)
         {
             foreach (Component comp in Components)

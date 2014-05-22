@@ -18,7 +18,7 @@ namespace NeonEngine
             EffectsPool = new NeonPool<AnimatedSpecialEffect>(() => new AnimatedSpecialEffect());
         }
 
-        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null, float duration = 0.0f, bool loop = false)
+        static public AnimatedSpecialEffect GetEffect(SpriteSheetInfo spriteSheetInfo, Side side, Vector2 Position, float Rotation, Vector2 Offset, float scale, float layer, Entity entity = null, float duration = 0.0f, bool loop = false, bool HUD = false)
         {
             AnimatedSpecialEffect animatedSpecialEffect = EffectsPool.GetAvailableItem();
             animatedSpecialEffect.GameWorld = Neon.World;
@@ -39,7 +39,8 @@ namespace NeonEngine
                 animatedSpecialEffect.AddComponent(spriteSheet);
                 animatedSpecialEffect.spriteSheet = spriteSheet;
             }
-          
+
+            
             spriteSheet.spriteSheetInfo = spriteSheetInfo;
             spriteSheet.currentFrame = 0;
             spriteSheet.Layer = layer;
@@ -55,6 +56,9 @@ namespace NeonEngine
             animatedSpecialEffect.transform.Position = Position + new Vector2(side == Side.Right ? Offset.X : -Offset.X, Offset.Y);
             //animatedSpecialEffect.transform.Rotation = Rotation;
 
+            spriteSheet.Remove();
+            spriteSheet.IsHUD = HUD;
+            animatedSpecialEffect.AddComponent(spriteSheet);
             if (entity != null)
             {
                 FollowEntity followEntity = animatedSpecialEffect.GetComponent<FollowEntity>();

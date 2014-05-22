@@ -156,8 +156,8 @@ namespace NeonEngine
             if(!Pause)
                 for(int i = SpecialEffects.Count - 1; i >= 0; i--)
                     SpecialEffects[i].Update(gameTime);
- 
-            if(!Pause)
+
+            if (!Pause)
                 PhysicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             PostUpdate(gameTime);
@@ -303,7 +303,7 @@ namespace NeonEngine
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null);
             
-            foreach (DrawableComponent hudc in HUDComponents)
+            foreach (DrawableComponent hudc in HUDComponents.OrderBy(dc => dc.Layer))
                 hudc.Draw(spriteBatch);
             
             ManualDrawHUD(spriteBatch);

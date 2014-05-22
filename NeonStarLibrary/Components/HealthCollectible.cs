@@ -90,6 +90,13 @@ namespace NeonStarLibrary.Components.GameplayElements
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
 
+            if (!entity.rigidbody.body.Awake && !_noGravity)
+            {
+                _noGravity = true;
+                entity.rigidbody.body.GravityScale = 0.0f;
+                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+            }
+
             base.Update(gameTime);
         }
 

@@ -21,6 +21,13 @@ namespace NeonStarLibrary.Components.HUD
           set { _avatarName = value; }
         }
 
+        private string _elementCooldownFinishedSpriteSheetTag = "";
+
+        public string ElementCooldownFinishedSpriteSheetTag
+        {
+            get { return _elementCooldownFinishedSpriteSheetTag; }
+            set { _elementCooldownFinishedSpriteSheetTag = value; }
+        }
         #endregion
 
         private Entity _avatar = null;
@@ -34,7 +41,8 @@ namespace NeonStarLibrary.Components.HUD
 
         private Texture2D _fireElementHUD = null;
         private Texture2D _thunderElementHUD = null;
-        private Texture2D _windElementHUD = null;
+
+        private SpriteSheetInfo _elementCooldownFinished;
 
         public ElementHUD(Entity entity)
             :base(0.99f, entity, "ElementHUD")
@@ -49,13 +57,13 @@ namespace NeonStarLibrary.Components.HUD
 
             _emptySlotHUD = AssetManager.GetTexture("HUDElementNeutral");
 
-            _fireElementHUD = AssetManager.GetTexture("HUDElementFire");
-            _thunderElementHUD = AssetManager.GetTexture("HUDElementThunder");
-            _windElementHUD = AssetManager.GetTexture("HUDElementWind");
+            _fireElementHUD = AssetManager.GetTexture("HUDElementCrystalGauge");
+            _thunderElementHUD = AssetManager.GetTexture("HUDElementThunderGauge");
 
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (_avatar != null)
                 _elementSystem = _avatar.GetComponent<ElementSystem>();
+            _elementCooldownFinished = AssetManager.GetSpriteSheet(_elementCooldownFinishedSpriteSheetTag);
             base.Init();
         }
 
@@ -69,10 +77,6 @@ namespace NeonStarLibrary.Components.HUD
                 {
                     switch(_elementSystem.ElementSlots[0][i].Type)
                     {
-                        case Element.Neutral:
-                            leftTextureToUse = _emptySlotHUD;
-                            break;
-
                         case Element.Thunder:
                             leftTextureToUse = _thunderElementHUD;
                             break;
@@ -81,23 +85,16 @@ namespace NeonStarLibrary.Components.HUD
                             leftTextureToUse = _fireElementHUD;
                             break;
 
-                        case Element.Wind:
-                            leftTextureToUse = _windElementHUD;
-                            break;
                     }
-                    spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4), null, leftTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
+                   //spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4), null, leftTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
                     if(_elementSystem.ElementSlots[0][i].Type != Element.Neutral)
-                        spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4), new Rectangle(0, 0, (int)Math.Round(leftTextureToUse.Width * (1 - _elementSystem.ElementSlots[0][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), leftTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
+                        spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4) + new Vector2(1, 5), new Rectangle(0, 0, (int)Math.Round(leftTextureToUse.Width * (1 - _elementSystem.ElementSlots[0][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), leftTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
                 }
 
                 for (int i = 0; i < _elementSystem.ElementSlots[1].Length; i++)
                 {
                         switch (_elementSystem.ElementSlots[1][i].Type)
                         {
-                            case Element.Neutral:
-                                rightTextureToUse = _emptySlotHUD;
-                                break;
-
                             case Element.Thunder:
                                 rightTextureToUse = _thunderElementHUD;
                                 break;
@@ -105,22 +102,24 @@ namespace NeonStarLibrary.Components.HUD
                             case Element.Fire:
                                 rightTextureToUse = _fireElementHUD;
                                 break;
-
-                            case Element.Wind:
-                                rightTextureToUse = _windElementHUD;
-                                break;
                         }
-                    spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + 10, i * (rightTextureToUse.Height * 2) + i * 4), null, rightTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    //spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + 10, i * (rightTextureToUse.Height * 2) + i * 4), null, rightTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                     if (_elementSystem.ElementSlots[1][i].Type != Element.Neutral)
-                        spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + 10, i * (rightTextureToUse.Height * 2) + i * 4), new Rectangle(0, 0, (int)Math.Round(rightTextureToUse.Width * (1 - _elementSystem.ElementSlots[1][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), rightTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
+                        spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + 10, i * (_fireElementHUD.Height * 2) + i * 4) + new Vector2(23, 5), new Rectangle(0, 0, (int)Math.Round(_fireElementHUD.Width * (1 - _elementSystem.ElementSlots[1][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), rightTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);    
                 }
 
                 if (_leftCharacterHUD != null)
-                    spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width, (_elementSystem.MaxLevel) * (leftTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width + 2, (_elementSystem.MaxLevel) * (_fireElementHUD.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                 if (_rightCharacterHUD != null)
-                    spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + rightTextureToUse.Width / 2 * entity.transform.Scale + 10 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (rightTextureToUse.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + _fireElementHUD.Width / 2 * entity.transform.Scale + 35 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (_fireElementHUD.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
             }
             base.Draw(spriteBatch);
+        }
+
+        public void CooldownFinished(int row, int column)
+        {
+            //ROW TO MANAGE
+            EffectsManager.GetEffect(_elementCooldownFinished, Side.Right, entity.transform.Position + Offset + new Vector2(_elementCooldownFinished.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2) + 0 * 4) + new Vector2(22, 7) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 50.0f, true, true);
         }
     }
 }

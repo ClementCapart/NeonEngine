@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
+using NeonStarLibrary.Components.HUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -308,6 +309,8 @@ namespace NeonStarLibrary.Components.Avatar
 
         public ElementSlot[][] ElementSlots;
 
+        private ElementHUD _hud;
+
         public ElementSystem(Entity entity)
             :base(entity, "ElementSystem")
         {
@@ -321,7 +324,11 @@ namespace NeonStarLibrary.Components.Avatar
             FrontThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             BackThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             AvatarComponent = entity.GetComponent<AvatarCore>();
-            ChangeMaxLevel((int)_maxLevel);        
+            ChangeMaxLevel((int)_maxLevel);
+
+            Entity e = entity.GameWorld.GetEntityByName("HUD");
+            if (e != null)
+                _hud = e.GetComponent<ElementHUD>();
             base.Init();
         }
 
@@ -622,6 +629,8 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     ElementSlots[0][i].Type = element;
                     ElementSlots[0][i].Cooldown = 0.0f;
+                    if (_hud != null)
+                        _hud.CooldownFinished(i, 0);
                     return;
                 }
                 else if (ElementSlots[0][i].Type != element)
@@ -639,6 +648,8 @@ namespace NeonStarLibrary.Components.Avatar
                     {
                         ElementSlots[1][i].Type = element;
                         ElementSlots[1][i].Cooldown = 0.0f;
+                        if (_hud != null)
+                            _hud.CooldownFinished(i, 1);
                         return;
                     }
                     else if (ElementSlots[1][i].Type != element)
