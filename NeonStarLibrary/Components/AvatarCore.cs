@@ -181,7 +181,11 @@ namespace NeonStarLibrary.Components.Avatar
                     if (e != null)
                     {
                         if (Guard != null)
+                        {
                             e.StunLock(Guard.GuardLockDuration);
+                            if (e.entity.hitboxes.Count > 0)
+                                e.entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.Main;
+                        }
                     }
                 }
                 else if (attack._entity != null)
@@ -190,7 +194,11 @@ namespace NeonStarLibrary.Components.Avatar
                     if (e != null)
                     {
                         if (Guard != null)
+                        {
                             e.StunLock(Guard.GuardLockDuration);
+                            if (e.entity.hitboxes.Count > 0)
+                                e.entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.Main;
+                        }
                     }
                 }
             }
