@@ -95,7 +95,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:800 Y:-4055}" />
+              <InitialPosition Value="{X:800 Y:-4075}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -122,9 +122,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:800 Y:-4055}" />
+              <Center Value="{X:800 Y:-4075}" />
               <X Value="550" />
-              <Y Value="-4105" />
+              <Y Value="-4125" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="500" />
@@ -176,6 +176,28 @@
               <NickName Value="" />
             </Properties>
           </Hitbox>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="4">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:123 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="TransitionDoorCityClosed" />
+                <Animation Name="Opening" SpritesheetTag="TransitionDoorCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="TransitionDoorCityOpened" />
+                <Animation Name="Closing" SpritesheetTag="TransitionDoorCityClosing" />
+              </Spritesheets>
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="EnergyCollectible20" Layer="">
@@ -508,8 +530,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Graphic>
           <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
