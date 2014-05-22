@@ -155,6 +155,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
                         if (_openWhenAnimationEnd)
                         {
+                            if (entity.hitboxes.Count > 0)
+                                entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.OneWay;
                             Closed = false;
                             _opening = false;
                             if (entity.rigidbody != null)
@@ -178,6 +180,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (!_closing)
             {
+                if (entity.hitboxes.Count > 0)
+                    entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.Solid;
                 _closing = true;
                 Closed = true;
                 if (entity.rigidbody != null)
@@ -205,6 +209,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             if (!_opening)
             {
+                
                 _opening = true;
                 if (entity.spritesheets != null)
                 {
@@ -212,7 +217,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     if (!_openWhenAnimationEnd)
                     {
                         Closed = false;
-
+                        if (entity.hitboxes.Count > 0)
+                            entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.OneWay;
                         if (entity.rigidbody != null)
                         {
                             Vector2 position = entity.transform.Position;
