@@ -338,9 +338,11 @@ namespace NeonStarLibrary.Components.Avatar
                                     _playedThisFrame = false;
                                 }
                             }
-                                
+
                             if (entity.rigidbody.body.LinearVelocity.X > -(_groundMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
-                                entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed) * _movementSpeedModifier, 0);
+                                entity.rigidbody.body.LinearVelocity += new Vector2(-(_groundAccelerationSpeed) * _movementSpeedModifier, 0) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (entity.rigidbody.body.LinearVelocity.X < -(_groundMaxSpeed) * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(-(_groundMaxSpeed) * _movementSpeedModifier, entity.rigidbody.body.LinearVelocity.Y);
 
                             AvatarComponent.State = AvatarState.Moving;
                         }
@@ -372,7 +374,9 @@ namespace NeonStarLibrary.Components.Avatar
                                 }
                             }
                             if (entity.rigidbody.body.LinearVelocity.X < _groundMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(1) == null)
-                                entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed * _movementSpeedModifier, 0);
+                                entity.rigidbody.body.LinearVelocity += new Vector2(_groundAccelerationSpeed * _movementSpeedModifier, 0) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (entity.rigidbody.body.LinearVelocity.X > _groundMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(1) == null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(_groundMaxSpeed * _movementSpeedModifier, entity.rigidbody.body.LinearVelocity.Y);
 
                             AvatarComponent.State = AvatarState.Moving;
                         }
@@ -419,7 +423,9 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.CurrentSide = Side.Left;
 
                             if (entity.rigidbody.body.LinearVelocity.X > -CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(0) == null)
-                                entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed) * _movementSpeedModifier, 0);
+                                entity.rigidbody.body.LinearVelocity += new Vector2(-(_airAccelerationSpeed) * _movementSpeedModifier, 0) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (entity.rigidbody.body.LinearVelocity.X < -CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckLeftSide(0) == null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(-CurrentAirMaxSpeed * _movementSpeedModifier, entity.rigidbody.body.LinearVelocity.Y);
                         }
                         else if (Neon.Input.Check(NeonStarInput.MoveRight))
                         {
@@ -427,7 +433,9 @@ namespace NeonStarLibrary.Components.Avatar
                             AvatarComponent.CurrentSide = Side.Right;
 
                             if (entity.rigidbody.body.LinearVelocity.X < CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(0) == null)
-                                entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed * _movementSpeedModifier, 0);
+                                entity.rigidbody.body.LinearVelocity += new Vector2(_airAccelerationSpeed * _movementSpeedModifier, 0) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (entity.rigidbody.body.LinearVelocity.X > CurrentAirMaxSpeed * _movementSpeedModifier && entity.rigidbody.beacon.CheckRightSide(0) == null)
+                                entity.rigidbody.body.LinearVelocity = new Vector2(CurrentAirMaxSpeed * _movementSpeedModifier, entity.rigidbody.body.LinearVelocity.Y);
                         }
                         else if (AvatarComponent.CanMove)
                         {
