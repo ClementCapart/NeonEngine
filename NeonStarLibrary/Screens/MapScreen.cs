@@ -101,7 +101,7 @@ namespace NeonStarLibrary
             }
             if (_mapEntity != null)
             {
-                _currentMapRooms = _mapEntity.GetComponentsByInheritance<Graphic>().Where(g => g.GraphicTag != "MapBackground" && g.GraphicTag != "MapForeground" && g.GraphicTag != "MapOverlay" && !g.GraphicTag.StartsWith("MapName")).ToList<Graphic>();
+                _currentMapRooms = _mapEntity.GetComponentsByInheritance<Graphic>().Where(g => g.GraphicTag != "MapCaption" && g.GraphicTag != "MapBackground" && g.GraphicTag != "MapForeground" && g.GraphicTag != "MapOverlay" && !g.GraphicTag.StartsWith("MapName")).ToList<Graphic>();
                 List<SpriteSheet> ss = _mapEntity.GetComponentsByInheritance<SpriteSheet>();
                 if(ss.Where(s => s.SpriteSheetTag == "MapLionToken").Count() > 0)
                     _liOnPositionToken = ss.Where(s => s.SpriteSheetTag == "MapLionToken").First();
