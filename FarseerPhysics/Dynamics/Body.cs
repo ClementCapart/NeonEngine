@@ -1403,6 +1403,9 @@ namespace FarseerPhysics.Dynamics
 
         public void IgnoreCollisionWith(Body other)
         {
+            if (FixtureList == null)
+                return;
+
             for (int i = 0; i < FixtureList.Count; i++)
             {
                 Fixture f = FixtureList[i];
