@@ -288,7 +288,6 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     ee.entity.Destroy();
                     _enemiesEnergy.Remove(ee);
                 }
-
             }
             base.Update(gameTime);
         }
