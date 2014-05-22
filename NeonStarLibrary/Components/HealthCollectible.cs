@@ -82,12 +82,14 @@ namespace NeonStarLibrary.Components.GameplayElements
                     this.entity.Destroy();
                 }
             }
-            if (entity.rigidbody != null && (entity.rigidbody.body.LinearVelocity.Y >= 3.0f && entity.transform.Position.Y > _targetY) || _noGravity)
+            
+            if (entity.rigidbody != null && (entity.rigidbody.body.LinearVelocity.Y >= 0.0f && entity.transform.Position.Y > _targetY) || _noGravity)
             {
                 _noGravity = true;
                 entity.rigidbody.body.GravityScale = 0.0f;
                 entity.rigidbody.body.LinearVelocity = Vector2.Zero;
             }
+
             base.Update(gameTime);
         }
 
