@@ -1445,7 +1445,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="EnemyBomb" Group="EnemySupervisor" Type="MeleeSpecial">
+    <Attack ID="0" Name="EnemyBomb" Group="EnemySupervisor" Type="Special">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="150" Height="150" />
       </Hitboxes>
@@ -1467,7 +1467,11 @@
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects />
       <OnDurationSpecialEffects />
-      <OnHitSpecialEffects />
+      <OnHitSpecialEffects>
+        <Effect Type="PositionalPulse">
+          <Parameter Value="{X:300 Y:300}" />
+        </Effect>
+      </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
