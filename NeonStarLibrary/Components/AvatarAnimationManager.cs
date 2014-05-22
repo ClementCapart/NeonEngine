@@ -199,10 +199,8 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == "LiOnDiveAttackLevelTwo" && !AvatarComponent.MeleeFight.CurrentAttack.Canceled)
                         {
-                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation)
-                                entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackStartLoop2Animation, true, 0, true, false, false);
 
-                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackStartLoop2Animation && entity.spritesheets.CurrentSpritesheet.IsFinished)
+                            if (entity.spritesheets.CurrentSpritesheetName == AvatarComponent.MeleeFight.DiveAttackLoopAnimation)
                                 entity.spritesheets.ChangeAnimation(AvatarComponent.MeleeFight.DiveAttackLoop2Animation, 0, true, false, true);
                         }
                         else if (AvatarComponent.MeleeFight.CurrentAttack.Name == "LiOnDiveEffectLevelTwo")
