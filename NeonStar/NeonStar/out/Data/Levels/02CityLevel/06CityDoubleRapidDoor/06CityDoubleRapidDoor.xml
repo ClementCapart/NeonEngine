@@ -15,6 +15,7 @@
           </Transform>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.9" />
               <Font Value="EnergyFont" />
               <Text Value="Power the Heal Device" />
@@ -38,6 +39,7 @@
           </TextDisplay>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.9" />
               <Font Value="EnergyFont" />
               <Text Value="To activate every Heal Station in the area" />
@@ -126,6 +128,7 @@
           </Spritesheet>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
               <Text Value="or" />
@@ -149,6 +152,7 @@
           </TextDisplay>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
               <Text Value="Use Crystal Element as platforms" />
@@ -170,6 +174,13 @@
               <NickName Value="" />
             </Properties>
           </TextDisplay>
+          <TutorialDisplay Type="NeonStarLibrary.Scripts.TutorialDisplay" ID="3">
+            <Properties>
+              <EnemyToCheck Value="EnemyCaster" />
+              <TutorialPanel Value="CrystalTutorial" />
+              <NickName Value="" />
+            </Properties>
+          </TutorialDisplay>
         </Components>
       </Entity>
     </Entities>

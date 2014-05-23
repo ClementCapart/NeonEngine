@@ -31,8 +31,7 @@ namespace NeonStarLibrary.Components.Scripts
                 _tigerToDestroy.Destroy();
             if (_triggerToDisable != null)
             {
-                _triggerToDisable.hitboxes[0].Width = 0;
-                _triggerToDisable.hitboxes[0].Height = 0;
+                _triggerToDisable.hitboxes[0].Remove();
             }
             base.OnTrigger(trigger, triggeringEntity, parameters);
         }

@@ -2,52 +2,6 @@
 <XnaContent>
   <Level Layer="Scripts">
     <Entities>
-      <Entity Name="ThunderScript" Layer="Scripts">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:0 Y:-2025}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
-            <Properties>
-              <Type Value="Trigger" />
-              <Center Value="{X:0 Y:-2025}" />
-              <X Value="0" />
-              <Y Value="-2025" />
-              <OffsetX Value="0" />
-              <OffsetY Value="0" />
-              <Width Value="0" />
-              <Height Value="0" />
-              <NickName Value="" />
-            </Properties>
-          </Hitbox>
-          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
-            <Properties>
-              <OneShot Value="True" />
-              <TriggerEveryFrame Value="False" />
-              <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="ThunderScript" />
-              <TriggeredComponentName Value="CeilingTigerScript" />
-              <NickName Value="" />
-            </Properties>
-          </HitboxTrigger>
-          <CeilingTigerScript Type="NeonStarLibrary.Components.Scripts.CeilingTigerScript" ID="3">
-            <Properties>
-              <AvatarName Value="LiOn" />
-              <TigerName Value="ScriptedTiger" />
-              <RobotEntityName Value="ScriptedRobot" />
-              <ExclamationMarkName Value="ExclamationMark" />
-              <EffectOffset Value="{X:36 Y:-100}" />
-              <NickName Value="" />
-            </Properties>
-          </CeilingTigerScript>
-        </Components>
-      </Entity>
       <Entity Name="ScriptCanceler" Layer="Scripts">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">

@@ -85,7 +85,7 @@ namespace NeonEngine.Components.Triggers
             }
             else
             {
-                if (_triggeringEntity.hitboxes.Count > 0 && entity.hitboxes != null)
+                if (_triggeringEntity.hitboxes.Count > 0 && entity.hitboxes.Count > 0)
                 {
                     if ((_oneShot && !_alreadyTouched) || !_oneShot)
                     {
