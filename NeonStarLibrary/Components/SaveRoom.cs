@@ -432,7 +432,7 @@ namespace NeonStarLibrary.Components.GameplayElements
         {
             if (!_finishedSave && !_startSave)
             {
-                if (_avatar.hitboxes.Count > 0 && this.entity.hitboxes.Count > 0)
+                if (_avatar != null && _avatar.hitboxes.Count > 0 && this.entity.hitboxes.Count > 0)
                 {
                     if (_avatar.hitboxes[0].hitboxRectangle.Intersects(entity.hitboxes[0].hitboxRectangle))
                     {
