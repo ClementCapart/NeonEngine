@@ -44,6 +44,7 @@ namespace NeonStarLibrary.Scripts
             _enemy = entity.GameWorld.GetEntityByName(_enemyToCheck);
             if (_enemy != null)
                 _enemyComponent = _enemy.GetComponent<EnemyCore>();
+            
             Entity e = entity.GameWorld.GetEntityByName(_tutorialPanel);
             if(e != null)
                 _tutorialComponents = e.GetComponentsByInheritance<DrawableComponent>();
@@ -58,7 +59,7 @@ namespace NeonStarLibrary.Scripts
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (!_tutorialDisplayed && _enemyComponent != null && (_enemyComponent.State == EnemyState.Dying || _enemyComponent.State == EnemyState.Dead))
+            if ((!_tutorialDisplayed && _enemyComponent != null && (_enemyComponent.State == EnemyState.Dying || _enemyComponent.State == EnemyState.Dead)) || (_enemyComponent == null) || (_enemyComponent != null && !entity.GameWorld.Entities.Contains(_enemyComponent.entity)))
             {
                 if (_tutorialComponents != null)
                     foreach (DrawableComponent dc in _tutorialComponents)

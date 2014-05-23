@@ -499,10 +499,10 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
-              <ReverseBound Value="False" />
+              <ReverseBound Value="True" />
               <SoftBound Value="True" />
               <BoundSide Value="Down" />
-              <BoundStrength Value="1" />
+              <BoundStrength Value="0" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="2" />
               <Enabled Value="True" />
@@ -624,10 +624,10 @@
           </Transform>
           <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
             <Properties>
-              <ReverseBound Value="False" />
+              <ReverseBound Value="True" />
               <SoftBound Value="True" />
               <BoundSide Value="Down" />
-              <BoundStrength Value="1" />
+              <BoundStrength Value="0" />
               <SoftBoundStrength Value="1" />
               <StrengtheningRate Value="2" />
               <Enabled Value="True" />
@@ -874,6 +874,7 @@
           </Transform>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
               <Text Value="Gather Energy Cells" />
@@ -897,6 +898,7 @@
           </TextDisplay>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
               <Text Value="Use it to power devices" />
