@@ -354,6 +354,9 @@ namespace NeonStarLibrary.Components.Avatar
                     for (int i = 0; i < ElementSlots.Length; i++)
                     {
                         ElementSlot higherCooldown = null;
+                        
+                        int highestCooldownRow = int.MinValue;
+
                         for (int j = 0; j < ElementSlots[i].Length; j++)
                         {
                             if (ElementSlots[i][j].Type == Element.Neutral)
@@ -361,16 +364,24 @@ namespace NeonStarLibrary.Components.Avatar
                             else if (ElementSlots[i][j].Cooldown > 0.0f)
                             {
                                 if(higherCooldown == null || higherCooldown.Cooldown > ElementSlots[i][j].Cooldown)
+                                {
                                     higherCooldown = ElementSlots[i][j];
+                                    highestCooldownRow = j;
+                                }
                                 if (ElementSlots[i][j].Cooldown < 0.0f)
+                                {
                                     ElementSlots[i][j].Cooldown = 0.0f;
+                                }
                             }
                         }
                         if (higherCooldown != null)
                         {
                             higherCooldown.Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                            if (higherCooldown.Cooldown < 0.0f)
+                            if (higherCooldown.Cooldown <= 0.0f)
+                            {
                                 higherCooldown.Cooldown = 0.0f;
+                                _hud.CooldownFinished(highestCooldownRow, i);
+                            }
                         }
 
 
@@ -629,6 +640,7 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     ElementSlots[0][i].Type = element;
                     ElementSlots[0][i].Cooldown = 0.0f;
+                    ElementFeedback(element);
                     if (_hud != null)
                         _hud.CooldownFinished(i, 0);
                     return;
@@ -648,6 +660,7 @@ namespace NeonStarLibrary.Components.Avatar
                     {
                         ElementSlots[1][i].Type = element;
                         ElementSlots[1][i].Cooldown = 0.0f;
+                        ElementFeedback(element);
                         if (_hud != null)
                             _hud.CooldownFinished(i, 1);
                         return;

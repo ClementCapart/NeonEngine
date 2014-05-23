@@ -88,7 +88,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             State = CollectibleState.Used;
             _avatar.EnergySystem.CurrentEnergyStock += _energyValue;
             if(entity.spritesheets != null)
-            entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
+                entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
         }
     }
 }
