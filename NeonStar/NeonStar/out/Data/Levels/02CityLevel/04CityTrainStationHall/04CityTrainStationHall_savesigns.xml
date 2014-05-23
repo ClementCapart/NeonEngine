@@ -136,7 +136,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3314 Y:-95}" />
+              <InitialPosition Value="{X:3313 Y:-94}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -144,7 +144,7 @@
           </Transform>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
             <Properties>
-              <GraphicTag Value="SaveCandle3" />
+              <GraphicTag Value="SaveCandleActive" />
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -159,36 +159,32 @@
               <NickName Value="" />
             </Properties>
           </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="lamps1" Layer="savesigns">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3692 Y:-116}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="SaveCandle4" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="SaveHolo" />
               <DrawLayer Value="0.6" />
+              <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
+              <Offset Value="{X:-1 Y:7}" />
+              <RotationOffset Value="3.141593" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
-          </Graphic>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="lamps1" Layer="savesigns">
@@ -256,7 +252,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3592 Y:-69}" />
+              <InitialPosition Value="{X:3590 Y:-70}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -316,37 +312,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3339 Y:-119}" />
-              <Rotation Value="0" />
-              <Scale Value="2" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
-            <Properties>
-              <GraphicTag Value="SaveCandle4" />
-              <DrawLayer Value="0.4" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Left" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:134 G:134 B:134 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Graphic>
-        </Components>
-      </Entity>
-      <Entity Name="lamps1" Layer="savesigns">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3461 Y:-79}" />
+              <InitialPosition Value="{X:3460 Y:-78}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -406,13 +372,30 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3385 Y:68}" />
+              <InitialPosition Value="{X:3684 Y:-94}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
             </Properties>
           </Transform>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="SaveCandleActive" />
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
             <Properties>
               <IsLooped Value="True" />
               <StartingFrame Value="0" />
@@ -422,14 +405,14 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="SaveSign" />
+              <SpriteSheetTag Value="SaveHolo" />
               <DrawLayer Value="0.6" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:-1 Y:7}" />
               <RotationOffset Value="3.141593" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
