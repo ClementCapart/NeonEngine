@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-281 Y:-1118}" />
+          <InitialPosition Value="{X:2300 Y:-338}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -31,9 +31,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-281 Y:-1124}" />
-          <X Value="-356" />
-          <Y Value="-1211" />
+          <Center Value="{X:2300 Y:-337}" />
+          <X Value="2225" />
+          <Y Value="-424" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="150" />
@@ -50,6 +50,7 @@
           <ChanceToDropHealth Value="0.5" />
           <HealthItemsToDrop Value="4" />
           <InvincibilityDuration Value="0.5" />
+          <AirImpulsedInAir Value="True" />
           <RunAnim Value="Move" />
           <IdleAnim Value="Idle" />
           <DyingAnim Value="Death" />
@@ -107,6 +108,7 @@
           <DrawLayer Value="0.48" />
           <IsHUD Value="False" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </SpritesheetManager>
@@ -152,6 +154,7 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </DamageDisplayer>
@@ -173,7 +176,7 @@
           <AttackTwoDurationAnimation Value="JumpDuration" />
           <AttackTwoCooldownAnimation Value="JumpCooldown" />
           <RangeForAttackThree Value="125" />
-          <AttackToLaunchThree Value="BisonBack" />
+          <AttackToLaunchThree Value="BisonBackDash" />
           <AttackThreeDelayAnimation Value="BackDelay" />
           <AttackThreeDurationAnimation Value="BackDuration" />
           <AttackThreeCooldownAnimation Value="BackCooldown" />
