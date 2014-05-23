@@ -10,6 +10,14 @@ namespace NeonEngine.Components.Text2D
 {
     public class TextDisplay : DrawableComponent
     {
+        private bool _useTextCentering = false;
+
+        public bool UseTextCentering
+        {
+            get { return _useTextCentering; }
+            set { _useTextCentering = value; }
+        }
+
         public float DrawLayer
         {
             get { return Layer; }
@@ -81,19 +89,25 @@ namespace NeonEngine.Components.Text2D
         {
             if (_active)
             {
+                Vector2 size = Vector2.Zero;
+                if (_useTextCentering)
+                {
+                    size = _font.MeasureString(_text);
+                }
+
                 if (_outline)
                 {
                     Color colorToUse = Color.Lerp(Color.Transparent, _outlineColor, Opacity);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
-                    spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X + _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X - _outlineDisplacement), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y + _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
+                    spriteBatch.DrawString(_font, _text, -size + new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y - _outlineDisplacement)), colorToUse, 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer - 0.001f);
                 }
-                spriteBatch.DrawString(_font, _text, new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y)), Color.Lerp(Color.Transparent, _textColor, Opacity), 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer);
+                spriteBatch.DrawString(_font, _text, -size + (new Vector2((entity.transform.Position.X + Offset.X + _parallaxPosition.X), (entity.transform.Position.Y + Offset.Y + _parallaxPosition.Y))), Color.Lerp(Color.Transparent, _textColor, Opacity), 0.0f, Vector2.Zero, 1, SpriteEffects.None, Layer);
             }
             
             base.Draw(spriteBatch);

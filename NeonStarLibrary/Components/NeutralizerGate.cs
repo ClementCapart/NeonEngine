@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonStarLibrary.Components.Avatar;
+using NeonStarLibrary.Components.HUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,11 +32,21 @@ namespace NeonStarLibrary.Components.GameplayElements
             }
         }
 
+        private ElementHUD _elementHUD;
+
         private SpriteSheetInfo _effect;
 
         public NeutralizerGate(Entity entity)
             :base(entity, "NeutralizerGate")
         {
+        }
+
+        public override void Init()
+        {
+            Entity e = entity.GameWorld.GetEntityByName("HUD");
+            if (e != null)
+                _elementHUD = e.GetComponent<ElementHUD>();
+            base.Init();
         }
 
         public override void OnTrigger(Entity trigger, Entity triggeringEntity, object[] parameters = null)
@@ -48,14 +59,20 @@ namespace NeonStarLibrary.Components.GameplayElements
                 for (int i = 0; i < _avatar.ElementSystem.ElementSlots[0].Length; i++)
                 {
                     if (!removedElement && _avatar.ElementSystem.ElementSlots[0][i].Type != Element.Neutral)
+                    {
+                        _elementHUD.LoseElement(i, 0);
                         removedElement = true;
+                    }
                     _avatar.ElementSystem.ElementSlots[0][i].Type = Element.Neutral;
 
                 }
                 for (int i = 0; i < _avatar.ElementSystem.ElementSlots[1].Length; i++)
                 {
-                    if (!removedElement && _avatar.ElementSystem.ElementSlots[1][i].Type != Element.Neutral)
+                    if (_avatar.ElementSystem.ElementSlots[1][i].Type != Element.Neutral)
+                    {
+                        _elementHUD.LoseElement(i, 1);
                         removedElement = true;
+                    }
                     _avatar.ElementSystem.ElementSlots[1][i].Type = Element.Neutral;
                 }
 

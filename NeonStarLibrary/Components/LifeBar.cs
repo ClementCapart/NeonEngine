@@ -68,6 +68,14 @@ namespace NeonStarLibrary.Components.HUD
             set { _blinkSpeed = value; }
         }
 
+        private string _energyEffectSpriteSheetTag = "";
+
+        public string EnergyEffectSpriteSheetTag
+        {
+            get { return _energyEffectSpriteSheetTag; }
+            set { _energyEffectSpriteSheetTag = value; }
+        }
+
         private float _currentValue;
         private float _targetValue;
 
@@ -78,7 +86,9 @@ namespace NeonStarLibrary.Components.HUD
         private bool _blinkGoingUp = true;
         private TextDisplay _lifeDisplay;
         private float _lastFrameHealthPoints = 0.0f;
+        private float _lastEnergyPoints = 0.0f;
         SpriteSheet _healSpritesheet;
+        SpriteSheetInfo _energyEffect;
         
         private Color _redBlink;
 
@@ -101,6 +111,7 @@ namespace NeonStarLibrary.Components.HUD
                 _currentValue = _avatar.CurrentHealthPoints;
                 _targetValue = _avatar.CurrentHealthPoints;
                 _lastFrameHealthPoints = _targetValue;
+                _lastEnergyPoints = _avatar.EnergySystem.CurrentEnergyStock;
             }
 
             _lifeDisplay = entity.GetComponentByNickname("LifePoints") as TextDisplay;
@@ -109,6 +120,8 @@ namespace NeonStarLibrary.Components.HUD
             _healSpritesheet = entity.GetComponentByNickname("HealAnimation") as SpriteSheet;
             if(_healSpritesheet != null)
                 _healSpritesheet.Active = false;
+
+            _energyEffect = AssetManager.GetSpriteSheet(_energyEffectSpriteSheetTag);
             base.Init();
         }
 
@@ -120,6 +133,13 @@ namespace NeonStarLibrary.Components.HUD
                 {
                     HealEffect();
                 }
+
+                if (_lastEnergyPoints < _avatar.EnergySystem.CurrentEnergyStock)
+                {
+                    if (_energyEffect != null)
+                        EffectsManager.GetEffect(_energyEffect, Side.Right, new Vector2(403, 68), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+                }
+                _lastEnergyPoints = _avatar.EnergySystem.CurrentEnergyStock;
                 _lastFrameHealthPoints = _avatar.CurrentHealthPoints;
                 if (_avatar.CurrentHealthPoints <= _blinkTresholdValue)
                 {
