@@ -2,106 +2,6 @@
 <XnaContent>
   <Level Layer="">
     <Entities>
-      <Entity Name="BoundDown" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-500 Y:250}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Down" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundRight" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:688 Y:45}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Right" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundLeft" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-592 Y:45}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Left" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundUp" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:0 Y:-470}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Up" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
       <Entity Name="ChangeLevelTo06" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -230,31 +130,6 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
-        </Components>
-      </Entity>
-      <Entity Name="BoundDown" Layer="">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:500 Y:250}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Down" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
         </Components>
       </Entity>
       <Entity Name="SavePoint" Layer="">
