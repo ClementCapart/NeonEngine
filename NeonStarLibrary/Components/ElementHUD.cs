@@ -53,6 +53,13 @@ namespace NeonStarLibrary.Components.HUD
             set { _thunderReadySpriteSheetTag = value; }
         }
 
+        private float _testValue = 0.0f;
+
+        public float TestValue
+        {
+            get { return _testValue; }
+            set { _testValue = value; }
+        }
         #endregion
 
         private Entity _avatar = null;
@@ -62,8 +69,6 @@ namespace NeonStarLibrary.Components.HUD
         private Texture2D _leftCharacterHUD = null;
         private Texture2D _rightCharacterHUD = null;
 
-        private Texture2D _emptySlotHUD = null;
-
         private Texture2D _fireElementHUD = null;
         private Texture2D _thunderElementHUD = null;
 
@@ -72,6 +77,9 @@ namespace NeonStarLibrary.Components.HUD
 
         private SpriteSheet _leftSlotFullAnimation;
         private SpriteSheet _rightSlotFullAnimation;
+
+        private Texture2D _leftAddedSlot = null;
+        private Texture2D _rightAddedSlot = null;
 
         private Vector2 _leftBaseOffset = new Vector2(-208, -22);
         private Vector2 _rightBaseOffset = new Vector2(-88, -22);
@@ -87,10 +95,11 @@ namespace NeonStarLibrary.Components.HUD
             _leftCharacterHUD = AssetManager.GetTexture("HUDLeftCharacter");
             _rightCharacterHUD = AssetManager.GetTexture("HUDRightCharacter");
 
-            _emptySlotHUD = AssetManager.GetTexture("HUDElementNeutral");
-
             _fireElementHUD = AssetManager.GetTexture("HUDElementCrystalGauge");
             _thunderElementHUD = AssetManager.GetTexture("HUDElementThunderGauge");
+
+            _leftAddedSlot = AssetManager.GetTexture("HUDLeftAddedSlot");
+            _rightAddedSlot = AssetManager.GetTexture("HUDRightAddedSlot");
 
             _avatar = entity.GameWorld.GetEntityByName(_avatarName);
             if (_avatar != null)
@@ -142,14 +151,14 @@ namespace NeonStarLibrary.Components.HUD
                             break;
                     }
 
-                    if (i > 0)
-                        spriteBatch.Draw(_emptySlotHUD, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4), null, leftTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    if (i > 0 && _leftAddedSlot != null)
+                        spriteBatch.Draw(_leftAddedSlot, entity.transform.Position + Offset + new Vector2(-1, i * (_leftAddedSlot.Height) - 5 + i * 11), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                     if (_elementSystem.ElementSlots[0][i].Type != Element.Neutral)
                     {
                         if(_elementSystem.ElementSlots[0][i].Cooldown <= 0.0f && _leftSlotFullAnimation.spriteSheetInfo != null && _leftSlotFullAnimation.spriteSheetInfo.Frames != null)
-                            spriteBatch.Draw(_leftSlotFullAnimation.spriteSheetInfo.Frames[_leftSlotFullAnimation.currentFrame], entity.transform.Position + _leftSlotFullAnimation.Offset, null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, 1.0f);
+                            spriteBatch.Draw(_leftSlotFullAnimation.spriteSheetInfo.Frames[_leftSlotFullAnimation.currentFrame], entity.transform.Position + _leftSlotFullAnimation.Offset + new Vector2(0, i * 22), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, 1.0f);
                         else
-                            spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 4) + new Vector2(1, 5), new Rectangle(0, 0, (int)Math.Round(leftTextureToUse.Width * (1 - _elementSystem.ElementSlots[0][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), leftTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                            spriteBatch.Draw(leftTextureToUse, entity.transform.Position + Offset + new Vector2(0, i * (leftTextureToUse.Height * 2) + i * 12) + new Vector2(1, 5), new Rectangle(0, 0, (int)Math.Round(leftTextureToUse.Width * (1 - _elementSystem.ElementSlots[0][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), leftTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                     }
                 }
 
@@ -175,35 +184,56 @@ namespace NeonStarLibrary.Components.HUD
                                 rightTextureToUse = _fireElementHUD;
                                 break;
                         }
-                    //spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(leftTextureToUse.Width * entity.transform.Scale + 10, i * (rightTextureToUse.Height * 2) + i * 4), null, rightTextureToUse == _emptySlotHUD ? Color.White : Color.Lerp(Color.Black, Color.White, 0.3f), entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+
+                        if (i > 0 && _rightAddedSlot != null)
+                            spriteBatch.Draw(_rightAddedSlot, entity.transform.Position + Offset + new Vector2(_rightAddedSlot.Width + 73, i * (_leftAddedSlot.Height) - 5 + i * 11) , null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                         if (_elementSystem.ElementSlots[1][i].Type != Element.Neutral)
                         {
                             if (_elementSystem.ElementSlots[1][i].Cooldown <= 0.0f && _rightSlotFullAnimation.spriteSheetInfo != null && _rightSlotFullAnimation.spriteSheetInfo.Frames != null)
-                                spriteBatch.Draw(_rightSlotFullAnimation.spriteSheetInfo.Frames[_rightSlotFullAnimation.currentFrame], entity.transform.Position + _rightSlotFullAnimation.Offset, null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, 1.0f);
+                                spriteBatch.Draw(_rightSlotFullAnimation.spriteSheetInfo.Frames[_rightSlotFullAnimation.currentFrame], entity.transform.Position + _rightSlotFullAnimation.Offset + new Vector2(0, i * 22), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, 1.0f);
                             else
-                                spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + 10, i * (_fireElementHUD.Height * 2) + i * 4) + new Vector2(23, 5), new Rectangle(0, 0, (int)Math.Round(_fireElementHUD.Width * (1 - _elementSystem.ElementSlots[1][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), rightTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                                spriteBatch.Draw(rightTextureToUse, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + 10, i * (rightTextureToUse.Height * 2) + i * 12) + new Vector2(23, 5), new Rectangle(0, 0, (int)Math.Round(_fireElementHUD.Width * (1 - _elementSystem.ElementSlots[1][i].Cooldown / Math.Max(_elementSystem.ElementSlotCooldownDuration, 0.1f))), rightTextureToUse.Height), Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
                         }
                 }
 
                 if (_leftCharacterHUD != null)
-                    spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width + 2, (_elementSystem.MaxLevel) * (_fireElementHUD.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                {
+                    if(_elementSystem.MaxLevel == 1)
+                        spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width + 2, (_elementSystem.MaxLevel) * (_leftAddedSlot.Height * 2)), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    else
+                        spriteBatch.Draw(_leftCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width / 2 * entity.transform.Scale - _leftCharacterHUD.Width + 2, (_elementSystem.MaxLevel) * (_leftAddedSlot.Height * 2) - 1), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                }
                 if (_rightCharacterHUD != null)
-                    spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + _fireElementHUD.Width / 2 * entity.transform.Scale + 35 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (_fireElementHUD.Height * 2) + _elementSystem.MaxLevel * 4 + 5), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                {
+                    if (_elementSystem.MaxLevel == 1)
+                        spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + _fireElementHUD.Width / 2 * entity.transform.Scale + 35 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (_leftAddedSlot.Height * 2)), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                    else
+                        spriteBatch.Draw(_rightCharacterHUD, entity.transform.Position + Offset + new Vector2(_fireElementHUD.Width * entity.transform.Scale + _fireElementHUD.Width / 2 * entity.transform.Scale + 35 - _rightCharacterHUD.Width, (_elementSystem.MaxLevel) * (_leftAddedSlot.Height * 2) - 1), null, Color.White, entity.transform.rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                }
             }
             base.Draw(spriteBatch);
         }
 
         public void CooldownFinished(int row, int column)
         {
-            //ROW TO MANAGE
-            if(_elementCooldownFinished != null)
-                EffectsManager.GetEffect(_elementCooldownFinished, Side.Right, entity.transform.Position + Offset + new Vector2(_elementCooldownFinished.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2) + 0 * 4) + new Vector2(22, 7) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+            if (_elementCooldownFinished != null)
+            {
+                if(row > 0)
+                    EffectsManager.GetEffect(_elementCooldownFinished, Side.Right, entity.transform.Position + Offset + new Vector2(_elementCooldownFinished.FrameWidth / 2, (row * _fireElementHUD.Height * 2) + row * 12) + new Vector2(22, 7) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+                else
+                    EffectsManager.GetEffect(_elementCooldownFinished, Side.Right, entity.transform.Position + Offset + new Vector2(_elementCooldownFinished.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2)) + new Vector2(22, 7) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+            }
         }
 
         public void LoseElement(int row, int column)
         {
-            if(_elementLoss != null)
-                EffectsManager.GetEffect(_elementLoss, Side.Right, entity.transform.Position + Offset + new Vector2(_elementLoss.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2) + 0 * 4) + new Vector2(22, 9) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+            if (_elementLoss != null)
+            {
+                if (row > 0)
+                    EffectsManager.GetEffect(_elementLoss, Side.Right, entity.transform.Position + Offset + new Vector2(_elementLoss.FrameWidth / 2, (row * _fireElementHUD.Height * 2) + row * 12) + new Vector2(22, 9) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+                else
+                    EffectsManager.GetEffect(_elementLoss, Side.Right, entity.transform.Position + Offset + new Vector2(_elementLoss.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2)) + new Vector2(22, 9) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
+            }
         }
     }
 }

@@ -489,7 +489,8 @@ namespace NeonStarLibrary.Components.Enemies
             if (duration > 0.0f && !_immuneToStunLock)
             {
                 _stunLockDuration = duration;
-                entity.rigidbody.body.LinearVelocity = Vector2.Zero;
+                if(entity.rigidbody != null)
+                    entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
                 if (State == EnemyState.Attacking && Attack != null && Attack.CurrentAttack != null)
                 {

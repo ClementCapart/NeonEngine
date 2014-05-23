@@ -58,7 +58,7 @@ namespace NeonStarLibrary.Components.GameplayElements
 
                 for (int i = 0; i < _avatar.ElementSystem.ElementSlots[0].Length; i++)
                 {
-                    if (!removedElement && _avatar.ElementSystem.ElementSlots[0][i].Type != Element.Neutral)
+                    if (_avatar.ElementSystem.ElementSlots[0][i].Type != Element.Neutral)
                     {
                         _elementHUD.LoseElement(i, 0);
                         removedElement = true;
