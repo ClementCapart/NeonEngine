@@ -147,6 +147,12 @@ namespace NeonStarLibrary
                             State = ElementState.End;
                         }
                     }
+                    if (finishEffect == null && Vector2.Distance(_entity.rigidbody.body.LinearVelocity, Vector2.Zero) < 0.1f)
+                        if (effect != null)
+                        {
+                            effect.Destroy();
+                            effect = null;
+                        }
                     break;
 
                 case ElementState.End:  
