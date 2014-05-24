@@ -43,7 +43,8 @@ namespace NeonEngine
         {
             EffectsManager.EffectsPool.FlagAvailableItem(this);
             spriteSheet.Active = false;
-            GameWorld.SpecialEffects.Remove(this);
+            if(GameWorld.SpecialEffects.Contains(this))
+                GameWorld.SpecialEffects.Remove(this);
         }
     }
 }

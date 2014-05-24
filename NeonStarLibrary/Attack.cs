@@ -262,6 +262,7 @@ namespace NeonStarLibrary
         private List<AnimatedSpecialEffect> _delayLoopedAnimation = new List<AnimatedSpecialEffect>();
         private List<AnimatedSpecialEffect> _durationLoopedAnimation = new List<AnimatedSpecialEffect>();
         private List<AnimatedSpecialEffect> _cooldownLoopedAnimation = new List<AnimatedSpecialEffect>();
+        private List<AnimatedSpecialEffect> _specialEffectsToStopWithAttack = new List<AnimatedSpecialEffect>();
 
 
         public List<Hitbox> Hitboxes;
@@ -434,13 +435,16 @@ namespace NeonStarLibrary
                 {
                     SpriteSheetInfo ssi = (SpriteSheetInfo)_delayedEffect[i].Parameters[0];
                     Entity entityToFollow = null;
+                    AnimatedSpecialEffect ase = null;
                     if (ssi != null)
                     {               
                             if ((bool)_delayedEffect[i].Parameters[3])
                                 entityToFollow = _entity;
-                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(_delayedEffect[i].Parameters[1]), (Vector2)(_delayedEffect[i].Parameters[2]), (float)(_delayedEffect[i].Parameters[4]), (float)(_delayedEffect[i].Parameters[6]), entityToFollow);
+                            ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(_delayedEffect[i].Parameters[1]), (Vector2)(_delayedEffect[i].Parameters[2]), (float)(_delayedEffect[i].Parameters[4]), (float)(_delayedEffect[i].Parameters[6]), entityToFollow);
                     }
                     _delayedEffect.RemoveAt(i);
+                    if (ase != null && (bool)_delayedEffect[i].Parameters[8])
+                        _specialEffectsToStopWithAttack.Add(ase);
                 }
             }
 
@@ -597,13 +601,16 @@ namespace NeonStarLibrary
                                 Entity entityToFollow = null;
                                 if (ssi != null)
                                 {
-                                   
-                                        if ((bool)ae.Parameters[3])
-                                            entityToFollow = _entity;
-                                        if((bool)ae.Parameters[7])
-                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Delay, true);
-                                        else
-                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                    AnimatedSpecialEffect ase = null;
+                                    if ((bool)ae.Parameters[3])
+                                        entityToFollow = _entity;
+                                    if((bool)ae.Parameters[7])
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Delay, true);
+                                    else
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+
+                                    if (ase != null && (bool)ae.Parameters[8])
+                                        _specialEffectsToStopWithAttack.Add(ase);
                                 }   
 
                             }                                                 
@@ -759,13 +766,16 @@ namespace NeonStarLibrary
                                 Entity entityToFollow = null;
                                 if (ssi != null)
                                 {
+                                    AnimatedSpecialEffect ase = null;
+                                    if ((bool)ae.Parameters[3])
+                                        entityToFollow = _entity;
+                                    if ((bool)ae.Parameters[7])
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Duration, true);
+                                    else
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
 
-                                        if ((bool)ae.Parameters[3])
-                                            entityToFollow = _entity;
-                                        if ((bool)ae.Parameters[7])
-                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Duration, true);
-                                        else
-                                            EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                    if (ase != null && (bool)ae.Parameters[8])
+                                        _specialEffectsToStopWithAttack.Add(ase);
                                 }
                             }
                            
@@ -952,12 +962,17 @@ namespace NeonStarLibrary
                                         Entity entityToFollow = null;
                                         if (ssi != null)
                                         {
+                                            AnimatedSpecialEffect ase = null;
+
                                             if ((bool)ae.Parameters[3])
                                                 entityToFollow = _entity;
                                             if ((bool)ae.Parameters[7])
                                                 EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow, AttackInfo.Cooldown, true);
                                             else
                                                 EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+
+                                            if (ase != null && (bool)ae.Parameters[8])
+                                                _specialEffectsToStopWithAttack.Add(ase);
                                         }
                                     }
 
@@ -1017,6 +1032,8 @@ namespace NeonStarLibrary
                         _isMoving = false;
                         Duration = 0.0f;
                         _delayedAttacks.Clear();
+                        foreach (AnimatedSpecialEffect ase in _specialEffectsToStopWithAttack)
+                            ase.Destroy();
                         
                     }
 
@@ -1027,6 +1044,8 @@ namespace NeonStarLibrary
                         _isMoving = false;
                         Duration = 0.0f;
                         _delayedAttacks.Clear();
+                        foreach (AnimatedSpecialEffect ase in _specialEffectsToStopWithAttack)
+                            ase.Destroy();
                     }
             }
                 
@@ -1124,9 +1143,13 @@ namespace NeonStarLibrary
                                     Entity entityToFollow = null;
                                     if (ssi != null)
                                     {
+                                        AnimatedSpecialEffect ase = null;
                                         if ((bool)ae.Parameters[3])
                                             entityToFollow = _entity;
-                                        EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+
+                                        if (ase != null && (bool)ae.Parameters[8])
+                                            _specialEffectsToStopWithAttack.Add(ase);
                                     }
                                 }
                                 
@@ -1183,6 +1206,8 @@ namespace NeonStarLibrary
                     this.AirLocked = false;
                     this.AirLockFinished = true;
                     this.Canceled = true;
+                    foreach (AnimatedSpecialEffect ase in _specialEffectsToStopWithAttack)
+                        ase.Destroy();
                 }
             }
         }
@@ -1339,11 +1364,16 @@ namespace NeonStarLibrary
                                     if (ssi != null)
                                     {
                                         Rectangle intersectionRectangle = Rectangle.Intersect(collidedHitbox.hitboxRectangle, entity.hitboxes[0].hitboxRectangle);
+
+                                        AnimatedSpecialEffect ase = null;
                                         Entity entityToFollow = null;
                                         if ((bool)ae.Parameters[3])
                                             entityToFollow = _entity;
                                         Vector2 hitPosition = new Vector2(CurrentSide == Side.Right ? collidedHitbox.hitboxRectangle.Right : collidedHitbox.hitboxRectangle.Left, collidedHitbox.hitboxRectangle.Center.Y);
-                                        EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+                                        ase = EffectsManager.GetEffect(ssi, CurrentSide, hitPosition, (float)(ae.Parameters[1]), (Vector2)(ae.Parameters[2]), (float)(ae.Parameters[4]), (float)(ae.Parameters[6]), entityToFollow);
+
+                                        if (ase != null && (bool)ae.Parameters[8])
+                                            _specialEffectsToStopWithAttack.Add(ase);
                                     }
                                 }
                             }
@@ -1418,6 +1448,8 @@ namespace NeonStarLibrary
             this.DelayFinished = true;
             this.AirLocked = false;
             this.AirLockFinished = true;
+            foreach (AnimatedSpecialEffect ase in _specialEffectsToStopWithAttack)
+                ase.Destroy();
         }
     }
 }

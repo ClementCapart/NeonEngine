@@ -277,6 +277,7 @@ namespace NeonStarEditor
                     XElement parameterDelay = new XElement("SixthParameter", new XAttribute("Value", ((float)effectKvp.Parameters[5]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterLayer = new XElement("SeventhParameter", new XAttribute("Value", ((float)effectKvp.Parameters[6]).ToString("G", CultureInfo.InvariantCulture)));
                     XElement parameterLoopAnimation = new XElement("EighthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[7]).ToString()));
+                    XElement parameterStopWithAttack = new XElement("NinthParameter", new XAttribute("Value", ((bool)effectKvp.Parameters[8]).ToString()));
                     effect.Add(parameterAnimation);
                     effect.Add(parameterRotation);
                     effect.Add(parameterOffset);
@@ -285,6 +286,7 @@ namespace NeonStarEditor
                     effect.Add(parameterDelay);
                     effect.Add(parameterLayer);
                     effect.Add(parameterLoopAnimation);
+                    effect.Add(parameterStopWithAttack);
                     break;
 
                 case SpecialEffect.MoveWhileAttacking:
@@ -701,6 +703,13 @@ namespace NeonStarEditor
                         checkbox6.CheckedChanged += checkbox6_CheckedChanged;
                         checkbox6.Checked = (bool)CurrentAttackEffectSelected.Parameters[7];
                         this.EffectsInfoPanel.Controls.Add(checkbox6);
+
+                        CheckBox checkbox7 = new CheckBox();
+                        checkbox7.Text = "StopWithAttack";
+                        checkbox7.Location = new System.Drawing.Point(5, checkbox6.Location.Y + checkbox6.Height + 5);
+                        checkbox7.CheckedChanged += checkbox7_CheckedChanged;
+                        checkbox7.Checked = (bool)CurrentAttackEffectSelected.Parameters[8];
+                        this.EffectsInfoPanel.Controls.Add(checkbox7);
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
@@ -963,6 +972,11 @@ namespace NeonStarEditor
             }
         }
 
+        private void checkbox7_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentAttackEffectSelected.Parameters[8] = (sender as CheckBox).Checked;
+        }
+
         void checkbox6_CheckedChanged(object sender, EventArgs e)
         {
             CurrentAttackEffectSelected.Parameters[7] = (sender as CheckBox).Checked;
@@ -1051,7 +1065,7 @@ namespace NeonStarEditor
                         break;
 
                     case SpecialEffect.EffectAnimation:
-                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f, 1.0f, false};
+                        CurrentAttackEffectSelected.Parameters = new object[] { new SpriteSheetInfo(), 0.0f, new Vector2(), false, 1.0f, 0.0f, 1.0f, false, false };
                         break;
 
                     case SpecialEffect.MoveWhileAttacking:
