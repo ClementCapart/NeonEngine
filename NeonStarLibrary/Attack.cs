@@ -442,9 +442,12 @@ namespace NeonStarLibrary
                                 entityToFollow = _entity;
                             ase = EffectsManager.GetEffect(ssi, CurrentSide, _entity.transform.Position, (float)(_delayedEffect[i].Parameters[1]), (Vector2)(_delayedEffect[i].Parameters[2]), (float)(_delayedEffect[i].Parameters[4]), (float)(_delayedEffect[i].Parameters[6]), entityToFollow);
                     }
-                    _delayedEffect.RemoveAt(i);
+
                     if (ase != null && (bool)_delayedEffect[i].Parameters[8])
                         _specialEffectsToStopWithAttack.Add(ase);
+
+                    _delayedEffect.RemoveAt(i);
+                    
                 }
             }
 
