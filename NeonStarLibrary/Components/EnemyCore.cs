@@ -222,6 +222,14 @@ namespace NeonStarLibrary.Components.Enemies
             get { return _currentSide; }
             set { _currentSide = value; }
         }
+
+        private float _maximumStunlockTime = 3.0f;
+
+        public float MaximumStunlockTime
+        {
+            get { return _maximumStunlockTime; }
+            set { _maximumStunlockTime = value; }
+        }
         #endregion
 
         public EnemyState State = EnemyState.Idle;
@@ -263,6 +271,8 @@ namespace NeonStarLibrary.Components.Enemies
 
         public bool TookDamageThisFrame = false;
         public string LastAttackTook = "";
+
+        private float _totalStunlockTime = 0.0f;
 
         public EnemyCore(Entity entity)
             :base(entity, "EnemyCore")
@@ -442,7 +452,7 @@ namespace NeonStarLibrary.Components.Enemies
                 Console.WriteLine(entity.Name + " have lost " + damageValue + " HP(s) -> Now at " + _currentHealthPoints + " HP(s).");
             }
 
-            if(alwaysStunlock || State == EnemyState.StunLocked)
+            if((alwaysStunlock || State == EnemyState.StunLocked) && _totalStunlockTime < _maximumStunlockTime)
                 StunLock(stunLockDuration);
             
             if (entity.rigidbody != null)
@@ -488,7 +498,9 @@ namespace NeonStarLibrary.Components.Enemies
         {
             if (duration > 0.0f && !_immuneToStunLock)
             {
+                _totalStunlockTime -= _stunLockDuration;
                 _stunLockDuration = duration;
+                _totalStunlockTime += duration;
                 if(entity.rigidbody != null)
                     entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
@@ -515,6 +527,10 @@ namespace NeonStarLibrary.Components.Enemies
 
         public override void PreUpdate(GameTime gameTime)
         {
+            if (State != EnemyState.StunLocked)
+            {
+                _totalStunlockTime = 0.0f;
+            }
             if (State != EnemyState.Dying && State != EnemyState.Dead)
             {
                 for (int i = Fire.FirePlatforms.Count - 1; i >= 0; i--)

@@ -394,7 +394,6 @@ namespace NeonStarLibrary.Components.Avatar
                         {
 
                             higherCooldown.Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds * (AvatarComponent.IdleTimer >= _idleCooldownThreshold ? _idleCooldownRatio : 1);
-                            Console.WriteLine((AvatarComponent.IdleTimer >= _idleCooldownThreshold).ToString());
                             if (higherCooldown.Cooldown <= 0.0f)
                             {
                                 higherCooldown.Cooldown = 0.0f;
