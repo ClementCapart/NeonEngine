@@ -400,11 +400,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 _hud.CooldownFinished(highestCooldownRow, i);
                             }
                         }
-
-
-
                     }
-
                 }
 
                 ElementSlots[0] = ElementSlots[0].OrderBy(e => e.Cooldown).ToArray();
