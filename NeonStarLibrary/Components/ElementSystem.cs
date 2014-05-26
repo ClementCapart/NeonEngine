@@ -678,7 +678,7 @@ namespace NeonStarLibrary.Components.Avatar
                     case Element.Fire:
                         _currentAnimatedSpecialEffect = EffectsManager.GetEffect(BackFireGatheringFX, AvatarComponent.CurrentSide, entity.transform.Position, 0.0f, new Vector2(10, -15), 2.0f, entity.spritesheets.Layer + 0.01f);
                         //EffectsManager.GetEffect(FrontFireGatheringFX, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, entity.spritesheets.Layer + 0.01f);
-                        _nextColorToTint = Color.Red;
+                        _nextColorToTint = Color.FromNonPremultiplied(220,30,255,255);
                         break;
 
                     case Element.Thunder:
