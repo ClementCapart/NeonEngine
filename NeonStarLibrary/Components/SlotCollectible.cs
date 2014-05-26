@@ -76,7 +76,7 @@ namespace NeonStarLibrary.Components.GameplayElements
         private void Gather()
         {
             State = CollectibleState.Used;
-            if (_avatar != null) _avatar.ElementSystem.MaxLevel = _avatar.ElementSystem.MaxLevel + 1;
+            if (_avatar != null) _avatar.ElementSystem.ChangeMaxLevel((int)_avatar.ElementSystem.MaxLevel + 1);
             if (entity.spritesheets != null)
                 entity.spritesheets.ChangeAnimation(_outAnimation, true, 0, true, false, false);
         }
