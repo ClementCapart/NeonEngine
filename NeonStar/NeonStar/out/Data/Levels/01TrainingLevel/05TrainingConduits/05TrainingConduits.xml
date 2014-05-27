@@ -3504,14 +3504,15 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:239 Y:-550}" />
-              <X Value="214" />
+              <Center Value="{X:859 Y:-550}" />
+              <X Value="834" />
               <Y Value="-650" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -3817,14 +3818,15 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1819 Y:-550}" />
-              <X Value="1794" />
+              <Center Value="{X:2359 Y:-550}" />
+              <X Value="2334" />
               <Y Value="-650" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4000,14 +4002,15 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-580 Y:-150}" />
-              <X Value="-605" />
+              <Center Value="{X:979 Y:-150}" />
+              <X Value="954" />
               <Y Value="-250" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4183,14 +4186,15 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:699 Y:-150}" />
-              <X Value="674" />
+              <Center Value="{X:2140 Y:-150}" />
+              <X Value="2115" />
               <Y Value="-250" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -4770,9 +4774,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:50 Y:-986}" />
+              <Center Value="{X:50 Y:-987}" />
               <X Value="-50" />
-              <Y Value="-1049" />
+              <Y Value="-1050" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -4968,7 +4972,7 @@
           </ChangeBoundState>
         </Components>
       </Entity>
-      <Entity Name="TriggerBoundDisable" Layer="">
+      <Entity Name="TriggerBoundDisableRaw" Layer="">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
@@ -4984,7 +4988,7 @@
               <OneShot Value="False" />
               <TriggerEveryFrame Value="False" />
               <TriggeringEntityName Value="LiOn" />
-              <TriggeredEntityName Value="TriggerBoundDisable" />
+              <TriggeredEntityName Value="TriggerBoundDisableRaw" />
               <TriggeredComponentName Value="ChangeBoundState" />
               <NickName Value="" />
             </Properties>
