@@ -38,6 +38,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -48,7 +49,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-60 Y:-1113}" />
+              <InitialPosition Value="{X:-241 Y:-1113}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -74,8 +75,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:-60 Y:-1112}" />
-              <X Value="-135" />
+              <Center Value="{X:-244 Y:-1112}" />
+              <X Value="-319" />
               <Y Value="-1199" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -97,9 +98,9 @@
               <RunAnim Value="Move" />
               <IdleAnim Value="Idle" />
               <DyingAnim Value="Death" />
-              <HitAnim Value="BisonStunlock" />
+              <HitAnim Value="BisonStunlocked" />
               <StunlockAnim Value="BisonStunlock" />
-              <ImmuneToStunLock Value="True" />
+              <ImmuneToStunLock Value="False" />
               <ImmuneToImpulse Value="True" />
               <ImmuneToDeath Value="False" />
               <ImmuneToDamage Value="False" />
@@ -109,6 +110,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="2" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -145,8 +147,9 @@
                 <Animation Name="BisonAirLockDuration" SpritesheetTag="ChargerAirLock" />
                 <Animation Name="BisonDiveDuration" SpritesheetTag="ChargerDiveDuration" />
                 <Animation Name="BisonDiveEffectCooldown" SpritesheetTag="ChargerDiveCooldown" />
-                <Animation Name="BisonStunlock" SpritesheetTag="ChargerStunned" />
+                <Animation Name="BisonStunlocked" SpritesheetTag="ChargerTakeHit" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
+                <Animation Name="BisonStunlock" SpritesheetTag="ChargerStunned" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
@@ -280,6 +283,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -393,7 +397,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:66 Y:-105}" />
+              <InitialPosition Value="{X:37 Y:-105}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -402,8 +406,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:67 Y:-105}" />
-              <X Value="17" />
+              <Center Value="{X:36 Y:-105}" />
+              <X Value="-14" />
               <Y Value="-185" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -478,6 +482,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -573,7 +578,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1600 Y:-1455}" />
+              <InitialPosition Value="{X:1487 Y:-1455}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -582,8 +587,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1598 Y:-1455}" />
-              <X Value="1548" />
+              <Center Value="{X:1487 Y:-1455}" />
+              <X Value="1437" />
               <Y Value="-1535" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -658,6 +663,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -753,7 +759,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1228 Y:-1455}" />
+              <InitialPosition Value="{X:1341 Y:-1455}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -762,8 +768,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1229 Y:-1455}" />
-              <X Value="1179" />
+              <Center Value="{X:1340 Y:-1455}" />
+              <X Value="1290" />
               <Y Value="-1535" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -838,6 +844,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -933,7 +940,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1319 Y:-1455}" />
+              <InitialPosition Value="{X:1552 Y:-1455}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -942,8 +949,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1320 Y:-1455}" />
-              <X Value="1270" />
+              <Center Value="{X:1552 Y:-1455}" />
+              <X Value="1502" />
               <Y Value="-1535" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -971,7 +978,7 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -1017,7 +1024,8 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -1113,7 +1121,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1835 Y:-455}" />
+              <InitialPosition Value="{X:1998 Y:-455}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1122,8 +1130,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1833 Y:-455}" />
-              <X Value="1783" />
+              <Center Value="{X:1998 Y:-455}" />
+              <X Value="1948" />
               <Y Value="-535" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1198,6 +1206,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Right" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>
@@ -1293,7 +1302,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2060 Y:-455}" />
+              <InitialPosition Value="{X:1894 Y:-455}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1302,8 +1311,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2061 Y:-455}" />
-              <X Value="2011" />
+              <Center Value="{X:1893 Y:-455}" />
+              <X Value="1843" />
               <Y Value="-535" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1378,6 +1387,7 @@
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
               <CurrentSide Value="Left" />
+              <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
           </EnemyCore>

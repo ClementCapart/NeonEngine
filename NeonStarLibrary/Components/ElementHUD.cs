@@ -53,13 +53,14 @@ namespace NeonStarLibrary.Components.HUD
             set { _thunderReadySpriteSheetTag = value; }
         }
 
-        private float _testValue = 0.0f;
+        private string _increaseLevelSpriteSheetTag = "";
 
-        public float TestValue
+        public string IncreaseLevelSpriteSheetTag
         {
-            get { return _testValue; }
-            set { _testValue = value; }
+            get { return _increaseLevelSpriteSheetTag; }
+            set { _increaseLevelSpriteSheetTag = value; }
         }
+
         #endregion
 
         private Entity _avatar = null;
@@ -80,6 +81,8 @@ namespace NeonStarLibrary.Components.HUD
 
         private Texture2D _leftAddedSlot = null;
         private Texture2D _rightAddedSlot = null;
+
+        private SpriteSheetInfo _increaseElementLevel = null;
 
         private Vector2 _leftBaseOffset = new Vector2(-208, -22);
         private Vector2 _rightBaseOffset = new Vector2(-88, -22);
@@ -111,6 +114,8 @@ namespace NeonStarLibrary.Components.HUD
             _rightSlotFullAnimation = new SpriteSheet(entity);
             _leftSlotFullAnimation.Offset = _leftBaseOffset;
             _rightSlotFullAnimation.Offset = _rightBaseOffset;
+
+            _increaseElementLevel = AssetManager.GetSpriteSheet(_increaseLevelSpriteSheetTag);
 
             base.Init();
         }
@@ -234,6 +239,13 @@ namespace NeonStarLibrary.Components.HUD
                 else
                     EffectsManager.GetEffect(_elementLoss, Side.Right, entity.transform.Position + Offset + new Vector2(_elementLoss.FrameWidth / 2, 0 * (_fireElementHUD.Height * 2)) + new Vector2(22, 9) + new Vector2(column * 120, 0), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
             }
+        }
+
+        public void UpgradeMaxLevel(int level)
+        {
+            if(level > 1)
+                if(_increaseElementLevel != null)
+                    EffectsManager.GetEffect(_increaseElementLevel, Side.Right, entity.transform.Position + Offset + new Vector2(105, 25), 0.0f, Vector2.Zero, 2.0f, 1.0f, null, 0.0f, false, true);
         }
     }
 }

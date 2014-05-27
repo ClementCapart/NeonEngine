@@ -148,6 +148,8 @@ namespace NeonStarLibrary.Components.Avatar
         private float _stunLockDuration = 0.0f;
         private float _invincibilityTimer = 0.0f;
         private float _airLockDuration = 0.0f;
+
+        public float IdleTimer = 0.0f;
         
         private bool _opacityGoingDown = true;
         private SpriteSheetInfo _hitGuardSpritesheet = null;
@@ -288,7 +290,12 @@ namespace NeonStarLibrary.Components.Avatar
             TotalGameTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             TimeSinceLastDeath += (float)gameTime.ElapsedGameTime.TotalSeconds;
             TimeSinceLastCompletion += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            
+
+            if (State != AvatarState.Idle || !entity.rigidbody.isGrounded)
+                IdleTimer = 0.0f;
+            else
+                IdleTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (State == AvatarState.FastRespawning)
             {
                 CanMove = false;

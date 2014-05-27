@@ -290,6 +290,22 @@ namespace NeonStarLibrary.Components.Avatar
             get { return _elementSlotCooldownDuration; }
             set { _elementSlotCooldownDuration = value; }
         }
+
+        private float _idleCooldownThreshold = 1.0f;
+
+        public float IdleCooldownThreshold
+        {
+            get { return _idleCooldownThreshold; }
+            set { _idleCooldownThreshold = value; }
+        }
+
+        private float _idleCooldownRatio = 3.0f;
+
+        public float IdleCooldownRatio
+        {
+            get { return _idleCooldownRatio; }
+            set { _idleCooldownRatio = value; }
+        }
         #endregion     
 
         public AvatarCore AvatarComponent = null;
@@ -376,18 +392,15 @@ namespace NeonStarLibrary.Components.Avatar
                         }
                         if (higherCooldown != null)
                         {
-                            higherCooldown.Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                            higherCooldown.Cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds * (AvatarComponent.IdleTimer >= _idleCooldownThreshold ? _idleCooldownRatio : 1);
                             if (higherCooldown.Cooldown <= 0.0f)
                             {
                                 higherCooldown.Cooldown = 0.0f;
                                 _hud.CooldownFinished(highestCooldownRow, i);
                             }
                         }
-
-
-
                     }
-
                 }
 
                 ElementSlots[0] = ElementSlots[0].OrderBy(e => e.Cooldown).ToArray();
@@ -721,6 +734,9 @@ namespace NeonStarLibrary.Components.Avatar
                     }
                 }
             }
+
+            if(_hud != null)
+                _hud.UpgradeMaxLevel((int)MaxLevel);
         }
     }
 }
