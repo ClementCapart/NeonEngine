@@ -94,6 +94,10 @@ namespace NeonEngine.Components.Text2D
                 {
                     size = _font.MeasureString(_text);
                 }
+                else
+                {
+                    size = _font.MeasureString(_text) / 2;
+                }
 
                 if (_outline)
                 {
