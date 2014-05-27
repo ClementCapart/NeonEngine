@@ -131,6 +131,8 @@ namespace NeonStarLibrary.Components.Scripts
                 _arrowDown.Active = false;
                 if (_liOn != null)
                 {
+                    if (_liOn.MeleeFight != null && _liOn.MeleeFight.CurrentAttack != null)
+                        _liOn.MeleeFight.CurrentAttack.CancelAttack();
                     _liOn.ThirdPersonController.FallSpeedLimit = false;
                     _liOn.CanAttack = false;
                     _liOn.entity.rigidbody.BodyType = FarseerPhysics.Dynamics.BodyType.Kinematic;

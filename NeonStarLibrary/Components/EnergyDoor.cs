@@ -86,6 +86,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         entity.rigidbody.IsGround = false;
                         entity.rigidbody.Init();
                     }
+
+                    if (entity.hitboxes.Count > 0)
+                        entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.OneWay;
                 }           
             }
             else
@@ -100,6 +103,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         entity.rigidbody.Init();
                     }
                     Closed = true;
+
+                    if (entity.hitboxes.Count > 0)
+                        entity.hitboxes[0].Type = NeonEngine.Components.CollisionDetection.HitboxType.Solid;
                 }
             }
          

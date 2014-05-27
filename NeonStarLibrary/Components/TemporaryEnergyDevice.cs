@@ -1,4 +1,5 @@
 ﻿using NeonEngine;
+using NeonEngine.Components.Graphics2D;
 using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
 using System;
@@ -63,6 +64,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
         private float _activationTimer = 0.0f;
         private bool _activated = false;
 
+        private List<SpritesheetManager> _spritesheetManagers;
+
         public TemporaryEnergyDevice(Entity entity)
             :base(entity)
         {
@@ -70,7 +73,8 @@ namespace NeonStarLibrary.Components.EnergyObjects
         }
 
         public override void Init()
-        {         
+        {
+            _spritesheetManagers = entity.GetComponentsByInheritance<SpritesheetManager>();
             base.Init();
         }
 
@@ -97,9 +101,17 @@ namespace NeonStarLibrary.Components.EnergyObjects
             if (entity.spritesheets != null)
             {
                 if (_activated)
-                    entity.spritesheets.ChangeAnimation(_onAnimation, true, 0, true, false, true);
+                {
+                    if (_spritesheetManagers != null)
+                        for (int i = 0; i < _spritesheetManagers.Count; i ++ )
+                            _spritesheetManagers[i].ChangeAnimation(_onAnimation, true, 0, true, false, true);
+                }
                 else
-                    entity.spritesheets.ChangeAnimation(_offAnimation, true, 0, true, false, true);
+                {
+                    if (_spritesheetManagers != null)
+                        for (int i = 0; i < _spritesheetManagers.Count; i++)
+                            entity.spritesheets.ChangeAnimation(_offAnimation, true, 0, true, false, true);
+                } 
             }
             
             base.Update(gameTime);
