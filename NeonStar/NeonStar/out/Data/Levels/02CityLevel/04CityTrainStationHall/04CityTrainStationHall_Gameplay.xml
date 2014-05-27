@@ -405,11 +405,11 @@
               <Type Value="Main" />
               <Center Value="{X:-450 Y:-125}" />
               <X Value="-470" />
-              <Y Value="-200" />
+              <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -422,6 +422,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -437,16 +438,15 @@
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
-              <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
               <MaximumStunlockTime Value="3" />
+              <NickName Value="" />
             </Properties>
           </EnemyCore>
           <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.2" />
+              <ActivationDuration Value="0.32" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -458,7 +458,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:2}" />
+              <Offset Value="{X:0 Y:3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -466,6 +466,26 @@
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-5}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -534,7 +554,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-2}" />
+              <Offset Value="{X:0 Y:-20}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -558,7 +578,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3550 Y:-979}" />
+              <InitialPosition Value="{X:3550 Y:-900}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -567,13 +587,13 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3550 Y:-979}" />
+              <Center Value="{X:3550 Y:-899}" />
               <X Value="3530" />
-              <Y Value="-1054" />
+              <Y Value="-949" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -584,7 +604,7 @@
               <UseGravity Value="True" />
               <Restitution Value="0" />
               <Friction Value="0.3" />
-              <Mass Value="0.59995" />
+              <Mass Value="0.39995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
               <IsGround Value="False" />
@@ -598,7 +618,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.2" />
+              <ActivationDuration Value="0.32" />
               <AttackAddingTimeFromStunLock Value="" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -615,6 +635,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -630,11 +651,30 @@
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
-              <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
               <MaximumStunlockTime Value="3" />
+              <NickName Value="" />
             </Properties>
           </EnemyCore>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-41}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="3.141593" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
+                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
             <Properties>
               <CurrentSide Value="Right" />
@@ -643,10 +683,10 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
-              <RotationOffset Value="3.141593" />
+              <RotationOffset Value="0" />
               <Spritesheets>
-                <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
-                <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -715,7 +755,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-1}" />
+              <Offset Value="{X:0 Y:-20}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />

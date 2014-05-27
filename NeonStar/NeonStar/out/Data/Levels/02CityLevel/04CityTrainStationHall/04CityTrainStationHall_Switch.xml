@@ -18,11 +18,11 @@
               <Type Value="Main" />
               <Center Value="{X:1050 Y:-125}" />
               <X Value="1030" />
-              <Y Value="-200" />
+              <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -35,6 +35,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -50,9 +51,8 @@
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
-              <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
               <MaximumStunlockTime Value="3" />
+              <NickName Value="" />
             </Properties>
           </EnemyCore>
           <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
@@ -71,7 +71,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -81,6 +81,26 @@
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.5" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-5}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
@@ -105,11 +125,11 @@
               <Type Value="Main" />
               <Center Value="{X:3200 Y:-125}" />
               <X Value="3180" />
-              <Y Value="-200" />
+              <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -122,6 +142,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -137,16 +158,15 @@
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
-              <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
               <MaximumStunlockTime Value="3" />
+              <NickName Value="" />
             </Properties>
           </EnemyCore>
           <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.2" />
+              <ActivationDuration Value="0.32" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -158,7 +178,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:2}" />
+              <Offset Value="{X:0 Y:3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -166,6 +186,26 @@
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-5}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -192,11 +232,11 @@
               <Type Value="Main" />
               <Center Value="{X:2450 Y:-125}" />
               <X Value="2430" />
-              <Y Value="-200" />
+              <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -209,6 +249,7 @@
               <ChanceToDropHealth Value="0.6" />
               <HealthItemsToDrop Value="1" />
               <InvincibilityDuration Value="0.5" />
+              <AirImpulsedInAir Value="True" />
               <RunAnim Value="" />
               <IdleAnim Value="" />
               <DyingAnim Value="" />
@@ -224,16 +265,15 @@
               <ComponentToTriggerName Value="TemporaryEnergyDevice" />
               <WaitThreatDuration Value="1" />
               <CurrentSide Value="Right" />
-              <NickName Value="" />
-              <AirImpulsedInAir Value="True" />
               <MaximumStunlockTime Value="3" />
+              <NickName Value="" />
             </Properties>
           </EnemyCore>
           <TemporaryEnergyDevice Type="NeonStarLibrary.Components.EnergyObjects.TemporaryEnergyDevice" ID="4">
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.2" />
+              <ActivationDuration Value="0.32" />
               <AttackAddingTimeFromStunLock Value="LiOnElementThunder1" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -245,7 +285,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
@@ -254,7 +294,27 @@
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
-              <DrawLayer Value="0.5" />
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-5}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />

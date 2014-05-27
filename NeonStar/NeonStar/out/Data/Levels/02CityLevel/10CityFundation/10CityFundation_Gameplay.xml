@@ -499,11 +499,11 @@
             <Properties>
               <Type Value="Main" />
               <Center Value="{X:3025 Y:-360}" />
-              <X Value="2950" />
+              <X Value="2975" />
               <Y Value="-380" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="150" />
+              <Width Value="100" />
               <Height Value="40" />
               <NickName Value="" />
             </Properties>
@@ -586,6 +586,26 @@
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:5 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="1.570796" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="SwitchJumper01" Layer="Gameplay">
@@ -604,11 +624,11 @@
               <Type Value="Main" />
               <Center Value="{X:2000 Y:525}" />
               <X Value="1980" />
-              <Y Value="450" />
+              <Y Value="475" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="40" />
-              <Height Value="150" />
+              <Height Value="100" />
               <NickName Value="" />
             </Properties>
           </Hitbox>
@@ -633,7 +653,7 @@
             <Properties>
               <TriggerFromAllElementsExceptNeutral Value="True" />
               <TriggeringElement Value="Neutral" />
-              <ActivationDuration Value="0.5" />
+              <ActivationDuration Value="0.32" />
               <AttackAddingTimeFromStunLock Value="" />
               <OffAnimation Value="Off" />
               <OnAnimation Value="On" />
@@ -682,6 +702,26 @@
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
+              </Spritesheets>
+              <DrawLayer Value="0.45" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-5}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
+                <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
@@ -750,7 +790,7 @@
             <Properties>
               <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-3}" />
+              <Offset Value="{X:0 Y:-20}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
