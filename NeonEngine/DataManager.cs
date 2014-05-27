@@ -386,8 +386,6 @@ namespace NeonEngine
                         }
                     }
 
-                    component.Init();
-
                     entity.AddComponent(component);
                 }
             }

@@ -149,7 +149,7 @@ namespace NeonStarLibrary.Components.Graphics2D
 
         public void DisplayDamage(float value)
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 int damageValue = (int)Math.Abs(value);
                 TextDisplay td = new TextDisplay(entity);

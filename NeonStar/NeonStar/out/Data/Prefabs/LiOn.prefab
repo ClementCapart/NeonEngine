@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-498 Y:-2093}" />
+          <InitialPosition Value="{X:-3250 Y:-193}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-498 Y:-2093}" />
-          <X Value="-518" />
-          <Y Value="-2161" />
+          <Center Value="{X:-3250 Y:-193}" />
+          <X Value="-3270" />
+          <Y Value="-261" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -43,7 +43,7 @@
       </Rigidbody>
       <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
         <Properties>
-          <CurrentSide Value="Left" />
+          <CurrentSide Value="Right" />
           <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -202,6 +202,8 @@
           <FireGatheringFX Value="FeedbackFireGathering" />
           <GetElementColorDelay Value="0.15" />
           <ElementSlotCooldownDuration Value="5" />
+          <IdleCooldownThreshold Value="1" />
+          <IdleCooldownRatio Value="3" />
           <NickName Value="" />
         </Properties>
       </ElementSystem>
@@ -267,6 +269,32 @@
           <NickName Value="" />
         </Properties>
       </ManagedSoundEmitter>
+      <DamageDisplayer Type="NeonStarLibrary.Components.Graphics2D.DamageDisplayer" ID="15">
+        <Properties>
+          <DrawLayer Value="0.99999" />
+          <Font Value="TimerFont" />
+          <FontColor Value="{R:255 G:0 B:0 A:255}" />
+          <IsOutlined Value="False" />
+          <OutlineWidth Value="0" />
+          <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+          <DisplayerDuration Value="1" />
+          <DamageDisplayLerp Value="0.2" />
+          <DamageMoveLerp Value="0.5" />
+          <StartingOffset Value="{X:0 Y:0}" />
+          <TargetOffset Value="{X:0 Y:0}" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="" />
+        </Properties>
+      </DamageDisplayer>
     </Components>
   </Entity>
 </Prefab>

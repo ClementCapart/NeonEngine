@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NeonStarLibrary.Components;
+using NeonStarLibrary.Components.Graphics2D;
 
 namespace NeonStarLibrary.Components.Avatar
 {
@@ -133,6 +135,7 @@ namespace NeonStarLibrary.Components.Avatar
         public Guard Guard;
         public ElementSystem ElementSystem;
         public EnergySystem EnergySystem;
+        public DamageDisplayer DamageDisplayer;
 
         public Side CurrentSide = Side.Right;
 
@@ -164,6 +167,7 @@ namespace NeonStarLibrary.Components.Avatar
             AvatarAnimationManager = this.entity.GetComponent<AvatarAnimationManager>();
             MeleeFight = this.entity.GetComponent<MeleeFight>();
             ThirdPersonController = this.entity.GetComponent<ThirdPersonController>();
+            DamageDisplayer = this.entity.GetComponent<DamageDisplayer>();
             Guard = this.entity.GetComponent<Guard>();
             ElementSystem = this.entity.GetComponent<ElementSystem>();
             EnergySystem = this.entity.GetComponent<EnergySystem>();
@@ -226,6 +230,10 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     entity.spritesheets.ChangeAnimation(this._hitGuardAnim, true, 0, true, false, false);
                     EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
+                    if (DamageDisplayer != null)
+                    {
+                        DamageDisplayer.DisplayDamage(0);
+                    }
                     return DamageResult.Guarded;
                 }
             }     
@@ -268,6 +276,10 @@ namespace NeonStarLibrary.Components.Avatar
             {
                 IsInvincible = true;
                 _invincibilityTimer = _invincibilityDuration;
+                if (DamageDisplayer != null)
+                {
+                    DamageDisplayer.DisplayDamage(damageValue);
+                }
                 return DamageResult.Effective;
             }
 
