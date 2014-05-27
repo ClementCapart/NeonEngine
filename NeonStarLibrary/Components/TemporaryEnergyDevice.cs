@@ -76,6 +76,19 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             _spritesheetManagers = entity.GetComponentsByInheritance<SpritesheetManager>();
             base.Init();
+
+            if (_activated)
+            {
+                if (_spritesheetManagers != null)
+                    for (int i = 0; i < _spritesheetManagers.Count; i++)
+                        _spritesheetManagers[i].ChangeAnimation(_onAnimation, true, 0, true, false, true);
+            }
+            else
+            {
+                if (_spritesheetManagers != null)
+                    for (int i = 0; i < _spritesheetManagers.Count; i++)
+                        _spritesheetManagers[i].ChangeAnimation(_offAnimation, true, 0, true, false, true);
+            } 
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -110,7 +123,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 {
                     if (_spritesheetManagers != null)
                         for (int i = 0; i < _spritesheetManagers.Count; i++)
-                            entity.spritesheets.ChangeAnimation(_offAnimation, true, 0, true, false, true);
+                            _spritesheetManagers[i].ChangeAnimation(_offAnimation, true, 0, true, false, true);
                 } 
             }
             
