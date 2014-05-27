@@ -418,7 +418,7 @@ namespace NeonStarLibrary.Components.Enemies
                 _airLockDuration = 0.0f;
                 if (DamageDisplayer != null)
                 {
-                    DamageDisplayer.DisplayDamage(damageValue);
+                    DamageDisplayer.DisplayDamage(damageValue, side);
                 }
 
                 foreach (DrawableComponent dc in _drawableComponents)
@@ -466,7 +466,7 @@ namespace NeonStarLibrary.Components.Enemies
 
             if (DamageDisplayer != null)
             {
-                DamageDisplayer.DisplayDamage(damageValue);
+                DamageDisplayer.DisplayDamage(damageValue, side);
             }
 
             return DamageResult.Effective;

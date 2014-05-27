@@ -147,7 +147,7 @@ namespace NeonStarLibrary.Components.Graphics2D
             base.Draw(spriteBatch);
         }
 
-        public void DisplayDamage(float value)
+        public void DisplayDamage(float value, Side sideToUse)
         {
             if (value <= 0)
             {
@@ -161,6 +161,7 @@ namespace NeonStarLibrary.Components.Graphics2D
                 td.OutlineColor = OutlineColor;
                 td.Outline = IsOutlined;
                 td.HasToBeSaved = false;
+                td.CurrentSide = sideToUse;
 
                 DamageDisplayInformation ddi = new DamageDisplayInformation();
                 ddi.TextDisplayer = td;

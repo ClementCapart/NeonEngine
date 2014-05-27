@@ -232,7 +232,7 @@ namespace NeonStarLibrary.Components.Avatar
                     EffectsManager.GetEffect(_hitGuardSpritesheet, CurrentSide, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.9f);
                     if (DamageDisplayer != null)
                     {
-                        DamageDisplayer.DisplayDamage(0);
+                        DamageDisplayer.DisplayDamage(0, side);
                     }
                     return DamageResult.Guarded;
                 }
@@ -278,7 +278,7 @@ namespace NeonStarLibrary.Components.Avatar
                 _invincibilityTimer = _invincibilityDuration;
                 if (DamageDisplayer != null)
                 {
-                    DamageDisplayer.DisplayDamage(damageValue);
+                    DamageDisplayer.DisplayDamage(damageValue, side);
                 }
                 return DamageResult.Effective;
             }
