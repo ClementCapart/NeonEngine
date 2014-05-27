@@ -142,6 +142,7 @@ namespace NeonEngine
             {
                 CommonEffects.Add(Path.GetFileNameWithoutExtension(fx), fx);
                 _commonEffectList.Add(Path.GetFileNameWithoutExtension(fx), Content.Load<Effect>(@"Shaders/" + Path.GetFileNameWithoutExtension(fx)));
+                _commonEffectList.Last().Value.Name = Path.GetFileNameWithoutExtension(fx);
             }
 
             Texture2D fade = new Texture2D(device, Neon.ScreenWidth, Neon.ScreenHeight);
