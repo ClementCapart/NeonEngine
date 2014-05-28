@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1150 Y:-1695}" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -36,9 +36,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1150 Y:-1695}" />
+              <Center Value="{X:1150 Y:-1750}" />
               <X Value="1050" />
-              <Y Value="-1700" />
+              <Y Value="-1755" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -53,7 +53,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1150 Y:-1700}" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -82,9 +82,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1150 Y:-1700}" />
+              <Center Value="{X:1150 Y:-1750}" />
               <X Value="1050" />
-              <Y Value="-1705" />
+              <Y Value="-1755" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -99,7 +99,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1150 Y:-1700}" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -128,9 +128,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:1150 Y:-1700}" />
+              <Center Value="{X:1150 Y:-1750}" />
               <X Value="1050" />
-              <Y Value="-1705" />
+              <Y Value="-1755" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="200" />
@@ -138,56 +138,6 @@
               <NickName Value="" />
             </Properties>
           </Hitbox>
-        </Components>
-      </Entity>
-      <Entity Name="BoundL" Layer="Bounds">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:410 Y:-600}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Left" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
-      <Entity Name="BoundL" Layer="Bounds">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:410 Y:100}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Left" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="0.5" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
         </Components>
       </Entity>
       <Entity Name="BoundL" Layer="Bounds">
@@ -1922,6 +1872,282 @@
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="1250" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG1OnRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG1" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="True" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG1OnRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1750}" />
+              <X Value="1050" />
+              <Y Value="-1755" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG2OnRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG2" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="True" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG2OnRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1750}" />
+              <X Value="1050" />
+              <Y Value="-1755" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG3OnRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1750}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG3" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="True" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG3OnRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1750}" />
+              <X Value="1050" />
+              <Y Value="-1755" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG3OffRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1900}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG3" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="False" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG3OffRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1900}" />
+              <X Value="1050" />
+              <Y Value="-1905" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG2OffRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1900}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG2" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="False" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG2OffRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1900}" />
+              <X Value="1050" />
+              <Y Value="-1905" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="BoundTriggerG1OffRaw" Layer="Bounds">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1150 Y:-1900}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <ChangeBoundState Type="NeonEngine.Components.Camera.ChangeBoundState" ID="3">
+            <Properties>
+              <BoundName Value="BoundLG1" />
+              <SwitchBoundsOnly Value="False" />
+              <EnableBounds Value="False" />
+              <ShouldChangeBoundStrength Value="True" />
+              <TargetBoundStrength Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeBoundState>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="BoundTriggerG1OffRaw" />
+              <TriggeredComponentName Value="ChangeBoundState" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1150 Y:-1900}" />
+              <X Value="1050" />
+              <Y Value="-1905" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="200" />
               <Height Value="10" />
               <NickName Value="" />
             </Properties>
