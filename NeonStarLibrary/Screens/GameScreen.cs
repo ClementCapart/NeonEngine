@@ -269,8 +269,8 @@ namespace NeonStarLibrary
         public override void Update(GameTime gameTime)
         {
 
-            
-            if (!Pause)
+
+            if (!Pause && !ForcedPause)
             {
                 if (MustFollowAvatar && Avatar != null && _avatarComponent != null && _avatarComponent.CurrentHealthPoints > 0.0f && CameraFocus != null && this.NextScreen == null)
                 {

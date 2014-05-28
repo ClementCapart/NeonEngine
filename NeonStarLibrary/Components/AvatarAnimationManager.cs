@@ -32,6 +32,14 @@ namespace NeonStarLibrary.Components.Avatar
                 entity.spritesheets.ChangeSide(AvatarComponent.CurrentSide);
                 switch (AvatarComponent.State)
                 {
+                    case AvatarState.Dying:
+                        if (entity.spritesheets != null && entity.spritesheets.CurrentSpritesheetName != AvatarComponent.DeathAnimation)
+                        {
+                            entity.spritesheets.ChangeAnimation(AvatarComponent.DeathAnimation, true, 1, true, false, false);
+                            entity.GameWorld.ForcePause(0.10f);
+                            entity.GameWorld.PostEffect("Negative", 0.10f);
+                        }
+                        break;
 
                     case AvatarState.Saving:
                         if (entity.spritesheets != null)

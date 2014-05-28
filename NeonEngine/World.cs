@@ -57,6 +57,8 @@ namespace NeonEngine
         public string LevelFilePath;
 
         public bool Pause = false;
+        public bool ForcedPause = false;
+        private float _forcedPauseTimer = 0.0f;
 
         public bool ShouldChangeAlpha = false;
 
@@ -66,6 +68,11 @@ namespace NeonEngine
         public Game game;
 
         public bool MustSoftenBounds = true;
+
+        public float PlayRatio = 1f;
+        private float _slowMoDuration = 0.0f;
+
+        private float _effectDuration;
 
         public World(Game game)
         {
@@ -141,34 +148,41 @@ namespace NeonEngine
             SoundManager.Update(gameTime);
             Neon.ElapsedTime = gameTime.ElapsedGameTime.Milliseconds;
 
+            
+            if (PlayRatio != 1.0f)
+            {
+                TimeSpan timeRatio = new TimeSpan((long)(gameTime.ElapsedGameTime.Ticks * PlayRatio));
+                gameTime = new GameTime(gameTime.TotalGameTime, timeRatio);
+            }
+
             PreUpdate(gameTime);
 
-            if(!Pause)
+            if(!Pause && !ForcedPause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
                     Entities[i].PreUpdate(gameTime);
 
             Update(gameTime);
 
-            if(!Pause)
+            if (!Pause && !ForcedPause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
-                    Entities[i].Update(gameTime);     
+                    Entities[i].Update(gameTime);
 
-            if(!Pause)
+            if (!Pause && !ForcedPause)
                 for(int i = SpecialEffects.Count - 1; i >= 0; i--)
                     SpecialEffects[i].Update(gameTime);
 
-            if (!Pause)
+            if (!Pause && !ForcedPause)
                 PhysicWorld.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             PostUpdate(gameTime);
 
-            if(!Pause)
+            if (!Pause && !ForcedPause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
                     Entities[i].PostUpdate(gameTime);
 
             FinalUpdate(gameTime);
 
-            if (!Pause)
+            if (!Pause && !ForcedPause)
                 for (int i = Entities.Count - 1; i >= 0; i--)
                     Entities[i].FinalUpdate(gameTime);
 
@@ -200,6 +214,32 @@ namespace NeonEngine
             InputEngine();
             //Console.WriteLine((1000.0f / gameTime.ElapsedGameTime.TotalMilliseconds) + "FPS");
             Neon.Input.LastFrameState();
+            if (ForcedPause)
+                if (_forcedPauseTimer <= 0.0f)
+                {
+                    _forcedPauseTimer = 0.0f;
+                    ForcedPause = false;
+                }
+                else
+                    _forcedPauseTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (PlayRatio != 1.0f)
+                if (_slowMoDuration <= 0.0f)
+                {
+                    _slowMoDuration = 0.0f;
+                    PlayRatio = 1.0f;
+                }
+                else
+                    _slowMoDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (ScreenEffect != null)
+                if (_effectDuration <= 0.0f)
+                {
+                    _effectDuration = 0.0f;
+                    ScreenEffect = null;
+                }
+                else
+                    _effectDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             Camera.MovedLastFrame = false;
             if (FirstUpdateWorld) FirstUpdateWorld = false;
         }
@@ -324,6 +364,24 @@ namespace NeonEngine
 
         public virtual void ManualDrawGame(SpriteBatch spriteBatch)
         {
+        }
+
+        public virtual void ForcePause(float duration)
+        {
+            _forcedPauseTimer = duration;
+            ForcedPause = true;
+        }
+
+        public virtual void SlowMo(float timeRatio, float duration)
+        {
+            PlayRatio = timeRatio;
+            _slowMoDuration = duration;
+        }
+
+        public virtual void PostEffect(string name, float duration)
+        {
+            ScreenEffect = AssetManager.GetEffect(name);
+            _effectDuration = duration;
         }
 
         public virtual void AddEntity(Entity newEntity)

@@ -111,6 +111,14 @@ namespace NeonStarLibrary.Components.Avatar
             get { return _respawnAnimation; }
             set { _respawnAnimation = value; }
         }
+
+        private string _deathAnimation = "";
+
+        public string DeathAnimation
+        {
+            get { return _deathAnimation; }
+            set { _deathAnimation = value; }
+        }
         #endregion       
 
         public static int AvatarDeath = 0;
@@ -153,7 +161,7 @@ namespace NeonStarLibrary.Components.Avatar
         private float _airLockDuration = 0.0f;
 
         public float IdleTimer = 0.0f;
-        
+
         private bool _opacityGoingDown = true;
         private SpriteSheetInfo _hitGuardSpritesheet = null;
 
@@ -336,7 +344,7 @@ namespace NeonStarLibrary.Components.Avatar
                     State = AvatarState.Dying;
                     if (entity.rigidbody != null)
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
-                    
+
                     ///////////////////
                     AvatarDeath++;
                     TimeBeforeDeaths.Add(TimeSinceLastDeath);
@@ -344,8 +352,6 @@ namespace NeonStarLibrary.Components.Avatar
                     HealedHealthPointsBeforeDeaths.Add(HealedHealthPointsSinceLastDeath);
                     HealedHealthPointsSinceLastDeath = 0.0f;
                     //////////////////
-
-                    (this.entity.GameWorld as GameScreen).Respawn();
                 }
                 else if (_airLockDuration > 0.0f && IsAirLocked)
                 {
@@ -381,6 +387,14 @@ namespace NeonStarLibrary.Components.Avatar
 
         public override void Update(GameTime gameTime)
         {
+            if(State == AvatarState.Dying)
+            {
+                if (entity.spritesheets != null && entity.spritesheets.IsFinished() && Neon.World.NextScreen == null)
+                {
+                    (this.entity.GameWorld as GameScreen).Respawn();
+                }
+            }
+                
             if (State != AvatarState.Dying && State != AvatarState.FastRespawning && State != AvatarState.Saving && State != AvatarState.FinishSaving)
             {
                 if (_invincibilityTimer > 0.0f)
