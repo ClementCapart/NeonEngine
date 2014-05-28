@@ -10,6 +10,14 @@ namespace NeonEngine.Components.Text2D
 {
     public class TextDisplay : DrawableComponent
     {
+        private bool _useRightCentering = false;
+
+        public bool UseRightCentering
+        {
+            get { return _useRightCentering; }
+            set { _useRightCentering = value; }
+        }
+
         private bool _useTextCentering = false;
 
         public bool UseTextCentering
@@ -90,11 +98,11 @@ namespace NeonEngine.Components.Text2D
             if (_active)
             {
                 Vector2 size = Vector2.Zero;
-                if (_useTextCentering)
+                if (_useRightCentering)
                 {
                     size = _font.MeasureString(_text);
                 }
-                else
+                else if(_useTextCentering)
                 {
                     size = _font.MeasureString(_text) / 2;
                 }

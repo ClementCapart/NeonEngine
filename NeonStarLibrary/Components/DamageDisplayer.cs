@@ -109,6 +109,7 @@ namespace NeonStarLibrary.Components.Graphics2D
         #endregion
 
         private List<DamageDisplayInformation> _displayers;
+        private SpriteFont _guardFont;
 
         public DamageDisplayer(Entity entity)
             :base(0.99999f, entity, "DamageDisplayer")
@@ -118,6 +119,7 @@ namespace NeonStarLibrary.Components.Graphics2D
         public override void Init()
         {
             _displayers = new List<DamageDisplayInformation>();
+            _guardFont = TextManager.FontList["GuardFont"];
             base.Init();
         }
 
@@ -132,7 +134,8 @@ namespace NeonStarLibrary.Components.Graphics2D
                 else
                 {
                     SmoothInterpolate(ddi);
-                    ddi.TextDisplayer.Text = Math.Floor(ddi.CurrentValue).ToString();
+                    float value = (float)Math.Floor(ddi.CurrentValue);
+                    ddi.TextDisplayer.Text = value == 0 ? "Guard" : value.ToString();
                 }
             }
             base.Update(gameTime);
@@ -154,10 +157,11 @@ namespace NeonStarLibrary.Components.Graphics2D
                 int damageValue = (int)Math.Abs(value);
                 TextDisplay td = new TextDisplay(entity);
                 td.DrawLayer = DrawLayer;
-                td.Font = Font;
+                td.Font = value == 0 ? _guardFont : Font;
                 td.TextColor = _fontColor;
                 td.Offset = _startingOffset;
                 td.OutlineDisplacement = OutlineWidth;
+                td.UseTextCentering = true;
                 td.OutlineColor = OutlineColor;
                 td.Outline = IsOutlined;
                 td.HasToBeSaved = false;
