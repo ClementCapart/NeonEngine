@@ -179,7 +179,7 @@ namespace NeonEngine.Components.Graphics2D
             }
         }
 
-        public void ChangeAnimation(string spriteSheetName, bool forceSwitch = false, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
+        public virtual void ChangeAnimation(string spriteSheetName, bool forceSwitch = false, int priority = 0, bool IsPlaying = true, bool Reset = false, bool Loop = true, int StartingFrame = -1)
         {
             if (!forceSwitch && !CurrentSpritesheet.IsLooped && !CurrentSpritesheet.IsFinished)
                 return;
