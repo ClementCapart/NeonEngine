@@ -206,6 +206,42 @@
           </HitboxTrigger>
         </Components>
       </Entity>
+      <Entity Name="OpenDoorTrigger" Layer="Trigger">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-3250 Y:-225}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="DoorTrain" />
+              <TriggeredComponentName Value="TriggeredAnimation" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-3250 Y:-225}" />
+              <X Value="-3275" />
+              <Y Value="-325" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="200" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
