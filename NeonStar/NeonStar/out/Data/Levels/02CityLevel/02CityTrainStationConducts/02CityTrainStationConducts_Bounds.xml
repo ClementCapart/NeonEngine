@@ -2,31 +2,6 @@
 <XnaContent>
   <Level Layer="Bounds">
     <Entities>
-      <Entity Name="BoundLA1" Layer="Bounds">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3250 Y:-1650}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="True" />
-              <SoftBound Value="True" />
-              <BoundSide Value="Left" />
-              <BoundStrength Value="0" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="2" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
-        </Components>
-      </Entity>
       <Entity Name="TriggerBoundLA1Off" Layer="Bounds">
         <Components>
           <Transform Type="NeonEngine.Private.Transform" ID="0">
@@ -117,31 +92,6 @@
               <NickName Value="" />
             </Properties>
           </Hitbox>
-        </Components>
-      </Entity>
-      <Entity Name="BoundL" Layer="Bounds">
-        <Components>
-          <Transform Type="NeonEngine.Private.Transform" ID="0">
-            <Properties>
-              <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3250 Y:-2250}" />
-              <Rotation Value="0" />
-              <Scale Value="1" />
-              <NickName Value="" />
-            </Properties>
-          </Transform>
-          <CameraBound Type="NeonEngine.Components.Camera.CameraBound" ID="1">
-            <Properties>
-              <ReverseBound Value="False" />
-              <SoftBound Value="False" />
-              <BoundSide Value="Left" />
-              <BoundStrength Value="1" />
-              <SoftBoundStrength Value="1" />
-              <StrengtheningRate Value="2" />
-              <Enabled Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </CameraBound>
         </Components>
       </Entity>
       <Entity Name="TriggerBoundLA1OnRaw" Layer="Bounds">
