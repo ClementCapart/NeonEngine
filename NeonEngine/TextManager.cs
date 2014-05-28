@@ -17,6 +17,7 @@ namespace NeonEngine
             FontList.Add("HUDFont", AssetManager.Content.Load<SpriteFont>("HealthPoints"));
             FontList.Add("EnergyFont", AssetManager.Content.Load<SpriteFont>("EnergyPoints"));
             FontList.Add("HUDEnergyFont", AssetManager.Content.Load<SpriteFont>("HUDEnergyPoints"));
+            FontList.Add("GuardFont", AssetManager.Content.Load<SpriteFont>("Guard"));
         }
     }
 }
