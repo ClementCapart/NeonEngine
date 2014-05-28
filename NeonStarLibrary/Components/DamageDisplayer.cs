@@ -158,9 +158,9 @@ namespace NeonStarLibrary.Components.Graphics2D
                 TextDisplay td = new TextDisplay(entity);
                 td.DrawLayer = DrawLayer;
                 td.Font = value == 0 ? _guardFont : Font;
-                td.TextColor = _fontColor;
+                td.TextColor = value == 0 ? Color.FromNonPremultiplied(48, 132, 192, 255) : _fontColor;
                 td.Offset = _startingOffset;
-                td.OutlineDisplacement = OutlineWidth;
+                td.OutlineDisplacement = value == 0 ? OutlineWidth - 1 : OutlineWidth;
                 td.UseTextCentering = true;
                 td.OutlineColor = OutlineColor;
                 td.Outline = IsOutlined;

@@ -225,7 +225,8 @@ namespace NeonEngine.Components.CollisionDetection
             }
         }
 
-        private List<Contact> _currentContacts = null;       
+        private List<Contact> _currentContacts = null;
+        public Entity CurrentGround;
 
         public Rigidbody(Entity entity)
             :base(entity, "Rigidbody")
@@ -405,7 +406,11 @@ namespace NeonEngine.Components.CollisionDetection
                         beacon.Update(gameTime);
                         Rigidbody rg = beacon.CheckGround(Vector2.Zero, body);
                         if (rg != null)
-                            isGrounded = rg.isGround ? true : false;
+                            CurrentGround = rg.entity;
+                        else
+                            CurrentGround = null;
+                        if (CurrentGround != null && CurrentGround.rigidbody != null)
+                            isGrounded = CurrentGround.rigidbody.isGround ? true : false;
                         else
                             isGrounded = false;
                         if (!isGrounded && !body.Awake)

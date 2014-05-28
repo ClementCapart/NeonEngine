@@ -140,6 +140,7 @@ namespace NeonStarLibrary
                     if (a != null)
                     {
                         Entity e = new Entity(_entity.GameWorld);
+                        e.Name = "CrystalPlatform";
                         e.transform.Scale = 2.0f;
                         e.transform.Position = _entity.transform.Position + new Vector2(a.AttackInfo.Hitboxes[0].X * (a.CurrentSide == Side.Right ? 1 : -1), a.AttackInfo.Hitboxes[0].Y);
                         e.Layer = "Lock";

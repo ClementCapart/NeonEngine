@@ -146,6 +146,7 @@ namespace NeonStarLibrary.Components.Avatar
         public DamageDisplayer DamageDisplayer;
 
         public Side CurrentSide = Side.Right;
+        private Side _lastImpactSide = Side.Right;
 
         public bool CanMove = true;
         public bool CanTurn = true;
@@ -288,6 +289,7 @@ namespace NeonStarLibrary.Components.Avatar
                 {
                     DamageDisplayer.DisplayDamage(damageValue, side);
                 }
+                _lastImpactSide = side;
                 return DamageResult.Effective;
             }
 
@@ -311,8 +313,11 @@ namespace NeonStarLibrary.Components.Avatar
             TimeSinceLastDeath += (float)gameTime.ElapsedGameTime.TotalSeconds;
             TimeSinceLastCompletion += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (State != AvatarState.Idle || !entity.rigidbody.isGrounded)
+            if (State != AvatarState.Idle || !entity.rigidbody.isGrounded || (entity.rigidbody.isGrounded && entity.rigidbody.CurrentGround != null && entity.rigidbody.CurrentGround.Name == "CrystalPlatform"))
+            {
+
                 IdleTimer = 0.0f;
+            }
             else
                 IdleTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -345,13 +350,12 @@ namespace NeonStarLibrary.Components.Avatar
                     if (entity.rigidbody != null)
                         entity.rigidbody.body.LinearVelocity = Vector2.Zero;
 
-                    ///////////////////
+                    CurrentSide = _lastImpactSide == Side.Left ? Side.Right : Side.Left;
                     AvatarDeath++;
                     TimeBeforeDeaths.Add(TimeSinceLastDeath);
                     TimeSinceLastDeath = 0.0f;
                     HealedHealthPointsBeforeDeaths.Add(HealedHealthPointsSinceLastDeath);
                     HealedHealthPointsSinceLastDeath = 0.0f;
-                    //////////////////
                 }
                 else if (_airLockDuration > 0.0f && IsAirLocked)
                 {
