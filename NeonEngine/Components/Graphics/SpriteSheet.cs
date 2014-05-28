@@ -129,7 +129,7 @@ namespace NeonEngine.Components.Graphics2D
             this.entity = entity;
         }
 
-        private Particle particle;
+        protected Particle particle;
 
         public SpriteSheet(SpriteSheetInfo ssi, float Layer, Particle particle)
             : base(0.5f, null, "Spritesheet")
@@ -372,8 +372,6 @@ namespace NeonEngine.Components.Graphics2D
                 {
                     if (currentFrame >= 0 && currentFrame <= spriteSheetInfo.Frames.Length - 1)
                     {
-                        if(CurrentEffect.Name == "Outline")
-                            CurrentEffect.Parameters["PixelSize"].SetValue(new Vector2(1 / spriteSheetInfo.FrameWidth * 2, 1 / spriteSheetInfo.FrameHeight * 2));
                         CurrentEffect.CurrentTechnique.Passes[0].Apply();
                         spritebatch.Draw(spriteSheetInfo.Frames[currentFrame], new Vector2((int)(entity.transform.Position.X + ((CurrentSide == Side.Right ? (int)CurrentOffset.X + (int)Offset.X : -(int)CurrentOffset.X - (int)Offset.X) * entity.transform.Scale)), (int)(entity.transform.Position.Y + (((int)CurrentOffset.Y + Offset.Y) * entity.transform.Scale))) + _parallaxPosition, null,
                             Color.Lerp(Color.Transparent, Tint ? Color.Lerp(Color.White, TintColor, 0.5f) : MainColor, Opacity), RotationOffset, new Vector2(spriteSheetInfo.FrameWidth / 2, spriteSheetInfo.FrameHeight / 2) + RotationCenter, entity.transform.Scale, CurrentSide == Side.Right ? SpriteEffects.None : SpriteEffects.FlipHorizontally, Layer);
