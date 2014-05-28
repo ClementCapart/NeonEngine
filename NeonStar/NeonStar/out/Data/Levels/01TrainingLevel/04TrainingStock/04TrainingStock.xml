@@ -2334,7 +2334,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1618 Y:-230}" />
+              <InitialPosition Value="{X:-1618 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2373,7 +2373,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1285 Y:-230}" />
+              <InitialPosition Value="{X:-1285 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2412,7 +2412,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-1017 Y:-230}" />
+              <InitialPosition Value="{X:-1017 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2451,7 +2451,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-385 Y:-230}" />
+              <InitialPosition Value="{X:-385 Y:-229}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2490,7 +2490,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:383 Y:-87}" />
+              <InitialPosition Value="{X:383 Y:-91}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2529,7 +2529,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:667 Y:-87}" />
+              <InitialPosition Value="{X:667 Y:-88}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2568,7 +2568,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:832 Y:-87}" />
+              <InitialPosition Value="{X:832 Y:-88}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2607,7 +2607,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1366 Y:-87}" />
+              <InitialPosition Value="{X:1366 Y:-118}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3260,6 +3260,8 @@
           </Spritesheet>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseRightCentering Value="False" />
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
               <Text Value="Guard repel projectiles" />
@@ -3281,6 +3283,184 @@
               <NickName Value="" />
             </Properties>
           </TextDisplay>
+        </Components>
+      </Entity>
+      <Entity Name="CubeDressing" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-2805 Y:-956}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:-2805 Y:-955}" />
+              <X Value="-3330" />
+              <Y Value="-1380" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="1050" />
+              <Height Value="850" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_2-{X:200 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_1-{X:600 Y:0}_0-{X:700 Y:0}_2-{X:750 Y:0}_BOT_0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_2-{X:300 Y:0}_2-{X:500 Y:0}_0-{X:700 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_0-{X:850 Y:0}_0-{X:900 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:200}_0-{X:0 Y:400}_2-{X:0 Y:450}_0-{X:0 Y:650}_0-{X:0 Y:700}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_1-{X:0 Y:400}_0-{X:0 Y:500}_0-{X:0 Y:550}_0-{X:0 Y:600}_1-{X:0 Y:650}" />
+              <DrawLayer Value="0.812" />
+              <TopCornerGraphicTag Value="FloorCorner" />
+              <BottomCornerGraphicTag Value="CeilingCorner" />
+              <FirstBottomTileGraphicTag Value="Ceiling50" />
+              <SecondBottomTileGraphicTag Value="Ceiling100" />
+              <ThirdBottomTileGraphicTag Value="Ceiling200" />
+              <FirstTopTileGraphicTag Value="Floor50" />
+              <SecondTopTileGraphicTag Value="Floor100" />
+              <ThirdTopTileGraphicTag Value="Floor200" />
+              <FirstWallTileGraphicTag Value="Wall50" />
+              <SecondWallTileGraphicTag Value="Wall100" />
+              <ThirdWallTileGraphicTag Value="Wall200" />
+              <CenterTileGraphicTag Value="VioletTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="1" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="3">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_2-{X:100 Y:0}_2-{X:300 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_0-{X:800 Y:0}_BOT_2-{X:0 Y:0}_2-{X:200 Y:0}_1-{X:400 Y:0}_1-{X:500 Y:0}_0-{X:600 Y:0}_0-{X:650 Y:0}_0-{X:700 Y:0}_1-{X:750 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:200}_0-{X:0 Y:400}_1-{X:0 Y:450}_0-{X:0 Y:550}_0-{X:0 Y:600}_RIGHT_0-{X:0 Y:0}_0-{X:0 Y:50}_1-{X:0 Y:100}_0-{X:0 Y:200}_0-{X:0 Y:250}_2-{X:0 Y:300}_1-{X:0 Y:500}_0-{X:0 Y:600}" />
+              <DrawLayer Value="0.812" />
+              <TopCornerGraphicTag Value="SecondFloorCorner" />
+              <BottomCornerGraphicTag Value="SecondFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="SecondFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="SecondFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="SecondFloorReverse200" />
+              <FirstTopTileGraphicTag Value="SecondFloor50" />
+              <SecondTopTileGraphicTag Value="SecondFloor100" />
+              <ThirdTopTileGraphicTag Value="SecondFloor200" />
+              <FirstWallTileGraphicTag Value="SecondFloorVertical50" />
+              <SecondWallTileGraphicTag Value="SecondFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="SecondFloorVertical200" />
+              <CenterTileGraphicTag Value="" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="2" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="4">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_2-{X:450 Y:0}_BOT_0-{X:0 Y:0}_1-{X:50 Y:0}_1-{X:150 Y:0}_1-{X:250 Y:0}_1-{X:350 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_LEFT_1-{X:0 Y:0}_2-{X:0 Y:100}_1-{X:0 Y:300}_0-{X:0 Y:400}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_0-{X:0 Y:400}" />
+              <DrawLayer Value="0.812" />
+              <TopCornerGraphicTag Value="ThirdFloorCorner" />
+              <BottomCornerGraphicTag Value="ThirdFloorCornerReverse" />
+              <FirstBottomTileGraphicTag Value="ThirdFloorReverse50" />
+              <SecondBottomTileGraphicTag Value="ThirdFloorReverse100" />
+              <ThirdBottomTileGraphicTag Value="ThirdFloorReverse200" />
+              <FirstTopTileGraphicTag Value="ThirdFloor50" />
+              <SecondTopTileGraphicTag Value="ThirdFloor100" />
+              <ThirdTopTileGraphicTag Value="ThirdFloor200" />
+              <FirstWallTileGraphicTag Value="ThirdFloorVertical50" />
+              <SecondWallTileGraphicTag Value="ThirdFloorVertical100" />
+              <ThirdWallTileGraphicTag Value="ThirdFloorVertical200" />
+              <CenterTileGraphicTag Value="" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="3" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="5">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="89.24995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="ElectricFloorCorner9" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1366 Y:-88}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="ElectricFloorCornerReverse" />
+              <DrawLayer Value="0.6" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
     </Entities>
