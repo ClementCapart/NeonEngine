@@ -72,6 +72,7 @@ namespace NeonEngine
         public float PlayRatio = 1f;
         private float _slowMoDuration = 0.0f;
 
+        public Effect TemporaryEffect;
         private float _effectDuration;
 
         public World(Game game)
@@ -231,11 +232,11 @@ namespace NeonEngine
                 else
                     _slowMoDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (ScreenEffect != null)
+            if (TemporaryEffect != null)
                 if (_effectDuration <= 0.0f)
                 {
                     _effectDuration = 0.0f;
-                    ScreenEffect = null;
+                    TemporaryEffect = null;
                 }
                 else
                     _effectDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -327,16 +328,29 @@ namespace NeonEngine
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            if (ScreenEffect != null)
+            if (ScreenEffect != null || TemporaryEffect != null)
             {
-                foreach (EffectPass p in ScreenEffect.CurrentTechnique.Passes)
+                if (ScreenEffect != null)
                 {
-                    p.Apply();
-                    spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
+                    foreach (EffectPass p in ScreenEffect.CurrentTechnique.Passes)
+                    {
+                        p.Apply();
+                        spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
+                    }
+                }
+
+                if (TemporaryEffect != null)
+                {
+                    foreach (EffectPass p in TemporaryEffect.CurrentTechnique.Passes)
+                    {
+                        p.Apply();
+                        spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
+                    }
                 }
             }
             else
                 spriteBatch.Draw(_defferedDrawing, Vector2.Zero, Color.White);
+
 
 
             spriteBatch.End();
@@ -380,7 +394,7 @@ namespace NeonEngine
 
         public virtual void PostEffect(string name, float duration)
         {
-            ScreenEffect = AssetManager.GetEffect(name);
+            TemporaryEffect = AssetManager.GetEffect(name);
             _effectDuration = duration;
         }
 

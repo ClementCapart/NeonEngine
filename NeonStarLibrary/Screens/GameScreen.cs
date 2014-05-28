@@ -313,7 +313,7 @@ namespace NeonStarLibrary
 
             }
 
-            if (Neon.Input.Pressed(Buttons.Back) && !Pause)
+            if (Neon.Input.Pressed(Buttons.Back) && !Pause && LevelGroupName == "02CityLevel")
             {
                 Map.RefreshMapData();
                 Neon.World = Map;              

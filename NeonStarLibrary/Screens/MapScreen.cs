@@ -30,6 +30,11 @@ namespace NeonStarLibrary
         private float _topSide = float.MaxValue;
         private float _bottomSide = float.MinValue;
 
+        private float _colorValue = 1.0f;
+        private bool _goingUp = false;
+
+        private Graphic _currentMap;
+
         private float _border = 200.0f;
 
         public MapScreen(Game game)
@@ -71,6 +76,36 @@ namespace NeonStarLibrary
                     Camera.Position -= new Vector2(0, _cameraSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
                 
             }
+
+            if (_currentMap != null)
+            {
+                _currentMap.CurrentEffect.Parameters["ColorToUse"].SetValue(Color.Lerp(Color.Black, Color.FromNonPremultiplied(150, 31, 31, 255), _colorValue).ToVector4());
+                if (_goingUp)
+                {
+                    if (_colorValue < 1.0f)
+                    {
+                        _colorValue += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.5f;
+                    }
+                    else
+                    {
+                        _colorValue = 1.0f;
+                        _goingUp = false;
+                    }
+                }
+                else
+                {
+                    if (_colorValue > 0.3f)
+                    {
+                        _colorValue -= (float)gameTime.ElapsedGameTime.TotalSeconds * 0.5f;
+                    }
+                    else
+                    {
+                        _colorValue = 0.3f;
+                        _goingUp = true;
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 
@@ -122,9 +157,10 @@ namespace NeonStarLibrary
                     if (g.GraphicTag == CurrentGameScreen.LevelName)
                     {
                         Camera.Position = _mapEntity.transform.Position + g.Offset;
-                        if (_liOnPositionToken != null)
-                            _liOnPositionToken.Offset = g.Offset / _mapEntity.transform.Scale + new Vector2(0, -_liOnPositionToken.spriteSheetInfo.FrameHeight / 2);
-                        //g.CurrentEffect = AssetManager.GetEffect("WhiteBlink");
+                        /*if (_liOnPositionToken != null)
+                            _liOnPositionToken.Offset = g.Offset / _mapEntity.transform.Scale + new Vector2(0, -_liOnPositionToken.spriteSheetInfo.FrameHeight / 2);*/
+                        g.CurrentEffect = AssetManager.GetEffect("MapGlow");
+                        _currentMap = g;
                     }
 
 
