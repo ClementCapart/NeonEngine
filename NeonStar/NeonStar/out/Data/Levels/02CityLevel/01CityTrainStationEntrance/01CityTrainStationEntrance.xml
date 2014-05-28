@@ -96,7 +96,7 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
-              <NickName Value="" />
+              <NickName Value="DoorBot" />
             </Properties>
           </Graphic>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
@@ -121,8 +121,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="DoorTop" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
           <QuotaEnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.QuotaEnergyDoor" ID="10">
@@ -171,7 +171,7 @@
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
-              <DrawLayer Value="0.7" />
+              <DrawLayer Value="0.5" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
@@ -182,8 +182,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="DoorLock" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="12">
@@ -223,16 +223,16 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="0" />
+              <TilingWidth Value="25" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
-              <GraphicTag Value="ArenaDoorGaugeCity" />
+              <GraphicTag Value="ArenaDoorGauge" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-37.5 Y:0}" />
+              <Offset Value="{X:-25 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -597,12 +597,13 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
             <Properties>
+              <UseRightCentering Value="False" />
               <UseTextCentering Value="False" />
               <DrawLayer Value="0.4" />
               <Font Value="EnergyFont" />
