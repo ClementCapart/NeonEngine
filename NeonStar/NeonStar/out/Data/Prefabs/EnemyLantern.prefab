@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:4026 Y:772}" />
+          <InitialPosition Value="{X:-2023 Y:-429}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:4025 Y:772}" />
-          <X Value="3990" />
-          <Y Value="737" />
+          <Center Value="{X:-2023 Y:-429}" />
+          <X Value="-2058" />
+          <Y Value="-464" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="70" />
@@ -56,6 +56,8 @@
             <Animation Name="Delay" SpritesheetTag="EnemyLanternAttackDelay" />
             <Animation Name="Duration" SpritesheetTag="EnemyLanternAttackDuration" />
             <Animation Name="Cooldown" SpritesheetTag="EnemyLanternAttackCooldown" />
+            <Animation Name="Hit" SpritesheetTag="EnemyLanternTakeHit" />
+            <Animation Name="Stunned" SpritesheetTag="EnemyLanternStunned" />
           </Spritesheets>
           <DrawLayer Value="0.48" />
           <IsHUD Value="False" />
@@ -77,8 +79,8 @@
           <RunAnim Value="Idle" />
           <IdleAnim Value="Idle" />
           <DyingAnim Value="Death" />
-          <HitAnim Value="" />
-          <StunlockAnim Value="" />
+          <HitAnim Value="Hit" />
+          <StunlockAnim Value="Stunned" />
           <ImmuneToStunLock Value="False" />
           <ImmuneToImpulse Value="False" />
           <ImmuneToDeath Value="False" />
@@ -90,6 +92,7 @@
           <WaitThreatDuration Value="0" />
           <CurrentSide Value="Right" />
           <NickName Value="" />
+          <MaximumStunlockTime Value="3" />
         </Properties>
       </EnemyCore>
       <AreaAttack Type="NeonStarLibrary.Components.Enemies.AreaAttack" ID="1">
