@@ -1674,7 +1674,7 @@
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
     </Attack>
-    <Attack ID="0" Name="EnemyLanternCrystalMane" Group="EnemyLantern" Type="MeleeSpecial">
+    <Attack ID="0" Name="EnemyLanternCrystalMane" Group="EnemyLantern" Type="Special">
       <Hitboxes>
         <Hitbox OffsetX="0" OffsetY="0" Width="170" Height="170" />
         <Hitbox OffsetX="0" OffsetY="-100" Width="120" Height="32" />
@@ -1694,7 +1694,7 @@
       <AirLock>0</AirLock>
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
-      <StunLock>0</StunLock>
+      <StunLock>0.1</StunLock>
       <MultiHitDelay>0.2</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
