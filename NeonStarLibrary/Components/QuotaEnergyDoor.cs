@@ -42,10 +42,9 @@ namespace NeonStarLibrary.Components.EnergyObjects
             get { return _gaugeGridName; }
             set { _gaugeGridName = value; }
         }
-
         #endregion
 
-        private SpriteSheet _doorTop;
+        private SpritesheetManager _doorTop;
 
         private Graphic _gaugeBack;
         private Graphic _gaugeGrid;
@@ -63,6 +62,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Init()
         {
+            entity.spritesheets = entity.GetComponentsByInheritance<SpritesheetManager>().Where(n => n.NickName != _doorTopNickname).First() ;
             _totalEnemiesToKill = 0.0f;
             _currentEnemiesKilled = 0.0f;
 
@@ -82,23 +82,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _gaugeGrid = g;
             }
 
-            List<SpriteSheet> sss = entity.GetComponentsByInheritance<SpriteSheet>();
-            foreach (SpriteSheet ss in sss)
-            {
-                if (ss.NickName == _doorTopNickname)
-                {
-                    _doorTop = ss;
-                    continue;
-                }
-
-            }
-
-            if (_doorTop != null)
-            {
-                _doorTop.IsLooped = false;
-                _doorTop.isPlaying = false;
-                _doorTop.currentFrame = 0;
-            }
+            _doorTop = entity.GetComponentByNickname(_doorTopNickname) as SpritesheetManager;
 
             base.Init();
 
@@ -113,9 +97,18 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     _gaugeGrid.Active = false;
                 if (_gaugeBack != null)
                     _gaugeBack.Active = false;
+
+                if (_doorTop != null)
+                {
+                    _doorTop.ChangeAnimation("Opened");
+                }
             }
             else
             {
+                if (_doorTop != null)
+                {
+                    _doorTop.ChangeAnimation("Closed");
+                }
                 this.entity.spritesheets.Layer = 0.6f;
             }
         }
@@ -130,8 +123,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
             this.entity.spritesheets.Layer = 0.35f;
             if (_doorTop != null)
             {
-                _doorTop.currentFrame = 0;
-                _doorTop.isPlaying = true;
+                _doorTop.ChangeAnimation("Opening", 0, true, false, false);
             }
 
             if (_gauge != null)

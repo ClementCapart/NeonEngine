@@ -15,7 +15,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Solid" />
+              <Type Value="OneWay" />
               <Center Value="{X:150 Y:-425}" />
               <X Value="100" />
               <Y Value="-575" />
@@ -36,7 +36,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -57,7 +57,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.6" />
+              <DrawLayer Value="0.35" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
@@ -99,32 +99,6 @@
               <NickName Value="" />
             </Properties>
           </Graphic>
-          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="7">
-            <Properties>
-              <IsLooped Value="False" />
-              <StartingFrame Value="0" />
-              <Reverse Value="False" />
-              <ChangeSideEveryLoop Value="False" />
-              <ReverseLoop Value="False" />
-              <DelayBeforeLoopAgain Value="0" />
-              <InvisibleDuringDelay Value="False" />
-              <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="ArenaDoorCityFrontTop" />
-              <DrawLayer Value="0.9" />
-              <IsFinished Value="False" />
-              <IsHUD Value="False" />
-              <CurrentSide Value="Right" />
-              <Tint Value="False" />
-              <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:-55}" />
-              <RotationOffset Value="0" />
-              <RotationCenter Value="{X:0 Y:0}" />
-              <TintColor Value="{R:255 G:255 B:255 A:255}" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
-              <NickName Value="DoorTop" />
-            </Properties>
-          </Spritesheet>
           <QuotaEnergyDoor Type="NeonStarLibrary.Components.EnergyObjects.QuotaEnergyDoor" ID="10">
             <Properties>
               <DoorTopNickName Value="DoorTop" />
@@ -241,6 +215,27 @@
               <NickName Value="Gauge" />
             </Properties>
           </TilableGraphic>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="14">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-68}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="ArenaDoorCityFrontTopIdle" />
+                <Animation Name="Opened" SpritesheetTag="ArenaDoorCityFrontTopOpened" />
+                <Animation Name="Opening" SpritesheetTag="ArenaDoorCityFrontTopOpening" />
+              </Spritesheets>
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="DoorTop" />
+            </Properties>
+          </SpritesheetManager>
         </Components>
       </Entity>
       <Entity Name="ChangeLevelTo06B" Layer="Gameplay">
