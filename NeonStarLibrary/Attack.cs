@@ -825,22 +825,27 @@ namespace NeonStarLibrary
                     }
                     _onDurationSpecialEffects.Remove(ae);
                 }
-
-                for(int i = Hitboxes.Count - 1; i >= 0; i --)
+                if (Hitboxes.Count > 0)
                 {
-                    Hitbox hitbox = Hitboxes[i];
-                    for(int j = _entity.GameWorld.Hitboxes.Count - 1; j >= 0; j--)
+                    for (int i = Hitboxes.Count - 1; i >= 0; i--)
                     {
-                        Hitbox hb = _entity.GameWorld.Hitboxes[j];
-                        if (( hb.Type == HitboxType.Main || hb.Type == HitboxType.Invincible) && hb.entity != this._entity)
+                        Hitbox hitbox = Hitboxes[i];
+                        for (int j = _entity.GameWorld.Hitboxes.Count - 1; j >= 0; j--)
                         {
-                            if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
+                            Hitbox hb = _entity.GameWorld.Hitboxes[j];
+                            if ((hb.Type == HitboxType.Main || hb.Type == HitboxType.Invincible) && hb.entity != this._entity)
                             {
-                                Effect(hb.entity, hb); 
-                                if(hb.Type != HitboxType.Invincible)
-                                    _alreadyTouched.Add(hb, _multiHitDelay);
+                                if (hb.hitboxRectangle.Intersects(hitbox.hitboxRectangle) && !_alreadyTouched.ContainsKey(hb))
+                                {
+                                    Effect(hb.entity, hb);
+                                    if (hb.Type != HitboxType.Invincible)
+                                        _alreadyTouched.Add(hb, _multiHitDelay);
+                                }
                             }
-                        }                      
+                        }
+
+                        if (i - 1 > Hitboxes.Count - 1)
+                            break;
                     }
                 }
 

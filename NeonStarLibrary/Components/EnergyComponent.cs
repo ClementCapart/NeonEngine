@@ -219,7 +219,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_devicesToPower.Count > 0)
+            if (_devicesToPower != null && _devicesToPower.Count > 0)
             {
                 if (!_powered)
                 {

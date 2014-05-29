@@ -82,12 +82,14 @@ namespace NeonStarLibrary.Components.EnergyObjects
                 if (_spritesheetManagers != null)
                     for (int i = 0; i < _spritesheetManagers.Count; i++)
                         _spritesheetManagers[i].ChangeAnimation(_onAnimation, true, 0, true, false, true);
+                ActivateDevice();
             }
             else
             {
                 if (_spritesheetManagers != null)
                     for (int i = 0; i < _spritesheetManagers.Count; i++)
                         _spritesheetManagers[i].ChangeAnimation(_offAnimation, true, 0, true, false, true);
+                DeactivateDevice();
             } 
         }
 

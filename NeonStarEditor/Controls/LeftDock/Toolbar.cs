@@ -318,5 +318,10 @@ namespace NeonStarEditor.Controls.LeftDock
             SoundManager.InitializeSounds();
             SoundManager.Load(Neon.Game.Content);
         }
+
+        private void TracePath_Click(object sender, EventArgs e)
+        {
+            GameWorld.CurrentTool = new PathCreator(GameWorld);
+        }
     }
 }

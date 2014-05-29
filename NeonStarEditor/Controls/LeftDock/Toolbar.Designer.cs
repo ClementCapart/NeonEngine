@@ -51,6 +51,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.AreaSelection = new System.Windows.Forms.Button();
             this.ReloadSound = new System.Windows.Forms.Button();
+            this.TracePath = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -316,6 +317,18 @@
             this.ReloadSound.UseVisualStyleBackColor = true;
             this.ReloadSound.Click += new System.EventHandler(this.ReloadSound_Click);
             // 
+            // TracePath
+            // 
+            this.TracePath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TracePath.BackgroundImage")));
+            this.TracePath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TracePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TracePath.Location = new System.Drawing.Point(39, 251);
+            this.TracePath.Name = "TracePath";
+            this.TracePath.Size = new System.Drawing.Size(30, 30);
+            this.TracePath.TabIndex = 4;
+            this.TracePath.UseVisualStyleBackColor = true;
+            this.TracePath.Click += new System.EventHandler(this.TracePath_Click);
+            // 
             // Toolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +339,7 @@
             this.Controls.Add(this.magnetCheckbox);
             this.Controls.Add(this.AreaSelection);
             this.Controls.Add(this.Selection);
+            this.Controls.Add(this.TracePath);
             this.Controls.Add(this.PathNodeTool);
             this.Controls.Add(this.ToggleBoundsButton);
             this.Controls.Add(this.respawnPanel);
@@ -376,5 +390,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AreaSelection;
         private System.Windows.Forms.Button ReloadSound;
+        private System.Windows.Forms.Button TracePath;
     }
 }
