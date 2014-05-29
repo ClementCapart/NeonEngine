@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NeonEngine.Components.Graphics2D
 {
-    class TilableSpritesheetManager : SpritesheetManager
+    public class TilableSpritesheetManager : SpritesheetManager
     {
         #region Properties
         private bool _useTextureWidth = false;
@@ -55,7 +55,7 @@ namespace NeonEngine.Components.Graphics2D
             (CurrentSpritesheet as TilableSpritesheet).UseTextureHeight = UseTextureHeight;
             (CurrentSpritesheet as TilableSpritesheet).UseTextureWidth = UseTextureWidth;
             (CurrentSpritesheet as TilableSpritesheet).TilingHeight = TilingHeight;
-            (CurrentSpritesheet as TilableSpritesheet).TilingHeight = TilingWidth;
+            (CurrentSpritesheet as TilableSpritesheet).TilingWidth = TilingWidth;
         }
 
     }
