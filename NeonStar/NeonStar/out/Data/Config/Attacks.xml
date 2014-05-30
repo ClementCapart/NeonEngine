@@ -1718,17 +1718,6 @@
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
-        <Effect Type="EffectAnimation">
-          <Parameter Value="FXImpact02" />
-          <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:0 Y:0}" />
-          <FourthParameter Value="False" />
-          <FifthParameter Value="2" />
-          <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
-          <EighthParameter Value="False" />
-          <NinthParameter Value="False" />
-        </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />
@@ -1785,7 +1774,7 @@
           <ThirdParameter Value="False" />
         </Effect>
         <Effect Type="EffectAnimation">
-          <Parameter Value="FXImpact02" />
+          <Parameter Value="FXImpact01" />
           <SecondParameter Value="0" />
           <ThirdParameter Value="{X:0 Y:0}" />
           <FourthParameter Value="False" />
@@ -2423,7 +2412,7 @@
         <Effect Type="EffectAnimation">
           <Parameter Value="FXImpact01" />
           <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:20 Y:0}" />
+          <ThirdParameter Value="{X:0 Y:0}" />
           <FourthParameter Value="False" />
           <FifthParameter Value="2" />
           <SixthParameter Value="0" />
@@ -2479,21 +2468,21 @@
           <SecondParameter Value="False" />
           <ThirdParameter Value="False" />
         </Effect>
-        <Effect Type="EffectAnimation">
-          <Parameter Value="FXImpact02" />
-          <SecondParameter Value="0" />
-          <ThirdParameter Value="{X:20 Y:-15}" />
-          <FourthParameter Value="False" />
-          <FifthParameter Value="2" />
-          <SixthParameter Value="0" />
-          <SeventhParameter Value="1" />
-          <EighthParameter Value="False" />
-          <NinthParameter Value="False" />
-        </Effect>
         <Effect Type="PlaySound">
           <Parameter Value="LightHit" />
           <SecondParameter Value="0.1" />
           <ThirdParameter Value="False" />
+        </Effect>
+        <Effect Type="EffectAnimation">
+          <Parameter Value="FXImpact01" />
+          <SecondParameter Value="0" />
+          <ThirdParameter Value="{X:0 Y:0}" />
+          <FourthParameter Value="False" />
+          <FifthParameter Value="1" />
+          <SixthParameter Value="0" />
+          <SeventhParameter Value="1" />
+          <EighthParameter Value="False" />
+          <NinthParameter Value="False" />
         </Effect>
       </OnHitSpecialEffects>
       <OnGroundCancelSpecialEffects />
