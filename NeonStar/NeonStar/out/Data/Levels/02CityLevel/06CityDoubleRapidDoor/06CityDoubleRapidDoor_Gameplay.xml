@@ -318,7 +318,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:259 Y:600}" />
+              <InitialPosition Value="{X:325 Y:600}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -327,12 +327,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:259 Y:600}" />
-              <X Value="-1491" />
+              <Center Value="{X:325 Y:600}" />
+              <X Value="-1500" />
               <Y Value="575" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="3500" />
+              <Width Value="3650" />
               <Height Value="50" />
               <NickName Value="" />
             </Properties>
@@ -2122,7 +2122,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2996 Y:394}" />
+              <InitialPosition Value="{X:2775 Y:600}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -2131,12 +2131,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Trigger" />
-              <Center Value="{X:2996 Y:394}" />
-              <X Value="2646" />
-              <Y Value="369" />
+              <Center Value="{X:2775 Y:600}" />
+              <X Value="2200" />
+              <Y Value="575" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="700" />
+              <Width Value="1150" />
               <Height Value="50" />
               <NickName Value="" />
             </Properties>
@@ -2160,6 +2160,49 @@
               <NickName Value="" />
             </Properties>
           </DeathOnTouch>
+        </Components>
+      </Entity>
+      <Entity Name="FallCheckpointRight2" Layer="Gameplay">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3012 Y:120}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:3012 Y:120}" />
+              <X Value="2662" />
+              <Y Value="95" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="700" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <InstantRespawnPoint Type="NeonStarLibrary.Components.GameplayElements.InstantRespawnPoint" ID="3">
+            <Properties>
+              <AvatarName Value="LiOn" />
+              <SpawnPointIndex Value="4" />
+              <NickName Value="" />
+            </Properties>
+          </InstantRespawnPoint>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="2">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="FallCheckpointRight2" />
+              <TriggeredComponentName Value="InstantRespawnPoint" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
         </Components>
       </Entity>
     </Entities>
