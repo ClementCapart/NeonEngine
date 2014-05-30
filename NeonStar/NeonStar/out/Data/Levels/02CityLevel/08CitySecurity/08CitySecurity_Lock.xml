@@ -82,7 +82,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2100 Y:-200}" />
+              <InitialPosition Value="{X:2100 Y:-175}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -107,7 +107,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2800 Y:-200}" />
+              <InitialPosition Value="{X:2800 Y:-175}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -132,7 +132,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:3600 Y:-200}" />
+              <InitialPosition Value="{X:3600 Y:-175}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -157,7 +157,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:4500 Y:400}" />
+              <InitialPosition Value="{X:4500 Y:425}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -182,7 +182,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:5000 Y:400}" />
+              <InitialPosition Value="{X:5000 Y:425}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -632,7 +632,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2708 Y:-836}" />
+              <InitialPosition Value="{X:2962 Y:-836}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -641,8 +641,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2709 Y:-845}" />
-              <X Value="2647" />
+              <Center Value="{X:2960 Y:-845}" />
+              <X Value="2898" />
               <Y Value="-880" />
               <OffsetX Value="0" />
               <OffsetY Value="-10" />
@@ -670,24 +670,23 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemySupervisorWalk" />
                 <Animation Name="AlertWalk" SpritesheetTag="EnemySupervisorAlertWalk" />
-                <Animation Name="Attack" SpritesheetTag="EnemySupervisorAttack" />
                 <Animation Name="Alert" SpritesheetTag="EnemySupervisorAlertOn" />
                 <Animation Name="Death" SpritesheetTag="Explosion" />
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -715,7 +714,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0.48" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
@@ -817,7 +816,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2868 Y:-1130}" />
+              <InitialPosition Value="{X:2997 Y:-1130}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -826,8 +825,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2866 Y:-1130}" />
-              <X Value="2816" />
+              <Center Value="{X:2998 Y:-1130}" />
+              <X Value="2948" />
               <Y Value="-1210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -855,13 +854,15 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:-3}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
                 <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
@@ -872,8 +873,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -901,7 +900,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Right" />
+              <CurrentSide Value="Left" />
               <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
@@ -1026,6 +1025,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="-3.141593" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -1033,8 +1034,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1085,8 +1084,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Graphic>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
@@ -1157,7 +1156,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:2718 Y:-330}" />
+              <InitialPosition Value="{X:2935 Y:-330}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -1166,8 +1165,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:2719 Y:-330}" />
-              <X Value="2669" />
+              <Center Value="{X:2936 Y:-330}" />
+              <X Value="2886" />
               <Y Value="-410" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -1202,6 +1201,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Run" SpritesheetTag="EnemyRobotWalk" />
                 <Animation Name="Attack" SpritesheetTag="EnemyRobotAttack" />
@@ -1212,8 +1213,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1366,6 +1365,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="-3.141593" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -1373,8 +1374,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1425,8 +1424,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Graphic>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
@@ -1577,6 +1576,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="ChargerIdle" />
                 <Animation Name="DashDelay" SpritesheetTag="ChargerDashDelay" />
@@ -1601,8 +1602,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1718,6 +1717,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="-3.141593" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnemyNeutralTurretIdle" />
                 <Animation Name="Attack" SpritesheetTag="EnemyNeutralTurretAttack" />
@@ -1725,8 +1726,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1777,8 +1776,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Graphic>
           <EnemyAnimationManager Type="NeonStarLibrary.Components.Enemies.EnemyAnimationManager" ID="10">
@@ -2017,7 +2016,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:1392 Y:370}" />
+              <InitialPosition Value="{X:1474 Y:370}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2026,8 +2025,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1394 Y:369}" />
-              <X Value="1354" />
+              <Center Value="{X:1471 Y:369}" />
+              <X Value="1431" />
               <Y Value="289" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2055,13 +2054,15 @@
           </Rigidbody>
           <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="3">
             <Properties>
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <ParallaxForce Value="{X:0 Y:0}" />
               <Offset Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:5}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
                 <Animation Name="Dash" SpritesheetTag="TigerDashDash" />
@@ -2075,8 +2076,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -2104,7 +2103,7 @@
               <TriggerOnDamage Value="False" />
               <ComponentToTriggerName Value="" />
               <WaitThreatDuration Value="0" />
-              <CurrentSide Value="Left" />
+              <CurrentSide Value="Right" />
               <MaximumStunlockTime Value="3" />
               <NickName Value="" />
             </Properties>
@@ -2201,7 +2200,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:988 Y:-1130}" />
+              <InitialPosition Value="{X:721 Y:-1130}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -2210,8 +2209,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:990 Y:-1130}" />
-              <X Value="950" />
+              <Center Value="{X:723 Y:-1130}" />
+              <X Value="683" />
               <Y Value="-1210" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -2246,6 +2245,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:5}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Walk" SpritesheetTag="EnemyTigerWalk" />
                 <Animation Name="Dash" SpritesheetTag="TigerDashDash" />
@@ -2259,8 +2260,6 @@
               </Spritesheets>
               <DrawLayer Value="0.48" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
