@@ -581,6 +581,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="ArenaDoorBackClosed" />
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorBackOpening" />
@@ -588,8 +590,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -640,7 +640,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorFrontTop" />
               <DrawLayer Value="0.9" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1461,6 +1461,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closing" SpritesheetTag="TransitionDoorClosing" />
                 <Animation Name="Opening" SpritesheetTag="TransitionDoorOpening" />
@@ -1469,8 +1471,350 @@
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="Link" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-1074 Y:-1625}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <AnimatedEnergyObject Type="NeonStarLibrary.Components.EnergyObjects.AnimatedEnergyObject" ID="0">
+            <Properties>
+              <PoweredAnimation Value="On" />
+              <UnpoweredAnimation Value="Off" />
+              <FirstActivatingDeviceName Value="SwitchC" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </AnimatedEnergyObject>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:28}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnCorner" />
+                <Animation Name="Off" SpritesheetTag="LinkOffCorner" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="18" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:10}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnVertical" />
+                <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-107 Y:28}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnCorner" />
+                <Animation Name="Off" SpritesheetTag="LinkOffCorner" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="97" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:10 Y:28}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnHorizontal" />
+                <Animation Name="Off" SpritesheetTag="LinkOffHorizontal" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="17" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:107 Y:11}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnVertical" />
+                <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:2}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkSlotOn" />
+                <Animation Name="Off" SpritesheetTag="LinkSlotOff" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+      <Entity Name="Link" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-651 Y:-2328}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <AnimatedEnergyObject Type="NeonStarLibrary.Components.EnergyObjects.AnimatedEnergyObject" ID="0">
+            <Properties>
+              <PoweredAnimation Value="On" />
+              <UnpoweredAnimation Value="Off" />
+              <FirstActivatingDeviceName Value="SwitchB" />
+              <FirstDeviceInSameLevel Value="True" />
+              <FirstActivatingDeviceLevelGroup Value="" />
+              <FirstActivatingDeviceLevelName Value="" />
+              <SecondActivatingDeviceName Value="" />
+              <SecondDeviceInSameLevel Value="True" />
+              <SecondActivatingDeviceLevelGroup Value="" />
+              <SecondActivatingDeviceLevelName Value="" />
+              <ThirdActivatingDeviceName Value="" />
+              <ThirdDeviceInSameLevel Value="True" />
+              <ThirdActivatingDeviceLevelGroup Value="" />
+              <ThirdActivatingDeviceLevelName Value="" />
+              <FourthActivatingDeviceName Value="" />
+              <FourthDeviceInSameLevel Value="True" />
+              <FourthActivatingDeviceLevelGroup Value="" />
+              <FourthActivatingDeviceLevelName Value="" />
+              <FifthActivatingDeviceName Value="" />
+              <FifthDeviceInSameLevel Value="True" />
+              <FifthActivatingDeviceLevelGroup Value="" />
+              <FifthActivatingDeviceLevelName Value="" />
+              <NickName Value="" />
+            </Properties>
+          </AnimatedEnergyObject>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-22}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnCorner2" />
+                <Animation Name="Off" SpritesheetTag="LinkOffCorner2" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="25" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-12}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnVertical" />
+                <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-128 Y:-22}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnCorner2" />
+                <Animation Name="Off" SpritesheetTag="LinkOffCorner2" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="118" />
+              <UseTextureHeight Value="True" />
+              <TilingHeight Value="100" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-118 Y:-22}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnHorizontal" />
+                <Animation Name="Off" SpritesheetTag="LinkOffHorizontal" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <TilableSpritesheetManager Type="NeonEngine.Components.Graphics2D.TilableSpritesheetManager" ID="0">
+            <Properties>
+              <UseTextureWidth Value="True" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="21" />
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-128 Y:-12}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkOnVertical" />
+                <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
+              </Spritesheets>
+              <DrawLayer Value="0.91" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </TilableSpritesheetManager>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="0">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:128 Y:11}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="3.141593" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="On" SpritesheetTag="LinkSlotOn" />
+                <Animation Name="Off" SpritesheetTag="LinkSlotOff" />
+              </Spritesheets>
+              <DrawLayer Value="0.92" />
+              <IsHUD Value="False" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
