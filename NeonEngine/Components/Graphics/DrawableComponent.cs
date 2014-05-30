@@ -98,7 +98,7 @@ namespace NeonEngine.Components.Graphics2D
 
         private Color _mainColor = Color.White;
 
-        public Color MainColor
+        public  virtual Color MainColor
         {
             get { return _mainColor; }
             set { _mainColor = value; }
@@ -106,7 +106,7 @@ namespace NeonEngine.Components.Graphics2D
 
         private float _opacity = 1.0f;
 
-        public float Opacity
+        public virtual float Opacity
         {
             get { return _opacity; }
             set { _opacity = value; }

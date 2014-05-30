@@ -107,6 +107,30 @@ namespace NeonEngine.Components.Graphics2D
             }
         }
 
+        public override Color MainColor
+        {
+            get
+            {
+                return CurrentSpritesheet.MainColor;
+            }
+            set
+            {
+                CurrentSpritesheet.MainColor = value;
+            }
+        }
+
+        public override float Opacity
+        {
+            get
+            {
+                return CurrentSpritesheet.Opacity;
+            }
+            set
+            {
+                CurrentSpritesheet.Opacity = value;
+            }
+        }
+
         public Dictionary<string, SpriteSheetInfo> Spritesheets
         {
             get { return SpritesheetList; }
