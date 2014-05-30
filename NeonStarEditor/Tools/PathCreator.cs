@@ -136,6 +136,7 @@ namespace NeonStarEditor
 
         public void CreatePath()
         {
+            PathToCreate.RemoveAt(PathToCreate.Count - 1);
             Entity e = new Entity(currentWorld);
             e.Name = "Link";
             e.transform.Position = PathToCreate[0].Position;
@@ -237,8 +238,7 @@ namespace NeonStarEditor
                     ss.Layer = 0.92f;
 
                     e.AddComponent(ss);
-                }
-                
+                }              
 
                 if (angle == 0 || angle == 180)
                 {
