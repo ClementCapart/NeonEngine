@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-2500 Y:-286}" />
+          <InitialPosition Value="{X:-1150 Y:-118}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-2500 Y:-286}" />
-          <X Value="-2520" />
-          <Y Value="-354" />
+          <Center Value="{X:-1150 Y:-118}" />
+          <X Value="-1170" />
+          <Y Value="-186" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -206,6 +206,7 @@
           <ElementSlotCooldownDuration Value="5" />
           <IdleCooldownThreshold Value="1" />
           <IdleCooldownRatio Value="3" />
+          <ColorMixed Value="{R:255 G:0 B:128 A:255}" />
           <NickName Value="" />
         </Properties>
       </ElementSystem>
@@ -297,6 +298,84 @@
           <NickName Value="" />
         </Properties>
       </DamageDisplayer>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="False" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0" />
+          <InvisibleDuringDelay Value="False" />
+          <DelayBeforeLoop Value="False" />
+          <SpriteSheetTag Value="LiOnAuraPulse" />
+          <DrawLayer Value="0.499" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Right" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:0 G:0 B:0 A:0}" />
+          <Opacity Value="1" />
+          <NickName Value="AuraPulse" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="True" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.5" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="LiOnCrystalAura" />
+          <DrawLayer Value="0.501" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Left" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="CrystalAura" />
+        </Properties>
+      </Spritesheet>
+      <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
+        <Properties>
+          <IsLooped Value="True" />
+          <StartingFrame Value="0" />
+          <Reverse Value="False" />
+          <ChangeSideEveryLoop Value="True" />
+          <ReverseLoop Value="False" />
+          <DelayBeforeLoopAgain Value="0.6" />
+          <InvisibleDuringDelay Value="True" />
+          <DelayBeforeLoop Value="True" />
+          <SpriteSheetTag Value="LiOnElectricAura" />
+          <DrawLayer Value="0.501" />
+          <IsFinished Value="False" />
+          <IsHUD Value="False" />
+          <CurrentSide Value="Left" />
+          <Tint Value="False" />
+          <ParallaxForce Value="{X:0 Y:0}" />
+          <Offset Value="{X:0 Y:0}" />
+          <RotationOffset Value="0" />
+          <RotationCenter Value="{X:0 Y:0}" />
+          <TintColor Value="{R:255 G:255 B:255 A:255}" />
+          <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
+          <NickName Value="ThunderAura" />
+        </Properties>
+      </Spritesheet>
     </Components>
   </Entity>
 </Prefab>

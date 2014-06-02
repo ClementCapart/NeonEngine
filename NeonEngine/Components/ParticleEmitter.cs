@@ -417,7 +417,7 @@ namespace NeonEngine.Components.VisualFX
             p.ParticleMovement = _movementType;
             p.FadeInDelay = _minimumFadeInTime + (float)random.NextDouble() * (_maximumFadeInTime - _minimumFadeInTime);
             p.FadeOutDelay = _minimumFadeOutTime + (float)random.NextDouble() * (_maximumFadeOutTime - _minimumFadeOutTime);
-            p.Position = entity.transform.Position;
+            p.Position = entity.transform.Position + Offset;
             p.Layer = ParticleLayer;
 
             p.StartingBrightness = _minimumStartingBrightness + (float)random.NextDouble() * (_maximumStartingBrightness - _minimumStartingBrightness);

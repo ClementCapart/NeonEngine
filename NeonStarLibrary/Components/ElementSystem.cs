@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.CollisionDetection;
+using NeonEngine.Components.Graphics2D;
 using NeonStarLibrary.Components.HUD;
 using System;
 using System.Collections.Generic;
@@ -323,7 +324,23 @@ namespace NeonStarLibrary.Components.Avatar
         private float _getElementColorTimer = 0.0f;
         private Color _nextColorToTint;
 
+        private SpriteSheet _auraPulse;
+
         public ElementSlot[][] ElementSlots;
+
+        private Color _colorMixed = Color.White;
+
+        public Color ColorMixed
+        {
+            get { return _colorMixed; }
+            set { _colorMixed = value; }
+        }
+
+        private Color _thunderPulseColor = Color.FromNonPremultiplied(255, 145, 32, 255);
+        private Color _crystalPulseColor = Color.FromNonPremultiplied(128, 0, 255, 255);
+
+        private SpriteSheet _thunderAura;
+        private SpriteSheet _crystalAura;
 
         private ElementHUD _hud;
 
@@ -341,6 +358,10 @@ namespace NeonStarLibrary.Components.Avatar
             BackThunderGatheringFX = AssetManager.GetSpriteSheet(_thunderGatheringFX);
             AvatarComponent = entity.GetComponent<AvatarCore>();
             ChangeMaxLevel((int)_maxLevel);
+            _auraPulse = entity.GetComponentByNickname("AuraPulse") as SpriteSheet;
+
+            _thunderAura = entity.GetComponentByNickname("ThunderAura") as SpriteSheet;
+            _crystalAura = entity.GetComponentByNickname("CrystalAura") as SpriteSheet;
 
             Entity e = entity.GameWorld.GetEntityByName("HUD");
             if (e != null)
@@ -356,7 +377,7 @@ namespace NeonStarLibrary.Components.Avatar
                 if (!entity.GameWorld.PhysicWorld.BodyList.Contains(rg.body))
                     Fire.FirePlatforms.Remove(rg);
             }
-                
+
             if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.FastRespawning)
             {
                 if (CurrentElementEffect != null)
@@ -370,7 +391,7 @@ namespace NeonStarLibrary.Components.Avatar
                     for (int i = 0; i < ElementSlots.Length; i++)
                     {
                         ElementSlot higherCooldown = null;
-                        
+
                         int highestCooldownRow = int.MinValue;
 
                         for (int j = 0; j < ElementSlots[i].Length; j++)
@@ -379,7 +400,7 @@ namespace NeonStarLibrary.Components.Avatar
                                 ElementSlots[i][j].Cooldown = 0.0f;
                             else if (ElementSlots[i][j].Cooldown > 0.0f)
                             {
-                                if(higherCooldown == null || higherCooldown.Cooldown > ElementSlots[i][j].Cooldown)
+                                if (higherCooldown == null || higherCooldown.Cooldown > ElementSlots[i][j].Cooldown)
                                 {
                                     higherCooldown = ElementSlots[i][j];
                                     highestCooldownRow = j;
@@ -408,7 +429,111 @@ namespace NeonStarLibrary.Components.Avatar
 
                 ElementSlots[1] = ElementSlots[1].OrderBy(e => e.Cooldown).ToArray();
                 ElementSlots[1] = ElementSlots[1].OrderByDescending(e => e.Type).ToArray();
-            }             
+
+                if (ElementSlots != null)
+                {
+                    if (_auraPulse != null)
+                    {
+                        bool _pulseColored = false;
+
+                        if (ElementSlots[0][0].Cooldown <= 0.0f)
+                        {
+                            switch (ElementSlots[0][0].Type)
+                            {
+                                case Element.Fire:
+                                    _auraPulse.MainColor = _crystalPulseColor;
+                                    if (_crystalAura != null)
+                                        _crystalAura.Active = true;
+                                    if (_thunderAura != null)
+                                        _thunderAura.Active = false;
+                                    _pulseColored = true;
+                                    break;
+
+                                case Element.Thunder:
+                                    _auraPulse.MainColor = _thunderPulseColor;
+                                    if (_crystalAura != null)
+                                        _crystalAura.Active = false;
+                                    if (_thunderAura != null)
+                                        _thunderAura.Active = true;
+                                    _pulseColored = true;
+                                    break;
+
+                                default:
+                                    _auraPulse.MainColor = Color.Transparent;
+                                    if (_crystalAura != null)
+                                        _crystalAura.Active = false;
+                                    if (_thunderAura != null)
+                                        _thunderAura.Active = false;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            _auraPulse.MainColor = Color.Transparent;
+                            if (_crystalAura != null)
+                                _crystalAura.Active = false;
+                            if (_thunderAura != null)
+                                _thunderAura.Active = false;
+                        }
+
+                        if (ElementSlots[1][0].Cooldown <= 0.0f)
+                        {
+                            switch(ElementSlots[1][0].Type)
+                            {
+                                case Element.Fire:
+                                    if (!_pulseColored)
+                                    {
+                                        _auraPulse.MainColor = _crystalPulseColor;
+                                        if (_crystalAura != null)
+                                            _crystalAura.Active = true;
+                                        if (_thunderAura != null)
+                                            _thunderAura.Active = false;
+                                    }
+                                    else
+                                    {
+                                        _auraPulse.MainColor = ColorMixed;
+                                        if (_crystalAura != null)
+                                            _crystalAura.Active = true;
+                                    }
+                                    break;
+
+                                case Element.Thunder:
+                                    if (!_pulseColored)
+                                    {
+                                        _auraPulse.MainColor = _thunderPulseColor;
+                                        if (_crystalAura != null)
+                                            _crystalAura.Active = false;
+                                        if (_thunderAura != null)
+                                            _thunderAura.Active = true;
+                                    }
+                                    else
+                                    {
+                                        _auraPulse.MainColor = ColorMixed;
+                                        if (_thunderAura != null)
+                                            _thunderAura.Active = true;
+                                    }
+                                    break;
+
+                                default:
+                                    if(!_pulseColored)
+                                        _auraPulse.MainColor = Color.Transparent;
+                                    break;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            else if (_auraPulse != null)
+            {
+                _auraPulse.MainColor = Color.Transparent;
+                if (_crystalAura != null)
+                    _crystalAura.Active = false;
+                if (_thunderAura != null)
+                    _thunderAura.Active = false;
+
+            }
+                
             base.PreUpdate(gameTime);
         }
 
