@@ -15,7 +15,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Solid" />
+              <Type Value="OneWay" />
               <Center Value="{X:1500 Y:-200}" />
               <X Value="1450" />
               <Y Value="-350" />
@@ -36,7 +36,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -57,7 +57,7 @@
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.6" />
+              <DrawLayer Value="0.35" />
               <IsHUD Value="False" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
@@ -78,7 +78,7 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="75" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
@@ -146,7 +146,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.7" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -197,7 +197,7 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="0" />
+              <TilingWidth Value="75" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
@@ -206,7 +206,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-37.5 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
