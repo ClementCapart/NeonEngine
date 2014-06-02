@@ -201,7 +201,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                     {
                         if(entity.spritesheets.SpritesheetList.ContainsKey(_doorOpeningAnimation))
                             entity.spritesheets.ChangeAnimation(_doorOpeningAnimation, 0, true, false, false, entity.spritesheets.SpritesheetList[_doorOpeningAnimation].FrameCount - 1);
-                        entity.spritesheets.CurrentSpritesheet.ReverseLoop = true;
+                        entity.spritesheets.CurrentSpritesheet.Reverse = true;
                     }
                     else
                     {
