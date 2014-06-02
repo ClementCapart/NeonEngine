@@ -1,4 +1,5 @@
-﻿using NeonEngine;
+﻿using Microsoft.Xna.Framework;
+using NeonEngine;
 using NeonEngine.Components.Graphics2D;
 using NeonStarLibrary.Components.Enemies;
 using System;
@@ -25,6 +26,22 @@ namespace NeonStarLibrary.Components.EnergyObjects
         {
             get { return _displayGauge; }
             set { _displayGauge = value; }
+        }
+
+        private bool _horizontalDoor = false;
+
+        public bool HorizontalDoor
+        {
+            get { return _horizontalDoor; }
+            set { _horizontalDoor = value; }
+        }
+
+        private Vector2 _additionnalGaugeOffset;
+
+        public Vector2 AdditionnalGaugeOffset
+        {
+            get { return _additionnalGaugeOffset; }
+            set { _additionnalGaugeOffset = value; }
         }
 
         private bool _verticalGauge = false;
@@ -253,7 +270,7 @@ namespace NeonStarLibrary.Components.EnergyObjects
                         _gauge.TilingHeight = _gaugeTargetWidth;
                 }
 
-                _gauge.Offset = _verticalGauge == false ? new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y) : new Microsoft.Xna.Framework.Vector2(_gauge.Offset.X, -GaugeMaxWidth / 2 + _gaugeTargetWidth / 2);
+                _gauge.Offset = (_horizontalDoor == false ? new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2, _gauge.Offset.Y) : new Microsoft.Xna.Framework.Vector2(-GaugeMaxWidth / 2 + _gaugeTargetWidth / 2 + _additionnalGaugeOffset.X, _gauge.Offset.Y));
             }
             if (_currentEnemiesKilled >= _totalEnemiesToKill)
             {

@@ -900,6 +900,8 @@
             <Properties>
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
+              <HorizontalDoor Value="False" />
+              <AdditionnalGaugeOffset Value="{X:0 Y:0}" />
               <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="SlotLantern" />
               <SecondEnemyToKill Value="SlotRobot1" />
@@ -1337,6 +1339,8 @@
             <Properties>
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
+              <HorizontalDoor Value="False" />
+              <AdditionnalGaugeOffset Value="{X:0 Y:0}" />
               <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="EnemySupervisorA" />
               <SecondEnemyToKill Value="" />
@@ -1573,7 +1577,9 @@
             <Properties>
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
-              <VerticalGauge Value="True" />
+              <HorizontalDoor Value="True" />
+              <AdditionnalGaugeOffset Value="{X:-39 Y:0}" />
+              <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="EnemyNeutralTurretB1" />
               <SecondEnemyToKill Value="EnemyRobotB2" />
               <ThirdEnemyToKill Value="EnemyRobotB3" />
@@ -1651,7 +1657,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.5" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -1701,17 +1707,17 @@
           </Graphic>
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
-              <UseTextureWidth Value="True" />
+              <UseTextureWidth Value="False" />
               <TilingWidth Value="0" />
-              <UseTextureHeight Value="False" />
+              <UseTextureHeight Value="True" />
               <TilingHeight Value="0" />
               <DrawLayer Value="0.71" />
-              <GraphicTag Value="ArenaDoorGaugeCityVertical" />
+              <GraphicTag Value="ArenaDoorGaugeCity" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-45.5 Y:-37.5}" />
+              <Offset Value="{X:-37.5 Y:-5.5}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
