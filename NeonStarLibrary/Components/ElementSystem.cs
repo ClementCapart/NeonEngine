@@ -342,6 +342,9 @@ namespace NeonStarLibrary.Components.Avatar
         private SpriteSheet _thunderAura;
         private SpriteSheet _crystalAura;
 
+        private SpriteSheetInfo _thunderCooldownFinishedEffect;
+        private SpriteSheetInfo _crystalCooldownFinishedEffect;
+
         private ElementHUD _hud;
 
         public ElementSystem(Entity entity)
@@ -362,6 +365,9 @@ namespace NeonStarLibrary.Components.Avatar
 
             _thunderAura = entity.GetComponentByNickname("ThunderAura") as SpriteSheet;
             _crystalAura = entity.GetComponentByNickname("CrystalAura") as SpriteSheet;
+
+            _thunderCooldownFinishedEffect = AssetManager.GetSpriteSheet("ThunderAvailableFeedback");
+            _crystalCooldownFinishedEffect = AssetManager.GetSpriteSheet("CrystalAvailableFeedback");
 
             Entity e = entity.GameWorld.GetEntityByName("HUD");
             if (e != null)
@@ -405,9 +411,9 @@ namespace NeonStarLibrary.Components.Avatar
                                     higherCooldown = ElementSlots[i][j];
                                     highestCooldownRow = j;
                                 }
-                                if (ElementSlots[i][j].Cooldown < 0.0f)
+                                if (ElementSlots[i][j].Cooldown <= 0.0f)
                                 {
-                                    ElementSlots[i][j].Cooldown = 0.0f;
+                                    ElementSlots[i][j].Cooldown = 0.0f;                                   
                                 }
                             }
                         }
@@ -419,6 +425,18 @@ namespace NeonStarLibrary.Components.Avatar
                             {
                                 higherCooldown.Cooldown = 0.0f;
                                 _hud.CooldownFinished(highestCooldownRow, i);
+                                switch (higherCooldown.Type)
+                                {
+                                    case Element.Thunder:
+                                        if (_thunderCooldownFinishedEffect != null)
+                                            EffectsManager.GetEffect(_thunderCooldownFinishedEffect, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.51f, entity);
+                                        break;
+
+                                    case Element.Fire:
+                                        if (_crystalCooldownFinishedEffect != null)
+                                            EffectsManager.GetEffect(_crystalCooldownFinishedEffect, Side.Right, entity.transform.Position, 0.0f, Vector2.Zero, 2.0f, 0.51f, entity);
+                                        break;
+                                }
                             }
                         }
                     }
