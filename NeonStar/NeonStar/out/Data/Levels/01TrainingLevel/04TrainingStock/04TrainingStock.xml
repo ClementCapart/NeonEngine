@@ -1581,6 +1581,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="BigEnergyDoorClosed" />
                 <Animation Name="Closing" SpritesheetTag="BigEnergyDoorClosing" />
@@ -1588,8 +1590,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -2985,6 +2985,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closing" SpritesheetTag="TransitionDoorClosing" />
                 <Animation Name="Opening" SpritesheetTag="TransitionDoorOpening" />
@@ -2993,8 +2995,6 @@
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -3083,7 +3083,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2622 Y:-618}" />
+              <InitialPosition Value="{X:-2500 Y:-620}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -3092,12 +3092,12 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-2622 Y:-618}" />
-              <X Value="-2647" />
-              <Y Value="-718" />
+              <Center Value="{X:-2500 Y:-620}" />
+              <X Value="-2725" />
+              <Y Value="-720" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
-              <Width Value="50" />
+              <Width Value="450" />
               <Height Value="200" />
               <NickName Value="" />
             </Properties>
@@ -3389,7 +3389,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-2805 Y:-956}" />
+              <InitialPosition Value="{X:-2805 Y:-950}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -3398,9 +3398,9 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-2805 Y:-955}" />
+              <Center Value="{X:-2805 Y:-949}" />
               <X Value="-3330" />
-              <Y Value="-1380" />
+              <Y Value="-1374" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
               <Width Value="1050" />
@@ -3413,7 +3413,7 @@
               <GlobalOffset Value="0" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_2-{X:400 Y:0}_1-{X:600 Y:0}_2-{X:700 Y:0}_0-{X:900 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_0-{X:450 Y:0}_0-{X:500 Y:0}_1-{X:550 Y:0}_1-{X:650 Y:0}_2-{X:750 Y:0}_LEFT_1-{X:0 Y:0}_1-{X:0 Y:100}_2-{X:0 Y:200}_1-{X:0 Y:400}_0-{X:0 Y:500}_2-{X:0 Y:550}_RIGHT_2-{X:0 Y:0}_2-{X:0 Y:200}_0-{X:0 Y:400}_1-{X:0 Y:450}_1-{X:0 Y:550}_0-{X:0 Y:650}_0-{X:0 Y:700}" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_1-{X:100 Y:0}_1-{X:200 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_0-{X:450 Y:0}_1-{X:500 Y:0}_2-{X:600 Y:0}_0-{X:800 Y:0}_1-{X:850 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_0-{X:250 Y:0}_1-{X:300 Y:0}_0-{X:400 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_1-{X:750 Y:0}_1-{X:850 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:200}_2-{X:0 Y:300}_0-{X:0 Y:500}_2-{X:0 Y:550}_RIGHT_0-{X:0 Y:0}_2-{X:0 Y:50}_0-{X:0 Y:250}_1-{X:0 Y:300}_1-{X:0 Y:400}_2-{X:0 Y:500}_0-{X:0 Y:700}" />
               <DrawLayer Value="0.812" />
               <TopCornerGraphicTag Value="FloorCorner" />
               <BottomCornerGraphicTag Value="CeilingCorner" />
@@ -3445,7 +3445,7 @@
               <GlobalOffset Value="50" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_2-{X:150 Y:0}_2-{X:350 Y:0}_0-{X:550 Y:0}_2-{X:600 Y:0}_0-{X:800 Y:0}_BOT_2-{X:0 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_2-{X:650 Y:0}_LEFT_1-{X:0 Y:0}_2-{X:0 Y:100}_1-{X:0 Y:300}_2-{X:0 Y:400}_0-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_0-{X:0 Y:200}_2-{X:0 Y:250}_0-{X:0 Y:450}_0-{X:0 Y:500}_0-{X:0 Y:550}_0-{X:0 Y:600}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_2-{X:200 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_1-{X:650 Y:0}_0-{X:750 Y:0}_0-{X:800 Y:0}_BOT_0-{X:0 Y:0}_2-{X:50 Y:0}_2-{X:250 Y:0}_1-{X:450 Y:0}_2-{X:550 Y:0}_1-{X:750 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:200}_1-{X:0 Y:400}_1-{X:0 Y:500}_0-{X:0 Y:600}_RIGHT_1-{X:0 Y:0}_2-{X:0 Y:100}_2-{X:0 Y:300}_0-{X:0 Y:500}_1-{X:0 Y:550}" />
               <DrawLayer Value="0.812" />
               <TopCornerGraphicTag Value="SecondFloorCorner" />
               <BottomCornerGraphicTag Value="SecondFloorCornerReverse" />
@@ -3477,7 +3477,7 @@
               <GlobalOffset Value="100" />
               <CenterOffset Value="{X:50 Y:50}" />
               <KeepTilingHash Value="False" />
-              <TilingHash Value="TOP_2-{X:0 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:450 Y:0}_0-{X:550 Y:0}_0-{X:600 Y:0}_BOT_2-{X:0 Y:0}_2-{X:200 Y:0}_0-{X:400 Y:0}_2-{X:450 Y:0}_LEFT_2-{X:0 Y:0}_2-{X:0 Y:200}_0-{X:0 Y:400}_RIGHT_1-{X:0 Y:0}_1-{X:0 Y:100}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_1-{X:100 Y:0}_0-{X:200 Y:0}_2-{X:250 Y:0}_1-{X:450 Y:0}_1-{X:550 Y:0}_BOT_1-{X:0 Y:0}_0-{X:100 Y:0}_1-{X:150 Y:0}_2-{X:250 Y:0}_2-{X:450 Y:0}_LEFT_2-{X:0 Y:0}_1-{X:0 Y:200}_0-{X:0 Y:300}_1-{X:0 Y:350}_RIGHT_1-{X:0 Y:0}_0-{X:0 Y:100}_2-{X:0 Y:150}_1-{X:0 Y:350}" />
               <DrawLayer Value="0.812" />
               <TopCornerGraphicTag Value="ThirdFloorCorner" />
               <BottomCornerGraphicTag Value="ThirdFloorCornerReverse" />
@@ -3504,23 +3504,6 @@
               <NickName Value="3" />
             </Properties>
           </SquaredRandomTiling>
-          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="5">
-            <Properties>
-              <BodyType Value="Static" />
-              <GravityScale Value="2" />
-              <UseGravity Value="True" />
-              <Restitution Value="0" />
-              <Friction Value="10" />
-              <Mass Value="89.24995" />
-              <OneWayPlatform Value="False" />
-              <SleepingAllowed Value="True" />
-              <IsGround Value="False" />
-              <Hitbox Value="1" />
-              <Sensors Value="False" />
-              <FixedRotation Value="True" />
-              <NickName Value="" />
-            </Properties>
-          </Rigidbody>
         </Components>
       </Entity>
       <Entity Name="ElectricFloorCorner9" Layer="">
