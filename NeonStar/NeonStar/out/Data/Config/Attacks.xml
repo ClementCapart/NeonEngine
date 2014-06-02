@@ -1807,7 +1807,9 @@
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
       <OnDelaySpecialEffects>
-        <Effect Type="InstantiatePrefab">
+      </OnDelaySpecialEffects>
+      <OnDurationSpecialEffects>
+	    <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:-500 Y:-500}" />
           <ThirdParameter Value="{X:-30 Y:0}" />
@@ -1827,8 +1829,7 @@
           <SecondParameter Value="{X:100 Y:-500}" />
           <ThirdParameter Value="{X:30 Y:0}" />
         </Effect>
-      </OnDelaySpecialEffects>
-      <OnDurationSpecialEffects />
+      </OnDurationSpecialEffects>
       <OnHitSpecialEffects />
       <OnGroundCancelSpecialEffects />
       <OnFinishSpecialEffects />

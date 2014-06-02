@@ -5,7 +5,7 @@
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
           <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:103 Y:-586}" />
+          <InitialPosition Value="{X:2871 Y:-609}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,12 +14,12 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:103 Y:-595}" />
-          <X Value="53" />
-          <Y Value="-630" />
+          <Center Value="{X:2868 Y:-618}" />
+          <X Value="2806" />
+          <Y Value="-653" />
           <OffsetX Value="0" />
           <OffsetY Value="-10" />
-          <Width Value="100" />
+          <Width Value="125" />
           <Height Value="70" />
           <NickName Value="" />
         </Properties>
@@ -53,25 +53,29 @@
           <Spritesheets>
             <Animation Name="Walk" SpritesheetTag="EnemySupervisorWalk" />
             <Animation Name="AlertWalk" SpritesheetTag="EnemySupervisorAlertWalk" />
-            <Animation Name="Attack" SpritesheetTag="EnemySupervisorAttack" />
             <Animation Name="Alert" SpritesheetTag="EnemySupervisorAlertOn" />
             <Animation Name="Death" SpritesheetTag="Explosion" />
+            <Animation Name="Delay" SpritesheetTag="EnemySupervisorAttackDelay" />
+            <Animation Name="Duration" SpritesheetTag="EnemySupervisorAttackDuration" />
+            <Animation Name="Cooldown" SpritesheetTag="EnemySupervisorAttackCooldown" />
           </Spritesheets>
           <DrawLayer Value="0.48" />
           <IsHUD Value="False" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </SpritesheetManager>
       <EnemyCore Type="NeonStarLibrary.Components.Enemies.EnemyCore" ID="4">
         <Properties>
           <Debug Value="False" />
-          <StartingHealthPoints Value="10" />
+          <StartingHealthPoints Value="20" />
           <CoreElement Value="Neutral" />
-          <CurrentHealthPoints Value="10" />
+          <CurrentHealthPoints Value="20" />
           <ChanceToDropHealth Value="0" />
           <HealthItemsToDrop Value="1" />
           <InvincibilityDuration Value="0.5" />
+          <AirImpulsedInAir Value="True" />
           <RunAnim Value="Walk" />
           <IdleAnim Value="" />
           <DyingAnim Value="Death" />
@@ -88,11 +92,13 @@
           <WaitThreatDuration Value="0.48" />
           <CurrentSide Value="Right" />
           <NickName Value="" />
+          <MaximumStunlockTime Value="3" />
         </Properties>
       </EnemyCore>
       <FollowNodes Type="NeonStarLibrary.Components.Enemies.FollowNodes" ID="5">
         <Properties>
-          <Speed Value="2" />
+          <CurrentNodeList Value="PathSupervisor02" />
+          <Speed Value="1" />
           <Roundtrip Value="True" />
           <ReverseStart Value="False" />
           <PathPrecisionTreshold Value="10" />
@@ -104,6 +110,7 @@
           <DetectionWidth Value="800" />
           <DetectionHeight Value="1000" />
           <DetectionBoxOffset Value="{X:0 Y:0}" />
+          <PathNodeBounds Value="PathSupervisor02" />
           <AlertAnimation Value="Alert" />
           <AlertPatrolAnimation Value="AlertWalk" />
           <NormalPatrolAnimation Value="Walk" />
@@ -130,9 +137,9 @@
           <RandomBalanceRate Value="0" />
           <RangeForAttackOne Value="0" />
           <AttackToLaunchOne Value="EnemySupervisorBombs" />
-          <AttackOneDelayAnimation Value="Attack" />
-          <AttackOneDurationAnimation Value="" />
-          <AttackOneCooldownAnimation Value="" />
+          <AttackOneDelayAnimation Value="Delay" />
+          <AttackOneDurationAnimation Value="Duration" />
+          <AttackOneCooldownAnimation Value="Cooldown" />
           <RangeForAttackTwo Value="0" />
           <AttackToLaunchTwo Value="" />
           <AttackTwoDelayAnimation Value="" />
@@ -174,6 +181,7 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
+          <Opacity Value="1" />
           <NickName Value="" />
         </Properties>
       </DamageDisplayer>
