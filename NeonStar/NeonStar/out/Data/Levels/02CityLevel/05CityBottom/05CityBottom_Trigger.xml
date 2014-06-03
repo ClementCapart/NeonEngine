@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="Trigger">
+    <Entities>
+      <Entity Name="ChangeLevel11" Layer="Trigger">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:2250 Y:-1425}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:2250 Y:-1425}" />
+              <X Value="2200" />
+              <Y Value="-1575" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="100" />
+              <Height Value="300" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <ChangeLevel Type="NeonStarLibrary.Components.Triggers.ChangeLevel" ID="3">
+            <Properties>
+              <GroupName Value="02CityLevel" />
+              <LevelName Value="11CityThirdSaveRoom" />
+              <SpawnPointIndex Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </ChangeLevel>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
+            <Properties>
+              <OneShot Value="True" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="ChangeLevel11" />
+              <TriggeredComponentName Value="ChangeLevel" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="5">
+            <Properties>
+              <CurrentSide Value="Left" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:123 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="Closed" SpritesheetTag="TransitionDoorCityClosed" />
+                <Animation Name="Opening" SpritesheetTag="TransitionDoorCityOpening" />
+                <Animation Name="Opened" SpritesheetTag="TransitionDoorCityOpened" />
+                <Animation Name="Closing" SpritesheetTag="TransitionDoorCityClosing" />
+              </Spritesheets>
+              <DrawLayer Value="0.6" />
+              <IsHUD Value="False" />
+              <NickName Value="r" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>

@@ -4352,6 +4352,353 @@
           </TilableGraphic>
         </Components>
       </Entity>
+      <Entity Name="LevelGeometry" Layer="Geometry">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-950 Y:-50}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Solid" />
+              <Center Value="{X:-950 Y:-50}" />
+              <X Value="-1100" />
+              <Y Value="-175" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="300" />
+              <Height Value="250" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="2">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="0.3" />
+              <Mass Value="5.49995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="True" />
+              <Hitbox Value="1" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="0" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="TOP_1-{X:0 Y:0}_0-{X:100 Y:0}_0-{X:150 Y:0}_BOT_2-{X:0 Y:0}_0-{X:150 Y:0}_LEFT_1-{X:0 Y:0}_0-{X:0 Y:100}_RIGHT_0-{X:0 Y:0}_1-{X:0 Y:50}" />
+              <DrawLayer Value="0.899" />
+              <TopCornerGraphicTag Value="CityFloorCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeiling50" />
+              <SecondBottomTileGraphicTag Value="CityCeiling100" />
+              <ThirdBottomTileGraphicTag Value="CityCeiling200" />
+              <FirstTopTileGraphicTag Value="CityFloorFirst50" />
+              <SecondTopTileGraphicTag Value="CityFloorFirst100" />
+              <ThirdTopTileGraphicTag Value="CityFloorFirst200" />
+              <FirstWallTileGraphicTag Value="CityWallFirst50" />
+              <SecondWallTileGraphicTag Value="CityWallFirst100" />
+              <ThirdWallTileGraphicTag Value="CityWallFirst200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="50" />
+              <CenterOffset Value="{X:50 Y:50}" />
+              <KeepTilingHash Value="True" />
+              <TilingHash Value="TOP_0-{X:0 Y:0}_0-{X:50 Y:0}_BOT_0-{X:0 Y:0}_0-{X:50 Y:0}_LEFT_0-{X:0 Y:0}_RIGHT_0-{X:0 Y:0}" />
+              <DrawLayer Value="0.899" />
+              <TopCornerGraphicTag Value="CityFloorSecondCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingSecondCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingSecond50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingSecond100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingSecond200" />
+              <FirstTopTileGraphicTag Value="CityFloorSecond50" />
+              <SecondTopTileGraphicTag Value="CityFloorSecond100" />
+              <ThirdTopTileGraphicTag Value="CityFloorSecond200" />
+              <FirstWallTileGraphicTag Value="CityWallSecond50" />
+              <SecondWallTileGraphicTag Value="CityWallSecond100" />
+              <ThirdWallTileGraphicTag Value="CityWallSecond200" />
+              <CenterTileGraphicTag Value="NoGraphic" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </SquaredRandomTiling>
+          <SquaredRandomTiling Type="NeonEngine.Components.Graphics2D.SquaredRandomTiling" ID="2">
+            <Properties>
+              <GlobalOffset Value="100" />
+              <CenterOffset Value="{X:100 Y:100}" />
+              <KeepTilingHash Value="False" />
+              <TilingHash Value="_BOT_LEFT_RIGHT" />
+              <DrawLayer Value="0.799" />
+              <TopCornerGraphicTag Value="CityFloorThirdCorner" />
+              <BottomCornerGraphicTag Value="CityCeilingThirdCorner" />
+              <FirstBottomTileGraphicTag Value="CityCeilingThird50" />
+              <SecondBottomTileGraphicTag Value="CityCeilingThird100" />
+              <ThirdBottomTileGraphicTag Value="CityCeilingThird200" />
+              <FirstTopTileGraphicTag Value="CityFloorThird50" />
+              <SecondTopTileGraphicTag Value="CityFloorThird100" />
+              <ThirdTopTileGraphicTag Value="CityFloorThird200" />
+              <FirstWallTileGraphicTag Value="CityWallThird50" />
+              <SecondWallTileGraphicTag Value="CityWallThird100" />
+              <ThirdWallTileGraphicTag Value="CityWallThird200" />
+              <CenterTileGraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="ThirdFloor" />
+            </Properties>
+          </SquaredRandomTiling>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityCeilingCornerReverse" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:124 Y:-151}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityWallFirst50" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:124 Y:-101}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityCeiling50" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:174 Y:-152}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityCeilingCornerReverse" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-126 Y:-151}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityWallFirst50" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-126 Y:-101}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityCeiling50" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-176 Y:-152}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityFloorSecondCorner" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:74 Y:-151}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityFloorSecondCorner" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-76 Y:-151}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityFloorSecond100" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-151}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityWallSecond100" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-76 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CityWallSecond100" />
+              <DrawLayer Value="0.9" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Left" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:74 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="4">
+            <Properties>
+              <UseTextureWidth Value="False" />
+              <TilingWidth Value="100" />
+              <UseTextureHeight Value="False" />
+              <TilingHeight Value="100" />
+              <DrawLayer Value="1" />
+              <GraphicTag Value="BrownTile" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-75}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </TilableGraphic>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>
