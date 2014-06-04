@@ -36,7 +36,7 @@ namespace NeonStarLibrary
         {
             if (_inTrigger && ((entity.spritesheets.CurrentSpritesheet.IsFinished && !entity.spritesheets.CurrentSpritesheet.IsLooped) || entity.spritesheets.CurrentSpritesheet.IsLooped))
             {
-                if (Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Y))
+                if (Neon.Input.Pressed(NeonStarInput.Interact))
                 {
                     _currentState++;
                     switch (_currentState)

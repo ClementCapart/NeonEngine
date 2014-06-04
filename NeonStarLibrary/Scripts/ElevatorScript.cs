@@ -66,9 +66,9 @@ namespace NeonStarLibrary
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (_isInUpTrigger && Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Y) && !_movingUp && !_movingDown)
+            if (_isInUpTrigger && Neon.Input.Pressed(NeonStarInput.Interact) && !_movingUp && !_movingDown)
                 _movingUp = true;
-            else if (_isInDownTrigger && Neon.Input.Pressed(Microsoft.Xna.Framework.Input.Buttons.Y) && !_movingUp && !_movingDown)
+            else if (_isInDownTrigger && Neon.Input.Pressed(NeonStarInput.Interact) && !_movingUp && !_movingDown)
                 _movingDown = true;
 
             if (_movingUp)

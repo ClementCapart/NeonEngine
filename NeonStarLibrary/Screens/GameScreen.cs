@@ -297,7 +297,7 @@ namespace NeonStarLibrary
             }
 
 
-            if (Neon.Input.Pressed(Buttons.Start) && PauseAllowed)
+            if (Neon.Input.Pressed(NeonStarInput.Start) && PauseAllowed)
             {
                 Pause = !Pause;
                 if (Pause)
@@ -313,7 +313,7 @@ namespace NeonStarLibrary
 
             }
 
-            if (Neon.Input.Pressed(Buttons.Back) && !Pause && LevelGroupName == "02CityLevel")
+            if (Neon.Input.Pressed(NeonStarInput.Map) && !Pause && LevelGroupName == "02CityLevel")
             {
                 Map.RefreshMapData();
                 Neon.World = Map;              
@@ -321,7 +321,7 @@ namespace NeonStarLibrary
 
             if (Pause)
             {
-                if (Neon.Input.Pressed(Buttons.Back))
+                if (Neon.Input.Pressed(NeonStarInput.Map))
                     this.ChangeLevel("Tests", "Menu", 0);
             }
 
