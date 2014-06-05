@@ -15,7 +15,7 @@
           </Transform>
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
-              <Type Value="Solid" />
+              <Type Value="OneWay" />
               <Center Value="{X:2500 Y:-400}" />
               <X Value="2450" />
               <Y Value="-550" />
@@ -36,7 +36,7 @@
               <Mass Value="2.99995" />
               <OneWayPlatform Value="False" />
               <SleepingAllowed Value="True" />
-              <IsGround Value="True" />
+              <IsGround Value="False" />
               <Hitbox Value="1" />
               <Sensors Value="False" />
               <FixedRotation Value="True" />
@@ -52,15 +52,15 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="ArenaDoorCityClosed" />
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityOpened" />
               </Spritesheets>
-              <DrawLayer Value="0.6" />
+              <DrawLayer Value="0.35" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -68,6 +68,8 @@
             <Properties>
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
+              <HorizontalDoor Value="False" />
+              <AdditionnalGaugeOffset Value="{X:0 Y:0}" />
               <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="Bison" />
               <SecondEnemyToKill Value="" />
@@ -78,19 +80,19 @@
               <LockName Value="DoorLock" />
               <GaugeName Value="Gauge" />
               <GaugeMaxWidth Value="75" />
-              <State Value="Deactivated" />
+              <State Value="Activated" />
               <NickName Value="" />
             </Properties>
           </EnemyPoweredDevice>
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
               <GraphicTag Value="DoorBotCity" />
-              <DrawLayer Value="0.9" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-1 Y:143}" />
+              <Offset Value="{X:-1 Y:162}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -146,7 +148,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.7" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -197,7 +199,7 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="0" />
+              <TilingWidth Value="75" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
@@ -206,7 +208,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-37.5 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -224,6 +226,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="ArenaDoorCityFrontTopIdle" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityFrontTopOpened" />
@@ -231,8 +235,6 @@
               </Spritesheets>
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="DoorTop" />
             </Properties>
           </SpritesheetManager>
@@ -288,6 +290,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="ArenaDoorCityClosed" />
                 <Animation Name="Opening" SpritesheetTag="ArenaDoorCityOpening" />
@@ -295,8 +299,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -304,6 +306,8 @@
             <Properties>
               <SignSpriteSheetTag Value="ArenaDoorFeedback" />
               <DisplayGauge Value="True" />
+              <HorizontalDoor Value="False" />
+              <AdditionnalGaugeOffset Value="{X:0 Y:0}" />
               <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="ArenaRobot" />
               <SecondEnemyToKill Value="ArenaNeutralTurret" />
@@ -321,12 +325,12 @@
           <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="6">
             <Properties>
               <GraphicTag Value="DoorBotCity" />
-              <DrawLayer Value="0.9" />
+              <DrawLayer Value="1" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-1 Y:143}" />
+              <Offset Value="{X:-1 Y:162}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -382,7 +386,7 @@
               <DelayBeforeLoop Value="False" />
               <SpriteSheetTag Value="ArenaDoorLockHighlightCity" />
               <DrawLayer Value="0.7" />
-              <IsFinished Value="False" />
+              <IsFinished Value="True" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
@@ -433,7 +437,7 @@
           <TilableGraphic Type="NeonEngine.Components.Graphics2D.TilableGraphic" ID="13">
             <Properties>
               <UseTextureWidth Value="False" />
-              <TilingWidth Value="0" />
+              <TilingWidth Value="37.5" />
               <UseTextureHeight Value="True" />
               <TilingHeight Value="100" />
               <DrawLayer Value="0.71" />
@@ -442,7 +446,7 @@
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:-37.5 Y:0}" />
+              <Offset Value="{X:-18.75 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -460,6 +464,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="ArenaDoorCityFrontTopIdle" />
                 <Animation Name="Opened" SpritesheetTag="ArenaDoorCityFrontTopOpened" />
@@ -467,8 +473,6 @@
               </Spritesheets>
               <DrawLayer Value="1" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="DoorTop" />
             </Properties>
           </SpritesheetManager>
@@ -565,14 +569,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -585,14 +589,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
                 <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -661,6 +665,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
                 <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
@@ -668,8 +674,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -738,6 +742,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
                 <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
@@ -745,8 +751,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -843,14 +847,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -863,14 +867,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
                 <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -967,14 +971,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -987,14 +991,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
                 <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1063,6 +1067,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="EnergyJumperOn" />
                 <Animation Name="Off" SpritesheetTag="EnergyJumperOff" />
@@ -1070,8 +1076,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1158,6 +1162,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closing" SpritesheetTag="RapidDoorClosing" />
                 <Animation Name="Closed" SpritesheetTag="RapidDoorClosed" />
@@ -1166,8 +1172,6 @@
               </Spritesheets>
               <DrawLayer Value="0.9" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1264,14 +1268,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="3.141593" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1284,14 +1288,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
                 <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1378,6 +1382,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closing" SpritesheetTag="RapidDoorClosing" />
                 <Animation Name="Closed" SpritesheetTag="RapidDoorClosed" />
@@ -1386,8 +1392,6 @@
               </Spritesheets>
               <DrawLayer Value="0.9" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1484,14 +1488,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="EnergySwitchDeactivated" />
                 <Animation Name="On" SpritesheetTag="EnergySwitchActivated" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1504,14 +1508,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Off" SpritesheetTag="SwitchDeactivatedTop" />
                 <Animation Name="On" SpritesheetTag="SwitchActivatedTop" />
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
