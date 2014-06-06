@@ -453,91 +453,98 @@ namespace NeonStarLibrary.Components.Avatar
                     if (_auraPulse != null)
                     {
                         bool _pulseColored = false;
-
-                        if (ElementSlots[0][0].Cooldown <= 0.0f)
+                        if (AvatarComponent.State != AvatarState.Dying && AvatarComponent.State != AvatarState.Respawning && AvatarComponent.State != AvatarState.Saving)
                         {
-                            switch (ElementSlots[0][0].Type)
+                            if (ElementSlots[0][0].Cooldown <= 0.0f)
                             {
-                                case Element.Fire:
-                                    _auraPulse.MainColor = _crystalPulseColor;
-                                    if (_crystalAura != null)
-                                        _crystalAura.Active = true;
-                                    if (_thunderAura != null)
-                                        _thunderAura.Active = false;
-                                    _pulseColored = true;
-                                    break;
-
-                                case Element.Thunder:
-                                    _auraPulse.MainColor = _thunderPulseColor;
-                                    if (_crystalAura != null)
-                                        _crystalAura.Active = false;
-                                    if (_thunderAura != null)
-                                        _thunderAura.Active = true;
-                                    _pulseColored = true;
-                                    break;
-
-                                default:
-                                    _auraPulse.MainColor = Color.Transparent;
-                                    if (_crystalAura != null)
-                                        _crystalAura.Active = false;
-                                    if (_thunderAura != null)
-                                        _thunderAura.Active = false;
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            _auraPulse.MainColor = Color.Transparent;
-                            if (_crystalAura != null)
-                                _crystalAura.Active = false;
-                            if (_thunderAura != null)
-                                _thunderAura.Active = false;
-                        }
-
-                        if (ElementSlots[1][0].Cooldown <= 0.0f)
-                        {
-                            switch(ElementSlots[1][0].Type)
-                            {
-                                case Element.Fire:
-                                    if (!_pulseColored)
-                                    {
+                                switch (ElementSlots[0][0].Type)
+                                {
+                                    case Element.Fire:
                                         _auraPulse.MainColor = _crystalPulseColor;
                                         if (_crystalAura != null)
                                             _crystalAura.Active = true;
                                         if (_thunderAura != null)
                                             _thunderAura.Active = false;
-                                    }
-                                    else
-                                    {
-                                        _auraPulse.MainColor = ColorMixed;
-                                        if (_crystalAura != null)
-                                            _crystalAura.Active = true;
-                                    }
-                                    break;
+                                        _pulseColored = true;
+                                        break;
 
-                                case Element.Thunder:
-                                    if (!_pulseColored)
-                                    {
+                                    case Element.Thunder:
                                         _auraPulse.MainColor = _thunderPulseColor;
                                         if (_crystalAura != null)
                                             _crystalAura.Active = false;
                                         if (_thunderAura != null)
                                             _thunderAura.Active = true;
-                                    }
-                                    else
-                                    {
-                                        _auraPulse.MainColor = ColorMixed;
-                                        if (_thunderAura != null)
-                                            _thunderAura.Active = true;
-                                    }
-                                    break;
+                                        _pulseColored = true;
+                                        break;
 
-                                default:
-                                    if(!_pulseColored)
+                                    default:
                                         _auraPulse.MainColor = Color.Transparent;
-                                    break;
+                                        if (_crystalAura != null)
+                                            _crystalAura.Active = false;
+                                        if (_thunderAura != null)
+                                            _thunderAura.Active = false;
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                _auraPulse.MainColor = Color.Transparent;
+                                if (_crystalAura != null)
+                                    _crystalAura.Active = false;
+                                if (_thunderAura != null)
+                                    _thunderAura.Active = false;
+                            }
+
+                            if (ElementSlots[1][0].Cooldown <= 0.0f)
+                            {
+                                switch (ElementSlots[1][0].Type)
+                                {
+                                    case Element.Fire:
+                                        if (!_pulseColored)
+                                        {
+                                            _auraPulse.MainColor = _crystalPulseColor;
+                                            if (_crystalAura != null)
+                                                _crystalAura.Active = true;
+                                            if (_thunderAura != null)
+                                                _thunderAura.Active = false;
+                                        }
+                                        else
+                                        {
+                                            _auraPulse.MainColor = ColorMixed;
+                                            if (_crystalAura != null)
+                                                _crystalAura.Active = true;
+                                        }
+                                        break;
+
+                                    case Element.Thunder:
+                                        if (!_pulseColored)
+                                        {
+                                            _auraPulse.MainColor = _thunderPulseColor;
+                                            if (_crystalAura != null)
+                                                _crystalAura.Active = false;
+                                            if (_thunderAura != null)
+                                                _thunderAura.Active = true;
+                                        }
+                                        else
+                                        {
+                                            _auraPulse.MainColor = ColorMixed;
+                                            if (_thunderAura != null)
+                                                _thunderAura.Active = true;
+                                        }
+                                        break;
+
+                                    default:
+                                        if (!_pulseColored)
+                                            _auraPulse.MainColor = Color.Transparent;
+                                        break;
+                                }
                             }
                         }
+                        else
+                        {
+                            _auraPulse.MainColor = Color.Transparent;
+                        }
+                        
                     }
                     
                 }
