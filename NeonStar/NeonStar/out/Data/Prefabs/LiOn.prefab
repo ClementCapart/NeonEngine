@@ -4,8 +4,8 @@
     <Components>
       <Transform Type="NeonEngine.Private.Transform" ID="0">
         <Properties>
-          <AutoChangeInitialPosition Value="True" />
-          <InitialPosition Value="{X:-1150 Y:-118}" />
+          <AutoChangeInitialPosition Value="False" />
+          <InitialPosition Value="{X:-9999 Y:-9999}" />
           <Rotation Value="0" />
           <Scale Value="2" />
           <NickName Value="" />
@@ -14,9 +14,9 @@
       <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
         <Properties>
           <Type Value="Main" />
-          <Center Value="{X:-1150 Y:-118}" />
-          <X Value="-1170" />
-          <Y Value="-186" />
+          <Center Value="{X:-307 Y:306}" />
+          <X Value="-327" />
+          <Y Value="238" />
           <OffsetX Value="0" />
           <OffsetY Value="0" />
           <Width Value="40" />
@@ -193,7 +193,7 @@
           <ThunderLaunchAnimation Value="ThunderLaunch" />
           <WindStartAnimation Value="WindStart" />
           <WindImpulseAnimation Value="WindImpulse" />
-          <LeftSlotElementFirst Value="Neutral" />
+          <LeftSlotElementFirst Value="Fire" />
           <LeftSlotElementSecond Value="Neutral" />
           <LeftSlotElementThird Value="Neutral" />
           <RightSlotElementFirst Value="Neutral" />
@@ -224,11 +224,12 @@
       </EnergySystem>
       <FireGauge Type="NeonStarLibrary.Components.HUD.FireGauge" ID="1">
         <Properties>
+          <GaugeOffset Value="{X:-50 Y:-8}" />
           <IsHUD Value="False" />
           <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
-          <Offset Value="{X:0 Y:-90}" />
+          <Offset Value="{X:-6 Y:-90}" />
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -319,9 +320,9 @@
           <RotationOffset Value="0" />
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
-          <MainColor Value="{R:0 G:0 B:0 A:0}" />
-          <Opacity Value="1" />
+          <MainColor Value="{R:128 G:0 B:255 A:255}" />
           <NickName Value="AuraPulse" />
+          <Opacity Value="1" />
         </Properties>
       </Spritesheet>
       <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
@@ -338,7 +339,7 @@
           <DrawLayer Value="0.501" />
           <IsFinished Value="False" />
           <IsHUD Value="False" />
-          <CurrentSide Value="Left" />
+          <CurrentSide Value="Right" />
           <Tint Value="False" />
           <ParallaxForce Value="{X:0 Y:0}" />
           <Offset Value="{X:0 Y:0}" />
@@ -346,8 +347,8 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
-          <Opacity Value="1" />
           <NickName Value="CrystalAura" />
+          <Opacity Value="1" />
         </Properties>
       </Spritesheet>
       <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="16">
@@ -372,8 +373,8 @@
           <RotationCenter Value="{X:0 Y:0}" />
           <TintColor Value="{R:255 G:255 B:255 A:255}" />
           <MainColor Value="{R:255 G:255 B:255 A:255}" />
-          <Opacity Value="1" />
           <NickName Value="ThunderAura" />
+          <Opacity Value="1" />
         </Properties>
       </Spritesheet>
     </Components>

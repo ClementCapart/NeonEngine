@@ -13,23 +13,23 @@ namespace NeonStarLibrary.Components.HUD
     public class FireGauge : DrawableComponent
     {
         #region Properties
+        private Vector2 _gaugeOffset;
+
+        public Vector2 GaugeOffset
+        {
+            get { return _gaugeOffset; }
+            set { _gaugeOffset = value; }
+        }
         #endregion
 
         private ElementSystem _elementSystem;
 
-        private Texture2D _gaugeTexture;
-        private Texture2D _cursorTexture;
-        private Texture2D _segmentTexture;
+        private Texture2D _gaugeBackTexture;
+        private Texture2D _gaugeFrontTexture;
+        private Texture2D _gaugeStateTexture;
+        private Texture2D _cursor;
 
         private float _cursorXPosition = 0.0f;
-
-        private float _yellowPartWidth;
-        private float _orangePartWidth;
-        private float _redPartWidth;
-
-        private Color stage1Color = new Color(72, 16, 255);
-        private Color stage2Color = new Color(142, 16, 215);
-        private Color stage3Color = new Color(215, 16, 180);
 
         public FireGauge(Entity entity)
             :base(1.0f, entity, "FireGauge")
@@ -40,14 +40,10 @@ namespace NeonStarLibrary.Components.HUD
         {
             _elementSystem = entity.GetComponent<ElementSystem>();
 
-            _gaugeTexture = AssetManager.GetTexture("HUDBarFire");
-            _cursorTexture = AssetManager.GetTexture("HUDCursorFire");
-
-            _segmentTexture = new Texture2D(Neon.GraphicsDevice, 1, _gaugeTexture.Height + 1);
-            Color[] fill = new Color[_gaugeTexture.Height + 1];
-            for (int i = 0; i < fill.Length - 1; i++)
-                fill[i] = Color.White;
-            _segmentTexture.SetData(fill);
+            _gaugeBackTexture = AssetManager.GetTexture("CrystalGaugeBack");
+            _gaugeFrontTexture = AssetManager.GetTexture("CrystalGaugeFront");
+            _gaugeStateTexture = AssetManager.GetTexture("CrystalGauge");
+            _cursor = AssetManager.GetTexture("CrystalGaugeCursor");
             
             base.Init();
         }
@@ -56,10 +52,7 @@ namespace NeonStarLibrary.Components.HUD
         {
             if (_elementSystem.CurrentElementEffect != null && _elementSystem.CurrentElementEffect.GetType() == typeof(Fire) && entity != null)
             {
-                _cursorXPosition = (float)(_elementSystem.CurrentElementEffect as Fire).CurrentCharge * (_gaugeTexture.Width / 100.0f) * entity.transform.Scale;
-                _yellowPartWidth = _gaugeTexture.Width / 100.0f * (float)(_elementSystem.CurrentElementEffect as Fire).StageTwoThreshold;
-                _orangePartWidth = (_gaugeTexture.Width / 100.0f * (float)(_elementSystem.CurrentElementEffect as Fire).StageThreeThreshold) - _yellowPartWidth;
-                _redPartWidth = (_gaugeTexture.Width - _orangePartWidth - _yellowPartWidth);
+                _cursorXPosition = (float)(_elementSystem.CurrentElementEffect as Fire).CurrentCharge * (_gaugeStateTexture.Width / 100.0f);
             }
             base.Update(gameTime);
         }
@@ -68,12 +61,10 @@ namespace NeonStarLibrary.Components.HUD
         {
             if (_elementSystem.CurrentElementEffect != null && _elementSystem.CurrentElementEffect.GetType() == typeof(Fire) && entity != null)
             {
-                spriteBatch.Draw(_segmentTexture, entity.transform.Position + Offset + new Vector2(-_gaugeTexture.Width + _yellowPartWidth, 0), new Rectangle(0, 0, (int)_yellowPartWidth, (int)_gaugeTexture.Height), stage1Color, entity.transform.Rotation, new Vector2(_yellowPartWidth / 2, _gaugeTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                spriteBatch.Draw(_segmentTexture, entity.transform.Position + Offset + new Vector2(-_gaugeTexture.Width + _yellowPartWidth * 2 + _orangePartWidth, 0), new Rectangle(0, 0, (int)_orangePartWidth + 1, (int)_gaugeTexture.Height), stage2Color, entity.transform.Rotation, new Vector2(_orangePartWidth / 2, _gaugeTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                spriteBatch.Draw(_segmentTexture, entity.transform.Position + Offset + new Vector2(-_gaugeTexture.Width + _yellowPartWidth * 2 + _orangePartWidth * 2 + _redPartWidth, 0), new Rectangle(0, 0, (int)_redPartWidth, (int)_gaugeTexture.Height), stage3Color, entity.transform.Rotation, new Vector2(_redPartWidth / 2, _gaugeTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-               
-                spriteBatch.Draw(_gaugeTexture, entity.transform.Position + Offset, null, Color.White, entity.transform.rotation, new Vector2(_gaugeTexture.Width / 2, _gaugeTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
-                spriteBatch.Draw(_cursorTexture, entity.transform.Position + Offset + new Vector2(-_gaugeTexture.Width, 0) + new Vector2(_cursorXPosition, 0), null, Color.White, entity.transform.rotation, new Vector2(_cursorTexture.Width / 2, _cursorTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_gaugeBackTexture, entity.transform.Position + Offset, null, Color.White, entity.transform.rotation, new Vector2(_gaugeBackTexture.Width / 2, _gaugeBackTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_gaugeStateTexture, entity.transform.Position + Offset + _gaugeOffset, new Rectangle(0, 0, (int)_cursorXPosition, (int)_gaugeStateTexture.Height), Color.White, entity.transform.Rotation, Vector2.Zero, entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_gaugeFrontTexture, entity.transform.Position + Offset, null, Color.White, entity.transform.rotation, new Vector2(_gaugeFrontTexture.Width / 2, _gaugeFrontTexture.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);
+                spriteBatch.Draw(_cursor, entity.transform.Position + Offset + _gaugeOffset + new Vector2(_cursorXPosition * entity.transform.Scale, 0) + new Vector2(-2, 4), null, Color.White, entity.transform.rotation, new Vector2(_cursor.Width / 2, _cursor.Height / 2), entity.transform.Scale, SpriteEffects.None, Layer);               
             }
             base.Draw(spriteBatch);
         }
