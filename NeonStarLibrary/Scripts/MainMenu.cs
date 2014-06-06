@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Utils;
 using NeonStarLibrary.Components.EnergyObjects;
+using NeonStarLibrary.Components.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,59 +16,89 @@ namespace NeonStarLibrary.Components.Menu
     {
         PressStart,
         ModeSelect,
-        ChapterSelect
+        ChapterSelect,
+        StartingGame,
     }
 
-    class MainMenu : Graphic
+    class MainMenu : Component
     {
-        #region Properties
-        private float _opacityChangeValue = 0.5f;
-
-        public float OpacityChangeValue
-        {
-            get { return _opacityChangeValue; }
-            set { _opacityChangeValue = value; }
-        }
-        #endregion
         
-        private bool _opacityGoingDown = true;
-
         private MenuState _menuState = MenuState.PressStart;
-        List<DrawableComponent> _drawableComponents = new List<DrawableComponent>();
 
-        private Graphic _selectBar = null;
+        private Graphic _pressStart = null;
+        private Graphic _newGame = null;
+        private Graphic _chapterSelection = null;
+        private Graphic _chapterSelect = null;
+        private SpritesheetManager _chapterManager;
 
-        private Graphic _firstGraphic = null;
-        private Graphic _secondGraphic = null;
+        private Graphic _title;
+        private Graphic _titleShadow;
+        private Graphic _titleGlow;
 
-        private Entity _firstChapterEntity;
-        private Entity _secondChapterEntity;
+        private Vector2 _cameraTarget;
+
+        private string _levelToGo = "";
+
+        public Vector2 CameraTarget
+        {
+            get { return _cameraTarget; }
+            set { _cameraTarget = value; }
+        }
+
+        private Vector2 _zoomTarget = Vector2.Zero;
+
+        public Vector2 ZoomTarget
+        {
+            get { return _zoomTarget; }
+            set { _zoomTarget = value; }
+        }
+
+        private ChangeOpacity _opacityComponent;
+        private FollowOpacity _titleFollowOpacity;
+        private bool _chapterSelectInitFinished = false;
+        private bool _modeSelectInitFinished = false;
 
         private bool _firstUpdateDone = false;
         private int _currentSelection = 0;
 
         public MainMenu(Entity entity)
-            :base(entity)
+            :base(entity, "MainMenu")
         {
-            Name = "MainMenu";
         }
 
         public override void Init()
         {
+            List<Graphic> _graphicList = entity.GetComponentsByInheritance<Graphic>();
+            if (_graphicList != null)
+            {
+                _pressStart = _graphicList.Where(g => g.NickName == "PressStart").FirstOrDefault();
+                _newGame = _graphicList.Where(g => g.NickName == "NewGame").FirstOrDefault();
+                _chapterSelect = _graphicList.Where(g => g.NickName == "ChapterSelect").FirstOrDefault();
+                _chapterSelection = _graphicList.Where(g => g.NickName == "ChapterSelection").FirstOrDefault();
+            }
+            _opacityComponent = entity.GetComponent<ChangeOpacity>();
+            _chapterManager = entity.spritesheets;
             ChangeState(MenuState.PressStart);
-            this.Opacity = 1.0f;
-            _firstChapterEntity = entity.GameWorld.GetEntityByName("FirstChapter");
-            _secondChapterEntity = entity.GameWorld.GetEntityByName("SecondChapter");
-            if (_firstChapterEntity != null)
-                _firstChapterEntity.spritesheets.Active = false;
-            if (_secondChapterEntity != null)
-                _secondChapterEntity.spritesheets.Active = false;
+            Entity e = entity.GameWorld.GetEntityByName("Title");
+            if (e != null)
+            {
+                _title = e.GetComponentByNickname("Logo") as Graphic;
+                _titleShadow = e.GetComponentByNickname("Shadow") as Graphic;
+            }
+            e = entity.GameWorld.GetEntityByName("TitleGlow");
+            if (e != null)
+            {
+                _titleGlow = e.GetComponent<Graphic>();
+                _titleFollowOpacity = e.GetComponent<FollowOpacity>();
+            }
+
 
             DeviceManager.AlreadyLoaded = false;
             DeviceManager.LoadDevicesInformation();
             GameScreen.CheckPointsData.Clear();
             CollectibleManager.ResetCollectibles();
             CollectibleManager.InitializeCollectibles(entity.GameWorld as GameScreen);
+            (entity.GameWorld as GameScreen).PauseAllowed = false;
  	        base.Init();
         }
 
@@ -84,64 +116,56 @@ namespace NeonStarLibrary.Components.Menu
             }
             switch(_menuState)
             {
-                case MenuState.PressStart:
-                    
-                    if (_opacityGoingDown)
-                    {
-                        if (Opacity > 0)
-                        {
-                            Opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        }
-                        else
-                        {
-                            _opacityGoingDown = false;
-                            Opacity = 0.0f;
-                        }
-                    }
-                    else
-                    {
-                        if (Opacity < 1)
-                        {
-                            Opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        }
-                        else
-                        {
-                            _opacityGoingDown = true;
-                            Opacity = 1.0f;
-                        }
-                    }
-
-                    foreach (DrawableComponent dc in _drawableComponents)
-                        (dc as Graphic).Opacity = Opacity;                 
-
+                case MenuState.PressStart:                
                     if (Neon.Input.Pressed(NeonStarInput.Start))
                         ChangeState(MenuState.ModeSelect);
                     break;    
 
                 case MenuState.ModeSelect:
+                    if (!_modeSelectInitFinished)
+                    {
+                        if (Vector2.DistanceSquared(entity.GameWorld.Camera.Position, Vector2.Zero) < 5)
+                        {
+                            entity.GameWorld.Camera.Position = Vector2.Zero;
+                            _modeSelectInitFinished = true;
+                            _currentSelection = 0;
+                            if (_newGame != null)
+                            {
+                                _newGame.Active = true;
+                                _newGame.GraphicTag = "NewMainTitleNewGameOn";
+                                _newGame.Opacity = 1.0f;
+                            }
+                            if (_chapterSelect != null)
+                            {
+                                _chapterSelect.Active = true;
+                                _chapterSelect.GraphicTag = "NewMainTitleChaptersOff";
+                                _chapterSelect.Opacity = 1.0f;
+                            }
+                            entity.transform.Scale = 1.0f;
+                        }
+                        else
+                            entity.GameWorld.Camera.Position = Vector2.Lerp(entity.GameWorld.Camera.Position, Vector2.Zero, 0.05f);
+                    }
+
 
                     if (Neon.Input.Pressed(NeonStarInput.MoveDown))
                     {
                         _currentSelection = (_currentSelection + 1) % 2;
-						SoundManager.GetSound("menuTemp").Play();					//UP Sfx
                     }
                     else if (Neon.Input.Pressed(NeonStarInput.MoveUp))
                     {
                         _currentSelection = Math.Abs((_currentSelection - 1)) % 2;
-						SoundManager.GetSound("menuTemp").Play();					//DOWN Sfx
                     }
 
                     if (_currentSelection == 0)
                     {
-                        _firstGraphic.GraphicTag = "NewGameOn";
-                        _secondGraphic.GraphicTag = "ChaptersOff";
-                        _selectBar.Offset = Vector2.Zero;
+                        _newGame.GraphicTag = "NewMainTitleNewGameOn";
+                        _chapterSelect.GraphicTag = "NewMainTitleChaptersOff";
                     }
                     else
                     {
-                        _firstGraphic.GraphicTag = "NewGameOff";
-                        _secondGraphic.GraphicTag = "ChaptersOn";
-                        _selectBar.Offset = new Vector2(0, 40);
+                        _newGame.GraphicTag = "NewMainTitleNewGameOff";
+                        _chapterSelect.GraphicTag = "NewMainTitleChaptersOn";
                     }
                     if (Neon.Input.Pressed(NeonStarInput.Guard))
                     {
@@ -152,172 +176,274 @@ namespace NeonStarLibrary.Components.Menu
                     if (Neon.Input.Pressed(NeonStarInput.Jump))
                     {
                         if (_currentSelection == 0)
-                            entity.GameWorld.ChangeLevel("01TrainingLevel", "00TrainingOpening", 0);
+                            StartLevel("Start");
                         else
                             ChangeState(MenuState.ChapterSelect);
                     }
+
+                    if (_title != null && _titleGlow != null && _titleShadow != null)
+                    {
+                        if (_title.Opacity < 1.0f)
+                        {
+                            _title.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                            _titleGlow.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                            _titleShadow.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                        }
+                        else
+                        {
+                            _title.Opacity = 1.0f;
+                            _titleGlow.Opacity = 1.0f;
+                            _titleShadow.Opacity = 1.0f;
+                        }
+                    }
+
+                    if (_chapterManager != null && _chapterSelection != null)
+                    {
+                        if (_chapterManager.Opacity > 0.0f && _chapterManager.Active)
+                        {
+                            _chapterManager.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                            _chapterSelection.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                        }
+                        else
+                        {
+                            _chapterSelection.Active = false;
+                            _chapterManager.Active = false;
+                            _chapterSelection.Opacity = 1.0f;
+                            _chapterManager.Opacity = 1.0f;
+                        }
+                    }
+
                     break;
 
                 case MenuState.ChapterSelect:
-                    if (_selectBar != null)
+                    if (!_chapterSelectInitFinished)
                     {
-                        if (_opacityGoingDown)
+                        if (Vector2.DistanceSquared(entity.GameWorld.Camera.Position, _cameraTarget) < 5)
                         {
-                            if (this._selectBar.Opacity > 0)
+                            entity.GameWorld.Camera.Position = _cameraTarget;
+                            _chapterManager.Active = true;
+                            _chapterManager.ChangeAnimation("Fade", 0, true, false, false);
+                            _chapterSelectInitFinished = true;
+                            _currentSelection = 0;
+
+                        }
+                        else
+                            entity.GameWorld.Camera.Position = Vector2.Lerp(entity.GameWorld.Camera.Position, _cameraTarget, 0.05f);
+                    }
+                    else
+                    {
+                        if (_chapterManager.CurrentSpritesheetName == "Fade" && _chapterManager.CurrentSpritesheet.IsFinished)
+                            _chapterManager.ChangeAnimation("Frontier", 0, true, false, true);
+
+                        if (_chapterManager.CurrentSpritesheet.IsLooped)
+                        {
+                            if (Neon.Input.Pressed(NeonStarInput.MoveLeft))
                             {
-                                this._selectBar.Opacity -= _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                _currentSelection = Math.Abs((_currentSelection - 1)) % 2;
                             }
-                            else
+                            else if (Neon.Input.Pressed(NeonStarInput.MoveRight))
                             {
-                                _opacityGoingDown = false;
-                                this._selectBar.Opacity = 0.0f;
+                                _currentSelection = (_currentSelection + 1) % 2;
                             }
+
+                            switch (_currentSelection)
+                            {
+                                case 0:
+                                    if (_chapterManager.CurrentSpritesheetName != "Frontier")
+                                        _chapterManager.ChangeAnimation("Frontier", 0, true, false, true);
+                                    break;
+
+                                case 1:
+                                    if (_chapterManager.CurrentSpritesheetName != "LowerCity")
+                                        _chapterManager.ChangeAnimation("LowerCity", 0, true, false, true);
+                                    break;
+                            }
+
+                            if (Neon.Input.Pressed(NeonStarInput.Jump))
+                            {
+                                switch (_currentSelection)
+                                {
+                                    case 0:
+                                        StartLevel("Frontier");
+                                        break;
+
+                                    case 1:
+                                        StartLevel("LowerCity");
+                                        break;
+                                }
+                            }
+
+                            if (Neon.Input.Pressed(NeonStarInput.Guard))
+                            {
+                                ChangeState(MenuState.ModeSelect);
+                            }
+                        }
+                        if (_chapterSelection.Opacity < 1.0f)
+                        {
+                            _chapterSelection.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 1.0f;
                         }
                         else
                         {
-                            if (this._selectBar.Opacity < 1)
-                            {
-                                this._selectBar.Opacity += _opacityChangeValue * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                            }
-                            else
-                            {
-                                _opacityGoingDown = true;
-                                this._selectBar.Opacity = 1.0f;
-                            }
+                            _chapterSelection.Opacity = 1.0f;
                         }
+                    }
 
-                        if (( _firstChapterEntity.spritesheets.IsFinished() || _firstChapterEntity.spritesheets.CurrentSpritesheet.IsLooped) && (_secondChapterEntity.spritesheets.IsFinished() || _secondChapterEntity.spritesheets.CurrentSpritesheet.IsLooped))
-                        {
-                            if (Neon.Input.Pressed(NeonStarInput.MoveRight))
-                            {
-                                _currentSelection = (_currentSelection + 1) % 1;
-                            }
-                            else if (Neon.Input.Pressed(NeonStarInput.MoveLeft))
-                            {
-                                _currentSelection = Math.Abs((_currentSelection - 1)) % 1;
-                            }
-                        }
-                        
+                    
 
-                        if (_currentSelection == 0)
+                    
+
+                    if (_title != null && _titleGlow != null && _titleShadow != null)
+                    {
+                        if (_title.Opacity > 0.0f)
                         {
-                            if (_firstChapterEntity.spritesheets.IsFinished() && _firstChapterEntity.spritesheets.CurrentSpritesheetName == "Opening")
-                                _firstChapterEntity.spritesheets.ChangeAnimation("Opened");
-                            if (_secondChapterEntity.spritesheets.IsFinished() && _secondChapterEntity.spritesheets.CurrentSpritesheetName == "Opening")
-                            {
-                                _secondChapterEntity.spritesheets.ChangeAnimation("Closed");
-                                _secondChapterEntity.spritesheets.CurrentSpritesheet.Reverse = false;
-                            }
-                            else if (_firstChapterEntity.spritesheets.CurrentSpritesheetName == "Closed")
-                            {
-                                _firstChapterEntity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-                                _secondChapterEntity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-                                _secondChapterEntity.spritesheets.CurrentSpritesheet.Reverse = true;
-                                _secondChapterEntity.spritesheets.CurrentSpritesheet.currentFrame = _secondChapterEntity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
-                            }
-                            
-                            _selectBar.Offset = Vector2.Zero;
+                            _title.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                            _titleGlow.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                            _titleShadow.Opacity -= (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
                         }
                         else
                         {
-                            if (_secondChapterEntity.spritesheets.IsFinished() && _secondChapterEntity.spritesheets.CurrentSpritesheetName == "Opening")
-                                _secondChapterEntity.spritesheets.ChangeAnimation("Opened");
-                            if (_firstChapterEntity.spritesheets.IsFinished() && _firstChapterEntity.spritesheets.CurrentSpritesheetName == "Opening")
-                            {
-                                _firstChapterEntity.spritesheets.ChangeAnimation("Closed");
-                                _firstChapterEntity.spritesheets.CurrentSpritesheet.Reverse = false;
-                            }
-                            else if (_secondChapterEntity.spritesheets.CurrentSpritesheetName == "Closed")
-                            {
-                                _secondChapterEntity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-                                _firstChapterEntity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-                                _firstChapterEntity.spritesheets.CurrentSpritesheet.Reverse = true;
-                                _firstChapterEntity.spritesheets.CurrentSpritesheet.currentFrame = _firstChapterEntity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1;
-                            }
-                            _selectBar.Offset = new Vector2(0, 40);
+                            _title.Opacity = 0.0f;
+                            _titleGlow.Opacity = 0.0f;
+                            _titleShadow.Opacity = 0.0f;
                         }
-                        
-                        if (Neon.Input.Pressed(NeonStarInput.Guard))
-                        {
-                            ChangeState(MenuState.ModeSelect);
-                            _firstChapterEntity.spritesheets.Active = false;
-                            _secondChapterEntity.spritesheets.Active = false;
-                        }
+                    }
 
-                        if (Neon.Input.Pressed(NeonStarInput.Jump))
-                        {
-                            if (_currentSelection == 0)
-                                entity.GameWorld.ChangeLevel("01TrainingLevel", "01TrainingEntrance", 0);
-                            /*else
-                                entity.GameWorld.ChangeLevel("SequenceOneCity", "CityOne", 0);*/
-                        }
+                    
+                    
+                    break;
 
-                        
+                case MenuState.StartingGame:
+                    if (_levelToGo != "")
+                    {
+                        entity.GameWorld.Camera.Zoom += (float)gameTime.ElapsedGameTime.TotalSeconds * 9;
+                        entity.GameWorld.Camera.Position = Vector2.Lerp(entity.GameWorld.Camera.Position, _zoomTarget, 0.1f);
+                        entity.GameWorld.Camera.Rotate((float)gameTime.ElapsedGameTime.TotalSeconds * 0.4f);
+                        if (entity.GameWorld.Camera.Zoom >= 8.0f && entity.GameWorld.NextScreen == null)
+                        {
+                            switch(_levelToGo)
+                            {
+                                case "Start":
+                                    entity.GameWorld.ChangeLevel("01TrainingLevel", "00TrainingOpening", 0);
+                                    break;
+
+                                case "Frontier":
+                                    entity.GameWorld.ChangeLevel("01TrainingLevel", "01TrainingEntrance", 0);
+                                    break;
+
+                                case "LowerCity":
+                                    entity.GameWorld.ChangeLevel("02CityLevel", "01CityTrainStationEntrance", 0);
+                                    break;
+                            }
+                        }
                     }
                     break;
             }
+
             
             base.Update(gameTime);
+        }
+
+        private void StartLevel(string level)
+        {
+            switch(level)
+            {
+                case "Start":
+                    _levelToGo = "Start";
+                    break;
+
+                case "Frontier":
+                    _levelToGo = "Frontier";
+                    break;
+
+                case "LowerCity":
+                    _levelToGo = "LowerCity";
+                    break;
+            }
+            ChangeState(MenuState.StartingGame);
         }
 
         public void ChangeState(MenuState newState)
         {
             _menuState = newState;
-            for (int i = _drawableComponents.Count - 1; i >= 0; i--)
-            {
-                DrawableComponent dc = _drawableComponents[i];
-                dc.Remove();
-            }
-            _drawableComponents.Clear();
 
             switch(newState)
             {
                 case MenuState.PressStart:
-                    Graphic g = new Graphic(this.entity);
-                    g.GraphicTag = "PressStart";
-                    g.ParallaxForce = Vector2.One;
-                    entity.AddComponent(g);
-                    g.Layer = 0.7f;
-                    _drawableComponents.Add(g);
-                    g = new Graphic(this.entity);
-                    g.GraphicTag = "SelectBar";
-                    g.ParallaxForce = Vector2.One;
-                    g.Layer = 0.7f;
-                    entity.AddComponent(g);
-                    _drawableComponents.Add(g);
+                    if (_titleFollowOpacity != null)
+                        _titleFollowOpacity.Active = true;
+                    if (_opacityComponent != null)
+                        _opacityComponent.Active = true;
+                    if (_pressStart != null)
+                        _pressStart.Active = true;
+                    if (_newGame != null)
+                        _newGame.Active = false;
+                    if (_chapterSelect != null)
+                        _chapterSelect.Active = false;
+                    if (_chapterManager != null)
+                        _chapterManager.Active = false;
+                    if (_chapterSelection != null)
+                        _chapterSelection.Active = false;
+                    entity.transform.Scale = 1.0f;
                     break;
 
                 case MenuState.ModeSelect:
-                    _selectBar = new Graphic(this.entity);
-                    _selectBar.GraphicTag = "SelectBar";
-                    _selectBar.ParallaxForce = Vector2.One;
-                    _selectBar.Layer = 0.7f;
-                    entity.AddComponent(_selectBar);
-                    _drawableComponents.Add(_selectBar);
-                    _firstGraphic = new Graphic(this.entity);
-                    _firstGraphic.GraphicTag = "NewGameOn";
-                    _firstGraphic.ParallaxForce = Vector2.One;
-                    _firstGraphic.Layer = 0.7f;
-                    entity.AddComponent(_firstGraphic);
-                    _drawableComponents.Add(_firstGraphic);
-                    _secondGraphic = new Graphic(this.entity);
-                    _secondGraphic.GraphicTag = "ChaptersOff";
-                    _secondGraphic.ParallaxForce = Vector2.One;
-                    _secondGraphic.Layer = 0.7f;
-                    _secondGraphic.Offset = new Vector2(0, 40);
-                    entity.AddComponent(_secondGraphic);
-                    _drawableComponents.Add(_secondGraphic);
+                    _modeSelectInitFinished = false;
+                    _currentSelection = 0;
+                    if (_titleFollowOpacity != null)
+                        _titleFollowOpacity.Active = true;
+                    if (_opacityComponent != null)
+                        _opacityComponent.Active = false;
+                    if (_pressStart != null)
+                        _pressStart.Active = false;
+                   
                     break;
 
                 case MenuState.ChapterSelect:
+                    _currentSelection = 0;
+                    _chapterSelectInitFinished = false;
+                    if (_titleFollowOpacity != null)
+                        _titleFollowOpacity.Active = false;
                         _currentSelection = 0;
-                        _firstChapterEntity.spritesheets.Active = true;
-                        _firstChapterEntity.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-                        _secondChapterEntity.spritesheets.Active = true;
-                        _secondChapterEntity.spritesheets.ChangeAnimation("Closed", 0, true, false, false);
+                        if (_opacityComponent != null)
+                            _opacityComponent.Active = false;
+                        if (_pressStart != null)
+                            _pressStart.Active = false;
+                        if (_newGame != null)
+                            _newGame.Active = false;
+                        if (_chapterSelect != null)
+                            _chapterSelect.Active = false;
+                        if (_chapterSelection != null)
+                        {
+                            _chapterSelection.Active = true;
+                            _chapterSelection.Opacity = 0.0f;
+                        }
+
+                        entity.transform.Scale = 2.0f;
                     break;
-            }
-        
+
+                case MenuState.StartingGame:
+                    if (_titleFollowOpacity != null)
+                        _titleFollowOpacity.Active = false;
+                    if (_opacityComponent != null)
+                        _opacityComponent.Active = false;
+                    if (_pressStart != null)
+                        _pressStart.Active = false;
+                    if (_newGame != null)
+                        _newGame.Active = false;
+                    if (_chapterSelect != null)
+                        _chapterSelect.Active = false;
+                    if (_chapterManager != null)
+                        _chapterManager.Active = false;
+                    if (_chapterSelection != null)
+                        _chapterSelection.Active = false;
+                    if (_title != null)
+                        _title.Active = false;
+                    if (_titleGlow != null)
+                        _titleGlow.Active = false;
+                    entity.transform.Scale = 1.0f;
+                    break;
+
+            }     
         }
        
 
