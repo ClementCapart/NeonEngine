@@ -543,6 +543,8 @@ namespace NeonStarLibrary.Components.Avatar
                         else
                         {
                             _auraPulse.MainColor = Color.Transparent;
+                            _thunderAura.Active = false;
+                            _crystalAura.Active = false;
                         }
                         
                     }
