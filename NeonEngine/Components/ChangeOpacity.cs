@@ -8,6 +8,14 @@ namespace NeonEngine.Components.Utils
 {
     public class ChangeOpacity : Component
     {
+        private bool _active = false;
+
+        public bool Active
+        {
+            get { return _active; }
+            set { _active = value; }
+        }
+
         private float _opacitySpeed = 0.5f;
 
         public float OpacitySpeed
@@ -48,36 +56,41 @@ namespace NeonEngine.Components.Utils
             base.Init();
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void PreUpdate(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            bool change = false;
-            if(_drawableComponents != null)
-                foreach (DrawableComponent dc in _drawableComponents)
-                {
-                    if (_goingUp)
+            if (Active)
+            {
+                bool change = false;
+                if (_drawableComponents != null)
+                    foreach (DrawableComponent dc in _drawableComponents)
                     {
-                        dc.Opacity += _opacitySpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (dc.Opacity >= OpacityHighThreshold)
-                            change = true;
+                        if (_goingUp)
+                        {
+                            dc.Opacity += _opacitySpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (dc.Opacity >= OpacityHighThreshold)
+                                change = true;
 
-                        if (change)
-                            dc.Opacity = OpacityHighThreshold;
+                            if (change)
+                                dc.Opacity = OpacityHighThreshold;
+                        }
+                        else
+                        {
+                            dc.Opacity -= _opacitySpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                            if (dc.Opacity <= OpacityLowThreshold)
+                                change = true;
+
+                            if (change)
+                                dc.Opacity = OpacityLowThreshold;
+                        }
                     }
-                    else
-                    {
-                        dc.Opacity -= _opacitySpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (dc.Opacity <= OpacityLowThreshold)
-                            change = true;
 
-                        if (change)
-                            dc.Opacity = OpacityLowThreshold;
-                    }
-                }
+                if (change)
+                    _goingUp = !_goingUp;
+            }
 
-            if (change)
-                _goingUp = !_goingUp;
-                    
-            base.Update(gameTime);
+            
+
+            base.PreUpdate(gameTime);
         }
 
 

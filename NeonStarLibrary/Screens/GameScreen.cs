@@ -322,7 +322,7 @@ namespace NeonStarLibrary
             if (Pause)
             {
                 if (Neon.Input.Pressed(NeonStarInput.Map))
-                    this.ChangeLevel("Tests", "Menu", 0);
+                    this.ChangeLevel("00TitleScreen", "01TitleScreenMain", 0);
             }
 
             base.Update(gameTime);
