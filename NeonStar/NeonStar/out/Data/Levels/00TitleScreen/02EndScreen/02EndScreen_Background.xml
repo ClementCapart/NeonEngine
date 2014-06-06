@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="Background">
+    <Entities>
+      <Entity Name="Background" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-41 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleBackground" />
+              <DrawLayer Value="0.05" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-84 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+      <Entity Name="Stars01" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="False" />
+              <InitialPosition Value="{X:0 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleStars1" />
+              <DrawLayer Value="0.15" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0.2" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="4">
+            <Properties>
+              <CurrentNodeList Value="StarsParallax" />
+              <Speed Value="0.2" />
+              <Roundtrip Value="False" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="0" />
+              <InitAtFirstNode Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MovingGeometry>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Kinematic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-936 Y:0}" />
+              <X Value="-961" />
+              <Y Value="-25" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <MoveLoop Type="NeonStarLibrary.Components.Scripts.MoveLoop" ID="5">
+            <Properties>
+              <NeedAirWaveFade Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MoveLoop>
+        </Components>
+      </Entity>
+      <Entity Name="Stars02" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="False" />
+              <InitialPosition Value="{X:1280 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleStars1" />
+              <DrawLayer Value="0.15" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0.2" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="4">
+            <Properties>
+              <CurrentNodeList Value="StarsParallax" />
+              <Speed Value="0.2" />
+              <Roundtrip Value="False" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="0" />
+              <InitAtFirstNode Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MovingGeometry>
+          <MoveLoop Type="NeonStarLibrary.Components.Scripts.MoveLoop" ID="5">
+            <Properties>
+              <NeedAirWaveFade Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MoveLoop>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="7">
+            <Properties>
+              <BodyType Value="Kinematic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="6" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="6">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:342 Y:0}" />
+              <X Value="317" />
+              <Y Value="-25" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+        </Components>
+      </Entity>
+      <Entity Name="Stars11" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="False" />
+              <InitialPosition Value="{X:0 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleStars2" />
+              <DrawLayer Value="0.16" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0.2" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="4">
+            <Properties>
+              <CurrentNodeList Value="StarsParallax" />
+              <Speed Value="0.1" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="0" />
+              <InitAtFirstNode Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MovingGeometry>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Kinematic" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:-468 Y:0}" />
+              <X Value="-493" />
+              <Y Value="-25" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <MoveLoop Type="NeonStarLibrary.Components.Scripts.MoveLoop" ID="5">
+            <Properties>
+              <NeedAirWaveFade Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MoveLoop>
+        </Components>
+      </Entity>
+      <Entity Name="Stars12" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="False" />
+              <InitialPosition Value="{X:1280 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleStars2" />
+              <DrawLayer Value="0.16" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0.2" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+          <MovingGeometry Type="NeonStarLibrary.Components.GameplayElements.MovingGeometry" ID="4">
+            <Properties>
+              <CurrentNodeList Value="StarsParallax" />
+              <Speed Value="0.1" />
+              <Roundtrip Value="True" />
+              <ReverseStart Value="False" />
+              <PathPrecisionTreshold Value="0" />
+              <InitAtFirstNode Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MovingGeometry>
+          <Rigidbody Type="NeonEngine.Components.CollisionDetection.Rigidbody" ID="3">
+            <Properties>
+              <BodyType Value="Static" />
+              <GravityScale Value="2" />
+              <UseGravity Value="True" />
+              <Restitution Value="0" />
+              <Friction Value="10" />
+              <Mass Value="0.24995" />
+              <OneWayPlatform Value="False" />
+              <SleepingAllowed Value="True" />
+              <IsGround Value="False" />
+              <Hitbox Value="2" />
+              <Sensors Value="False" />
+              <FixedRotation Value="True" />
+              <NickName Value="" />
+            </Properties>
+          </Rigidbody>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
+            <Properties>
+              <Type Value="None" />
+              <Center Value="{X:1279 Y:0}" />
+              <X Value="1254" />
+              <Y Value="-25" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="50" />
+              <Height Value="50" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <MoveLoop Type="NeonStarLibrary.Components.Scripts.MoveLoop" ID="5">
+            <Properties>
+              <NeedAirWaveFade Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </MoveLoop>
+        </Components>
+      </Entity>
+      <Entity Name="Vignette" Layer="Background">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-488 Y:0}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="1">
+            <Properties>
+              <GraphicTag Value="NewMainTitleVignette" />
+              <DrawLayer Value="0.88" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>
