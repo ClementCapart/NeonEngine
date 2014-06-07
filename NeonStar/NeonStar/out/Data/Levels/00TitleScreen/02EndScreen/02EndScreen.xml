@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XnaContent>
+  <Level Layer="">
+    <Entities>
+      <Entity Name="Script" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-612 Y:31}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <EndMenu Type="NeonStarLibrary.Components.Menu.EndMenu" ID="1">
+            <Properties>
+              <CameraTarget Value="{X:-300 Y:0}" />
+              <NickName Value="" />
+            </Properties>
+          </EndMenu>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="2">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:-12}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="Fade" SpritesheetTag="CompletionTimeFadeIn" />
+                <Animation Name="Idle" SpritesheetTag="CompletionTimeIdle" />
+              </Spritesheets>
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+          <Graphic Type="NeonEngine.Components.Graphics2D.Graphic" ID="3">
+            <Properties>
+              <GraphicTag Value="CompletionTimeText" />
+              <DrawLayer Value="1" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:6 Y:-159}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="Text" />
+            </Properties>
+          </Graphic>
+        </Components>
+      </Entity>
+    </Entities>
+  </Level>
+</XnaContent>

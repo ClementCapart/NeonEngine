@@ -430,13 +430,11 @@ namespace NeonStarLibrary
 
         public override void ManualDrawHUD(SpriteBatch sb)
         {
-#if RELEASE
             if (Pause)
             {
                 if(_pauseMenuTexture != null)
                     sb.Draw(_pauseMenuTexture, Vector2.Zero, Color.White);
             }
-#endif
             base.ManualDrawHUD(sb);
         }
 
