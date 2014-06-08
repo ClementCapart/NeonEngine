@@ -16,6 +16,7 @@ using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.GameplayElements;
 using NeonStarLibrary.Components.EnergyObjects;
 using NeonStarLibrary.Components.Camera;
+using NeonStarLibrary.Components;
 
 namespace NeonStarLibrary
 {
@@ -217,8 +218,7 @@ namespace NeonStarLibrary
                         Avatar.spritesheets.CurrentSpritesheet.isPlaying = true;
                     Camera.Position = Avatar.transform.Position;
                 }
-            }
-            
+            }        
         }
 
         public override void PreUpdate(GameTime gameTime)
@@ -347,6 +347,16 @@ namespace NeonStarLibrary
         {
             if (CheckPointsData.Count > 0)
             {
+                switch(CheckPointsData.Last().Element("CurrentLevel").Element("GroupName").Value)
+                {
+                    case "01TrainingLevel":
+                        LevelArrival.NextLevelToDisplay = "Frontier";
+                        break;
+                    case "02CityLevel":
+                        LevelArrival.NextLevelToDisplay = "LowerCity";
+                        break;
+                }
+
                 ChangeLevel(CheckPointsData.Last());
             }
             else
