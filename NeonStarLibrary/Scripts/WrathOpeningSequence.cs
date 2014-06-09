@@ -35,7 +35,9 @@ namespace NeonStarLibrary.Scripts
         {
             _wrath = entity.GameWorld.GetEntityByName("Wrath");
             _yButton = entity.GetComponent<FadingSpritesheet>();
-            _avatarCore = (entity.GameWorld as GameScreen).Avatar.GetComponent<AvatarCore>();
+            Entity e = entity.GameWorld.GetEntityByName("LiOn");
+            if(e != null)
+                _avatarCore = e.GetComponent<AvatarCore>();
             base.Init();
         }
 
