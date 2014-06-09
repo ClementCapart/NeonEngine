@@ -79,7 +79,7 @@ namespace NeonStarLibrary.Scripts
                 (entity.GameWorld as GameScreen).MustFollowAvatar = false;
             }
 
-            if (_sequenceStarted && _wrath.spritesheets.CurrentSpritesheetName == "Eyes" && _wrath.spritesheets.CurrentSpritesheet.IsFinished)
+            if (_sequenceStarted && _wrath.spritesheets.CurrentSpritesheetName == "Eyes" && _wrath.spritesheets.CurrentSpritesheet.IsFinished && entity.GameWorld.NextScreen == null)
             {
                 entity.GameWorld.ChangeLevel("00TitleScreen", "02EndScreen", 0);
             }
