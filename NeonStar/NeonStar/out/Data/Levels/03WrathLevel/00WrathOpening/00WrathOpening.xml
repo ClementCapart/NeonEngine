@@ -260,6 +260,40 @@
           </Rigidbody>
         </Components>
       </Entity>
+      <Entity Name="Wrath" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:672 Y:-227}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <SpritesheetManager Type="NeonEngine.Components.Graphics2D.SpritesheetManager" ID="1">
+            <Properties>
+              <CurrentSide Value="Right" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <Tint Value="False" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <Spritesheets>
+                <Animation Name="Fall" SpritesheetTag="Boss01" />
+                <Animation Name="Impact" SpritesheetTag="Boss02" />
+                <Animation Name="Eyes" SpritesheetTag="Boss03" />
+              </Spritesheets>
+              <DrawLayer Value="0.51" />
+              <IsHUD Value="False" />
+              <NickName Value="" />
+            </Properties>
+          </SpritesheetManager>
+        </Components>
+      </Entity>
     </Entities>
   </Level>
 </XnaContent>

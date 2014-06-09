@@ -299,32 +299,14 @@ namespace NeonStarLibrary.Components.Avatar
                                 if (Neon.Input.Check(NeonStarInput.MoveLeft))
                                 {
                                     AvatarComponent.CurrentSide = Side.Left;
-                                    AvatarComponent.State = AvatarState.Rolling;
 
                                     PerformRoll();
-                                    _durationTimer = _rollDuration;
-                                    _isGuarding = false;
-                                    _isAirDashing = false;
-                                    _isRolling = true;
-                                    AvatarComponent.CanMove = false;
-                                    AvatarComponent.CanTurn = false;
-                                    AvatarComponent.CanAttack = false;
-                                    AvatarComponent.CanUseElement = false;
+
                                 }
                                 else if (Neon.Input.Check(NeonStarInput.MoveRight))
                                 {
                                     AvatarComponent.CurrentSide = Side.Right;
-                                    AvatarComponent.State = AvatarState.Rolling;
-
                                     PerformRoll();
-                                    _durationTimer = _rollDuration;
-                                    _isGuarding = false;
-                                    _isAirDashing = false;
-                                    _isRolling = true;
-                                    AvatarComponent.CanMove = false;
-                                    AvatarComponent.CanTurn = false;
-                                    AvatarComponent.CanAttack = false;
-                                    AvatarComponent.CanUseElement = false;
                                 }
                             }
                         }
@@ -417,8 +399,10 @@ namespace NeonStarLibrary.Components.Avatar
             base.PostUpdate(gameTime);
         }
 
-        private void PerformRoll()
+        public void PerformRoll()
         {
+            AvatarComponent.State = AvatarState.Rolling;
+
             if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();
 
@@ -430,9 +414,18 @@ namespace NeonStarLibrary.Components.Avatar
                 AvatarComponent.ElementSystem.CurrentElementEffect.End();
             entity.hitboxes[0].SwitchType(HitboxType.Invincible, _rollDuration);
             if (entity.soundEmitter != null) entity.soundEmitter.PlaySound(_rollSound);
+
+            _durationTimer = _rollDuration;
+            _isGuarding = false;
+            _isAirDashing = false;
+            _isRolling = true;
+            AvatarComponent.CanMove = false;
+            AvatarComponent.CanTurn = false;
+            AvatarComponent.CanAttack = false;
+            AvatarComponent.CanUseElement = false;
         }
 
-        private void PerformGuard()
+        public void PerformGuard()
         {
             if (AvatarComponent.MeleeFight.CurrentAttack != null)
                 AvatarComponent.MeleeFight.CurrentAttack.CancelAttack();

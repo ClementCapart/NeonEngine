@@ -7,7 +7,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:606 Y:-240}" />
+              <InitialPosition Value="{X:606 Y:-241}" />
               <Rotation Value="0" />
               <Scale Value="2" />
               <NickName Value="" />
@@ -160,6 +160,53 @@
               <NickName Value="Sand" />
             </Properties>
           </Spritesheet>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+            <Properties>
+              <FadingSpeed Value="2" />
+              <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="YbuttonPress" />
+              <DrawLayer Value="0.4" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:3 Y:-78}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </FadingSpritesheet>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="3">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:593 Y:-111}" />
+              <X Value="518" />
+              <Y Value="-116" />
+              <OffsetX Value="-13.5" />
+              <OffsetY Value="130" />
+              <Width Value="150" />
+              <Height Value="10" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <WrathOpeningSequence Type="NeonStarLibrary.Scripts.WrathOpeningSequence" ID="5">
+            <Properties>
+              <ShockImpulse Value="{X:-300 Y:-300}" />
+              <NickName Value="" />
+            </Properties>
+          </WrathOpeningSequence>
         </Components>
       </Entity>
       <Entity Name="ground" Layer="Foreground">
