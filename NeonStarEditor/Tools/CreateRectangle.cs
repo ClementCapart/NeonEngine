@@ -92,7 +92,7 @@ namespace NeonStarEditor
                     e.AddComponent(rg);
                     rg.Hitbox = hb;
                     currentWorld.AddEntity(e);
-                    currentWorld.CurrentTool = new CreateRectangle(currentWorld);
+                    currentWorld.CurrentTool = new Selection(currentWorld);
                     //ActionManager.SaveAction(ActionType.AddEntity, e);
                 }
  

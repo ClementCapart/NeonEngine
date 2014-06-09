@@ -912,7 +912,7 @@ namespace NeonStarEditor
                                 spriteBatch.Draw(_boundTexture, entity.transform.Position, null, Color.White, angle, new Vector2(_boundTexture.Width / 2, _boundTexture.Height / 2), 1f, SpriteEffects.None, 0);
                             }
                         }
-
+                        /*
                         SoundEmitter soundEmitter = entity.GetComponent<SoundEmitter>();
                         if (soundEmitter != null && soundEmitter.Debug)
                         {
@@ -922,7 +922,7 @@ namespace NeonStarEditor
                                 spriteBatch.Draw(_colorEmitterCircleTexture, entity.transform.Position - new Vector2(_colorEmitterCircleTexture.Width * scale / 2, _colorEmitterCircleTexture.Height * scale / 2), null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
                                 spriteBatch.Draw(_soundTexture, entity.transform.Position - new Vector2(_colorEmitterTexture.Width / 2, _colorEmitterTexture.Height / 2), Color.White);
                             }
-                        }
+                        }*/
                     }
                 }
             }

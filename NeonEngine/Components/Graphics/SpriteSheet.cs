@@ -124,7 +124,7 @@ namespace NeonEngine.Components.Graphics2D
         }
 
         public SpriteSheet(Entity entity)
-            :base(0, entity, "Spritesheet")
+            :base(0.5f, entity, "Spritesheet")
         {
             this.entity = entity;
         }
@@ -132,7 +132,7 @@ namespace NeonEngine.Components.Graphics2D
         protected Particle particle;
 
         public SpriteSheet(SpriteSheetInfo ssi, float Layer, Particle particle)
-            : base(0.5f, null, "Spritesheet")
+            : base(0.4f, null, "Spritesheet")
         {
             DrawLayer = Layer;
             spriteSheetInfo = ssi;
