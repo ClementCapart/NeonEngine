@@ -133,7 +133,9 @@ namespace NeonStarLibrary.Components.Avatar
         public static List<float> HealedHealthPointsBeforeDeaths = new List<float>();
 
         public static int NumberOfGameCompleted = 0;
-        public static List<float> CompletionTime = new List<float>();       
+        public static List<float> CompletionTime = new List<float>();
+
+        public static bool StartedNewGame = false;
 
         public AvatarState State = AvatarState.Idle;
 

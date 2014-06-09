@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Input;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
 using NeonEngine.Components.Utils;
+using NeonStarLibrary.Components.Avatar;
 using NeonStarLibrary.Components.EnergyObjects;
 using NeonStarLibrary.Components.Scripts;
 using System;
@@ -92,6 +93,7 @@ namespace NeonStarLibrary.Components.Menu
                 _titleFollowOpacity = e.GetComponent<FollowOpacity>();
             }
 
+            AvatarCore.TimeSinceLastCompletion = 0.0f;
 
             DeviceManager.AlreadyLoaded = false;
             DeviceManager.LoadDevicesInformation();
@@ -348,14 +350,19 @@ namespace NeonStarLibrary.Components.Menu
             switch(level)
             {
                 case "Start":
+                    AvatarCore.StartedNewGame = true;
                     _levelToGo = "Start";
                     break;
 
                 case "Frontier":
+                    AvatarCore.StartedNewGame = false;
+                    LevelArrival.NextLevelToDisplay = "Frontier";
                     _levelToGo = "Frontier";
                     break;
 
                 case "LowerCity":
+                    AvatarCore.StartedNewGame = false;
+                    LevelArrival.NextLevelToDisplay = "LowerCity";
                     _levelToGo = "LowerCity";
                     break;
             }

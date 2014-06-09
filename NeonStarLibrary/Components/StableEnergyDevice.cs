@@ -185,11 +185,15 @@ namespace NeonStarLibrary.Components.EnergyObjects
             {
                 _fadingSpritesheet.Active = false;
             }
-            else if (_fadingSpritesheet != null)
+            else if (_fadingSpritesheet != null && (_avatar.EnergySystem.CurrentEnergyStock >= _energyCost || _state == DeviceState.Activated))
             {
                 if (!_fadingSpritesheet.Active)
                     _fadingSpritesheet.Opacity = 0.0f;
                 _fadingSpritesheet.Active = true;
+            }
+            else
+            {
+                _fadingSpritesheet.Active = false;
             }
             
             if (_deactivatingDevice && entity.spritesheets.CurrentSpritesheet.currentFrame == entity.spritesheets.CurrentSpritesheet.spriteSheetInfo.FrameCount - 1)

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
 using NeonEngine.Components.Graphics2D;
+using NeonEngine.Components.Text2D;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +23,12 @@ namespace NeonStarLibrary.Components.Menu
         private bool _initFinished = false;
         private bool _moveFinished = false;
         private Graphic _textGraphic;
+        private TextDisplay _timeDisplay;
+        private float _endTime;
 
         public EndMenu(Entity entity)
             :base(entity, "EndMenu")
         {
-
         }
 
         public override void Init()
@@ -34,8 +37,17 @@ namespace NeonStarLibrary.Components.Menu
             entity.GameWorld.Camera.Zoom = 10.0f;
             entity.GameWorld.Camera.Position = new Vector2(-15, 10);
             _textGraphic = entity.GetComponentByNickname("Text") as Graphic;
+            _timeDisplay = entity.GetComponentByNickname("Display") as TextDisplay;
+            _timeDisplay.Opacity = 0.0f;
+            
             if (_textGraphic != null)
                 _textGraphic.Opacity = 0.0f;
+            _endTime = AvatarCore.TimeSinceLastCompletion;
+
+            if (AvatarCore.StartedNewGame)
+                _timeDisplay.Text = TimeSpan.FromSeconds(_endTime).ToString("hh':'mm':'ss'.'ffff");
+            else
+                _timeDisplay.Text = "--:--:--:----";
             base.Init();
         }
 
@@ -71,11 +83,24 @@ namespace NeonStarLibrary.Components.Menu
                         entity.spritesheets.ChangeAnimation("Fade", 0, true, false, false);
                     if (entity.spritesheets.CurrentSpritesheetName == "Fade" && entity.spritesheets.CurrentSpritesheet.IsFinished)
                         entity.spritesheets.ChangeAnimation("Idle");
+                    if(entity.spritesheets.CurrentSpritesheetName == "Idle")
+                    {
+                        if (_timeDisplay.Opacity < 1.0f)
+                            _timeDisplay.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                        else
+                            _timeDisplay.Opacity = 1.0f;
+                    }
                 }
                 if (_textGraphic.Opacity < 1.0f)
+                {
                     _textGraphic.Opacity += (float)gameTime.ElapsedGameTime.TotalSeconds * 2.0f;
+                }
                 else
+                {
                     _textGraphic.Opacity = 1.0f;
+                }
+
+                
 
                 if (Neon.Input.Pressed(NeonStarInput.Start) || Neon.Input.Pressed(NeonStarInput.Jump) || Neon.Input.Pressed(NeonStarInput.Guard))
                     entity.GameWorld.ChangeLevel("00TitleScreen", "01TitleScreenMain", 0);

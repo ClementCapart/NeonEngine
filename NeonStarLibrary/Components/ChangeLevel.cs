@@ -61,11 +61,15 @@ namespace NeonStarLibrary.Components.Triggers
         {
             if (File.Exists(@"../Data/Levels/" + GroupName + "/" + LevelName + "/" + LevelName + "_Info.xml"))
             {
-                if (LevelName == "Menu")
+                if (GroupName == "02CityLevel" &&  entity.GameWorld.LevelGroupName == "01TrainingLevel")
                 {
-                    AvatarCore.NumberOfGameCompleted++;
-                    AvatarCore.CompletionTime.Add(AvatarCore.TimeSinceLastCompletion);
-                    AvatarCore.TimeSinceLastCompletion = 0.0f;
+                    LevelArrival.NextLevelToDisplay = "LowerCity";
+                    LevelArrival.WaitForNextLevel = true;
+                }
+                else if (LevelName == "01TrainingEntrance" && entity.GameWorld.LevelName == "00TrainingOpening")
+                {
+                    LevelArrival.NextLevelToDisplay = "Frontier";
+                    LevelArrival.WaitForNextLevel = true;
                 }
                 entity.GameWorld.ChangeLevel(GroupName, LevelName, (int)SpawnPointIndex);
                 if (entity.spritesheets != null)
