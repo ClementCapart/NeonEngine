@@ -24,7 +24,7 @@ namespace NeonStarLibrary.Components.Enemies
             }
         }
 
-        private float _speed = 5f;
+        private float _speed = 1.5f;
 
         public float Speed
         {
@@ -48,7 +48,7 @@ namespace NeonStarLibrary.Components.Enemies
             set { _reverseStart = value; }
         }
 
-        private float _pathPrecisionTreshold;
+        private float _pathPrecisionTreshold = 50.0f;
 
         public float PathPrecisionTreshold
         {
