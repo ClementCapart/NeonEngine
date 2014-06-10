@@ -324,8 +324,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
           <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="2">
@@ -350,8 +350,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -406,8 +406,8 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
+              <Opacity Value="1" />
             </Properties>
           </Spritesheet>
         </Components>
@@ -496,6 +496,75 @@
               <NickName Value="" />
             </Properties>
           </Rigidbody>
+        </Components>
+      </Entity>
+      <Entity Name="NeutralizingGate" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:1428 Y:-205}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="Portal350" />
+              <DrawLayer Value="0.6" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:0 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <NickName Value="" />
+              <Opacity Value="1" />
+            </Properties>
+          </Spritesheet>
+          <NeutralizerGate Type="NeonStarLibrary.Components.GameplayElements.NeutralizerGate" ID="2">
+            <Properties>
+              <VerticalGate Value="True" />
+              <EffectSpriteSheetTag Value="NeutralizerGateEffect" />
+              <NickName Value="" />
+            </Properties>
+          </NeutralizerGate>
+          <HitboxTrigger Type="NeonEngine.Components.Triggers.HitboxTrigger" ID="4">
+            <Properties>
+              <OneShot Value="False" />
+              <TriggerEveryFrame Value="False" />
+              <TriggeringEntityName Value="LiOn" />
+              <TriggeredEntityName Value="NeutralizingGate" />
+              <TriggeredComponentName Value="NeutralizerGate" />
+              <NickName Value="" />
+            </Properties>
+          </HitboxTrigger>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="3">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:1428 Y:-205}" />
+              <X Value="1418" />
+              <Y Value="-380" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="20" />
+              <Height Value="350" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
         </Components>
       </Entity>
     </Entities>
