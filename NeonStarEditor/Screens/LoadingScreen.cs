@@ -28,6 +28,15 @@ namespace NeonStarEditor
         public LoadingScreen(Game game, int startingSpawnPointIndex, bool sameGroup, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null, bool loadPreferences = false)
             :base(game)
         {
+            if (!SoundManager.MusicLock)
+            {
+                if (groupToLoad == "00TitleScreen" && (SoundManager.NextTrackName != "TitleMusic" && SoundManager.CurrentTrackName != "TitleMusic"))
+                    SoundManager.CrossFadeLoopTrack("TitleMusic");
+                else if (groupToLoad != "00TitleScreen" && SoundManager.NextTrackName != "GameLoop" && SoundManager.CurrentTrackName != "GameLoop")
+                    SoundManager.CrossFadeLoopTrack("GameLoop");
+
+            }
+
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             _sameGroup = sameGroup;
             LevelToLoad = levelToLoad;

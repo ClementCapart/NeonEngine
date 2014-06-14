@@ -223,30 +223,6 @@ namespace NeonStarLibrary
 
         public override void PreUpdate(GameTime gameTime)
         {
-            if (!SoundManager.MusicLock)
-            {
-                if(LevelGroupName == "01TrainingLevel")
-                {
-                    if (LevelName == "01TrainingEntrance" || LevelName == "02TrainingSaveRoom" || LevelName == "00TrainingOpening" || LevelName == "Menu")
-                    {
-                        if (SoundManager.CurrentTrackName != "TrainingTrackFirstLoop" && SoundManager.NextTrackName != "TrainingTrackFirstLoop")
-                            SoundManager.CrossFadeLoopTrack("TrainingTrackFirstLoop");
-                    }
-                    else
-                    {
-                        if (SoundManager.CurrentTrackName != "TrainingTrackSecondLoop" && SoundManager.NextTrackName != "TrainingTrackSecondLoop" && SoundManager.CurrentTrackName != "TrainingTrackFirstTransition" && SoundManager.NextTrackName != "TrainingTrackFirstTransition")
-                        {
-                            SoundManager.CrossFadeTrack("TrainingTrackFirstTransition");
-                        }
-                        else if (SoundManager.CurrentTrackName == "TrainingTrackFirstTransition"  && SoundManager.NextTrackName != "TrainingTrackSecondLoop")
-                        {
-                            SoundManager.PrepareLoopTrack("TrainingTrackSecondLoop");
-                        }
-                    }
-                }
-                
-            }
-
             if (Alpha != 0.0f && _avatarComponent != null)
             {
                 _avatarComponent.CanAttack = false;

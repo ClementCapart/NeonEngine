@@ -82,7 +82,9 @@ namespace NeonEngine.Components.Audio
             {
                 if (_soundList[i].Name == name)
                 {
-                    SoundInstanceInfo info = _soundList[i];  
+                    SoundInstanceInfo info = _soundList[i];
+                    if (info.Sound == null)
+                        return false;
                     if (info.Sound.IsDisposed)
                         info.Sound = SoundManager.GetSound(info.Sound.Name);
                     if (info.Sound == null)

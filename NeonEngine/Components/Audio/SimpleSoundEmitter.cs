@@ -152,7 +152,8 @@ namespace NeonEngine.Components.Audio
                 _currentSoundInstance.Play();
             }
 
-            SoundInstances.Add(_currentSoundInstance, null);
+            if (_currentSoundInstance != null)
+               SoundInstances.Add(_currentSoundInstance, null);
             
         }
 

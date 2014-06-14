@@ -124,7 +124,6 @@ namespace NeonStarLibrary.Components.Scripts
                 {
                     _scanner.spritesheets.ChangeAnimation("ScanStart", 0, true, false, false);
                     _scannerCommand.spritesheets.ChangeAnimation("Scanning", 0, true, false, true);
-					SoundManager.GetSound("scannerScanning").Play();
                     _isScanning = true;
                 }
             }
@@ -165,7 +164,6 @@ namespace NeonStarLibrary.Components.Scripts
                 {
                     _brokenTurret.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
                     _scanner.spritesheets.ChangeAnimation("Opening", 0, true, false, false);
-					SoundManager.GetSound("turretOut").Play();
                     _scanner.spritesheets.CurrentSpritesheet.Reverse = true;
                     _scanner.spritesheets.CurrentSpritesheet.currentFrame = 9;
                     _turretPlatform.rigidbody.IsGround = false;
@@ -196,14 +194,12 @@ namespace NeonStarLibrary.Components.Scripts
                     if (_sparksTimer1 >= 2.0f)
                     {
                         EffectsManager.GetEffect(AssetManager.GetSpriteSheet("ScannerTurretSparks"), Side.Right, _brokenTurret.transform.Position, 0, new Vector2(-20,100), 2, 0.450f);
-						//SoundManager.GetSound("Sparks1").Play();
                         _sparksTimer1 = 0;
                     }
                     _sparksTimer2 += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     if (_sparksTimer2 >= 2.0f)
                     {
                         EffectsManager.GetEffect(AssetManager.GetSpriteSheet("ScannerTurretSparks"), Side.Right, _brokenTurret.transform.Position, 0, new Vector2(20, 0), 2, 0.450f);
-						//SoundManager.GetSound("Sparks2").Play();
                         _sparksTimer2 = 0;
                     }
 

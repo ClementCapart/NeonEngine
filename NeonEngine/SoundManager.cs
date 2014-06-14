@@ -33,9 +33,9 @@ namespace NeonEngine
 
         static private bool _fading = false;
 
-        static public float GlobalPitch = -0.2f;
+        static public float GlobalPitch = 0.0f;
         static public float GlobalEffectsVolume = 0.3f;
-        static public float GlobalSoundtrackVolume = 0.2f;
+        static public float GlobalSoundtrackVolume = 0.08f;
 
         static public Thread StoppedEventThread;
         #endregion
