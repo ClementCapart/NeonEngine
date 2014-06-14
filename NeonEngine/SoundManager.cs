@@ -15,7 +15,7 @@ namespace NeonEngine
 {
     static public class SoundManager
     {
-        #region fields
+        #region Fields
         static Dictionary<string, SoundEffect> _soundsList;
         static public Dictionary<string, string> Sounds;
         
@@ -35,7 +35,7 @@ namespace NeonEngine
 
         static public float GlobalPitch = -0.2f;
         static public float GlobalEffectsVolume = 0.3f;
-        static public float GlobalSoundtrackVolume = 0.2f;
+        static public float GlobalSoundtrackVolume = 0.08f;
 
         static public Thread StoppedEventThread;
         #endregion

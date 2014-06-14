@@ -64,6 +64,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="PillarOff" SpritesheetTag="HealStationCommandOff" />
                 <Animation Name="PillarLighting" SpritesheetTag="HealStationCommandLighting" />
@@ -71,8 +73,6 @@
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="Pilar" />
             </Properties>
           </SpritesheetManager>
@@ -85,6 +85,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="BaseOff" SpritesheetTag="HealStationFrontOff" />
                 <Animation Name="BaseLighting" SpritesheetTag="HealStationFrontLighting" />
@@ -95,8 +97,6 @@
               </Spritesheets>
               <DrawLayer Value="0.6" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -112,7 +112,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="YbuttonPress" />
+              <SpriteSheetTag Value="HUDMAPStickButtonsY" />
               <DrawLayer Value="1" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -137,6 +137,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="BasePillarOff" SpritesheetTag="HealStationBackOff" />
                 <Animation Name="BasePillarLighting" SpritesheetTag="HealStationBackLighting" />
@@ -147,8 +149,6 @@
               </Spritesheets>
               <DrawLayer Value="0.45" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -196,14 +196,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnergyCellYellow" />
                 <Animation Name="Out" SpritesheetTag="EnergyCellYellowOut" />
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -252,8 +252,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:1138 Y:-695}" />
-              <X Value="1113" />
+              <Center Value="{X:898 Y:-695}" />
+              <X Value="873" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -422,8 +422,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="2">
             <Properties>
               <Type Value="Main" />
-              <Center Value="{X:3658 Y:-695}" />
-              <X Value="3633" />
+              <Center Value="{X:3498 Y:-695}" />
+              <X Value="3473" />
               <Y Value="-795" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -635,14 +635,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Idle" SpritesheetTag="EnergyCellRed" />
                 <Animation Name="Out" SpritesheetTag="EnergyCellRedOut" />
               </Spritesheets>
               <DrawLayer Value="0.51" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -729,6 +729,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="Closed" SpritesheetTag="GlassBreak03Solid" />
                 <Animation Name="Opening" SpritesheetTag="GlassBreak03Breaking" />
@@ -736,8 +738,6 @@
               </Spritesheets>
               <DrawLayer Value="0.8" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -745,6 +745,8 @@
             <Properties>
               <SignSpriteSheetTag Value="" />
               <DisplayGauge Value="False" />
+              <HorizontalDoor Value="False" />
+              <AdditionnalGaugeOffset Value="{X:0 Y:0}" />
               <VerticalGauge Value="False" />
               <FirstEnemyToKill Value="GlassEnemy" />
               <SecondEnemyToKill Value="" />
@@ -837,14 +839,14 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="AbuttonPress" />
+              <SpriteSheetTag Value="HUDStickButtons" />
               <DrawLayer Value="0.49" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:0 Y:0}" />
+              <Offset Value="{X:-15 Y:0}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -880,14 +882,14 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="StickSide" />
+              <SpriteSheetTag Value="HUDStickSides" />
               <DrawLayer Value="0.49" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:38 Y:-24}" />
+              <Offset Value="{X:38 Y:-28}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -906,14 +908,14 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="BbuttonPress" />
+              <SpriteSheetTag Value="HUDStickButtons" />
               <DrawLayer Value="0.49" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
               <CurrentSide Value="Right" />
               <Tint Value="False" />
               <ParallaxForce Value="{X:0 Y:0}" />
-              <Offset Value="{X:74 Y:-22}" />
+              <Offset Value="{X:92 Y:-27}" />
               <RotationOffset Value="0" />
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
@@ -939,6 +941,58 @@
               <NickName Value="" />
             </Properties>
           </Graphic>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-35 Y:6}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.49" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:85 Y:-38}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
         </Components>
       </Entity>
       <Entity Name="Link" Layer="">
@@ -988,14 +1042,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkOnCorner" />
                 <Animation Name="Off" SpritesheetTag="LinkOffCorner" />
               </Spritesheets>
               <DrawLayer Value="0.92" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1012,14 +1066,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkOnVertical" />
                 <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
               </Spritesheets>
               <DrawLayer Value="0.91" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableSpritesheetManager>
@@ -1032,14 +1086,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkOnCorner" />
                 <Animation Name="Off" SpritesheetTag="LinkOffCorner" />
               </Spritesheets>
               <DrawLayer Value="0.92" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1056,14 +1110,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkOnHorizontal" />
                 <Animation Name="Off" SpritesheetTag="LinkOffHorizontal" />
               </Spritesheets>
               <DrawLayer Value="0.91" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableSpritesheetManager>
@@ -1080,14 +1134,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkOnVertical" />
                 <Animation Name="Off" SpritesheetTag="LinkOffVertical" />
               </Spritesheets>
               <DrawLayer Value="0.91" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </TilableSpritesheetManager>
@@ -1100,14 +1154,14 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="On" SpritesheetTag="LinkSlotOn" />
                 <Animation Name="Off" SpritesheetTag="LinkSlotOff" />
               </Spritesheets>
               <DrawLayer Value="0.92" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -1436,6 +1490,180 @@
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+        </Components>
+      </Entity>
+      <Entity Name="ElementTutorial" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:3839 Y:-1665}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
+            <Properties>
+              <UseRightCentering Value="False" />
+              <UseTextCentering Value="False" />
+              <DrawLayer Value="0.4" />
+              <Font Value="EnergyFont" />
+              <Text Value="or" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <Active Value="True" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:30 Y:-20}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </TextDisplay>
+          <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="2">
+            <Properties>
+              <UseRightCentering Value="False" />
+              <UseTextCentering Value="False" />
+              <DrawLayer Value="0.4" />
+              <Font Value="EnergyFont" />
+              <Text Value="to use elements" />
+              <TextColor Value="{R:255 G:255 B:255 A:255}" />
+              <Outline Value="True" />
+              <OutlineColor Value="{R:0 G:0 B:0 A:255}" />
+              <OutlineDisplacement Value="2" />
+              <Active Value="True" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-96 Y:41}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </TextDisplay>
+          <TutorialDisplay Type="NeonStarLibrary.Scripts.TutorialDisplay" ID="3">
+            <Properties>
+              <EnemyToCheck Value="EnemyCaster" />
+              <TutorialPanel Value="ElementTutorial" />
+              <NickName Value="" />
+            </Properties>
+          </TutorialDisplay>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtons" />
+              <DrawLayer Value="0.4" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-18 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.4" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-12 Y:-10}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtons" />
+              <DrawLayer Value="0.4" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:64 Y:0}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </Spritesheet>
+          <Spritesheet Type="NeonEngine.Components.Graphics2D.SpriteSheet" ID="1">
+            <Properties>
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.4" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:83 Y:-7}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
               <NickName Value="" />
             </Properties>
           </Spritesheet>

@@ -22,6 +22,8 @@
               <Tint Value="False" />
               <RotationCenter Value="{X:0 Y:0}" />
               <RotationOffset Value="0" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <Spritesheets>
                 <Animation Name="RedIdle" SpritesheetTag="BoutonRougeIdle" />
                 <Animation Name="GreenIdle" SpritesheetTag="BoutonVertIdle" />
@@ -29,7 +31,6 @@
               </Spritesheets>
               <DrawLayer Value="0.69" />
               <IsHUD Value="False" />
-              <MainColor Value="{R:255 G:255 B:255 A:255}" />
               <NickName Value="" />
             </Properties>
           </SpritesheetManager>
@@ -69,7 +70,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="YbuttonPress" />
+              <SpriteSheetTag Value="HUDStickButtons" />
               <DrawLayer Value="0.99" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -81,6 +82,35 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
+              <NickName Value="" />
+            </Properties>
+          </FadingSpritesheet>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+            <Properties>
+              <FadingSpeed Value="4" />
+              <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.99" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-9 Y:-79}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </FadingSpritesheet>
@@ -177,7 +207,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-978 Y:-17397}" />
+              <InitialPosition Value="{X:-978 Y:-17396}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -227,7 +257,7 @@
           <Transform Type="NeonEngine.Private.Transform" ID="0">
             <Properties>
               <AutoChangeInitialPosition Value="True" />
-              <InitialPosition Value="{X:-278 Y:-17397}" />
+              <InitialPosition Value="{X:-278 Y:-17396}" />
               <Rotation Value="0" />
               <Scale Value="1" />
               <NickName Value="" />
@@ -314,6 +344,88 @@
               <NickName Value="" />
             </Properties>
           </HitboxTrigger>
+        </Components>
+      </Entity>
+      <Entity Name="JumpTuto" Layer="">
+        <Components>
+          <Transform Type="NeonEngine.Private.Transform" ID="0">
+            <Properties>
+              <AutoChangeInitialPosition Value="True" />
+              <InitialPosition Value="{X:-590 Y:-17129}" />
+              <Rotation Value="0" />
+              <Scale Value="2" />
+              <NickName Value="" />
+            </Properties>
+          </Transform>
+          <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
+            <Properties>
+              <Type Value="Trigger" />
+              <Center Value="{X:-590 Y:-17129}" />
+              <X Value="-949" />
+              <Y Value="-17141" />
+              <OffsetX Value="0" />
+              <OffsetY Value="0" />
+              <Width Value="719" />
+              <Height Value="24" />
+              <NickName Value="" />
+            </Properties>
+          </Hitbox>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+            <Properties>
+              <FadingSpeed Value="4" />
+              <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtons" />
+              <DrawLayer Value="0.99" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-8 Y:-34}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </FadingSpritesheet>
+          <FadingSpritesheet Type="NeonStarLibrary.Components.Graphics2D.FadingSpritesheet" ID="4">
+            <Properties>
+              <FadingSpeed Value="4" />
+              <AvatarName Value="LiOn" />
+              <IsLooped Value="True" />
+              <StartingFrame Value="0" />
+              <Reverse Value="False" />
+              <ChangeSideEveryLoop Value="False" />
+              <ReverseLoop Value="False" />
+              <DelayBeforeLoopAgain Value="0" />
+              <InvisibleDuringDelay Value="False" />
+              <DelayBeforeLoop Value="False" />
+              <SpriteSheetTag Value="HUDStickButtonsActive" />
+              <DrawLayer Value="0.99" />
+              <IsFinished Value="False" />
+              <IsHUD Value="False" />
+              <CurrentSide Value="Right" />
+              <Tint Value="False" />
+              <ParallaxForce Value="{X:0 Y:0}" />
+              <Offset Value="{X:-28 Y:-28}" />
+              <RotationOffset Value="0" />
+              <RotationCenter Value="{X:0 Y:0}" />
+              <TintColor Value="{R:255 G:255 B:255 A:255}" />
+              <MainColor Value="{R:255 G:255 B:255 A:255}" />
+              <Opacity Value="0" />
+              <NickName Value="" />
+            </Properties>
+          </FadingSpritesheet>
         </Components>
       </Entity>
     </Entities>

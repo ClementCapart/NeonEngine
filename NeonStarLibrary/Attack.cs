@@ -639,16 +639,20 @@ namespace NeonStarLibrary
                             }
                             
                             break;
-
+                            
                         case SpecialEffect.PlaySound:
                             if(ae.Parameters[0] != null && (string)ae.Parameters[0] != "")
                             {
                                 if ((bool)ae.Parameters[2])
                                 {
-                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                    se.Play();
-                                    _soundEffectsToStop.Add(se);
+                                    SoundEffect se = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if (se != null)
+                                    {
+                                        SoundEffectInstance sei = se.CreateInstance();
+                                        sei.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                        sei.Play();
+                                        _soundEffectsToStop.Add(sei);
+                                    }
                                 }
                                 else
                                 {
@@ -808,10 +812,14 @@ namespace NeonStarLibrary
                             {
                                 if ((bool)ae.Parameters[2])
                                 {
-                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                    se.Play();
-                                    _soundEffectsToStop.Add(se);
+                                    SoundEffect se = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if (se != null)
+                                    {
+                                        SoundEffectInstance sei = se.CreateInstance();
+                                        sei.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                        sei.Play();
+                                        _soundEffectsToStop.Add(sei);
+                                    }
                                 }
                                 else
                                 {
@@ -1005,10 +1013,14 @@ namespace NeonStarLibrary
                                     {
                                         if ((bool)ae.Parameters[2])
                                         {
-                                            SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                            se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                            se.Play();
-                                            _soundEffectsToStop.Add(se);
+                                            SoundEffect se = SoundManager.GetSound((string)ae.Parameters[0]);
+                                            if (se != null)
+                                            {
+                                                SoundEffectInstance sei = se.CreateInstance();
+                                                sei.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                                sei.Play();
+                                                _soundEffectsToStop.Add(sei);
+                                            }
                                         }
                                         else
                                         {
@@ -1182,10 +1194,14 @@ namespace NeonStarLibrary
                                 {
                                     if ((bool)ae.Parameters[2])
                                     {
-                                        SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                        se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                        se.Play();
-                                        _soundEffectsToStop.Add(se);
+                                        SoundEffect se = SoundManager.GetSound((string)ae.Parameters[0]);
+                                        if (se != null)
+                                        {
+                                            SoundEffectInstance sei = se.CreateInstance();
+                                            sei.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                            sei.Play();
+                                            _soundEffectsToStop.Add(sei);
+                                        }
                                     }
                                     else
                                     {
@@ -1407,10 +1423,14 @@ namespace NeonStarLibrary
                             {
                                 if ((bool)ae.Parameters[2])
                                 {
-                                    SoundEffectInstance se = SoundManager.GetSound((string)ae.Parameters[0]).CreateInstance();
-                                    se.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
-                                    se.Play();
-                                    _soundEffectsToStop.Add(se);
+                                    SoundEffect se = SoundManager.GetSound((string)ae.Parameters[0]);
+                                    if (se != null)
+                                    {
+                                        SoundEffectInstance sei = se.CreateInstance();
+                                        sei.Volume = Math.Min((float)ae.Parameters[1], 1.0f);
+                                        sei.Play();
+                                        _soundEffectsToStop.Add(sei);
+                                    }
                                 }
                                 else
                                 {

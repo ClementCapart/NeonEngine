@@ -25,5 +25,6 @@ namespace NeonStarLibrary
         CameraDown,
         Start,
         Map,
+        Camera,
     }
 }

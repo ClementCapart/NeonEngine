@@ -247,8 +247,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:873 Y:0}" />
-              <X Value="848" />
+              <Center Value="{X:874 Y:0}" />
+              <X Value="849" />
               <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -369,7 +369,7 @@
               <DelayBeforeLoopAgain Value="0" />
               <InvisibleDuringDelay Value="False" />
               <DelayBeforeLoop Value="False" />
-              <SpriteSheetTag Value="YbuttonPress" />
+              <SpriteSheetTag Value="HUDMAPStickButtonsY" />
               <DrawLayer Value="0.9" />
               <IsFinished Value="False" />
               <IsHUD Value="False" />
@@ -381,7 +381,7 @@
               <RotationCenter Value="{X:0 Y:0}" />
               <TintColor Value="{R:255 G:255 B:255 A:255}" />
               <MainColor Value="{R:255 G:255 B:255 A:255}" />
-              <Opacity Value="0" />
+              <Opacity Value="1" />
               <NickName Value="" />
             </Properties>
           </FadingSpritesheet>
@@ -530,8 +530,8 @@
           <Hitbox Type="NeonEngine.Components.CollisionDetection.Hitbox" ID="1">
             <Properties>
               <Type Value="Solid" />
-              <Center Value="{X:-781 Y:0}" />
-              <X Value="-806" />
+              <Center Value="{X:-782 Y:0}" />
+              <X Value="-807" />
               <Y Value="-175" />
               <OffsetX Value="0" />
               <OffsetY Value="0" />
@@ -615,6 +615,8 @@
           </Transform>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="1">
             <Properties>
+              <UseRightCentering Value="False" />
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.49" />
               <Font Value="EnergyFont" />
               <Text Value="Save your progression in this room" />
@@ -638,6 +640,8 @@
           </TextDisplay>
           <TextDisplay Type="NeonEngine.Components.Text2D.TextDisplay" ID="1">
             <Properties>
+              <UseRightCentering Value="False" />
+              <UseTextCentering Value="False" />
               <DrawLayer Value="0.49" />
               <Font Value="EnergyFont" />
               <Text Value="and regenerate Li-On energy" />

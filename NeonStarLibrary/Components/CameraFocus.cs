@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NeonEngine;
+using NeonStarLibrary.Components.Avatar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace NeonStarLibrary.Components.Camera
         public bool IgnoreSoftBounds = false;
         private Vector2 _focusDisplacement = Vector2.Zero;
         private Vector2 _targetFocusDisplacement;
+        private AvatarCore _avatarCore;
 
         public CameraFocus(Entity entity)
             :base(entity, "CameraFocus")
@@ -55,20 +57,38 @@ namespace NeonStarLibrary.Components.Camera
 
         public override void Init()
         {
+            _avatarCore = entity.GetComponent<AvatarCore>();
             base.Init();
+        }
+
+        public override void PreUpdate(GameTime gameTime)
+        {
+            if (_avatarCore != null)
+            {
+                if (Neon.Input.Check(NeonStarInput.Camera))
+                {
+                    _avatarCore.CanMove = false;
+                    _avatarCore.CanRoll = false;
+                    _avatarCore.CanAttack = false;
+                    _avatarCore.CanTurn = false;
+                    _avatarCore.CanUseElement = false;
+                    _avatarCore.State = AvatarState.Idle;
+                }
+            }
+            base.PreUpdate(gameTime);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (Neon.Input.Check(NeonStarInput.CameraRight))
+            if (Neon.Input.Check(NeonStarInput.CameraRight) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveRight)))
             {
                 if (_eightDirectionsMove)
                 {
-                    if (Neon.Input.Check(NeonStarInput.CameraDown))
+                    if (Neon.Input.Check(NeonStarInput.CameraDown) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveDown)))
                     {
                         _targetFocusDisplacement = new Vector2(_distanceX, _distanceY);
                     }
-                    else if (Neon.Input.Check(NeonStarInput.CameraUp))
+                    else if (Neon.Input.Check(NeonStarInput.CameraUp) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveUp)))
                     {
                         _targetFocusDisplacement = new Vector2(_distanceX, -_distanceX);
                     }
@@ -83,15 +103,15 @@ namespace NeonStarLibrary.Components.Camera
                 IgnoreSoftBounds = true;
                 
             }
-            else if (Neon.Input.Check(NeonStarInput.CameraLeft))
+            else if (Neon.Input.Check(NeonStarInput.CameraLeft) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveLeft)))
             {
                 if (_eightDirectionsMove)
                 {
-                    if (Neon.Input.Check(NeonStarInput.CameraDown))
+                    if (Neon.Input.Check(NeonStarInput.CameraDown) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveDown)))
                     {
                         _targetFocusDisplacement = new Vector2(-_distanceX, _distanceY);
                     }
-                    else if (Neon.Input.Check(NeonStarInput.CameraUp))
+                    else if (Neon.Input.Check(NeonStarInput.CameraUp) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveUp)))
                     {
                         _targetFocusDisplacement = new Vector2(-_distanceX, -_distanceY);
                     }
@@ -106,12 +126,12 @@ namespace NeonStarLibrary.Components.Camera
                 IgnoreSoftBounds = true;
                 
             }
-            else if (Neon.Input.Check(NeonStarInput.CameraDown))
+            else if (Neon.Input.Check(NeonStarInput.CameraDown) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveDown)))
             {
                 _targetFocusDisplacement = new Vector2(0, _distanceY);
                 IgnoreSoftBounds = true;
             }
-            else if(Neon.Input.Check(NeonStarInput.CameraUp))
+            else if (Neon.Input.Check(NeonStarInput.CameraUp) || (Neon.Input.Check(NeonStarInput.Camera) && Neon.Input.Check(NeonStarInput.MoveUp)))
             {
                 _targetFocusDisplacement = new Vector2(0, -_distanceY);
                 IgnoreSoftBounds = true;

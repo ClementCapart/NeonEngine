@@ -151,8 +151,8 @@ namespace NeonEngine.Components.Audio
                     _currentSoundInstance.Apply3D(entity.GameWorld.AudioListeners.ToArray(), AudioEmitter);
                 _currentSoundInstance.Play();
             }
-
-            SoundInstances.Add(_currentSoundInstance, null);
+            if(_currentSoundInstance != null)
+                SoundInstances.Add(_currentSoundInstance, null);
             
         }
 

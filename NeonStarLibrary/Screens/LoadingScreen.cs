@@ -25,6 +25,14 @@ namespace NeonStarLibrary
         public LoadingScreen(Game game, bool sameGroup, int startingSpawnPointIndex = 0, string groupToLoad = "", string levelToLoad = "", XElement statusToLoad = null)
             : base(game)
         {
+            if (!SoundManager.MusicLock)
+            {
+                if (groupToLoad == "00TitleScreen" && (SoundManager.NextTrackName != "TitleMusic" && SoundManager.CurrentTrackName != "TitleMusic"))
+                    SoundManager.CrossFadeLoopTrack("TitleMusic");
+                else if (groupToLoad != "00TitleScreen" && SoundManager.NextTrackName != "GameLoop" && SoundManager.CurrentTrackName != "GameLoop")
+                    SoundManager.CrossFadeLoopTrack("GameLoop");
+
+            }
             _sameGroup = sameGroup;
             this._startingSpawnPointIndex = startingSpawnPointIndex;
             LevelToLoad = levelToLoad;
