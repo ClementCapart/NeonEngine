@@ -1806,10 +1806,9 @@
       <MultiHitDelay>0</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>False</AlwaysStunlock>
-      <OnDelaySpecialEffects>
-      </OnDelaySpecialEffects>
+      <OnDelaySpecialEffects />
       <OnDurationSpecialEffects>
-	    <Effect Type="InstantiatePrefab">
+        <Effect Type="InstantiatePrefab">
           <Parameter Value="EnemyBomb" />
           <SecondParameter Value="{X:-500 Y:-500}" />
           <ThirdParameter Value="{X:-30 Y:0}" />
@@ -2166,7 +2165,7 @@
       <TargetAirLock>0</TargetAirLock>
       <AirFactor>1</AirFactor>
       <StunLock>0.3</StunLock>
-      <MultiHitDelay>0.3</MultiHitDelay>
+      <MultiHitDelay>0.27</MultiHitDelay>
       <AirImpulse>{X:0 Y:0}</AirImpulse>
       <AlwaysStunlock>True</AlwaysStunlock>
       <OnDelaySpecialEffects />

@@ -29,7 +29,9 @@ namespace NeonStarLibrary
             {
                 if (groupToLoad == "00TitleScreen" && (SoundManager.NextTrackName != "TitleMusic" && SoundManager.CurrentTrackName != "TitleMusic"))
                     SoundManager.CrossFadeLoopTrack("TitleMusic");
-                else if (groupToLoad != "00TitleScreen" && SoundManager.NextTrackName != "GameLoop" && SoundManager.CurrentTrackName != "GameLoop")
+                else if (((groupToLoad != "00TitleScreen" && levelToLoad == "00TrainingOpening") || (groupToLoad == "03WrathLevel")) && SoundManager.NextTrackName != "GameLoop" && SoundManager.CurrentTrackName != "GameLoop")
+                    SoundManager.CrossFadeLoopTrack("Drone1Loop");
+                else if ((groupToLoad != "00TitleScreen" && levelToLoad != "00TrainingOpening") && SoundManager.NextTrackName != "GameLoop" && SoundManager.CurrentTrackName != "GameLoop")
                     SoundManager.CrossFadeLoopTrack("GameLoop");
 
             }

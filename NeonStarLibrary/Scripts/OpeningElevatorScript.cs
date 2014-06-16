@@ -14,10 +14,6 @@ namespace NeonStarLibrary.Components.Scripts
 {
     public class OpeningElevatorScript : ScriptComponent
     {
-        #region Properties
-
-        #endregion
-
         private bool _buttonPressed = false;
         private bool _stopped = false;
         private bool _falling = false;
