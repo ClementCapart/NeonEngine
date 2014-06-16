@@ -89,7 +89,7 @@ namespace NeonStarLibrary.Components.Enemies
             if (entity.spritesheets != null)
             {
                 //if (entity.spritesheets.CurrentSpritesheetName == StartAnimationName && entity.spritesheets.IsFinished())
-                if(_startEffect != null && _startEffect.spriteSheet.currentFrame == 7)
+                if(_startEffect != null && (_startEffect.spriteSheet.currentFrame == 7 || _startEffect.spriteSheet.spriteSheetInfo.FrameCount < 8))
                 {
                     entity.spritesheets.ChangeAnimation(MovingAnimationName, 0, true, false, true);
                     _startMoving = true;
