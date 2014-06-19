@@ -58,8 +58,10 @@ namespace NeonStarLibrary
             
             if (Map == null)
                 Map = new MapScreen(game);
-          
+
             Map.CurrentGameScreen = this;
+            if (groupName == "00TitleScreen")
+                statusToLoad = null;
             Map.InitializeMapData(statusToLoad);
             Map.AddLevelToMap(groupName, levelName);
 

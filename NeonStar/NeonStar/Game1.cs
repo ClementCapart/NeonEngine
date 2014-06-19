@@ -158,7 +158,8 @@ namespace NeonStar
             Neon.ClearColor = Color.Black;
             #if DEBUG
             Neon.World = new NeonStarEditor.LoadingScreen(this, 0, false, "", "", null, true);
-            #else                    
+            #else           
+            IsMouseVisible = false;
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             Neon.World = new NeonStarLibrary.LoadingScreen(this, false, 0, "00TitleScreen", "01TitleScreenMain");
