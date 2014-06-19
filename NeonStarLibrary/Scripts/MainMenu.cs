@@ -119,8 +119,24 @@ namespace NeonStarLibrary.Components.Menu
             switch(_menuState)
             {
                 case MenuState.PressStart:                
-                    if (Neon.Input.Pressed(NeonStarInput.Start))
-                        ChangeState(MenuState.ModeSelect);
+                    
+                    if (!_modeSelectInitFinished)
+                    {
+                        if (Vector2.DistanceSquared(entity.GameWorld.Camera.Position, Vector2.Zero) < 5)
+                        {
+                            entity.GameWorld.Camera.Position = Vector2.Zero;
+                            _modeSelectInitFinished = true;
+                            _currentSelection = 0;
+                        }
+                        else
+                            entity.GameWorld.Camera.Position = Vector2.Lerp(entity.GameWorld.Camera.Position, Vector2.Zero, 0.05f);
+                    }
+                    else
+                    {
+                        if (Neon.Input.Pressed(NeonStarInput.Start))
+                            ChangeState(MenuState.ModeSelect);
+                    }
+
                     break;    
 
                 case MenuState.ModeSelect:
@@ -175,7 +191,7 @@ namespace NeonStarLibrary.Components.Menu
                     }
 
 
-                    if (Neon.Input.Pressed(NeonStarInput.Jump))
+                    if (Neon.Input.Pressed(NeonStarInput.Jump) || Neon.Input.Pressed(NeonStarInput.Start))
                     {
                         if (_currentSelection == 0)
                             StartLevel("Start");
@@ -261,7 +277,7 @@ namespace NeonStarLibrary.Components.Menu
                                     break;
                             }
 
-                            if (Neon.Input.Pressed(NeonStarInput.Jump))
+                            if (Neon.Input.Pressed(NeonStarInput.Jump) || Neon.Input.Pressed(NeonStarInput.Start))
                             {
                                 switch (_currentSelection)
                                 {

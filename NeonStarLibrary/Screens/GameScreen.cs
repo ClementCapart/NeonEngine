@@ -306,6 +306,16 @@ namespace NeonStarLibrary
             base.Update(gameTime);
         }
 
+        public override void FinalUpdate(GameTime gameTime)
+        {
+            if ((Neon.Input.Check(Keys.LeftAlt) || Neon.Input.Check(Keys.RightAlt)) && Neon.Input.Pressed(Keys.Enter))
+            {
+                Neon.GraphicsDeviceManager.ToggleFullScreen();
+                Neon.GraphicsDeviceManager.ApplyChanges();
+            }
+            base.FinalUpdate(gameTime);
+        }
+
         public virtual void ReloadLevel()
         {
             ChangeScreen(new GameScreen(this.LevelMap.Group, this.LevelMap.Name, lastSpawnPointIndex, _statusToLoad, game));
