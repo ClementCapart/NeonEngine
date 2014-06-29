@@ -1,5 +1,4 @@
 sampler s0;
-float WhiteIntensity = 0.5f;
 
 float4 WhiteBlinkFunction(float2 texCoord: TEXCOORD0) : COLOR
 {
@@ -7,11 +6,11 @@ float4 WhiteBlinkFunction(float2 texCoord: TEXCOORD0) : COLOR
 
 	if(color.a == 1)
 	{
-		color.r = (WhiteIntensity * 1 + color.r);
+		color.r = (0.5 + color.r);
 	
-		color.g = (WhiteIntensity * 1 + color.g);
+		color.g = (0.5 + color.g);
 
-		color.b = (WhiteIntensity * 1 + color.b);
+		color.b = (0.5 + color.b);
 	}
 	
 	return color;
